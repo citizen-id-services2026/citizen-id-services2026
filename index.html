@@ -6,13 +6,19 @@
 
 <title>Citizen ID Services</title>
 
+<!-- Cropper -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
 
 <style>
-*{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     margin:0;
@@ -20,6 +26,8 @@ body{
     background:#eef3f8;
     color:#172033;
 }
+
+/* HEADER */
 
 header{
     background:linear-gradient(135deg,#075eaa,#1684d8);
@@ -35,7 +43,10 @@ header h1{
 
 header p{
     margin:8px 0 0;
+    font-size:16px;
 }
+
+/* NAV */
 
 nav{
     background:white;
@@ -58,7 +69,11 @@ nav a{
     border-radius:8px;
 }
 
-nav a:hover{background:#e8f3fb}
+nav a:hover{
+    background:#e8f3fb;
+}
+
+/* CONTAINER */
 
 .container{
     width:100%;
@@ -66,6 +81,8 @@ nav a:hover{background:#e8f3fb}
     margin:auto;
     padding:18px;
 }
+
+/* CARD */
 
 .card{
     background:white;
@@ -80,11 +97,15 @@ nav a:hover{background:#e8f3fb}
     color:#145b91;
 }
 
+/* GRID */
+
 .grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:15px;
 }
+
+/* NOTICE */
 
 .notice{
     background:#fff7d6;
@@ -94,13 +115,18 @@ nav a:hover{background:#e8f3fb}
     margin-bottom:20px;
 }
 
+/* BUTTON GRID */
+
 .portal-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:10px;
 }
 
-button,.btn{
+/* BUTTON */
+
+button,
+.btn{
     display:inline-block;
     border:0;
     background:#0878cf;
@@ -113,12 +139,32 @@ button,.btn{
     margin:4px;
 }
 
-.green{background:#159447}
-.red{background:#dc3545}
-.orange{background:#e67e22}
-.dark{background:#34495e}
+button:hover,
+.btn:hover{
+    opacity:.9;
+}
 
-input,select,textarea{
+.green{
+    background:#159447;
+}
+
+.red{
+    background:#dc3545;
+}
+
+.orange{
+    background:#e67e22;
+}
+
+.dark{
+    background:#34495e;
+}
+
+/* INPUT */
+
+input,
+select,
+textarea{
     width:100%;
     padding:12px;
     margin:7px 0 14px;
@@ -126,6 +172,8 @@ input,select,textarea{
     border-radius:8px;
     font-size:16px;
 }
+
+/* PREVIEW */
 
 .preview{
     width:100%;
@@ -147,7 +195,9 @@ input,select,textarea{
     object-fit:contain;
 }
 
-/* ID CARD */
+/* =========================
+   ID CARD
+========================= */
 
 .id-card-wrapper{
     display:flex;
@@ -160,12 +210,17 @@ input,select,textarea{
     height:54mm;
     min-width:85.6mm;
     min-height:54mm;
-    border:2px solid #145b91;
+
+    border:0.4mm solid #145b91;
     border-radius:3mm;
+
     padding:3mm;
+
     background:white;
     text-align:center;
     overflow:hidden;
+
+    box-shadow:0 2px 8px #0002;
 }
 
 .id-card h3{
@@ -186,7 +241,9 @@ input,select,textarea{
     font-size:4mm;
 }
 
-/* DOCUMENT COPY */
+/* =========================
+   DOCUMENT COPY
+========================= */
 
 .document-copy-preview{
     max-width:900px;
@@ -228,7 +285,9 @@ input,select,textarea{
     border:2px solid #333;
 }
 
-/* CROP MODAL */
+/* =========================
+   CROP MODAL
+========================= */
 
 .crop-modal{
     display:none;
@@ -286,6 +345,12 @@ input,select,textarea{
     border-top:1px solid #ddd;
 }
 
+/* AUTO CROP BUTTON */
+
+.auto-button{
+    background:#7b2cbf;
+}
+
 /* PAYMENT */
 
 .payment-box{
@@ -311,6 +376,8 @@ input,select,textarea{
     margin-bottom:15px;
 }
 
+/* FOOTER */
+
 footer{
     background:#172033;
     color:white;
@@ -328,7 +395,8 @@ footer{
 
 @media(max-width:700px){
 
-    .grid,.portal-grid{
+    .grid,
+    .portal-grid{
         grid-template-columns:1fr;
     }
 
@@ -352,9 +420,12 @@ footer{
     .crop-box{
         height:95vh;
     }
+
 }
 
-/* PRINT */
+/* =========================
+   PRINT
+========================= */
 
 @page{
     size:A4;
@@ -363,127 +434,269 @@ footer{
 
 @media print{
 
+    html,
     body{
+        width:210mm !important;
+        min-height:297mm !important;
         background:white !important;
+        margin:0 !important;
+        padding:0 !important;
     }
 
     body *{
         visibility:hidden !important;
     }
 
+    /* ID CARD */
+
     #idPrintArea,
-    #idPrintArea *,
-    #documentCopyPrint,
-    #documentCopyPrint *{
+    #idPrintArea *{
         visibility:visible !important;
     }
 
     #idPrintArea{
         position:absolute !important;
+
         left:0 !important;
         top:0 !important;
+
         width:85.6mm !important;
         height:54mm !important;
+
+        min-width:85.6mm !important;
+        min-height:54mm !important;
+
         margin:0 !important;
+        padding:3mm !important;
+
+        border:0.4mm solid #145b91 !important;
+
         box-shadow:none !important;
+
+        overflow:hidden !important;
+    }
+
+    #idPrintArea img{
+        width:100% !important;
+        height:34mm !important;
+        object-fit:cover !important;
+    }
+
+    /* FRONT BACK */
+
+    #documentCopyPrint,
+    #documentCopyPrint *{
+        visibility:visible !important;
     }
 
     #documentCopyPrint{
         position:absolute !important;
         left:0 !important;
         top:0 !important;
-        width:100% !important;
+
+        width:190mm !important;
+
         margin:0 !important;
         padding:0 !important;
+
         background:white !important;
+    }
+
+    #documentCopyPrint .copy-page{
+        width:190mm !important;
+        max-width:190mm !important;
+        padding:0 !important;
+        margin:0 !important;
+    }
+
+    #documentCopyPrint .copy-title{
+        font-size:20px !important;
+        margin-bottom:10mm !important;
     }
 
     #documentCopyPrint .copy-side{
         margin-bottom:12mm !important;
         page-break-inside:avoid !important;
+        break-inside:avoid !important;
     }
 
     #documentCopyPrint .copy-side img{
+        width:auto !important;
         max-width:170mm !important;
         max-height:80mm !important;
         object-fit:contain !important;
     }
 
-    nav,footer,button{
+    nav,
+    footer,
+    button,
+    input,
+    select{
         display:none !important;
     }
+
 }
+
+/* =========================
+   PRINT SIZE GUIDE
+========================= */
+
+.size-info{
+    background:#eef7ff;
+    border:1px solid #b9d8f2;
+    padding:12px;
+    border-radius:8px;
+    margin:10px 0;
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header id="home">
+
 <h1>नमस्ते! 👋</h1>
-<p>Citizen ID Services में आपका स्वागत है</p>
+
+<p>
+Citizen ID Services में आपका स्वागत है
+</p>
+
 </header>
 
+
+<!-- NAV -->
+
 <nav>
-<a href="#home">🏠 Home</a>
-<a href="#services">🛠️ सेवाएँ</a>
-<a href="#idcard">🪪 ID Card</a>
-<a href="#documentCopy">📄 Front + Back</a>
-<a href="#document">📑 Document</a>
-<a href="#payment">💳 Payment</a>
-<a href="#contact">✉️ Contact</a>
+
+<a href="#home">
+🏠 Home
+</a>
+
+<a href="#services">
+🛠️ सेवाएँ
+</a>
+
+<a href="#idcard">
+🪪 ID Card
+</a>
+
+<a href="#documentCopy">
+📄 Front + Back
+</a>
+
+<a href="#document">
+📑 Document
+</a>
+
+<a href="#payment">
+💳 Payment
+</a>
+
+<a href="#contact">
+✉️ Contact
+</a>
+
 </nav>
+
 
 <div class="container">
 
+
+<!-- NOTICE -->
+
 <div class="notice">
-<b>⚠️ महत्वपूर्ण सूचना:</b><br>
-यह वेबसाइट निजी सुविधा वेबसाइट है, सरकारी वेबसाइट नहीं है।
-सरकारी सेवाओं के लिए संबंधित Official Portal का उपयोग करें।
+
+<b>⚠️ महत्वपूर्ण सूचना:</b>
+<br>
+
+यह वेबसाइट निजी सुविधा वेबसाइट है,
+सरकारी वेबसाइट नहीं है।
+
+<br>
+
+सरकारी सेवाओं के लिए संबंधित
+Official Portal का उपयोग करें।
+
 </div>
+
 
 <!-- SERVICES -->
 
 <section class="card" id="services">
 
-<h2>🛠️ मेरी सेवाएँ</h2>
+<h2>
+🛠️ मेरी सेवाएँ
+</h2>
 
 <div class="grid">
 
 <div>
+
 <p>
-🪪 आधार से संबंधित ऑनलाइन सेवाएँ<br>
-💳 पैन कार्ड से संबंधित सेवाएँ<br>
-📄 ऑनलाइन फॉर्म भरना<br>
-🖨️ प्रिंट और स्कैन<br>
-📑 प्रमाण पत्र के लिए ऑनलाइन आवेदन<br>
+
+🪪 आधार से संबंधित ऑनलाइन सेवाएँ
+<br>
+
+💳 पैन कार्ड से संबंधित सेवाएँ
+<br>
+
+📄 ऑनलाइन फॉर्म भरना
+<br>
+
+🖨️ प्रिंट और स्कैन
+<br>
+
+📑 प्रमाण पत्र के लिए ऑनलाइन आवेदन
+<br>
+
 💻 अन्य ऑनलाइन सेवाएँ
+
 </p>
+
 </div>
+
 
 <div>
 
-<h3>🔗 Official Government Portals</h3>
+<h3>
+🔗 Official Government Portals
+</h3>
 
 <div class="portal-grid">
 
-<a class="btn" target="_blank"
+<a class="btn"
+target="_blank"
 href="https://uidai.gov.in/">
+
 🪪 Aadhaar
+
 </a>
 
-<a class="btn" target="_blank"
+<a class="btn"
+target="_blank"
 href="https://www.incometax.gov.in/">
+
 💳 PAN Card
+
 </a>
 
-<a class="btn" target="_blank"
+<a class="btn"
+target="_blank"
 href="https://parivahan.gov.in/">
+
 🚗 Driving Licence
+
 </a>
 
-<a class="btn" target="_blank"
+<a class="btn"
+target="_blank"
 href="https://voters.eci.gov.in/">
+
 🗳️ Voter ID
+
 </a>
 
 </div>
@@ -493,32 +706,46 @@ href="https://voters.eci.gov.in/">
 </div>
 
 </section>
+
 
 <!-- CSC -->
 
 <section class="card">
 
-<h2>🏛️ CSC Digital Seva</h2>
+<h2>
+🏛️ CSC Digital Seva
+</h2>
 
 <p>
-CSC की अधिकृत सेवाओं के लिए Digital Seva Portal पर जाएँ।
+CSC की अधिकृत सेवाओं के लिए
+Digital Seva Portal पर जाएँ।
 </p>
 
 <a class="btn green"
 target="_blank"
 href="https://digitalseva.csc.gov.in/">
+
 🌐 CSC Digital Seva खोलें
+
 </a>
 
 </section>
 
-<!-- ID CARD -->
+
+<!-- =========================
+     ID CARD
+========================= -->
 
 <section class="card" id="idcard">
 
-<h2>🪪 ID Card फोटो तैयार करें</h2>
+<h2>
+🪪 ID Card फोटो तैयार करें
+</h2>
 
-<label><b>📷 फोटो चुनें:</b></label>
+
+<label>
+<b>📷 फोटो चुनें:</b>
+</label>
 
 <input
 type="file"
@@ -526,69 +753,140 @@ id="idPhoto"
 accept="image/*"
 >
 
-<label><b>📐 साइज चुनें:</b></label>
+
+<label>
+<b>📐 साइज चुनें:</b>
+</label>
 
 <select id="idSize">
 
-<option value="1.585"
+<option
+value="85.6x54"
 data-width="85.6"
 data-height="54">
+
 ID Card (85.6 × 54 mm)
+
 </option>
 
-<option value="1.592"
+<option
+value="86x54"
 data-width="86"
 data-height="54">
+
 Standard Card (86 × 54 mm)
+
 </option>
 
-<option value="1.5"
+<option
+value="90x60"
 data-width="90"
 data-height="60">
+
 Photo Card (90 × 60 mm)
+
 </option>
 
 </select>
 
-<div class="preview" id="idPreview">
-यहाँ फोटो दिखाई देगी
+
+<div class="size-info">
+
+<b>📏 प्रिंट आकार:</b>
+
+<br>
+
+ID Card का वास्तविक आकार
+<b>85.6 × 54 mm</b> रखा गया है।
+
+<br>
+
+प्रिंट करते समय
+<b>Scale = 100%</b>
+रखें।
+
+<br>
+
+<b>Fit to page / Shrink to fit बंद रखें।</b>
+
 </div>
+
+
+<div class="preview" id="idPreview">
+
+यहाँ फोटो दिखाई देगी
+
+</div>
+
 
 <div class="id-card-wrapper">
 
-<div class="id-card" id="idPrintArea">
+<div
+class="id-card"
+id="idPrintArea">
 
-<h3>Citizen ID Services</h3>
+<h3>
+Citizen ID Services
+</h3>
 
-<img id="idPrintImage" src="" alt="फोटो">
+<img
+id="idPrintImage"
+src=""
+alt="फोटो"
+>
 
-<p>फोटो तैयार है</p>
+<p>
+फोटो तैयार है
+</p>
 
 </div>
 
 </div>
 
-<button class="green" onclick="printID()">
+
+<button
+class="green"
+onclick="printID()">
+
 🖨️ ID Card प्रिंट करें
+
 </button>
 
-<button class="red" onclick="removeIDPhoto()">
+
+<button
+class="red"
+onclick="removeIDPhoto()">
+
 ❌ हटाएँ
+
 </button>
 
 </section>
 
-<!-- FRONT BACK DOCUMENT COPY -->
 
-<section class="card" id="documentCopy">
+<!-- =========================
+     FRONT BACK
+========================= -->
 
-<h2>📄 Front + Back Document Copy</h2>
+<section
+class="card"
+id="documentCopy">
+
+<h2>
+📄 Front + Back Document Copy
+</h2>
 
 <p class="small">
-Front और Back दोनों फोटो चुनें। दोनों फोटो एक ही A4 पेज पर प्रिंट होंगी।
+
+Front और Back दोनों फोटो चुनें।
+दोनों फोटो एक ही A4 पेज पर प्रिंट होंगी।
+
 </p>
 
-<label><b>📷 Front Side फोटो:</b></label>
+
+<label>
+<b>📷 Front Side फोटो:</b>
+</label>
 
 <input
 type="file"
@@ -596,11 +894,19 @@ id="frontPhoto"
 accept="image/*"
 >
 
-<div class="preview" id="frontPreview">
+
+<div
+class="preview"
+id="frontPreview">
+
 Front फोटो यहाँ दिखाई देगी
+
 </div>
 
-<label><b>📷 Back Side फोटो:</b></label>
+
+<label>
+<b>📷 Back Side फोटो:</b>
+</label>
 
 <input
 type="file"
@@ -608,14 +914,19 @@ id="backPhoto"
 accept="image/*"
 >
 
-<div class="preview" id="backPreview">
+
+<div
+class="preview"
+id="backPreview">
+
 Back फोटो यहाँ दिखाई देगी
+
 </div>
+
 
 <div
 class="document-copy-preview"
-id="documentCopyPrint"
->
+id="documentCopyPrint">
 
 <div class="copy-page">
 
@@ -623,9 +934,12 @@ id="documentCopyPrint"
 Document Copy
 </div>
 
+
 <div class="copy-side">
 
-<h3>Front Side</h3>
+<h3>
+Front Side
+</h3>
 
 <img
 id="frontPrintImage"
@@ -635,9 +949,12 @@ alt="Front Side"
 
 </div>
 
+
 <div class="copy-side">
 
-<h3>Back Side</h3>
+<h3>
+Back Side
+</h3>
 
 <img
 id="backPrintImage"
@@ -651,29 +968,46 @@ alt="Back Side"
 
 </div>
 
+
 <button
 class="green"
 onclick="printBothSides()">
+
 🖨️ Front + Back एक साथ Print करें
+
 </button>
+
 
 <button
 class="red"
 onclick="removeBothSides()">
+
 ❌ दोनों फोटो हटाएँ
+
 </button>
 
 </section>
 
-<!-- CROP MODAL -->
 
-<div class="crop-modal" id="cropModal">
+<!-- =========================
+     CROP MODAL
+========================= -->
+
+<div
+class="crop-modal"
+id="cropModal">
 
 <div class="crop-box">
 
-<div class="crop-header" id="cropTitle">
+
+<div
+class="crop-header"
+id="cropTitle">
+
 ✂️ फोटो Crop करें
+
 </div>
+
 
 <div class="crop-image-area">
 
@@ -685,26 +1019,50 @@ alt="Crop Image"
 
 </div>
 
+
 <div class="crop-buttons">
 
-<button onclick="zoomOut()">
-➖ Zoom Out
+
+<button
+class="auto-button"
+onclick="autoCrop()">
+
+🤖 Auto Crop + सीधा करें
+
 </button>
 
-<button onclick="zoomIn()">
-➕ Zoom In
+
+<button
+onclick="zoomOut()">
+
+➖ Zoom Out
+
 </button>
+
+
+<button
+onclick="zoomIn()">
+
+➕ Zoom In
+
+</button>
+
 
 <button
 class="green"
 onclick="doCrop()">
-✂️ Crop करें
+
+✂️ Manual Crop
+
 </button>
+
 
 <button
 class="red"
 onclick="closeCrop()">
+
 ❌ Cancel
+
 </button>
 
 </div>
@@ -713,26 +1071,56 @@ onclick="closeCrop()">
 
 </div>
 
-<!-- DOCUMENT PRINT -->
 
-<section class="card" id="document">
+<!-- =========================
+     DOCUMENT PRINT
+========================= -->
 
-<h2>📑 Document Print Center</h2>
+<section
+class="card"
+id="document">
 
-<label><b>दस्तावेज चुनें:</b></label>
+<h2>
+📑 Document Print Center
+</h2>
+
+
+<label>
+<b>दस्तावेज चुनें:</b>
+</label>
 
 <select id="documentType">
 
-<option>Custom Document</option>
-<option>Aadhaar</option>
-<option>PAN Card</option>
-<option>Driving Licence</option>
-<option>Voter ID</option>
-<option>Other Document</option>
+<option>
+Custom Document
+</option>
+
+<option>
+Aadhaar
+</option>
+
+<option>
+PAN Card
+</option>
+
+<option>
+Driving Licence
+</option>
+
+<option>
+Voter ID
+</option>
+
+<option>
+Other Document
+</option>
 
 </select>
 
-<label><b>फाइल चुनें:</b></label>
+
+<label>
+<b>फाइल चुनें:</b>
+</label>
 
 <input
 type="file"
@@ -741,89 +1129,159 @@ accept="image/*,.pdf"
 onchange="previewDocument(event)"
 >
 
-<div class="preview" id="documentPreview">
+
+<div
+class="preview"
+id="documentPreview">
+
 यहाँ दस्तावेज का Preview दिखाई देगा
+
 </div>
+
 
 <button
 class="green"
 onclick="printDocument()">
+
 🖨️ Document Print करें
+
 </button>
+
 
 <button
 class="red"
 onclick="removeDocument()">
+
 ❌ हटाएँ
+
 </button>
 
 </section>
 
-<!-- PAYMENT -->
 
-<section class="card" id="payment">
+<!-- =========================
+     PAYMENT
+========================= -->
 
-<h2>💳 Online Payment</h2>
+<section
+class="card"
+id="payment">
 
-<label><b>अपनी सेवा चुनें:</b></label>
+<h2>
+💳 Online Payment
+</h2>
+
+
+<label>
+<b>अपनी सेवा चुनें:</b>
+</label>
+
 
 <select
 id="serviceSelect"
 onchange="updateAmount()">
 
+
 <option value="20">
+
 🖨️ सामान्य Print - ₹20
+
 </option>
+
 
 <option value="30">
+
 🪪 ID Card Print - ₹30
+
 </option>
+
 
 <option value="50">
+
 📄 Document Print - ₹50
+
 </option>
+
 
 <option value="100">
+
 💻 Online Form - ₹100
+
 </option>
 
+
 <option value="150">
+
 📑 Certificate Service - ₹150
+
 </option>
+
 
 </select>
 
+
 <div class="amount">
-राशि: ₹<span id="amount">20</span>
+
+राशि:
+₹<span id="amount">20</span>
+
 </div>
+
 
 <div class="payment-box">
 
-<h3>📱 UPI से भुगतान करें</h3>
+<h3>
+📱 UPI से भुगतान करें
+</h3>
 
-<p>UPI ID:</p>
+
+<p>
+UPI ID:
+</p>
+
 
 <div class="upi">
+
 subhasharyan001@ybl
+
 </div>
 
+
 <br>
+
 
 <button
 class="green"
 onclick="payUPI()">
+
 📱 UPI App से Pay करें
+
 </button>
+
 
 <button
 class="orange"
 onclick="copyUPI()">
+
 📋 UPI ID Copy करें
+
 </button>
+
+
+<p class="small">
+
+भुगतान के बाद ग्राहक की जानकारी भरें।
+Payment की वास्तविक पुष्टि
+अपने payment gateway/merchant dashboard से करें।
+
+</p>
 
 </div>
 
-<label><b>ग्राहक का नाम:</b></label>
+
+<label>
+<b>ग्राहक का नाम:</b>
+</label>
 
 <input
 type="text"
@@ -831,7 +1289,10 @@ id="customerName"
 placeholder="अपना नाम लिखें"
 >
 
-<label><b>मोबाइल नंबर:</b></label>
+
+<label>
+<b>मोबाइल नंबर:</b>
+</label>
 
 <input
 type="tel"
@@ -840,55 +1301,98 @@ maxlength="10"
 placeholder="10 अंकों का मोबाइल नंबर"
 >
 
+
 <button
 class="green"
 onclick="paymentDone()">
+
 ✅ मैंने Payment कर दिया
+
 </button>
+
 
 <p id="paymentMessage"></p>
 
 </section>
 
-<!-- CONTACT -->
 
-<section class="card" id="contact">
+<!-- =========================
+     CONTACT
+========================= -->
 
-<h2>✉️ मुझसे संपर्क करें</h2>
+<section
+class="card"
+id="contact">
 
-<p><b>नाम:</b> Subhash</p>
+<h2>
+✉️ मुझसे संपर्क करें
+</h2>
+
+
+<p>
+<b>नाम:</b> Subhash
+</p>
+
 
 <a
 class="btn green"
 target="_blank"
 href="https://wa.me/918890922880">
+
 💬 WhatsApp पर संपर्क करें
+
 </a>
+
 
 <a
 class="btn"
 target="_blank"
 href="https://www.google.com/maps">
+
 📍 Google Maps
+
 </a>
 
+
 <p class="small">
-WhatsApp: 8890922880
+
+WhatsApp:
+8890922880
+
 </p>
 
 </section>
 
+
 </div>
 
+
+<!-- FOOTER -->
+
 <footer>
+
 © 2026 Citizen ID Services
+
 <br>
+
 यह वेबसाइट सरकारी वेबसाइट नहीं है।
+
 </footer>
+
+
+<!-- CROP LIBRARY -->
 
 <script
 src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js">
 </script>
+
+
+<!-- OPENCV FOR AUTO CROP -->
+
+<script async
+src="https://docs.opencv.org/4.x/opencv.js">
+</script>
+
 
 <script>
 
@@ -896,7 +1400,8 @@ src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js">
    VARIABLES
 ========================= */
 
-const UPI_ID = "subhasharyan001@ybl";
+const UPI_ID =
+"subhasharyan001@ybl";
 
 let cropper = null;
 
@@ -907,7 +1412,11 @@ let cropTarget = "";
    START CROP
 ========================= */
 
-function startCrop(file,target,title){
+function startCrop(
+    file,
+    target,
+    title
+){
 
     const url =
         URL.createObjectURL(file);
@@ -918,6 +1427,7 @@ function startCrop(file,target,title){
         "cropTitle"
     ).innerText = title;
 
+
     const image =
         document.getElementById(
             "cropImage"
@@ -925,28 +1435,48 @@ function startCrop(file,target,title){
 
     image.src = url;
 
+
     document.getElementById(
         "cropModal"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
-    image.onload = function(){
+
+    image.onload =
+    function(){
 
         if(cropper){
+
             cropper.destroy();
+
+            cropper = null;
+
         }
 
-        cropper = new Cropper(
+
+        cropper =
+        new Cropper(
             image,
             {
+
                 aspectRatio:1.585,
+
                 viewMode:1,
+
                 dragMode:"move",
+
                 autoCropArea:.85,
+
                 responsive:true,
+
                 guides:true,
+
                 center:true,
+
                 cropBoxMovable:true,
+
                 cropBoxResizable:true
+
             }
         );
 
@@ -969,11 +1499,13 @@ document.getElementById(
             this.files[0];
 
         if(file){
+
             startCrop(
                 file,
                 "id",
                 "✂️ ID Card फोटो Crop करें"
             );
+
         }
 
     }
@@ -1041,57 +1573,93 @@ document.getElementById(
 function zoomIn(){
 
     if(cropper){
+
         cropper.zoom(.1);
+
     }
 
 }
 
+
 function zoomOut(){
 
     if(cropper){
+
         cropper.zoom(-.1);
+
     }
 
 }
 
 
 /* =========================
-   CROP
+   MANUAL CROP
 ========================= */
 
 function doCrop(){
 
     if(!cropper){
+
+        alert(
+            "पहले फोटो चुनें।"
+        );
+
         return;
+
     }
+
 
     const canvas =
         cropper.getCroppedCanvas({
+
             width:1000,
+
             height:630,
+
             imageSmoothingEnabled:true,
+
             imageSmoothingQuality:"high"
+
         });
+
 
     const result =
         canvas.toDataURL(
             "image/jpeg",
-            .95
+            0.95
         );
 
+
+    setCropResult(result);
+
+    closeCrop();
+
+}
+
+
+/* =========================
+   SET RESULT
+========================= */
+
+function setCropResult(
+    result
+){
 
     if(cropTarget === "id"){
 
         document.getElementById(
             "idPreview"
         ).innerHTML =
-            '<img src="' +
-            result +
-            '" alt="ID Photo">';
+
+        '<img src="' +
+        result +
+        '" alt="ID Photo">';
+
 
         document.getElementById(
             "idPrintImage"
-        ).src = result;
+        ).src =
+        result;
 
     }
 
@@ -1101,13 +1669,16 @@ function doCrop(){
         document.getElementById(
             "frontPreview"
         ).innerHTML =
-            '<img src="' +
-            result +
-            '" alt="Front">';
+
+        '<img src="' +
+        result +
+        '" alt="Front">';
+
 
         document.getElementById(
             "frontPrintImage"
-        ).src = result;
+        ).src =
+        result;
 
     }
 
@@ -1117,18 +1688,465 @@ function doCrop(){
         document.getElementById(
             "backPreview"
         ).innerHTML =
-            '<img src="' +
-            result +
-            '" alt="Back">';
+
+        '<img src="' +
+        result +
+        '" alt="Back">';
+
 
         document.getElementById(
             "backPrintImage"
-        ).src = result;
+        ).src =
+        result;
+
+    }
+
+}
+
+
+/* =========================
+   AUTO CROP
+========================= */
+
+function autoCrop(){
+
+    if(!cropper){
+
+        alert(
+            "पहले फोटो चुनें।"
+        );
+
+        return;
 
     }
 
 
-    closeCrop();
+    if(typeof cv === "undefined"){
+
+        alert(
+            "Auto Crop अभी लोड हो रहा है।\nकृपया 2-3 सेकंड बाद फिर दबाएँ।"
+        );
+
+        return;
+
+    }
+
+
+    const image =
+        document.getElementById(
+            "cropImage"
+        );
+
+
+    try{
+
+        const src =
+            cv.imread(image);
+
+
+        let gray =
+            new cv.Mat();
+
+        let blur =
+            new cv.Mat();
+
+        let edges =
+            new cv.Mat();
+
+
+        cv.cvtColor(
+            src,
+            gray,
+            cv.COLOR_RGBA2GRAY
+        );
+
+
+        cv.GaussianBlur(
+            gray,
+            blur,
+            new cv.Size(5,5),
+            0
+        );
+
+
+        cv.Canny(
+            blur,
+            edges,
+            50,
+            150
+        );
+
+
+        let contours =
+            new cv.MatVector();
+
+        let hierarchy =
+            new cv.Mat();
+
+
+        cv.findContours(
+            edges,
+            contours,
+            hierarchy,
+            cv.RETR_EXTERNAL,
+            cv.CHAIN_APPROX_SIMPLE
+        );
+
+
+        let bestContour =
+            null;
+
+        let bestArea =
+            0;
+
+
+        for(
+            let i=0;
+            i<contours.size();
+            i++
+        ){
+
+            let contour =
+                contours.get(i);
+
+
+            let area =
+                cv.contourArea(
+                    contour
+                );
+
+
+            if(area < 10000){
+
+                contour.delete();
+
+                continue;
+
+            }
+
+
+            let peri =
+                cv.arcLength(
+                    contour,
+                    true
+                );
+
+
+            let approx =
+                new cv.Mat();
+
+
+            cv.approxPolyDP(
+                contour,
+                approx,
+                0.02 * peri,
+                true
+            );
+
+
+            if(
+                approx.rows === 4 &&
+                area > bestArea
+            ){
+
+                if(bestContour){
+
+                    bestContour.delete();
+
+                }
+
+
+                bestContour =
+                    approx.clone();
+
+                bestArea =
+                    area;
+
+            }
+
+
+            approx.delete();
+
+            contour.delete();
+
+        }
+
+
+        if(!bestContour){
+
+            src.delete();
+
+            gray.delete();
+
+            blur.delete();
+
+            edges.delete();
+
+            contours.delete();
+
+            hierarchy.delete();
+
+
+            alert(
+                "कार्ड के चारों किनारे नहीं मिले।\n\n" +
+                "कृपया कार्ड की पूरी फोटो लें और चारों किनारे साफ दिखाई दें।\n\n" +
+                "आप Manual Crop भी कर सकते हैं।"
+            );
+
+            return;
+
+        }
+
+
+        const points=[];
+
+
+        for(
+            let i=0;
+            i<4;
+            i++
+        ){
+
+            const p =
+                bestContour.intPtr(
+                    i,
+                    0
+                );
+
+
+            points.push({
+
+                x:p[0],
+
+                y:p[1]
+
+            });
+
+        }
+
+
+        const ordered =
+            orderPoints(points);
+
+
+        const tl =
+            ordered[0];
+
+        const tr =
+            ordered[1];
+
+        const br =
+            ordered[2];
+
+        const bl =
+            ordered[3];
+
+
+        const outputWidth =
+            1000;
+
+        const outputHeight =
+            Math.round(
+                outputWidth / 1.585
+            );
+
+
+        let srcTri =
+            cv.matFromArray(
+                4,
+                1,
+                cv.CV_32FC2,
+                [
+
+                    tl.x,
+                    tl.y,
+
+                    tr.x,
+                    tr.y,
+
+                    br.x,
+                    br.y,
+
+                    bl.x,
+                    bl.y
+
+                ]
+            );
+
+
+        let dstTri =
+            cv.matFromArray(
+                4,
+                1,
+                cv.CV_32FC2,
+                [
+
+                    0,
+                    0,
+
+                    outputWidth,
+                    0,
+
+                    outputWidth,
+                    outputHeight,
+
+                    0,
+                    outputHeight
+
+                ]
+            );
+
+
+        let M =
+            cv.getPerspectiveTransform(
+                srcTri,
+                dstTri
+            );
+
+
+        let dst =
+            new cv.Mat();
+
+
+        cv.warpPerspective(
+            src,
+            dst,
+            M,
+            new cv.Size(
+                outputWidth,
+                outputHeight
+            ),
+            cv.INTER_CUBIC,
+            cv.BORDER_REPLICATE
+        );
+
+
+        let canvas =
+            document.createElement(
+                "canvas"
+            );
+
+
+        canvas.width =
+            outputWidth;
+
+        canvas.height =
+            outputHeight;
+
+
+        cv.imshow(
+            canvas,
+            dst
+        );
+
+
+        const result =
+            canvas.toDataURL(
+                "image/jpeg",
+                0.95
+            );
+
+
+        setCropResult(result);
+
+
+        src.delete();
+
+        gray.delete();
+
+        blur.delete();
+
+        edges.delete();
+
+        contours.delete();
+
+        hierarchy.delete();
+
+        bestContour.delete();
+
+        srcTri.delete();
+
+        dstTri.delete();
+
+        M.delete();
+
+        dst.delete();
+
+
+        closeCrop();
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        alert(
+            "Auto Crop नहीं हो पाया।\nManual Crop का उपयोग करें।"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   ORDER CORNERS
+========================= */
+
+function orderPoints(
+    points
+){
+
+    let result =
+        new Array(4);
+
+
+    let sums =
+        points.map(
+            p => p.x + p.y
+        );
+
+
+    let diffs =
+        points.map(
+            p => p.x - p.y
+        );
+
+
+    result[0] =
+        points[
+            sums.indexOf(
+                Math.min(...sums)
+            )
+        ];
+
+
+    result[2] =
+        points[
+            sums.indexOf(
+                Math.max(...sums)
+            )
+        ];
+
+
+    result[1] =
+        points[
+            diffs.indexOf(
+                Math.max(...diffs)
+            )
+        ];
+
+
+    result[3] =
+        points[
+            diffs.indexOf(
+                Math.min(...diffs)
+            )
+        ];
+
+
+    return result;
 
 }
 
@@ -1141,13 +2159,16 @@ function closeCrop(){
 
     document.getElementById(
         "cropModal"
-    ).style.display = "none";
+    ).style.display =
+        "none";
+
 
     if(cropper){
 
         cropper.destroy();
 
-        cropper = null;
+        cropper =
+            null;
 
     }
 
@@ -1162,16 +2183,20 @@ function removeIDPhoto(){
 
     document.getElementById(
         "idPhoto"
-    ).value = "";
+    ).value =
+        "";
+
 
     document.getElementById(
         "idPreview"
     ).innerHTML =
         "यहाँ फोटो दिखाई देगी";
 
+
     document.getElementById(
         "idPrintImage"
-    ).src = "";
+    ).src =
+        "";
 
 }
 
@@ -1182,9 +2207,13 @@ function removeIDPhoto(){
 
 function printID(){
 
-    if(!document.getElementById(
-        "idPrintImage"
-    ).src){
+    const image =
+        document.getElementById(
+            "idPrintImage"
+        ).src;
+
+
+    if(!image){
 
         alert(
             "पहले फोटो चुनें और Crop करें।"
@@ -1194,13 +2223,14 @@ function printID(){
 
     }
 
+
     window.print();
 
 }
 
 
 /* =========================
-   FRONT + BACK PRINT
+   FRONT BACK PRINT
 ========================= */
 
 function printBothSides(){
@@ -1210,10 +2240,12 @@ function printBothSides(){
             "frontPrintImage"
         ).src;
 
+
     const back =
         document.getElementById(
             "backPrintImage"
         ).src;
+
 
     if(!front){
 
@@ -1225,6 +2257,7 @@ function printBothSides(){
 
     }
 
+
     if(!back){
 
         alert(
@@ -1234,6 +2267,7 @@ function printBothSides(){
         return;
 
     }
+
 
     window.print();
 
@@ -1248,62 +2282,87 @@ function removeBothSides(){
 
     document.getElementById(
         "frontPhoto"
-    ).value = "";
+    ).value =
+        "";
+
 
     document.getElementById(
         "backPhoto"
-    ).value = "";
+    ).value =
+        "";
+
 
     document.getElementById(
         "frontPreview"
     ).innerHTML =
         "Front फोटो यहाँ दिखाई देगी";
 
+
     document.getElementById(
         "backPreview"
     ).innerHTML =
         "Back फोटो यहाँ दिखाई देगी";
 
+
     document.getElementById(
         "frontPrintImage"
-    ).src = "";
+    ).src =
+        "";
+
 
     document.getElementById(
         "backPrintImage"
-    ).src = "";
+    ).src =
+        "";
 
 }
 
 
 /* =========================
-   DOCUMENT
+   DOCUMENT PREVIEW
 ========================= */
 
-function previewDocument(event){
+function previewDocument(
+    event
+){
 
     const file =
         event.target.files[0];
 
+
     if(!file){
+
         return;
+
     }
+
 
     const preview =
         document.getElementById(
             "documentPreview"
         );
 
-    const url =
-        URL.createObjectURL(file);
 
-    if(file.type.startsWith("image/")){
+    const url =
+        URL.createObjectURL(
+            file
+        );
+
+
+    if(
+        file.type.startsWith(
+            "image/"
+        )
+    ){
 
         preview.innerHTML =
-            '<img src="' +
-            url +
-            '" alt="Document">';
+
+        '<img src="' +
+        url +
+        '" alt="Document">';
 
     }
+
 
     else if(
         file.type ===
@@ -1311,11 +2370,13 @@ function previewDocument(event){
     ){
 
         preview.innerHTML =
-            '<iframe src="' +
-            url +
-            '" style="width:100%;height:400px;border:0;"></iframe>';
+
+        '<iframe src="' +
+        url +
+        '" style="width:100%;height:400px;border:0;"></iframe>';
 
     }
+
 
     else{
 
@@ -1338,6 +2399,7 @@ function printDocument(){
             "documentFile"
         ).files[0];
 
+
     if(!file){
 
         alert(
@@ -1347,6 +2409,7 @@ function printDocument(){
         return;
 
     }
+
 
     window.print();
 
@@ -1361,7 +2424,9 @@ function removeDocument(){
 
     document.getElementById(
         "documentFile"
-    ).value = "";
+    ).value =
+        "";
+
 
     document.getElementById(
         "documentPreview"
@@ -1382,6 +2447,7 @@ function updateAmount(){
             "serviceSelect"
         );
 
+
     document.getElementById(
         "amount"
     ).innerText =
@@ -1390,6 +2456,10 @@ function updateAmount(){
 }
 
 
+/* =========================
+   UPI PAYMENT
+========================= */
+
 function payUPI(){
 
     const amount =
@@ -1397,33 +2467,50 @@ function payUPI(){
             "serviceSelect"
         ).value;
 
+
     const name =
         document.getElementById(
             "customerName"
         ).value ||
         "Customer";
 
+
     const url =
         "upi://pay?" +
+
         "pa=" +
-        encodeURIComponent(UPI_ID) +
+        encodeURIComponent(
+            UPI_ID
+        ) +
+
         "&pn=" +
         encodeURIComponent(
             "Citizen ID Services"
         ) +
+
         "&am=" +
-        encodeURIComponent(amount) +
+        encodeURIComponent(
+            amount
+        ) +
+
         "&cu=INR" +
+
         "&tn=" +
         encodeURIComponent(
             "Service Payment - " +
             name
         );
 
-    window.location.href = url;
+
+    window.location.href =
+        url;
 
 }
 
+
+/* =========================
+   COPY UPI
+========================= */
 
 function copyUPI(){
 
@@ -1433,15 +2520,19 @@ function copyUPI(){
     ){
 
         navigator.clipboard
-        .writeText(UPI_ID)
-        .then(function(){
+        .writeText(
+            UPI_ID
+        )
+        .then(
+            function(){
 
-            alert(
-                "UPI ID Copy हो गई:\n" +
-                UPI_ID
-            );
+                alert(
+                    "UPI ID Copy हो गई:\n" +
+                    UPI_ID
+                );
 
-        });
+            }
+        );
 
     }else{
 
@@ -1455,6 +2546,10 @@ function copyUPI(){
 }
 
 
+/* =========================
+   PAYMENT DONE
+========================= */
+
 function paymentDone(){
 
     const name =
@@ -1462,10 +2557,12 @@ function paymentDone(){
             "customerName"
         ).value.trim();
 
+
     const mobile =
         document.getElementById(
             "customerMobile"
         ).value.trim();
+
 
     if(!name){
 
@@ -1476,6 +2573,7 @@ function paymentDone(){
         return;
 
     }
+
 
     if(
         !/^[0-9]{10}$/.test(
@@ -1491,13 +2589,23 @@ function paymentDone(){
 
     }
 
+
     document.getElementById(
         "paymentMessage"
     ).innerHTML =
-        "✅ जानकारी दर्ज हो गई। Payment का वास्तविक verification अपने payment gateway/merchant dashboard से करें।";
+
+    "✅ जानकारी दर्ज हो गई।<br>" +
+
+    "Payment का वास्तविक verification " +
+
+    "अपने payment gateway/merchant dashboard से करें।";
 
 }
 
+
+/* =========================
+   START
+========================= */
 
 updateAmount();
 
