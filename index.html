@@ -7,7 +7,6 @@
 <title>Citizen ID Services</title>
 
 <style>
-
 *{
     box-sizing:border-box;
 }
@@ -24,7 +23,6 @@ body{
 }
 
 /* HEADER */
-
 header{
     background:linear-gradient(135deg,#075eaa,#1684d8);
     color:white;
@@ -43,7 +41,6 @@ header p{
 }
 
 /* NAVIGATION */
-
 nav{
     background:white;
     padding:10px;
@@ -70,7 +67,6 @@ nav a:hover{
 }
 
 /* CONTAINER */
-
 .container{
     width:100%;
     max-width:1100px;
@@ -79,7 +75,6 @@ nav a:hover{
 }
 
 /* CARD */
-
 .card{
     background:white;
     border-radius:16px;
@@ -94,7 +89,6 @@ nav a:hover{
 }
 
 /* GRID */
-
 .grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -120,7 +114,6 @@ nav a:hover{
 }
 
 /* BUTTON */
-
 button,
 .btn{
     display:inline-block;
@@ -157,7 +150,6 @@ button:hover,
 }
 
 /* FORM */
-
 input,
 select,
 textarea{
@@ -170,7 +162,6 @@ textarea{
 }
 
 /* IMAGE PREVIEW */
-
 .preview{
     width:100%;
     max-width:500px;
@@ -191,10 +182,7 @@ textarea{
     object-fit:contain;
 }
 
-/* =========================
-   ID CARD
-========================= */
-
+/* ID CARD */
 .id-card{
     width:85.6mm;
     height:54mm;
@@ -226,7 +214,6 @@ textarea{
 }
 
 /* PAYMENT */
-
 .payment-box{
     background:#effff3;
     border:1px solid #9bd5aa;
@@ -251,7 +238,6 @@ textarea{
 }
 
 /* FOOTER */
-
 footer{
     background:#172033;
     color:white;
@@ -266,7 +252,6 @@ footer{
 }
 
 /* MOBILE */
-
 @media(max-width:700px){
 
     .grid,
@@ -288,9 +273,9 @@ footer{
 
 }
 
-/* =========================================
-   PRINT SETTINGS - IMPORTANT
-========================================= */
+/* ==============================
+   PRINT - ID CARD
+============================== */
 
 @media print{
 
@@ -315,12 +300,11 @@ footer{
     }
 
     .print-area{
+
         position:absolute;
+
         left:0;
         top:0;
-
-        /* IMPORTANT:
-           width:100% हटाया गया है */
 
         width:85.6mm;
         height:54mm;
@@ -365,13 +349,14 @@ footer{
     .notice{
         display:none !important;
     }
-
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header id="home">
 
@@ -383,6 +368,8 @@ footer{
 
 </header>
 
+
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -409,6 +396,7 @@ footer{
 <div class="notice">
 
     <b>⚠️ महत्वपूर्ण सूचना:</b>
+
     <br>
 
     यह वेबसाइट निजी सुविधा वेबसाइट है,
@@ -514,7 +502,7 @@ footer{
 </section>
 
 
-<!-- CSC -->
+<!-- CSC DIGITAL SEVA -->
 
 <section class="card">
 
@@ -534,7 +522,9 @@ footer{
         target="_blank"
         href="https://digitalseva.csc.gov.in/"
     >
+
         🌐 CSC Digital Seva खोलें
+
     </a>
 
     <p class="small">
@@ -560,6 +550,7 @@ footer{
         <b>फोटो चुनें:</b>
     </label>
 
+
     <input
         type="file"
         id="idPhoto"
@@ -572,18 +563,30 @@ footer{
         <b>साइज चुनें:</b>
     </label>
 
-    <select id="idSize" onchange="changeIDSize()">
+
+    <select
+        id="idSize"
+        onchange="changeIDSize()"
+    >
 
         <option value="85.6x54">
+
             ID Card (85.6 × 54 mm)
+
         </option>
+
 
         <option value="86x54">
+
             Standard Card (86 × 54 mm)
+
         </option>
 
+
         <option value="90x60">
+
             Photo Card (90 × 60 mm)
+
         </option>
 
     </select>
@@ -593,7 +596,9 @@ footer{
         class="preview"
         id="idPreview"
     >
+
         यहाँ फोटो दिखाई देगी
+
     </div>
 
 
@@ -608,11 +613,13 @@ footer{
             Citizen ID Services
         </h3>
 
+
         <img
             id="idPrintImage"
             src=""
             alt="Photo"
         >
+
 
         <p>
             फोटो तैयार है
@@ -703,7 +710,9 @@ footer{
         class="preview"
         id="documentPreview"
     >
+
         यहाँ दस्तावेज का Preview दिखाई देगा
+
     </div>
 
 
@@ -936,6 +945,8 @@ footer{
 </div>
 
 
+<!-- FOOTER -->
+
 <footer>
 
     © 2026 Citizen ID Services
@@ -950,7 +961,7 @@ footer{
 <script>
 
 /* =========================
-   UPI
+   UPI ID
 ========================= */
 
 const UPI_ID = "subhasharyan001@ybl";
@@ -973,7 +984,9 @@ function previewIDPhoto(event){
         URL.createObjectURL(file);
 
 
-    document.getElementById("idPreview").innerHTML =
+    document.getElementById(
+        "idPreview"
+    ).innerHTML =
 
         '<img src="' +
         url +
@@ -1056,7 +1069,7 @@ function removeIDPhoto(){
 
 
 /* =========================
-   PRINT ID
+   PRINT ID CARD
 ========================= */
 
 function printID(){
@@ -1131,11 +1144,11 @@ function previewDocument(event){
 
             '<iframe src="' +
             url +
-            '" style="' +
-            'width:100%;' +
+            '" ' +
+            'style="width:100%;' +
             'height:350px;' +
-            'border:0;' +
-            '"></iframe>';
+            'border:0;">' +
+            '</iframe>';
 
     }
 
@@ -1198,7 +1211,7 @@ function removeDocument(){
 
 
 /* =========================
-   PAYMENT AMOUNT
+   UPDATE PAYMENT AMOUNT
 ========================= */
 
 function updateAmount(){
@@ -1211,7 +1224,8 @@ function updateAmount(){
 
     document.getElementById(
         "amount"
-    ).innerText = select.value;
+    ).innerText =
+        select.value;
 
 }
 
@@ -1237,13 +1251,151 @@ function payUPI(){
 
     const upiURL =
         "upi://pay?pa=" +
+
         encodeURIComponent(
             UPI_ID
         ) +
 
         "&pn=" +
+
         encodeURIComponent(
             "Citizen ID Services"
         ) +
 
         "&am=" +
+
+        encodeURIComponent(
+            amount
+        ) +
+
+        "&cu=INR" +
+
+        "&tn=" +
+
+        encodeURIComponent(
+            "Service Payment - " +
+            name
+        );
+
+
+    window.location.href =
+        upiURL;
+
+}
+
+
+/* =========================
+   COPY UPI ID
+========================= */
+
+function copyUPI(){
+
+    if(
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ){
+
+        navigator.clipboard
+            .writeText(UPI_ID)
+
+            .then(function(){
+
+                alert(
+                    "UPI ID Copy हो गई: " +
+                    UPI_ID
+                );
+
+            })
+
+            .catch(function(){
+
+                alert(
+                    "UPI ID: " +
+                    UPI_ID
+                );
+
+            });
+
+    }
+
+    else{
+
+        alert(
+            "UPI ID: " +
+            UPI_ID
+        );
+
+    }
+
+}
+
+
+/* =========================
+   PAYMENT DONE
+========================= */
+
+function paymentDone(){
+
+    const name =
+        document.getElementById(
+            "customerName"
+        ).value.trim();
+
+
+    const mobile =
+        document.getElementById(
+            "customerMobile"
+        ).value.trim();
+
+
+    if(!name){
+
+        alert(
+            "ग्राहक का नाम लिखें।"
+        );
+
+        return;
+    }
+
+
+    if(
+        !/^[0-9]{10}$/.test(
+            mobile
+        )
+    ){
+
+        alert(
+            "सही 10 अंकों का मोबाइल नंबर डालें।"
+        );
+
+        return;
+    }
+
+
+    document.getElementById(
+        "paymentMessage"
+    ).innerHTML =
+
+        "✅ जानकारी दर्ज हो गई। " +
+
+        "कृपया payment का वास्तविक " +
+
+        "verification अपने payment " +
+
+        "gateway/merchant dashboard से करें।";
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+updateAmount();
+
+changeIDSize();
+
+</script>
+
+</body>
+</html>
