@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citizen ID Services</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef3f9;color:#172033}
+header{background:linear-gradient(135deg,#073b8f,#1672d4);color:#fff;text-align:center;padding:38px 20px}
+header h1{margin:0;font-size:34px} header p{font-size:17px;margin:10px 0 0}
+main{max-width:1100px;margin:auto;padding:25px}
+.notice{background:#fff8df;border-left:5px solid #e3a400;padding:16px;border-radius:8px;margin-bottom:25px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 6px 20px rgba(0,0,0,.09)}
+.icon{font-size:45px}.card h2{margin:10px 0;font-size:24px}.card p{color:#5e6878;line-height:1.5}
+button{border:0;border-radius:9px;padding:12px 18px;background:#1264c7;color:#fff;font-size:15px;cursor:pointer;margin:4px}
+button:hover{opacity:.9}.alt{background:#27384e}
+footer{text-align:center;padding:25px;color:#687386}
+@media(max-width:700px){.grid{grid-template-columns:1fr}header h1{font-size:27px}main{padding:15px}}
+</style>
+</head>
+<body>
+<header>
+<h1>🇮🇳 Citizen ID Services</h1>
+<p>Aadhaar • PAN Card • Driving Licence • Voter ID</p>
+</header>
+<main>
+<div class="notice"><b>महत्वपूर्ण:</b> यह स्वतंत्र सुविधा वेबसाइट है, सरकारी वेबसाइट नहीं। वास्तविक आवेदन/अपडेट संबंधित official portal पर ही करें। इस वेबसाइट पर OTP, Aadhaar/PAN नंबर या अन्य संवेदनशील जानकारी दर्ज न करें।</div>
+<div class="grid">
+<div class="card"><div class="icon">🪪</div><h2>Aadhaar Card</h2><p>UIDAI की official Aadhaar online services.</p><button onclick="go('https://uidai.gov.in/hi/aadhaar-online-services')">Official Services</button><button class="alt" onclick="go('https://myaadhaar.uidai.gov.in/')">myAadhaar</button></div>
+<div class="card"><div class="icon">🟨</div><h2>PAN Card</h2><p>Income Tax Department की official PAN services.</p><button onclick="go('https://www.incometax.gov.in/')">Official Portal</button></div>
+<div class="card"><div class="icon">🚗</div><h2>Driving Licence</h2><p>Parivahan की official driving licence services.</p><button onclick="go('https://parivahan.gov.in/')">Official Portal</button></div>
+<div class="card"><div class="icon">🗳️</div><h2>Voter ID</h2><p>Election Commission की official voter services.</p><button onclick="go('https://voters.eci.gov.in/')">Voter Services</button><button class="alt" onclick="go('https://www.eci.gov.in/')">ECI Website</button></div>
+</div>
+</main>
+<footer>Citizen ID Services • Not a Government Website</footer>
+<script>function go(url){window.open(url,'_blank','noopener,noreferrer')}</script>
+</body>
+</html>
