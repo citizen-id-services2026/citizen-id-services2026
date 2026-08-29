@@ -22,17 +22,16 @@ body{
     color:#172033;
 }
 
-/* HEADER */
 header{
     background:linear-gradient(135deg,#075eaa,#1684d8);
     color:white;
-    text-align:center;
     padding:28px 15px;
+    text-align:center;
 }
 
 header h1{
     margin:0;
-    font-size:30px;
+    font-size:32px;
 }
 
 header p{
@@ -40,33 +39,31 @@ header p{
     font-size:16px;
 }
 
-/* NAVIGATION */
 nav{
     background:white;
+    padding:10px;
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:4px;
-    padding:10px;
+    gap:5px;
     position:sticky;
     top:0;
-    z-index:999;
+    z-index:1000;
     box-shadow:0 2px 8px #0002;
 }
 
 nav a{
-    color:#14598e;
     text-decoration:none;
+    color:#14598e;
     font-weight:bold;
-    padding:9px 10px;
-    border-radius:7px;
+    padding:9px 11px;
+    border-radius:8px;
 }
 
 nav a:hover{
-    background:#e7f2fb;
+    background:#e8f3fb;
 }
 
-/* CONTAINER */
 .container{
     width:100%;
     max-width:1100px;
@@ -74,7 +71,6 @@ nav a:hover{
     padding:18px;
 }
 
-/* CARD */
 .card{
     background:white;
     border-radius:16px;
@@ -84,11 +80,20 @@ nav a:hover{
 }
 
 .card h2{
-    color:#145b91;
     margin-top:0;
+    color:#145b91;
 }
 
-/* NOTICE */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.service-list{
+    line-height:2;
+}
+
 .notice{
     background:#fff7d6;
     border-left:5px solid #e5b300;
@@ -97,22 +102,14 @@ nav a:hover{
     margin-bottom:20px;
 }
 
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
 .portal-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,1fr);
     gap:10px;
 }
 
-/* BUTTON */
-.btn,
-button{
+button,
+.btn{
     display:inline-block;
     border:0;
     background:#0878cf;
@@ -122,8 +119,7 @@ button{
     cursor:pointer;
     font-weight:bold;
     text-decoration:none;
-    margin:4px 3px;
-    font-size:15px;
+    margin:4px;
 }
 
 button:hover,
@@ -147,7 +143,6 @@ button:hover,
     background:#34495e;
 }
 
-/* INPUT */
 input,
 select,
 textarea{
@@ -159,12 +154,11 @@ textarea{
     font-size:16px;
 }
 
-/* PREVIEW */
 .preview{
     width:100%;
-    max-width:600px;
+    max-width:500px;
     min-height:180px;
-    margin:12px auto;
+    margin:10px auto;
     border:2px dashed #b8c2cc;
     display:flex;
     align-items:center;
@@ -181,41 +175,30 @@ textarea{
     object-fit:contain;
 }
 
-/* ID CARD PREVIEW */
-.id-card-preview{
-    width:85.6mm;
-    height:54mm;
+.id-card{
+    width:350px;
     max-width:100%;
-    margin:20px auto;
+    min-height:220px;
+    margin:15px auto;
     border:2px solid #145b91;
-    border-radius:8px;
-    padding:8px;
+    border-radius:10px;
+    padding:15px;
     background:white;
     text-align:center;
-    overflow:hidden;
 }
 
-.id-card-preview h3{
-    margin:2px 0 5px;
-    font-size:16px;
-    color:#145b91;
+.id-card h3{
+    margin:0 0 5px;
 }
 
-.id-card-preview img{
-    width:30mm;
-    height:38mm;
+.id-card img{
+    width:110px;
+    height:140px;
     object-fit:cover;
     border:1px solid #aaa;
-    display:block;
-    margin:3px auto;
+    margin:8px;
 }
 
-.id-card-preview p{
-    margin:2px;
-    font-size:11px;
-}
-
-/* PAYMENT */
 .payment-box{
     background:#effff3;
     border:1px solid #9bd5aa;
@@ -239,7 +222,6 @@ textarea{
     margin-bottom:15px;
 }
 
-/* FOOTER */
 footer{
     background:#172033;
     color:white;
@@ -253,15 +235,27 @@ footer{
     color:#555;
 }
 
-/* MOBILE */
+.success{
+    background:#e9fff0;
+    color:#137333;
+    padding:12px;
+    border-radius:8px;
+    margin-top:12px;
+}
+
+.error{
+    background:#fff0f0;
+    color:#b00020;
+    padding:12px;
+    border-radius:8px;
+    margin-top:12px;
+}
+
 @media(max-width:700px){
 
-    .grid{
-        grid-template-columns:1fr;
-    }
-
+    .grid,
     .portal-grid{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:1fr;
     }
 
     header h1{
@@ -277,69 +271,33 @@ footer{
     }
 
     nav a{
-        font-size:13px;
-        padding:8px 7px;
-    }
-
-    .id-card-preview{
-        transform-origin:top center;
+        font-size:14px;
+        padding:8px;
     }
 }
 
-/* PRINT WINDOW */
-@page{
-    size:A4;
-    margin:10mm;
-}
-
-.print-card{
-    width:85.6mm;
-    height:54mm;
-    border:2px solid #145b91;
-    border-radius:8px;
-    padding:7px;
-    background:white;
-    text-align:center;
-    overflow:hidden;
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
-}
-
-.print-card h2{
-    margin:2px 0 4px;
-    font-size:16px;
-    color:#145b91;
-}
-
-.print-card img{
-    width:30mm;
-    height:38mm;
-    object-fit:cover;
-    border:1px solid #999;
-    display:block;
-    margin:2px auto;
-}
-
-.print-card p{
-    margin:2px;
-    font-size:11px;
-}
-
-.document-print{
-    width:100%;
-    text-align:center;
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
-}
-
-.document-print img{
-    max-width:100%;
-    max-height:260mm;
-    object-fit:contain;
-}
-
+/* सामान्य page print को छुपाएँ */
 @media print{
 
-    body{
-        background:white;
+    body *{
+        visibility:hidden !important;
+    }
+
+    .print-area,
+    .print-area *{
+        visibility:visible !important;
+    }
+
+    .print-area{
+        position:absolute;
+        left:0;
+        top:0;
+    }
+
+    nav,
+    footer,
+    button{
+        display:none !important;
     }
 }
 </style>
@@ -348,30 +306,54 @@ footer{
 <body>
 
 <header id="home">
+
     <h1>नमस्ते! 👋</h1>
-    <p>Citizen ID Services में आपका स्वागत है</p>
+
+    <p>
+        Citizen ID Services में आपका स्वागत है
+    </p>
+
 </header>
 
+
 <nav>
+
     <a href="#home">🏠 Home</a>
+
     <a href="#services">🛠️ सेवाएँ</a>
+
     <a href="#idcard">🪪 ID Card</a>
+
     <a href="#document">📄 Document</a>
+
     <a href="#payment">💳 Payment</a>
+
     <a href="#contact">✉️ Contact</a>
+
 </nav>
+
 
 <div class="container">
 
-<!-- NOTICE -->
+
+<!-- IMPORTANT NOTICE -->
+
 <div class="notice">
+
     <b>⚠️ महत्वपूर्ण सूचना:</b><br>
-    यह वेबसाइट निजी सुविधा वेबसाइट है, सरकारी वेबसाइट नहीं है।
-    Aadhaar, PAN, Driving Licence और Voter ID से संबंधित वास्तविक
-    आवेदन या अपडेट के लिए संबंधित सरकारी Official Portal का उपयोग करें।
+
+    यह वेबसाइट निजी सुविधा वेबसाइट है,
+    सरकारी वेबसाइट नहीं है।
+
+    Aadhaar, PAN, Driving Licence और Voter ID
+    से संबंधित वास्तविक आवेदन/अपडेट के लिए
+    संबंधित सरकारी Official Portal का उपयोग करें।
+
 </div>
 
+
 <!-- SERVICES -->
+
 <section class="card" id="services">
 
     <h2>🛠️ मेरी सेवाएँ</h2>
@@ -379,13 +361,25 @@ footer{
     <div class="grid">
 
         <div>
-            <p>🪪 आधार से संबंधित ऑनलाइन सेवाएँ</p>
-            <p>💳 पैन कार्ड से संबंधित सेवाएँ</p>
-            <p>📄 ऑनलाइन फॉर्म भरना</p>
-            <p>🖨️ प्रिंट और स्कैन</p>
-            <p>📑 प्रमाण पत्र के लिए ऑनलाइन आवेदन</p>
-            <p>💻 अन्य ऑनलाइन सेवाएँ</p>
+
+            <div class="service-list">
+
+                🪪 आधार से संबंधित ऑनलाइन सेवाएँ<br>
+
+                💳 पैन कार्ड से संबंधित सेवाएँ<br>
+
+                📄 ऑनलाइन फॉर्म भरना<br>
+
+                🖨️ प्रिंट और स्कैन<br>
+
+                📑 प्रमाण पत्र के लिए ऑनलाइन आवेदन<br>
+
+                💻 अन्य ऑनलाइन सेवाएँ
+
+            </div>
+
         </div>
+
 
         <div>
 
@@ -396,31 +390,46 @@ footer{
                 <a class="btn"
                    target="_blank"
                    href="https://uidai.gov.in/">
-                   🪪 Aadhaar
+
+                    🪪 Aadhaar
+
                 </a>
+
 
                 <a class="btn"
                    target="_blank"
                    href="https://www.incometax.gov.in/">
-                   💳 PAN Card
+
+                    💳 PAN Card
+
                 </a>
+
 
                 <a class="btn"
                    target="_blank"
                    href="https://parivahan.gov.in/">
-                   🚗 Driving Licence
+
+                    🚗 Driving Licence
+
                 </a>
+
 
                 <a class="btn"
                    target="_blank"
                    href="https://voters.eci.gov.in/">
-                   🗳️ Voter ID
+
+                    🗳️ Voter ID
+
                 </a>
 
             </div>
 
+
             <p class="small">
-                सरकारी वेबसाइट पर जाने के लिए ऊपर दिए गए buttons का उपयोग करें।
+
+                सरकारी वेबसाइट पर जाने के लिए
+                ऊपर दिए गए buttons का उपयोग करें।
+
             </p>
 
         </div>
@@ -429,46 +438,74 @@ footer{
 
 </section>
 
+
+
 <!-- CSC -->
+
 <section class="card">
 
     <h2>🏛️ CSC Digital Seva</h2>
 
     <p>
-        CSC (Common Service Centre) की अधिकृत सेवाओं के लिए
-        Digital Seva Portal पर जाएँ।
+
+        CSC (Common Service Centre) की अधिकृत सेवाओं
+        के लिए Digital Seva Portal पर जाएँ।
+
     </p>
+
 
     <a class="btn green"
        target="_blank"
        href="https://digitalseva.csc.gov.in/">
-       🌐 CSC Digital Seva खोलें
+
+        🌐 CSC Digital Seva खोलें
+
     </a>
 
+
     <p class="small">
-        🔐 CSC Login ID, Password या OTP किसी के साथ साझा न करें।
+
+        🔐 CSC Login ID, Password या OTP किसी के साथ
+        साझा न करें। केवल अपने अधिकृत CSC खाते से
+        login करें।
+
     </p>
 
 </section>
 
+
+
 <!-- ID CARD -->
+
 <section class="card" id="idcard">
 
     <h2>🪪 ID Card Size में फोटो तैयार करें</h2>
 
+
     <label>
+
         <b>फोटो चुनें:</b>
+
     </label>
 
-    <input type="file"
-           id="idPhoto"
-           accept="image/*">
+
+    <input
+        type="file"
+        id="idPhoto"
+        accept="image/*"
+        onchange="previewIDPhoto(event)"
+    >
+
 
     <label>
+
         <b>साइज चुनें:</b>
+
     </label>
+
 
     <select id="idSize">
+
         <option value="85.6x54">
             ID Card (85.6 × 54 mm)
         </option>
@@ -480,97 +517,147 @@ footer{
         <option value="90x60">
             Photo Card (90 × 60 mm)
         </option>
+
     </select>
 
+
+    <!-- PHOTO PREVIEW -->
+
     <div class="preview" id="idPreview">
+
         यहाँ फोटो दिखाई देगी
-    </div>
-
-    <div class="id-card-preview">
-
-        <h3>Citizen ID Services</h3>
-
-        <img id="idPreviewImage"
-             src=""
-             alt="फोटो">
-
-        <p>फोटो तैयार है</p>
 
     </div>
 
-    <button class="green"
-            onclick="printIDCard()">
+
+    <!-- CARD PREVIEW -->
+
+    <div class="id-card print-area" id="idPrintArea">
+
+        <h3>
+            Citizen ID Services
+        </h3>
+
+
+        <img
+            id="idPrintImage"
+            alt="चुनी गई फोटो"
+        >
+
+
+        <p>
+            फोटो तैयार है
+        </p>
+
+    </div>
+
+
+    <button onclick="printID()">
+
         🖨️ ID Card प्रिंट करें
+
     </button>
 
-    <button class="red"
-            onclick="removeIDPhoto()">
+
+    <button
+        class="red"
+        onclick="removeIDPhoto()">
+
         ❌ हटाएँ
+
     </button>
+
+
+    <p class="small">
+
+        फोटो चुनने के बाद ऊपर Preview में फोटो दिखाई देगी।
+        फिर ID Card प्रिंट करें।
+
+    </p>
 
 </section>
 
-<!-- DOCUMENT -->
+
+
+<!-- DOCUMENT PRINT -->
+
 <section class="card" id="document">
 
     <h2>📄 Document Print Center</h2>
 
+
     <label>
+
         <b>दस्तावेज चुनें:</b>
+
     </label>
+
 
     <select id="documentType">
 
-        <option value="Custom Document">
+        <option>
             Custom Document
         </option>
 
-        <option value="Aadhaar">
+        <option>
             Aadhaar
         </option>
 
-        <option value="PAN Card">
+        <option>
             PAN Card
         </option>
 
-        <option value="Driving Licence">
+        <option>
             Driving Licence
         </option>
 
-        <option value="Voter ID">
+        <option>
             Voter ID
         </option>
 
-        <option value="Other Document">
+        <option>
             Other Document
         </option>
 
     </select>
 
+
     <label>
+
         <b>फाइल चुनें:</b>
+
     </label>
 
-    <input type="file"
-           id="documentFile"
-           accept="image/*,.pdf">
 
-    <div class="preview"
-         id="documentPreview">
+    <input
+        type="file"
+        id="documentFile"
+        accept="image/*,.pdf"
+        onchange="previewDocument(event)"
+    >
+
+
+    <div
+        class="preview"
+        id="documentPreview">
 
         यहाँ दस्तावेज का Preview दिखाई देगा
 
     </div>
 
-    <button class="green"
-            onclick="printDocument()">
+
+    <button
+        class="green"
+        onclick="printDocument()">
 
         🖨️ Document Print करें
 
     </button>
 
-    <button class="red"
-            onclick="removeDocument()">
+
+    <button
+        class="red"
+        onclick="removeDocument()">
 
         ❌ हटाएँ
 
@@ -578,17 +665,25 @@ footer{
 
 </section>
 
+
+
 <!-- PAYMENT -->
+
 <section class="card" id="payment">
 
     <h2>💳 Online Payment</h2>
 
+
     <label>
+
         <b>अपनी सेवा चुनें:</b>
+
     </label>
 
-    <select id="serviceSelect"
-            onchange="updateAmount()">
+
+    <select
+        id="serviceSelect"
+        onchange="updateAmount()">
 
         <option value="20">
             🖨️ सामान्य Print - ₹20
@@ -612,103 +707,166 @@ footer{
 
     </select>
 
+
     <div class="amount">
+
         राशि: ₹<span id="amount">20</span>
+
     </div>
+
 
     <div class="payment-box">
 
-        <h3>📱 UPI से भुगतान करें</h3>
+        <h3>
+            📱 UPI से भुगतान करें
+        </h3>
 
-        <p>UPI ID:</p>
+
+        <p>
+            UPI ID:
+        </p>
+
 
         <div class="upi">
+
             subhasharyan001@ybl
+
         </div>
+
 
         <br>
 
-        <button class="green"
-                onclick="payUPI()">
+
+        <button
+            class="green"
+            onclick="payUPI()">
+
             📱 UPI App से Pay करें
+
         </button>
 
-        <button class="orange"
-                onclick="copyUPI()">
+
+        <button
+            class="orange"
+            onclick="copyUPI()">
+
             📋 UPI ID Copy करें
+
         </button>
+
 
         <p class="small">
-            भुगतान की वास्तविक पुष्टि यह वेबसाइट स्वयं नहीं करती।
+
+            भुगतान की वास्तविक पुष्टि यह वेबसाइट
+            स्वयं नहीं करती।
+
         </p>
 
     </div>
 
+
     <label>
+
         <b>ग्राहक का नाम:</b>
+
     </label>
 
-    <input type="text"
-           id="customerName"
-           placeholder="अपना नाम लिखें">
+
+    <input
+        type="text"
+        id="customerName"
+        placeholder="अपना नाम लिखें"
+    >
+
 
     <label>
+
         <b>मोबाइल नंबर:</b>
+
     </label>
 
-    <input type="tel"
-           id="customerMobile"
-           maxlength="10"
-           inputmode="numeric"
-           placeholder="10 अंकों का मोबाइल नंबर">
 
-    <button class="green"
-            onclick="paymentDone()">
+    <input
+        type="tel"
+        id="customerMobile"
+        maxlength="10"
+        inputmode="numeric"
+        placeholder="10 अंकों का मोबाइल नंबर"
+    >
+
+
+    <button
+        class="green"
+        onclick="paymentDone()">
 
         ✅ मैंने Payment कर दिया
 
     </button>
 
+
     <p id="paymentMessage"></p>
 
 </section>
 
+
+
 <!-- CONTACT -->
+
 <section class="card" id="contact">
 
     <h2>✉️ मुझसे संपर्क करें</h2>
 
+
     <p>
+
         <b>नाम:</b> Subhash
+
     </p>
+
 
     <p>
-        ऑनलाइन सहायता के लिए नीचे दिए विकल्पों का उपयोग करें।
+
+        ऑनलाइन सहायता के लिए नीचे दिए विकल्पों
+        का उपयोग करें।
+
     </p>
 
-    <!-- अपना WhatsApp नंबर यहाँ डालें -->
-    <a class="btn green"
-   target="_blank"
-   href="https://wa.me/918890922880">
-   💬 WhatsApp पर संपर्क करें
-</a>
 
-    <a class="btn"
-       target="_blank"
-       href="https://www.google.com/maps">
+    <!-- YOUR WHATSAPP NUMBER -->
 
-       📍 Google Maps पर रास्ता देखें
+    <a
+        class="btn green"
+        target="_blank"
+        href="https://wa.me/918890922880">
+
+        💬 WhatsApp पर संपर्क करें
 
     </a>
 
+
+    <a
+        class="btn"
+        target="_blank"
+        href="https://www.google.com/maps">
+
+        📍 Google Maps पर रास्ता देखें
+
+    </a>
+
+
     <p class="small">
-        WhatsApp button में 91XXXXXXXXXX की जगह अपना वास्तविक
-        WhatsApp नंबर डालें।
+
+        📱 WhatsApp नंबर:
+        <b>8890922880</b>
+
     </p>
 
 </section>
 
+
 </div>
+
+
 
 <footer>
 
@@ -720,130 +878,181 @@ footer{
 
 </footer>
 
+
+
 <script>
 
-/* =========================
-   UPI ID
-========================= */
+/* =========================================
+   BASIC SETTINGS
+========================================= */
 
 const UPI_ID = "subhasharyan001@ybl";
 
-
-/* =========================
-   ID PHOTO
-========================= */
-
-let idPhotoURL = "";
+const WHATSAPP_NUMBER = "918890922880";
 
 
-document.getElementById("idPhoto").addEventListener(
-    "change",
-    function(event){
+/* =========================================
+   ID PHOTO PREVIEW
+   FileReader इस्तेमाल किया गया है ताकि
+   मोबाइल में फोटो सही दिखाई दे।
+========================================= */
 
-        const file = event.target.files[0];
+function previewIDPhoto(event){
 
-        if(!file){
-            return;
-        }
+    const file = event.target.files[0];
 
-        if(!file.type.startsWith("image/")){
+    if(!file){
 
-            alert("कृपया केवल फोटो चुनें।");
-
-            event.target.value = "";
-
-            return;
-        }
-
-        if(idPhotoURL){
-
-            URL.revokeObjectURL(idPhotoURL);
-
-        }
-
-        idPhotoURL = URL.createObjectURL(file);
-
-        document.getElementById("idPreview").innerHTML =
-            '<img src="' + idPhotoURL + '" alt="फोटो">';
-
-        document.getElementById("idPreviewImage").src =
-            idPhotoURL;
+        return;
 
     }
-);
 
 
-/* =========================
+    if(!file.type.startsWith("image/")){
+
+        alert("कृपया केवल फोटो चुनें।");
+
+        event.target.value = "";
+
+        return;
+
+    }
+
+
+    const reader = new FileReader();
+
+
+    reader.onload = function(e){
+
+        const imageData = e.target.result;
+
+
+        /* Preview */
+
+        document.getElementById("idPreview").innerHTML =
+            '<img src="' +
+            imageData +
+            '" alt="आपकी फोटो">';
+
+
+        /* Card Image */
+
+        const printImage =
+            document.getElementById("idPrintImage");
+
+
+        printImage.src = imageData;
+
+
+        printImage.style.display = "inline-block";
+
+    };
+
+
+    reader.onerror = function(){
+
+        alert("फोटो पढ़ने में समस्या हुई। कृपया दूसरी फोटो चुनें।");
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+
+/* =========================================
    REMOVE ID PHOTO
-========================= */
+========================================= */
 
 function removeIDPhoto(){
 
     document.getElementById("idPhoto").value = "";
 
+
     document.getElementById("idPreview").innerHTML =
         "यहाँ फोटो दिखाई देगी";
 
-    document.getElementById("idPreviewImage").src = "";
 
-    if(idPhotoURL){
+    const image =
+        document.getElementById("idPrintImage");
 
-        URL.revokeObjectURL(idPhotoURL);
 
-        idPhotoURL = "";
+    image.src = "";
 
-    }
+    image.style.display = "none";
 
 }
 
 
-/* =========================
-   PRINT ID CARD
-========================= */
 
-function printIDCard(){
+/* =========================================
+   ID CARD PRINT
+   अलग Print Window खुलेगी।
+========================================= */
 
-    if(!idPhotoURL){
+function printID(){
+
+    const image =
+        document.getElementById("idPrintImage").src;
+
+
+    if(!image){
 
         alert("पहले फोटो चुनें।");
 
         return;
+
     }
+
 
     const size =
         document.getElementById("idSize").value;
 
+
     let width = "85.6mm";
+
     let height = "54mm";
+
 
     if(size === "86x54"){
 
         width = "86mm";
+
         height = "54mm";
 
     }
 
+
     if(size === "90x60"){
 
         width = "90mm";
+
         height = "60mm";
 
     }
 
+
     const printWindow =
         window.open("", "_blank");
 
+
     if(!printWindow){
 
-        alert("Print window नहीं खुल रही। Browser में Pop-up allow करें।");
+        alert(
+            "Print Window नहीं खुली। Browser में Pop-up Allow करें।"
+        );
 
         return;
+
     }
 
-    printWindow.document.open();
 
     printWindow.document.write(`
+
 <!DOCTYPE html>
+
 <html lang="hi">
 
 <head>
@@ -855,50 +1064,90 @@ function printIDCard(){
 <style>
 
 @page{
-    size:A4;
-    margin:10mm;
+
+    size:${width} ${height};
+
+    margin:0;
+
 }
 
 *{
+
     box-sizing:border-box;
+
 }
 
+html,
 body{
+
     margin:0;
+
     padding:0;
-    background:white;
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+
+    width:${width};
+
+    height:${height};
+
 }
 
 .card{
+
     width:${width};
+
     height:${height};
-    border:2px solid #145b91;
-    border-radius:8px;
-    padding:7px;
+
+    border:1.5px solid #145b91;
+
+    border-radius:3mm;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding:4mm;
+
     text-align:center;
-    overflow:hidden;
+
+    font-family:Arial,
+    "Noto Sans Devanagari",
+    sans-serif;
+
     background:white;
+
 }
 
 .card h2{
-    margin:1px 0 4px;
-    font-size:16px;
-    color:#145b91;
+
+    margin:0 0 2mm 0;
+
+    font-size:5mm;
+
 }
 
 .card img{
-    width:30mm;
-    height:38mm;
+
+    width:28mm;
+
+    height:35mm;
+
     object-fit:cover;
-    border:1px solid #999;
-    display:block;
-    margin:2px auto;
+
+    border:0.3mm solid #999;
+
+    margin:1mm 0;
+
 }
 
 .card p{
-    margin:2px;
-    font-size:11px;
+
+    margin:1mm 0 0;
+
+    font-size:3.5mm;
+
 }
 
 </style>
@@ -909,11 +1158,11 @@ body{
 
 <div class="card">
 
-<h2>Citizen ID Services</h2>
+    <h2>Citizen ID Services</h2>
 
-<img src="${idPhotoURL}" alt="फोटो">
+    <img src="${image}" alt="Photo">
 
-<p>फोटो तैयार है</p>
+    <p>फोटो तैयार है</p>
 
 </div>
 
@@ -934,182 +1183,170 @@ window.onload = function(){
 </body>
 
 </html>
-`);
+
+    `);
+
 
     printWindow.document.close();
 
 }
 
 
-/* =========================
+
+/* =========================================
    DOCUMENT PREVIEW
-========================= */
+========================================= */
 
-let documentURL = "";
+function previewDocument(event){
+
+    const file =
+        event.target.files[0];
 
 
-document.getElementById("documentFile").addEventListener(
-    "change",
-    function(event){
+    if(!file){
 
-        const file = event.target.files[0];
-
-        if(!file){
-            return;
-        }
-
-        if(documentURL){
-
-            URL.revokeObjectURL(documentURL);
-
-        }
-
-        documentURL =
-            URL.createObjectURL(file);
-
-        const preview =
-            document.getElementById("documentPreview");
-
-        if(file.type.startsWith("image/")){
-
-            preview.innerHTML =
-                '<img src="' +
-                documentURL +
-                '" alt="Document">';
-
-        }
-
-        else if(file.type === "application/pdf"){
-
-            preview.innerHTML =
-                '<iframe src="' +
-                documentURL +
-                '" style="width:100%;height:350px;border:0;"></iframe>';
-
-        }
-
-        else{
-
-            preview.innerHTML =
-                "यह फाइल Preview नहीं की जा सकती।";
-
-        }
+        return;
 
     }
-);
 
 
-/* =========================
-   REMOVE DOCUMENT
-========================= */
+    const preview =
+        document.getElementById("documentPreview");
 
-function removeDocument(){
 
-    document.getElementById("documentFile").value = "";
+    if(file.type.startsWith("image/")){
 
-    document.getElementById("documentPreview").innerHTML =
-        "यहाँ दस्तावेज का Preview दिखाई देगा";
+        const reader =
+            new FileReader();
 
-    if(documentURL){
 
-        URL.revokeObjectURL(documentURL);
+        reader.onload =
+            function(e){
 
-        documentURL = "";
+                preview.innerHTML =
+                    '<img src="' +
+                    e.target.result +
+                    '" alt="Document">';
+
+            };
+
+
+        reader.readAsDataURL(file);
+
+    }
+
+
+    else if(
+        file.type === "application/pdf"
+    ){
+
+        const url =
+            URL.createObjectURL(file);
+
+
+        preview.innerHTML =
+            '<iframe src="' +
+            url +
+            '" style="width:100%;height:350px;border:0;"></iframe>';
+
+    }
+
+
+    else{
+
+        preview.innerHTML =
+            "यह फाइल Preview नहीं की जा सकती।";
 
     }
 
 }
 
 
-/* =========================
-   PRINT DOCUMENT
-========================= */
+
+/* =========================================
+   DOCUMENT PRINT
+========================================= */
 
 function printDocument(){
 
     const file =
-        document.getElementById("documentFile").files[0];
+        document.getElementById("documentFile")
+        .files[0];
+
 
     if(!file){
 
         alert("पहले दस्तावेज चुनें।");
 
         return;
-    }
-
-    if(file.type === "application/pdf"){
-
-        const printWindow =
-            window.open(documentURL, "_blank");
-
-        if(!printWindow){
-
-            alert("PDF खोलने के लिए Pop-up allow करें.");
-
-            return;
-        }
-
-        return;
 
     }
 
-    if(!file.type.startsWith("image/")){
 
-        alert("इस फाइल को सीधे Print नहीं किया जा सकता।");
+    if(file.type.startsWith("image/")){
 
-        return;
+        const reader =
+            new FileReader();
 
-    }
 
-    const documentName =
-        document.getElementById("documentType").value;
+        reader.onload =
+            function(e){
 
-    const printWindow =
-        window.open("", "_blank");
+                const printWindow =
+                    window.open("", "_blank");
 
-    if(!printWindow){
 
-        alert("Print window नहीं खुल रही। Browser में Pop-up allow करें।");
+                if(!printWindow){
 
-        return;
-    }
+                    alert(
+                        "Print Window नहीं खुली। Browser में Pop-up Allow करें।"
+                    );
 
-    printWindow.document.open();
+                    return;
 
-    printWindow.document.write(`
+                }
+
+
+                printWindow.document.write(`
+
 <!DOCTYPE html>
 
-<html lang="hi">
+<html>
 
 <head>
 
 <meta charset="UTF-8">
 
-<title>${documentName} Print</title>
+<title>Document Print</title>
 
 <style>
 
 @page{
-    size:A4;
+
     margin:10mm;
+
 }
 
 body{
-    margin:0;
-    background:white;
-    text-align:center;
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
-}
 
-h2{
-    font-size:18px;
-    margin:0 0 10px;
+    margin:0;
+
+    text-align:center;
+
+    font-family:Arial,
+    "Noto Sans Devanagari",
+    sans-serif;
+
 }
 
 img{
-    max-width:190mm;
-    max-height:270mm;
+
+    max-width:100%;
+
+    max-height:260mm;
+
     object-fit:contain;
+
 }
 
 </style>
@@ -1118,13 +1355,11 @@ img{
 
 <body>
 
-<h2>${documentName}</h2>
-
-<img src="${documentURL}" alt="Document">
+<img src="${e.target.result}" alt="Document">
 
 <script>
 
-window.onload = function(){
+window.onload=function(){
 
     setTimeout(function(){
 
@@ -1139,21 +1374,80 @@ window.onload = function(){
 </body>
 
 </html>
-`);
 
-    printWindow.document.close();
+                `);
+
+
+                printWindow.document.close();
+
+            };
+
+
+        reader.readAsDataURL(file);
+
+    }
+
+
+    else if(
+        file.type === "application/pdf"
+    ){
+
+        const url =
+            URL.createObjectURL(file);
+
+
+        const printWindow =
+            window.open(url, "_blank");
+
+
+        if(!printWindow){
+
+            alert(
+                "PDF खोलने के लिए Browser में Pop-up Allow करें।"
+            );
+
+        }
+
+    }
+
+
+    else{
+
+        alert(
+            "यह फाइल Print नहीं की जा सकती।"
+        );
+
+    }
 
 }
 
 
-/* =========================
+
+/* =========================================
+   REMOVE DOCUMENT
+========================================= */
+
+function removeDocument(){
+
+    document.getElementById("documentFile").value = "";
+
+
+    document.getElementById("documentPreview").innerHTML =
+        "यहाँ दस्तावेज का Preview दिखाई देगा";
+
+}
+
+
+
+/* =========================================
    PAYMENT AMOUNT
-========================= */
+========================================= */
 
 function updateAmount(){
 
     const select =
         document.getElementById("serviceSelect");
+
 
     document.getElementById("amount").innerText =
         select.value;
@@ -1161,43 +1455,62 @@ function updateAmount(){
 }
 
 
-/* =========================
+
+/* =========================================
    UPI PAYMENT
-========================= */
+========================================= */
 
 function payUPI(){
 
     const amount =
         document.getElementById("serviceSelect").value;
 
+
     const name =
-        document.getElementById("customerName").value.trim()
-        || "Customer";
+        document.getElementById("customerName").value ||
+        "Customer";
+
 
     const upiURL =
-        "upi://pay" +
-        "?pa=" + encodeURIComponent(UPI_ID) +
-        "&pn=" + encodeURIComponent("Citizen ID Services") +
-        "&am=" + encodeURIComponent(amount) +
+        "upi://pay?pa=" +
+        encodeURIComponent(UPI_ID) +
+
+        "&pn=" +
+        encodeURIComponent(
+            "Citizen ID Services"
+        ) +
+
+        "&am=" +
+        encodeURIComponent(amount) +
+
         "&cu=INR" +
-        "&tn=" + encodeURIComponent(
+
+        "&tn=" +
+        encodeURIComponent(
             "Service Payment - " + name
         );
 
-    window.location.href = upiURL;
+
+    window.location.href =
+        upiURL;
 
 }
 
 
-/* =========================
+
+/* =========================================
    COPY UPI
-========================= */
+========================================= */
 
 function copyUPI(){
 
-    if(navigator.clipboard){
+    if(
+        navigator.clipboard &&
+        window.isSecureContext
+    ){
 
-        navigator.clipboard.writeText(UPI_ID)
+        navigator.clipboard
+        .writeText(UPI_ID)
         .then(function(){
 
             alert(
@@ -1215,7 +1528,9 @@ function copyUPI(){
 
         });
 
-    }else{
+    }
+
+    else{
 
         alert(
             "UPI ID:\n" +
@@ -1227,27 +1542,35 @@ function copyUPI(){
 }
 
 
-/* =========================
+
+/* =========================================
    PAYMENT DONE
-========================= */
+========================================= */
 
 function paymentDone(){
 
     const name =
         document.getElementById("customerName")
-        .value.trim();
+        .value
+        .trim();
+
 
     const mobile =
         document.getElementById("customerMobile")
-        .value.trim();
+        .value
+        .trim();
+
 
     if(!name){
 
-        alert("ग्राहक का नाम लिखें।");
+        alert(
+            "ग्राहक का नाम लिखें।"
+        );
 
         return;
 
     }
+
 
     if(!/^[0-9]{10}$/.test(mobile)){
 
@@ -1259,26 +1582,37 @@ function paymentDone(){
 
     }
 
-    const amount =
-        document.getElementById("amount")
-        .innerText;
 
-    document.getElementById("paymentMessage").innerHTML =
-        "<b style='color:green'>" +
-        "✅ जानकारी दर्ज हो गई।<br>" +
-        "ग्राहक: " + name +
-        "<br>राशि: ₹" + amount +
-        "<br>कृपया payment की वास्तविक पुष्टि अपने payment gateway/merchant dashboard से करें।" +
-        "</b>";
+    document.getElementById(
+        "paymentMessage"
+    ).innerHTML =
+
+        '<div class="success">' +
+
+        '✅ जानकारी दर्ज हो गई।<br>' +
+
+        'कृपया payment का वास्तविक verification ' +
+
+        'अपने payment gateway/merchant dashboard से करें।' +
+
+        '</div>';
 
 }
 
 
-/* =========================
-   INITIAL AMOUNT
-========================= */
+
+/* =========================================
+   START
+========================================= */
 
 updateAmount();
+
+
+/* फोटो शुरू में छिपी रहे */
+
+document.getElementById(
+    "idPrintImage"
+).style.display = "none";
 
 </script>
 
