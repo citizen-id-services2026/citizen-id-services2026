@@ -69,10 +69,52 @@ const portals=[["🏛️","Census Of India"],["🪪","Aadhaar Service","https://
 function fill(id,data){$(id).innerHTML=data.map(x=>{let action=x[2]&&x[2].startsWith("http")?`onclick="window.open('${x[2]}','_blank','noopener,noreferrer')"`:x[2]?`onclick="openStudio('${x[2]}')"`:`onclick="notice('${esc(x[1])}')"`;return `<div class="card" data-name="${esc(x[1].toLowerCase())}" ${action}><div class="icon">${x[0]}</div><b>${esc(x[1])}</b>${x[3]?`<i class="tag ${x[3]=="HOT"||x[3]=="AI"?"hot":""}">${x[3]}</i>`:""}</div>`}).join("")}
 fill("#toolGrid",tools);fill("#serviceGrid",services);fill("#creativeGrid",creative);fill("#pdfGrid",pdf);fill("#cardGrid",cards);fill("#portalGrid",portals);
 function toggleMenu(){$("#navlinks").classList.toggle("mobile")}function notice(t){toast(t+" — module ready")}function toast(t){let e=$("#toast");e.textContent=t;e.style.cssText="display:block;position:fixed;right:15px;bottom:15px;background:#26313d;color:#fff;padding:12px 15px;border-radius:10px;z-index:300";clearTimeout(window.t);window.t=setTimeout(()=>e.style.display="none",2600)}function closeModal(){$("#modal").classList.remove("show")}function filterCards(){let q=$("#search").value.toLowerCase();document.querySelectorAll(".card").forEach(c=>c.style.display=!q||c.innerText.toLowerCase().includes(q)?"":"none")}
-function openStudio(mode){$("#modalBody").innerHTML=mode==="generate"?generateUI():mode==="a4"||mode==="print"?printUI():editorUI();$("#modal").classList.add("show");setTimeout(()=>{draw();updateInfo();if(mode==="a4"||mode==="print")renderSheet()},30)}
+function openStudio(mode){
+  if(mode==="jpgpdf"){
+    $("#modalBody").innerHTML=jpgPdfUI();
+  }else if(mode==="generate"){
+    $("#modalBody").innerHTML=generateUI();
+  }else if(mode==="a4"||mode==="print"){
+    $("#modalBody").innerHTML=printUI();
+  }else{
+    $("#modalBody").innerHTML=editorUI();
+  }
+
+  $("#modal").classList.add("show");
+
+  setTimeout(()=>{
+    draw();
+    updateInfo();
+
+    if(mode==="a4"||mode==="print"){
+      renderSheet();
+    }
+  },30);
+}
 function editorUI(){return `<h2>🪪 Professional Photo & ID Card Studio</h2><p style="color:#667085">Upload • Crop • Resize • Background • AI Auto • Front/Back • Print</p><div class="studio"><div class="panel"><h3>Photo & Card Settings</h3><div class="control"><label>Front Photo</label><input type="file" accept="image/*" onchange="loadImg(this,'front')"></div><div class="control"><label>Back Photo</label><input type="file" accept="image/*" onchange="loadImg(this,'back')"></div><div class="control"><label>Size</label><select id="size" onchange="draw();updateInfo()"><option value="id">Standard ID/PVC — 85.6×54 mm</option><option value="school">School/College — 90×55 mm</option><option value="aadhar">Aadhaar Style — 85.6×54 mm</option><option value="pan">PAN Style — 85.6×54 mm</option><option value="passport">Passport Photo — 35×45 mm</option><option value="small">Small Photo — 25×35 mm</option><option value="custom">Custom</option></select></div><div class="row"><div class="control"><label>Width mm</label><input id="cw" type="number" value="85.6" oninput="draw()"></div><div class="control"><label>Height mm</label><input id="ch" type="number" value="54" oninput="draw()"></div></div><div class="control"><label>Zoom</label><input id="zoom" type="range" min="50" max="200" value="100" oninput="draw()"></div><div class="row"><div class="control"><label>Move X</label><input id="x" type="range" min="-100" max="100" value="0" oninput="draw()"></div><div class="control"><label>Move Y</label><input id="y" type="range" min="-100" max="100" value="0" oninput="draw()"></div></div><div class="row"><div class="control"><label>Brightness</label><input id="bright" type="range" min="70" max="140" value="100" oninput="draw()"></div><div class="control"><label>Contrast</label><input id="contrast" type="range" min="70" max="140" value="100" oninput="draw()"></div></div><div class="row"><button class="btn blue" onclick="rotImg(-90)">↶ Rotate</button><button class="btn blue" onclick="rotImg(90)">↷ Rotate</button></div><div class="control"><label>Background</label><div class="bggrid"><button class="bg white" onclick="setBG('white')"></button><button class="bg sky" onclick="setBG('sky')"></button><button class="bg red" onclick="setBG('red')"></button><button class="bg gray" onclick="setBG('gray')"></button></div></div><div class="actions"><button class="btn green" onclick="aiAuto()">🤖 AI Auto</button><button class="btn" onclick="autoCrop()">✂️ Auto Crop</button><button class="btn blue" onclick="removeBG()">🪄 AI Remove BG</button></div><div class="info" id="info"></div></div><div><div class="tabs"><button class="tab active" id="frontTab" onclick="switchSide('front')">Front</button><button class="tab" id="backTab" onclick="switchSide('back')">Back</button></div><div class="preview"><canvas id="editor" width="856" height="540"></canvas></div><div class="actions" style="margin-top:8px"><button class="btn" onclick="download()">⬇ Download</button><button class="btn green" onclick="oneClickPrint()">🖨️ One Click Print</button><button class="btn blue" onclick="openStudio('a4')">📄 A4 Layout</button><button class="btn dark" onclick="reset()">↺ Reset</button></div></div></div>`}
 function generateUI(){return `<h2>✨ Real AI Generate Photo</h2><div class="panel" style="margin-top:12px"><p>अपने उपयोग के लिए prompt लिखें। Official ID के लिए AI-generated face की जगह वास्तविक ग्राहक की photo इस्तेमाल करें।</p><div class="control"><label>AI Prompt</label><textarea id="prompt" placeholder="Professional studio portrait, formal shirt, clean white background, passport-photo style..."></textarea></div><div class="control"><label>Secure AI API Endpoint</label><input id="api" value="${esc(API_URL)}" placeholder="Your deployed AI backend endpoint"></div><div class="actions"><button class="btn" onclick="saveAPI()">💾 Save API URL</button><button class="btn green" onclick="generateAI()">✨ Generate With AI</button><button class="btn blue" onclick="openStudio('photo')">📸 Open Photo Studio</button></div><div id="genResult" class="airesult" style="margin-top:12px">AI result यहाँ दिखाई देगा।</div></div>`}
-function printUI()function jpgPdfUI(){
+function printUI()function jpgPdfUI()function openStudio(mode){
+  if(mode==="jpgpdf"){
+    $("#modalBody").innerHTML=jpgPdfUI();
+  }else if(mode==="generate"){
+    $("#modalBody").innerHTML=generateUI();
+  }else if(mode==="a4"||mode==="print"){
+    $("#modalBody").innerHTML=printUI();
+  }else{
+    $("#modalBody").innerHTML=editorUI();
+  }
+
+  $("#modal").classList.add("show");
+
+  setTimeout(()=>{
+    draw();
+    updateInfo();
+
+    if(mode==="a4"||mode==="print"){
+      renderSheet();
+    }
+  },30);
+}{
   return `
     <h2>🖼️📄 JPG To PDF</h2>
     <div class="panel" style="margin-top:12px">
