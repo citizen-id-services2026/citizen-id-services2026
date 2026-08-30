@@ -75,7 +75,7 @@ function renderSheet(){
   let both=$("#both").value==="no" && back;
 
   if(both){
-    g.style.gridTemplateColumns="repeat(4,1fr)";
+    g.style.gridTemplateColumns="repeat(4,1fr)";g.style.gap="2mm";
   }else{
     g.style.gridTemplateColumns=type==="passport"?"repeat(4,35mm)":"repeat(2,1fr)";
   }
