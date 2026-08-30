@@ -7,10 +7,9 @@
 <title>Bharat Digital Centre | Digital Services</title>
 
 <!-- =========================================================
-     FIREBASE
+ FIREBASE
 ========================================================= -->
 <script type="module">
-
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
 
@@ -24,84 +23,78 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 
-const firebaseConfig = {
+try {
 
-  apiKey: "AIzaSyDs3xlVBdjxPqbkvPiyYQWHy8tHBpIi-zk",
+  const firebaseConfig = {
+    apiKey: "AIzaSyDs3xlVBdjxPqbkvPiyYQWHy8tHBpIi-zk",
+    authDomain: "bharat-digital-centre.firebaseapp.com",
+    projectId: "bharat-digital-centre",
+    storageBucket: "bharat-digital-centre.firebasestorage.app",
+    messagingSenderId: "911423935077",
+    appId: "1:911423935077:web:574e0754bfaacee421ac8c"
+  };
 
-  authDomain:
-  "bharat-digital-centre.firebaseapp.com",
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
-  projectId:
-  "bharat-digital-centre",
+  window.firebaseAuth = auth;
 
-  storageBucket:
-  "bharat-digital-centre.firebasestorage.app",
+  window.firebaseFunctions = {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    sendPasswordResetEmail
+  };
 
-  messagingSenderId:
-  "911423935077",
+  onAuthStateChanged(auth, function(user) {
 
-  appId:
-  "1:911423935077:web:574e0754bfaacee421ac8c"
-};
+    window.currentFirebaseUser = user;
 
-const app = initializeApp(firebaseConfig);
+    const loginBtn =
+      document.getElementById("loginTopBtn");
 
-const auth = getAuth(app);
+    const userBox =
+      document.getElementById("userBox");
 
-window.firebaseAuth = auth;
+    const userEmail =
+      document.getElementById("userEmail");
 
-window.firebaseFunctions = {
+    if (user) {
 
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  sendPasswordResetEmail
+      if (loginBtn)
+        loginBtn.style.display = "none";
 
-};
+      if (userBox)
+        userBox.style.display = "flex";
 
-onAuthStateChanged(auth, user => {
+      if (userEmail)
+        userEmail.textContent = user.email || "";
 
-  window.currentFirebaseUser = user;
+    } else {
 
-  const loginBtn =
-  document.getElementById("loginTopBtn");
+      if (loginBtn)
+        loginBtn.style.display = "block";
 
-  const userBox =
-  document.getElementById("userBox");
+      if (userBox)
+        userBox.style.display = "none";
 
-  const userEmail =
-  document.getElementById("userEmail");
+    }
 
-  if(user){
+  });
 
-    if(loginBtn)
-      loginBtn.style.display="none";
+} catch (error) {
 
-    if(userBox)
-      userBox.style.display="flex";
+  console.error("Firebase initialization error:", error);
 
-    if(userEmail)
-      userEmail.textContent=user.email;
+  window.firebaseErrorState = true;
 
-  }else{
-
-    if(loginBtn)
-      loginBtn.style.display="block";
-
-    if(userBox)
-      userBox.style.display="none";
-
-  }
-
-});
-
+}
 </script>
 
 
 <!-- =========================================================
-     PDF LIBRARIES
+ PDF LIBRARIES
 ========================================================= -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -112,7 +105,7 @@ onAuthStateChanged(auth, user => {
 <style>
 
 /* =========================================================
-   GLOBAL
+ GLOBAL
 ========================================================= */
 
 *{
@@ -122,25 +115,17 @@ onAuthStateChanged(auth, user => {
 }
 
 :root{
-
   --orange:#ff5722;
   --orange2:#ff7043;
-
   --green:#13a673;
   --blue:#3478f6;
-
+  --purple:#9c27b0;
   --dark:#263238;
   --text:#303846;
-
   --bg:#f5f8fb;
-
   --card:#ffffff;
-
   --border:#d9eee7;
-
-  --shadow:
-  0 8px 25px rgba(0,0,0,.07);
-
+  --shadow:0 8px 25px rgba(0,0,0,.07);
 }
 
 html{
@@ -148,284 +133,168 @@ html{
 }
 
 body{
-
   font-family:
-  Arial,
-  "Noto Sans Devanagari",
-  sans-serif;
+    Arial,
+    "Noto Sans Devanagari",
+    sans-serif;
 
   background:
-  linear-gradient(
-    rgba(255,255,255,.90),
-    rgba(247,250,252,.96)
-  ),
-  url("https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg");
+    linear-gradient(
+      rgba(255,255,255,.94),
+      rgba(247,250,252,.97)
+    ),
+    url("https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg");
 
-  background-size:
-  cover;
-
-  background-attachment:
-  fixed;
+  background-size:cover;
+  background-attachment:fixed;
 
   color:var(--text);
-
   min-height:100vh;
-
 }
 
 
 /* =========================================================
-   BLURRED INDIA FLAG
-========================================================= */
-
-body:before{
-
-  content:"";
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:-2;
-
-  background:
-
-  linear-gradient(
-    90deg,
-    rgba(255,153,51,.14),
-    rgba(255,255,255,.10),
-    rgba(19,136,8,.14)
-  );
-
-  filter:blur(25px);
-
-}
-
-
-/* =========================================================
-   HEADER
+ HEADER
 ========================================================= */
 
 .topbar{
-
   position:sticky;
-
   top:0;
-
   z-index:999;
 
-  height:68px;
+  min-height:68px;
 
-  background:
-  rgba(255,255,255,.94);
+  background:rgba(255,255,255,.96);
 
-  backdrop-filter:
-  blur(18px);
+  backdrop-filter:blur(18px);
 
-  border-bottom:
-  1px solid #e7eeee;
+  border-bottom:1px solid #e7eeee;
 
   display:flex;
-
   align-items:center;
 
-  padding:
-  0 18px;
+  padding:0 18px;
 
   box-shadow:
-  0 3px 15px rgba(0,0,0,.08);
-
+    0 3px 15px rgba(0,0,0,.08);
 }
 
-
 .header-inner{
-
   width:100%;
-
   max-width:1400px;
-
   margin:auto;
 
   display:flex;
-
   align-items:center;
-
   gap:20px;
-
 }
 
-
-/* =========================================================
-   3D LOGO
-========================================================= */
-
 .logo-area{
-
   display:flex;
-
   align-items:center;
-
   gap:10px;
-
   min-width:210px;
-
 }
 
 .logo-3d{
-
   width:43px;
-
   height:43px;
 
   border-radius:13px;
 
   display:flex;
-
   justify-content:center;
-
   align-items:center;
 
   font-weight:900;
-
   font-size:18px;
 
   color:#fff;
 
   background:
-
-  linear-gradient(
-    135deg,
-    #ff9800,
-    #ff5722
-  );
+    linear-gradient(
+      135deg,
+      #ff9800,
+      #ff5722
+    );
 
   box-shadow:
-
-  0 7px 0 #c83f15,
-
-  0 10px 18px
-  rgba(255,87,34,.30);
-
-  transform:
-  perspective(200px)
-  rotateX(4deg);
-
+    0 7px 0 #c83f15,
+    0 10px 18px rgba(255,87,34,.30);
 }
 
 .logo-text strong{
-
   display:block;
-
   font-size:18px;
-
   color:#202b39;
-
 }
 
 .logo-text small{
-
   display:block;
-
   font-size:9px;
-
   color:#ff5722;
-
   font-weight:bold;
-
 }
 
-
 .nav{
-
   display:flex;
-
   align-items:center;
-
   gap:22px;
-
   flex:1;
-
 }
 
 .nav a{
-
   text-decoration:none;
-
   color:#404958;
-
   font-weight:600;
-
   font-size:14px;
-
   cursor:pointer;
-
 }
 
 .nav a:hover{
-
   color:var(--orange);
-
 }
 
-
 .header-actions{
-
   display:flex;
-
   align-items:center;
-
   gap:9px;
-
 }
 
 .cyber-btn{
-
   background:
-  linear-gradient(
-    135deg,
-    #ff7a35,
-    #ef3f32
-  );
+    linear-gradient(
+      135deg,
+      #ff7a35,
+      #ef3f32
+    );
 
   color:white;
-
   border:0;
-
   border-radius:22px;
 
-  padding:
-  10px 15px;
+  padding:10px 15px;
 
   font-weight:bold;
-
   cursor:pointer;
-
 }
 
 .icon-btn{
-
   width:39px;
-
   height:39px;
 
   border-radius:50%;
-
   border:1px solid #e2e8ef;
 
   background:white;
 
   cursor:pointer;
-
   font-size:17px;
-
 }
 
 .login-btn{
-
   border:0;
-
   background:#eef5ff;
-
   color:#2466d1;
 
   padding:10px 15px;
@@ -433,242 +302,178 @@ body:before{
   border-radius:20px;
 
   font-weight:bold;
-
   cursor:pointer;
-
 }
 
 .user-box{
-
   display:none;
-
   align-items:center;
-
   gap:7px;
-
 }
 
 .user-email{
-
   max-width:130px;
-
   overflow:hidden;
-
   white-space:nowrap;
-
   text-overflow:ellipsis;
-
   font-size:12px;
-
 }
 
 
 /* =========================================================
-   HERO
+ HERO
 ========================================================= */
 
 .hero{
-
   max-width:1380px;
+  margin:22px auto 18px;
 
-  margin:
-  22px auto 18px;
-
-  padding:
-  35px 28px;
+  padding:35px 28px;
 
   border-radius:18px;
 
   color:white;
 
   background:
-
-  linear-gradient(
-    135deg,
-    rgba(238,61,101,.93),
-    rgba(65,150,220,.90)
-  );
+    linear-gradient(
+      135deg,
+      rgba(238,61,101,.93),
+      rgba(65,150,220,.90)
+    );
 
   box-shadow:
-  0 10px 25px rgba(61,117,180,.18);
+    0 10px 25px rgba(61,117,180,.18);
 
   text-align:center;
 
   position:relative;
-
   overflow:hidden;
-
 }
 
 .hero:before{
-
   content:"";
 
   position:absolute;
-
   inset:-80px;
 
   background:
-  repeating-linear-gradient(
-    45deg,
-    rgba(255,255,255,.10) 0,
-    rgba(255,255,255,.10) 2px,
-    transparent 2px,
-    transparent 25px
-  );
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,.10) 0,
+      rgba(255,255,255,.10) 2px,
+      transparent 2px,
+      transparent 25px
+    );
 
   transform:rotate(-4deg);
-
 }
 
 .hero-content{
-
   position:relative;
-
   z-index:2;
-
 }
 
 .hero h1{
-
   font-size:27px;
-
   margin-bottom:9px;
-
 }
 
 .hero p{
-
   font-size:14px;
-
   opacity:.95;
-
 }
 
 
 /* =========================================================
-   SEARCH
+ SEARCH
 ========================================================= */
 
 .search-wrap{
-
   max-width:1180px;
-
   margin:20px auto;
-
   position:relative;
-
 }
 
 .search-box{
-
   width:100%;
-
   height:54px;
 
   border:1px solid #e1e7ed;
-
   border-radius:17px;
 
   background:#fff;
 
   box-shadow:
-  0 8px 20px rgba(0,0,0,.08);
+    0 8px 20px rgba(0,0,0,.08);
 
-  padding:
-  0 20px 0 50px;
+  padding:0 20px 0 50px;
 
   font-size:15px;
-
   outline:none;
-
 }
 
 .search-icon{
-
   position:absolute;
-
   left:18px;
-
   top:15px;
-
   font-size:21px;
-
 }
 
 
 /* =========================================================
-   NOTICE
+ NOTICE
 ========================================================= */
 
 .notice{
-
   max-width:1100px;
 
-  margin:
-  15px auto 22px;
+  margin:15px auto 22px;
 
-  padding:
-  12px 16px;
+  padding:12px 16px;
 
-  border-left:
-  4px solid #ff9800;
+  border-left:4px solid #ff9800;
 
   background:
-  rgba(255,248,230,.94);
+    rgba(255,248,230,.94);
 
   border-radius:8px;
 
   font-size:13px;
-
 }
 
 
 /* =========================================================
-   MAIN
+ MAIN
 ========================================================= */
 
 main{
-
   max-width:1380px;
-
   margin:auto;
-
-  padding:
-  0 15px 60px;
-
+  padding:0 15px 60px;
 }
 
 
 /* =========================================================
-   SECTION
+ SECTION
 ========================================================= */
 
 .section{
-
   margin-top:27px;
-
 }
 
 .section-title{
-
   display:flex;
-
   align-items:center;
-
   gap:9px;
 
   font-size:18px;
-
   font-weight:800;
 
   margin-bottom:15px;
 
   padding-left:10px;
 
-  border-left:
-  4px solid var(--green);
-
+  border-left:4px solid var(--green);
 }
 
 .section-title.orange{
@@ -685,39 +490,32 @@ main{
 
 
 /* =========================================================
-   CARD GRID
+ SERVICE GRID
 ========================================================= */
 
 .service-grid{
-
   display:grid;
-
-  grid-template-columns:
-  repeat(5,1fr);
-
+  grid-template-columns:repeat(5,1fr);
   gap:12px;
-
 }
 
 
 /* =========================================================
-   SERVICE CARD
+ SERVICE CARD
 ========================================================= */
 
 .service-card{
-
   min-height:138px;
 
   background:
-  rgba(255,255,255,.96);
+    rgba(255,255,255,.97);
 
   border:
-  1px solid var(--border);
+    1px solid var(--border);
 
   border-radius:17px;
 
-  padding:
-  15px 10px 12px;
+  padding:15px 10px 12px;
 
   text-align:center;
 
@@ -725,28 +523,28 @@ main{
 
   position:relative;
 
-  transition:
-  .2s ease;
+  transition:.2s ease;
 
   box-shadow:
-  0 2px 7px rgba(0,0,0,.02);
+    0 2px 7px rgba(0,0,0,.02);
 
+  user-select:none;
 }
 
 .service-card:hover{
-
-  transform:
-  translateY(-4px);
+  transform:translateY(-4px);
 
   box-shadow:
-  0 10px 25px rgba(0,0,0,.10);
+    0 10px 25px rgba(0,0,0,.10);
 
   border-color:#bde9dc;
+}
 
+.service-card:active{
+  transform:scale(.97);
 }
 
 .service-icon{
-
   font-size:37px;
 
   height:53px;
@@ -754,54 +552,39 @@ main{
   display:flex;
 
   justify-content:center;
-
   align-items:center;
-
 }
 
 .service-card h3{
-
   font-size:14px;
-
   line-height:1.25;
 
   margin-top:7px;
 
   color:#36404d;
-
 }
 
 .service-card p{
-
   font-size:11px;
-
   color:#737b85;
-
   margin-top:6px;
-
 }
 
 .badge{
-
   position:absolute;
-
   right:7px;
-
   top:7px;
 
   font-size:9px;
 
-  padding:
-  3px 7px;
+  padding:3px 7px;
 
   border-radius:9px;
 
   color:white;
-
   background:#65bf16;
 
   font-weight:bold;
-
 }
 
 .badge.hot{
@@ -814,46 +597,35 @@ main{
 
 
 /* =========================================================
-   TOOL MODAL
+ MODAL
 ========================================================= */
 
 .modal{
-
   position:fixed;
-
   inset:0;
 
   z-index:2000;
 
   background:
-  rgba(12,18,25,.65);
+    rgba(12,18,25,.65);
 
-  backdrop-filter:
-  blur(6px);
+  backdrop-filter:blur(6px);
 
   display:none;
 
   align-items:center;
-
   justify-content:center;
 
   padding:15px;
-
 }
 
 .modal.show{
-
   display:flex;
-
 }
 
 .modal-box{
-
-  width:
-  min(1050px,100%);
-
-  max-height:
-  92vh;
+  width:min(1050px,100%);
+  max-height:92vh;
 
   overflow:auto;
 
@@ -862,39 +634,30 @@ main{
   border-radius:20px;
 
   box-shadow:
-  0 25px 80px rgba(0,0,0,.3);
+    0 25px 80px rgba(0,0,0,.3);
 
   padding:20px;
 
   position:relative;
-
 }
 
 .modal-title{
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
-  border-bottom:
-  1px solid #e6eaef;
+  border-bottom:1px solid #e6eaef;
 
   padding-bottom:14px;
-
   margin-bottom:17px;
-
 }
 
 .close{
-
   border:0;
 
   background:#f2f3f5;
 
   width:35px;
-
   height:35px;
 
   border-radius:50%;
@@ -902,62 +665,47 @@ main{
   cursor:pointer;
 
   font-size:18px;
-
 }
 
 .tool-area{
-
   display:grid;
-
-  grid-template-columns:
-  1fr 1fr;
-
+  grid-template-columns:1fr 1fr;
   gap:20px;
-
 }
 
 .tool-panel{
-
-  border:
-  1px solid #e4e9ef;
-
+  border:1px solid #e4e9ef;
   border-radius:15px;
-
   padding:17px;
-
 }
 
 .tool-panel h3{
-
   margin-bottom:13px;
-
 }
 
 input[type=file]{
-
   width:100%;
 
   padding:10px;
 
-  border:
-  1px dashed #b9c5d0;
+  border:1px dashed #b9c5d0;
 
   border-radius:10px;
-
 }
 
 input[type=text],
 input[type=email],
 input[type=password],
 input[type=number],
-select{
+input[type=date],
+select,
+textarea{
 
   width:100%;
 
   padding:11px;
 
-  border:
-  1px solid #d8e0e8;
+  border:1px solid #d8e0e8;
 
   border-radius:9px;
 
@@ -965,28 +713,25 @@ select{
 
   outline:none;
 
+  font-family:inherit;
 }
 
 label{
-
   display:block;
 
   font-size:13px;
-
   font-weight:bold;
 
   margin-top:12px;
-
 }
 
 .primary{
-
   background:
-  linear-gradient(
-    135deg,
-    #ff6b35,
-    #ef3d28
-  );
+    linear-gradient(
+      135deg,
+      #ff6b35,
+      #ef3d28
+    );
 
   color:white;
 
@@ -994,19 +739,16 @@ label{
 
   border-radius:9px;
 
-  padding:
-  11px 17px;
+  padding:11px 17px;
 
   cursor:pointer;
 
   font-weight:bold;
 
   margin-top:12px;
-
 }
 
 .secondary{
-
   background:#eef5ff;
 
   color:#2165ca;
@@ -1015,19 +757,16 @@ label{
 
   border-radius:9px;
 
-  padding:
-  11px 17px;
+  padding:11px 17px;
 
   cursor:pointer;
 
   font-weight:bold;
 
   margin-top:12px;
-
 }
 
 .danger{
-
   background:#ffecec;
 
   color:#c62828;
@@ -1036,83 +775,62 @@ label{
 
   border-radius:9px;
 
-  padding:
-  10px 15px;
+  padding:10px 15px;
 
   cursor:pointer;
 
   font-weight:bold;
-
 }
 
-
-/* =========================================================
-   PREVIEW
-========================================================= */
+button{
+  font-family:inherit;
+}
 
 .preview-box{
-
   min-height:300px;
 
   background:
-  repeating-conic-gradient(
-    #eee 0 25%,
-    #fff 0 50%
-  )
-  50% / 20px 20px;
+    repeating-conic-gradient(
+      #eee 0 25%,
+      #fff 0 50%
+    )
+    50% / 20px 20px;
 
   border-radius:12px;
 
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   overflow:auto;
-
 }
 
 .preview-box img{
-
   max-width:100%;
-
   max-height:500px;
-
   object-fit:contain;
-
 }
 
 
 /* =========================================================
-   PRINT STUDIO
+ PRINT
 ========================================================= */
 
 .print-layout{
-
   display:grid;
-
-  grid-template-columns:
-  300px 1fr;
-
+  grid-template-columns:300px 1fr;
   gap:20px;
-
 }
 
 .print-sheet-wrap{
-
   background:#d8d8d8;
-
   padding:25px;
-
   overflow:auto;
-
 }
 
 .a4-sheet{
-
   width:794px;
-
   min-height:1123px;
 
   background:white;
@@ -1128,49 +846,36 @@ label{
   align-content:start;
 
   box-shadow:
-  0 5px 20px rgba(0,0,0,.25);
-
+    0 5px 20px rgba(0,0,0,.25);
 }
 
 .photo-item{
-
   overflow:hidden;
 
   background:#eee;
 
   border:1px solid #aaa;
-
 }
 
 .photo-item img{
-
   width:100%;
-
   height:100%;
-
   object-fit:cover;
-
 }
 
 
 /* =========================================================
-   PDF PAGES
+ PDF PAGES
 ========================================================= */
 
 .pdf-pages{
-
   display:flex;
-
   flex-wrap:wrap;
-
   gap:12px;
-
   padding:10px;
-
 }
 
 .pdf-page{
-
   width:150px;
 
   border:2px solid #ddd;
@@ -1183,28 +888,26 @@ label{
 
   position:relative;
 
+  cursor:pointer;
+}
+
+.pdf-page.selected{
+  border-color:#ff5722;
+  box-shadow:0 0 0 3px rgba(255,87,34,.15);
 }
 
 .pdf-page canvas{
-
   width:100%;
-
   display:block;
-
 }
 
 .pdf-page-controls{
-
   display:flex;
-
   gap:4px;
-
   margin-top:5px;
-
 }
 
 .pdf-page-controls button{
-
   flex:1;
 
   border:0;
@@ -1216,50 +919,41 @@ label{
   cursor:pointer;
 
   background:#edf2f7;
-
 }
 
 
 /* =========================================================
-   ABOUT
+ ABOUT
 ========================================================= */
 
 .about-box{
-
   margin-top:40px;
 
   background:#fff;
 
-  border:
-  1px solid #e5eaef;
+  border:1px solid #e5eaef;
 
   border-radius:15px;
 
   padding:25px;
 
   line-height:1.7;
-
 }
 
 .why-grid{
-
   display:grid;
 
-  grid-template-columns:
-  repeat(4,1fr);
+  grid-template-columns:repeat(4,1fr);
 
   gap:15px;
 
   margin-top:18px;
-
 }
 
 .why{
-
   background:#fff;
 
-  border:
-  1px solid #e4e9ef;
+  border:1px solid #e4e9ef;
 
   border-radius:13px;
 
@@ -1268,26 +962,20 @@ label{
   text-align:center;
 
   font-weight:bold;
-
 }
 
 .why-icon{
-
   font-size:30px;
-
   margin-bottom:10px;
-
 }
 
 
 /* =========================================================
-   FOOTER
+ FOOTER
 ========================================================= */
 
 footer{
-
-  background:
-  #202a35;
+  background:#202a35;
 
   color:white;
 
@@ -1296,26 +984,21 @@ footer{
   text-align:center;
 
   margin-top:40px;
-
 }
 
 footer small{
-
   color:#c9d0d7;
-
 }
 
 
 /* =========================================================
-   TOAST
+ TOAST
 ========================================================= */
 
 .toast{
-
   position:fixed;
 
   bottom:25px;
-
   right:25px;
 
   z-index:5000;
@@ -1324,21 +1007,134 @@ footer small{
 
   color:white;
 
-  padding:
-  13px 18px;
+  padding:13px 18px;
 
   border-radius:10px;
 
   display:none;
 
   box-shadow:
-  0 8px 30px rgba(0,0,0,.25);
+    0 8px 30px rgba(0,0,0,.25);
 
+  max-width:90%;
 }
 
 
 /* =========================================================
-   MOBILE
+ LOGIN
+========================================================= */
+
+.login-box{
+  max-width:420px;
+  margin:auto;
+}
+
+.login-logo{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.login-logo .logo-3d{
+  margin:auto;
+}
+
+.login-tabs{
+  display:flex;
+  gap:5px;
+  margin-bottom:15px;
+}
+
+.login-tabs button{
+  flex:1;
+
+  padding:10px;
+
+  border:0;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+  background:#f0f2f5;
+}
+
+.login-tabs .active{
+  background:#ff5722;
+  color:white;
+}
+
+
+/* =========================================================
+ TOOL COMMON
+========================================================= */
+
+.tool-buttons{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.info-box{
+  background:#f7f9fb;
+  border:1px solid #e3e8ed;
+  border-radius:10px;
+  padding:14px;
+  margin-top:12px;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.success-box{
+  background:#edfff7;
+  border:1px solid #b8ead7;
+  border-radius:10px;
+  padding:14px;
+}
+
+.job-card{
+  border:1px solid #e1e7ed;
+  border-radius:12px;
+  padding:15px;
+  margin-bottom:10px;
+  background:#fff;
+}
+
+.job-card h3{
+  margin-bottom:6px;
+}
+
+.job-card p{
+  color:#666;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.price-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.price-card{
+  border:1px solid #e1e7ed;
+  border-radius:13px;
+  padding:20px;
+  text-align:center;
+}
+
+.price-card h3{
+  margin-bottom:10px;
+}
+
+.price{
+  font-size:25px;
+  font-weight:bold;
+  color:#ff5722;
+}
+
+
+/* =========================================================
+ MOBILE
 ========================================================= */
 
 @media(max-width:900px){
@@ -1352,8 +1148,7 @@ footer small{
   }
 
   .service-grid{
-    grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
 
   .tool-area{
@@ -1365,16 +1160,18 @@ footer small{
   }
 
   .why-grid{
-    grid-template-columns:
-    repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
+  .price-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 @media(max-width:600px){
 
   .topbar{
-    height:62px;
+    min-height:62px;
     padding:0 9px;
   }
 
@@ -1391,9 +1188,7 @@ footer small{
   }
 
   .service-grid{
-    grid-template-columns:
-    repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:8px;
   }
 
@@ -1407,8 +1202,7 @@ footer small{
   }
 
   .hero{
-    margin:
-    12px 7px;
+    margin:12px 7px;
     padding:27px 15px;
   }
 
@@ -1417,87 +1211,59 @@ footer small{
   }
 
   .search-wrap{
-    margin:
-    15px 8px;
+    margin:15px 8px;
   }
 
   main{
-    padding:
-    0 8px 40px;
+    padding:0 8px 40px;
   }
 
   .why-grid{
     grid-template-columns:1fr 1fr;
   }
 
-}
+  .modal{
+    padding:7px;
+  }
 
-
-/* =========================================================
-   LOGIN
-========================================================= */
-
-.login-box{
-
-  max-width:420px;
-
-  margin:auto;
-
-}
-
-.login-logo{
-
-  text-align:center;
-
-  margin-bottom:20px;
-
-}
-
-.login-logo .logo-3d{
-
-  margin:auto;
-
-}
-
-.login-tabs{
-
-  display:flex;
-
-  gap:5px;
-
-  margin-bottom:15px;
-
-}
-
-.login-tabs button{
-
-  flex:1;
-
-  padding:10px;
-
-  border:0;
-
-  border-radius:8px;
-
-  cursor:pointer;
-
-}
-
-.login-tabs .active{
-
-  background:#ff5722;
-
-  color:white;
+  .modal-box{
+    max-height:95vh;
+    padding:14px;
+  }
 
 }
 
 
 /* =========================================================
-   HIDDEN
+ HIDDEN
 ========================================================= */
 
 .hidden{
   display:none !important;
+}
+
+
+/* =========================================================
+ PRINT CSS
+========================================================= */
+
+@media print{
+
+  body *{
+    visibility:hidden;
+  }
+
+  .a4-sheet,
+  .a4-sheet *{
+    visibility:visible;
+  }
+
+  .a4-sheet{
+    position:absolute;
+    left:0;
+    top:0;
+  }
+
 }
 
 </style>
@@ -1508,7 +1274,7 @@ footer small{
 
 
 <!-- =========================================================
-     HEADER
+ HEADER
 ========================================================= -->
 
 <header class="topbar">
@@ -1523,9 +1289,13 @@ footer small{
 
     <div class="logo-text">
 
-      <strong>Bharat Digital Centre</strong>
+      <strong>
+        Bharat Digital Centre
+      </strong>
 
-      <small>Digital Services • Print • Design</small>
+      <small>
+        Digital Services • Print • Design
+      </small>
 
     </div>
 
@@ -1534,9 +1304,11 @@ footer small{
 
   <nav class="nav">
 
-    <a onclick="scrollToTop()">Home</a>
+    <a onclick="scrollToTop()">
+      Home
+    </a>
 
-    <a onclick="document.getElementById('services').scrollIntoView()">
+    <a onclick="goServices()">
       Services ▾
     </a>
 
@@ -1548,7 +1320,7 @@ footer small{
       Pricing
     </a>
 
-    <a onclick="document.getElementById('about').scrollIntoView()">
+    <a onclick="goAbout()">
       More ▾
     </a>
 
@@ -1557,34 +1329,46 @@ footer small{
 
   <div class="header-actions">
 
-    <button class="cyber-btn">
+    <button
+      class="cyber-btn"
+      onclick="openTool('cyber')">
+
       🖥️ Cyber Cafe
+
     </button>
 
     <button
       class="icon-btn"
       onclick="toggleMobileMenu()">
+
       ☰
+
     </button>
 
     <button
       id="loginTopBtn"
       class="login-btn"
       onclick="openLogin()">
+
       👤 Login
+
     </button>
 
     <div
       id="userBox"
       class="user-box">
 
-      <span id="userEmail"
-      class="user-email"></span>
+      <span
+        id="userEmail"
+        class="user-email">
+      </span>
 
       <button
         class="danger"
         onclick="logoutUser()">
+
         Logout
+
       </button>
 
     </div>
@@ -1597,7 +1381,7 @@ footer small{
 
 
 <!-- =========================================================
-     HERO
+ HERO
 ========================================================= -->
 
 <section class="hero">
@@ -1619,12 +1403,14 @@ government portals और digital work — सब एक जगह।
 
 
 <!-- =========================================================
-     SEARCH
+ SEARCH
 ========================================================= -->
 
 <div class="search-wrap">
 
-<span class="search-icon">🔍</span>
+<span class="search-icon">
+🔍
+</span>
 
 <input
   id="searchInput"
@@ -1636,12 +1422,13 @@ government portals और digital work — सब एक जगह।
 
 
 <!-- =========================================================
-     NOTICE
+ NOTICE
 ========================================================= -->
 
 <div class="notice">
 
 ⚠️ <b>महत्वपूर्ण:</b>
+
 Bharat Digital Centre एक private digital service platform है।
 Aadhaar, PAN, Driving Licence, Voter ID आदि के लिए केवल
 संबंधित सरकारी Official Portal का उपयोग करें।
@@ -1650,20 +1437,20 @@ Aadhaar, PAN, Driving Licence, Voter ID आदि के लिए केवल
 
 
 <!-- =========================================================
-     MAIN
+ MAIN
 ========================================================= -->
 
 <main id="services">
 
 
 <!-- =========================================================
-     ESSENTIAL SERVICES
+ ESSENTIAL
 ========================================================= -->
 
 <section class="section">
 
 <h2 class="section-title">
-Essential & Services
+Essential Services
 </h2>
 
 <div class="service-grid">
@@ -1789,7 +1576,7 @@ onclick="openTool('album')">
 
 
 <!-- =========================================================
-     CREATIVE DESIGN
+ CREATIVE
 ========================================================= -->
 
 <section class="section">
@@ -1879,7 +1666,7 @@ onclick="openTool('promotion')">
 
 
 <!-- =========================================================
-     SMART PDF & IMAGE
+ PDF IMAGE
 ========================================================= -->
 
 <section class="section">
@@ -1894,7 +1681,9 @@ Smart PDF & Image Tools
 <div class="service-card"
 onclick="openTool('jpgpdf')">
 
-<div class="service-icon">🖼️📄</div>
+<div class="service-icon">
+🖼️📄
+</div>
 
 <h3>JPG To PDF</h3>
 
@@ -1904,7 +1693,9 @@ onclick="openTool('jpgpdf')">
 <div class="service-card"
 onclick="openTool('pdfjpg')">
 
-<div class="service-icon">📄🖼️</div>
+<div class="service-icon">
+📄🖼️
+</div>
 
 <h3>PDF To JPG</h3>
 
@@ -1914,7 +1705,9 @@ onclick="openTool('pdfjpg')">
 <div class="service-card"
 onclick="openTool('pngpdf')">
 
-<div class="service-icon">🖼️📄</div>
+<div class="service-icon">
+🖼️📄
+</div>
 
 <h3>PNG To PDF</h3>
 
@@ -1924,7 +1717,9 @@ onclick="openTool('pngpdf')">
 <div class="service-card"
 onclick="openTool('pngjpg')">
 
-<div class="service-icon">🖼️</div>
+<div class="service-icon">
+🖼️
+</div>
 
 <h3>PNG To JPG</h3>
 
@@ -1934,7 +1729,9 @@ onclick="openTool('pngjpg')">
 <div class="service-card"
 onclick="openTool('deletepdf')">
 
-<div class="service-icon">📄❌</div>
+<div class="service-icon">
+📄❌
+</div>
 
 <h3>Delete PDF Page</h3>
 
@@ -1944,7 +1741,9 @@ onclick="openTool('deletepdf')">
 <div class="service-card"
 onclick="openTool('mergepdf')">
 
-<div class="service-icon">📚📄</div>
+<div class="service-icon">
+📚📄
+</div>
 
 <h3>Merge PDF</h3>
 
@@ -1954,7 +1753,9 @@ onclick="openTool('mergepdf')">
 <div class="service-card"
 onclick="openTool('pdfedit')">
 
-<div class="service-icon">📝📄</div>
+<div class="service-icon">
+📝📄
+</div>
 
 <h3>Advanced PDF Editor</h3>
 
@@ -1964,7 +1765,9 @@ onclick="openTool('pdfedit')">
 <div class="service-card"
 onclick="openTool('watermark')">
 
-<div class="service-icon">💧📄</div>
+<div class="service-icon">
+💧📄
+</div>
 
 <h3>PDF Watermark</h3>
 
@@ -1974,7 +1777,9 @@ onclick="openTool('watermark')">
 <div class="service-card"
 onclick="openTool('signature')">
 
-<div class="service-icon">✍️📄</div>
+<div class="service-icon">
+✍️📄
+</div>
 
 <h3>PDF Signature</h3>
 
@@ -1984,7 +1789,9 @@ onclick="openTool('signature')">
 <div class="service-card"
 onclick="openTool('background')">
 
-<div class="service-icon">🧍‍♂️✂️</div>
+<div class="service-icon">
+🧍‍♂️✂️
+</div>
 
 <h3>Background Remover</h3>
 
@@ -1997,7 +1804,7 @@ onclick="openTool('background')">
 
 
 <!-- =========================================================
-     CARD PRINTING
+ CARD PRINT
 ========================================================= -->
 
 <section class="section">
@@ -2012,11 +1819,17 @@ Card Printing Services
 <div class="service-card"
 onclick="openTool('idprint')">
 
-<span class="badge hot">HOT</span>
+<span class="badge hot">
+HOT
+</span>
 
-<div class="service-icon">🪪</div>
+<div class="service-icon">
+🪪
+</div>
 
-<h3>Unique ID Card Print</h3>
+<h3>
+Unique ID Card Print
+</h3>
 
 </div>
 
@@ -2024,9 +1837,13 @@ onclick="openTool('idprint')">
 <div class="service-card"
 onclick="openTool('idprint')">
 
-<div class="service-icon">🗳️</div>
+<div class="service-icon">
+🗳️
+</div>
 
-<h3>Election Card Print</h3>
+<h3>
+Election Card Print
+</h3>
 
 </div>
 
@@ -2034,11 +1851,17 @@ onclick="openTool('idprint')">
 <div class="service-card"
 onclick="openTool('idprint')">
 
-<span class="badge">NEW</span>
+<span class="badge">
+NEW
+</span>
 
-<div class="service-icon">🏥</div>
+<div class="service-icon">
+🏥
+</div>
 
-<h3>Health Plan Card Print</h3>
+<h3>
+Health Plan Card Print
+</h3>
 
 </div>
 
@@ -2046,9 +1869,13 @@ onclick="openTool('idprint')">
 <div class="service-card"
 onclick="openTool('idprint')">
 
-<div class="service-icon">🧾</div>
+<div class="service-icon">
+🧾
+</div>
 
-<h3>Tax ID Card Print</h3>
+<h3>
+Tax ID Card Print
+</h3>
 
 </div>
 
@@ -2056,9 +1883,13 @@ onclick="openTool('idprint')">
 <div class="service-card"
 onclick="openTool('idprint')">
 
-<div class="service-icon">🚗</div>
+<div class="service-icon">
+🚗
+</div>
 
-<h3>Driving Permit Print</h3>
+<h3>
+Driving Permit Print
+</h3>
 
 </div>
 
@@ -2066,9 +1897,13 @@ onclick="openTool('idprint')">
 <div class="service-card"
 onclick="openTool('idprint')">
 
-<div class="service-icon">🎓</div>
+<div class="service-icon">
+🎓
+</div>
 
-<h3>School/College ID</h3>
+<h3>
+School/College ID
+</h3>
 
 </div>
 
@@ -2076,11 +1911,17 @@ onclick="openTool('idprint')">
 <div class="service-card"
 onclick="openTool('idprint')">
 
-<span class="badge">NEW</span>
+<span class="badge">
+NEW
+</span>
 
-<div class="service-icon">🖨️</div>
+<div class="service-icon">
+🖨️
+</div>
 
-<h3>Food Subsidy Card Print</h3>
+<h3>
+Food Subsidy Card Print
+</h3>
 
 </div>
 
@@ -2091,13 +1932,13 @@ onclick="openTool('idprint')">
 
 
 <!-- =========================================================
-     PORTAL SERVICES
+ PORTALS
 ========================================================= -->
 
 <section class="section">
 
 <h2 class="section-title blue">
-Portal Service
+Official Portal Services
 </h2>
 
 <div class="service-grid">
@@ -2107,7 +1948,6 @@ Portal Service
 onclick="openPortal('https://www.uidai.gov.in/')">
 
 <div class="service-icon">🪪</div>
-
 <h3>Aadhaar Service</h3>
 
 </div>
@@ -2117,7 +1957,6 @@ onclick="openPortal('https://www.uidai.gov.in/')">
 onclick="openPortal('https://www.incometax.gov.in/')">
 
 <div class="service-icon">💳</div>
-
 <h3>PAN Card Service</h3>
 
 </div>
@@ -2127,7 +1966,6 @@ onclick="openPortal('https://www.incometax.gov.in/')">
 onclick="openPortal('https://voters.eci.gov.in/')">
 
 <div class="service-icon">🗳️</div>
-
 <h3>Voter ID</h3>
 
 </div>
@@ -2137,7 +1975,6 @@ onclick="openPortal('https://voters.eci.gov.in/')">
 onclick="openPortal('https://parivahan.gov.in/')">
 
 <div class="service-icon">🚗</div>
-
 <h3>Driving Licence</h3>
 
 </div>
@@ -2147,7 +1984,6 @@ onclick="openPortal('https://parivahan.gov.in/')">
 onclick="openPortal('https://www.epfindia.gov.in/')">
 
 <div class="service-icon">🏦</div>
-
 <h3>EPFO</h3>
 
 </div>
@@ -2157,7 +1993,6 @@ onclick="openPortal('https://www.epfindia.gov.in/')">
 onclick="openPortal('https://www.licindia.in/')">
 
 <div class="service-icon">🛡️</div>
-
 <h3>LIC Service</h3>
 
 </div>
@@ -2167,7 +2002,6 @@ onclick="openPortal('https://www.licindia.in/')">
 onclick="openPortal('https://www.indianrail.gov.in/')">
 
 <div class="service-icon">🚆</div>
-
 <h3>Railway Service</h3>
 
 </div>
@@ -2177,7 +2011,6 @@ onclick="openPortal('https://www.indianrail.gov.in/')">
 onclick="openPortal('https://passportindia.gov.in/')">
 
 <div class="service-icon">🛂</div>
-
 <h3>Passport Seva</h3>
 
 </div>
@@ -2187,7 +2020,6 @@ onclick="openPortal('https://passportindia.gov.in/')">
 onclick="openPortal('https://www.gst.gov.in/')">
 
 <div class="service-icon">🧾</div>
-
 <h3>GST Verification</h3>
 
 </div>
@@ -2197,7 +2029,6 @@ onclick="openPortal('https://www.gst.gov.in/')">
 onclick="openPortal('https://echallan.parivahan.gov.in/')">
 
 <div class="service-icon">🚘</div>
-
 <h3>E-Challan</h3>
 
 </div>
@@ -2207,7 +2038,6 @@ onclick="openPortal('https://echallan.parivahan.gov.in/')">
 onclick="openPortal('https://eshram.gov.in/')">
 
 <div class="service-icon">👷</div>
-
 <h3>E-Shram Card</h3>
 
 </div>
@@ -2217,7 +2047,6 @@ onclick="openPortal('https://eshram.gov.in/')">
 onclick="openPortal('https://pmkisan.gov.in/')">
 
 <div class="service-icon">🌾</div>
-
 <h3>PM Kisan</h3>
 
 </div>
@@ -2227,7 +2056,6 @@ onclick="openPortal('https://pmkisan.gov.in/')">
 onclick="openPortal('https://www.ncs.gov.in/')">
 
 <div class="service-icon">💼</div>
-
 <h3>National Career Service</h3>
 
 </div>
@@ -2237,7 +2065,6 @@ onclick="openPortal('https://www.ncs.gov.in/')">
 onclick="openPortal('https://www.india.gov.in/')">
 
 <div class="service-icon">🇮🇳</div>
-
 <h3>India Government</h3>
 
 </div>
@@ -2249,7 +2076,7 @@ onclick="openPortal('https://www.india.gov.in/')">
 
 
 <!-- =========================================================
-     ABOUT
+ ABOUT
 ========================================================= -->
 
 <section id="about">
@@ -2263,21 +2090,17 @@ Bharat Digital Centre – One Stop Solution For All Your Digital Work
 <br>
 
 <p>
-
 Bharat Digital Centre एक multi-service digital platform है
 जिसका उद्देश्य photo editing, ID card printing, PDF tools,
 document preparation, resume design और official government
 portal access को एक ही स्थान पर उपलब्ध कराना है।
-
 </p>
 
 <br>
 
 <p>
-
 यह वेबसाइट सरकारी विभाग की official website नहीं है।
 सरकारी सेवाओं के लिए संबंधित official portal पर ही आवेदन करें।
-
 </p>
 
 </div>
@@ -2295,35 +2118,23 @@ Why Choose Bharat Digital Centre?
 <div class="why-grid">
 
 <div class="why">
-
 <div class="why-icon">⚡</div>
-
 Simple And Fast
-
 </div>
 
 <div class="why">
-
 <div class="why-icon">📦</div>
-
 Everything In One Place
-
 </div>
 
 <div class="why">
-
 <div class="why-icon">🛡️</div>
-
 Safe And Reliable
-
 </div>
 
 <div class="why">
-
 <div class="why-icon">💰</div>
-
 Affordable And Easy
-
 </div>
 
 </div>
@@ -2335,7 +2146,7 @@ Affordable And Easy
 
 
 <!-- =========================================================
-     FOOTER
+ FOOTER
 ========================================================= -->
 
 <footer>
@@ -2360,7 +2171,7 @@ Citizen ID Services • Photo • Print • PDF • Design
 
 
 <!-- =========================================================
-     MAIN TOOL MODAL
+ TOOL MODAL
 ========================================================= -->
 
 <div
@@ -2378,7 +2189,9 @@ Digital Tool
 <button
 class="close"
 onclick="closeModal()">
+
 ×
+
 </button>
 
 </div>
@@ -2391,7 +2204,7 @@ onclick="closeModal()">
 
 
 <!-- =========================================================
-     LOGIN MODAL
+ LOGIN MODAL
 ========================================================= -->
 
 <div
@@ -2421,13 +2234,17 @@ Bharat Digital Centre
 id="loginTab"
 class="active"
 onclick="showLoginTab()">
+
 Login
+
 </button>
 
 <button
 id="registerTab"
 onclick="showRegisterTab()">
+
 Register
+
 </button>
 
 </div>
@@ -2512,7 +2329,7 @@ Create Account
 
 
 <!-- =========================================================
-     TOAST
+ TOAST
 ========================================================= -->
 
 <div
@@ -2525,22 +2342,42 @@ Done
 <script>
 
 /* =========================================================
-   BASIC HELPERS
+ GLOBAL STATE
+========================================================= */
+
+let passportImage = null;
+let cropImg = null;
+let bgCanvas = null;
+
+let editorPDF = null;
+let selectedPDFPage = 0;
+let pdfRotations = [];
+let editorPageOrder = null;
+
+
+/* =========================================================
+ BASIC
 ========================================================= */
 
 function toast(message){
 
   const t =
-  document.getElementById("toast");
+    document.getElementById("toast");
 
-  t.textContent=message;
+  if(!t) return;
 
-  t.style.display="block";
+  t.textContent = message;
 
-  setTimeout(()=>{
-    t.style.display="none";
-  },3000);
+  t.style.display = "block";
 
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer =
+    setTimeout(function(){
+
+      t.style.display = "none";
+
+    },3000);
 }
 
 
@@ -2554,55 +2391,114 @@ function scrollToTop(){
 }
 
 
-function openPortal(url){
+function goServices(){
 
-  window.open(
-    url,
-    "_blank",
-    "noopener,noreferrer"
-  );
+  const section =
+    document.getElementById("services");
+
+  if(section){
+
+    section.scrollIntoView({
+      behavior:"smooth"
+    });
+
+  }
 
 }
 
 
-function closeModal(){
+function goAbout(){
 
-  document
-  .getElementById("toolModal")
-  .classList.remove("show");
+  const about =
+    document.getElementById("about");
 
-  document
-  .getElementById("loginModal")
-  .classList.remove("show");
+  if(about){
+
+    about.scrollIntoView({
+      behavior:"smooth"
+    });
+
+  }
 
 }
 
 
 /* =========================================================
-   SEARCH
+ PORTAL
 ========================================================= */
 
-document
-.getElementById("searchInput")
-.addEventListener("input",function(){
+function openPortal(url){
 
-  const q=
-  this.value
-  .toLowerCase()
-  .trim();
+  try{
 
-  document
-  .querySelectorAll(".service-card")
-  .forEach(card=>{
+    window.open(
+      url,
+      "_blank",
+      "noopener,noreferrer"
+    );
 
-    const text=
-    card.innerText
-    .toLowerCase();
+  }catch(error){
 
-    card.style.display=
-    text.includes(q)
-    ? ""
-    : "none";
+    window.location.href = url;
+
+  }
+
+}
+
+
+/* =========================================================
+ MODAL
+========================================================= */
+
+function closeModal(){
+
+  const tool =
+    document.getElementById("toolModal");
+
+  const login =
+    document.getElementById("loginModal");
+
+  if(tool)
+    tool.classList.remove("show");
+
+  if(login)
+    login.classList.remove("show");
+
+}
+
+
+/* =========================================================
+ SEARCH
+========================================================= */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+  const search =
+    document.getElementById("searchInput");
+
+  if(!search) return;
+
+  search.addEventListener("input",function(){
+
+    const q =
+      this.value
+      .toLowerCase()
+      .trim();
+
+    document
+      .querySelectorAll(".service-card")
+      .forEach(function(card){
+
+        const text =
+          card.innerText
+          .toLowerCase();
+
+        card.style.display =
+          text.includes(q)
+          ? ""
+          : "none";
+
+      });
 
   });
 
@@ -2610,14 +2506,57 @@ document
 
 
 /* =========================================================
-   LOGIN
+ MOBILE MENU
+========================================================= */
+
+function toggleMobileMenu(){
+
+  const nav =
+    document.querySelector(".nav");
+
+  if(!nav) return;
+
+  if(nav.style.display === "flex"){
+
+    nav.style.display = "none";
+
+    return;
+
+  }
+
+  nav.style.display = "flex";
+
+  nav.style.position = "absolute";
+
+  nav.style.top = "62px";
+
+  nav.style.left = "0";
+
+  nav.style.right = "0";
+
+  nav.style.padding = "15px";
+
+  nav.style.background = "#fff";
+
+  nav.style.flexDirection = "column";
+
+  nav.style.boxShadow =
+    "0 10px 20px rgba(0,0,0,.1)";
+
+}
+
+
+/* =========================================================
+ LOGIN
 ========================================================= */
 
 function openLogin(){
 
-  document
-  .getElementById("loginModal")
-  .classList.add("show");
+  const modal =
+    document.getElementById("loginModal");
+
+  if(modal)
+    modal.classList.add("show");
 
 }
 
@@ -2625,20 +2564,20 @@ function openLogin(){
 function showLoginTab(){
 
   document
-  .getElementById("loginForm")
-  .classList.remove("hidden");
+    .getElementById("loginForm")
+    .classList.remove("hidden");
 
   document
-  .getElementById("registerForm")
-  .classList.add("hidden");
+    .getElementById("registerForm")
+    .classList.add("hidden");
 
   document
-  .getElementById("loginTab")
-  .classList.add("active");
+    .getElementById("loginTab")
+    .classList.add("active");
 
   document
-  .getElementById("registerTab")
-  .classList.remove("active");
+    .getElementById("registerTab")
+    .classList.remove("active");
 
 }
 
@@ -2646,51 +2585,65 @@ function showLoginTab(){
 function showRegisterTab(){
 
   document
-  .getElementById("loginForm")
-  .classList.add("hidden");
+    .getElementById("loginForm")
+    .classList.add("hidden");
 
   document
-  .getElementById("registerForm")
-  .classList.remove("hidden");
+    .getElementById("registerForm")
+    .classList.remove("hidden");
 
   document
-  .getElementById("registerTab")
-  .classList.add("active");
+    .getElementById("registerTab")
+    .classList.add("active");
 
   document
-  .getElementById("loginTab")
-  .classList.remove("active");
+    .getElementById("loginTab")
+    .classList.remove("active");
 
 }
 
 
 async function loginUser(){
 
-  const email=
-  document
-  .getElementById("loginEmail")
-  .value.trim();
+  if(!window.firebaseAuth){
 
-  const password=
-  document
-  .getElementById("loginPassword")
-  .value;
+    toast(
+      "Firebase तैयार नहीं है। पहले Firebase Authentication enable करें।"
+    );
+
+    return;
+
+  }
+
+  const email =
+    document
+      .getElementById("loginEmail")
+      .value
+      .trim();
+
+  const password =
+    document
+      .getElementById("loginPassword")
+      .value;
 
   if(!email || !password){
 
-    toast("Email और Password भरें");
+    toast(
+      "Email और Password भरें"
+    );
 
     return;
+
   }
 
   try{
 
     await window.firebaseFunctions
-    .signInWithEmailAndPassword(
-      window.firebaseAuth,
-      email,
-      password
-    );
+      .signInWithEmailAndPassword(
+        window.firebaseAuth,
+        email,
+        password
+      );
 
     closeModal();
 
@@ -2709,33 +2662,53 @@ async function loginUser(){
 
 async function registerUser(){
 
-  const email=
-  document
-  .getElementById("registerEmail")
-  .value.trim();
-
-  const password=
-  document
-  .getElementById("registerPassword")
-  .value;
-
-  if(!email || password.length<6){
+  if(!window.firebaseAuth){
 
     toast(
-      "Valid email और कम से कम 6 character password दें"
+      "Firebase तैयार नहीं है।"
     );
 
     return;
+
+  }
+
+  const email =
+    document
+      .getElementById("registerEmail")
+      .value
+      .trim();
+
+  const password =
+    document
+      .getElementById("registerPassword")
+      .value;
+
+  if(!email){
+
+    toast("Email डालें");
+
+    return;
+
+  }
+
+  if(password.length < 6){
+
+    toast(
+      "Password कम से कम 6 characters का होना चाहिए"
+    );
+
+    return;
+
   }
 
   try{
 
     await window.firebaseFunctions
-    .createUserWithEmailAndPassword(
-      window.firebaseAuth,
-      email,
-      password
-    );
+      .createUserWithEmailAndPassword(
+        window.firebaseAuth,
+        email,
+        password
+      );
 
     closeModal();
 
@@ -2754,12 +2727,20 @@ async function registerUser(){
 
 async function logoutUser(){
 
+  if(!window.firebaseAuth){
+
+    toast("Firebase उपलब्ध नहीं है");
+
+    return;
+
+  }
+
   try{
 
     await window.firebaseFunctions
-    .signOut(
-      window.firebaseAuth
-    );
+      .signOut(
+        window.firebaseAuth
+      );
 
     toast("Logout successful");
 
@@ -2774,25 +2755,37 @@ async function logoutUser(){
 
 async function resetPassword(){
 
-  const email=
-  document
-  .getElementById("loginEmail")
-  .value.trim();
+  if(!window.firebaseAuth){
+
+    toast("Firebase उपलब्ध नहीं है");
+
+    return;
+
+  }
+
+  const email =
+    document
+      .getElementById("loginEmail")
+      .value
+      .trim();
 
   if(!email){
 
-    toast("पहले Email डालें");
+    toast(
+      "पहले Email डालें"
+    );
 
     return;
+
   }
 
   try{
 
     await window.firebaseFunctions
-    .sendPasswordResetEmail(
-      window.firebaseAuth,
-      email
-    );
+      .sendPasswordResetEmail(
+        window.firebaseAuth,
+        email
+      );
 
     toast(
       "Password reset email भेज दिया गया"
@@ -2811,10 +2804,17 @@ async function resetPassword(){
 
 function firebaseError(error){
 
-  const code=error.code || "";
+  const code =
+    error.code || "";
 
   if(code.includes("invalid-credential"))
     return "Email या Password गलत है";
+
+  if(code.includes("wrong-password"))
+    return "Password गलत है";
+
+  if(code.includes("user-not-found"))
+    return "यह Email registered नहीं है";
 
   if(code.includes("email-already-in-use"))
     return "यह Email पहले से registered है";
@@ -2825,369 +2825,463 @@ function firebaseError(error){
   if(code.includes("invalid-email"))
     return "Email सही नहीं है";
 
-  return error.message || "कुछ गलत हुआ";
+  return error.message ||
+    "कुछ गलत हुआ";
 
 }
 
 
 /* =========================================================
-   MOBILE MENU
-========================================================= */
-
-function toggleMobileMenu(){
-
-  const nav=
-  document.querySelector(".nav");
-
-  if(
-    nav.style.display==="flex"
-  ){
-
-    nav.style.display="none";
-
-  }else{
-
-    nav.style.display="flex";
-
-    nav.style.position="absolute";
-
-    nav.style.top="62px";
-
-    nav.style.left="0";
-
-    nav.style.right="0";
-
-    nav.style.padding="15px";
-
-    nav.style.background="#fff";
-
-    nav.style.flexDirection="column";
-
-    nav.style.boxShadow=
-    "0 10px 20px rgba(0,0,0,.1)";
-
-  }
-
-}
-
-
-/* =========================================================
-   OPEN TOOL
+ OPEN TOOL
 ========================================================= */
 
 function openTool(tool){
 
-  const modal=
-  document.getElementById("toolModal");
+  try{
 
-  const title=
-  document.getElementById("toolTitle");
+    const modal =
+      document.getElementById("toolModal");
 
-  const content=
-  document.getElementById("toolContent");
+    const title =
+      document.getElementById("toolTitle");
 
+    const content =
+      document.getElementById("toolContent");
 
-  modal.classList.add("show");
+    if(!modal || !title || !content){
 
+      alert("Tool system error");
 
-  if(tool==="passport"){
+      return;
 
-    title.textContent=
-    "Passport Photo & A4 Auto Layout";
+    }
 
-    content.innerHTML=
-    passportTool();
+    modal.classList.add("show");
 
-    return;
+    /* =====================================================
+       PASSPORT
+    ===================================================== */
 
-  }
+    if(tool === "passport"){
 
+      title.textContent =
+        "Passport Photo & A4 Auto Layout";
 
-  if(tool==="crop"){
+      content.innerHTML =
+        passportTool();
 
-    title.textContent=
-    "Photo Crop & Resize";
+      return;
+    }
 
-    content.innerHTML=
-    cropTool();
 
-    return;
+    /* =====================================================
+       CROP
+    ===================================================== */
 
-  }
+    if(tool === "crop"){
 
+      title.textContent =
+        "Photo Crop & Resize";
 
-  if(
-    tool==="jpgpdf" ||
-    tool==="pngpdf"
-  ){
+      content.innerHTML =
+        cropTool();
 
-    title.textContent=
-    "Image To PDF";
+      return;
+    }
 
-    content.innerHTML=
-    imageToPdfTool();
 
-    return;
+    /* =====================================================
+       JPG / PNG PDF
+    ===================================================== */
 
-  }
+    if(
+      tool === "jpgpdf" ||
+      tool === "pngpdf"
+    ){
 
+      title.textContent =
+        tool === "jpgpdf"
+        ? "JPG To PDF"
+        : "PNG To PDF";
 
-  if(tool==="pngjpg"){
+      content.innerHTML =
+        imageToPdfTool();
 
-    title.textContent=
-    "PNG To JPG";
+      return;
+    }
 
-    content.innerHTML=
-    pngToJpgTool();
 
-    return;
+    /* =====================================================
+       PNG JPG
+    ===================================================== */
 
-  }
+    if(tool === "pngjpg"){
 
+      title.textContent =
+        "PNG To JPG";
 
-  if(tool==="pdfjpg"){
+      content.innerHTML =
+        pngToJpgTool();
 
-    title.textContent=
-    "PDF To JPG";
+      return;
+    }
 
-    content.innerHTML=
-    pdfToJpgTool();
 
-    return;
+    /* =====================================================
+       PDF JPG
+    ===================================================== */
 
-  }
+    if(tool === "pdfjpg"){
 
+      title.textContent =
+        "PDF To JPG";
 
-  if(tool==="mergepdf"){
+      content.innerHTML =
+        pdfToJpgTool();
 
-    title.textContent=
-    "Merge PDF";
+      return;
+    }
 
-    content.innerHTML=
-    mergePdfTool();
 
-    return;
+    /* =====================================================
+       MERGE
+    ===================================================== */
 
-  }
+    if(tool === "mergepdf"){
 
+      title.textContent =
+        "Merge PDF";
 
-  if(tool==="deletepdf"){
+      content.innerHTML =
+        mergePdfTool();
 
-    title.textContent=
-    "Delete / Reorder / Rotate PDF Pages";
+      return;
+    }
 
-    content.innerHTML=
-    pdfEditorTool();
 
-    return;
+    /* =====================================================
+       PDF EDIT
+    ===================================================== */
 
-  }
+    if(
+      tool === "deletepdf" ||
+      tool === "pdfedit" ||
+      tool === "watermark"
+    ){
 
+      title.textContent =
+        tool === "deletepdf"
+        ? "Delete / Reorder / Rotate PDF Pages"
+        : tool === "watermark"
+        ? "PDF Watermark"
+        : "Advanced PDF Editor";
 
-  if(tool==="pdfedit"){
+      content.innerHTML =
+        pdfEditorTool(tool !== "deletepdf");
 
-    title.textContent=
-    "Advanced PDF Editor";
+      return;
+    }
 
-    content.innerHTML=
-    pdfEditorTool(true);
 
-    return;
+    /* =====================================================
+       SIGNATURE
+    ===================================================== */
 
-  }
+    if(tool === "signature"){
 
+      title.textContent =
+        "PDF Signature";
 
-  if(tool==="watermark"){
+      content.innerHTML =
+        signatureTool();
 
-    title.textContent=
-    "PDF Watermark";
+      return;
+    }
 
-    content.innerHTML=
-    pdfEditorTool(true);
 
-    return;
+    /* =====================================================
+       BACKGROUND
+    ===================================================== */
 
-  }
+    if(tool === "background"){
 
+      title.textContent =
+        "Background Remover";
 
-  if(tool==="signature"){
+      content.innerHTML =
+        backgroundTool();
 
-    title.textContent=
-    "PDF Signature";
+      return;
+    }
 
-    content.innerHTML=
-    signatureTool();
 
-    return;
+    /* =====================================================
+       ID
+    ===================================================== */
 
-  }
+    if(
+      tool === "idprint" ||
+      tool === "pvc" ||
+      tool === "idmaker"
+    ){
 
+      title.textContent =
+        tool === "pvc"
+        ? "PVC / ID Card Auto Crop"
+        : "ID Card Print Studio";
 
-  if(tool==="background"){
+      content.innerHTML =
+        idPrintTool();
 
-    title.textContent=
-    "Background Remover";
+      return;
+    }
 
-    content.innerHTML=
-    backgroundTool();
 
-    return;
+    /* =====================================================
+       RESUME
+    ===================================================== */
 
-  }
+    if(tool === "resume"){
 
+      title.textContent =
+        "Resume / CV Maker";
 
-  if(tool==="idprint"){
+      content.innerHTML =
+        resumeTool();
 
-    title.textContent=
-    "ID Card Print Studio";
+      return;
+    }
 
-    content.innerHTML=
-    idPrintTool();
 
-    return;
+    /* =====================================================
+       BIODATA
+    ===================================================== */
 
-  }
+    if(tool === "biodata"){
 
+      title.textContent =
+        "Marriage Biodata Maker";
 
-  if(tool==="pvc"){
+      content.innerHTML =
+        biodataTool();
 
-    title.textContent=
-    "PVC / ID Card Auto Crop";
+      return;
+    }
 
-    content.innerHTML=
-    idPrintTool();
 
-    return;
+    /* =====================================================
+       APPLICATION
+    ===================================================== */
 
-  }
+    if(tool === "application"){
 
+      title.textContent =
+        "Application Maker";
 
-  if(tool==="resume"){
+      content.innerHTML =
+        applicationTool();
 
-    title.textContent=
-    "Resume / CV Maker";
+      return;
+    }
 
-    content.innerHTML=
-    resumeTool();
 
-    return;
+    /* =====================================================
+       JOBS
+    ===================================================== */
 
-  }
+    if(tool === "jobs"){
 
+      title.textContent =
+        "Latest Jobs";
 
-  if(tool==="biodata"){
+      content.innerHTML =
+        jobsTool();
 
-    title.textContent=
-    "Marriage Biodata Maker";
+      return;
+    }
 
-    content.innerHTML=
-    biodataTool();
 
-    return;
+    /* =====================================================
+       MOCK
+    ===================================================== */
 
-  }
+    if(tool === "mock"){
 
+      title.textContent =
+        "Mock Test";
 
-  if(tool==="application"){
+      content.innerHTML =
+        mockTestTool();
 
-    title.textContent=
-    "Application Maker";
+      return;
+    }
 
-    content.innerHTML=
-    applicationTool();
 
-    return;
+    /* =====================================================
+       PRICING
+    ===================================================== */
 
-  }
+    if(tool === "pricing"){
 
+      title.textContent =
+        "Service Pricing";
 
-  if(tool==="jobs"){
+      content.innerHTML =
+        pricingTool();
 
-    title.textContent=
-    "Latest Jobs";
+      return;
+    }
 
-    content.innerHTML=
-    simpleMessage(
-      "Latest Jobs",
-      "यहाँ आपके latest job posts जोड़े जा सकते हैं।"
+
+    /* =====================================================
+       NEW SERVICE
+    ===================================================== */
+
+    if(tool === "newservice"){
+
+      title.textContent =
+        "New Service Post";
+
+      content.innerHTML =
+        newServiceTool();
+
+      return;
+    }
+
+
+    /* =====================================================
+       ALBUM
+    ===================================================== */
+
+    if(tool === "album"){
+
+      title.textContent =
+        "Document Album";
+
+      content.innerHTML =
+        albumTool();
+
+      return;
+    }
+
+
+    /* =====================================================
+       POSTER
+    ===================================================== */
+
+    if(tool === "poster"){
+
+      title.textContent =
+        "Pro Poster Maker";
+
+      content.innerHTML =
+        posterTool();
+
+      return;
+    }
+
+
+    /* =====================================================
+       PROMOTION
+    ===================================================== */
+
+    if(tool === "promotion"){
+
+      title.textContent =
+        "Shop Promotion Maker";
+
+      content.innerHTML =
+        promotionTool();
+
+      return;
+    }
+
+
+    /* =====================================================
+       PRINT
+    ===================================================== */
+
+    if(tool === "print"){
+
+      title.textContent =
+        "Auto Print";
+
+      content.innerHTML =
+        autoPrintTool();
+
+      return;
+    }
+
+
+    /* =====================================================
+       CYBER
+    ===================================================== */
+
+    if(tool === "cyber"){
+
+      title.textContent =
+        "Cyber Cafe Services";
+
+      content.innerHTML =
+        cyberTool();
+
+      return;
+    }
+
+
+    /* =====================================================
+       DEFAULT
+    ===================================================== */
+
+    title.textContent =
+      "Digital Tool";
+
+    content.innerHTML =
+      simpleMessage(
+        "Coming Soon",
+        "यह service module तैयार किया जा सकता है।"
+      );
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "Tool खोलते समय error आया"
     );
 
-    return;
-
   }
-
-
-  if(tool==="mock"){
-
-    title.textContent=
-    "Mock Test";
-
-    content.innerHTML=
-    simpleMessage(
-      "Mock Test",
-      "यहाँ अलग-अलग competitive exam mock tests जोड़े जा सकते हैं।"
-    );
-
-    return;
-
-  }
-
-
-  if(tool==="pricing"){
-
-    title.textContent=
-    "Pricing";
-
-    content.innerHTML=
-    simpleMessage(
-      "Service Pricing",
-      "आप यहाँ अपनी सभी printing, photo और digital service की कीमतें निर्धारित कर सकते हैं।"
-    );
-
-    return;
-
-  }
-
-
-  content.innerHTML=
-  simpleMessage(
-    "Coming Soon",
-    "यह module तैयार किया जा सकता है।"
-  );
 
 }
 
 
 /* =========================================================
-   SIMPLE MESSAGE
+ SIMPLE
 ========================================================= */
 
 function simpleMessage(title,text){
 
   return `
 
-  <div
-  style="
-  text-align:center;
-  padding:60px 20px;
+  <div style="
+    text-align:center;
+    padding:60px 20px;
   ">
 
-    <div
-    style="
-    font-size:60px;
-    margin-bottom:15px;
+    <div style="
+      font-size:60px;
+      margin-bottom:15px;
     ">
-    🚀
+      🚀
     </div>
 
-    <h2>${title}</h2>
+    <h2>${escapeHTML(title)}</h2>
 
-    <p
-    style="
-    margin-top:12px;
-    color:#666;
+    <p style="
+      margin-top:12px;
+      color:#666;
     ">
-    ${text}
+      ${escapeHTML(text)}
     </p>
 
   </div>
@@ -3198,7 +3292,7 @@ function simpleMessage(title,text){
 
 
 /* =========================================================
-   PASSPORT PHOTO TOOL
+ PASSPORT TOOL
 ========================================================= */
 
 function passportTool(){
@@ -3207,106 +3301,93 @@ function passportTool(){
 
   <div class="print-layout">
 
-  <div class="tool-panel">
+    <div class="tool-panel">
 
-  <h3>Photo Settings</h3>
+      <h3>Photo Settings</h3>
 
-  <label>
-  Photo
-  </label>
+      <label>Photo</label>
 
-  <input
-  type="file"
-  id="passportFile"
-  accept="image/*"
-  onchange="loadPassportPhoto(event)">
+      <input
+        type="file"
+        id="passportFile"
+        accept="image/*"
+        onchange="loadPassportPhoto(event)">
 
-  <label>
-  Size
-  </label>
+      <label>Size</label>
 
-  <select id="passportSize"
-  onchange="makePassportLayout()">
+      <select
+        id="passportSize"
+        onchange="makePassportLayout()">
 
-    <option value="35x45">
-      35 × 45 mm
-    </option>
+        <option value="35x45">
+          35 × 45 mm
+        </option>
 
-    <option value="2x2">
-      2 × 2 inch
-    </option>
+        <option value="2x2">
+          2 × 2 inch
+        </option>
 
-    <option value="35x35">
-      35 × 35 mm
-    </option>
+        <option value="35x35">
+          35 × 35 mm
+        </option>
 
-  </select>
+      </select>
 
-  <label>
-  Number of Photos
-  </label>
+      <label>Number of Photos</label>
 
-  <select id="photoCount"
-  onchange="makePassportLayout()">
+      <select
+        id="photoCount"
+        onchange="makePassportLayout()">
 
-    <option value="4">4 Photos</option>
+        <option value="4">4 Photos</option>
+        <option value="8">8 Photos</option>
+        <option value="12">12 Photos</option>
 
-    <option value="8">8 Photos</option>
+      </select>
 
-    <option value="12">12 Photos</option>
+      <label>Background</label>
 
-  </select>
+      <select
+        id="photoBg"
+        onchange="makePassportLayout()">
 
+        <option value="white">White</option>
+        <option value="#eaf5ff">Light Blue</option>
+        <option value="#eeeeee">Light Grey</option>
 
-  <label>
-  Background
-  </label>
+      </select>
 
-  <select id="photoBg"
-  onchange="makePassportLayout()">
+      <button
+        class="primary"
+        onclick="window.print()">
 
-    <option value="white">White</option>
+        🖨️ Print A4
 
-    <option value="#eaf5ff">
-      Light Blue
-    </option>
+      </button>
 
-    <option value="#eeeeee">
-      Light Grey
-    </option>
-
-  </select>
+    </div>
 
 
-  <button
-  class="primary"
-  onclick="window.print()">
+    <div class="print-sheet-wrap">
 
-  🖨️ Print A4
+      <div
+        id="a4Sheet"
+        class="a4-sheet">
 
-  </button>
+        <div style="
+          grid-column:1/-1;
+          text-align:center;
+          padding:30px;
+          color:#aaa;
+        ">
 
-  </div>
+          Photo upload करें
 
+        </div>
 
-  <div class="print-sheet-wrap">
+      </div>
 
-  <div
-  id="a4Sheet"
-  class="a4-sheet">
-
-  <div style="
-  grid-column:1/-1;
-  text-align:center;
-  padding:30px;
-  color:#aaa;
-  ">
-  Photo upload करें
-  </div>
-
-  </div>
-
-  </div>
+    </div>
 
   </div>
 
@@ -3315,26 +3396,25 @@ function passportTool(){
 }
 
 
-let passportImage=null;
-
-
 function loadPassportPhoto(event){
 
-  const file=
-  event.target.files[0];
+  const file =
+    event.target.files[0];
 
-  if(!file)return;
+  if(!file) return;
 
-  const reader=
-  new FileReader();
+  const reader =
+    new FileReader();
 
-  reader.onload=e=>{
+  reader.onload =
+    function(e){
 
-    passportImage=e.target.result;
+      passportImage =
+        e.target.result;
 
-    makePassportLayout();
+      makePassportLayout();
 
-  };
+    };
 
   reader.readAsDataURL(file);
 
@@ -3343,57 +3423,55 @@ function loadPassportPhoto(event){
 
 function makePassportLayout(){
 
-  if(!passportImage)return;
+  if(!passportImage)
+    return;
 
-  const count=
-  Number(
-    document.getElementById(
-      "photoCount"
-    ).value
-  );
+  const count =
+    Number(
+      document
+        .getElementById("photoCount")
+        .value
+    );
 
-  const size=
-  document.getElementById(
-    "passportSize"
-  ).value;
+  const size =
+    document
+      .getElementById("passportSize")
+      .value;
 
-  const bg=
-  document.getElementById(
-    "photoBg"
-  ).value;
+  const bg =
+    document
+      .getElementById("photoBg")
+      .value;
 
-  const sheet=
-  document.getElementById(
-    "a4Sheet"
-  );
+  const sheet =
+    document
+      .getElementById("a4Sheet");
 
-  sheet.innerHTML="";
+  if(!sheet) return;
 
-  sheet.style.gridTemplateColumns=
-  count===4
-  ? "repeat(2,140px)"
-  : count===8
-  ? "repeat(4,140px)"
-  : "repeat(4,140px)";
+  sheet.innerHTML = "";
 
+  sheet.style.gridTemplateColumns =
+    count === 4
+    ? "repeat(2,140px)"
+    : "repeat(4,140px)";
 
-  let width=132;
-  let height=170;
+  let width = 132;
+  let height = 170;
 
-  if(size==="2x2"){
+  if(size === "2x2"){
 
-    width=170;
-    height=170;
-
-  }
-
-  if(size==="35x35"){
-
-    width=140;
-    height=140;
+    width = 170;
+    height = 170;
 
   }
 
+  if(size === "35x35"){
+
+    width = 140;
+    height = 140;
+
+  }
 
   for(
     let i=0;
@@ -3401,23 +3479,23 @@ function makePassportLayout(){
     i++
   ){
 
-    const div=
-    document.createElement("div");
+    const div =
+      document.createElement("div");
 
-    div.className=
-    "photo-item";
+    div.className =
+      "photo-item";
 
-    div.style.width=
-    width+"px";
+    div.style.width =
+      width + "px";
 
-    div.style.height=
-    height+"px";
+    div.style.height =
+      height + "px";
 
-    div.style.background=
-    bg;
+    div.style.background =
+      bg;
 
-    div.innerHTML=
-    `<img src="${passportImage}">`;
+    div.innerHTML =
+      `<img src="${passportImage}">`;
 
     sheet.appendChild(div);
 
@@ -3427,7 +3505,7 @@ function makePassportLayout(){
 
 
 /* =========================================================
-   CROP TOOL
+ CROP
 ========================================================= */
 
 function cropTool(){
@@ -3436,52 +3514,51 @@ function cropTool(){
 
   <div class="tool-area">
 
-  <div class="tool-panel">
+    <div class="tool-panel">
 
-  <h3>Photo Crop / Resize</h3>
+      <h3>
+        Photo Crop / Resize
+      </h3>
 
-  <input
-  type="file"
-  id="cropFile"
-  accept="image/*"
-  onchange="loadCropImage(event)">
+      <input
+        type="file"
+        id="cropFile"
+        accept="image/*"
+        onchange="loadCropImage(event)">
 
-  <label>
-  Width
-  </label>
+      <label>Width</label>
 
-  <input
-  type="number"
-  id="cropWidth"
-  value="600">
+      <input
+        type="number"
+        id="cropWidth"
+        value="600">
 
-  <label>
-  Height
-  </label>
+      <label>Height</label>
 
-  <input
-  type="number"
-  id="cropHeight"
-  value="800">
+      <input
+        type="number"
+        id="cropHeight"
+        value="800">
 
-  <button
-  class="primary"
-  onclick="resizeCropImage()">
+      <button
+        class="primary"
+        onclick="resizeCropImage()">
 
-  Resize & Download
+        Resize & Download
 
-  </button>
+      </button>
 
-  </div>
+    </div>
 
-  <div class="preview-box">
 
-  <canvas
-  id="cropCanvas"
-  style="max-width:100%">
-  </canvas>
+    <div class="preview-box">
 
-  </div>
+      <canvas
+        id="cropCanvas"
+        style="max-width:100%">
+      </canvas>
+
+    </div>
 
   </div>
 
@@ -3490,50 +3567,52 @@ function cropTool(){
 }
 
 
-let cropImg=null;
-
-
 function loadCropImage(event){
 
-  const file=
-  event.target.files[0];
+  const file =
+    event.target.files[0];
 
-  if(!file)return;
+  if(!file) return;
 
-  const reader=
-  new FileReader();
+  const reader =
+    new FileReader();
 
-  reader.onload=e=>{
+  reader.onload =
+    function(e){
 
-    cropImg=
-    new Image();
+      cropImg =
+        new Image();
 
-    cropImg.onload=()=>{
+      cropImg.onload =
+        function(){
 
-      const canvas=
-      document.getElementById(
-        "cropCanvas"
-      );
+          const canvas =
+            document.getElementById(
+              "cropCanvas"
+            );
 
-      canvas.width=
-      cropImg.width;
+          if(!canvas) return;
 
-      canvas.height=
-      cropImg.height;
+          canvas.width =
+            cropImg.width;
 
-      canvas
-      .getContext("2d")
-      .drawImage(
-        cropImg,
-        0,
-        0
-      );
+          canvas.height =
+            cropImg.height;
+
+          canvas
+            .getContext("2d")
+            .drawImage(
+              cropImg,
+              0,
+              0
+            );
+
+        };
+
+      cropImg.src =
+        e.target.result;
 
     };
-
-    cropImg.src=e.target.result;
-
-  };
 
   reader.readAsDataURL(file);
 
@@ -3544,51 +3623,69 @@ function resizeCropImage(){
 
   if(!cropImg){
 
-    toast("पहले फोटो upload करें");
+    toast(
+      "पहले फोटो upload करें"
+    );
 
     return;
+
   }
 
-  const w=
-  Number(
-    document.getElementById(
-      "cropWidth"
-    ).value
-  );
+  const w =
+    Number(
+      document
+        .getElementById("cropWidth")
+        .value
+    );
 
-  const h=
-  Number(
-    document.getElementById(
-      "cropHeight"
-    ).value
-  );
+  const h =
+    Number(
+      document
+        .getElementById("cropHeight")
+        .value
+    );
 
-  const canvas=
-  document.createElement("canvas");
+  if(w <= 0 || h <= 0){
 
-  canvas.width=w;
-  canvas.height=h;
+    toast(
+      "Width और Height सही दें"
+    );
+
+    return;
+
+  }
+
+  const canvas =
+    document.createElement("canvas");
+
+  canvas.width = w;
+  canvas.height = h;
 
   canvas
-  .getContext("2d")
-  .drawImage(
-    cropImg,
-    0,
-    0,
-    w,
-    h
-  );
+    .getContext("2d")
+    .drawImage(
+      cropImg,
+      0,
+      0,
+      w,
+      h
+    );
 
   downloadData(
-    canvas.toDataURL("image/jpeg",.95),
+    canvas.toDataURL(
+      "image/jpeg",
+      .95
+    ),
     "cropped-photo.jpg"
   );
+
+  toast("Photo तैयार है");
 
 }
 
 
 /* =========================================================
-   IMAGE TO PDF
+ IMAGE PDF
 ========================================================= */
 
 function imageToPdfTool(){
@@ -3597,37 +3694,40 @@ function imageToPdfTool(){
 
   <div class="tool-panel">
 
-  <h3>Select Images</h3>
+    <h3>Images To PDF</h3>
 
-  <input
-  type="file"
-  id="imagePdfFiles"
-  accept="image/*"
-  multiple>
+    <input
+      type="file"
+      id="imagePdfFiles"
+      accept="image/jpeg,image/jpg,image/png"
+      multiple>
 
-  <label>
-  Page Size
-  </label>
+    <div class="info-box">
+      JPG और PNG दोनों images को एक PDF में
+      convert किया जा सकता है।
+    </div>
 
-  <select id="pdfPageSize">
+    <label>Page Size</label>
 
-  <option value="a4">
-  A4
-  </option>
+    <select id="pdfPageSize">
 
-  <option value="fit">
-  Fit Image
-  </option>
+      <option value="a4">
+        A4
+      </option>
 
-  </select>
+      <option value="fit">
+        Fit Image
+      </option>
 
-  <button
-  class="primary"
-  onclick="imagesToPDF()">
+    </select>
 
-  Convert To PDF
+    <button
+      class="primary"
+      onclick="imagesToPDF()">
 
-  </button>
+      Convert To PDF
+
+    </button>
 
   </div>
 
@@ -3638,83 +3738,123 @@ function imageToPdfTool(){
 
 async function imagesToPDF(){
 
-  const files=
-  document.getElementById(
-    "imagePdfFiles"
-  ).files;
+  try{
 
-  if(!files.length){
+    const input =
+      document.getElementById(
+        "imagePdfFiles"
+      );
 
-    toast("Images select करें");
+    const files =
+      input.files;
 
-    return;
+    if(!files.length){
 
-  }
+      toast(
+        "Images select करें"
+      );
 
-  const {jsPDF}=
-  window.jspdf;
+      return;
 
-  const pdf=
-  new jsPDF("p","mm","a4");
+    }
 
-  for(
-    let i=0;
-    i<files.length;
-    i++
-  ){
+    if(!window.jspdf){
 
-    const data=
-    await fileToDataURL(files[i]);
+      toast(
+        "PDF library load नहीं हुई"
+      );
 
-    const img=
-    await loadImage(data);
+      return;
 
-    const pageW=210;
-    const pageH=297;
+    }
 
-    const ratio=
-    Math.min(
-      pageW/img.width,
-      pageH/img.height
+    const {jsPDF} =
+      window.jspdf;
+
+    const pdf =
+      new jsPDF(
+        "p",
+        "mm",
+        "a4"
+      );
+
+    for(
+      let i=0;
+      i<files.length;
+      i++
+    ){
+
+      const data =
+        await fileToDataURL(
+          files[i]
+        );
+
+      const img =
+        await loadImage(data);
+
+      const pageW = 210;
+      const pageH = 297;
+
+      const ratio =
+        Math.min(
+          pageW / img.width,
+          pageH / img.height
+        );
+
+      const w =
+        img.width * ratio;
+
+      const h =
+        img.height * ratio;
+
+      const x =
+        (pageW - w) / 2;
+
+      const y =
+        (pageH - h) / 2;
+
+      if(i > 0)
+        pdf.addPage();
+
+      const format =
+        files[i].type === "image/png"
+        ? "PNG"
+        : "JPEG";
+
+      pdf.addImage(
+        data,
+        format,
+        x,
+        y,
+        w,
+        h
+      );
+
+    }
+
+    pdf.save(
+      "Bharat-Digital-Centre.pdf"
     );
 
-    const w=
-    img.width*ratio;
+    toast(
+      "PDF तैयार हो गया"
+    );
 
-    const h=
-    img.height*ratio;
+  }catch(error){
 
-    const x=
-    (pageW-w)/2;
+    console.error(error);
 
-    const y=
-    (pageH-h)/2;
-
-    if(i>0)
-      pdf.addPage();
-
-    pdf.addImage(
-      data,
-      "JPEG",
-      x,
-      y,
-      w,
-      h
+    toast(
+      "PDF बनाने में error आया"
     );
 
   }
-
-  pdf.save(
-    "Bharat-Digital-Centre.pdf"
-  );
-
-  toast("PDF तैयार हो गया");
 
 }
 
 
 /* =========================================================
-   PNG TO JPG
+ PNG JPG
 ========================================================= */
 
 function pngToJpgTool(){
@@ -3723,20 +3863,32 @@ function pngToJpgTool(){
 
   <div class="tool-panel">
 
-  <h3>PNG To JPG</h3>
+    <h3>PNG To JPG</h3>
 
-  <input
-  type="file"
-  id="pngFile"
-  accept="image/png">
+    <input
+      type="file"
+      id="pngFile"
+      accept="image/png">
 
-  <button
-  class="primary"
-  onclick="convertPNGtoJPG()">
+    <label>
+      JPG Quality
+    </label>
 
-  Convert & Download
+    <select id="jpgQuality">
 
-  </button>
+      <option value=".95">High</option>
+      <option value=".85">Medium</option>
+      <option value=".70">Small File</option>
+
+    </select>
+
+    <button
+      class="primary"
+      onclick="convertPNGtoJPG()">
+
+      Convert & Download
+
+    </button>
 
   </div>
 
@@ -3747,66 +3899,90 @@ function pngToJpgTool(){
 
 function convertPNGtoJPG(){
 
-  const file=
-  document.getElementById(
-    "pngFile"
-  ).files[0];
+  const file =
+    document
+      .getElementById("pngFile")
+      .files[0];
 
   if(!file){
 
-    toast("PNG file select करें");
+    toast(
+      "PNG file select करें"
+    );
 
     return;
 
   }
 
-  const reader=
-  new FileReader();
+  const reader =
+    new FileReader();
 
-  reader.onload=e=>{
+  reader.onload =
+    function(e){
 
-    const img=
-    new Image();
+      const img =
+        new Image();
 
-    img.onload=()=>{
+      img.onload =
+        function(){
 
-      const canvas=
-      document.createElement("canvas");
+          const canvas =
+            document.createElement(
+              "canvas"
+            );
 
-      canvas.width=img.width;
-      canvas.height=img.height;
+          canvas.width =
+            img.width;
 
-      const ctx=
-      canvas.getContext("2d");
+          canvas.height =
+            img.height;
 
-      ctx.fillStyle="#fff";
+          const ctx =
+            canvas.getContext("2d");
 
-      ctx.fillRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
+          ctx.fillStyle =
+            "#ffffff";
 
-      ctx.drawImage(
-        img,
-        0,
-        0
-      );
+          ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+          );
 
-      downloadData(
-        canvas.toDataURL(
-          "image/jpeg",
-          .95
-        ),
-        "converted.jpg"
-      );
+          ctx.drawImage(
+            img,
+            0,
+            0
+          );
+
+          const quality =
+            Number(
+              document
+                .getElementById(
+                  "jpgQuality"
+                )
+                .value
+            );
+
+          downloadData(
+            canvas.toDataURL(
+              "image/jpeg",
+              quality
+            ),
+            "converted.jpg"
+          );
+
+          toast(
+            "JPG तैयार है"
+          );
+
+        };
+
+      img.src =
+        e.target.result;
 
     };
-
-    img.src=e.target.result;
-
-  };
 
   reader.readAsDataURL(file);
 
@@ -3814,7 +3990,7 @@ function convertPNGtoJPG(){
 
 
 /* =========================================================
-   PDF TO JPG
+ PDF JPG
 ========================================================= */
 
 function pdfToJpgTool(){
@@ -3823,25 +3999,25 @@ function pdfToJpgTool(){
 
   <div class="tool-panel">
 
-  <h3>PDF To JPG</h3>
+    <h3>PDF To JPG</h3>
 
-  <input
-  type="file"
-  id="pdfJpgFile"
-  accept="application/pdf">
+    <input
+      type="file"
+      id="pdfJpgFile"
+      accept="application/pdf">
 
-  <button
-  class="primary"
-  onclick="convertPDFtoJPG()">
+    <button
+      class="primary"
+      onclick="convertPDFtoJPG()">
 
-  Convert PDF
+      Convert PDF
 
-  </button>
+    </button>
 
-  <div
-  id="pdfJpgResult"
-  class="pdf-pages">
-  </div>
+    <div
+      id="pdfJpgResult"
+      class="pdf-pages">
+    </div>
 
   </div>
 
@@ -3852,104 +4028,135 @@ function pdfToJpgTool(){
 
 async function convertPDFtoJPG(){
 
-  const file=
-  document.getElementById(
-    "pdfJpgFile"
-  ).files[0];
+  try{
 
-  if(!file){
+    const file =
+      document
+        .getElementById(
+          "pdfJpgFile"
+        )
+        .files[0];
 
-    toast("PDF select करें");
+    if(!file){
 
-    return;
-
-  }
-
-  const data=
-  await file.arrayBuffer();
-
-  const pdf=
-  await pdfjsLib
-  .getDocument({
-    data
-  })
-  .promise;
-
-  const result=
-  document.getElementById(
-    "pdfJpgResult"
-  );
-
-  result.innerHTML="";
-
-  for(
-    let i=1;
-    i<=pdf.numPages;
-    i++
-  ){
-
-    const page=
-    await pdf.getPage(i);
-
-    const viewport=
-    page.getViewport({
-      scale:2
-    });
-
-    const canvas=
-    document.createElement(
-      "canvas"
-    );
-
-    canvas.width=
-    viewport.width;
-
-    canvas.height=
-    viewport.height;
-
-    await page.render({
-      canvasContext:
-      canvas.getContext("2d"),
-      viewport
-    }).promise;
-
-    const dataURL=
-    canvas.toDataURL(
-      "image/jpeg",
-      .95
-    );
-
-    const button=
-    document.createElement(
-      "button"
-    );
-
-    button.className=
-    "secondary";
-
-    button.textContent=
-    "Download Page "+i;
-
-    button.onclick=()=>{
-
-      downloadData(
-        dataURL,
-        "page-"+i+".jpg"
+      toast(
+        "PDF select करें"
       );
 
-    };
+      return;
 
-    result.appendChild(button);
+    }
+
+    if(typeof pdfjsLib === "undefined"){
+
+      toast(
+        "PDF library load नहीं हुई"
+      );
+
+      return;
+
+    }
+
+    const data =
+      await file.arrayBuffer();
+
+    const pdf =
+      await pdfjsLib
+        .getDocument({
+          data:data
+        })
+        .promise;
+
+    const result =
+      document.getElementById(
+        "pdfJpgResult"
+      );
+
+    result.innerHTML = "";
+
+    for(
+      let i=1;
+      i<=pdf.numPages;
+      i++
+    ){
+
+      const page =
+        await pdf.getPage(i);
+
+      const viewport =
+        page.getViewport({
+          scale:2
+        });
+
+      const canvas =
+        document.createElement(
+          "canvas"
+        );
+
+      canvas.width =
+        viewport.width;
+
+      canvas.height =
+        viewport.height;
+
+      await page.render({
+        canvasContext:
+          canvas.getContext("2d"),
+        viewport:viewport
+      }).promise;
+
+      const dataURL =
+        canvas.toDataURL(
+          "image/jpeg",
+          .95
+        );
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+      button.className =
+        "secondary";
+
+      button.textContent =
+        "Download Page " + i;
+
+      button.onclick =
+        function(){
+
+          downloadData(
+            dataURL,
+            "page-" + i + ".jpg"
+          );
+
+        };
+
+      result.appendChild(
+        button
+      );
+
+    }
+
+    toast(
+      "PDF pages तैयार हैं"
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "PDF convert नहीं हो सका"
+    );
 
   }
-
-  toast("PDF pages तैयार हैं");
 
 }
 
 
 /* =========================================================
-   MERGE PDF
+ MERGE PDF
 ========================================================= */
 
 function mergePdfTool(){
@@ -3958,21 +4165,28 @@ function mergePdfTool(){
 
   <div class="tool-panel">
 
-  <h3>Merge PDF Files</h3>
+    <h3>
+      Merge PDF Files
+    </h3>
 
-  <input
-  type="file"
-  id="mergeFiles"
-  accept="application/pdf"
-  multiple>
+    <input
+      type="file"
+      id="mergeFiles"
+      accept="application/pdf"
+      multiple>
 
-  <button
-  class="primary"
-  onclick="mergePDFs()">
+    <div class="info-box">
+      PDF जिस क्रम में select होंगे,
+      उसी क्रम में merge होंगे।
+    </div>
 
-  Merge PDFs
+    <button
+      class="primary"
+      onclick="mergePDFs()">
 
-  </button>
+      Merge PDFs
+
+    </button>
 
   </div>
 
@@ -3983,59 +4197,90 @@ function mergePdfTool(){
 
 async function mergePDFs(){
 
-  const files=
-  document.getElementById(
-    "mergeFiles"
-  ).files;
+  try{
 
-  if(files.length<2){
+    const files =
+      document
+        .getElementById(
+          "mergeFiles"
+        )
+        .files;
 
-    toast("कम से कम 2 PDF चुनें");
+    if(files.length < 2){
 
-    return;
+      toast(
+        "कम से कम 2 PDF चुनें"
+      );
 
-  }
+      return;
 
-  const merged=
-  await PDFLib.PDFDocument.create();
+    }
 
-  for(const file of files){
+    if(!window.PDFLib){
 
-    const bytes=
-    await file.arrayBuffer();
+      toast(
+        "PDF library load नहीं हुई"
+      );
 
-    const pdf=
-    await PDFLib.PDFDocument
-    .load(bytes);
+      return;
 
-    const pages=
-    await merged.copyPages(
-      pdf,
-      pdf.getPageIndices()
+    }
+
+    const merged =
+      await PDFLib.PDFDocument
+        .create();
+
+    for(const file of files){
+
+      const bytes =
+        await file.arrayBuffer();
+
+      const pdf =
+        await PDFLib.PDFDocument
+          .load(bytes);
+
+      const pages =
+        await merged.copyPages(
+          pdf,
+          pdf.getPageIndices()
+        );
+
+      pages.forEach(
+        function(page){
+          merged.addPage(page);
+        }
+      );
+
+    }
+
+    const bytes =
+      await merged.save();
+
+    downloadBytes(
+      bytes,
+      "merged.pdf",
+      "application/pdf"
     );
 
-    pages.forEach(
-      p=>merged.addPage(p)
+    toast(
+      "PDF merge हो गया"
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "PDF merge में error आया"
     );
 
   }
-
-  const bytes=
-  await merged.save();
-
-  downloadBytes(
-    bytes,
-    "merged.pdf",
-    "application/pdf"
-  );
-
-  toast("PDF merge हो गया");
 
 }
 
 
 /* =========================================================
-   PDF EDITOR
+ PDF EDITOR
 ========================================================= */
 
 function pdfEditorTool(advanced=false){
@@ -4044,100 +4289,102 @@ function pdfEditorTool(advanced=false){
 
   <div class="tool-area">
 
-  <div class="tool-panel">
+    <div class="tool-panel">
 
-  <h3>
-  PDF ${advanced ? "Advanced Editor":"Page Manager"}
-  </h3>
+      <h3>
+        PDF ${advanced
+          ? "Advanced Editor"
+          : "Page Manager"}
+      </h3>
 
-  <input
-  type="file"
-  id="editorPdf"
-  accept="application/pdf"
-  onchange="loadPDFEditor(event)">
+      <input
+        type="file"
+        id="editorPdf"
+        accept="application/pdf"
+        onchange="loadPDFEditor(event)">
 
-  <br>
+      <div class="tool-buttons">
 
-  <button
-  class="secondary"
-  onclick="rotateSelectedPDFPage()">
+        <button
+          class="secondary"
+          onclick="rotateSelectedPDFPage()">
 
-  🔄 Rotate
+          🔄 Rotate
 
-  </button>
+        </button>
 
-  <button
-  class="danger"
-  onclick="deleteSelectedPDFPage()">
+        <button
+          class="danger"
+          onclick="deleteSelectedPDFPage()">
 
-  🗑️ Delete
+          🗑️ Delete
 
-  </button>
+        </button>
 
-  <br>
+      </div>
 
-  <label>
-  Watermark Text
-  </label>
+      <label>
+        Watermark Text
+      </label>
 
-  <input
-  type="text"
-  id="watermarkText"
-  placeholder="Bharat Digital Centre">
+      <input
+        type="text"
+        id="watermarkText"
+        placeholder="Bharat Digital Centre">
 
-  <button
-  class="secondary"
-  onclick="addPDFWatermark()">
+      <button
+        class="secondary"
+        onclick="addPDFWatermark()">
 
-  💧 Add Watermark
+        💧 Add Watermark
 
-  </button>
-
-  <br>
-
-  <label>
-  Text Overlay
-  </label>
-
-  <input
-  type="text"
-  id="pdfOverlayText"
-  placeholder="Enter text">
-
-  <button
-  class="secondary"
-  onclick="addPDFTextOverlay()">
-
-  📝 Add Text
-
-  </button>
-
-  <br>
-
-  <button
-  class="primary"
-  onclick="saveEditedPDF()">
-
-  💾 Download Edited PDF
-
-  </button>
-
-  </div>
+      </button>
 
 
-  <div class="tool-panel">
+      <label>
+        Text Overlay
+      </label>
 
-  <h3>PDF Pages</h3>
+      <input
+        type="text"
+        id="pdfOverlayText"
+        placeholder="Enter text">
 
-  <div
-  id="pdfEditorPages"
-  class="pdf-pages">
+      <button
+        class="secondary"
+        onclick="addPDFTextOverlay()">
 
-  PDF upload करें
+        📝 Add Text
 
-  </div>
+      </button>
 
-  </div>
+
+      <button
+        class="primary"
+        onclick="saveEditedPDF()">
+
+        💾 Download Edited PDF
+
+      </button>
+
+    </div>
+
+
+    <div class="tool-panel">
+
+      <h3>
+        PDF Pages
+      </h3>
+
+      <div
+        id="pdfEditorPages"
+        class="pdf-pages">
+
+        PDF upload करें
+
+      </div>
+
+    </div>
 
   </div>
 
@@ -4146,49 +4393,64 @@ function pdfEditorTool(advanced=false){
 }
 
 
-let editorPDF=null;
-
-let selectedPDFPage=0;
-
-let pdfRotations=[];
-
-
 async function loadPDFEditor(event){
 
-  const file=
-  event.target.files[0];
+  try{
 
-  if(!file)return;
+    const file =
+      event.target.files[0];
 
-  const bytes=
-  await file.arrayBuffer();
+    if(!file) return;
 
-  editorPDF=
-  await PDFLib.PDFDocument.load(bytes);
+    const bytes =
+      await file.arrayBuffer();
 
-  pdfRotations=
-  editorPDF
-  .getPages()
-  .map(()=>0);
+    editorPDF =
+      await PDFLib.PDFDocument
+        .load(bytes);
 
-  renderPDFEditorPages();
+    selectedPDFPage = 0;
+
+    editorPageOrder = null;
+
+    pdfRotations =
+      editorPDF
+        .getPages()
+        .map(function(){
+          return 0;
+        });
+
+    renderPDFEditorPages();
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "PDF open नहीं हो सका"
+    );
+
+  }
 
 }
 
 
 async function renderPDFEditorPages(){
 
-  if(!editorPDF)return;
+  if(!editorPDF)
+    return;
 
-  const box=
-  document.getElementById(
-    "pdfEditorPages"
-  );
+  const box =
+    document.getElementById(
+      "pdfEditorPages"
+    );
 
-  box.innerHTML="";
+  if(!box) return;
 
-  const pages=
-  editorPDF.getPages();
+  box.innerHTML = "";
+
+  const pages =
+    editorPDF.getPages();
 
   for(
     let i=0;
@@ -4196,43 +4458,63 @@ async function renderPDFEditorPages(){
     i++
   ){
 
-    const div=
-    document.createElement("div");
-
-    div.className=
-    "pdf-page";
-
-    div.onclick=()=>{
-      selectedPDFPage=i;
-      toast(
-        "Page "+(i+1)+" selected"
+    const div =
+      document.createElement(
+        "div"
       );
-    };
 
-    div.innerHTML=
-    `<div style="
-    padding:40px 10px;
-    text-align:center;
-    background:#f5f5f5;
-    ">
-    Page ${i+1}
-    </div>
+    div.className =
+      "pdf-page";
 
-    <div class="pdf-page-controls">
+    if(i === selectedPDFPage)
+      div.classList.add("selected");
 
-      <button
-      onclick="event.stopPropagation();
-      movePDFPage(${i},-1)">
-      ←
-      </button>
+    div.onclick =
+      function(){
 
-      <button
-      onclick="event.stopPropagation();
-      movePDFPage(${i},1)">
-      →
-      </button>
+        selectedPDFPage = i;
 
-    </div>`;
+        renderPDFEditorPages();
+
+      };
+
+    div.innerHTML = `
+
+      <div style="
+        padding:40px 10px;
+        text-align:center;
+        background:#f5f5f5;
+      ">
+
+        📄 Page ${i+1}
+
+      </div>
+
+      <div class="pdf-page-controls">
+
+        <button
+          onclick="
+            event.stopPropagation();
+            movePDFPage(${i},-1)
+          ">
+
+          ←
+
+        </button>
+
+        <button
+          onclick="
+            event.stopPropagation();
+            movePDFPage(${i},1)
+          ">
+
+          →
+
+        </button>
+
+      </div>
+
+    `;
 
     box.appendChild(div);
 
@@ -4243,14 +4525,24 @@ async function renderPDFEditorPages(){
 
 function rotateSelectedPDFPage(){
 
-  if(!editorPDF)return;
+  if(!editorPDF){
+
+    toast(
+      "पहले PDF upload करें"
+    );
+
+    return;
+
+  }
 
   pdfRotations[
     selectedPDFPage
-  ]+=90;
+  ] += 90;
 
   toast(
-    "Page "+(selectedPDFPage+1)+" rotated"
+    "Page " +
+    (selectedPDFPage+1) +
+    " rotated"
   );
 
 }
@@ -4258,13 +4550,23 @@ function rotateSelectedPDFPage(){
 
 function deleteSelectedPDFPage(){
 
-  if(!editorPDF)return;
+  if(!editorPDF){
+
+    toast(
+      "पहले PDF upload करें"
+    );
+
+    return;
+
+  }
 
   if(
-    editorPDF.getPageCount()<=1
+    editorPDF.getPageCount() <= 1
   ){
 
-    toast("कम से कम एक page रखना जरूरी है");
+    toast(
+      "कम से कम एक page रखना जरूरी है"
+    );
 
     return;
 
@@ -4275,1162 +4577,89 @@ function deleteSelectedPDFPage(){
   );
 
   if(
-    selectedPDFPage>=
+    selectedPDFPage >=
     editorPDF.getPageCount()
   ){
 
-    selectedPDFPage=
-    editorPDF.getPageCount()-1;
+    selectedPDFPage =
+      editorPDF.getPageCount()-1;
 
   }
 
-  pdfRotations=
-  editorPDF
-  .getPages()
-  .map(()=>0);
+  pdfRotations =
+    editorPDF
+      .getPages()
+      .map(function(){
+        return 0;
+      });
+
+  editorPageOrder = null;
 
   renderPDFEditorPages();
+
+  toast(
+    "Page delete हो गया"
+  );
 
 }
 
 
-function movePDFPage(index,direction){
+function movePDFPage(
+  index,
+  direction
+){
 
-  if(!editorPDF)return;
+  if(!editorPDF)
+    return;
 
-  const pages=
-  editorPDF.getPages();
+  const pages =
+    editorPDF.getPages();
 
-  const target=
-  index+direction;
+  const target =
+    index + direction;
 
   if(
-    target<0 ||
-    target>=pages.length
+    target < 0 ||
+    target >= pages.length
   )
-  return;
+    return;
 
-  /*
-    PDF-lib page insertion/reordering
-    is handled by copying pages into
-    a fresh document during save.
-  */
+  let order =
+    editorPageOrder;
 
-  const order=
-  pages.map((_,i)=>i);
+  if(
+    !order ||
+    order.length !== pages.length
+  ){
+
+    order =
+      pages.map(
+        function(_,i){
+          return i;
+        }
+      );
+
+  }
 
   [
     order[index],
     order[target]
-  ]=[
+  ] =
+  [
     order[target],
     order[index]
   ];
 
-  editorPageOrder=order;
+  editorPageOrder =
+    order;
 
-  toast("Page order changed");
+  toast(
+    "Page order changed"
+  );
 
 }
-
-
-let editorPageOrder=null;
 
 
 async function saveEditedPDF(){
 
-  if(!editorPDF)return;
-
-  const newPDF=
-  await PDFLib.PDFDocument.create();
-
-  const pages=
-  editorPDF.getPages();
-
-  let order=
-  editorPageOrder;
-
-  if(
-    !order ||
-    order.length!==pages.length
-  ){
-
-    order=
-    pages.map((_,i)=>i);
-
-  }
-
-  for(
-    const originalIndex of order
-  ){
-
-    const [copied]=
-    await newPDF.copyPages(
-      editorPDF,
-      [originalIndex]
-    );
-
-    const page=
-    newPDF.addPage(copied);
-
-    const rotation=
-    pdfRotations[
-      originalIndex
-    ] || 0;
-
-    if(rotation){
-
-      page.setRotation(
-        PDFLib.degrees(rotation)
-      );
-
-    }
-
-  }
-
-  const bytes=
-  await newPDF.save();
-
-  downloadBytes(
-    bytes,
-    "edited.pdf",
-    "application/pdf"
-  );
-
-  toast(
-    "Edited PDF download हो गया"
-  );
-
-}
-
-
-function addPDFWatermark(){
-
-  if(!editorPDF)return;
-
-  const text=
-  document
-  .getElementById(
-    "watermarkText"
-  ).value ||
-  "Bharat Digital Centre";
-
-  editorPDF
-  .getPages()
-  .forEach(page=>{
-
-    const {
-      width,
-      height
-    }=
-    page.getSize();
-
-    page.drawText(
-      text,
-      {
-        x:width/4,
-        y:height/2,
-        size:30,
-        opacity:.25,
-        rotate:
-        PDFLib.degrees(-35)
-      }
-    );
-
-  });
-
-  toast("Watermark added");
-
-}
-
-
-function addPDFTextOverlay(){
-
-  if(!editorPDF)return;
-
-  const text=
-  document
-  .getElementById(
-    "pdfOverlayText"
-  ).value;
-
-  if(!text){
-
-    toast("Text लिखें");
-
-    return;
-
-  }
-
-  const page=
-  editorPDF
-  .getPages()[
-    selectedPDFPage
-  ];
-
-  page.drawText(
-    text,
-    {
-      x:50,
-      y:50,
-      size:16,
-      color:
-      PDFLib.rgb(0,0,0)
-    }
-  );
-
-  toast(
-    "Text overlay added"
-  );
-
-}
-
-
-/* =========================================================
-   SIGNATURE
-========================================================= */
-
-function signatureTool(){
-
-  return `
-
-  <div class="tool-area">
-
-  <div class="tool-panel">
-
-  <h3>PDF Signature</h3>
-
-  <input
-  type="file"
-  id="signaturePdf"
-  accept="application/pdf">
-
-  <label>
-  Signature Image
-  </label>
-
-  <input
-  type="file"
-  id="signatureImage"
-  accept="image/png,image/jpeg">
-
-  <button
-  class="primary"
-  onclick="applySignature()">
-
-  Add Signature
-
-  </button>
-
-  </div>
-
-  <div class="preview-box">
-
-  ✍️ Signature will be placed
-  on the first page.
-
-  </div>
-
-  </div>
-
-  `;
-
-}
-
-
-async function applySignature(){
-
-  const pdfFile=
-  document
-  .getElementById(
-    "signaturePdf"
-  ).files[0];
-
-  const signFile=
-  document
-  .getElementById(
-    "signatureImage"
-  ).files[0];
-
-  if(!pdfFile || !signFile){
-
-    toast(
-      "PDF और Signature दोनों चुनें"
-    );
-
-    return;
-
-  }
-
-  const pdfBytes=
-  await pdfFile.arrayBuffer();
-
-  const pdf=
-  await PDFLib.PDFDocument
-  .load(pdfBytes);
-
-  const signBytes=
-  await signFile.arrayBuffer();
-
-  let image;
-
-  if(
-    signFile.type.includes("png")
-  ){
-
-    image=
-    await pdf.embedPng(
-      signBytes
-    );
-
-  }else{
-
-    image=
-    await pdf.embedJpg(
-      signBytes
-    );
-
-  }
-
-  const page=
-  pdf.getPages()[0];
-
-  page.drawImage(
-    image,
-    {
-      x:50,
-      y:50,
-      width:120,
-      height:50
-    }
-  );
-
-  const out=
-  await pdf.save();
-
-  downloadBytes(
-    out,
-    "signed.pdf",
-    "application/pdf"
-  );
-
-  toast(
-    "Signature PDF तैयार"
-  );
-
-}
-
-
-/* =========================================================
-   BACKGROUND REMOVER
-========================================================= */
-
-function backgroundTool(){
-
-  return `
-
-  <div class="tool-area">
-
-  <div class="tool-panel">
-
-  <h3>
-  Background Remover
-  </h3>
-
-  <p style="
-  color:#666;
-  font-size:13px;
-  line-height:1.6;
-  ">
-
-  यह browser-based basic remover है।
-  यह मुख्यतः white/light background को
-  transparent करता है।
-
-  </p>
-
-  <input
-  type="file"
-  id="bgFile"
-  accept="image/*"
-  onchange="removeLightBackground(event)">
-
-  <br>
-
-  <button
-  class="primary"
-  onclick="downloadRemovedBG()">
-
-  Download PNG
-
-  </button>
-
-  </div>
-
-  <div class="preview-box">
-
-  <canvas
-  id="bgCanvas"
-  style="
-  max-width:100%;
-  ">
-  </canvas>
-
-  </div>
-
-  </div>
-
-  `;
-
-}
-
-
-let bgCanvas=null;
-
-
-function removeLightBackground(event){
-
-  const file=
-  event.target.files[0];
-
-  if(!file)return;
-
-  const reader=
-  new FileReader();
-
-  reader.onload=e=>{
-
-    const img=
-    new Image();
-
-    img.onload=()=>{
-
-      bgCanvas=
-      document
-      .getElementById(
-        "bgCanvas"
-      );
-
-      bgCanvas.width=
-      img.width;
-
-      bgCanvas.height=
-      img.height;
-
-      const ctx=
-      bgCanvas
-      .getContext("2d");
-
-      ctx.drawImage(
-        img,
-        0,
-        0
-      );
-
-      const data=
-      ctx.getImageData(
-        0,
-        0,
-        bgCanvas.width,
-        bgCanvas.height
-      );
-
-      for(
-        let i=0;
-        i<data.data.length;
-        i+=4
-      ){
-
-        const r=data.data[i];
-
-        const g=data.data[i+1];
-
-        const b=data.data[i+2];
-
-        /*
-          Light background detection
-        */
-
-        if(
-          r>235 &&
-          g>235 &&
-          b>235
-        ){
-
-          data.data[i+3]=0;
-
-        }
-
-      }
-
-      ctx.putImageData(
-        data,
-        0,
-        0
-      );
-
-    };
-
-    img.src=e.target.result;
-
-  };
-
-  reader.readAsDataURL(file);
-
-}
-
-
-function downloadRemovedBG(){
-
-  if(!bgCanvas){
-
-    toast("पहले फोटो upload करें");
-
-    return;
-
-  }
-
-  downloadData(
-    bgCanvas.toDataURL(
-      "image/png"
-    ),
-    "background-removed.png"
-  );
-
-}
-
-
-/* =========================================================
-   ID PRINT
-========================================================= */
-
-function idPrintTool(){
-
-  return `
-
-  <div class="tool-area">
-
-  <div class="tool-panel">
-
-  <h3>
-  ID Card Print Studio
-  </h3>
-
-  <label>
-  Card Type
-  </label>
-
-  <select id="idCardType">
-
-  <option>
-  Standard ID Card
-  </option>
-
-  <option>
-  Aadhaar Size
-  </option>
-
-  <option>
-  PVC Card
-  </option>
-
-  <option>
-  PAN Size
-  </option>
-
-  <option>
-  Custom
-  </option>
-
-  </select>
-
-
-  <label>
-  Front Image
-  </label>
-
-  <input
-  type="file"
-  id="idFront"
-  accept="image/*"
-  onchange="previewID()">
-
-
-  <label>
-  Back Image
-  </label>
-
-  <input
-  type="file"
-  id="idBack"
-  accept="image/*"
-  onchange="previewID()">
-
-
-  <button
-  class="primary"
-  onclick="window.print()">
-
-  🖨️ Print
-
-  </button>
-
-  </div>
-
-
-  <div class="preview-box">
-
-  <div
-  id="idPreview"
-  style="
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-  justify-content:center;
-  ">
-
-  </div>
-
-  </div>
-
-  </div>
-
-  `;
-
-}
-
-
-function previewID(){
-
-  const front=
-  document
-  .getElementById(
-    "idFront"
-  ).files[0];
-
-  const back=
-  document
-  .getElementById(
-    "idBack"
-  ).files[0];
-
-  const box=
-  document
-  .getElementById(
-    "idPreview"
-  );
-
-  box.innerHTML="";
-
-  if(front){
-
-    const img=
-    document.createElement("img");
-
-    img.src=
-    URL.createObjectURL(front);
-
-    img.style.width="320px";
-
-    img.style.height="200px";
-
-    img.style.objectFit="cover";
-
-    img.style.border=
-    "1px solid #999";
-
-    box.appendChild(img);
-
-  }
-
-  if(back){
-
-    const img=
-    document.createElement("img");
-
-    img.src=
-    URL.createObjectURL(back);
-
-    img.style.width="320px";
-
-    img.style.height="200px";
-
-    img.style.objectFit="cover";
-
-    img.style.border=
-    "1px solid #999";
-
-    box.appendChild(img);
-
-  }
-
-}
-
-
-/* =========================================================
-   RESUME
-========================================================= */
-
-function resumeTool(){
-
-  return `
-
-  <div class="tool-area">
-
-  <div class="tool-panel">
-
-  <h3>Resume Maker</h3>
-
-  <label>Name</label>
-
-  <input
-  id="resumeName"
-  placeholder="Your Name">
-
-  <label>Mobile</label>
-
-  <input
-  id="resumeMobile"
-  placeholder="Mobile">
-
-  <label>Qualification</label>
-
-  <input
-  id="resumeQualification"
-  placeholder="Qualification">
-
-  <label>Experience</label>
-
-  <input
-  id="resumeExperience"
-  placeholder="Experience">
-
-  <button
-  class="primary"
-  onclick="generateResume()">
-
-  Generate Resume
-
-  </button>
-
-  </div>
-
-  <div
-  id="resumePreview"
-  class="tool-panel">
-
-  Resume Preview
-
-  </div>
-
-  </div>
-
-  `;
-
-}
-
-
-function generateResume(){
-
-  const name=
-  document.getElementById(
-    "resumeName"
-  ).value;
-
-  const mobile=
-  document.getElementById(
-    "resumeMobile"
-  ).value;
-
-  const qualification=
-  document.getElementById(
-    "resumeQualification"
-  ).value;
-
-  const experience=
-  document.getElementById(
-    "resumeExperience"
-  ).value;
-
-  document
-  .getElementById(
-    "resumePreview"
-  )
-  .innerHTML=`
-
-  <div style="
-  background:white;
-  padding:30px;
-  line-height:1.8;
-  ">
-
-  <h1>${name}</h1>
-
-  <p>📱 ${mobile}</p>
-
-  <hr>
-
-  <h3>Qualification</h3>
-
-  <p>${qualification}</p>
-
-  <h3>Experience</h3>
-
-  <p>${experience}</p>
-
-  </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   BIODATA
-========================================================= */
-
-function biodataTool(){
-
-  return `
-
-  <div class="tool-panel">
-
-  <h3>Marriage Biodata Maker</h3>
-
-  <label>Name</label>
-
-  <input
-  id="bioName"
-  placeholder="Name">
-
-  <label>Date of Birth</label>
-
-  <input
-  id="bioDOB"
-  placeholder="DD/MM/YYYY">
-
-  <label>Education</label>
-
-  <input
-  id="bioEdu"
-  placeholder="Education">
-
-  <label>Occupation</label>
-
-  <input
-  id="bioJob"
-  placeholder="Occupation">
-
-  <button
-  class="primary"
-  onclick="generateBiodata()">
-
-  Generate Biodata
-
-  </button>
-
-  <div
-  id="bioPreview"
-  style="margin-top:20px">
-
-  </div>
-
-  </div>
-
-  `;
-
-}
-
-
-function generateBiodata(){
-
-  document
-  .getElementById(
-    "bioPreview"
-  )
-  .innerHTML=`
-
-  <div style="
-  border:5px double #d18a25;
-  padding:25px;
-  text-align:center;
-  ">
-
-  <h1>Marriage Biodata</h1>
-
-  <hr>
-
-  <h2>
-  ${
-    document.getElementById(
-      "bioName"
-    ).value
-  }
-  </h2>
-
-  <p>
-  DOB:
-  ${
-    document.getElementById(
-      "bioDOB"
-    ).value
-  }
-  </p>
-
-  <p>
-  Education:
-  ${
-    document.getElementById(
-      "bioEdu"
-    ).value
-  }
-  </p>
-
-  <p>
-  Occupation:
-  ${
-    document.getElementById(
-      "bioJob"
-    ).value
-  }
-  </p>
-
-  </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   APPLICATION MAKER
-========================================================= */
-
-function applicationTool(){
-
-  return `
-
-  <div class="tool-panel">
-
-  <h3>Application Maker</h3>
-
-  <label>To</label>
-
-  <input
-  id="appTo"
-  placeholder="Officer / Department">
-
-  <label>Subject</label>
-
-  <input
-  id="appSubject"
-  placeholder="Subject">
-
-  <label>Application</label>
-
-  <textarea
-  id="appBody"
-  style="
-  width:100%;
-  min-height:220px;
-  margin-top:7px;
-  padding:12px;
-  border:1px solid #ddd;
-  border-radius:8px;
-  "></textarea>
-
-  <button
-  class="primary"
-  onclick="generateApplication()">
-
-  Generate
-
-  </button>
-
-  <div
-  id="appPreview"
-  style="margin-top:20px">
-
-  </div>
-
-  </div>
-
-  `;
-
-}
-
-
-function generateApplication(){
-
-  const to=
-  document.getElementById(
-    "appTo"
-  ).value;
-
-  const subject=
-  document.getElementById(
-    "appSubject"
-  ).value;
-
-  const body=
-  document.getElementById(
-    "appBody"
-  ).value;
-
-  document
-  .getElementById(
-    "appPreview"
-  )
-  .innerHTML=`
-
-  <div style="
-  background:#fff;
-  padding:30px;
-  line-height:1.8;
-  white-space:pre-wrap;
-  ">
-
-  <b>To,</b>
-
-  ${to}
-
-  <br>
-
-  <b>Subject:</b> ${subject}
-
-  <br><br>
-
-  ${body}
-
-  <br><br>
-
-  धन्यवाद
-
-  </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   FILE HELPERS
-========================================================= */
-
-function fileToDataURL(file){
-
-  return new Promise(
-    (resolve,reject)=>{
-
-      const reader=
-      new FileReader();
-
-      reader.onload=
-      ()=>resolve(
-        reader.result
-      );
-
-      reader.onerror=
-      reject;
-
-      reader.readAsDataURL(file);
-
-    }
-  );
-
-}
-
-
-function loadImage(src){
-
-  return new Promise(
-    (resolve,reject)=>{
-
-      const img=
-      new Image();
-
-      img.onload=
-      ()=>resolve(img);
-
-      img.onerror=
-      reject;
-
-      img.src=src;
-
-    }
-  );
-
-}
-
-
-function downloadData(
-  data,
-  filename
-){
-
-  const a=
-  document.createElement("a");
-
-  a.href=data;
-
-  a.download=filename;
-
-  document.body.appendChild(a);
-
-  a.click();
-
-  a.remove();
-
-}
-
-
-function downloadBytes(
-  bytes,
-  filename,
-  type
-){
-
-  const blob=
-  new Blob(
-    [bytes],
-    {type}
-  );
-
-  const url=
-  URL.createObjectURL(blob);
-
-  const a=
-  document.createElement("a");
-
-  a.href=url;
-
-  a.download=filename;
-
-  a.click();
-
-  setTimeout(
-    ()=>URL.revokeObjectURL(url),
-    1000
-  );
-
-}
-
-
-/* =========================================================
-   ESCAPE MODAL
-========================================================= */
-
-document.addEventListener(
-  "keydown",
-  e=>{
-
-    if(e.key==="Escape")
-      closeModal();
-
-  }
-);
-
-</script>
-
-</body>
-</html>
+  try{
