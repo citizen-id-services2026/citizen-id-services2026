@@ -2,1268 +2,833 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Bharat Digital Centre | Digital Services</title>
-
-<!-- =========================================================
- FIREBASE
-========================================================= -->
-<script type="module">
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  sendPasswordResetEmail
-}
-from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
-
-try {
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDs3xlVBdjxPqbkvPiyYQWHy8tHBpIi-zk",
-    authDomain: "bharat-digital-centre.firebaseapp.com",
-    projectId: "bharat-digital-centre",
-    storageBucket: "bharat-digital-centre.firebasestorage.app",
-    messagingSenderId: "911423935077",
-    appId: "1:911423935077:web:574e0754bfaacee421ac8c"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  window.firebaseAuth = auth;
-
-  window.firebaseFunctions = {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    sendPasswordResetEmail
-  };
-
-  onAuthStateChanged(auth, function(user) {
-
-    window.currentFirebaseUser = user;
-
-    const loginBtn =
-      document.getElementById("loginTopBtn");
-
-    const userBox =
-      document.getElementById("userBox");
-
-    const userEmail =
-      document.getElementById("userEmail");
-
-    if (user) {
-
-      if (loginBtn)
-        loginBtn.style.display = "none";
-
-      if (userBox)
-        userBox.style.display = "flex";
-
-      if (userEmail)
-        userEmail.textContent = user.email || "";
-
-    } else {
-
-      if (loginBtn)
-        loginBtn.style.display = "block";
-
-      if (userBox)
-        userBox.style.display = "none";
-
-    }
-
-  });
-
-} catch (error) {
-
-  console.error("Firebase initialization error:", error);
-
-  window.firebaseErrorState = true;
-
-}
-</script>
-
-
-<!-- =========================================================
- PDF LIBRARIES
-========================================================= -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfjs-dist/3.11.174/pdf.min.js"></script>
-
+<title>Bharat Digital Centre | Citizen ID Services</title>
 
 <style>
 
 /* =========================================================
- GLOBAL
+   GLOBAL
 ========================================================= */
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-:root{
-  --orange:#ff5722;
-  --orange2:#ff7043;
-  --green:#13a673;
-  --blue:#3478f6;
-  --purple:#9c27b0;
-  --dark:#263238;
-  --text:#303846;
-  --bg:#f5f8fb;
-  --card:#ffffff;
-  --border:#d9eee7;
-  --shadow:0 8px 25px rgba(0,0,0,.07);
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:
-    Arial,
-    "Noto Sans Devanagari",
-    sans-serif;
+    font-family:
+        Arial,
+        "Noto Sans Devanagari",
+        "Noto Sans",
+        sans-serif;
 
-  background:
-    linear-gradient(
-      rgba(255,255,255,.94),
-      rgba(247,250,252,.97)
-    ),
-    url("https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg");
-
-  background-size:cover;
-  background-attachment:fixed;
-
-  color:var(--text);
-  min-height:100vh;
+    background:#f4f6f8;
+    color:#172033;
+    line-height:1.5;
+    min-height:100vh;
 }
 
 
 /* =========================================================
- HEADER
+   INDIA FLAG BLURRED BACKGROUND
 ========================================================= */
 
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:999;
+body::before{
+    content:"";
+    position:fixed;
+    inset:-80px;
+    z-index:-10;
 
-  min-height:68px;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,153,51,.45) 0%,
+            rgba(255,153,51,.20) 32%,
+            rgba(255,255,255,.75) 33%,
+            rgba(255,255,255,.75) 66%,
+            rgba(19,136,8,.25) 67%,
+            rgba(19,136,8,.45) 100%
+        );
 
-  background:rgba(255,255,255,.96);
+    filter:blur(30px);
+    transform:scale(1.1);
+}
 
-  backdrop-filter:blur(18px);
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
 
-  border-bottom:1px solid #e7eeee;
+    right:-150px;
+    top:120px;
 
-  display:flex;
-  align-items:center;
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,0,128,.25),
+            transparent 65%
+        );
 
-  padding:0 18px;
+    filter:blur(25px);
+    z-index:-9;
+}
 
-  box-shadow:
-    0 3px 15px rgba(0,0,0,.08);
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    background:
+        linear-gradient(
+            135deg,
+            #ff9933,
+            #ff6b00 45%,
+            #e53935
+        );
+
+    color:white;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.22);
+
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .header-inner{
-  width:100%;
-  max-width:1400px;
-  margin:auto;
+    max-width:1200px;
+    margin:auto;
 
-  display:flex;
-  align-items:center;
-  gap:20px;
+    padding:16px 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
 }
 
-.logo-area{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:210px;
+.brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
-.logo-3d{
-  width:43px;
-  height:43px;
 
-  border-radius:13px;
+/* 3D LOGO */
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.logo{
+    width:58px;
+    height:58px;
 
-  font-weight:900;
-  font-size:18px;
+    border-radius:18px;
 
-  color:#fff;
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #e5e5e5
+        );
 
-  background:
-    linear-gradient(
-      135deg,
-      #ff9800,
-      #ff5722
-    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  box-shadow:
-    0 7px 0 #c83f15,
-    0 10px 18px rgba(255,87,34,.30);
+    font-size:29px;
+
+    box-shadow:
+        8px 8px 14px rgba(0,0,0,.30),
+        inset 3px 3px 7px rgba(255,255,255,.9),
+        inset -3px -3px 7px rgba(0,0,0,.12);
+
+    transform:perspective(300px) rotateX(5deg);
 }
 
-.logo-text strong{
-  display:block;
-  font-size:18px;
-  color:#202b39;
+.brand h1{
+    font-size:24px;
+    text-shadow:
+        2px 3px 4px rgba(0,0,0,.35);
 }
 
-.logo-text small{
-  display:block;
-  font-size:9px;
-  color:#ff5722;
-  font-weight:bold;
-}
-
-.nav{
-  display:flex;
-  align-items:center;
-  gap:22px;
-  flex:1;
-}
-
-.nav a{
-  text-decoration:none;
-  color:#404958;
-  font-weight:600;
-  font-size:14px;
-  cursor:pointer;
-}
-
-.nav a:hover{
-  color:var(--orange);
-}
-
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.cyber-btn{
-  background:
-    linear-gradient(
-      135deg,
-      #ff7a35,
-      #ef3f32
-    );
-
-  color:white;
-  border:0;
-  border-radius:22px;
-
-  padding:10px 15px;
-
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.icon-btn{
-  width:39px;
-  height:39px;
-
-  border-radius:50%;
-  border:1px solid #e2e8ef;
-
-  background:white;
-
-  cursor:pointer;
-  font-size:17px;
-}
-
-.login-btn{
-  border:0;
-  background:#eef5ff;
-  color:#2466d1;
-
-  padding:10px 15px;
-
-  border-radius:20px;
-
-  font-weight:bold;
-  cursor:pointer;
+.brand p{
+    font-size:13px;
+    opacity:.95;
 }
 
 .user-box{
-  display:none;
-  align-items:center;
-  gap:7px;
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
 .user-email{
-  max-width:130px;
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow:ellipsis;
-  font-size:12px;
+    background:rgba(255,255,255,.18);
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:13px;
 }
 
 
 /* =========================================================
- HERO
+   NAVIGATION
 ========================================================= */
 
-.hero{
-  max-width:1380px;
-  margin:22px auto 18px;
-
-  padding:35px 28px;
-
-  border-radius:18px;
-
-  color:white;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(238,61,101,.93),
-      rgba(65,150,220,.90)
-    );
-
-  box-shadow:
-    0 10px 25px rgba(61,117,180,.18);
-
-  text-align:center;
-
-  position:relative;
-  overflow:hidden;
+nav{
+    background:rgba(0,0,0,.12);
+    overflow-x:auto;
 }
 
-.hero:before{
-  content:"";
+.nav-inner{
+    max-width:1200px;
+    margin:auto;
 
-  position:absolute;
-  inset:-80px;
-
-  background:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,.10) 0,
-      rgba(255,255,255,.10) 2px,
-      transparent 2px,
-      transparent 25px
-    );
-
-  transform:rotate(-4deg);
+    display:flex;
+    gap:5px;
+    padding:6px 12px;
 }
 
-.hero-content{
-  position:relative;
-  z-index:2;
+.nav-btn{
+    border:0;
+    background:transparent;
+    color:white;
+
+    padding:11px 14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+    white-space:nowrap;
+
+    font-size:14px;
 }
 
-.hero h1{
-  font-size:27px;
-  margin-bottom:9px;
-}
-
-.hero p{
-  font-size:14px;
-  opacity:.95;
+.nav-btn:hover,
+.nav-btn.active{
+    background:rgba(255,255,255,.22);
 }
 
 
 /* =========================================================
- SEARCH
-========================================================= */
-
-.search-wrap{
-  max-width:1180px;
-  margin:20px auto;
-  position:relative;
-}
-
-.search-box{
-  width:100%;
-  height:54px;
-
-  border:1px solid #e1e7ed;
-  border-radius:17px;
-
-  background:#fff;
-
-  box-shadow:
-    0 8px 20px rgba(0,0,0,.08);
-
-  padding:0 20px 0 50px;
-
-  font-size:15px;
-  outline:none;
-}
-
-.search-icon{
-  position:absolute;
-  left:18px;
-  top:15px;
-  font-size:21px;
-}
-
-
-/* =========================================================
- NOTICE
-========================================================= */
-
-.notice{
-  max-width:1100px;
-
-  margin:15px auto 22px;
-
-  padding:12px 16px;
-
-  border-left:4px solid #ff9800;
-
-  background:
-    rgba(255,248,230,.94);
-
-  border-radius:8px;
-
-  font-size:13px;
-}
-
-
-/* =========================================================
- MAIN
+   MAIN
 ========================================================= */
 
 main{
-  max-width:1380px;
-  margin:auto;
-  padding:0 15px 60px;
+    max-width:1200px;
+    margin:auto;
+    padding:25px 16px 70px;
 }
 
 
 /* =========================================================
- SECTION
+   HERO
+========================================================= */
+
+.hero{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.92),
+            rgba(255,255,255,.75)
+        );
+
+    backdrop-filter:blur(12px);
+
+    border-radius:24px;
+    padding:25px;
+
+    box-shadow:
+        0 12px 40px rgba(0,0,0,.12);
+
+    margin-bottom:22px;
+
+    border:1px solid rgba(255,255,255,.8);
+}
+
+.hero h2{
+    color:#d84315;
+    margin-bottom:8px;
+}
+
+.notice{
+    margin-top:14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff3cd,
+            #fff8e1
+        );
+
+    border-left:5px solid #ff9800;
+
+    padding:13px 15px;
+
+    border-radius:8px;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   SECTIONS
 ========================================================= */
 
 .section{
-  margin-top:27px;
+    display:none;
+}
+
+.section.active{
+    display:block;
 }
 
 .section-title{
-  display:flex;
-  align-items:center;
-  gap:9px;
-
-  font-size:18px;
-  font-weight:800;
-
-  margin-bottom:15px;
-
-  padding-left:10px;
-
-  border-left:4px solid var(--green);
-}
-
-.section-title.orange{
-  border-color:#ff5722;
-}
-
-.section-title.purple{
-  border-color:#b52ad4;
-}
-
-.section-title.blue{
-  border-color:#337af0;
+    margin:15px 0;
+    color:#d84315;
 }
 
 
 /* =========================================================
- SERVICE GRID
+   CARDS
 ========================================================= */
 
-.service-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px;
+.grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+
+    gap:18px;
+}
+
+.card{
+    background:
+        rgba(255,255,255,.94);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    box-shadow:
+        0 7px 25px rgba(0,0,0,.10);
+
+    border:1px solid rgba(255,255,255,.9);
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 14px 32px rgba(0,0,0,.16);
+}
+
+.card-icon{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.card h3{
+    color:#d84315;
+    margin-bottom:7px;
+}
+
+.card p{
+    font-size:14px;
+    color:#555;
 }
 
 
 /* =========================================================
- SERVICE CARD
+   BUTTONS
 ========================================================= */
 
-.service-card{
-  min-height:138px;
+.btn{
+    border:0;
 
-  background:
-    rgba(255,255,255,.97);
+    background:
+        linear-gradient(
+            135deg,
+            #ff6b00,
+            #e53935
+        );
 
-  border:
-    1px solid var(--border);
+    color:white;
 
-  border-radius:17px;
+    padding:11px 16px;
 
-  padding:15px 10px 12px;
+    border-radius:9px;
 
-  text-align:center;
+    cursor:pointer;
 
-  cursor:pointer;
+    font-weight:bold;
 
-  position:relative;
+    box-shadow:
+        0 4px 10px rgba(229,57,53,.25);
 
-  transition:.2s ease;
+    transition:.2s;
 
-  box-shadow:
-    0 2px 7px rgba(0,0,0,.02);
-
-  user-select:none;
+    margin:4px;
 }
 
-.service-card:hover{
-  transform:translateY(-4px);
-
-  box-shadow:
-    0 10px 25px rgba(0,0,0,.10);
-
-  border-color:#bde9dc;
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 7px 16px rgba(229,57,53,.35);
 }
 
-.service-card:active{
-  transform:scale(.97);
+.btn.secondary{
+    background:
+        linear-gradient(
+            135deg,
+            #3949ab,
+            #1e88e5
+        );
 }
 
-.service-icon{
-  font-size:37px;
-
-  height:53px;
-
-  display:flex;
-
-  justify-content:center;
-  align-items:center;
+.btn.green{
+    background:
+        linear-gradient(
+            135deg,
+            #2e7d32,
+            #43a047
+        );
 }
 
-.service-card h3{
-  font-size:14px;
-  line-height:1.25;
-
-  margin-top:7px;
-
-  color:#36404d;
+.btn.dark{
+    background:
+        linear-gradient(
+            135deg,
+            #263238,
+            #455a64
+        );
 }
 
-.service-card p{
-  font-size:11px;
-  color:#737b85;
-  margin-top:6px;
+.btn.red{
+    background:
+        linear-gradient(
+            135deg,
+            #c62828,
+            #e53935
+        );
 }
 
-.badge{
-  position:absolute;
-  right:7px;
-  top:7px;
-
-  font-size:9px;
-
-  padding:3px 7px;
-
-  border-radius:9px;
-
-  color:white;
-  background:#65bf16;
-
-  font-weight:bold;
-}
-
-.badge.hot{
-  background:#ef4263;
-}
-
-.badge.lock{
-  background:#a6afb7;
+.btn.small{
+    padding:7px 10px;
+    font-size:12px;
 }
 
 
 /* =========================================================
- MODAL
+   FORMS
 ========================================================= */
 
-.modal{
-  position:fixed;
-  inset:0;
-
-  z-index:2000;
-
-  background:
-    rgba(12,18,25,.65);
-
-  backdrop-filter:blur(6px);
-
-  display:none;
-
-  align-items:center;
-  justify-content:center;
-
-  padding:15px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-  width:min(1050px,100%);
-  max-height:92vh;
-
-  overflow:auto;
-
-  background:#fff;
-
-  border-radius:20px;
-
-  box-shadow:
-    0 25px 80px rgba(0,0,0,.3);
-
-  padding:20px;
-
-  position:relative;
-}
-
-.modal-title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  border-bottom:1px solid #e6eaef;
-
-  padding-bottom:14px;
-  margin-bottom:17px;
-}
-
-.close{
-  border:0;
-
-  background:#f2f3f5;
-
-  width:35px;
-  height:35px;
-
-  border-radius:50%;
-
-  cursor:pointer;
-
-  font-size:18px;
-}
-
-.tool-area{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-.tool-panel{
-  border:1px solid #e4e9ef;
-  border-radius:15px;
-  padding:17px;
-}
-
-.tool-panel h3{
-  margin-bottom:13px;
-}
-
-input[type=file]{
-  width:100%;
-
-  padding:10px;
-
-  border:1px dashed #b9c5d0;
-
-  border-radius:10px;
-}
-
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=number],
-input[type=date],
+input,
 select,
 textarea{
+    width:100%;
 
-  width:100%;
+    padding:11px 12px;
 
-  padding:11px;
+    border:1px solid #ccd3dc;
 
-  border:1px solid #d8e0e8;
+    border-radius:9px;
 
-  border-radius:9px;
+    margin:5px 0 10px;
 
-  margin-top:7px;
+    font-size:14px;
 
-  outline:none;
-
-  font-family:inherit;
+    background:white;
 }
 
 label{
-  display:block;
-
-  font-size:13px;
-  font-weight:bold;
-
-  margin-top:12px;
-}
-
-.primary{
-  background:
-    linear-gradient(
-      135deg,
-      #ff6b35,
-      #ef3d28
-    );
-
-  color:white;
-
-  border:0;
-
-  border-radius:9px;
-
-  padding:11px 17px;
-
-  cursor:pointer;
-
-  font-weight:bold;
-
-  margin-top:12px;
-}
-
-.secondary{
-  background:#eef5ff;
-
-  color:#2165ca;
-
-  border:0;
-
-  border-radius:9px;
-
-  padding:11px 17px;
-
-  cursor:pointer;
-
-  font-weight:bold;
-
-  margin-top:12px;
-}
-
-.danger{
-  background:#ffecec;
-
-  color:#c62828;
-
-  border:0;
-
-  border-radius:9px;
-
-  padding:10px 15px;
-
-  cursor:pointer;
-
-  font-weight:bold;
-}
-
-button{
-  font-family:inherit;
-}
-
-.preview-box{
-  min-height:300px;
-
-  background:
-    repeating-conic-gradient(
-      #eee 0 25%,
-      #fff 0 50%
-    )
-    50% / 20px 20px;
-
-  border-radius:12px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  overflow:auto;
-}
-
-.preview-box img{
-  max-width:100%;
-  max-height:500px;
-  object-fit:contain;
+    font-weight:bold;
+    font-size:13px;
+    display:block;
 }
 
 
 /* =========================================================
- PRINT
+   TOOLBAR
+========================================================= */
+
+.toolbar{
+    background:#fff;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:15px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.08);
+
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px;
+}
+
+
+/* =========================================================
+   PHOTO EDITOR
+========================================================= */
+
+.editor-layout{
+    display:grid;
+
+    grid-template-columns:
+        280px 1fr;
+
+    gap:18px;
+}
+
+.controls{
+    background:#fff;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.10);
+}
+
+.canvas-box{
+    background:
+        repeating-conic-gradient(
+            #eee 0% 25%,
+            #fff 0% 50%
+        ) 50% / 20px 20px;
+
+    min-height:500px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    box-shadow:
+        inset 0 0 0 1px #ddd;
+}
+
+#photoCanvas{
+    max-width:95%;
+    max-height:650px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   ID PRINT
 ========================================================= */
 
 .print-layout{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:20px;
+    display:grid;
+
+    grid-template-columns:
+        320px 1fr;
+
+    gap:18px;
 }
 
-.print-sheet-wrap{
-  background:#d8d8d8;
-  padding:25px;
-  overflow:auto;
+.print-preview{
+    background:white;
+
+    min-height:600px;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.10);
 }
 
-.a4-sheet{
-  width:794px;
-  min-height:1123px;
+.a4{
+    width:210mm;
+    min-height:297mm;
 
-  background:white;
+    background:white;
 
-  margin:auto;
+    padding:8mm;
 
-  padding:20px;
+    margin:auto;
 
-  display:grid;
+    box-shadow:
+        0 5px 25px rgba(0,0,0,.2);
 
-  gap:8px;
+    transform-origin:top center;
+}
 
-  align-content:start;
-
-  box-shadow:
-    0 5px 20px rgba(0,0,0,.25);
+.photo-grid{
+    display:grid;
+    gap:4mm;
 }
 
 .photo-item{
-  overflow:hidden;
-
-  background:#eee;
-
-  border:1px solid #aaa;
+    border:1px solid #999;
+    overflow:hidden;
 }
 
 .photo-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
 }
 
 
 /* =========================================================
- PDF PAGES
+   PDF
 ========================================================= */
+
+.pdf-layout{
+    display:grid;
+
+    grid-template-columns:
+        220px 1fr 250px;
+
+    gap:15px;
+}
 
 .pdf-pages{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  padding:10px;
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:10px;
+
+    max-height:700px;
+
+    overflow:auto;
 }
 
-.pdf-page{
-  width:150px;
+.page-thumb{
+    background:#f5f5f5;
 
-  border:2px solid #ddd;
+    padding:6px;
 
-  border-radius:10px;
+    border-radius:8px;
 
-  padding:5px;
+    margin-bottom:8px;
 
-  background:white;
+    cursor:pointer;
 
-  position:relative;
-
-  cursor:pointer;
+    border:2px solid transparent;
 }
 
-.pdf-page.selected{
-  border-color:#ff5722;
-  box-shadow:0 0 0 3px rgba(255,87,34,.15);
+.page-thumb.active{
+    border-color:#ff5722;
 }
 
-.pdf-page canvas{
-  width:100%;
-  display:block;
+.page-thumb canvas{
+    width:100%;
+    display:block;
 }
 
-.pdf-page-controls{
-  display:flex;
-  gap:4px;
-  margin-top:5px;
+.pdf-canvas-wrap{
+    background:
+        #e9ecef;
+
+    border-radius:15px;
+
+    min-height:650px;
+
+    padding:20px;
+
+    overflow:auto;
+
+    text-align:center;
 }
 
-.pdf-page-controls button{
-  flex:1;
+#pdfCanvas{
+    background:white;
 
-  border:0;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
 
-  border-radius:5px;
+    max-width:100%;
+}
 
-  padding:5px;
+.pdf-tools{
+    background:#fff;
 
-  cursor:pointer;
+    border-radius:15px;
 
-  background:#edf2f7;
+    padding:15px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.10);
+
+    height:max-content;
 }
 
 
 /* =========================================================
- ABOUT
+   LOGIN MODAL
 ========================================================= */
 
-.about-box{
-  margin-top:40px;
+.modal{
+    position:fixed;
+    inset:0;
 
-  background:#fff;
+    background:
+        rgba(0,0,0,.55);
 
-  border:1px solid #e5eaef;
+    backdrop-filter:blur(6px);
 
-  border-radius:15px;
+    display:none;
 
-  padding:25px;
+    align-items:center;
+    justify-content:center;
 
-  line-height:1.7;
+    z-index:5000;
+
+    padding:20px;
 }
 
-.why-grid{
-  display:grid;
-
-  grid-template-columns:repeat(4,1fr);
-
-  gap:15px;
-
-  margin-top:18px;
+.modal.show{
+    display:flex;
 }
 
-.why{
-  background:#fff;
+.modal-box{
+    width:100%;
+    max-width:430px;
 
-  border:1px solid #e4e9ef;
+    background:white;
 
-  border-radius:13px;
+    border-radius:22px;
 
-  padding:25px 10px;
+    padding:25px;
 
-  text-align:center;
-
-  font-weight:bold;
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.35);
 }
 
-.why-icon{
-  font-size:30px;
-  margin-bottom:10px;
+.modal-box h2{
+    color:#e65100;
+    margin-bottom:15px;
 }
 
 
 /* =========================================================
- FOOTER
+   STATUS
+========================================================= */
+
+.status{
+    padding:10px;
+
+    border-radius:8px;
+
+    background:#eef5ff;
+
+    margin:8px 0;
+
+    font-size:13px;
+}
+
+.status.success{
+    background:#e8f5e9;
+    color:#1b5e20;
+}
+
+.status.error{
+    background:#ffebee;
+    color:#b71c1c;
+}
+
+
+/* =========================================================
+   SIGNATURE
+========================================================= */
+
+#signatureCanvas{
+    border:2px dashed #999;
+    width:100%;
+    height:180px;
+    background:white;
+    touch-action:none;
+}
+
+
+/* =========================================================
+   FOOTER
 ========================================================= */
 
 footer{
-  background:#202a35;
+    text-align:center;
 
-  color:white;
+    background:
+        linear-gradient(
+            135deg,
+            #263238,
+            #37474f
+        );
 
-  padding:30px 15px;
+    color:white;
 
-  text-align:center;
+    padding:25px;
 
-  margin-top:40px;
-}
-
-footer small{
-  color:#c9d0d7;
-}
-
-
-/* =========================================================
- TOAST
-========================================================= */
-
-.toast{
-  position:fixed;
-
-  bottom:25px;
-  right:25px;
-
-  z-index:5000;
-
-  background:#263238;
-
-  color:white;
-
-  padding:13px 18px;
-
-  border-radius:10px;
-
-  display:none;
-
-  box-shadow:
-    0 8px 30px rgba(0,0,0,.25);
-
-  max-width:90%;
+    margin-top:30px;
 }
 
 
 /* =========================================================
- LOGIN
-========================================================= */
-
-.login-box{
-  max-width:420px;
-  margin:auto;
-}
-
-.login-logo{
-  text-align:center;
-  margin-bottom:20px;
-}
-
-.login-logo .logo-3d{
-  margin:auto;
-}
-
-.login-tabs{
-  display:flex;
-  gap:5px;
-  margin-bottom:15px;
-}
-
-.login-tabs button{
-  flex:1;
-
-  padding:10px;
-
-  border:0;
-
-  border-radius:8px;
-
-  cursor:pointer;
-
-  background:#f0f2f5;
-}
-
-.login-tabs .active{
-  background:#ff5722;
-  color:white;
-}
-
-
-/* =========================================================
- TOOL COMMON
-========================================================= */
-
-.tool-buttons{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.info-box{
-  background:#f7f9fb;
-  border:1px solid #e3e8ed;
-  border-radius:10px;
-  padding:14px;
-  margin-top:12px;
-  font-size:13px;
-  line-height:1.6;
-}
-
-.success-box{
-  background:#edfff7;
-  border:1px solid #b8ead7;
-  border-radius:10px;
-  padding:14px;
-}
-
-.job-card{
-  border:1px solid #e1e7ed;
-  border-radius:12px;
-  padding:15px;
-  margin-bottom:10px;
-  background:#fff;
-}
-
-.job-card h3{
-  margin-bottom:6px;
-}
-
-.job-card p{
-  color:#666;
-  font-size:13px;
-  line-height:1.6;
-}
-
-.price-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-
-.price-card{
-  border:1px solid #e1e7ed;
-  border-radius:13px;
-  padding:20px;
-  text-align:center;
-}
-
-.price-card h3{
-  margin-bottom:10px;
-}
-
-.price{
-  font-size:25px;
-  font-weight:bold;
-  color:#ff5722;
-}
-
-
-/* =========================================================
- MOBILE
+   MOBILE
 ========================================================= */
 
 @media(max-width:900px){
 
-  .nav{
-    display:none;
-  }
+    .editor-layout,
+    .print-layout,
+    .pdf-layout{
+        grid-template-columns:1fr;
+    }
 
-  .logo-area{
-    min-width:auto;
-  }
+    .pdf-pages{
+        max-height:220px;
+    }
 
-  .service-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
+    .brand h1{
+        font-size:18px;
+    }
 
-  .tool-area{
-    grid-template-columns:1fr;
-  }
+    .logo{
+        width:48px;
+        height:48px;
+        font-size:24px;
+    }
 
-  .print-layout{
-    grid-template-columns:1fr;
-  }
+    .user-email{
+        display:none;
+    }
 
-  .why-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .a4{
+        transform:scale(.55);
+        transform-origin:top left;
 
-  .price-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:600px){
-
-  .topbar{
-    min-height:62px;
-    padding:0 9px;
-  }
-
-  .logo-text strong{
-    font-size:15px;
-  }
-
-  .logo-text small{
-    font-size:8px;
-  }
-
-  .cyber-btn{
-    display:none;
-  }
-
-  .service-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:8px;
-  }
-
-  .service-card{
-    min-height:128px;
-    padding:11px 6px;
-  }
-
-  .service-icon{
-    font-size:31px;
-  }
-
-  .hero{
-    margin:12px 7px;
-    padding:27px 15px;
-  }
-
-  .hero h1{
-    font-size:21px;
-  }
-
-  .search-wrap{
-    margin:15px 8px;
-  }
-
-  main{
-    padding:0 8px 40px;
-  }
-
-  .why-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .modal{
-    padding:7px;
-  }
-
-  .modal-box{
-    max-height:95vh;
-    padding:14px;
-  }
-
-}
-
-
-/* =========================================================
- HIDDEN
-========================================================= */
-
-.hidden{
-  display:none !important;
-}
-
-
-/* =========================================================
- PRINT CSS
-========================================================= */
-
-@media print{
-
-  body *{
-    visibility:hidden;
-  }
-
-  .a4-sheet,
-  .a4-sheet *{
-    visibility:visible;
-  }
-
-  .a4-sheet{
-    position:absolute;
-    left:0;
-    top:0;
-  }
-
+        margin-bottom:-130mm;
+    }
 }
 
 </style>
@@ -1273,799 +838,305 @@ footer small{
 <body>
 
 
-<!-- =========================================================
- HEADER
-========================================================= -->
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
-<header class="topbar">
+<header>
 
 <div class="header-inner">
 
-  <div class="logo-area">
+    <div class="brand">
 
-    <div class="logo-3d">
-      BD
-    </div>
+        <div class="logo">
+            🇮🇳
+        </div>
 
-    <div class="logo-text">
-
-      <strong>
-        Bharat Digital Centre
-      </strong>
-
-      <small>
-        Digital Services • Print • Design
-      </small>
+        <div>
+            <h1>Bharat Digital Centre</h1>
+            <p>Citizen ID • Photo • PDF • Print Services</p>
+        </div>
 
     </div>
 
-  </div>
 
+    <div class="user-box">
 
-  <nav class="nav">
+        <span id="userEmail" class="user-email">
+            Guest
+        </span>
 
-    <a onclick="scrollToTop()">
-      Home
-    </a>
+        <button
+            class="btn small dark"
+            id="loginBtn"
+            onclick="openLogin()">
+            Login
+        </button>
 
-    <a onclick="goServices()">
-      Services ▾
-    </a>
-
-    <a onclick="openTool('jobs')">
-      Latest Jobs
-    </a>
-
-    <a onclick="openTool('pricing')">
-      Pricing
-    </a>
-
-    <a onclick="goAbout()">
-      More ▾
-    </a>
-
-  </nav>
-
-
-  <div class="header-actions">
-
-    <button
-      class="cyber-btn"
-      onclick="openTool('cyber')">
-
-      🖥️ Cyber Cafe
-
-    </button>
-
-    <button
-      class="icon-btn"
-      onclick="toggleMobileMenu()">
-
-      ☰
-
-    </button>
-
-    <button
-      id="loginTopBtn"
-      class="login-btn"
-      onclick="openLogin()">
-
-      👤 Login
-
-    </button>
-
-    <div
-      id="userBox"
-      class="user-box">
-
-      <span
-        id="userEmail"
-        class="user-email">
-      </span>
-
-      <button
-        class="danger"
-        onclick="logoutUser()">
-
-        Logout
-
-      </button>
+        <button
+            class="btn small red"
+            id="logoutBtn"
+            onclick="logoutUser()"
+            style="display:none">
+            Logout
+        </button>
 
     </div>
-
-  </div>
 
 </div>
+
+
+<nav>
+
+<div class="nav-inner">
+
+<button class="nav-btn active"
+        onclick="showSection('home',this)">
+    🏠 Home
+</button>
+
+<button class="nav-btn"
+        onclick="showSection('idservices',this)">
+    🪪 ID Services
+</button>
+
+<button class="nav-btn"
+        onclick="showSection('photo',this)">
+    📷 Photo Editor
+</button>
+
+<button class="nav-btn"
+        onclick="showSection('print',this)">
+    🖨️ ID Print
+</button>
+
+<button class="nav-btn"
+        onclick="showSection('pdf',this)">
+    📄 PDF Tools
+</button>
+
+<button class="nav-btn"
+        onclick="showSection('converter',this)">
+    🔄 Converter
+</button>
+
+</div>
+
+</nav>
 
 </header>
 
 
-<!-- =========================================================
- HERO
-========================================================= -->
+<!-- =======================================================
+     MAIN
+======================================================= -->
 
-<section class="hero">
+<main>
 
-<div class="hero-content">
 
-<h1>
-Launch Your Digital Operations With Bharat Digital Centre
-</h1>
+<!-- =======================================================
+     HOME
+======================================================= -->
+
+<section id="home" class="section active">
+
+<div class="hero">
+
+<h2>
+🇮🇳 नमस्कार! Bharat Digital Centre में आपका स्वागत है
+</h2>
 
 <p>
-Citizen services, photo printing, ID cards, PDF tools,
-government portals और digital work — सब एक जगह।
+नागरिक सेवाएँ, फोटो एडिटिंग, ID कार्ड प्रिंट,
+PDF Tools और दस्तावेज़ तैयार करने के लिए एक ही जगह।
 </p>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
- SEARCH
-========================================================= -->
-
-<div class="search-wrap">
-
-<span class="search-icon">
-🔍
-</span>
-
-<input
-  id="searchInput"
-  class="search-box"
-  type="search"
-  placeholder="Search services, forms, files... e.g. Aadhaar, Photo, PDF">
-
-</div>
-
-
-<!-- =========================================================
- NOTICE
-========================================================= -->
 
 <div class="notice">
 
 ⚠️ <b>महत्वपूर्ण:</b>
+यह वेबसाइट सरकारी वेबसाइट नहीं है।
+Aadhaar, PAN, Driving Licence और Voter ID जैसी सेवाओं के लिए
+हमेशा संबंधित सरकारी Official Portal का उपयोग करें।
 
-Bharat Digital Centre एक private digital service platform है।
-Aadhaar, PAN, Driving Licence, Voter ID आदि के लिए केवल
-संबंधित सरकारी Official Portal का उपयोग करें।
+</div>
 
 </div>
 
 
-<!-- =========================================================
- MAIN
-========================================================= -->
+<div class="grid">
 
-<main id="services">
+<div class="card">
 
+<div class="card-icon">🪪</div>
 
-<!-- =========================================================
- ESSENTIAL
-========================================================= -->
+<h3>Citizen ID Services</h3>
 
-<section class="section">
+<p>
+Aadhaar, PAN, Driving Licence और Voter ID के
+official portals पर जाएँ।
+</p>
 
-<h2 class="section-title">
-Essential Services
-</h2>
-
-<div class="service-grid">
-
-
-<div class="service-card"
-onclick="openTool('jobs')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">🧑‍💼</div>
-
-<h3>Latest Jobs</h3>
+<button
+class="btn"
+onclick="showSection('idservices')">
+Open Services
+</button>
 
 </div>
 
 
-<div class="service-card"
-onclick="openTool('mock')">
+<div class="card">
 
-<span class="badge">NEW</span>
+<div class="card-icon">📷</div>
 
-<div class="service-icon">📝</div>
+<h3>Professional Photo Tools</h3>
 
-<h3>Mock Test</h3>
+<p>
+Crop, Resize, Rotate, Brightness, Contrast,
+Saturation और AI Background Removal।
+</p>
+
+<button
+class="btn secondary"
+onclick="showSection('photo')">
+Open Photo Editor
+</button>
 
 </div>
 
 
-<div class="service-card"
-onclick="openTool('idprint')">
+<div class="card">
 
-<span class="badge">NEW</span>
-
-<div class="service-icon">🪪</div>
+<div class="card-icon">🖨️</div>
 
 <h3>ID Card Print</h3>
 
-</div>
+<p>
+Passport Photo, 2×2 inch, 35×45 mm और
+A4 automatic photo layout।
+</p>
 
-
-<div class="service-card"
-onclick="openTool('pvc')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">💳</div>
-
-<h3>PVC Auto Crop</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('print')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">🖨️</div>
-
-<h3>Auto Print</h3>
+<button
+class="btn green"
+onclick="showSection('print')">
+Open Print
+</button>
 
 </div>
 
 
-<div class="service-card"
-onclick="openTool('passport')">
+<div class="card">
 
-<div class="service-icon">🪪</div>
+<div class="card-icon">📄</div>
 
-<h3>Passport Photo</h3>
+<h3>PDF Editor</h3>
 
-</div>
+<p>
+PDF page delete, reorder, rotate, text,
+signature और watermark।
+</p>
 
-
-<div class="service-card"
-onclick="openTool('crop')">
-
-<div class="service-icon">✂️</div>
-
-<h3>Photo Crop And Resize</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('resume')">
-
-<div class="service-icon">📄</div>
-
-<h3>Resume/CV</h3>
+<button
+class="btn"
+onclick="showSection('pdf')">
+Open PDF Tools
+</button>
 
 </div>
-
-
-<div class="service-card"
-onclick="openTool('newservice')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">📋</div>
-
-<h3>New Service Post</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('album')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">📚</div>
-
-<h3>Document Album</h3>
-
-</div>
-
 
 </div>
 
 </section>
 
 
-<!-- =========================================================
- CREATIVE
-========================================================= -->
 
-<section class="section">
+<!-- =======================================================
+     ID SERVICES
+======================================================= -->
 
-<h2 class="section-title purple">
-Creative Design Studio
-</h2>
-
-<div class="service-grid">
-
-
-<div class="service-card"
-onclick="openTool('resume')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">📄</div>
-
-<h3>Pro Resume Maker</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('biodata')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">💌</div>
-
-<h3>Marriage Biodata</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('idmaker')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">🪪</div>
-
-<h3>Pro ID Maker</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('poster')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">🎨</div>
-
-<h3>Pro Poster Maker</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('application')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">📑</div>
-
-<h3>Application Maker</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('promotion')">
-
-<span class="badge">NEW</span>
-
-<div class="service-icon">📸</div>
-
-<h3>Shop Promotion Maker</h3>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
- PDF IMAGE
-========================================================= -->
-
-<section class="section">
-
-<h2 class="section-title orange">
-Smart PDF & Image Tools
-</h2>
-
-<div class="service-grid">
-
-
-<div class="service-card"
-onclick="openTool('jpgpdf')">
-
-<div class="service-icon">
-🖼️📄
-</div>
-
-<h3>JPG To PDF</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('pdfjpg')">
-
-<div class="service-icon">
-📄🖼️
-</div>
-
-<h3>PDF To JPG</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('pngpdf')">
-
-<div class="service-icon">
-🖼️📄
-</div>
-
-<h3>PNG To PDF</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('pngjpg')">
-
-<div class="service-icon">
-🖼️
-</div>
-
-<h3>PNG To JPG</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('deletepdf')">
-
-<div class="service-icon">
-📄❌
-</div>
-
-<h3>Delete PDF Page</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('mergepdf')">
-
-<div class="service-icon">
-📚📄
-</div>
-
-<h3>Merge PDF</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('pdfedit')">
-
-<div class="service-icon">
-📝📄
-</div>
-
-<h3>Advanced PDF Editor</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('watermark')">
-
-<div class="service-icon">
-💧📄
-</div>
-
-<h3>PDF Watermark</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('signature')">
-
-<div class="service-icon">
-✍️📄
-</div>
-
-<h3>PDF Signature</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('background')">
-
-<div class="service-icon">
-🧍‍♂️✂️
-</div>
-
-<h3>Background Remover</h3>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
- CARD PRINT
-========================================================= -->
-
-<section class="section">
+<section id="idservices" class="section">
 
 <h2 class="section-title">
-Card Printing Services
+🪪 Citizen ID Services
 </h2>
 
-<div class="service-grid">
+
+<div class="grid">
 
 
-<div class="service-card"
-onclick="openTool('idprint')">
+<div class="card">
 
-<span class="badge hot">
-HOT
-</span>
+<div class="card-icon">🆔</div>
 
-<div class="service-icon">
-🪪
-</div>
+<h3>Aadhaar Card</h3>
 
-<h3>
-Unique ID Card Print
-</h3>
+<p>
+Aadhaar enrolment, update और अन्य सेवाओं के लिए
+UIDAI Official Portal।
+</p>
 
-</div>
-
-
-<div class="service-card"
-onclick="openTool('idprint')">
-
-<div class="service-icon">
-🗳️
-</div>
-
-<h3>
-Election Card Print
-</h3>
+<button
+class="btn"
+onclick="openOfficial('https://uidai.gov.in/')">
+Aadhaar Official Portal
+</button>
 
 </div>
 
 
-<div class="service-card"
-onclick="openTool('idprint')">
+<div class="card">
 
-<span class="badge">
-NEW
-</span>
+<div class="card-icon">💳</div>
 
-<div class="service-icon">
-🏥
-</div>
+<h3>PAN Card</h3>
 
-<h3>
-Health Plan Card Print
-</h3>
+<p>
+PAN application और PAN related services।
+</p>
 
-</div>
-
-
-<div class="service-card"
-onclick="openTool('idprint')">
-
-<div class="service-icon">
-🧾
-</div>
-
-<h3>
-Tax ID Card Print
-</h3>
+<button
+class="btn"
+onclick="openOfficial('https://www.incometax.gov.in/')">
+PAN Official Portal
+</button>
 
 </div>
 
 
-<div class="service-card"
-onclick="openTool('idprint')">
+<div class="card">
 
-<div class="service-icon">
-🚗
-</div>
+<div class="card-icon">🚗</div>
 
-<h3>
-Driving Permit Print
-</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('idprint')">
-
-<div class="service-icon">
-🎓
-</div>
-
-<h3>
-School/College ID
-</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openTool('idprint')">
-
-<span class="badge">
-NEW
-</span>
-
-<div class="service-icon">
-🖨️
-</div>
-
-<h3>
-Food Subsidy Card Print
-</h3>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
- PORTALS
-========================================================= -->
-
-<section class="section">
-
-<h2 class="section-title blue">
-Official Portal Services
-</h2>
-
-<div class="service-grid">
-
-
-<div class="service-card"
-onclick="openPortal('https://www.uidai.gov.in/')">
-
-<div class="service-icon">🪪</div>
-<h3>Aadhaar Service</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://www.incometax.gov.in/')">
-
-<div class="service-icon">💳</div>
-<h3>PAN Card Service</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://voters.eci.gov.in/')">
-
-<div class="service-icon">🗳️</div>
-<h3>Voter ID</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://parivahan.gov.in/')">
-
-<div class="service-icon">🚗</div>
 <h3>Driving Licence</h3>
 
-</div>
+<p>
+Learner Licence और Driving Licence services।
+</p>
 
-
-<div class="service-card"
-onclick="openPortal('https://www.epfindia.gov.in/')">
-
-<div class="service-icon">🏦</div>
-<h3>EPFO</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://www.licindia.in/')">
-
-<div class="service-icon">🛡️</div>
-<h3>LIC Service</h3>
+<button
+class="btn"
+onclick="openOfficial('https://parivahan.gov.in/')">
+Parivahan Official Portal
+</button>
 
 </div>
 
 
-<div class="service-card"
-onclick="openPortal('https://www.indianrail.gov.in/')">
+<div class="card">
 
-<div class="service-icon">🚆</div>
-<h3>Railway Service</h3>
+<div class="card-icon">🗳️</div>
 
-</div>
+<h3>Voter ID</h3>
 
+<p>
+Voter registration और election related services।
+</p>
 
-<div class="service-card"
-onclick="openPortal('https://passportindia.gov.in/')">
-
-<div class="service-icon">🛂</div>
-<h3>Passport Seva</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://www.gst.gov.in/')">
-
-<div class="service-icon">🧾</div>
-<h3>GST Verification</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://echallan.parivahan.gov.in/')">
-
-<div class="service-icon">🚘</div>
-<h3>E-Challan</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://eshram.gov.in/')">
-
-<div class="service-icon">👷</div>
-<h3>E-Shram Card</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://pmkisan.gov.in/')">
-
-<div class="service-icon">🌾</div>
-<h3>PM Kisan</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://www.ncs.gov.in/')">
-
-<div class="service-icon">💼</div>
-<h3>National Career Service</h3>
-
-</div>
-
-
-<div class="service-card"
-onclick="openPortal('https://www.india.gov.in/')">
-
-<div class="service-icon">🇮🇳</div>
-<h3>India Government</h3>
+<button
+class="btn"
+onclick="openOfficial('https://voters.eci.gov.in/')">
+Voter Services
+</button>
 
 </div>
 
@@ -2075,68 +1146,587 @@ onclick="openPortal('https://www.india.gov.in/')">
 </section>
 
 
-<!-- =========================================================
- ABOUT
-========================================================= -->
 
-<section id="about">
+<!-- =======================================================
+     PHOTO EDITOR
+======================================================= -->
 
-<div class="about-box">
+<section id="photo" class="section">
 
-<h2>
-Bharat Digital Centre – One Stop Solution For All Your Digital Work
-</h2>
-
-<br>
-
-<p>
-Bharat Digital Centre एक multi-service digital platform है
-जिसका उद्देश्य photo editing, ID card printing, PDF tools,
-document preparation, resume design और official government
-portal access को एक ही स्थान पर उपलब्ध कराना है।
-</p>
-
-<br>
-
-<p>
-यह वेबसाइट सरकारी विभाग की official website नहीं है।
-सरकारी सेवाओं के लिए संबंधित official portal पर ही आवेदन करें।
-</p>
-
-</div>
-
-
-<h2
-class="section-title"
-style="margin-top:30px">
-
-Why Choose Bharat Digital Centre?
-
+<h2 class="section-title">
+📷 Professional Photo Editor
 </h2>
 
 
-<div class="why-grid">
+<div class="toolbar">
 
-<div class="why">
-<div class="why-icon">⚡</div>
-Simple And Fast
+<input
+type="file"
+id="photoInput"
+accept="image/*"
+onchange="loadPhoto(event)"
+style="max-width:280px">
+
+
+<button
+class="btn"
+onclick="removeBackgroundAI()">
+✂️ AI Background Remove
+</button>
+
+<button
+class="btn secondary"
+onclick="downloadPhoto('png')">
+Download PNG
+</button>
+
+<button
+class="btn green"
+onclick="downloadPhoto('jpeg')">
+Download JPEG
+</button>
+
+<button
+class="btn dark"
+onclick="resetPhoto()">
+Reset
+</button>
+
 </div>
 
-<div class="why">
-<div class="why-icon">📦</div>
-Everything In One Place
+
+<div class="editor-layout">
+
+
+<div class="controls">
+
+<h3>Photo Controls</h3>
+
+
+<label>
+Brightness
+</label>
+
+<input
+type="range"
+id="brightness"
+min="0"
+max="200"
+value="100"
+oninput="drawPhoto()">
+
+
+<label>
+Contrast
+</label>
+
+<input
+type="range"
+id="contrast"
+min="0"
+max="200"
+value="100"
+oninput="drawPhoto()">
+
+
+<label>
+Saturation
+</label>
+
+<input
+type="range"
+id="saturation"
+min="0"
+max="200"
+value="100"
+oninput="drawPhoto()">
+
+
+<label>
+Grayscale
+</label>
+
+<input
+type="range"
+id="grayscale"
+min="0"
+max="100"
+value="0"
+oninput="drawPhoto()">
+
+
+<button
+class="btn"
+onclick="rotatePhoto(-90)">
+↶ Rotate Left
+</button>
+
+<button
+class="btn"
+onclick="rotatePhoto(90)">
+↷ Rotate Right
+</button>
+
+
+<hr style="margin:15px 0">
+
+
+<h3>Crop</h3>
+
+<label>
+Crop Width %
+</label>
+
+<input
+type="number"
+id="cropW"
+value="100"
+min="10"
+max="100">
+
+
+<label>
+Crop Height %
+</label>
+
+<input
+type="number"
+id="cropH"
+value="100"
+min="10"
+max="100">
+
+
+<button
+class="btn secondary"
+onclick="applyCrop()">
+Apply Crop
+</button>
+
+
+<hr style="margin:15px 0">
+
+
+<button
+class="btn green"
+onclick="setPassportSize(35,45)">
+35 × 45 mm
+</button>
+
+<button
+class="btn green"
+onclick="setPassportSize(51,51)">
+2 × 2 inch
+</button>
+
+
+<div id="photoStatus"
+class="status">
+Photo upload करें।
 </div>
 
-<div class="why">
-<div class="why-icon">🛡️</div>
-Safe And Reliable
 </div>
 
-<div class="why">
-<div class="why-icon">💰</div>
-Affordable And Easy
+
+<div class="canvas-box">
+
+<canvas id="photoCanvas"></canvas>
+
 </div>
 
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     PRINT
+======================================================= -->
+
+<section id="print" class="section">
+
+<h2 class="section-title">
+🖨️ A4 Photo / ID Print Layout
+</h2>
+
+
+<div class="print-layout">
+
+
+<div class="card">
+
+<h3>Print Settings</h3>
+
+
+<label>
+Photo Upload
+</label>
+
+<input
+type="file"
+accept="image/*"
+id="printImage"
+onchange="loadPrintImage(event)">
+
+
+<label>
+Photo Size
+</label>
+
+<select id="printSize"
+onchange="generatePrintLayout()">
+
+<option value="35x45">
+35 × 45 mm Passport
+</option>
+
+<option value="51x51">
+2 × 2 inch
+</option>
+
+<option value="25x35">
+25 × 35 mm
+</option>
+
+<option value="45x45">
+45 × 45 mm
+</option>
+
+<option value="50x70">
+50 × 70 mm
+</option>
+
+</select>
+
+
+<label>
+Number of Photos
+</label>
+
+<select
+id="photoCount"
+onchange="generatePrintLayout()">
+
+<option value="4">4 Photos</option>
+<option value="8">8 Photos</option>
+<option value="12">12 Photos</option>
+<option value="16">16 Photos</option>
+<option value="20">20 Photos</option>
+
+</select>
+
+
+<label>
+Background
+</label>
+
+<select
+id="printBg"
+onchange="generatePrintLayout()">
+
+<option value="white">
+White
+</option>
+
+<option value="blue">
+Light Blue
+</option>
+
+<option value="red">
+Light Red
+</option>
+
+</select>
+
+
+<button
+class="btn green"
+onclick="printA4()">
+🖨️ Print A4
+</button>
+
+
+<button
+class="btn secondary"
+onclick="downloadA4PDF()">
+📄 Download A4 PDF
+</button>
+
+
+</div>
+
+
+<div class="print-preview">
+
+<div id="a4Page" class="a4">
+
+<h3
+style="
+text-align:center;
+font-size:12px;
+margin-bottom:5mm;
+">
+Bharat Digital Centre
+</h3>
+
+<div
+id="photoGrid"
+class="photo-grid">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     PDF TOOLS
+======================================================= -->
+
+<section id="pdf" class="section">
+
+<h2 class="section-title">
+📄 Advanced PDF Tools
+</h2>
+
+
+<div class="toolbar">
+
+<input
+type="file"
+id="pdfInput"
+accept="application/pdf"
+onchange="loadPDF(event)">
+
+
+<button
+class="btn"
+onclick="rotatePDFPage()">
+↻ Rotate Page
+</button>
+
+<button
+class="btn red"
+onclick="deletePDFPage()">
+🗑 Delete Page
+</button>
+
+<button
+class="btn secondary"
+onclick="movePage(-1)">
+⬆ Move Up
+</button>
+
+<button
+class="btn secondary"
+onclick="movePage(1)">
+⬇ Move Down
+</button>
+
+<button
+class="btn green"
+onclick="exportPDF()">
+⬇ Download Edited PDF
+</button>
+
+</div>
+
+
+<div class="pdf-layout">
+
+
+<div class="pdf-pages">
+
+<h3>Pages</h3>
+
+<div id="pageList">
+PDF upload करें।
+</div>
+
+</div>
+
+
+<div class="pdf-canvas-wrap">
+
+<canvas id="pdfCanvas"></canvas>
+
+</div>
+
+
+<div class="pdf-tools">
+
+<h3>PDF Edit</h3>
+
+
+<label>
+Text
+</label>
+
+<input
+id="pdfText"
+placeholder="यहाँ text लिखें">
+
+
+<button
+class="btn"
+onclick="addPDFText()">
+➕ Add Text
+</button>
+
+
+<hr style="margin:15px 0">
+
+
+<h3>Watermark</h3>
+
+<input
+id="watermarkText"
+placeholder="Watermark">
+
+
+<button
+class="btn secondary"
+onclick="addWatermark()">
+Add Watermark
+</button>
+
+
+<hr style="margin:15px 0">
+
+
+<h3>Signature</h3>
+
+<canvas
+id="signatureCanvas">
+</canvas>
+
+<button
+class="btn"
+onclick="clearSignature()">
+Clear Signature
+</button>
+
+<button
+class="btn green"
+onclick="addSignature()">
+Add Signature
+</button>
+
+
+<div
+id="pdfStatus"
+class="status">
+PDF upload करें।
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     CONVERTER
+======================================================= -->
+
+<section id="converter" class="section">
+
+<h2 class="section-title">
+🔄 File Converter
+</h2>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<div class="card-icon">🖼️</div>
+
+<h3>JPEG → PDF</h3>
+
+<p>
+एक या कई JPEG images को एक PDF में convert करें।
+</p>
+
+<input
+type="file"
+id="jpgPdfInput"
+accept="image/jpeg,image/png"
+multiple>
+
+<button
+class="btn green"
+onclick="imagesToPDF()">
+Convert Images → PDF
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">📄</div>
+
+<h3>PDF → JPEG</h3>
+
+<p>
+PDF pages को JPEG images में convert करें।
+</p>
+
+<button
+class="btn"
+onclick="pdfToImages()">
+Convert PDF → JPEG
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🖼️</div>
+
+<h3>Photo Resize</h3>
+
+<p>
+Photo को exact pixels या print size में तैयार करें।
+</p>
+
+<input
+type="number"
+id="resizeW"
+placeholder="Width px">
+
+<input
+type="number"
+id="resizeH"
+placeholder="Height px">
+
+<button
+class="btn secondary"
+onclick="resizePhoto()">
+Resize Photo
+</button>
+
+</div>
+
+
+</div>
+
+
+<div
+id="converterStatus"
+class="status">
+Converter तैयार है।
 </div>
 
 </section>
@@ -2145,67 +1735,33 @@ Affordable And Easy
 </main>
 
 
-<!-- =========================================================
- FOOTER
-========================================================= -->
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
 
-<h3>
-🇮🇳 Bharat Digital Centre
-</h3>
+<b>Bharat Digital Centre</b>
 
 <br>
 
-<small>
-Citizen ID Services • Photo • Print • PDF • Design
-</small>
+Citizen ID • Photo Editing • PDF • Printing
 
 <br><br>
 
 <small>
-© 2026 Bharat Digital Centre. All Rights Reserved.
+यह एक private digital service utility है।
+सरकारी services के लिए संबंधित official portal का उपयोग करें।
 </small>
 
 </footer>
 
 
-<!-- =========================================================
- TOOL MODAL
-========================================================= -->
 
-<div
-id="toolModal"
-class="modal">
-
-<div class="modal-box">
-
-<div class="modal-title">
-
-<h2 id="toolTitle">
-Digital Tool
-</h2>
-
-<button
-class="close"
-onclick="closeModal()">
-
-×
-
-</button>
-
-</div>
-
-<div id="toolContent"></div>
-
-</div>
-
-</div>
-
-
-<!-- =========================================================
- LOGIN MODAL
-========================================================= -->
+<!-- =======================================================
+     LOGIN MODAL
+======================================================= -->
 
 <div
 id="loginModal"
@@ -2213,2453 +1769,2478 @@ class="modal">
 
 <div class="modal-box">
 
-<div class="login-box">
-
-<div class="login-logo">
-
-<div class="logo-3d">
-BD
-</div>
-
-<h2 style="margin-top:12px">
-Bharat Digital Centre
+<h2>
+🔐 Bharat Digital Centre Login
 </h2>
 
-</div>
 
-
-<div class="login-tabs">
-
-<button
-id="loginTab"
-class="active"
-onclick="showLoginTab()">
-
-Login
-
-</button>
-
-<button
-id="registerTab"
-onclick="showRegisterTab()">
-
-Register
-
-</button>
-
-</div>
-
-
-<div id="loginForm">
-
-<label>Email</label>
+<label>
+Email
+</label>
 
 <input
+type="email"
 id="loginEmail"
-type="email"
-placeholder="Enter email">
+placeholder="Email">
 
 
-<label>Password</label>
+<label>
+Password
+</label>
 
 <input
+type="password"
 id="loginPassword"
-type="password"
-placeholder="Enter password">
+placeholder="Password">
 
 
 <button
-class="primary"
-style="width:100%"
+class="btn green"
 onclick="loginUser()">
-
 Login
-
 </button>
 
 
 <button
-class="secondary"
-style="width:100%"
-onclick="resetPassword()">
-
-Forgot Password
-
-</button>
-
-</div>
-
-
-<div
-id="registerForm"
-class="hidden">
-
-<label>Email</label>
-
-<input
-id="registerEmail"
-type="email"
-placeholder="Enter email">
-
-
-<label>Password</label>
-
-<input
-id="registerPassword"
-type="password"
-placeholder="Minimum 6 characters">
-
-
-<button
-class="primary"
-style="width:100%"
+class="btn secondary"
 onclick="registerUser()">
-
 Create Account
-
 </button>
 
-</div>
 
-</div>
+<button
+class="btn dark"
+onclick="resetPassword()">
+Forgot Password
+</button>
 
-</div>
 
-</div>
+<button
+class="btn red"
+onclick="closeLogin()">
+Close
+</button>
 
-
-<!-- =========================================================
- TOAST
-========================================================= -->
 
 <div
-id="toast"
-class="toast">
-Done
+id="loginStatus"
+class="status">
+Login करें।
 </div>
 
+</div>
+
+</div>
+
+
+
+<!-- =======================================================
+     FIREBASE + LIBRARIES
+======================================================= -->
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged,
+    sendPasswordResetEmail
+}
+from
+"https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+
+
+/* =========================================================
+   YOUR FIREBASE CONFIG
+========================================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyDs3xlVBdjxPqbkvPiyYQWHy8tHBpIi-zk",
+
+    authDomain:
+    "bharat-digital-centre.firebaseapp.com",
+
+    projectId:
+    "bharat-digital-centre",
+
+    storageBucket:
+    "bharat-digital-centre.firebasestorage.app",
+
+    messagingSenderId:
+    "911423935077",
+
+    appId:
+    "1:911423935077:web:574e0754bfaacee421ac8c"
+};
+
+
+/* =========================================================
+   INITIALIZE FIREBASE
+========================================================= */
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+window.loginUser = async function(){
+
+    const email =
+    document.getElementById("loginEmail").value.trim();
+
+    const password =
+    document.getElementById("loginPassword").value;
+
+    const status =
+    document.getElementById("loginStatus");
+
+
+    if(!email || !password){
+
+        status.className =
+        "status error";
+
+        status.textContent =
+        "Email और password डालें।";
+
+        return;
+    }
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        status.className =
+        "status success";
+
+        status.textContent =
+        "Login सफल हुआ।";
+
+        closeLogin();
+
+    }
+    catch(error){
+
+        status.className =
+        "status error";
+
+        status.textContent =
+        error.message;
+
+    }
+
+};
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+window.registerUser = async function(){
+
+    const email =
+    document.getElementById("loginEmail").value.trim();
+
+    const password =
+    document.getElementById("loginPassword").value;
+
+
+    if(!email || password.length < 6){
+
+        document.getElementById("loginStatus").textContent =
+        "Valid email और कम से कम 6 character password डालें।";
+
+        return;
+    }
+
+
+    try{
+
+        await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        document.getElementById("loginStatus").textContent =
+        "Account बन गया।";
+
+        closeLogin();
+
+    }
+    catch(error){
+
+        document.getElementById("loginStatus").textContent =
+        error.message;
+
+    }
+
+};
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+window.logoutUser = async function(){
+
+    await signOut(auth);
+
+};
+
+
+/* =========================================================
+   RESET PASSWORD
+========================================================= */
+
+window.resetPassword = async function(){
+
+    const email =
+    document.getElementById("loginEmail").value.trim();
+
+
+    if(!email){
+
+        alert("पहले Email डालें।");
+
+        return;
+    }
+
+
+    try{
+
+        await sendPasswordResetEmail(
+            auth,
+            email
+        );
+
+        alert(
+            "Password reset email भेज दिया गया है।"
+        );
+
+    }
+    catch(error){
+
+        alert(error.message);
+
+    }
+
+};
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        const email =
+        document.getElementById("userEmail");
+
+        const loginBtn =
+        document.getElementById("loginBtn");
+
+        const logoutBtn =
+        document.getElementById("logoutBtn");
+
+
+        if(user){
+
+            email.textContent =
+            user.email || "Logged in";
+
+            loginBtn.style.display =
+            "none";
+
+            logoutBtn.style.display =
+            "inline-block";
+
+        }
+        else{
+
+            email.textContent =
+            "Guest";
+
+            loginBtn.style.display =
+            "inline-block";
+
+            logoutBtn.style.display =
+            "none";
+
+        }
+
+    }
+);
+
+</script>
+
+
+
+<!-- =======================================================
+     PDF-LIB
+======================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+
+<!-- =======================================================
+     PDF.JS
+======================================================= -->
+
+<script type="module">
+
+import * as pdfjsLib
+from
+"https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs";
+
+
+window.pdfjsLib =
+pdfjsLib;
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs";
+
+</script>
+
+
+
+<!-- =======================================================
+     APPLICATION JAVASCRIPT
+======================================================= -->
 
 <script>
 
-/* =========================================================
- GLOBAL STATE
-========================================================= */
-
-let passportImage = null;
-let cropImg = null;
-let bgCanvas = null;
-
-let editorPDF = null;
-let selectedPDFPage = 0;
-let pdfRotations = [];
-let editorPageOrder = null;
-
 
 /* =========================================================
- BASIC
+   NAVIGATION
 ========================================================= */
 
-function toast(message){
+function showSection(id,button){
 
-  const t =
-    document.getElementById("toast");
-
-  if(!t) return;
-
-  t.textContent = message;
-
-  t.style.display = "block";
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer =
-    setTimeout(function(){
-
-      t.style.display = "none";
-
-    },3000);
-}
-
-
-function scrollToTop(){
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-function goServices(){
-
-  const section =
-    document.getElementById("services");
-
-  if(section){
-
-    section.scrollIntoView({
-      behavior:"smooth"
+    document
+    .querySelectorAll(".section")
+    .forEach(section=>{
+        section.classList.remove("active");
     });
 
-  }
 
-}
+    const target =
+    document.getElementById(id);
+
+    if(target){
+        target.classList.add("active");
+    }
 
 
-function goAbout(){
-
-  const about =
-    document.getElementById("about");
-
-  if(about){
-
-    about.scrollIntoView({
-      behavior:"smooth"
+    document
+    .querySelectorAll(".nav-btn")
+    .forEach(btn=>{
+        btn.classList.remove("active");
     });
 
-  }
+
+    if(button){
+        button.classList.add("active");
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
+
+window.showSection =
+showSection;
 
 
 /* =========================================================
- PORTAL
+   LOGIN MODAL
 ========================================================= */
 
-function openPortal(url){
+window.openLogin = function(){
 
-  try{
+    document
+    .getElementById("loginModal")
+    .classList.add("show");
+
+};
+
+window.closeLogin = function(){
+
+    document
+    .getElementById("loginModal")
+    .classList.remove("show");
+
+};
+
+
+/* =========================================================
+   OFFICIAL PORTALS
+========================================================= */
+
+window.openOfficial =
+function(url){
 
     window.open(
-      url,
-      "_blank",
-      "noopener,noreferrer"
+        url,
+        "_blank",
+        "noopener,noreferrer"
     );
 
-  }catch(error){
-
-    window.location.href = url;
-
-  }
-
-}
+};
 
 
 /* =========================================================
- MODAL
+   PHOTO EDITOR VARIABLES
 ========================================================= */
 
-function closeModal(){
+let originalImage =
+null;
 
-  const tool =
-    document.getElementById("toolModal");
+let photoRotation =
+0;
 
-  const login =
-    document.getElementById("loginModal");
+let passportWidth =
+null;
 
-  if(tool)
-    tool.classList.remove("show");
-
-  if(login)
-    login.classList.remove("show");
-
-}
+let passportHeight =
+null;
 
 
 /* =========================================================
- SEARCH
+   LOAD PHOTO
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded",function(){
-
-  const search =
-    document.getElementById("searchInput");
-
-  if(!search) return;
-
-  search.addEventListener("input",function(){
-
-    const q =
-      this.value
-      .toLowerCase()
-      .trim();
-
-    document
-      .querySelectorAll(".service-card")
-      .forEach(function(card){
-
-        const text =
-          card.innerText
-          .toLowerCase();
-
-        card.style.display =
-          text.includes(q)
-          ? ""
-          : "none";
-
-      });
-
-  });
-
-});
-
-
-/* =========================================================
- MOBILE MENU
-========================================================= */
-
-function toggleMobileMenu(){
-
-  const nav =
-    document.querySelector(".nav");
-
-  if(!nav) return;
-
-  if(nav.style.display === "flex"){
-
-    nav.style.display = "none";
-
-    return;
-
-  }
-
-  nav.style.display = "flex";
-
-  nav.style.position = "absolute";
-
-  nav.style.top = "62px";
-
-  nav.style.left = "0";
-
-  nav.style.right = "0";
-
-  nav.style.padding = "15px";
-
-  nav.style.background = "#fff";
-
-  nav.style.flexDirection = "column";
-
-  nav.style.boxShadow =
-    "0 10px 20px rgba(0,0,0,.1)";
-
-}
-
-
-/* =========================================================
- LOGIN
-========================================================= */
-
-function openLogin(){
-
-  const modal =
-    document.getElementById("loginModal");
-
-  if(modal)
-    modal.classList.add("show");
-
-}
-
-
-function showLoginTab(){
-
-  document
-    .getElementById("loginForm")
-    .classList.remove("hidden");
-
-  document
-    .getElementById("registerForm")
-    .classList.add("hidden");
-
-  document
-    .getElementById("loginTab")
-    .classList.add("active");
-
-  document
-    .getElementById("registerTab")
-    .classList.remove("active");
-
-}
-
-
-function showRegisterTab(){
-
-  document
-    .getElementById("loginForm")
-    .classList.add("hidden");
-
-  document
-    .getElementById("registerForm")
-    .classList.remove("hidden");
-
-  document
-    .getElementById("registerTab")
-    .classList.add("active");
-
-  document
-    .getElementById("loginTab")
-    .classList.remove("active");
-
-}
-
-
-async function loginUser(){
-
-  if(!window.firebaseAuth){
-
-    toast(
-      "Firebase तैयार नहीं है। पहले Firebase Authentication enable करें।"
-    );
-
-    return;
-
-  }
-
-  const email =
-    document
-      .getElementById("loginEmail")
-      .value
-      .trim();
-
-  const password =
-    document
-      .getElementById("loginPassword")
-      .value;
-
-  if(!email || !password){
-
-    toast(
-      "Email और Password भरें"
-    );
-
-    return;
-
-  }
-
-  try{
-
-    await window.firebaseFunctions
-      .signInWithEmailAndPassword(
-        window.firebaseAuth,
-        email,
-        password
-      );
-
-    closeModal();
-
-    toast("Login successful");
-
-  }catch(error){
-
-    toast(
-      firebaseError(error)
-    );
-
-  }
-
-}
-
-
-async function registerUser(){
-
-  if(!window.firebaseAuth){
-
-    toast(
-      "Firebase तैयार नहीं है।"
-    );
-
-    return;
-
-  }
-
-  const email =
-    document
-      .getElementById("registerEmail")
-      .value
-      .trim();
-
-  const password =
-    document
-      .getElementById("registerPassword")
-      .value;
-
-  if(!email){
-
-    toast("Email डालें");
-
-    return;
-
-  }
-
-  if(password.length < 6){
-
-    toast(
-      "Password कम से कम 6 characters का होना चाहिए"
-    );
-
-    return;
-
-  }
-
-  try{
-
-    await window.firebaseFunctions
-      .createUserWithEmailAndPassword(
-        window.firebaseAuth,
-        email,
-        password
-      );
-
-    closeModal();
-
-    toast("Account created");
-
-  }catch(error){
-
-    toast(
-      firebaseError(error)
-    );
-
-  }
-
-}
-
-
-async function logoutUser(){
-
-  if(!window.firebaseAuth){
-
-    toast("Firebase उपलब्ध नहीं है");
-
-    return;
-
-  }
-
-  try{
-
-    await window.firebaseFunctions
-      .signOut(
-        window.firebaseAuth
-      );
-
-    toast("Logout successful");
-
-  }catch(error){
-
-    toast("Logout error");
-
-  }
-
-}
-
-
-async function resetPassword(){
-
-  if(!window.firebaseAuth){
-
-    toast("Firebase उपलब्ध नहीं है");
-
-    return;
-
-  }
-
-  const email =
-    document
-      .getElementById("loginEmail")
-      .value
-      .trim();
-
-  if(!email){
-
-    toast(
-      "पहले Email डालें"
-    );
-
-    return;
-
-  }
-
-  try{
-
-    await window.firebaseFunctions
-      .sendPasswordResetEmail(
-        window.firebaseAuth,
-        email
-      );
-
-    toast(
-      "Password reset email भेज दिया गया"
-    );
-
-  }catch(error){
-
-    toast(
-      firebaseError(error)
-    );
-
-  }
-
-}
-
-
-function firebaseError(error){
-
-  const code =
-    error.code || "";
-
-  if(code.includes("invalid-credential"))
-    return "Email या Password गलत है";
-
-  if(code.includes("wrong-password"))
-    return "Password गलत है";
-
-  if(code.includes("user-not-found"))
-    return "यह Email registered नहीं है";
-
-  if(code.includes("email-already-in-use"))
-    return "यह Email पहले से registered है";
-
-  if(code.includes("weak-password"))
-    return "Password कमजोर है";
-
-  if(code.includes("invalid-email"))
-    return "Email सही नहीं है";
-
-  return error.message ||
-    "कुछ गलत हुआ";
-
-}
-
-
-/* =========================================================
- OPEN TOOL
-========================================================= */
-
-function openTool(tool){
-
-  try{
-
-    const modal =
-      document.getElementById("toolModal");
-
-    const title =
-      document.getElementById("toolTitle");
-
-    const content =
-      document.getElementById("toolContent");
-
-    if(!modal || !title || !content){
-
-      alert("Tool system error");
-
-      return;
-
-    }
-
-    modal.classList.add("show");
-
-    /* =====================================================
-       PASSPORT
-    ===================================================== */
-
-    if(tool === "passport"){
-
-      title.textContent =
-        "Passport Photo & A4 Auto Layout";
-
-      content.innerHTML =
-        passportTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       CROP
-    ===================================================== */
-
-    if(tool === "crop"){
-
-      title.textContent =
-        "Photo Crop & Resize";
-
-      content.innerHTML =
-        cropTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       JPG / PNG PDF
-    ===================================================== */
-
-    if(
-      tool === "jpgpdf" ||
-      tool === "pngpdf"
-    ){
-
-      title.textContent =
-        tool === "jpgpdf"
-        ? "JPG To PDF"
-        : "PNG To PDF";
-
-      content.innerHTML =
-        imageToPdfTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       PNG JPG
-    ===================================================== */
-
-    if(tool === "pngjpg"){
-
-      title.textContent =
-        "PNG To JPG";
-
-      content.innerHTML =
-        pngToJpgTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       PDF JPG
-    ===================================================== */
-
-    if(tool === "pdfjpg"){
-
-      title.textContent =
-        "PDF To JPG";
-
-      content.innerHTML =
-        pdfToJpgTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       MERGE
-    ===================================================== */
-
-    if(tool === "mergepdf"){
-
-      title.textContent =
-        "Merge PDF";
-
-      content.innerHTML =
-        mergePdfTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       PDF EDIT
-    ===================================================== */
-
-    if(
-      tool === "deletepdf" ||
-      tool === "pdfedit" ||
-      tool === "watermark"
-    ){
-
-      title.textContent =
-        tool === "deletepdf"
-        ? "Delete / Reorder / Rotate PDF Pages"
-        : tool === "watermark"
-        ? "PDF Watermark"
-        : "Advanced PDF Editor";
-
-      content.innerHTML =
-        pdfEditorTool(tool !== "deletepdf");
-
-      return;
-    }
-
-
-    /* =====================================================
-       SIGNATURE
-    ===================================================== */
-
-    if(tool === "signature"){
-
-      title.textContent =
-        "PDF Signature";
-
-      content.innerHTML =
-        signatureTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       BACKGROUND
-    ===================================================== */
-
-    if(tool === "background"){
-
-      title.textContent =
-        "Background Remover";
-
-      content.innerHTML =
-        backgroundTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       ID
-    ===================================================== */
-
-    if(
-      tool === "idprint" ||
-      tool === "pvc" ||
-      tool === "idmaker"
-    ){
-
-      title.textContent =
-        tool === "pvc"
-        ? "PVC / ID Card Auto Crop"
-        : "ID Card Print Studio";
-
-      content.innerHTML =
-        idPrintTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       RESUME
-    ===================================================== */
-
-    if(tool === "resume"){
-
-      title.textContent =
-        "Resume / CV Maker";
-
-      content.innerHTML =
-        resumeTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       BIODATA
-    ===================================================== */
-
-    if(tool === "biodata"){
-
-      title.textContent =
-        "Marriage Biodata Maker";
-
-      content.innerHTML =
-        biodataTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       APPLICATION
-    ===================================================== */
-
-    if(tool === "application"){
-
-      title.textContent =
-        "Application Maker";
-
-      content.innerHTML =
-        applicationTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       JOBS
-    ===================================================== */
-
-    if(tool === "jobs"){
-
-      title.textContent =
-        "Latest Jobs";
-
-      content.innerHTML =
-        jobsTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       MOCK
-    ===================================================== */
-
-    if(tool === "mock"){
-
-      title.textContent =
-        "Mock Test";
-
-      content.innerHTML =
-        mockTestTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       PRICING
-    ===================================================== */
-
-    if(tool === "pricing"){
-
-      title.textContent =
-        "Service Pricing";
-
-      content.innerHTML =
-        pricingTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       NEW SERVICE
-    ===================================================== */
-
-    if(tool === "newservice"){
-
-      title.textContent =
-        "New Service Post";
-
-      content.innerHTML =
-        newServiceTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       ALBUM
-    ===================================================== */
-
-    if(tool === "album"){
-
-      title.textContent =
-        "Document Album";
-
-      content.innerHTML =
-        albumTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       POSTER
-    ===================================================== */
-
-    if(tool === "poster"){
-
-      title.textContent =
-        "Pro Poster Maker";
-
-      content.innerHTML =
-        posterTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       PROMOTION
-    ===================================================== */
-
-    if(tool === "promotion"){
-
-      title.textContent =
-        "Shop Promotion Maker";
-
-      content.innerHTML =
-        promotionTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       PRINT
-    ===================================================== */
-
-    if(tool === "print"){
-
-      title.textContent =
-        "Auto Print";
-
-      content.innerHTML =
-        autoPrintTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       CYBER
-    ===================================================== */
-
-    if(tool === "cyber"){
-
-      title.textContent =
-        "Cyber Cafe Services";
-
-      content.innerHTML =
-        cyberTool();
-
-      return;
-    }
-
-
-    /* =====================================================
-       DEFAULT
-    ===================================================== */
-
-    title.textContent =
-      "Digital Tool";
-
-    content.innerHTML =
-      simpleMessage(
-        "Coming Soon",
-        "यह service module तैयार किया जा सकता है।"
-      );
-
-  }catch(error){
-
-    console.error(error);
-
-    toast(
-      "Tool खोलते समय error आया"
-    );
-
-  }
-
-}
-
-
-/* =========================================================
- SIMPLE
-========================================================= */
-
-function simpleMessage(title,text){
-
-  return `
-
-  <div style="
-    text-align:center;
-    padding:60px 20px;
-  ">
-
-    <div style="
-      font-size:60px;
-      margin-bottom:15px;
-    ">
-      🚀
-    </div>
-
-    <h2>${escapeHTML(title)}</h2>
-
-    <p style="
-      margin-top:12px;
-      color:#666;
-    ">
-      ${escapeHTML(text)}
-    </p>
-
-  </div>
-
-  `;
-
-}
-
-
-/* =========================================================
- PASSPORT TOOL
-========================================================= */
-
-function passportTool(){
-
-  return `
-
-  <div class="print-layout">
-
-    <div class="tool-panel">
-
-      <h3>Photo Settings</h3>
-
-      <label>Photo</label>
-
-      <input
-        type="file"
-        id="passportFile"
-        accept="image/*"
-        onchange="loadPassportPhoto(event)">
-
-      <label>Size</label>
-
-      <select
-        id="passportSize"
-        onchange="makePassportLayout()">
-
-        <option value="35x45">
-          35 × 45 mm
-        </option>
-
-        <option value="2x2">
-          2 × 2 inch
-        </option>
-
-        <option value="35x35">
-          35 × 35 mm
-        </option>
-
-      </select>
-
-      <label>Number of Photos</label>
-
-      <select
-        id="photoCount"
-        onchange="makePassportLayout()">
-
-        <option value="4">4 Photos</option>
-        <option value="8">8 Photos</option>
-        <option value="12">12 Photos</option>
-
-      </select>
-
-      <label>Background</label>
-
-      <select
-        id="photoBg"
-        onchange="makePassportLayout()">
-
-        <option value="white">White</option>
-        <option value="#eaf5ff">Light Blue</option>
-        <option value="#eeeeee">Light Grey</option>
-
-      </select>
-
-      <button
-        class="primary"
-        onclick="window.print()">
-
-        🖨️ Print A4
-
-      </button>
-
-    </div>
-
-
-    <div class="print-sheet-wrap">
-
-      <div
-        id="a4Sheet"
-        class="a4-sheet">
-
-        <div style="
-          grid-column:1/-1;
-          text-align:center;
-          padding:30px;
-          color:#aaa;
-        ">
-
-          Photo upload करें
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  `;
-
-}
-
-
-function loadPassportPhoto(event){
-
-  const file =
-    event.target.files[0];
-
-  if(!file) return;
-
-  const reader =
-    new FileReader();
-
-  reader.onload =
-    function(e){
-
-      passportImage =
-        e.target.result;
-
-      makePassportLayout();
-
-    };
-
-  reader.readAsDataURL(file);
-
-}
-
-
-function makePassportLayout(){
-
-  if(!passportImage)
-    return;
-
-  const count =
-    Number(
-      document
-        .getElementById("photoCount")
-        .value
-    );
-
-  const size =
-    document
-      .getElementById("passportSize")
-      .value;
-
-  const bg =
-    document
-      .getElementById("photoBg")
-      .value;
-
-  const sheet =
-    document
-      .getElementById("a4Sheet");
-
-  if(!sheet) return;
-
-  sheet.innerHTML = "";
-
-  sheet.style.gridTemplateColumns =
-    count === 4
-    ? "repeat(2,140px)"
-    : "repeat(4,140px)";
-
-  let width = 132;
-  let height = 170;
-
-  if(size === "2x2"){
-
-    width = 170;
-    height = 170;
-
-  }
-
-  if(size === "35x35"){
-
-    width = 140;
-    height = 140;
-
-  }
-
-  for(
-    let i=0;
-    i<count;
-    i++
-  ){
-
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "photo-item";
-
-    div.style.width =
-      width + "px";
-
-    div.style.height =
-      height + "px";
-
-    div.style.background =
-      bg;
-
-    div.innerHTML =
-      `<img src="${passportImage}">`;
-
-    sheet.appendChild(div);
-
-  }
-
-}
-
-
-/* =========================================================
- CROP
-========================================================= */
-
-function cropTool(){
-
-  return `
-
-  <div class="tool-area">
-
-    <div class="tool-panel">
-
-      <h3>
-        Photo Crop / Resize
-      </h3>
-
-      <input
-        type="file"
-        id="cropFile"
-        accept="image/*"
-        onchange="loadCropImage(event)">
-
-      <label>Width</label>
-
-      <input
-        type="number"
-        id="cropWidth"
-        value="600">
-
-      <label>Height</label>
-
-      <input
-        type="number"
-        id="cropHeight"
-        value="800">
-
-      <button
-        class="primary"
-        onclick="resizeCropImage()">
-
-        Resize & Download
-
-      </button>
-
-    </div>
-
-
-    <div class="preview-box">
-
-      <canvas
-        id="cropCanvas"
-        style="max-width:100%">
-      </canvas>
-
-    </div>
-
-  </div>
-
-  `;
-
-}
-
-
-function loadCropImage(event){
-
-  const file =
-    event.target.files[0];
-
-  if(!file) return;
-
-  const reader =
-    new FileReader();
-
-  reader.onload =
-    function(e){
-
-      cropImg =
-        new Image();
-
-      cropImg.onload =
-        function(){
-
-          const canvas =
-            document.getElementById(
-              "cropCanvas"
-            );
-
-          if(!canvas) return;
-
-          canvas.width =
-            cropImg.width;
-
-          canvas.height =
-            cropImg.height;
-
-          canvas
-            .getContext("2d")
-            .drawImage(
-              cropImg,
-              0,
-              0
-            );
-
-        };
-
-      cropImg.src =
-        e.target.result;
-
-    };
-
-  reader.readAsDataURL(file);
-
-}
-
-
-function resizeCropImage(){
-
-  if(!cropImg){
-
-    toast(
-      "पहले फोटो upload करें"
-    );
-
-    return;
-
-  }
-
-  const w =
-    Number(
-      document
-        .getElementById("cropWidth")
-        .value
-    );
-
-  const h =
-    Number(
-      document
-        .getElementById("cropHeight")
-        .value
-    );
-
-  if(w <= 0 || h <= 0){
-
-    toast(
-      "Width और Height सही दें"
-    );
-
-    return;
-
-  }
-
-  const canvas =
-    document.createElement("canvas");
-
-  canvas.width = w;
-  canvas.height = h;
-
-  canvas
-    .getContext("2d")
-    .drawImage(
-      cropImg,
-      0,
-      0,
-      w,
-      h
-    );
-
-  downloadData(
-    canvas.toDataURL(
-      "image/jpeg",
-      .95
-    ),
-    "cropped-photo.jpg"
-  );
-
-  toast("Photo तैयार है");
-
-}
-
-
-/* =========================================================
- IMAGE PDF
-========================================================= */
-
-function imageToPdfTool(){
-
-  return `
-
-  <div class="tool-panel">
-
-    <h3>Images To PDF</h3>
-
-    <input
-      type="file"
-      id="imagePdfFiles"
-      accept="image/jpeg,image/jpg,image/png"
-      multiple>
-
-    <div class="info-box">
-      JPG और PNG दोनों images को एक PDF में
-      convert किया जा सकता है।
-    </div>
-
-    <label>Page Size</label>
-
-    <select id="pdfPageSize">
-
-      <option value="a4">
-        A4
-      </option>
-
-      <option value="fit">
-        Fit Image
-      </option>
-
-    </select>
-
-    <button
-      class="primary"
-      onclick="imagesToPDF()">
-
-      Convert To PDF
-
-    </button>
-
-  </div>
-
-  `;
-
-}
-
-
-async function imagesToPDF(){
-
-  try{
-
-    const input =
-      document.getElementById(
-        "imagePdfFiles"
-      );
-
-    const files =
-      input.files;
-
-    if(!files.length){
-
-      toast(
-        "Images select करें"
-      );
-
-      return;
-
-    }
-
-    if(!window.jspdf){
-
-      toast(
-        "PDF library load नहीं हुई"
-      );
-
-      return;
-
-    }
-
-    const {jsPDF} =
-      window.jspdf;
-
-    const pdf =
-      new jsPDF(
-        "p",
-        "mm",
-        "a4"
-      );
-
-    for(
-      let i=0;
-      i<files.length;
-      i++
-    ){
-
-      const data =
-        await fileToDataURL(
-          files[i]
-        );
-
-      const img =
-        await loadImage(data);
-
-      const pageW = 210;
-      const pageH = 297;
-
-      const ratio =
-        Math.min(
-          pageW / img.width,
-          pageH / img.height
-        );
-
-      const w =
-        img.width * ratio;
-
-      const h =
-        img.height * ratio;
-
-      const x =
-        (pageW - w) / 2;
-
-      const y =
-        (pageH - h) / 2;
-
-      if(i > 0)
-        pdf.addPage();
-
-      const format =
-        files[i].type === "image/png"
-        ? "PNG"
-        : "JPEG";
-
-      pdf.addImage(
-        data,
-        format,
-        x,
-        y,
-        w,
-        h
-      );
-
-    }
-
-    pdf.save(
-      "Bharat-Digital-Centre.pdf"
-    );
-
-    toast(
-      "PDF तैयार हो गया"
-    );
-
-  }catch(error){
-
-    console.error(error);
-
-    toast(
-      "PDF बनाने में error आया"
-    );
-
-  }
-
-}
-
-
-/* =========================================================
- PNG JPG
-========================================================= */
-
-function pngToJpgTool(){
-
-  return `
-
-  <div class="tool-panel">
-
-    <h3>PNG To JPG</h3>
-
-    <input
-      type="file"
-      id="pngFile"
-      accept="image/png">
-
-    <label>
-      JPG Quality
-    </label>
-
-    <select id="jpgQuality">
-
-      <option value=".95">High</option>
-      <option value=".85">Medium</option>
-      <option value=".70">Small File</option>
-
-    </select>
-
-    <button
-      class="primary"
-      onclick="convertPNGtoJPG()">
-
-      Convert & Download
-
-    </button>
-
-  </div>
-
-  `;
-
-}
-
-
-function convertPNGtoJPG(){
-
-  const file =
-    document
-      .getElementById("pngFile")
-      .files[0];
-
-  if(!file){
-
-    toast(
-      "PNG file select करें"
-    );
-
-    return;
-
-  }
-
-  const reader =
-    new FileReader();
-
-  reader.onload =
-    function(e){
-
-      const img =
-        new Image();
-
-      img.onload =
-        function(){
-
-          const canvas =
-            document.createElement(
-              "canvas"
-            );
-
-          canvas.width =
-            img.width;
-
-          canvas.height =
-            img.height;
-
-          const ctx =
-            canvas.getContext("2d");
-
-          ctx.fillStyle =
-            "#ffffff";
-
-          ctx.fillRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-          );
-
-          ctx.drawImage(
-            img,
-            0,
-            0
-          );
-
-          const quality =
-            Number(
-              document
-                .getElementById(
-                  "jpgQuality"
-                )
-                .value
-            );
-
-          downloadData(
-            canvas.toDataURL(
-              "image/jpeg",
-              quality
-            ),
-            "converted.jpg"
-          );
-
-          toast(
-            "JPG तैयार है"
-          );
-
-        };
-
-      img.src =
-        e.target.result;
-
-    };
-
-  reader.readAsDataURL(file);
-
-}
-
-
-/* =========================================================
- PDF JPG
-========================================================= */
-
-function pdfToJpgTool(){
-
-  return `
-
-  <div class="tool-panel">
-
-    <h3>PDF To JPG</h3>
-
-    <input
-      type="file"
-      id="pdfJpgFile"
-      accept="application/pdf">
-
-    <button
-      class="primary"
-      onclick="convertPDFtoJPG()">
-
-      Convert PDF
-
-    </button>
-
-    <div
-      id="pdfJpgResult"
-      class="pdf-pages">
-    </div>
-
-  </div>
-
-  `;
-
-}
-
-
-async function convertPDFtoJPG(){
-
-  try{
+window.loadPhoto =
+function(event){
 
     const file =
-      document
-        .getElementById(
-          "pdfJpgFile"
-        )
-        .files[0];
+    event.target.files[0];
 
     if(!file){
-
-      toast(
-        "PDF select करें"
-      );
-
-      return;
-
+        return;
     }
 
-    if(typeof pdfjsLib === "undefined"){
 
-      toast(
-        "PDF library load नहीं हुई"
-      );
+    const reader =
+    new FileReader();
 
-      return;
 
-    }
+    reader.onload =
+    function(e){
 
-    const data =
-      await file.arrayBuffer();
+        const img =
+        new Image();
 
-    const pdf =
-      await pdfjsLib
-        .getDocument({
-          data:data
-        })
-        .promise;
-
-    const result =
-      document.getElementById(
-        "pdfJpgResult"
-      );
-
-    result.innerHTML = "";
-
-    for(
-      let i=1;
-      i<=pdf.numPages;
-      i++
-    ){
-
-      const page =
-        await pdf.getPage(i);
-
-      const viewport =
-        page.getViewport({
-          scale:2
-        });
-
-      const canvas =
-        document.createElement(
-          "canvas"
-        );
-
-      canvas.width =
-        viewport.width;
-
-      canvas.height =
-        viewport.height;
-
-      await page.render({
-        canvasContext:
-          canvas.getContext("2d"),
-        viewport:viewport
-      }).promise;
-
-      const dataURL =
-        canvas.toDataURL(
-          "image/jpeg",
-          .95
-        );
-
-      const button =
-        document.createElement(
-          "button"
-        );
-
-      button.className =
-        "secondary";
-
-      button.textContent =
-        "Download Page " + i;
-
-      button.onclick =
+        img.onload =
         function(){
 
-          downloadData(
-            dataURL,
-            "page-" + i + ".jpg"
-          );
+            originalImage =
+            img;
+
+            photoRotation =
+            0;
+
+            drawPhoto();
+
+            document
+            .getElementById("photoStatus")
+            .textContent =
+            "Photo loaded.";
 
         };
 
-      result.appendChild(
-        button
-      );
+        img.src =
+        e.target.result;
 
-    }
+    };
 
-    toast(
-      "PDF pages तैयार हैं"
-    );
 
-  }catch(error){
+    reader.readAsDataURL(file);
 
-    console.error(error);
-
-    toast(
-      "PDF convert नहीं हो सका"
-    );
-
-  }
-
-}
+};
 
 
 /* =========================================================
- MERGE PDF
+   DRAW PHOTO
 ========================================================= */
 
-function mergePdfTool(){
+window.drawPhoto =
+function(){
 
-  return `
-
-  <div class="tool-panel">
-
-    <h3>
-      Merge PDF Files
-    </h3>
-
-    <input
-      type="file"
-      id="mergeFiles"
-      accept="application/pdf"
-      multiple>
-
-    <div class="info-box">
-      PDF जिस क्रम में select होंगे,
-      उसी क्रम में merge होंगे।
-    </div>
-
-    <button
-      class="primary"
-      onclick="mergePDFs()">
-
-      Merge PDFs
-
-    </button>
-
-  </div>
-
-  `;
-
-}
+    if(!originalImage){
+        return;
+    }
 
 
-async function mergePDFs(){
+    const canvas =
+    document.getElementById("photoCanvas");
 
-  try{
+    const ctx =
+    canvas.getContext("2d");
 
-    const files =
-      document
-        .getElementById(
-          "mergeFiles"
-        )
-        .files;
 
-    if(files.length < 2){
+    const brightness =
+    document.getElementById("brightness").value;
 
-      toast(
-        "कम से कम 2 PDF चुनें"
-      );
+    const contrast =
+    document.getElementById("contrast").value;
 
-      return;
+    const saturation =
+    document.getElementById("saturation").value;
+
+    const grayscale =
+    document.getElementById("grayscale").value;
+
+
+    let w =
+    originalImage.width;
+
+    let h =
+    originalImage.height;
+
+
+    if(
+        photoRotation === 90 ||
+        photoRotation === 270 ||
+        photoRotation === -90
+    ){
+
+        [w,h] =
+        [h,w];
 
     }
 
-    if(!window.PDFLib){
 
-      toast(
-        "PDF library load नहीं हुई"
-      );
+    canvas.width =
+    w;
 
-      return;
+    canvas.height =
+    h;
 
-    }
 
-    const merged =
-      await PDFLib.PDFDocument
-        .create();
+    ctx.save();
 
-    for(const file of files){
 
-      const bytes =
-        await file.arrayBuffer();
-
-      const pdf =
-        await PDFLib.PDFDocument
-          .load(bytes);
-
-      const pages =
-        await merged.copyPages(
-          pdf,
-          pdf.getPageIndices()
-        );
-
-      pages.forEach(
-        function(page){
-          merged.addPage(page);
-        }
-      );
-
-    }
-
-    const bytes =
-      await merged.save();
-
-    downloadBytes(
-      bytes,
-      "merged.pdf",
-      "application/pdf"
+    ctx.translate(
+        w/2,
+        h/2
     );
 
-    toast(
-      "PDF merge हो गया"
+
+    ctx.rotate(
+        photoRotation *
+        Math.PI /
+        180
     );
 
-  }catch(error){
 
-    console.error(error);
-
-    toast(
-      "PDF merge में error आया"
-    );
-
-  }
-
-}
-
-
-/* =========================================================
- PDF EDITOR
-========================================================= */
-
-function pdfEditorTool(advanced=false){
-
-  return `
-
-  <div class="tool-area">
-
-    <div class="tool-panel">
-
-      <h3>
-        PDF ${advanced
-          ? "Advanced Editor"
-          : "Page Manager"}
-      </h3>
-
-      <input
-        type="file"
-        id="editorPdf"
-        accept="application/pdf"
-        onchange="loadPDFEditor(event)">
-
-      <div class="tool-buttons">
-
-        <button
-          class="secondary"
-          onclick="rotateSelectedPDFPage()">
-
-          🔄 Rotate
-
-        </button>
-
-        <button
-          class="danger"
-          onclick="deleteSelectedPDFPage()">
-
-          🗑️ Delete
-
-        </button>
-
-      </div>
-
-      <label>
-        Watermark Text
-      </label>
-
-      <input
-        type="text"
-        id="watermarkText"
-        placeholder="Bharat Digital Centre">
-
-      <button
-        class="secondary"
-        onclick="addPDFWatermark()">
-
-        💧 Add Watermark
-
-      </button>
-
-
-      <label>
-        Text Overlay
-      </label>
-
-      <input
-        type="text"
-        id="pdfOverlayText"
-        placeholder="Enter text">
-
-      <button
-        class="secondary"
-        onclick="addPDFTextOverlay()">
-
-        📝 Add Text
-
-      </button>
-
-
-      <button
-        class="primary"
-        onclick="saveEditedPDF()">
-
-        💾 Download Edited PDF
-
-      </button>
-
-    </div>
-
-
-    <div class="tool-panel">
-
-      <h3>
-        PDF Pages
-      </h3>
-
-      <div
-        id="pdfEditorPages"
-        class="pdf-pages">
-
-        PDF upload करें
-
-      </div>
-
-    </div>
-
-  </div>
-
-  `;
-
-}
-
-
-async function loadPDFEditor(event){
-
-  try{
-
-    const file =
-      event.target.files[0];
-
-    if(!file) return;
-
-    const bytes =
-      await file.arrayBuffer();
-
-    editorPDF =
-      await PDFLib.PDFDocument
-        .load(bytes);
-
-    selectedPDFPage = 0;
-
-    editorPageOrder = null;
-
-    pdfRotations =
-      editorPDF
-        .getPages()
-        .map(function(){
-          return 0;
-        });
-
-    renderPDFEditorPages();
-
-  }catch(error){
-
-    console.error(error);
-
-    toast(
-      "PDF open नहीं हो सका"
-    );
-
-  }
-
-}
-
-
-async function renderPDFEditorPages(){
-
-  if(!editorPDF)
-    return;
-
-  const box =
-    document.getElementById(
-      "pdfEditorPages"
-    );
-
-  if(!box) return;
-
-  box.innerHTML = "";
-
-  const pages =
-    editorPDF.getPages();
-
-  for(
-    let i=0;
-    i<pages.length;
-    i++
-  ){
-
-    const div =
-      document.createElement(
-        "div"
-      );
-
-    div.className =
-      "pdf-page";
-
-    if(i === selectedPDFPage)
-      div.classList.add("selected");
-
-    div.onclick =
-      function(){
-
-        selectedPDFPage = i;
-
-        renderPDFEditorPages();
-
-      };
-
-    div.innerHTML = `
-
-      <div style="
-        padding:40px 10px;
-        text-align:center;
-        background:#f5f5f5;
-      ">
-
-        📄 Page ${i+1}
-
-      </div>
-
-      <div class="pdf-page-controls">
-
-        <button
-          onclick="
-            event.stopPropagation();
-            movePDFPage(${i},-1)
-          ">
-
-          ←
-
-        </button>
-
-        <button
-          onclick="
-            event.stopPropagation();
-            movePDFPage(${i},1)
-          ">
-
-          →
-
-        </button>
-
-      </div>
-
+    ctx.filter =
+    `
+    brightness(${brightness}%)
+    contrast(${contrast}%)
+    saturate(${saturation}%)
+    grayscale(${grayscale}%)
     `;
 
-    box.appendChild(div);
 
-  }
+    ctx.drawImage(
+        originalImage,
+        -originalImage.width/2,
+        -originalImage.height/2
+    );
+
+
+    ctx.restore();
+
+};
+
+
+/* =========================================================
+   ROTATE
+========================================================= */
+
+window.rotatePhoto =
+function(deg){
+
+    if(!originalImage){
+        alert("पहले photo upload करें।");
+        return;
+    }
+
+
+    photoRotation += deg;
+
+    drawPhoto();
+
+};
+
+
+/* =========================================================
+   CROP
+========================================================= */
+
+window.applyCrop =
+function(){
+
+    const canvas =
+    document.getElementById("photoCanvas");
+
+    const ctx =
+    canvas.getContext("2d");
+
+
+    const cropW =
+    Number(
+        document.getElementById("cropW").value
+    ) / 100;
+
+
+    const cropH =
+    Number(
+        document.getElementById("cropH").value
+    ) / 100;
+
+
+    if(
+        cropW <= 0 ||
+        cropH <= 0
+    ){
+        return;
+    }
+
+
+    const w =
+    canvas.width * cropW;
+
+    const h =
+    canvas.height * cropH;
+
+
+    const sx =
+    (canvas.width-w)/2;
+
+    const sy =
+    (canvas.height-h)/2;
+
+
+    const data =
+    ctx.getImageData(
+        sx,
+        sy,
+        w,
+        h
+    );
+
+
+    canvas.width =
+    w;
+
+    canvas.height =
+    h;
+
+
+    ctx.putImageData(
+        data,
+        0,
+        0
+    );
+
+
+    originalImage =
+    canvasToImage(canvas);
+
+};
+
+
+/* =========================================================
+   CANVAS TO IMAGE
+========================================================= */
+
+function canvasToImage(canvas){
+
+    const img =
+    new Image();
+
+    img.src =
+    canvas.toDataURL("image/png");
+
+    return img;
 
 }
 
 
-function rotateSelectedPDFPage(){
+/* =========================================================
+   PASSPORT SIZE
+========================================================= */
 
-  if(!editorPDF){
+window.setPassportSize =
+function(width,height){
 
-    toast(
-      "पहले PDF upload करें"
+    passportWidth =
+    width;
+
+    passportHeight =
+    height;
+
+
+    const status =
+    document.getElementById("photoStatus");
+
+
+    status.textContent =
+    `Print size selected: ${width} × ${height} mm`;
+
+};
+
+
+/* =========================================================
+   DOWNLOAD PHOTO
+========================================================= */
+
+window.downloadPhoto =
+function(type){
+
+    const canvas =
+    document.getElementById("photoCanvas");
+
+
+    if(!canvas.width){
+        alert("पहले photo upload करें।");
+        return;
+    }
+
+
+    const mime =
+    type === "jpeg"
+    ?
+    "image/jpeg"
+    :
+    "image/png";
+
+
+    const link =
+    document.createElement("a");
+
+
+    link.href =
+    canvas.toDataURL(
+        mime,
+        .95
     );
 
-    return;
 
-  }
+    link.download =
+    `Bharat-Digital-Photo.${type === "jpeg" ? "jpg":"png"}`;
 
-  pdfRotations[
-    selectedPDFPage
-  ] += 90;
 
-  toast(
-    "Page " +
-    (selectedPDFPage+1) +
-    " rotated"
-  );
+    link.click();
+
+};
+
+
+/* =========================================================
+   RESET PHOTO
+========================================================= */
+
+window.resetPhoto =
+function(){
+
+    if(!originalImage){
+        return;
+    }
+
+
+    photoRotation =
+    0;
+
+
+    document.getElementById("brightness").value =
+    100;
+
+    document.getElementById("contrast").value =
+    100;
+
+    document.getElementById("saturation").value =
+    100;
+
+    document.getElementById("grayscale").value =
+    0;
+
+
+    drawPhoto();
+
+};
+
+
+/* =========================================================
+   AI BACKGROUND REMOVAL
+========================================================= */
+
+window.removeBackgroundAI =
+async function(){
+
+    if(!originalImage){
+
+        alert(
+            "पहले photo upload करें।"
+        );
+
+        return;
+    }
+
+
+    const status =
+    document.getElementById("photoStatus");
+
+
+    status.className =
+    "status";
+
+
+    status.textContent =
+    "AI Background Removal loading... पहली बार कुछ समय लग सकता है।";
+
+
+    try{
+
+        const module =
+        await import(
+            "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/+esm"
+        );
+
+
+        const removeBackground =
+        module.removeBackground;
+
+
+        const canvas =
+        document.getElementById("photoCanvas");
+
+
+        const blob =
+        await new Promise(resolve=>{
+            canvas.toBlob(
+                resolve,
+                "image/png"
+            );
+        });
+
+
+        const result =
+        await removeBackground(
+            blob,
+            {
+                model:"isnet",
+                output:{
+                    format:"image/png",
+                    quality:.95
+                },
+
+                progress:
+                (key,current,total)=>{
+
+                    const percent =
+                    Math.round(
+                        current /
+                        total *
+                        100
+                    );
+
+                    status.textContent =
+                    `AI Background Removal: ${percent}%`;
+
+                }
+            }
+        );
+
+
+        const url =
+        URL.createObjectURL(result);
+
+
+        const img =
+        new Image();
+
+
+        img.onload =
+        function(){
+
+            originalImage =
+            img;
+
+            photoRotation =
+            0;
+
+            drawPhoto();
+
+
+            status.className =
+            "status success";
+
+            status.textContent =
+            "AI Background successfully removed.";
+
+            URL.revokeObjectURL(url);
+
+        };
+
+
+        img.src =
+        url;
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        status.className =
+        "status error";
+
+        status.textContent =
+        "AI Background Removal failed. Internet connection check करें।";
+
+    }
+
+};
+
+
+/* =========================================================
+   PRINT IMAGE
+========================================================= */
+
+let printImageObject =
+null;
+
+
+window.loadPrintImage =
+function(event){
+
+    const file =
+    event.target.files[0];
+
+    if(!file){
+        return;
+    }
+
+
+    const reader =
+    new FileReader();
+
+
+    reader.onload =
+    e=>{
+
+        const img =
+        new Image();
+
+        img.onload =
+        ()=>{
+
+            printImageObject =
+            img;
+
+            generatePrintLayout();
+
+        };
+
+        img.src =
+        e.target.result;
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+};
+
+
+/* =========================================================
+   PRINT LAYOUT
+========================================================= */
+
+window.generatePrintLayout =
+function(){
+
+    if(!printImageObject){
+        return;
+    }
+
+
+    const grid =
+    document.getElementById("photoGrid");
+
+
+    grid.innerHTML =
+    "";
+
+
+    const size =
+    document.getElementById("printSize").value;
+
+
+    const count =
+    Number(
+        document.getElementById("photoCount").value
+    );
+
+
+    const bg =
+    document.getElementById("printBg").value;
+
+
+    let width =
+    35;
+
+    let height =
+    45;
+
+
+    if(size === "51x51"){
+        width = 51;
+        height = 51;
+    }
+
+    if(size === "25x35"){
+        width = 25;
+        height = 35;
+    }
+
+    if(size === "45x45"){
+        width = 45;
+        height = 45;
+    }
+
+    if(size === "50x70"){
+        width = 50;
+        height = 70;
+    }
+
+
+    grid.style.gridTemplateColumns =
+    `repeat(auto-fit, ${width}mm)`;
+
+
+    for(let i=0;i<count;i++){
+
+        const box =
+        document.createElement("div");
+
+
+        box.className =
+        "photo-item";
+
+
+        box.style.width =
+        `${width}mm`;
+
+
+        box.style.height =
+        `${height}mm`;
+
+
+        if(bg === "blue"){
+            box.style.background =
+            "#dff4ff";
+        }
+
+        else if(bg === "red"){
+            box.style.background =
+            "#ffe6e6";
+        }
+
+        else{
+            box.style.background =
+            "white";
+        }
+
+
+        const img =
+        document.createElement("img");
+
+
+        img.src =
+        printImageObject.src;
+
+
+        box.appendChild(img);
+
+        grid.appendChild(box);
+
+    }
+
+};
+
+
+/* =========================================================
+   PRINT A4
+========================================================= */
+
+window.printA4 =
+function(){
+
+    const page =
+    document.getElementById("a4Page");
+
+
+    const old =
+    document.body.innerHTML;
+
+
+    document.body.innerHTML =
+    page.outerHTML;
+
+
+    window.print();
+
+
+    location.reload();
+
+};
+
+
+/* =========================================================
+   A4 PDF
+========================================================= */
+
+window.downloadA4PDF =
+async function(){
+
+    if(!printImageObject){
+
+        alert(
+            "पहले photo upload करें।"
+        );
+
+        return;
+    }
+
+
+    const {
+        PDFDocument
+    } =
+    PDFLib;
+
+
+    const pdf =
+    await PDFDocument.create();
+
+
+    const page =
+    pdf.addPage([
+        595.28,
+        841.89
+    ]);
+
+
+    const png =
+    await pdf.embedPng(
+        printImageObject.src
+    );
+
+
+    const size =
+    document.getElementById("printSize").value;
+
+
+    const count =
+    Number(
+        document.getElementById("photoCount").value
+    );
+
+
+    let w =
+    35;
+
+    let h =
+    45;
+
+
+    if(size === "51x51"){
+        w=51;
+        h=51;
+    }
+
+    if(size === "25x35"){
+        w=25;
+        h=35;
+    }
+
+    if(size === "45x45"){
+        w=45;
+        h=45;
+    }
+
+    if(size === "50x70"){
+        w=50;
+        h=70;
+    }
+
+
+    const mmToPt =
+    72 / 25.4;
+
+
+    w *= mmToPt;
+    h *= mmToPt;
+
+
+    const gap =
+    8;
+
+
+    let x =
+    20;
+
+    let y =
+    841.89 - h - 30;
+
+
+    for(let i=0;i<count;i++){
+
+        page.drawImage(
+            png,
+            {
+                x,
+                y,
+                width:w,
+                height:h
+            }
+        );
+
+
+        x +=
+        w + gap;
+
+
+        if(
+            x + w >
+            575
+        ){
+
+            x =
+            20;
+
+            y -=
+            h + gap;
+
+        }
+
+
+        if(y < 20){
+            break;
+        }
+
+    }
+
+
+    const bytes =
+    await pdf.save();
+
+
+    downloadBlob(
+        new Blob(
+            [bytes],
+            {
+                type:"application/pdf"
+            }
+        ),
+        "A4-Photo-Print.pdf"
+    );
+
+};
+
+
+/* =========================================================
+   PDF VARIABLES
+========================================================= */
+
+let pdfData =
+null;
+
+let pdfDocument =
+null;
+
+let currentPDFPage =
+0;
+
+let pdfPages =
+[];
+
+let pdfAnnotations =
+{};
+
+
+/* =========================================================
+   LOAD PDF
+========================================================= */
+
+window.loadPDF =
+async function(event){
+
+    const file =
+    event.target.files[0];
+
+
+    if(!file){
+        return;
+    }
+
+
+    const buffer =
+    await file.arrayBuffer();
+
+
+    pdfData =
+    buffer;
+
+
+    pdfDocument =
+    await window.pdfjsLib
+    .getDocument({
+        data:buffer
+    })
+    .promise;
+
+
+    pdfPages =
+    Array.from(
+        {length:pdfDocument.numPages},
+        (_,i)=>i+1
+    );
+
+
+    pdfAnnotations =
+    {};
+
+
+    currentPDFPage =
+    0;
+
+
+    await renderPageList();
+
+    await renderPDFPage();
+
+};
+
+
+/* =========================================================
+   RENDER PAGE LIST
+========================================================= */
+
+async function renderPageList(){
+
+    const list =
+    document.getElementById("pageList");
+
+
+    list.innerHTML =
+    "";
+
+
+    for(
+        let index=0;
+        index<pdfPages.length;
+        index++
+    ){
+
+        const pageNumber =
+        pdfPages[index];
+
+
+        const page =
+        await pdfDocument
+        .getPage(pageNumber);
+
+
+        const viewport =
+        page.getViewport({
+            scale:.25
+        });
+
+
+        const canvas =
+        document.createElement("canvas");
+
+
+        canvas.width =
+        viewport.width;
+
+        canvas.height =
+        viewport.height;
+
+
+        await page.render({
+            canvasContext:
+            canvas.getContext("2d"),
+            viewport
+        }).promise;
+
+
+        const div =
+        document.createElement("div");
+
+
+        div.className =
+        "page-thumb";
+
+
+        if(index === currentPDFPage){
+            div.classList.add("active");
+        }
+
+
+        div.appendChild(canvas);
+
+
+        div.onclick =
+        ()=>{
+
+            currentPDFPage =
+            index;
+
+            renderPageList();
+
+            renderPDFPage();
+
+        };
+
+
+        list.appendChild(div);
+
+    }
 
 }
 
 
-function deleteSelectedPDFPage(){
+/* =========================================================
+   RENDER PDF PAGE
+========================================================= */
 
-  if(!editorPDF){
+async function renderPDFPage(){
 
-    toast(
-      "पहले PDF upload करें"
-    );
+    if(!pdfDocument){
+        return;
+    }
 
-    return;
 
-  }
+    const pageNumber =
+    pdfPages[currentPDFPage];
 
-  if(
-    editorPDF.getPageCount() <= 1
-  ){
 
-    toast(
-      "कम से कम एक page रखना जरूरी है"
-    );
+    const page =
+    await pdfDocument
+    .getPage(pageNumber);
 
-    return;
 
-  }
+    const viewport =
+    page.getViewport({
+        scale:1.4
+    });
 
-  editorPDF.removePage(
-    selectedPDFPage
-  );
 
-  if(
-    selectedPDFPage >=
-    editorPDF.getPageCount()
-  ){
+    const canvas =
+    document.getElementById("pdfCanvas");
 
-    selectedPDFPage =
-      editorPDF.getPageCount()-1;
 
-  }
+    canvas.width =
+    viewport.width;
 
-  pdfRotations =
-    editorPDF
-      .getPages()
-      .map(function(){
-        return 0;
-      });
 
-  editorPageOrder = null;
+    canvas.height =
+    viewport.height;
 
-  renderPDFEditorPages();
 
-  toast(
-    "Page delete हो गया"
-  );
+    await page.render({
+        canvasContext:
+        canvas.getContext("2d"),
+        viewport
+    }).promise;
 
 }
 
 
-function movePDFPage(
-  index,
-  direction
+/* =========================================================
+   DELETE PAGE
+========================================================= */
+
+window.deletePDFPage =
+function(){
+
+    if(
+        !pdfDocument ||
+        pdfPages.length <= 1
+    ){
+
+        alert(
+            "कम से कम एक page होना चाहिए।"
+        );
+
+        return;
+    }
+
+
+    pdfPages.splice(
+        currentPDFPage,
+        1
+    );
+
+
+    if(
+        currentPDFPage >=
+        pdfPages.length
+    ){
+
+        currentPDFPage =
+        pdfPages.length-1;
+
+    }
+
+
+    renderPageList();
+
+    renderPDFPage();
+
+};
+
+
+/* =========================================================
+   MOVE PAGE
+========================================================= */
+
+window.movePage =
+function(direction){
+
+    const newIndex =
+    currentPDFPage + direction;
+
+
+    if(
+        newIndex < 0 ||
+        newIndex >= pdfPages.length
+    ){
+        return;
+    }
+
+
+    [
+        pdfPages[currentPDFPage],
+        pdfPages[newIndex]
+    ] =
+    [
+        pdfPages[newIndex],
+        pdfPages[currentPDFPage]
+    ];
+
+
+    currentPDFPage =
+    newIndex;
+
+
+    renderPageList();
+
+    renderPDFPage();
+
+};
+
+
+/* =========================================================
+   ROTATE PDF PAGE
+========================================================= */
+
+window.rotatePDFPage =
+function(){
+
+    if(!pdfDocument){
+        return;
+    }
+
+
+    const pageNumber =
+    pdfPages[currentPDFPage];
+
+
+    if(!pdfAnnotations[pageNumber]){
+        pdfAnnotations[pageNumber] =
+        {};
+    }
+
+
+    pdfAnnotations[pageNumber].rotation =
+    (
+        (pdfAnnotations[pageNumber].rotation || 0)
+        +90
+    ) % 360;
+
+
+    document.getElementById("pdfStatus").textContent =
+    "Page rotation set. Download Edited PDF दबाएँ।";
+
+};
+
+
+/* =========================================================
+   ADD PDF TEXT
+========================================================= */
+
+window.addPDFText =
+function(){
+
+    const text =
+    document
+    .getElementById("pdfText")
+    .value.trim();
+
+
+    if(!text){
+        alert("Text लिखें।");
+        return;
+    }
+
+
+    const pageNumber =
+    pdfPages[currentPDFPage];
+
+
+    if(!pdfAnnotations[pageNumber]){
+        pdfAnnotations[pageNumber] =
+        {};
+    }
+
+
+    if(
+        !pdfAnnotations[pageNumber].texts
+    ){
+
+        pdfAnnotations[pageNumber].texts =
+        [];
+
+    }
+
+
+    pdfAnnotations[pageNumber]
+    .texts
+    .push({
+
+        text:text,
+
+        x:60,
+
+        y:100,
+
+        size:18
+
+    });
+
+
+    document.getElementById("pdfStatus").textContent =
+    "Text added. Download Edited PDF दबाएँ।";
+
+};
+
+
+/* =========================================================
+   WATERMARK
+========================================================= */
+
+window.addWatermark =
+function(){
+
+    const text =
+    document
+    .getElementById("watermarkText")
+    .value.trim();
+
+
+    if(!text){
+        alert("Watermark text डालें।");
+        return;
+    }
+
+
+    for(
+        const pageNumber of pdfPages
+    ){
+
+        if(!pdfAnnotations[pageNumber]){
+            pdfAnnotations[pageNumber] =
+            {};
+        }
+
+
+        pdfAnnotations[pageNumber]
+        .watermark =
+        text;
+
+    }
+
+
+    document.getElementById("pdfStatus").textContent =
+    "Watermark सभी pages पर set किया गया।";
+
+};
+
+
+/* =========================================================
+   SIGNATURE PAD
+========================================================= */
+
+const signatureCanvas =
+document.getElementById(
+    "signatureCanvas"
+);
+
+
+const signatureCtx =
+signatureCanvas.getContext(
+    "2d"
+);
+
+
+let signing =
+false;
+
+
+function signaturePosition(e){
+
+    const rect =
+    signatureCanvas
+    .getBoundingClientRect();
+
+
+    return {
+
+        x:
+        (e.clientX - rect.left)
+        *
+        signatureCanvas.width /
+        rect.width,
+
+        y:
+        (e.clientY - rect.top)
+        *
+        signatureCanvas.height /
+        rect.height
+
+    };
+
+}
+
+
+signatureCanvas.addEventListener(
+    "pointerdown",
+    e=>{
+
+        signing =
+        true;
+
+        const p =
+        signaturePosition(e);
+
+        signatureCtx.beginPath();
+
+        signatureCtx.moveTo(
+            p.x,
+            p.y
+        );
+
+    }
+);
+
+
+signatureCanvas.addEventListener(
+    "pointermove",
+    e=>{
+
+        if(!signing){
+            return;
+        }
+
+
+        const p =
+        signaturePosition(e);
+
+
+        signatureCtx.lineWidth =
+        3;
+
+        signatureCtx.lineCap =
+        "round";
+
+        signatureCtx.strokeStyle =
+        "#111";
+
+
+        signatureCtx.lineTo(
+            p.x,
+            p.y
+        );
+
+        signatureCtx.stroke();
+
+    }
+);
+
+
+signatureCanvas.addEventListener(
+    "pointerup",
+    ()=>{
+        signing=false;
+    }
+);
+
+
+window.clearSignature =
+function(){
+
+    signatureCtx.clearRect(
+        0,
+        0,
+        signatureCanvas.width,
+        signatureCanvas.height
+    );
+
+};
+
+
+/* =========================================================
+   ADD SIGNATURE
+========================================================= */
+
+window.addSignature =
+function(){
+
+    const data =
+    signatureCanvas.toDataURL(
+        "image/png"
+    );
+
+
+    const pageNumber =
+    pdfPages[currentPDFPage];
+
+
+    if(!pdfAnnotations[pageNumber]){
+        pdfAnnotations[pageNumber] =
+        {};
+    }
+
+
+    pdfAnnotations[pageNumber]
+    .signature =
+    data;
+
+
+    document.getElementById("pdfStatus").textContent =
+    "Signature added. Download Edited PDF दबाएँ।";
+
+};
+
+
+/* =========================================================
+   EXPORT PDF
+========================================================= */
+
+window.exportPDF =
+async function(){
+
+    if(!pdfData){
+
+        alert(
+            "पहले PDF upload करें।"
+        );
+
+        return;
+    }
+
+
+    const {
+        PDFDocument,
+        rgb,
+        degrees
+    } =
+    PDFLib;
+
+
+    const source =
+    await PDFDocument.load(
+        pdfData
+    );
+
+
+    const output =
+    await PDFDocument.create();
+
+
+    for(
+        const originalPageNumber
+        of pdfPages
+    ){
+
+        const [copiedPage] =
+        await output.copyPages(
+            source,
+            [originalPageNumber-1]
+        );
+
+
+        output.addPage(
+            copiedPage
+        );
+
+    }
+
+
+    for(
+        let i=0;
+        i<pdfPages.length;
+        i++
+    ){
+
+        const pageNumber =
+        pdfPages[i];
+
+
+        const page =
+        output.getPage(i);
+
+
+        const annotation =
+        pdfAnnotations[pageNumber];
+
+
+        if(!annotation){
+            continue;
+        }
+
+
+        if(annotation.rotation){
+
+            page.setRotation(
+                degrees(
+                    annotation.rotation
+                )
+            );
+
+        }
+
+
+        if(annotation.texts){
+
+            for(
+                const item
+                of annotation.texts
+            ){
+
+                page.drawText(
+                    item.text,
+                    {
+                        x:item.x,
+                        y:item.y,
+                        size:item.size,
+                        color:
+                        rgb(
+                            0.1,
+                            0.1,
+                            0.1
+                        )
+                    }
+                );
+
+            }
+
+        }
+
+
+        if(annotation.watermark){
+
+            page.drawText(
+                annotation.watermark,
+                {
+                    x:100,
+                    y:page.getHeight()/2,
+                    size:35,
+                    rotate:degrees(35),
+                    color:
+                    rgb(
+                        .6,
+                        .6,
+                        .6
+                    ),
+                    opacity:.25
+                }
+            );
+
+        }
+
+
+        if(annotation.signature){
+
+            try{
+
+                const sig =
+                await output.embedPng(
+                    annotation.signature
+                );
+
+
+                page.drawImage(
+                    sig,
+                    {
+                        x:50,
+                        y:50,
+                        width:160,
+                        height:80
+                    }
+                );
+
+            }
+            catch(e){
+                console.error(e);
+            }
+
+        }
+
+    }
+
+
+    const bytes =
+    await output.save();
+
+
+    downloadBlob(
+        new Blob(
+            [bytes],
+            {
+                type:
+                "application/pdf"
+            }
+        ),
+        "Bharat-Digital-Edited.pdf"
+    );
+
+
+    document.getElementById("pdfStatus").textContent =
+    "Edited PDF तैयार है।";
+
+};
+
+
+/* =========================================================
+   IMAGES → PDF
+========================================================= */
+
+window.imagesToPDF =
+async function(){
+
+    const input =
+    document.getElementById(
+        "jpgPdfInput"
+    );
+
+
+    if(!input.files.length){
+
+        alert(
+            "Images select करें।"
+        );
+
+        return;
+    }
+
+
+    const {
+        PDFDocument
+    } =
+    PDFLib;
+
+
+    const pdf =
+    await PDFDocument.create();
+
+
+    for(
+        const file of input.files
+    ){
+
+        const buffer =
+        await file.arrayBuffer();
+
+
+        let image;
+
+
+        if(
+            file.type ===
+            "image/png"
+        ){
+
+            image =
+            await pdf.embedPng(
+                buffer
+            );
+
+        }
+        else{
+
+            image =
+            await pdf.embedJpg(
+                buffer
+            );
+
+        }
+
+
+        const scale =
+        Math.min(
+            550 / image.width,
+            780 / image.height
+        );
+
+
+        const width =
+        image.width * scale;
+
+        const height =
+        image.height * scale;
+
+
+        const page =
+        pdf.addPage([
+            595.28,
+            841.89
+        ]);
+
+
+        page.drawImage(
+            image,
+            {
+                x:
+                (595.28-width)/2,
+
+                y:
+                (841.89-height)/2,
+
+                width,
+                height
+            }
+        );
+
+    }
+
+
+    const bytes =
+    await pdf.save();
+
+
+    downloadBlob(
+        new Blob(
+            [bytes],
+            {
+                type:
+                "application/pdf"
+            }
+        ),
+        "Images-to-PDF.pdf"
+    );
+
+
+    document
+    .getElementById(
+        "converterStatus"
+    )
+    .textContent =
+    "Images → PDF complete.";
+
+};
+
+
+/* =========================================================
+   PDF → IMAGES
+========================================================= */
+
+window.pdfToImages =
+async function(){
+
+    if(!pdfDocument){
+
+        alert(
+            "पहले PDF upload करें।"
+        );
+
+        return;
+    }
+
+
+    for(
+        let i=1;
+        i<=pdfDocument.numPages;
+        i++
+    ){
+
+        const page =
+        await pdfDocument
+        .getPage(i);
+
+
+        const viewport =
+        page.getViewport({
+            scale:2
+        });
+
+
+        const canvas =
+        document.createElement("canvas");
+
+
+        canvas.width =
+        viewport.width;
+
+
+        canvas.height =
+        viewport.height;
+
+
+        await page.render({
+            canvasContext:
+            canvas.getContext("2d"),
+            viewport
+        }).promise;
+
+
+        const link =
+        document.createElement("a");
+
+
+        link.href =
+        canvas.toDataURL(
+            "image/jpeg",
+            .95
+        );
+
+
+        link.download =
+        `PDF-Page-${i}.jpg`;
+
+
+        link.click();
+
+
+        await new Promise(
+            resolve =>
+            setTimeout(
+                resolve,
+                300
+            )
+        );
+
+    }
+
+
+    document
+    .getElementById(
+        "converterStatus"
+    )
+    .textContent =
+    "PDF pages JPEG में तैयार हो गए।";
+
+};
+
+
+/* =========================================================
+   RESIZE PHOTO
+========================================================= */
+
+window.resizePhoto =
+function(){
+
+    const canvas =
+    document.getElementById(
+        "photoCanvas"
+    );
+
+
+    if(!canvas.width){
+
+        alert(
+            "पहले photo upload करें।"
+        );
+
+        return;
+    }
+
+
+    const width =
+    Number(
+        document.getElementById(
+            "resizeW"
+        ).value
+    );
+
+
+    const height =
+    Number(
+        document.getElementById(
+            "resizeH"
+        ).value
+    );
+
+
+    if(
+        !width ||
+        !height
+    ){
+
+        alert(
+            "Width और Height डालें।"
+        );
+
+        return;
+    }
+
+
+    const temp =
+    document.createElement(
+        "canvas"
+    );
+
+
+    temp.width =
+    width;
+
+    temp.height =
+    height;
+
+
+    temp
+    .getContext("2d")
+    .drawImage(
+        canvas,
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    canvas.width =
+    width;
+
+    canvas.height =
+    height;
+
+
+    canvas
+    .getContext("2d")
+    .drawImage(
+        temp,
+        0,
+        0
+    );
+
+
+    originalImage =
+    canvasToImage(canvas);
+
+};
+
+
+/* =========================================================
+   DOWNLOAD BLOB
+========================================================= */
+
+function downloadBlob(
+    blob,
+    filename
 ){
 
-  if(!editorPDF)
-    return;
+    const url =
+    URL.createObjectURL(
+        blob
+    );
 
-  const pages =
-    editorPDF.getPages();
 
-  const target =
-    index + direction;
+    const a =
+    document.createElement(
+        "a"
+    );
 
-  if(
-    target < 0 ||
-    target >= pages.length
-  )
-    return;
 
-  let order =
-    editorPageOrder;
+    a.href =
+    url;
 
-  if(
-    !order ||
-    order.length !== pages.length
-  ){
+    a.download =
+    filename;
 
-    order =
-      pages.map(
-        function(_,i){
-          return i;
-        }
-      );
 
-  }
+    document.body.appendChild(a);
 
-  [
-    order[index],
-    order[target]
-  ] =
-  [
-    order[target],
-    order[index]
-  ];
+    a.click();
 
-  editorPageOrder =
-    order;
+    a.remove();
 
-  toast(
-    "Page order changed"
-  );
+
+    setTimeout(
+        ()=>{
+            URL.revokeObjectURL(url);
+        },
+        1000
+    );
 
 }
 
 
-async function saveEditedPDF(){
+/* =========================================================
+   INITIAL SIGNATURE CANVAS SIZE
+========================================================= */
 
-  try{
+signatureCanvas.width =
+600;
+
+signatureCanvas.height =
+180;
+
+
+/* =========================================================
+   INITIAL PRINT PREVIEW
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+        generatePrintLayout();
+    }
+);
+
+</script>
+
+
+</body>
+</html>
