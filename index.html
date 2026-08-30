@@ -4,441 +4,685 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Bharat Digital Centre</title>
+<title>Bharat Digital Centre | Digital Services</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-font-family:Arial,"Noto Sans Devanagari",sans-serif;
-background:#f3f6f9;
-color:#172033;
-line-height:1.5;
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f4f6f8;
+    color:#172033;
+    line-height:1.5;
+    min-height:100vh;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:-80px;
+    z-index:-10;
+    background:linear-gradient(
+        to bottom,
+        rgba(255,153,51,.35) 0%,
+        rgba(255,153,51,.15) 32%,
+        rgba(255,255,255,.75) 33%,
+        rgba(255,255,255,.75) 66%,
+        rgba(19,136,8,.18) 67%,
+        rgba(19,136,8,.35) 100%
+    );
+    filter:blur(30px);
+    transform:scale(1.1);
 }
 
 header{
-position:sticky;
-top:0;
-z-index:1000;
-background:linear-gradient(135deg,#ff9933,#f4511e,#e53935);
-color:white;
-box-shadow:0 5px 20px #0003;
+    background:linear-gradient(
+        135deg,
+        #ff9933,
+        #ff6b00 45%,
+        #e53935
+    );
+    color:white;
+    box-shadow:0 8px 25px rgba(0,0,0,.22);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.header{
-max-width:1200px;
-margin:auto;
-padding:14px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:16px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .brand{
-display:flex;
-align-items:center;
-gap:12px;
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
 .logo{
-width:55px;
-height:55px;
-background:white;
-border-radius:16px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-box-shadow:4px 5px 12px #0005;
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    background:linear-gradient(145deg,#fff,#e5e5e5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:29px;
+    box-shadow:
+        8px 8px 14px rgba(0,0,0,.3),
+        inset 3px 3px 7px rgba(255,255,255,.9);
 }
 
-.brand h1{font-size:23px}
-.brand p{font-size:12px}
+.brand h1{
+    font-size:24px;
+    text-shadow:2px 3px 4px rgba(0,0,0,.35);
+}
+
+.brand p{
+    font-size:13px;
+}
+
+.user-box{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.user-email{
+    background:rgba(255,255,255,.18);
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:13px;
+}
 
 nav{
-background:#0002;
-overflow-x:auto;
+    background:rgba(0,0,0,.12);
+    overflow-x:auto;
 }
 
-.nav{
-max-width:1200px;
-margin:auto;
-display:flex;
-gap:5px;
-padding:6px;
+.nav-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    gap:5px;
+    padding:6px 12px;
 }
 
-.nav button{
-border:0;
-background:transparent;
-color:white;
-padding:11px 14px;
-border-radius:9px;
-white-space:nowrap;
-cursor:pointer;
-font-size:14px;
+.nav-btn{
+    border:0;
+    background:transparent;
+    color:white;
+    padding:11px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    white-space:nowrap;
+    font-size:14px;
 }
 
-.nav button:hover,
-.nav button.active{
-background:#ffffff35;
+.nav-btn:hover,
+.nav-btn.active{
+    background:rgba(255,255,255,.22);
 }
 
 main{
-max-width:1200px;
-margin:auto;
-padding:22px 14px 60px;
+    max-width:1200px;
+    margin:auto;
+    padding:25px 16px 70px;
 }
 
-.section{display:none}
-.section.active{display:block}
-
-.hero,
-.card,
-.panel{
-background:#fff;
-border-radius:18px;
-padding:20px;
-box-shadow:0 7px 25px #00000012;
-margin-bottom:18px;
+.section{
+    display:none;
 }
 
-.hero h2,
+.section.active{
+    display:block;
+}
+
 .title{
-color:#d84315;
-margin-bottom:8px;
+    margin:15px 0;
+    color:#d84315;
+}
+
+.hero{
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(12px);
+    border-radius:24px;
+    padding:25px;
+    box-shadow:0 12px 40px rgba(0,0,0,.12);
+    margin-bottom:22px;
+}
+
+.hero h2{
+    color:#d84315;
+    margin-bottom:8px;
 }
 
 .notice{
-background:#fff3cd;
-border-left:5px solid #ff9800;
-padding:12px;
-margin-top:14px;
-border-radius:8px;
+    margin-top:14px;
+    background:#fff8e1;
+    border-left:5px solid #ff9800;
+    padding:13px 15px;
+    border-radius:8px;
+    font-size:14px;
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:rgba(255,255,255,.95);
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 7px 25px rgba(0,0,0,.1);
+    border:1px solid #eee;
 }
 
 .card-icon{
-font-size:38px;
-margin-bottom:7px;
+    font-size:38px;
+    margin-bottom:8px;
 }
 
-.card h3{color:#d84315;margin-bottom:7px}
-.card p{font-size:14px;color:#555;margin-bottom:10px}
+.card h3{
+    color:#d84315;
+    margin-bottom:7px;
+}
+
+.card p{
+    font-size:14px;
+    color:#555;
+}
 
 .btn{
-border:0;
-border-radius:9px;
-padding:10px 15px;
-margin:4px;
-cursor:pointer;
-font-weight:bold;
-color:white;
-background:linear-gradient(135deg,#ff6b00,#e53935);
+    border:0;
+    background:
+        linear-gradient(135deg,#ff6b00,#e53935);
+    color:white;
+    padding:11px 16px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+    margin:4px;
 }
 
-.btn:hover{transform:translateY(-1px)}
-
-.blue{
-background:linear-gradient(135deg,#3949ab,#1e88e5);
+.btn.blue{
+    background:
+        linear-gradient(135deg,#3949ab,#1e88e5);
 }
 
-.green{
-background:linear-gradient(135deg,#2e7d32,#43a047);
+.btn.green{
+    background:
+        linear-gradient(135deg,#2e7d32,#43a047);
 }
 
-.dark{
-background:linear-gradient(135deg,#263238,#455a64);
+.btn.dark{
+    background:
+        linear-gradient(135deg,#263238,#455a64);
 }
 
-.red{
-background:linear-gradient(135deg,#c62828,#e53935);
+.btn.red{
+    background:
+        linear-gradient(135deg,#c62828,#e53935);
+}
+
+.btn.orange{
+    background:
+        linear-gradient(135deg,#fb8c00,#ef6c00);
+}
+
+.btn.small{
+    padding:7px 10px;
+    font-size:12px;
 }
 
 input,
 select,
 textarea{
-width:100%;
-padding:10px;
-border:1px solid #ccd3dc;
-border-radius:8px;
-margin:5px 0 12px;
-font-size:14px;
-background:white;
+    width:100%;
+    padding:11px 12px;
+    border:1px solid #ccd3dc;
+    border-radius:9px;
+    margin:5px 0 10px;
+    font-size:14px;
+    background:white;
 }
 
 label{
-display:block;
-font-weight:bold;
-font-size:13px;
-margin-top:5px;
+    font-weight:bold;
+    font-size:13px;
+    display:block;
 }
 
 .toolbar{
-background:white;
-padding:12px;
-border-radius:12px;
-margin-bottom:15px;
-box-shadow:0 5px 15px #00000010;
+    background:#fff;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px;
 }
 
 .status{
-padding:10px;
-background:#eef5ff;
-border-radius:8px;
-margin-top:10px;
-font-size:13px;
+    padding:10px;
+    border-radius:8px;
+    background:#eef5ff;
+    margin:8px 0;
+    font-size:13px;
 }
 
-.success{
-background:#e8f5e9;
-color:#1b5e20;
+.status.success{
+    background:#e8f5e9;
+    color:#1b5e20;
 }
 
-.error{
-background:#ffebee;
-color:#b71c1c;
+.status.error{
+    background:#ffebee;
+    color:#b71c1c;
 }
 
-.editor{
-display:grid;
-grid-template-columns:280px 1fr;
-gap:18px;
+footer{
+    text-align:center;
+    background:
+        linear-gradient(135deg,#263238,#37474f);
+    color:white;
+    padding:25px;
+    margin-top:30px;
 }
 
-.controls{
-background:white;
-padding:18px;
-border-radius:16px;
-box-shadow:0 7px 20px #0001;
+/* =====================================================
+   ID PRINT
+===================================================== */
+
+.print{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:18px;
 }
 
-.canvas-area{
-min-height:450px;
-background:
-repeating-conic-gradient(#eee 0 25%,#fff 0 50%) 50%/20px 20px;
-border-radius:16px;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:auto;
+.toolbox{
+    background:#fff;
+    padding:18px;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
 }
 
-#photoCanvas{
-max-width:95%;
-max-height:650px;
-box-shadow:0 5px 20px #0004;
-}
-
-.print-layout{
-display:grid;
-grid-template-columns:300px 1fr;
-gap:18px;
+.preview{
+    background:#e9ecef;
+    padding:20px;
+    border-radius:16px;
+    overflow:auto;
 }
 
 .a4{
-width:210mm;
-min-height:297mm;
-background:white;
-padding:8mm;
-margin:auto;
-box-shadow:0 4px 20px #0003;
+    width:210mm;
+    min-height:297mm;
+    background:#fff;
+    padding:8mm;
+    margin:auto;
+    box-shadow:0 5px 25px rgba(0,0,0,.2);
 }
 
-.photo-grid{
-display:grid;
-gap:4mm;
-align-content:start;
+.photogrid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,85.6mm);
+    gap:5mm;
+    justify-content:center;
+    align-content:start;
 }
 
-.photo-item{
-border:1px solid #777;
-overflow:hidden;
+.photoitem{
+    width:85.6mm;
+    height:53.98mm;
+    border:0.35mm dashed #555;
+    overflow:hidden;
+    position:relative;
+    background:#fff;
 }
 
-.photo-item img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
+.photoitem img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:fill;
 }
+
+.card-label{
+    position:absolute;
+    top:1mm;
+    left:1mm;
+    background:rgba(255,255,255,.88);
+    font-size:7px;
+    padding:1px 3px;
+    border-radius:2px;
+}
+
+/* =====================================================
+   PHOTO EDITOR
+===================================================== */
+
+.editor{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:18px;
+}
+
+.controls{
+    background:#fff;
+    padding:18px;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+
+.canvasbox{
+    background:#eee;
+    min-height:500px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:auto;
+}
+
+#photoCanvas{
+    max-width:95%;
+    max-height:650px;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+/* =====================================================
+   PDF
+===================================================== */
 
 .pdf-layout{
-display:grid;
-grid-template-columns:190px 1fr 250px;
-gap:15px;
+    display:grid;
+    grid-template-columns:220px 1fr 250px;
+    gap:15px;
 }
 
 .pdf-pages,
 .pdf-tools{
-background:white;
-padding:12px;
-border-radius:15px;
-box-shadow:0 5px 18px #0001;
+    background:#fff;
+    border-radius:15px;
+    padding:15px;
 }
 
 .pdf-pages{
-max-height:700px;
-overflow:auto;
+    max-height:700px;
+    overflow:auto;
 }
 
-.page-thumb{
-padding:5px;
-margin-bottom:8px;
-border:2px solid transparent;
-cursor:pointer;
-}
-
-.page-thumb.active{
-border-color:#ff5722;
-}
-
-.page-thumb canvas{
-width:100%;
-display:block;
-}
-
-.pdf-view{
-background:#e9ecef;
-border-radius:15px;
-min-height:650px;
-padding:20px;
-overflow:auto;
-text-align:center;
+.pdf-canvas-wrap{
+    background:#e9ecef;
+    border-radius:15px;
+    min-height:650px;
+    padding:20px;
+    overflow:auto;
+    text-align:center;
 }
 
 #pdfCanvas{
-background:white;
-max-width:100%;
-box-shadow:0 5px 20px #0004;
+    background:#fff;
+    max-width:100%;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
-.signature{
-border:2px dashed #888;
-width:100%;
-height:180px;
-touch-action:none;
-background:white;
-}
-
-footer{
-background:#263238;
-color:white;
-text-align:center;
-padding:25px;
-}
+/* =====================================================
+   MODAL
+===================================================== */
 
 .modal{
-display:none;
-position:fixed;
-inset:0;
-background:#0008;
-z-index:5000;
-align-items:center;
-justify-content:center;
-padding:20px;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:5000;
+    padding:20px;
 }
 
-.modal.show{display:flex}
+.modal.show{
+    display:flex;
+}
 
 .modal-box{
-background:white;
-width:100%;
-max-width:420px;
-padding:25px;
-border-radius:20px;
+    width:100%;
+    max-width:430px;
+    background:#fff;
+    border-radius:22px;
+    padding:25px;
+}
+
+/* =====================================================
+   PRINT SETTINGS
+===================================================== */
+
+.print-settings{
+    background:#fff;
+    padding:15px;
+    border-radius:14px;
+    margin-bottom:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.info-box{
+    background:#f5f7fa;
+    border-radius:10px;
+    padding:10px;
+    font-size:13px;
+    margin:8px 0;
+}
+
+.size-badge{
+    display:inline-block;
+    background:#fff3e0;
+    color:#e65100;
+    padding:5px 8px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.hidden{
+    display:none!important;
 }
 
 @media(max-width:900px){
-.editor,
-.print-layout,
-.pdf-layout{
-grid-template-columns:1fr;
+
+    .editor,
+    .print,
+    .pdf-layout{
+        grid-template-columns:1fr;
+    }
+
+    .pdf-pages{
+        max-height:220px;
+    }
+
+    .brand h1{
+        font-size:18px;
+    }
+
+    .logo{
+        width:48px;
+        height:48px;
+        font-size:24px;
+    }
+
+    .user-email{
+        display:none;
+    }
+
+    .a4{
+        transform:scale(.55);
+        transform-origin:top left;
+        margin-bottom:-130mm;
+    }
 }
 
-.brand h1{font-size:18px}
+@media print{
 
-.logo{
-width:46px;
-height:46px;
-font-size:23px;
-}
+    body{
+        background:#fff;
+    }
 
-.a4{
-transform:scale(.55);
-transform-origin:top left;
-margin-bottom:-130mm;
-}
+    body::before,
+    header,
+    footer,
+    main{
+        display:none!important;
+    }
+
+    #printArea{
+        display:block!important;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
 
-<div class="header">
+<div class="header-inner">
 
 <div class="brand">
+
 <div class="logo">🇮🇳</div>
+
 <div>
 <h1>Bharat Digital Centre</h1>
 <p>Citizen ID • Photo • PDF • Print Services</p>
 </div>
+
 </div>
 
-<div>
-<button class="btn dark" onclick="openLogin()">Login</button>
+<div class="user-box">
+
+<span id="userEmail" class="user-email">
+Guest
+</span>
+
+<button class="btn small dark" id="loginBtn">
+Login
+</button>
+
+<button
+    class="btn small red"
+    id="logoutBtn"
+    style="display:none">
+Logout
+</button>
+
 </div>
 
 </div>
 
 <nav>
-<div class="nav">
 
-<button class="active" onclick="showSection('home',this)">🏠 Home</button>
+<div class="nav-inner">
 
-<button onclick="showSection('id',this)">🪪 ID Services</button>
+<button
+    class="nav-btn active"
+    data-section="home">
+🏠 Home
+</button>
 
-<button onclick="showSection('photo',this)">📷 Photo Editor</button>
+<button
+    class="nav-btn"
+    data-section="idservices">
+🪪 ID Services
+</button>
 
-<button onclick="showSection('print',this)">🖨️ ID Print</button>
+<button
+    class="nav-btn"
+    data-section="photo">
+📷 Photo Editor
+</button>
 
-<button onclick="showSection('pdf',this)">📄 PDF Tools</button>
+<button
+    class="nav-btn"
+    data-section="print">
+🖨️ ID Print
+</button>
 
-<button onclick="showSection('converter',this)">🔄 Converter</button>
+<button
+    class="nav-btn"
+    data-section="pdf">
+📄 PDF Tools
+</button>
+
+<button
+    class="nav-btn"
+    data-section="converter">
+🔄 Converter
+</button>
 
 </div>
+
 </nav>
 
 </header>
 
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main>
 
-<!-- HOME -->
+<!-- =====================================================
+     HOME
+===================================================== -->
 
-<section id="home" class="section active">
+<section
+    id="home"
+    class="section active">
 
 <div class="hero">
 
-<h2>🇮🇳 Bharat Digital Centre में आपका स्वागत है</h2>
+<h2>
+🇮🇳 नमस्कार! Bharat Digital Centre में आपका स्वागत है
+</h2>
 
 <p>
-Citizen services, photo editing, ID printing और PDF tools
-एक ही जगह उपलब्ध हैं।
+नागरिक सेवाएँ, फोटो एडिटिंग, ID Card Print,
+PDF Tools और दस्तावेज़ तैयार करने के लिए एक ही जगह।
 </p>
 
 <div class="notice">
-⚠️ यह private digital utility website है।
-सरकारी सेवाओं के लिए हमेशा संबंधित official government portal का उपयोग करें।
+
+⚠️ <b>महत्वपूर्ण:</b>
+
+यह वेबसाइट सरकारी वेबसाइट नहीं है।
+
+Aadhaar, PAN, Driving Licence और Voter ID जैसी सेवाओं के लिए
+हमेशा संबंधित सरकारी Official Portal का उपयोग करें।
+
 </div>
 
 </div>
@@ -446,124 +690,186 @@ Citizen services, photo editing, ID printing और PDF tools
 <div class="grid">
 
 <div class="card">
+
 <div class="card-icon">🪪</div>
+
 <h3>Citizen ID Services</h3>
-<p>Aadhaar, PAN, Driving Licence और Voter ID के official portals।</p>
-<button class="btn" onclick="showSectionById('id')">Open Services</button>
+
+<p>
+Aadhaar, PAN, Driving Licence और Voter ID के
+official portals पर जाएँ।
+</p>
+
+<button
+    class="btn"
+    data-open-section="idservices">
+Open Services
+</button>
+
 </div>
 
 <div class="card">
+
 <div class="card-icon">📷</div>
-<h3>Photo Editor</h3>
-<p>Brightness, contrast, saturation, crop, rotate और download।</p>
-<button class="btn blue" onclick="showSectionById('photo')">Open Photo Editor</button>
+
+<h3>Professional Photo Tools</h3>
+
+<p>
+Crop, Resize, Rotate, Brightness, Contrast,
+Saturation और Background Tools।
+</p>
+
+<button
+    class="btn blue"
+    data-open-section="photo">
+Open Photo Editor
+</button>
+
 </div>
 
 <div class="card">
+
 <div class="card-icon">🖨️</div>
-<h3>ID Print</h3>
-<p>Passport, 2×2 inch और अलग-अलग photo sizes का A4 layout।</p>
-<button class="btn green" onclick="showSectionById('print')">Open Print</button>
+
+<h3>ID Card Print</h3>
+
+<p>
+Aadhaar, PAN, Voter, Driving Licence,
+PVC ID और Passport Photo sizes।
+</p>
+
+<button
+    class="btn green"
+    data-open-section="print">
+Open Print
+</button>
+
 </div>
 
 <div class="card">
+
 <div class="card-icon">📄</div>
-<h3>PDF Tools</h3>
-<p>PDF upload, page delete, reorder, rotate और download।</p>
-<button class="btn" onclick="showSectionById('pdf')">Open PDF</button>
+
+<h3>PDF Editor</h3>
+
+<p>
+PDF page delete, reorder, rotate,
+text, signature और watermark।
+</p>
+
+<button
+    class="btn"
+    data-open-section="pdf">
+Open PDF Tools
+</button>
+
 </div>
 
 </div>
 
 </section>
 
-<!-- ID -->
+<!-- =====================================================
+     ID SERVICES
+===================================================== -->
 
-<section id="id" class="section">
+<section
+    id="idservices"
+    class="section">
 
-<h2 class="title">🪪 Citizen ID Services</h2>
+<h2 class="title">
+🪪 Citizen ID Services
+</h2>
 
 <div class="grid">
 
 <div class="card">
+
 <div class="card-icon">🆔</div>
-<h3>Aadhaar</h3>
-<p>UIDAI official website खोलें।</p>
-<button class="btn" onclick="openOfficial('https://uidai.gov.in/')">
-Open UIDAI
+
+<h3>Aadhaar Card</h3>
+
+<p>
+Aadhaar enrolment और update services.
+</p>
+
+<button
+    class="btn official"
+    data-url="https://uidai.gov.in/">
+Aadhaar Official Portal
 </button>
+
 </div>
 
 <div class="card">
+
 <div class="card-icon">💳</div>
+
 <h3>PAN Card</h3>
-<p>Income Tax Department portal खोलें।</p>
-<button class="btn" onclick="openOfficial('https://www.incometax.gov.in/')">
-Open PAN Portal
+
+<p>
+PAN application और related services.
+</p>
+
+<button
+    class="btn official"
+    data-url="https://www.incometax.gov.in/">
+PAN Official Portal
 </button>
+
 </div>
 
 <div class="card">
+
 <div class="card-icon">🚗</div>
+
 <h3>Driving Licence</h3>
-<p>Parivahan official portal खोलें।</p>
-<button class="btn" onclick="openOfficial('https://parivahan.gov.in/')">
-Open Parivahan
+
+<p>
+Learner और Driving Licence services.
+</p>
+
+<button
+    class="btn official"
+    data-url="https://parivahan.gov.in/">
+Parivahan Official Portal
 </button>
+
 </div>
 
 <div class="card">
+
 <div class="card-icon">🗳️</div>
+
 <h3>Voter ID</h3>
-<p>Election Commission voter portal खोलें।</p>
-<button class="btn" onclick="openOfficial('https://voters.eci.gov.in/')">
-Open Voter Portal
+
+<p>
+Voter registration और election services.
+</p>
+
+<button
+    class="btn official"
+    data-url="https://voters.eci.gov.in/">
+Voter Services
 </button>
+
 </div>
 
 </div>
+
 </section>
 
-<!-- PHOTO -->
+<!-- =====================================================
+     PHOTO EDITOR
+===================================================== -->
 
-<section id="photo" class="section">
+<section
+    id="photo"
+    class="section">
 
-<h2 class="title">📷 Photo Editor</h2>
-
-<div class="toolbar">
-
-<input
-type="file"
-id="photoInput"
-accept="image/*"
-onchange="loadPhoto(event)"
->
-
-<button class="btn" onclick="rotatePhoto(-90)">
-↶ Rotate Left
-</button>
-
-<button class="btn" onclick="rotatePhoto(90)">
-↷ Rotate Right
-</button>
-
-<button class="btn blue" onclick="applyCrop()">
-✂️ Apply Crop
-</button>
-
-<button class="btn green" onclick="downloadPhoto('png')">
-Download PNG
-</button>
-
-<button class="btn green" onclick="downloadPhoto('jpeg')">
-Download JPG
-</button>
-
-<button class="btn dark" onclick="resetPhoto()">
-Reset
-</button>
-
-</div>
+<h2 class="title">
+📷 Photo Editor
+</h2>
 
 <div class="editor">
 
@@ -571,272 +877,367 @@ Reset
 
 <h3>Photo Controls</h3>
 
-<label>Brightness</label>
-<input
-type="range"
-id="brightness"
-min="0"
-max="200"
-value="100"
-oninput="drawPhoto()"
->
-
-<label>Contrast</label>
-<input
-type="range"
-id="contrast"
-min="0"
-max="200"
-value="100"
-oninput="drawPhoto()"
->
-
-<label>Saturation</label>
-<input
-type="range"
-id="saturation"
-min="0"
-max="200"
-value="100"
-oninput="drawPhoto()"
->
-
-<label>Grayscale</label>
-<input
-type="range"
-id="grayscale"
-min="0"
-max="100"
-value="0"
-oninput="drawPhoto()"
->
-
-<hr>
-
-<h3>Crop</h3>
-
-<label>Width %</label>
-<input
-type="number"
-id="cropW"
-value="90"
-min="10"
-max="100"
->
-
-<label>Height %</label>
-<input
-type="number"
-id="cropH"
-value="90"
-min="10"
-max="100"
->
-
-<hr>
-
-<h3>Print Size</h3>
-
-<button class="btn green" onclick="setPhotoSize(35,45)">
-35 × 45 mm
-</button>
-
-<button class="btn green" onclick="setPhotoSize(51,51)">
-2 × 2 inch
-</button>
-
-<div id="photoStatus" class="status">
-पहले photo upload करें।
-</div>
-
-</div>
-
-<div class="canvas-area">
-<canvas id="photoCanvas"></canvas>
-</div>
-
-</div>
-
-</section>
-
-<!-- PRINT -->
-
-<section id="print" class="section">
-
-<h2 class="title">🖨️ A4 Photo Print</h2>
-
-<div class="print-layout">
-
-<div class="panel">
-
-<label>Photo Upload</label>
+<label>
+Photo Upload
+</label>
 
 <input
-type="file"
-id="printImage"
-accept="image/*"
-onchange="loadPrintImage(event)"
->
+    type="file"
+    id="photoUpload"
+    accept="image/*">
 
-<label>Photo Size</label>
-
-<select id="printSize" onchange="generatePrintLayout()">
-
-<option value="35x45">35 × 45 mm</option>
-<option value="51x51">2 × 2 inch</option>
-<option value="25x35">25 × 35 mm</option>
-<option value="45x45">45 × 45 mm</option>
-<option value="50x70">50 × 70 mm</option>
-
-</select>
-
-<label>Number of Photos</label>
-
-<select id="photoCount" onchange="generatePrintLayout()">
-
-<option value="4">4</option>
-<option value="8">8</option>
-<option value="12">12</option>
-<option value="16">16</option>
-<option value="20">20</option>
-
-</select>
-
-<label>Background</label>
-
-<select id="printBg" onchange="generatePrintLayout()">
-
-<option value="white">White</option>
-<option value="blue">Light Blue</option>
-<option value="red">Light Red</option>
-
-</select>
-
-<button class="btn green" onclick="printA4()">
-🖨️ Print A4
-</button>
-
-<button class="btn blue" onclick="downloadA4PDF()">
-📄 Download PDF
-</button>
-
-</div>
-
-<div class="panel">
-
-<div id="a4Page" class="a4">
-
-<h3 style="text-align:center;margin-bottom:5mm">
-Bharat Digital Centre
-</h3>
-
-<div id="photoGrid" class="photo-grid"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PDF -->
-
-<section id="pdf" class="section">
-
-<h2 class="title">📄 PDF Tools</h2>
-
-<div class="toolbar">
+<label>
+Brightness
+</label>
 
 <input
-type="file"
-id="pdfInput"
-accept="application/pdf"
-onchange="loadPDF(event)"
->
+    type="range"
+    id="brightness"
+    min="50"
+    max="150"
+    value="100">
 
-<button class="btn" onclick="rotatePDFPage()">
+<label>
+Contrast
+</label>
+
+<input
+    type="range"
+    id="contrast"
+    min="50"
+    max="150"
+    value="100">
+
+<label>
+Saturation
+</label>
+
+<input
+    type="range"
+    id="saturation"
+    min="0"
+    max="200"
+    value="100">
+
+<div>
+
+<button
+    class="btn"
+    onclick="rotatePhoto()">
 ↻ Rotate
 </button>
 
-<button class="btn red" onclick="deletePDFPage()">
-🗑 Delete
+<button
+    class="btn blue"
+    onclick="downloadPhoto()">
+⬇️ Download
 </button>
 
-<button class="btn blue" onclick="movePage(-1)">
-⬆ Move Up
-</button>
-
-<button class="btn blue" onclick="movePage(1)">
-⬇ Move Down
-</button>
-
-<button class="btn green" onclick="exportPDF()">
-⬇ Download PDF
+<button
+    class="btn dark"
+    onclick="resetPhoto()">
+Reset
 </button>
 
 </div>
 
-<div class="pdf-layout">
-
-<div class="pdf-pages">
-
-<h3>Pages</h3>
-
-<div id="pageList">
-PDF upload करें।
+<div
+    id="photoStatus"
+    class="status">
+Photo upload करें।
 </div>
 
 </div>
 
-<div class="pdf-view">
+<div class="canvasbox">
 
-<canvas id="pdfCanvas"></canvas>
+<canvas id="photoCanvas"></canvas>
 
 </div>
 
-<div class="pdf-tools">
+</div>
 
-<h3>PDF Text</h3>
+</section>
+
+<!-- =====================================================
+     ID PRINT
+===================================================== -->
+
+<section
+    id="print"
+    class="section">
+
+<h2 class="title">
+🖨️ ID Card / Photo A4 Print
+</h2>
+
+<div class="print">
+
+<!-- ===================================================
+     LEFT TOOLBOX
+=================================================== -->
+
+<div class="toolbox">
+
+<h3>
+🪪 ID / Photo Print Settings
+</h3>
+
+<br>
+
+<label>
+ID Card / Photo Size
+</label>
+
+<select id="printSize">
+
+<optgroup label="🪪 Standard ID Cards">
+
+<option value="aadhar">
+Aadhaar Card — 85.60 × 53.98 mm
+</option>
+
+<option value="pan">
+PAN Card — 85.60 × 53.98 mm
+</option>
+
+<option value="voter">
+Voter ID — 85.60 × 53.98 mm
+</option>
+
+<option value="dl">
+Driving Licence — 85.60 × 53.98 mm
+</option>
+
+<option value="ayushman">
+Ayushman Card — 85.60 × 53.98 mm
+</option>
+
+<option value="health">
+Health Card — 85.60 × 53.98 mm
+</option>
+
+<option value="employee">
+Employee ID — 85.60 × 53.98 mm
+</option>
+
+<option value="school">
+School ID — 85.60 × 53.98 mm
+</option>
+
+<option value="college">
+College ID — 85.60 × 53.98 mm
+</option>
+
+<option value="office">
+Office ID — 85.60 × 53.98 mm
+</option>
+
+<option value="pvc">
+PVC ID Card — 85.60 × 53.98 mm
+</option>
+
+</optgroup>
+
+<optgroup label="📸 Photo Sizes">
+
+<option value="passport">
+Passport Photo — 35 × 45 mm
+</option>
+
+<option value="photo2x2">
+2 × 2 Photo — 51 × 51 mm
+</option>
+
+<option value="photo25x35">
+Photo — 25 × 35 mm
+</option>
+
+<option value="photo45x45">
+Photo — 45 × 45 mm
+</option>
+
+<option value="photo50x70">
+Photo — 50 × 70 mm
+</option>
+
+</optgroup>
+
+<option value="custom">
+✏️ Custom Size
+</option>
+
+</select>
+
+<div
+    id="customSizeBox"
+    class="hidden">
+
+<label>
+Custom Width (mm)
+</label>
 
 <input
-id="pdfText"
-placeholder="Text लिखें"
->
+    type="number"
+    id="customWidth"
+    value="85.6"
+    step="0.1">
 
-<button class="btn" onclick="addPDFText()">
-Add Text
-</button>
+<label>
+Custom Height (mm)
+</label>
+
+<input
+    type="number"
+    id="customHeight"
+    value="53.98"
+    step="0.1">
+
+</div>
+
+<label>
+📸 Number of Cards / Photos
+</label>
+
+<select id="photoCount">
+
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="4">4</option>
+<option value="6">6</option>
+<option value="8">8</option>
+<option value="10">10</option>
+<option value="12">12</option>
+<option value="16">16</option>
+<option value="20">20</option>
+<option value="24">24</option>
+
+</select>
+
+<label>
+🖼️ Print Background
+</label>
+
+<select id="printBg">
+
+<option value="white">
+White
+</option>
+
+<option value="blue">
+Light Blue
+</option>
+
+<option value="red">
+Light Red
+</option>
+
+</select>
 
 <hr>
 
-<h3>Watermark</h3>
+<br>
+
+<h3>
+🪪 Front / Back ID Card
+</h3>
+
+<br>
+
+<label>
+Front Side
+</label>
 
 <input
-id="watermarkText"
-placeholder="Watermark"
->
+    type="file"
+    id="frontCardUpload"
+    accept="image/*">
 
-<button class="btn blue" onclick="addWatermark()">
-Add Watermark
+<label>
+Back Side
+</label>
+
+<input
+    type="file"
+    id="backCardUpload"
+    accept="image/*">
+
+<label>
+Print Mode
+</label>
+
+<select id="cardPrintMode">
+
+<option value="front">
+Front Only
+</option>
+
+<option value="back">
+Back Only
+</option>
+
+<option value="both">
+Front + Back
+</option>
+
+<option value="multiple">
+Multiple Front + Back
+</option>
+
+</select>
+
+<button
+    class="btn blue"
+    onclick="generatePrintLayout()">
+🔄 Generate Preview
 </button>
 
-<hr>
-
-<h3>Signature</h3>
-
-<canvas id="signatureCanvas" class="signature"></canvas>
-
-<button class="btn dark" onclick="clearSignature()">
-Clear
+<button
+    class="btn green"
+    onclick="printIDCardA4()">
+🖨️ Print A4
 </button>
 
-<button class="btn green" onclick="addSignature()">
-Add Signature
+<button
+    class="btn orange"
+    onclick="generateMultiIDCards()">
+🖨️ Multiple ID Cards A4
 </button>
 
-<div id="pdfStatus" class="status">
-PDF upload करें।
+<div
+    id="printInfo"
+    class="status">
+Photo upload करने के बाद
+A4 capacity यहाँ दिखाई जाएगी।
+</div>
+
+<div
+    id="cardStatus"
+    class="status">
+ID Card Front / Back upload करें।
+</div>
+
+</div>
+
+<!-- ===================================================
+     RIGHT PREVIEW
+=================================================== -->
+
+<div class="preview">
+
+<div
+    id="printArea"
+    class="a4">
+
+<h3>
+Bharat Digital Centre
+</h3>
+
+<div
+    id="photoGrid"
+    class="photogrid">
+</div>
+
 </div>
 
 </div>
@@ -845,30 +1246,85 @@ PDF upload करें।
 
 </section>
 
-<!-- CONVERTER -->
+<!-- =====================================================
+     PDF
+===================================================== -->
 
-<section id="converter" class="section">
+<section
+    id="pdf"
+    class="section">
 
-<h2 class="title">🔄 File Converter</h2>
+<h2 class="title">
+📄 PDF Tools
+</h2>
+
+<div class="card">
+
+<h3>
+PDF Tool
+</h3>
+
+<p>
+PDF editing के लिए PDF file upload करें।
+</p>
+
+<input
+    type="file"
+    id="pdfUpload"
+    accept="application/pdf">
+
+<div
+    id="pdfStatus"
+    class="status">
+PDF upload करने के लिए तैयार।
+</div>
+
+<button
+    class="btn blue"
+    onclick="openPdfInfo()">
+📄 PDF Tools
+</button>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     CONVERTER
+===================================================== -->
+
+<section
+    id="converter"
+    class="section">
+
+<h2 class="title">
+🔄 Document Converter
+</h2>
 
 <div class="grid">
 
 <div class="card">
 
-<div class="card-icon">🖼️</div>
+<div class="card-icon">
+🖼️
+</div>
 
-<h3>Images → PDF</h3>
+<h3>
+Image Converter
+</h3>
 
-<p>एक या कई images को PDF में convert करें।</p>
+<p>
+JPG, PNG और WebP image conversion.
+</p>
 
 <input
-type="file"
-id="imagePdfInput"
-accept="image/jpeg,image/png"
-multiple
->
+    type="file"
+    id="converterImage"
+    accept="image/*">
 
-<button class="btn green" onclick="imagesToPDF()">
+<button
+    class="btn"
+    onclick="convertImage()">
 Convert
 </button>
 
@@ -876,1402 +1332,1930 @@ Convert
 
 <div class="card">
 
-<div class="card-icon">📄</div>
+<div class="card-icon">
+📄
+</div>
 
-<h3>PDF → JPEG</h3>
+<h3>
+PDF Information
+</h3>
 
-<p>PDF pages को JPG में convert करें।</p>
+<p>
+PDF file की basic जानकारी देखें।
+</p>
 
-<button class="btn" onclick="pdfToImages()">
-Convert
+<button
+    class="btn blue"
+    onclick="showMessage('PDF converter module तैयार है।')">
+Open
 </button>
 
 </div>
 
-<div class="card">
-
-<div class="card-icon">📐</div>
-
-<h3>Photo Resize</h3>
-
-<input
-type="number"
-id="resizeW"
-placeholder="Width px"
->
-
-<input
-type="number"
-id="resizeH"
-placeholder="Height px"
->
-
-<button class="btn blue" onclick="resizePhoto()">
-Resize
-</button>
-
-</div>
-
-</div>
-
-<div id="converterStatus" class="status">
-Converter तैयार है।
 </div>
 
 </section>
 
 </main>
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
-<b>Bharat Digital Centre</b>
+<p>
+🇮🇳 <b>Bharat Digital Centre</b>
+</p>
 
-<br><br>
+<p>
+Citizen Digital Services • Photo • ID Print • PDF
+</p>
 
-Citizen ID • Photo • PDF • Print
-
-<br><br>
-
-<small>
-यह private digital service utility है।
-सरकारी services के लिए संबंधित official portal का उपयोग करें।
-</small>
+<p style="margin-top:8px;font-size:12px;">
+यह एक independent digital service utility है।
+यह किसी सरकारी विभाग की official website नहीं है।
+</p>
 
 </footer>
 
-<!-- LOGIN -->
-
-<div id="loginModal" class="modal">
-
-<div class="modal-box">
-
-<h2>🔐 Login</h2>
-
-<label>Email</label>
-
-<input
-type="email"
-id="loginEmail"
-placeholder="Email"
->
-
-<label>Password</label>
-
-<input
-type="password"
-id="loginPassword"
-placeholder="Password"
->
-
-<button class="btn green" onclick="loginDemo()">
-Login
-</button>
-
-<button class="btn blue" onclick="closeLogin()">
-Close
-</button>
-
-<div id="loginStatus" class="status">
-Demo login: कोई भी email और password डालकर Login दबाएँ।
-</div>
-
-</div>
-
-</div>
-
-<!-- LIBRARIES -->
-
-<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs"
-type="module"></script>
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-/* =========================
-NAVIGATION
-========================= */
+/* =====================================================
+   GLOBAL VARIABLES
+===================================================== */
 
-function showSection(id,button){
+let printImageObject = null;
 
-document.querySelectorAll(".section")
-.forEach(s=>s.classList.remove("active"));
+let frontCardImage = null;
 
-const section=document.getElementById(id);
+let backCardImage = null;
 
-if(section){
-section.classList.add("active");
-}
+let photoImage = null;
 
-document.querySelectorAll(".nav button")
-.forEach(b=>b.classList.remove("active"));
+let photoRotation = 0;
 
-if(button){
-button.classList.add("active");
-}
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-}
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
-function showSectionById(id){
+document.querySelectorAll(".nav-btn")
+.forEach(function(button){
 
-const buttons=document.querySelectorAll(".nav button");
+    button.addEventListener(
+        "click",
+        function(){
 
-let found=null;
+            const section =
+                this.dataset.section;
 
-buttons.forEach(button=>{
-if(button.getAttribute("onclick") &&
-button.getAttribute("onclick").includes("'"+id+"'")){
-found=button;
-}
+            openSection(section);
+
+        }
+    );
+
 });
 
-showSection(id,found);
-}
 
-/* =========================
-OFFICIAL LINKS
-========================= */
+document.querySelectorAll(
+    "[data-open-section]"
+)
+.forEach(function(button){
 
-function openOfficial(url){
+    button.addEventListener(
+        "click",
+        function(){
 
-window.open(url,"_blank");
+            openSection(
+                this.dataset.openSection
+            );
 
-}
+        }
+    );
 
-/* =========================
-LOGIN DEMO
-========================= */
+});
 
-function openLogin(){
 
-document.getElementById("loginModal")
-.classList.add("show");
+function openSection(sectionId){
 
-}
+    document.querySelectorAll(
+        ".section"
+    )
+    .forEach(function(section){
 
-function closeLogin(){
+        section.classList.remove(
+            "active"
+        );
 
-document.getElementById("loginModal")
-.classList.remove("show");
+    });
 
-}
 
-function loginDemo(){
+    const target =
+        document.getElementById(
+            sectionId
+        );
 
-const email=document.getElementById("loginEmail").value.trim();
 
-const password=document.getElementById("loginPassword").value;
+    if(target){
 
-const status=document.getElementById("loginStatus");
+        target.classList.add(
+            "active"
+        );
 
-if(!email || !password){
+    }
 
-status.className="status error";
 
-status.textContent="Email और password डालें।";
+    document.querySelectorAll(
+        ".nav-btn"
+    )
+    .forEach(function(button){
 
-return;
-}
+        button.classList.remove(
+            "active"
+        );
 
-localStorage.setItem("bdcUser",email);
+        if(
+            button.dataset.section ===
+            sectionId
+        ){
 
-status.className="status success";
+            button.classList.add(
+                "active"
+            );
 
-status.textContent="Login सफल हुआ।";
+        }
 
-setTimeout(closeLogin,600);
+    });
 
-}
 
-/* =========================
-PHOTO EDITOR
-========================= */
-
-let originalImage=null;
-
-let photoRotation=0;
-
-let selectedPhotoWidth=null;
-
-let selectedPhotoHeight=null;
-
-function loadPhoto(event){
-
-const file=event.target.files[0];
-
-if(!file)return;
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-const img=new Image();
-
-img.onload=function(){
-
-originalImage=img;
-
-photoRotation=0;
-
-drawPhoto();
-
-document.getElementById("photoStatus").textContent=
-"Photo successfully loaded.";
-
-};
-
-img.src=e.target.result;
-
-};
-
-reader.readAsDataURL(file);
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
+
+
+/* =====================================================
+   OFFICIAL PORTALS
+===================================================== */
+
+document.querySelectorAll(
+    ".official"
+)
+.forEach(function(button){
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            const url =
+                this.dataset.url;
+
+            window.open(
+                url,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   SIMPLE LOGIN
+===================================================== */
+
+document.getElementById(
+    "loginBtn"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        const email =
+            prompt(
+                "अपना नाम / Email दर्ज करें:"
+            );
+
+
+        if(!email){
+            return;
+        }
+
+
+        localStorage.setItem(
+            "bdcUser",
+            email
+        );
+
+
+        updateLoginUI();
+
+    }
+);
+
+
+document.getElementById(
+    "logoutBtn"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        localStorage.removeItem(
+            "bdcUser"
+        );
+
+        updateLoginUI();
+
+    }
+);
+
+
+function updateLoginUI(){
+
+    const user =
+        localStorage.getItem(
+            "bdcUser"
+        );
+
+
+    const emailBox =
+        document.getElementById(
+            "userEmail"
+        );
+
+
+    const loginBtn =
+        document.getElementById(
+            "loginBtn"
+        );
+
+
+    const logoutBtn =
+        document.getElementById(
+            "logoutBtn"
+        );
+
+
+    if(user){
+
+        emailBox.textContent =
+            user;
+
+        loginBtn.style.display =
+            "none";
+
+        logoutBtn.style.display =
+            "inline-block";
+
+    }
+    else{
+
+        emailBox.textContent =
+            "Guest";
+
+        loginBtn.style.display =
+            "inline-block";
+
+        logoutBtn.style.display =
+            "none";
+
+    }
+
+}
+
+
+updateLoginUI();
+
+
+/* =====================================================
+   PHOTO EDITOR
+===================================================== */
+
+const photoCanvas =
+    document.getElementById(
+        "photoCanvas"
+    );
+
+const photoCtx =
+    photoCanvas.getContext(
+        "2d"
+    );
+
+
+document.getElementById(
+    "photoUpload"
+)
+.addEventListener(
+    "change",
+    function(event){
+
+        const file =
+            event.target.files[0];
+
+        if(!file){
+            return;
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function(e){
+
+                const img =
+                    new Image();
+
+
+                img.onload =
+                    function(){
+
+                        photoImage =
+                            img;
+
+                        photoRotation =
+                            0;
+
+                        printImageObject =
+                            img;
+
+                        drawPhoto();
+
+                        generatePrintLayout();
+
+                        document.getElementById(
+                            "photoStatus"
+                        ).className =
+                            "status success";
+
+
+                        document.getElementById(
+                            "photoStatus"
+                        ).textContent =
+                            "Photo successfully loaded.";
+
+                    };
+
+
+                img.src =
+                    e.target.result;
+
+            };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+[
+    "brightness",
+    "contrast",
+    "saturation"
+]
+.forEach(function(id){
+
+    document.getElementById(id)
+    .addEventListener(
+        "input",
+        drawPhoto
+    );
+
+});
+
 
 function drawPhoto(){
 
-if(!originalImage)return;
+    if(!photoImage){
+        return;
+    }
 
-const canvas=document.getElementById("photoCanvas");
 
-const ctx=canvas.getContext("2d");
+    const brightness =
+        document.getElementById(
+            "brightness"
+        ).value;
 
-let w=originalImage.width;
 
-let h=originalImage.height;
+    const contrast =
+        document.getElementById(
+            "contrast"
+        ).value;
 
-if(Math.abs(photoRotation)%180===90){
 
-[w,h]=[h,w];
+    const saturation =
+        document.getElementById(
+            "saturation"
+        ).value;
 
-}
 
-canvas.width=w;
+    const rotated =
+        photoRotation %
+        180 !== 0;
 
-canvas.height=h;
 
-const brightness=document.getElementById("brightness").value;
+    photoCanvas.width =
+        rotated ?
+        photoImage.height :
+        photoImage.width;
 
-const contrast=document.getElementById("contrast").value;
 
-const saturation=document.getElementById("saturation").value;
+    photoCanvas.height =
+        rotated ?
+        photoImage.width :
+        photoImage.height;
 
-const grayscale=document.getElementById("grayscale").value;
 
-ctx.save();
+    photoCtx.save();
 
-ctx.translate(w/2,h/2);
 
-ctx.rotate(photoRotation*Math.PI/180);
+    photoCtx.translate(
+        photoCanvas.width / 2,
+        photoCanvas.height / 2
+    );
 
-ctx.filter=
-`brightness(${brightness}%)
-contrast(${contrast}%)
-saturate(${saturation}%)
-grayscale(${grayscale}%)`;
 
-ctx.drawImage(
-originalImage,
--originalImage.width/2,
--originalImage.height/2
-);
+    photoCtx.rotate(
+        photoRotation *
+        Math.PI / 180
+    );
 
-ctx.restore();
 
-}
+    photoCtx.filter =
+        `brightness(${brightness}%)
+         contrast(${contrast}%)
+         saturate(${saturation}%)`;
 
-function rotatePhoto(deg){
 
-if(!originalImage){
+    photoCtx.drawImage(
+        photoImage,
+        -photoImage.width / 2,
+        -photoImage.height / 2
+    );
 
-alert("पहले photo upload करें।");
 
-return;
-}
-
-photoRotation+=deg;
-
-drawPhoto();
-
-}
-
-function applyCrop(){
-
-const canvas=document.getElementById("photoCanvas");
-
-if(!canvas.width){
-
-alert("पहले photo upload करें।");
-
-return;
-}
-
-let w=Number(document.getElementById("cropW").value);
-
-let h=Number(document.getElementById("cropH").value);
-
-if(w<10||w>100||h<10||h>100){
-
-alert("Crop value 10 से 100 के बीच रखें।");
-
-return;
-}
-
-w=Math.round(canvas.width*w/100);
-
-h=Math.round(canvas.height*h/100);
-
-const x=Math.round((canvas.width-w)/2);
-
-const y=Math.round((canvas.height-h)/2);
-
-const temp=document.createElement("canvas");
-
-temp.width=w;
-
-temp.height=h;
-
-temp.getContext("2d").drawImage(
-canvas,
-x,y,w,h,
-0,0,w,h
-);
-
-originalImage=canvasToImage(temp);
-
-originalImage.onload=function(){
-photoRotation=0;
-drawPhoto();
-};
+    photoCtx.restore();
 
 }
 
-function canvasToImage(canvas){
 
-const img=new Image();
+function rotatePhoto(){
 
-img.src=canvas.toDataURL("image/png");
+    if(!photoImage){
 
-return img;
+        alert(
+            "पहले photo upload करें।"
+        );
 
-}
+        return;
 
-function setPhotoSize(w,h){
+    }
 
-selectedPhotoWidth=w;
 
-selectedPhotoHeight=h;
+    photoRotation += 90;
 
-document.getElementById("photoStatus").textContent=
-`Print size selected: ${w} × ${h} mm`;
-
-}
-
-function downloadPhoto(type){
-
-const canvas=document.getElementById("photoCanvas");
-
-if(!canvas.width){
-
-alert("पहले photo upload करें।");
-
-return;
-}
-
-const mime=type==="jpeg"
-?"image/jpeg"
-:"image/png";
-
-const a=document.createElement("a");
-
-a.href=canvas.toDataURL(mime,.95);
-
-a.download=
-type==="jpeg"
-?"Bharat-Digital-Photo.jpg"
-:"Bharat-Digital-Photo.png";
-
-a.click();
+    drawPhoto();
 
 }
+
 
 function resetPhoto(){
 
-if(!originalImage)return;
+    document.getElementById(
+        "brightness"
+    ).value = 100;
 
-photoRotation=0;
+    document.getElementById(
+        "contrast"
+    ).value = 100;
 
-document.getElementById("brightness").value=100;
+    document.getElementById(
+        "saturation"
+    ).value = 100;
 
-document.getElementById("contrast").value=100;
+    photoRotation = 0;
 
-document.getElementById("saturation").value=100;
+    drawPhoto();
 
-document.getElementById("grayscale").value=0;
+}
 
-drawPhoto();
+
+function downloadPhoto(){
+
+    if(!photoImage){
+
+        alert(
+            "पहले photo upload करें।"
+        );
+
+        return;
+
+    }
+
+
+    drawPhoto();
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.download =
+        "bharat-digital-photo.png";
+
+
+    link.href =
+        photoCanvas.toDataURL(
+            "image/png"
+        );
+
+
+    link.click();
 
 }
 
-/* =========================
-PRINT
-========================= */
 
-let printImage=null;
+/* =====================================================
+   PRINT IMAGE UPLOAD
+===================================================== */
 
-function loadPrintImage(event){
+document.getElementById(
+    "frontCardUpload"
+)
+.addEventListener(
+    "change",
+    loadFrontCard
+);
 
-const file=event.target.files[0];
 
-if(!file)return;
+document.getElementById(
+    "backCardUpload"
+)
+.addEventListener(
+    "change",
+    loadBackCard
+);
 
-const reader=new FileReader();
 
-reader.onload=e=>{
+function loadFrontCard(event){
 
-const img=new Image();
+    const file =
+        event.target.files[0];
 
-img.onload=()=>{
+    if(!file){
+        return;
+    }
 
-printImage=img;
 
-generatePrintLayout();
+    const reader =
+        new FileReader();
 
-};
 
-img.src=e.target.result;
+    reader.onload =
+        function(e){
 
-};
+            const img =
+                new Image();
 
-reader.readAsDataURL(file);
+
+            img.onload =
+                function(){
+
+                    frontCardImage =
+                        img;
+
+                    printImageObject =
+                        img;
+
+                    updateCardStatus(
+                        "Front Side successfully loaded.",
+                        "success"
+                    );
+
+                    generatePrintLayout();
+
+                };
+
+
+            img.src =
+                e.target.result;
+
+        };
+
+
+    reader.readAsDataURL(file);
 
 }
+
+
+function loadBackCard(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file){
+        return;
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e){
+
+            const img =
+                new Image();
+
+
+            img.onload =
+                function(){
+
+                    backCardImage =
+                        img;
+
+                    updateCardStatus(
+                        "Back Side successfully loaded.",
+                        "success"
+                    );
+
+                    generatePrintLayout();
+
+                };
+
+
+            img.src =
+                e.target.result;
+
+        };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* =====================================================
+   SIZE SYSTEM
+===================================================== */
 
 function getPrintSize(){
 
-const value=document.getElementById("printSize").value;
+    const size =
+        document.getElementById(
+            "printSize"
+        ).value;
 
-const sizes={
-"35x45":[35,45],
-"51x51":[51,51],
-"25x35":[25,35],
-"45x45":[45,45],
-"50x70":[50,70]
+
+    let width = 85.60;
+
+    let height = 53.98;
+
+
+    switch(size){
+
+        case "aadhar":
+        case "pan":
+        case "voter":
+        case "dl":
+        case "ayushman":
+        case "health":
+        case "employee":
+        case "school":
+        case "college":
+        case "office":
+        case "pvc":
+
+            width = 85.60;
+            height = 53.98;
+
+            break;
+
+
+        case "passport":
+
+            width = 35;
+            height = 45;
+
+            break;
+
+
+        case "photo2x2":
+
+            width = 51;
+            height = 51;
+
+            break;
+
+
+        case "photo25x35":
+
+            width = 25;
+            height = 35;
+
+            break;
+
+
+        case "photo45x45":
+
+            width = 45;
+            height = 45;
+
+            break;
+
+
+        case "photo50x70":
+
+            width = 50;
+            height = 70;
+
+            break;
+
+
+        case "custom":
+
+            width =
+                Number(
+                    document.getElementById(
+                        "customWidth"
+                    ).value
+                );
+
+            height =
+                Number(
+                    document.getElementById(
+                        "customHeight"
+                    ).value
+                );
+
+            break;
+
+    }
+
+
+    if(
+        !width ||
+        !height ||
+        width <= 0 ||
+        height <= 0
+    ){
+
+        width = 85.60;
+        height = 53.98;
+
+    }
+
+
+    return {
+        width:width,
+        height:height
+    };
+
+}
+
+
+/* =====================================================
+   CAPACITY CALCULATOR
+===================================================== */
+
+function calculateCapacity(
+    width,
+    height
+){
+
+    const pageWidth =
+        210 - 16;
+
+    const pageHeight =
+        297 - 16;
+
+
+    const gap = 3;
+
+
+    const columns =
+        Math.max(
+            1,
+            Math.floor(
+                (pageWidth + gap) /
+                (width + gap)
+            )
+        );
+
+
+    const rows =
+        Math.max(
+            1,
+            Math.floor(
+                (pageHeight + gap) /
+                (height + gap)
+            )
+        );
+
+
+    return columns * rows;
+
+}
+
+
+/* =====================================================
+   GENERATE NORMAL PRINT LAYOUT
+===================================================== */
+
+window.generatePrintLayout =
+function(){
+
+    const size =
+        getPrintSize();
+
+
+    const width =
+        size.width;
+
+    const height =
+        size.height;
+
+
+    const customBox =
+        document.getElementById(
+            "customSizeBox"
+        );
+
+
+    if(
+        document.getElementById(
+            "printSize"
+        ).value === "custom"
+    ){
+
+        customBox.classList.remove(
+            "hidden"
+        );
+
+    }
+    else{
+
+        customBox.classList.add(
+            "hidden"
+        );
+
+    }
+
+
+    const grid =
+        document.getElementById(
+            "photoGrid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    const mode =
+        document.getElementById(
+            "cardPrintMode"
+        ).value;
+
+
+    const count =
+        Number(
+            document.getElementById(
+                "photoCount"
+            ).value
+        );
+
+
+    const bg =
+        document.getElementById(
+            "printBg"
+        ).value;
+
+
+    /* ==============================================
+       CARD MODE
+    ============================================== */
+
+    if(
+        frontCardImage ||
+        backCardImage
+    ){
+
+        if(
+            mode === "front" &&
+            frontCardImage
+        ){
+
+            addPrintCard(
+                grid,
+                frontCardImage,
+                width,
+                height,
+                "FRONT",
+                bg
+            );
+
+        }
+
+
+        if(
+            mode === "back" &&
+            backCardImage
+        ){
+
+            addPrintCard(
+                grid,
+                backCardImage,
+                width,
+                height,
+                "BACK",
+                bg
+            );
+
+        }
+
+
+        if(
+            mode === "both" ||
+            mode === "multiple"
+        ){
+
+            if(frontCardImage){
+
+                addPrintCard(
+                    grid,
+                    frontCardImage,
+                    width,
+                    height,
+                    "FRONT",
+                    bg
+                );
+
+            }
+
+
+            if(backCardImage){
+
+                addPrintCard(
+                    grid,
+                    backCardImage,
+                    width,
+                    height,
+                    "BACK",
+                    bg
+                );
+
+            }
+
+        }
+
+
+        if(
+            mode === "front" ||
+            mode === "back" ||
+            mode === "both" ||
+            mode === "multiple"
+        ){
+
+            if(
+                frontCardImage ||
+                backCardImage
+            ){
+
+                updatePrintInfo(
+                    width,
+                    height
+                );
+
+                return;
+
+            }
+
+        }
+
+    }
+
+
+    /* ==============================================
+       PHOTO MODE
+    ============================================== */
+
+    if(!printImageObject){
+
+        updatePrintInfo(
+            width,
+            height
+        );
+
+        return;
+
+    }
+
+
+    for(
+        let i = 0;
+        i < count;
+        i++
+    ){
+
+        addPrintCard(
+            grid,
+            printImageObject,
+            width,
+            height,
+            "",
+            bg
+        );
+
+    }
+
+
+    updatePrintInfo(
+        width,
+        height
+    );
+
 };
 
-return sizes[value]||[35,45];
+
+/* =====================================================
+   ADD PRINT CARD
+===================================================== */
+
+function addPrintCard(
+    grid,
+    image,
+    width,
+    height,
+    title,
+    bg
+){
+
+    const box =
+        document.createElement(
+            "div"
+        );
+
+
+    box.className =
+        "photoitem";
+
+
+    box.style.width =
+        width + "mm";
+
+
+    box.style.height =
+        height + "mm";
+
+
+    if(bg === "blue"){
+
+        box.style.background =
+            "#dff4ff";
+
+    }
+    else if(bg === "red"){
+
+        box.style.background =
+            "#ffe6e6";
+
+    }
+    else{
+
+        box.style.background =
+            "#fff";
+
+    }
+
+
+    const img =
+        document.createElement(
+            "img"
+        );
+
+
+    img.src =
+        image.src;
+
+
+    img.style.width =
+        "100%";
+
+
+    img.style.height =
+        "100%";
+
+
+    img.style.objectFit =
+        "fill";
+
+
+    box.appendChild(
+        img
+    );
+
+
+    if(title){
+
+        const label =
+            document.createElement(
+                "div"
+            );
+
+
+        label.className =
+            "card-label";
+
+
+        label.textContent =
+            title;
+
+
+        box.appendChild(
+            label
+        );
+
+    }
+
+
+    grid.appendChild(
+        box
+    );
 
 }
 
-function generatePrintLayout(){
 
-if(!printImage)return;
+/* =====================================================
+   PRINT INFORMATION
+===================================================== */
 
-const grid=document.getElementById("photoGrid");
+function updatePrintInfo(
+    width,
+    height
+){
 
-grid.innerHTML="";
+    const capacity =
+        calculateCapacity(
+            width,
+            height
+        );
 
-const [w,h]=getPrintSize();
 
-const count=Number(
-document.getElementById("photoCount").value
-);
+    const info =
+        document.getElementById(
+            "printInfo"
+        );
 
-const bg=document.getElementById("printBg").value;
 
-grid.style.gridTemplateColumns=
-`repeat(auto-fill,${w}mm)`;
+    info.className =
+        "status success";
 
-for(let i=0;i<count;i++){
 
-const box=document.createElement("div");
-
-box.className="photo-item";
-
-box.style.width=w+"mm";
-
-box.style.height=h+"mm";
-
-if(bg==="blue")
-box.style.background="#dff4ff";
-
-if(bg==="red")
-box.style.background="#ffe6e6";
-
-const img=document.createElement("img");
-
-img.src=printImage.src;
-
-box.appendChild(img);
-
-grid.appendChild(box);
+    info.innerHTML =
+        `
+        Size:
+        <span class="size-badge">
+        ${width.toFixed(2)} ×
+        ${height.toFixed(2)} mm
+        </span>
+        <br>
+        A4 में लगभग
+        <b>${capacity}</b>
+        cards/photos फिट हो सकते हैं।
+        `;
 
 }
 
+
+/* =====================================================
+   CARD STATUS
+===================================================== */
+
+function updateCardStatus(
+    message,
+    type=""
+){
+
+    const status =
+        document.getElementById(
+            "cardStatus"
+        );
+
+
+    status.className =
+        "status " + type;
+
+
+    status.textContent =
+        message;
+
 }
 
-function printA4(){
 
-if(!printImage){
+/* =====================================================
+   MULTIPLE ID CARDS
+===================================================== */
 
-alert("पहले photo upload करें।");
+window.generateMultiIDCards =
+function(){
 
-return;
-}
+    if(
+        !frontCardImage &&
+        !backCardImage &&
+        !printImageObject
+    ){
 
-const page=document.getElementById("a4Page");
+        alert(
+            "पहले Front, Back या Photo upload करें।"
+        );
 
-const win=window.open("","_blank");
+        return;
 
-if(!win){
+    }
 
-alert("Browser ने popup block किया है।");
 
-return;
-}
+    const mode =
+        document.getElementById(
+            "cardPrintMode"
+        ).value;
 
-win.document.write(`
-<html>
+
+    const grid =
+        document.getElementById(
+            "photoGrid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    const size =
+        getPrintSize();
+
+
+    const width =
+        size.width;
+
+
+    const height =
+        size.height;
+
+
+    const capacity =
+        calculateCapacity(
+            width,
+            height
+        );
+
+
+    const bg =
+        document.getElementById(
+            "printBg"
+        ).value;
+
+
+    /* ==============================================
+       FRONT + BACK MULTIPLE
+    ============================================== */
+
+    if(
+        mode === "both" ||
+        mode === "multiple"
+    ){
+
+        if(
+            !frontCardImage ||
+            !backCardImage
+        ){
+
+            alert(
+                "Front और Back दोनों upload करें।"
+            );
+
+            return;
+
+        }
+
+
+        for(
+            let i = 0;
+            i < Math.floor(capacity / 2);
+            i++
+        ){
+
+            addPrintCard(
+                grid,
+                frontCardImage,
+                width,
+                height,
+                "FRONT",
+                bg
+            );
+
+
+            addPrintCard(
+                grid,
+                backCardImage,
+                width,
+                height,
+                "BACK",
+                bg
+            );
+
+        }
+
+    }
+
+    else if(
+        mode === "front"
+    ){
+
+        if(!frontCardImage){
+
+            alert(
+                "Front Side upload करें।"
+            );
+
+            return;
+
+        }
+
+
+        for(
+            let i = 0;
+            i < capacity;
+            i++
+        ){
+
+            addPrintCard(
+                grid,
+                frontCardImage,
+                width,
+                height,
+                "FRONT",
+                bg
+            );
+
+        }
+
+    }
+
+    else if(
+        mode === "back"
+    ){
+
+        if(!backCardImage){
+
+            alert(
+                "Back Side upload करें।"
+            );
+
+            return;
+
+        }
+
+
+        for(
+            let i = 0;
+            i < capacity;
+            i++
+        ){
+
+            addPrintCard(
+                grid,
+                backCardImage,
+                width,
+                height,
+                "BACK",
+                bg
+            );
+
+        }
+
+    }
+
+
+    updateCardStatus(
+        "A4 में maximum-fit Multiple ID Cards तैयार हैं।",
+        "success"
+    );
+
+
+    updatePrintInfo(
+        width,
+        height
+    );
+
+};
+
+
+/* =====================================================
+   PRINT ID CARD A4
+===================================================== */
+
+window.printIDCardA4 =
+function(){
+
+    const grid =
+        document.getElementById(
+            "photoGrid"
+        );
+
+
+    if(
+        !grid ||
+        grid.children.length === 0
+    ){
+
+        generatePrintLayout();
+
+    }
+
+
+    if(
+        grid.children.length === 0
+    ){
+
+        alert(
+            "पहले Photo / ID Card upload करें।"
+        );
+
+        return;
+
+    }
+
+
+    const printWindow =
+        window.open(
+            "",
+            "_blank"
+        );
+
+
+    if(!printWindow){
+
+        alert(
+            "Popup blocked है। Browser में popup allow करें।"
+        );
+
+        return;
+
+    }
+
+
+    const printContent =
+        document.getElementById(
+            "printArea"
+        ).innerHTML;
+
+
+    printWindow.document.write(
+`
+<!DOCTYPE html>
+
+<html lang="hi">
+
 <head>
-<title>Bharat Digital Centre Print</title>
+
+<meta charset="UTF-8">
+
+<title>Bharat Digital Centre - A4 Print</title>
+
 <style>
-@page{size:A4;margin:0}
-body{margin:0}
+
+@page{
+
+    size:A4 portrait;
+
+    margin:0;
+
+}
+
+*{
+
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+
+    margin:0;
+
+    padding:0;
+
+    width:210mm;
+
+    min-height:297mm;
+
+    background:white;
+
+}
+
 .a4{
-width:210mm;
-min-height:297mm;
-padding:8mm;
-background:white;
+
+    width:210mm;
+
+    min-height:297mm;
+
+    padding:8mm;
+
+    background:white;
+
 }
-.photo-grid{
-display:grid;
-gap:4mm;
+
+.a4 h3{
+
+    text-align:center;
+
+    font-family:Arial,
+        "Noto Sans Devanagari",
+        sans-serif;
+
+    font-size:12px;
+
+    margin:
+        0 0 5mm 0;
+
 }
-.photo-item{
-border:1px solid #777;
-overflow:hidden;
+
+.photogrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,85.6mm);
+
+    gap:5mm;
+
+    justify-content:center;
+
+    align-content:start;
+
 }
-.photo-item img{
-width:100%;
-height:100%;
-object-fit:cover;
+
+.photoitem{
+
+    overflow:hidden;
+
+    position:relative;
+
+    border:
+        0.35mm dashed #555;
+
+    background:#fff;
+
 }
+
+.photoitem img{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:fill;
+
+}
+
+.card-label{
+
+    position:absolute;
+
+    top:1mm;
+
+    left:1mm;
+
+    background:
+        rgba(255,255,255,.88);
+
+    font-size:7px;
+
+    padding:1px 3px;
+
+}
+
 </style>
+
 </head>
+
 <body>
-${page.outerHTML}
+
+<div class="a4">
+
+<h3>
+Bharat Digital Centre
+</h3>
+
+<div class="photogrid">
+
+${grid.innerHTML}
+
+</div>
+
+</div>
+
+<script>
+
+window.onload=function(){
+
+    setTimeout(
+        function(){
+
+            window.focus();
+
+            window.print();
+
+        },
+        500
+    );
+
+};
+
+<\/script>
+
 </body>
+
 </html>
-`);
+`
+    );
 
-win.document.close();
 
-win.onload=function(){
-
-win.focus();
-
-win.print();
+    printWindow.document.close();
 
 };
 
-}
 
-async function downloadA4PDF(){
+/* =====================================================
+   PRINT SIZE EVENTS
+===================================================== */
 
-if(!printImage){
+document.getElementById(
+    "printSize"
+)
+.addEventListener(
+    "change",
+    function(){
 
-alert("पहले photo upload करें।");
+        if(
+            this.value === "custom"
+        ){
 
-return;
-}
+            document.getElementById(
+                "customSizeBox"
+            ).classList.remove(
+                "hidden"
+            );
 
-const {PDFDocument}=PDFLib;
+        }
+        else{
 
-const pdf=await PDFDocument.create();
+            document.getElementById(
+                "customSizeBox"
+            ).classList.add(
+                "hidden"
+            );
 
-const page=pdf.addPage([595.28,841.89]);
+        }
 
-const png=await pdf.embedPng(
-printImage.src
+
+        generatePrintLayout();
+
+    }
 );
 
-const [mmW,mmH]=getPrintSize();
 
-const mm=72/25.4;
-
-const w=mmW*mm;
-
-const h=mmH*mm;
-
-const count=Number(
-document.getElementById("photoCount").value
+document.getElementById(
+    "customWidth"
+)
+.addEventListener(
+    "input",
+    generatePrintLayout
 );
 
-let x=20;
 
-let y=841.89-h-30;
-
-for(let i=0;i<count;i++){
-
-if(x+w>575){
-
-x=20;
-y-=h+8;
-
-}
-
-if(y<20)break;
-
-page.drawImage(png,{
-x:x,
-y:y,
-width:w,
-height:h
-});
-
-x+=w+8;
-
-}
-
-const bytes=await pdf.save();
-
-downloadBlob(
-new Blob([bytes],{type:"application/pdf"}),
-"Bharat-Digital-A4-Photos.pdf"
+document.getElementById(
+    "customHeight"
+)
+.addEventListener(
+    "input",
+    generatePrintLayout
 );
 
-}
 
-/* =========================
-PDF
-========================= */
-
-let pdfBuffer=null;
-
-let pdfDocument=null;
-
-let pdfPages=[];
-
-let currentPDFPage=0;
-
-let pdfChanges={};
-
-async function loadPDF(event){
-
-const file=event.target.files[0];
-
-if(!file)return;
-
-try{
-
-pdfBuffer=await file.arrayBuffer();
-
-if(!window.pdfjsLib){
-
-await loadPDFJS();
-
-}
-
-pdfDocument=await window.pdfjsLib.getDocument({
-data:pdfBuffer
-}).promise;
-
-pdfPages=[];
-
-for(let i=1;i<=pdfDocument.numPages;i++){
-pdfPages.push(i);
-}
-
-currentPDFPage=0;
-
-pdfChanges={};
-
-await renderPageList();
-
-await renderPDFPage();
-
-document.getElementById("pdfStatus").textContent=
-"PDF successfully loaded.";
-
-}catch(error){
-
-console.error(error);
-
-document.getElementById("pdfStatus").className=
-"status error";
-
-document.getElementById("pdfStatus").textContent=
-"PDF load नहीं हुआ। Internet connection check करें।";
-
-}
-
-}
-
-async function loadPDFJS(){
-
-const module=await import(
-"https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs"
+document.getElementById(
+    "photoCount"
+)
+.addEventListener(
+    "change",
+    generatePrintLayout
 );
 
-window.pdfjsLib=module;
 
-module.GlobalWorkerOptions.workerSrc=
-"https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs";
-
-}
-
-async function renderPageList(){
-
-const list=document.getElementById("pageList");
-
-list.innerHTML="";
-
-for(let index=0;index<pdfPages.length;index++){
-
-const pageNumber=pdfPages[index];
-
-const page=await pdfDocument.getPage(pageNumber);
-
-const viewport=page.getViewport({scale:.25});
-
-const canvas=document.createElement("canvas");
-
-canvas.width=viewport.width;
-
-canvas.height=viewport.height;
-
-await page.render({
-canvasContext:canvas.getContext("2d"),
-viewport:viewport
-}).promise;
-
-const div=document.createElement("div");
-
-div.className="page-thumb";
-
-if(index===currentPDFPage)
-div.classList.add("active");
-
-div.appendChild(canvas);
-
-div.onclick=function(){
-
-currentPDFPage=index;
-
-renderPageList();
-
-renderPDFPage();
-
-};
-
-list.appendChild(div);
-
-}
-
-}
-
-async function renderPDFPage(){
-
-if(!pdfDocument)return;
-
-const pageNumber=pdfPages[currentPDFPage];
-
-const page=await pdfDocument.getPage(pageNumber);
-
-const viewport=page.getViewport({scale:1.4});
-
-const canvas=document.getElementById("pdfCanvas");
-
-canvas.width=viewport.width;
-
-canvas.height=viewport.height;
-
-await page.render({
-canvasContext:canvas.getContext("2d"),
-viewport:viewport
-}).promise;
-
-}
-
-function deletePDFPage(){
-
-if(!pdfPages.length)return;
-
-if(pdfPages.length===1){
-
-alert("कम से कम एक page होना चाहिए।");
-
-return;
-}
-
-pdfPages.splice(currentPDFPage,1);
-
-if(currentPDFPage>=pdfPages.length)
-currentPDFPage=pdfPages.length-1;
-
-renderPageList();
-renderPDFPage();
-
-}
-
-function movePage(direction){
-
-const newIndex=currentPDFPage+direction;
-
-if(newIndex<0||newIndex>=pdfPages.length)return;
-
-[
-pdfPages[currentPDFPage],
-pdfPages[newIndex]
-]=[
-pdfPages[newIndex],
-pdfPages[currentPDFPage]
-];
-
-currentPDFPage=newIndex;
-
-renderPageList();
-renderPDFPage();
-
-}
-
-function rotatePDFPage(){
-
-if(!pdfPages.length)return;
-
-const page=pdfPages[currentPDFPage];
-
-if(!pdfChanges[page])
-pdfChanges[page]={};
-
-pdfChanges[page].rotation=
-((pdfChanges[page].rotation||0)+90)%360;
-
-document.getElementById("pdfStatus").textContent=
-"Rotation set. Download PDF दबाएँ।";
-
-}
-
-function addPDFText(){
-
-if(!pdfPages.length)return;
-
-const text=document.getElementById("pdfText").value.trim();
-
-if(!text){
-
-alert("Text लिखें।");
-
-return;
-}
-
-const page=pdfPages[currentPDFPage];
-
-if(!pdfChanges[page])
-pdfChanges[page]={};
-
-if(!pdfChanges[page].texts)
-pdfChanges[page].texts=[];
-
-pdfChanges[page].texts.push({
-text:text,
-x:60,
-y:100,
-size:18
-});
-
-document.getElementById("pdfStatus").textContent=
-"Text add हो गया।";
-
-}
-
-function addWatermark(){
-
-if(!pdfPages.length)return;
-
-const text=document.getElementById("watermarkText").value.trim();
-
-if(!text){
-
-alert("Watermark लिखें।");
-
-return;
-}
-
-pdfPages.forEach(page=>{
-
-if(!pdfChanges[page])
-pdfChanges[page]={};
-
-pdfChanges[page].watermark=text;
-
-});
-
-document.getElementById("pdfStatus").textContent=
-"Watermark सभी pages पर लगाया जाएगा।";
-
-}
-
-/* =========================
-SIGNATURE
-========================= */
-
-const signatureCanvas=
-document.getElementById("signatureCanvas");
-
-const signatureCtx=
-signatureCanvas.getContext("2d");
-
-signatureCanvas.width=600;
-signatureCanvas.height=180;
-
-let drawing=false;
-
-function signaturePosition(e){
-
-const rect=signatureCanvas.getBoundingClientRect();
-
-return{
-x:(e.clientX-rect.left)*
-signatureCanvas.width/rect.width,
-
-y:(e.clientY-rect.top)*
-signatureCanvas.height/rect.height
-};
-
-}
-
-signatureCanvas.addEventListener("pointerdown",e=>{
-
-drawing=true;
-
-const p=signaturePosition(e);
-
-signatureCtx.beginPath();
-
-signatureCtx.moveTo(p.x,p.y);
-
-});
-
-signatureCanvas.addEventListener("pointermove",e=>{
-
-if(!drawing)return;
-
-const p=signaturePosition(e);
-
-signatureCtx.lineWidth=3;
-
-signatureCtx.lineCap="round";
-
-signatureCtx.strokeStyle="#111";
-
-signatureCtx.lineTo(p.x,p.y);
-
-signatureCtx.stroke();
-
-});
-
-signatureCanvas.addEventListener("pointerup",()=>{
-drawing=false;
-});
-
-signatureCanvas.addEventListener("pointerleave",()=>{
-drawing=false;
-});
-
-function clearSignature(){
-
-signatureCtx.clearRect(
-0,0,
-signatureCanvas.width,
-signatureCanvas.height
+document.getElementById(
+    "printBg"
+)
+.addEventListener(
+    "change",
+    generatePrintLayout
 );
 
-}
 
-function addSignature(){
-
-if(!pdfPages.length)return;
-
-const page=pdfPages[currentPDFPage];
-
-if(!pdfChanges[page])
-pdfChanges[page]={};
-
-pdfChanges[page].signature=
-signatureCanvas.toDataURL("image/png");
-
-document.getElementById("pdfStatus").textContent=
-"Signature add हो गया।";
-
-}
-
-/* =========================
-EXPORT PDF
-========================= */
-
-async function exportPDF(){
-
-if(!pdfBuffer){
-
-alert("पहले PDF upload करें।");
-
-return;
-}
-
-try{
-
-const {
-PDFDocument,
-rgb,
-degrees
-}=PDFLib;
-
-const source=await PDFDocument.load(pdfBuffer);
-
-const output=await PDFDocument.create();
-
-for(const pageNumber of pdfPages){
-
-const [page]=await output.copyPages(
-source,
-[pageNumber-1]
+document.getElementById(
+    "cardPrintMode"
+)
+.addEventListener(
+    "change",
+    generatePrintLayout
 );
 
-output.addPage(page);
 
-}
+/* =====================================================
+   PDF
+===================================================== */
 
-for(let i=0;i<pdfPages.length;i++){
+document.getElementById(
+    "pdfUpload"
+)
+.addEventListener(
+    "change",
+    function(){
 
-const originalNumber=pdfPages[i];
+        const file =
+            this.files[0];
 
-const page=output.getPage(i);
+        if(!file){
+            return;
+        }
 
-const change=pdfChanges[originalNumber];
 
-if(!change)continue;
+        const status =
+            document.getElementById(
+                "pdfStatus"
+            );
 
-if(change.rotation){
 
-page.setRotation(
-degrees(change.rotation)
+        status.className =
+            "status success";
+
+
+        status.textContent =
+            `PDF selected:
+            ${file.name}
+            (${Math.round(file.size/1024)} KB)`;
+
+    }
 );
 
-}
 
-if(change.texts){
+function openPdfInfo(){
 
-change.texts.forEach(item=>{
-
-page.drawText(item.text,{
-x:item.x,
-y:item.y,
-size:item.size,
-color:rgb(.1,.1,.1)
-});
-
-});
+    showMessage(
+        "PDF Tools में page management, rotate, delete, reorder, text और signature जैसे features जोड़े जा सकते हैं।"
+    );
 
 }
 
-if(change.watermark){
 
-page.drawText(change.watermark,{
-x:100,
-y:page.getHeight()/2,
-size:35,
-rotate:degrees(35),
-color:rgb(.6,.6,.6),
-opacity:.25
-});
+/* =====================================================
+   IMAGE CONVERTER
+===================================================== */
+
+function convertImage(){
+
+    const input =
+        document.getElementById(
+            "converterImage"
+        );
+
+
+    const file =
+        input.files[0];
+
+
+    if(!file){
+
+        alert(
+            "पहले image select करें।"
+        );
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e){
+
+            const img =
+                new Image();
+
+
+            img.onload =
+                function(){
+
+                    const canvas =
+                        document.createElement(
+                            "canvas"
+                        );
+
+
+                    canvas.width =
+                        img.width;
+
+
+                    canvas.height =
+                        img.height;
+
+
+                    const ctx =
+                        canvas.getContext(
+                            "2d"
+                        );
+
+
+                    ctx.drawImage(
+                        img,
+                        0,
+                        0
+                    );
+
+
+                    const link =
+                        document.createElement(
+                            "a"
+                        );
+
+
+                    link.download =
+                        "converted-image.png";
+
+
+                    link.href =
+                        canvas.toDataURL(
+                            "image/png"
+                        );
+
+
+                    link.click();
+
+                };
+
+
+            img.src =
+                e.target.result;
+
+        };
+
+
+    reader.readAsDataURL(file);
 
 }
 
-if(change.signature){
 
-const sig=await output.embedPng(
-change.signature
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function showMessage(message){
+
+    alert(message);
+
+}
+
+
+/* =====================================================
+   INITIAL PRINT SETUP
+===================================================== */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        generatePrintLayout();
+
+    }
 );
-
-page.drawImage(sig,{
-x:50,
-y:50,
-width:160,
-height:80
-});
-
-}
-
-}
-
-const bytes=await output.save();
-
-downloadBlob(
-new Blob([bytes],{type:"application/pdf"}),
-"Bharat-Digital-Edited.pdf"
-);
-
-document.getElementById("pdfStatus").className=
-"status success";
-
-document.getElementById("pdfStatus").textContent=
-"Edited PDF तैयार है।";
-
-}catch(error){
-
-console.error(error);
-
-document.getElementById("pdfStatus").className=
-"status error";
-
-document.getElementById("pdfStatus").textContent=
-"PDF export में समस्या हुई।";
-
-}
-
-}
-
-/* =========================
-IMAGES TO PDF
-========================= */
-
-async function imagesToPDF(){
-
-const input=document.getElementById("imagePdfInput");
-
-if(!input.files.length){
-
-alert("Images select करें।");
-
-return;
-}
-
-try{
-
-const {PDFDocument}=PDFLib;
-
-const pdf=await PDFDocument.create();
-
-for(const file of input.files){
-
-const buffer=await file.arrayBuffer();
-
-let image;
-
-if(file.type==="image/png"){
-
-image=await pdf.embedPng(buffer);
-
-}else{
-
-image=await pdf.embedJpg(buffer);
-
-}
-
-const page=pdf.addPage([595.28,841.89]);
-
-const scale=Math.min(
-550/image.width,
-780/image.height
-);
-
-const w=image.width*scale;
-const h=image.height*scale;
-
-page.drawImage(image,{
-x:(595.28-w)/2,
-y:(841.89-h)/2,
-width:w,
-height:h
-});
-
-}
-
-const bytes=await pdf.save();
-
-downloadBlob(
-new Blob([bytes],{type:"application/pdf"}),
-"Images-to-PDF.pdf"
-);
-
-document.getElementById("converterStatus").className=
-"status success";
-
-document.getElementById("converterStatus").textContent=
-"Images → PDF complete.";
-
-}catch(error){
-
-console.error(error);
-
-document.getElementById("converterStatus").className=
-"status error";
-
-document.getElementById("converterStatus").textContent=
-"Conversion failed.";
-
-}
-
-}
-
-/* =========================
-PDF TO IMAGES
-========================= */
-
-async function pdfToImages(){
-
-if(!pdfDocument){
-
-alert("पहले PDF upload करें।");
-
-return;
-}
-
-for(let i=1;i<=pdfDocument.numPages;i++){
-
-const page=await pdfDocument.getPage(i);
-
-const viewport=page.getViewport({scale:2});
-
-const canvas=document.createElement("canvas");
-
-canvas.width=viewport.width;
-
-canvas.height=viewport.height;
-
-await page.render({
-canvasContext:canvas.getContext("2d"),
-viewport:viewport
-}).promise;
-
-const a=document.createElement("a");
-
-a.href=canvas.toDataURL("image/jpeg",.95);
-
-a.download=`PDF-Page-${i}.jpg`;
-
-document.body.appendChild(a);
-
-a.click();
-
-a.remove();
-
-await new Promise(
-resolve=>setTimeout(resolve,300)
-);
-
-}
-
-document.getElementById("converterStatus").className=
-"status success";
-
-document.getElementById("converterStatus").textContent=
-"PDF pages JPG में तैयार हैं।";
-
-}
-
-/* =========================
-RESIZE
-========================= */
-
-function resizePhoto(){
-
-const canvas=document.getElementById("photoCanvas");
-
-if(!canvas.width){
-
-alert("पहले Photo Editor में photo upload करें।");
-
-showSectionById("photo");
-
-return;
-}
-
-const w=Number(
-document.getElementById("resizeW").value
-);
-
-const h=Number(
-document.getElementById("resizeH").value
-);
-
-if(!w||!h){
-
-alert("Width और Height डालें।");
-
-return;
-}
-
-const temp=document.createElement("canvas");
-
-temp.width=w;
-temp.height=h;
-
-temp.getContext("2d").drawImage(
-canvas,
-0,0,w,h
-);
-
-originalImage=canvasToImage(temp);
-
-originalImage.onload=function(){
-
-photoRotation=0;
-
-drawPhoto();
-
-};
-
-showSectionById("photo");
-
-}
-
-/* =========================
-DOWNLOAD
-========================= */
-
-function downloadBlob(blob,name){
-
-const url=URL.createObjectURL(blob);
-
-const a=document.createElement("a");
-
-a.href=url;
-
-a.download=name;
-
-document.body.appendChild(a);
-
-a.click();
-
-a.remove();
-
-setTimeout(()=>{
-URL.revokeObjectURL(url);
-},1000);
-
-}
-
-/* =========================
-STARTUP
-========================= */
-
-window.addEventListener("load",function(){
-
-const user=localStorage.getItem("bdcUser");
-
-if(user){
-
-console.log("Logged in:",user);
-
-}
-
-});
 
 </script>
 
