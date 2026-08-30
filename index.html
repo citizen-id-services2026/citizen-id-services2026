@@ -4,771 +4,424 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Bharat Digital Centre | Digital Services</title>
+<title>Bharat Digital Centre | Photo & ID Print Studio</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
 
-html{
-    scroll-behavior:smooth;
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
 }
 
 body{
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
-    background:#f4f6f8;
-    color:#172033;
-    line-height:1.5;
+font-family:Arial,"Noto Sans Devanagari",sans-serif;
+background:#f3f5f7;
+color:#172033;
+line-height:1.5
 }
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:-80px;
-    z-index:-10;
-    background:linear-gradient(
-        to bottom,
-        rgba(255,153,51,.35) 0%,
-        rgba(255,153,51,.15) 32%,
-        rgba(255,255,255,.75) 33%,
-        rgba(255,255,255,.75) 66%,
-        rgba(19,136,8,.18) 67%,
-        rgba(19,136,8,.35) 100%
-    );
-    filter:blur(30px);
-    transform:scale(1.1);
-}
-
-/* HEADER */
 
 header{
-    background:linear-gradient(
-        135deg,
-        #ff9933,
-        #ff6b00 45%,
-        #e53935
-    );
-    color:white;
-    box-shadow:0 8px 25px rgba(0,0,0,.22);
-    position:sticky;
-    top:0;
-    z-index:1000;
+background:linear-gradient(135deg,#ff9933,#ff6b00,#e53935);
+color:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 7px 25px #0003
 }
 
-.header-inner{
-    max-width:1200px;
-    margin:auto;
-    padding:16px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+.header{
+max-width:1250px;
+margin:auto;
+padding:13px 16px;
+display:flex;
+justify-content:space-between;
+align-items:center
 }
 
 .brand{
-    display:flex;
-    align-items:center;
-    gap:14px;
+display:flex;
+gap:12px;
+align-items:center
 }
 
 .logo{
-    width:58px;
-    height:58px;
-    border-radius:18px;
-    background:linear-gradient(145deg,#fff,#e5e5e5);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:29px;
-    box-shadow:
-        8px 8px 14px rgba(0,0,0,.3),
-        inset 3px 3px 7px rgba(255,255,255,.9);
+width:52px;
+height:52px;
+border-radius:15px;
+background:#fff;
+display:grid;
+place-items:center;
+font-size:27px
 }
 
 .brand h1{
-    font-size:24px;
-    text-shadow:2px 3px 4px rgba(0,0,0,.35);
+font-size:21px
 }
 
 .brand p{
-    font-size:13px;
+font-size:12px
 }
-
-.user-box{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.user-email{
-    background:rgba(255,255,255,.18);
-    padding:7px 12px;
-    border-radius:20px;
-    font-size:13px;
-}
-
-/* NAV */
 
 nav{
-    background:rgba(0,0,0,.12);
-    overflow-x:auto;
+background:#0002;
+overflow:auto
 }
 
-.nav-inner{
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    gap:5px;
-    padding:6px 12px;
+.nav{
+max-width:1250px;
+margin:auto;
+display:flex;
+gap:5px;
+padding:5px 10px
 }
 
-.nav-btn{
-    border:0;
-    background:transparent;
-    color:white;
-    padding:11px 14px;
-    border-radius:10px;
-    cursor:pointer;
-    white-space:nowrap;
-    font-size:14px;
+.nav button{
+border:0;
+background:transparent;
+color:#fff;
+padding:10px 13px;
+border-radius:9px;
+white-space:nowrap;
+cursor:pointer
 }
 
-.nav-btn:hover,
-.nav-btn.active{
-    background:rgba(255,255,255,.22);
+.nav button.active,
+.nav button:hover{
+background:#fff3
 }
-
-/* MAIN */
 
 main{
-    max-width:1200px;
-    margin:auto;
-    padding:25px 16px 70px;
+max-width:1250px;
+margin:auto;
+padding:22px 14px 60px
 }
 
 .section{
-    display:none;
+display:none
 }
 
 .section.active{
-    display:block;
+display:block
 }
 
 .title{
-    margin:15px 0;
-    color:#d84315;
+color:#d84315;
+margin:12px 0
+}
+
+.hero,
+.card,
+.controls,
+.preview{
+background:#fffffff2;
+border:1px solid #eee;
+border-radius:17px;
+box-shadow:0 7px 25px #0001
 }
 
 .hero{
-    background:rgba(255,255,255,.9);
-    backdrop-filter:blur(12px);
-    border-radius:24px;
-    padding:25px;
-    box-shadow:0 12px 40px rgba(0,0,0,.12);
-    margin-bottom:22px;
-}
-
-.hero h2{
-    color:#d84315;
-    margin-bottom:8px;
+padding:22px;
+margin-bottom:18px
 }
 
 .notice{
-    margin-top:14px;
-    background:#fff8e1;
-    border-left:5px solid #ff9800;
-    padding:13px 15px;
-    border-radius:8px;
-    font-size:14px;
+margin-top:12px;
+background:#fff8e1;
+border-left:5px solid #ff9800;
+padding:11px;
+border-radius:8px;
+font-size:13px
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(250px,1fr));
-    gap:18px;
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+gap:16px
 }
 
 .card{
-    background:rgba(255,255,255,.95);
-    border-radius:18px;
-    padding:20px;
-    box-shadow:0 7px 25px rgba(0,0,0,.1);
-    border:1px solid #eee;
+padding:18px
 }
 
 .card-icon{
-    font-size:38px;
-    margin-bottom:8px;
+font-size:35px
 }
 
 .card h3{
-    color:#d84315;
-    margin-bottom:7px;
+color:#d84315
 }
 
 .card p{
-    font-size:14px;
-    color:#555;
+font-size:13px;
+color:#555;
+margin:5px 0 10px
 }
-
-/* BUTTONS */
 
 .btn{
-    border:0;
-    background:linear-gradient(
-        135deg,
-        #ff6b00,
-        #e53935
-    );
-    color:white;
-    padding:11px 16px;
-    border-radius:9px;
-    cursor:pointer;
-    font-weight:bold;
-    margin:4px;
+border:0;
+color:#fff;
+background:
+linear-gradient(135deg,#ff6b00,#e53935);
+padding:10px 14px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+margin:3px
 }
 
-.btn:hover{
-    opacity:.9;
+.blue{
+background:
+linear-gradient(135deg,#3949ab,#1e88e5)
 }
 
-.btn.blue{
-    background:linear-gradient(
-        135deg,
-        #3949ab,
-        #1e88e5
-    );
+.green{
+background:
+linear-gradient(135deg,#2e7d32,#43a047)
 }
 
-.btn.green{
-    background:linear-gradient(
-        135deg,
-        #2e7d32,
-        #43a047
-    );
+.dark{
+background:
+linear-gradient(135deg,#263238,#455a64)
 }
 
-.btn.dark{
-    background:linear-gradient(
-        135deg,
-        #263238,
-        #455a64
-    );
-}
-
-.btn.red{
-    background:linear-gradient(
-        135deg,
-        #c62828,
-        #e53935
-    );
-}
-
-.btn.small{
-    padding:7px 10px;
-    font-size:12px;
-}
-
-/* FORM */
-
-input,
-select,
-textarea{
-    width:100%;
-    padding:11px 12px;
-    border:1px solid #ccd3dc;
-    border-radius:9px;
-    margin:5px 0 10px;
-    font-size:14px;
-    background:white;
-}
-
-label{
-    font-weight:bold;
-    font-size:13px;
-    display:block;
-}
-
-.toolbar{
-    background:#fff;
-    padding:12px;
-    border-radius:12px;
-    margin-bottom:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:6px;
-}
-
-.status{
-    padding:10px;
-    border-radius:8px;
-    background:#eef5ff;
-    margin:8px 0;
-    font-size:13px;
-}
-
-.status.success{
-    background:#e8f5e9;
-    color:#1b5e20;
-}
-
-.status.error{
-    background:#ffebee;
-    color:#b71c1c;
-}
-
-/* =========================
-   ID CARD EDITOR
-========================= */
-
-.id-editor{
-    display:grid;
-    grid-template-columns:300px 1fr;
-    gap:18px;
-}
-
-.id-controls{
-    background:white;
-    padding:18px;
-    border-radius:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,.1);
-}
-
-.id-controls h3{
-    color:#d84315;
-    margin-bottom:12px;
-}
-
-.control-group{
-    background:#f8f9fa;
-    padding:12px;
-    border-radius:12px;
-    margin-bottom:12px;
-}
-
-.control-group h4{
-    margin-bottom:7px;
-    color:#37474f;
-}
-
-.range-row{
-    display:grid;
-    grid-template-columns:1fr 65px;
-    gap:8px;
-    align-items:center;
-}
-
-.range-row input[type="range"]{
-    margin:5px 0;
-}
-
-.number-box{
-    text-align:center;
-    padding:7px 4px;
-    border:1px solid #ccc;
-    border-radius:7px;
-    background:#fff;
-    font-size:12px;
-}
-
-.id-preview-area{
-    background:#e6e9ed;
-    border-radius:18px;
-    padding:20px;
-    min-height:620px;
-    overflow:auto;
-}
-
-.editor-stage{
-    min-width:420px;
-    min-height:500px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.id-card-preview{
-    position:relative;
-    width:85.60mm;
-    height:53.98mm;
-    background:#fff;
-    overflow:hidden;
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.25);
-    border:1px solid #555;
-}
-
-.id-card-preview img{
-    position:absolute;
-    display:block;
-    user-select:none;
-    -webkit-user-drag:none;
-    transform-origin:center center;
-}
-
-/* crop frame */
-
-.crop-frame{
-    position:absolute;
-    inset:0;
-    border:2px dashed #ff5722;
-    pointer-events:none;
-    z-index:10;
-}
-
-.crop-frame::before{
-    content:"CROP / ID CARD AREA";
-    position:absolute;
-    top:4px;
-    left:4px;
-    background:rgba(255,87,34,.9);
-    color:#fff;
-    padding:2px 6px;
-    border-radius:4px;
-    font-size:9px;
-}
-
-/* SIZE BOX */
-
-.size-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-}
-
-.size-grid input{
-    margin:3px 0;
-}
-
-/* QUICK SIZES */
-
-.quick-sizes{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:5px;
-}
-
-.quick-sizes button{
-    border:1px solid #ddd;
-    background:white;
-    padding:8px 5px;
-    border-radius:7px;
-    cursor:pointer;
-    font-size:11px;
-}
-
-.quick-sizes button:hover{
-    background:#fff3e0;
-    border-color:#ff9800;
-}
-
-/* =========================
-   A4 PRINT
-========================= */
-
-.a4-print-preview{
-    background:#e9ecef;
-    padding:20px;
-    border-radius:18px;
-    overflow:auto;
-}
-
-.a4-page{
-    width:210mm;
-    min-height:297mm;
-    background:#fff;
-    margin:auto;
-    padding:8mm;
-    box-shadow:0 5px 25px rgba(0,0,0,.2);
-}
-
-.a4-page h3{
-    text-align:center;
-    font-size:12px;
-    margin-bottom:5mm;
-}
-
-.print-grid{
-    display:grid;
-    justify-content:center;
-    align-content:start;
-    gap:5mm;
-}
-
-.print-card{
-    position:relative;
-    overflow:hidden;
-    background:white;
-    border:.35mm dashed #555;
-}
-
-.print-card img{
-    position:absolute;
-    display:block;
-}
-
-.print-label{
-    position:absolute;
-    top:1mm;
-    left:1mm;
-    background:rgba(255,255,255,.8);
-    font-size:7px;
-    padding:1px 3px;
-    z-index:20;
-}
-
-/* PHOTO EDITOR */
-
-.editor{
-    display:grid;
-    grid-template-columns:280px 1fr;
-    gap:18px;
+.editor,
+.print-layout{
+display:grid;
+grid-template-columns:280px 1fr;
+gap:16px
 }
 
 .controls{
-    background:#fff;
-    padding:18px;
-    border-radius:16px;
-    box-shadow:0 8px 25px rgba(0,0,0,.1);
+padding:16px
+}
+
+label{
+display:block;
+font-weight:bold;
+font-size:12px
+}
+
+input,
+select{
+width:100%;
+padding:10px;
+border:1px solid #ccd3dc;
+border-radius:8px;
+margin:4px 0 9px;
+background:#fff
 }
 
 .canvasbox{
-    background:#eee;
-    min-height:500px;
-    border-radius:16px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:auto;
+background:#e5e7eb;
+min-height:520px;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:auto;
+padding:15px
 }
 
-#photoCanvas{
-    max-width:95%;
-    max-height:650px;
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
+.canvasbox canvas{
+max-width:100%;
+max-height:650px;
+background:#fff;
+box-shadow:0 7px 20px #0003
 }
 
-/* PDF */
-
-.pdf-layout{
-    display:grid;
-    grid-template-columns:220px 1fr 250px;
-    gap:15px;
+.status{
+padding:9px;
+border-radius:8px;
+background:#eef5ff;
+margin:8px 0;
+font-size:13px
 }
 
-.pdf-pages,
-.pdf-tools{
-    background:#fff;
-    border-radius:15px;
-    padding:15px;
+.success{
+background:#e8f5e9;
+color:#1b5e20
 }
 
-.pdf-pages{
-    max-height:700px;
-    overflow:auto;
+.error{
+background:#ffebee;
+color:#b71c1c
 }
 
-.pdf-canvas-wrap{
-    background:#e9ecef;
-    border-radius:15px;
-    min-height:650px;
-    padding:20px;
-    overflow:auto;
-    text-align:center;
+.preview{
+background:#e6e8eb;
+padding:15px;
+overflow:auto
 }
 
-#pdfCanvas{
-    background:#fff;
-    max-width:100%;
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
+.a4{
+width:210mm;
+min-height:297mm;
+background:#fff;
+padding:7mm;
+margin:auto
 }
 
-.page-thumb{
-    background:#f5f5f5;
-    padding:6px;
-    border-radius:8px;
-    margin-bottom:8px;
-    cursor:pointer;
-    border:2px solid transparent;
+.print-grid{
+display:grid;
+align-content:start;
+justify-content:center
 }
 
-.page-thumb.active{
-    border-color:#ff5722;
+.print-item{
+position:relative;
+overflow:hidden;
+background:#fff
 }
 
-.page-thumb canvas{
-    width:100%;
-    display:block;
+.print-item img{
+width:100%;
+height:100%;
+display:block;
+object-fit:fill
 }
 
-/* SIGNATURE */
-
-#signatureCanvas{
-    border:2px dashed #999;
-    width:100%;
-    height:180px;
-    background:#fff;
-    touch-action:none;
+.cut{
+position:absolute;
+inset:0;
+border:.25mm dashed #666;
+pointer-events:none
 }
 
-/* FOOTER */
+.custom{
+display:none;
+background:#f5f5f5;
+padding:8px;
+border-radius:8px;
+margin-bottom:8px
+}
 
 footer{
-    text-align:center;
-    background:linear-gradient(
-        135deg,
-        #263238,
-        #37474f
-    );
-    color:white;
-    padding:25px;
-    margin-top:30px;
+background:#263238;
+color:#fff;
+text-align:center;
+padding:22px
 }
 
-/* MODAL */
+@media(max-width:850px){
 
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.55);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:5000;
-    padding:20px;
+.editor,
+.print-layout{
+grid-template-columns:1fr
 }
 
-.modal.show{
-    display:flex;
+.brand h1{
+font-size:17px
 }
 
-.modal-box{
-    width:100%;
-    max-width:430px;
-    background:#fff;
-    border-radius:22px;
-    padding:25px;
+.logo{
+width:45px;
+height:45px
 }
 
-/* MOBILE */
+.a4{
+transform:scale(.55);
+transform-origin:top left;
+margin-bottom:-125mm;
+margin-right:-85mm
+}
 
-@media(max-width:900px){
+}
 
-    .id-editor,
-    .editor,
-    .pdf-layout{
-        grid-template-columns:1fr;
-    }
+@media print{
 
-    .brand h1{
-        font-size:18px;
-    }
+body{
+background:#fff
+}
 
-    .logo{
-        width:48px;
-        height:48px;
-        font-size:24px;
-    }
+.no-print,
+header,
+footer{
+display:none!important
+}
 
-    .user-email{
-        display:none;
-    }
+.preview{
+padding:0;
+box-shadow:none
+}
 
-    .id-preview-area{
-        min-height:450px;
-    }
+.a4{
+box-shadow:none;
+margin:0
+}
 
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
-<div class="header-inner">
+<div class="header">
 
 <div class="brand">
 
-<div class="logo">🇮🇳</div>
+<div class="logo">
+🇮🇳
+</div>
 
 <div>
-<h1>Bharat Digital Centre</h1>
-<p>Citizen ID • Photo • PDF • Print Services</p>
-</div>
+
+<h1>
+Bharat Digital Centre
+</h1>
+
+<p>
+AI Photo • ID Size • A4 Print Studio
+</p>
 
 </div>
 
-<div class="user-box">
+</div>
 
-<span id="userEmail" class="user-email">
+<span>
 Guest
 </span>
 
-<button class="btn small dark" id="loginBtn">
-Login
-</button>
-
-<button
-class="btn small red"
-id="logoutBtn"
-style="display:none">
-Logout
-</button>
-
 </div>
 
-</div>
 
 <nav>
 
-<div class="nav-inner">
+<div class="nav">
 
 <button
-class="nav-btn active"
-data-section="home">
+class="active"
+data-s="home">
+
 🏠 Home
+
 </button>
 
 <button
-class="nav-btn"
-data-section="idservices">
-🪪 ID Services
+data-s="photo">
+
+📷 AI Photo Studio
+
 </button>
 
 <button
-class="nav-btn"
-data-section="idprint">
-🖨️ ID Card Print
+data-s="id">
+
+🪪 ID Card Studio
+
 </button>
 
 <button
-class="nav-btn"
-data-section="photo">
-📷 Photo Editor
-</button>
+data-s="print">
 
-<button
-class="nav-btn"
-data-section="pdf">
-📄 PDF Tools
-</button>
+🖨️ A4 Print
 
-<button
-class="nav-btn"
-data-section="converter">
-🔄 Converter
 </button>
 
 </div>
@@ -778,11 +431,13 @@ data-section="converter">
 </header>
 
 
+
 <main>
 
-<!-- =========================
-     HOME
-========================= -->
+
+<!-- =====================================================
+HOME
+===================================================== -->
 
 <section
 id="home"
@@ -791,23 +446,19 @@ class="section active">
 <div class="hero">
 
 <h2>
-🇮🇳 नमस्कार! Bharat Digital Centre में आपका स्वागत है
+🇮🇳 Bharat Digital Centre
 </h2>
 
 <p>
-नागरिक सेवाएँ, फोटो एडिटिंग,
-ID Card Crop/Resize, A4 Print,
-PDF Tools और दस्तावेज़ तैयार करने के लिए एक ही जगह।
+Passport photo, सामान्य ID-size formatting
+और A4 print layout के लिए integrated tool.
 </p>
 
 <div class="notice">
 
-⚠️ <b>महत्वपूर्ण:</b>
-
-यह वेबसाइट सरकारी वेबसाइट नहीं है।
-Aadhaar, PAN, Driving Licence और Voter ID
-जैसी सेवाओं के लिए संबंधित सरकारी
-Official Portal का उपयोग करें।
+⚠️ यह सरकारी वेबसाइट नहीं है।
+सरकारी पहचान-पत्रों के लिए संबंधित
+official portal का उपयोग करें।
 
 </div>
 
@@ -816,6 +467,35 @@ Official Portal का उपयोग करें।
 
 <div class="grid">
 
+
+<div class="card">
+
+<div class="card-icon">
+🤖
+</div>
+
+<h3>
+AI Photo Studio
+</h3>
+
+<p>
+Smart crop, size, background,
+brightness, contrast, saturation
+और position controls.
+</p>
+
+<button
+class="btn blue"
+onclick="openSection('photo')">
+
+Open
+
+</button>
+
+</div>
+
+
+
 <div class="card">
 
 <div class="card-icon">
@@ -823,23 +503,24 @@ Official Portal का उपयोग करें।
 </div>
 
 <h3>
-Citizen ID Services
+ID Card Studio
 </h3>
 
 <p>
-Aadhaar, PAN, Driving Licence और
-Voter ID के official portals।
+Card size, crop/fit, zoom,
+position, rotate और front/back preview.
 </p>
 
 <button
 class="btn"
-data-open-section="idservices">
+onclick="openSection('id')">
 
-Open Services
+Open
 
 </button>
 
 </div>
+
 
 
 <div class="card">
@@ -849,381 +530,514 @@ Open Services
 </div>
 
 <h3>
-ID Card Print
+A4 Print
 </h3>
 
 <p>
-ID Card size edit, crop, zoom,
-front/back और A4 multiple printing।
+1–24 copies, common sizes,
+custom size, margin, gap और cut line.
 </p>
 
 <button
 class="btn green"
-data-open-section="idprint">
+onclick="openSection('print')">
 
-Open ID Print
-
-</button>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-📷
-</div>
-
-<h3>
-Photo Editor
-</h3>
-
-<p>
-Crop, Resize, Rotate, Brightness,
-Contrast और photo tools।
-</p>
-
-<button
-class="btn blue"
-data-open-section="photo">
-
-Open Photo Editor
+Open
 
 </button>
 
 </div>
 
-
-<div class="card">
-
-<div class="card-icon">
-📄
-</div>
-
-<h3>
-PDF Tools
-</h3>
-
-<p>
-PDF page management और document tools।
-</p>
-
-<button
-class="btn"
-data-open-section="pdf">
-
-Open PDF Tools
-
-</button>
-
-</div>
 
 </div>
 
 </section>
 
-
-<!-- =========================
-     ID SERVICES
-========================= -->
-
-<section
-id="idservices"
-class="section">
-
-<h2 class="title">
-🪪 Citizen ID Services
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<div class="card-icon">🆔</div>
-
-<h3>Aadhaar Card</h3>
-
-<p>
-Aadhaar enrolment और update services.
-</p>
-
-<button
-class="btn official"
-data-url="https://uidai.gov.in/">
-
-Aadhaar Official Portal
-
-</button>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">💳</div>
-
-<h3>PAN Card</h3>
-
-<p>
-PAN application और related services.
-</p>
-
-<button
-class="btn official"
-data-url="https://www.incometax.gov.in/">
-
-PAN Official Portal
-
-</button>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">🚗</div>
-
-<h3>Driving Licence</h3>
-
-<p>
-Learner और Driving Licence services.
-</p>
-
-<button
-class="btn official"
-data-url="https://parivahan.gov.in/">
-
-Parivahan Official Portal
-
-</button>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">🗳️</div>
-
-<h3>Voter ID</h3>
-
-<p>
-Voter registration और election services.
-</p>
-
-<button
-class="btn official"
-data-url="https://voters.eci.gov.in/">
-
-Voter Services
-
-</button>
-
-</div>
-
-</div>
-
-</section>
 
 
 <!-- =====================================================
-     ID CARD PRINT / EDITOR
+PHOTO STUDIO
 ===================================================== -->
 
 <section
-id="idprint"
+id="photo"
 class="section">
 
 <h2 class="title">
-🪪 ID Card Size Editor & A4 Print
+📷 AI Photo Studio
 </h2>
 
 
-<div class="id-editor">
-
-<!-- =========================
-     CONTROLS
-========================= -->
-
-<div class="id-controls">
-
-<h3>
-⚙️ ID Card Editor
-</h3>
+<div class="editor">
 
 
-<div class="control-group">
+<div class="controls">
 
-<h4>
-1️⃣ Card Type
-</h4>
 
-<select id="cardType">
+<label>
+Photo Upload
+</label>
 
-<option value="cr80">
-Standard ID Card / CR80
+<input
+type="file"
+id="photoInput"
+accept="image/*"
+>
+
+
+
+<label>
+Photo Size
+</label>
+
+<select
+id="photoPreset">
+
+<option value="35x45">
+Passport 35 × 45 mm
 </option>
 
-<option value="aadhar">
-Aadhaar Card
+<option value="25x35">
+25 × 35 mm
 </option>
 
-<option value="pan">
-PAN Card
+<option value="45x45">
+45 × 45 mm
 </option>
 
-<option value="voter">
-Voter ID
+<option value="50x70">
+50 × 70 mm
 </option>
 
-<option value="dl">
-Driving Licence
-</option>
-
-<option value="ayushman">
-Ayushman Card
-</option>
-
-<option value="health">
-Health Card
-</option>
-
-<option value="employee">
-Employee ID
-</option>
-
-<option value="school">
-School ID
-</option>
-
-<option value="college">
-College ID
-</option>
-
-<option value="office">
-Office ID
+<option value="51x51">
+2 × 2 inch
 </option>
 
 <option value="custom">
-Custom Size
+Custom
 </option>
 
 </select>
 
+
+<div
+id="photoCustom"
+class="custom">
+
+<input
+id="photoW"
+type="number"
+value="35"
+placeholder="Width mm">
+
+<input
+id="photoH"
+type="number"
+value="45"
+placeholder="Height mm">
+
 </div>
 
 
-<!-- SIZE -->
-
-<div class="control-group">
-
-<h4>
-📐 ID Card Size Edit
-</h4>
-
-<div class="size-grid">
-
-<div>
 
 <label>
-Width (mm)
+Background
+</label>
+
+<select
+id="photoBg">
+
+<option value="white">
+White
+</option>
+
+<option value="blue">
+Light Blue
+</option>
+
+<option value="red">
+Light Red
+</option>
+
+<option value="original">
+Original
+</option>
+
+</select>
+
+
+
+<label>
+Zoom
 </label>
 
 <input
-type="number"
-id="cardWidth"
-value="85.60"
-step="0.01"
-min="10">
+id="zoom"
+type="range"
+min=".5"
+max="2.5"
+step=".01"
+value="1"
+>
 
-</div>
 
-
-<div>
 
 <label>
-Height (mm)
+Position X
 </label>
 
 <input
+id="posX"
+type="range"
+min="-300"
+max="300"
+value="0"
+>
+
+
+
+<label>
+Position Y
+</label>
+
+<input
+id="posY"
+type="range"
+min="-300"
+max="300"
+value="0"
+>
+
+
+
+<label>
+Brightness
+</label>
+
+<input
+id="brightness"
+type="range"
+min=".5"
+max="1.8"
+step=".01"
+value="1"
+>
+
+
+
+<label>
+Contrast
+</label>
+
+<input
+id="contrast"
+type="range"
+min=".5"
+max="1.8"
+step=".01"
+value="1"
+>
+
+
+
+<label>
+Saturation
+</label>
+
+<input
+id="saturation"
+type="range"
+min="0"
+max="2"
+step=".01"
+value="1"
+>
+
+
+
+<label>
+Rotate
+</label>
+
+<select
+id="rotate">
+
+<option>
+0
+</option>
+
+<option>
+90
+</option>
+
+<option>
+180
+</option>
+
+<option>
+270
+</option>
+
+</select>
+
+
+
+<button
+class="btn blue"
+onclick="smartAdjust()">
+
+🤖 Smart Auto Adjust
+
+</button>
+
+
+<button
+class="btn"
+onclick="resetPhoto()">
+
+↺ Reset
+
+</button>
+
+
+<button
+class="btn green"
+onclick="downloadPhoto()">
+
+⬇️ JPG
+
+</button>
+
+
+</div>
+
+
+<div class="canvasbox">
+
+<canvas
+id="photoCanvas">
+</canvas>
+
+</div>
+
+
+</div>
+
+
+<div
+id="photoStatus"
+class="status">
+
+Photo upload करें।
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+ID CARD STUDIO
+===================================================== -->
+
+<section
+id="id"
+class="section">
+
+<h2 class="title">
+🪪 ID Card Studio
+</h2>
+
+
+<div class="editor">
+
+
+<div class="controls">
+
+
+<label>
+Front Side
+</label>
+
+<input
+type="file"
+id="frontInput"
+accept="image/*"
+>
+
+
+
+<label>
+Back Side
+</label>
+
+<input
+type="file"
+id="backInput"
+accept="image/*"
+>
+
+
+
+<label>
+Card Size
+</label>
+
+<select
+id="cardSize">
+
+<option value="85.6x53.98">
+
+Standard ID
+85.60 × 53.98 mm
+
+</option>
+
+<option value="86x54">
+
+86 × 54 mm
+
+</option>
+
+<option value="90x55">
+
+90 × 55 mm
+
+</option>
+
+<option value="100x70">
+
+100 × 70 mm
+
+</option>
+
+<option value="custom">
+
+Custom
+
+</option>
+
+</select>
+
+
+
+<div
+id="cardCustom"
+class="custom">
+
+<input
+id="cardW"
 type="number"
-id="cardHeight"
-value="53.98"
-step="0.01"
-min="10">
-
-</div>
-
-</div>
-
-
-<div class="quick-sizes">
-
-<button
-onclick="setCardSize(85.60,53.98)">
-CR80
-</button>
-
-<button
-onclick="setCardSize(90,55)">
-90×55
-</button>
-
-<button
-onclick="setCardSize(86,54)">
-86×54
-</button>
-
-<button
-onclick="setCardSize(100,65)">
-100×65
-</button>
-
-</div>
-
-</div>
-
-
-<!-- FRONT -->
-
-<div class="control-group">
-
-<h4>
-🟢 Front Side
-</h4>
+value="85.6">
 
 <input
-type="file"
-id="frontImage"
-accept="image/*">
+id="cardH"
+type="number"
+value="53.98">
 
 </div>
 
 
-<!-- BACK -->
 
-<div class="control-group">
+<label>
+Crop / Fit
+</label>
 
-<h4>
-🔵 Back Side
-</h4>
+<select
+id="cardFit">
+
+<option value="cover">
+Crop / Cover
+</option>
+
+<option value="contain">
+Fit
+</option>
+
+<option value="fill">
+Fill
+</option>
+
+</select>
+
+
+
+<label>
+Zoom
+</label>
 
 <input
-type="file"
-id="backImage"
-accept="image/*">
+id="cardZoom"
+type="range"
+min=".5"
+max="2.5"
+step=".01"
+value="1"
+>
 
-</div>
 
 
-<!-- SIDE -->
+<label>
+Position X
+</label>
 
-<div class="control-group">
+<input
+id="cardX"
+type="range"
+min="-300"
+max="300"
+value="0"
+>
 
-<h4>
-📄 Print Side
-</h4>
 
-<select id="printSide">
+
+<label>
+Position Y
+</label>
+
+<input
+id="cardY"
+type="range"
+min="-300"
+max="300"
+value="0"
+>
+
+
+
+<label>
+Rotate
+</label>
+
+<select
+id="cardRotate">
+
+<option>
+0
+</option>
+
+<option>
+90
+</option>
+
+<option>
+180
+</option>
+
+<option>
+270
+</option>
+
+</select>
+
+
+
+<label>
+Print Mode
+</label>
+
+<select
+id="cardMode">
 
 <option value="front">
 Front Only
@@ -1239,169 +1053,279 @@ Front + Back
 
 </select>
 
-</div>
 
-
-<!-- FIT -->
-
-<div class="control-group">
-
-<h4>
-🖼️ Image Mode
-</h4>
 
 <button
-class="btn small"
-onclick="setImageMode('fill')">
+class="btn blue"
+onclick="autoCard()">
 
-Fill / Crop
+🤖 Auto Adjust
 
 </button>
 
-<button
-class="btn small blue"
-onclick="setImageMode('fit')">
-
-Fit
-
-</button>
-
-</div>
-
-
-<!-- ZOOM -->
-
-<div class="control-group">
-
-<h4>
-🔍 Zoom
-</h4>
-
-<div class="range-row">
-
-<input
-type="range"
-id="zoom"
-min="50"
-max="300"
-value="100">
-
-<span
-id="zoomValue"
-class="number-box">
-100%
-</span>
-
-</div>
-
-</div>
-
-
-<!-- POSITION X -->
-
-<div class="control-group">
-
-<h4>
-↔️ Horizontal Position
-</h4>
-
-<div class="range-row">
-
-<input
-type="range"
-id="posX"
-min="-100"
-max="100"
-value="0">
-
-<span
-id="posXValue"
-class="number-box">
-0
-</span>
-
-</div>
-
-</div>
-
-
-<!-- POSITION Y -->
-
-<div class="control-group">
-
-<h4>
-↕️ Vertical Position
-</h4>
-
-<div class="range-row">
-
-<input
-type="range"
-id="posY"
-min="-100"
-max="100"
-value="0">
-
-<span
-id="posYValue"
-class="number-box">
-0
-</span>
-
-</div>
-
-</div>
-
-
-<!-- ROTATE -->
-
-<div class="control-group">
-
-<h4>
-🔄 Rotate
-</h4>
-
-<div class="range-row">
-
-<input
-type="range"
-id="rotate"
-min="-180"
-max="180"
-value="0">
-
-<span
-id="rotateValue"
-class="number-box">
-0°
-</span>
-
-</div>
-
-</div>
-
 
 <button
-class="btn dark"
-onclick="resetEditor()">
+class="btn"
+onclick="resetCard()">
 
-↩️ Reset Crop/Edit
+↺ Reset
 
 </button>
 
 
 <button
 class="btn green"
-onclick="addCurrentCardToA4()">
+onclick="prepareCardPrint()">
 
-➕ Add to A4
+🖨️ A4 Print
+
+</button>
+
+
+</div>
+
+
+<div class="canvasbox">
+
+<canvas
+id="cardCanvas">
+</canvas>
+
+</div>
+
+
+</div>
+
+
+<div
+id="cardStatus"
+class="status">
+
+Front या Back image upload करें।
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+A4 PRINT
+===================================================== -->
+
+<section
+id="print"
+class="section">
+
+<h2 class="title">
+
+🖨️ A4 Automatic Print Layout
+
+</h2>
+
+
+<div class="print-layout">
+
+
+<div class="controls">
+
+
+<label>
+Source
+</label>
+
+<select
+id="printSource">
+
+<option value="photo">
+Photo Studio
+</option>
+
+<option value="front">
+ID Front
+</option>
+
+<option value="back">
+ID Back
+</option>
+
+<option value="both">
+ID Front + Back
+</option>
+
+</select>
+
+
+
+<label>
+Print Size
+</label>
+
+<select
+id="printSize">
+
+<option value="35x45">
+Passport 35 × 45 mm
+</option>
+
+<option value="25x35">
+25 × 35 mm
+</option>
+
+<option value="45x45">
+45 × 45 mm
+</option>
+
+<option value="50x70">
+50 × 70 mm
+</option>
+
+<option value="51x51">
+2 × 2 inch
+</option>
+
+<option value="85.6x53.98">
+Standard ID 85.60 × 53.98 mm
+</option>
+
+<option value="86x54">
+86 × 54 mm
+</option>
+
+<option value="90x55">
+90 × 55 mm
+</option>
+
+<option value="100x70">
+100 × 70 mm
+</option>
+
+<option value="custom">
+Custom
+</option>
+
+</select>
+
+
+
+<div
+id="customBox"
+class="custom">
+
+<input
+id="customW"
+type="number"
+value="85.6">
+
+<input
+id="customH"
+type="number"
+value="53.98">
+
+</div>
+
+
+
+<label>
+Copies
+</label>
+
+<select
+id="copies">
+
+<option>1</option>
+<option>2</option>
+<option>4</option>
+<option>6</option>
+<option>8</option>
+<option>10</option>
+<option>12</option>
+<option>16</option>
+<option>20</option>
+<option>24</option>
+
+</select>
+
+
+
+<label>
+A4 Orientation
+</label>
+
+<select
+id="orientation">
+
+<option value="portrait">
+Portrait
+</option>
+
+<option value="landscape">
+Landscape
+</option>
+
+</select>
+
+
+
+<label>
+Gap (mm)
+</label>
+
+<input
+id="gap"
+type="number"
+value="3"
+min="0"
+max="15"
+>
+
+
+
+<label>
+Margin (mm)
+</label>
+
+<input
+id="margin"
+type="number"
+value="7"
+min="0"
+max="20"
+>
+
+
+
+<label>
+Cut Line
+</label>
+
+<select
+id="border">
+
+<option value="yes">
+Show
+</option>
+
+<option value="no">
+Hide
+</option>
+
+</select>
+
+
+
+<button
+class="btn blue"
+onclick="makePrint()">
+
+🔄 Generate Layout
 
 </button>
 
 
 <button
 class="btn green"
-onclick="printIDCards()">
+onclick="printA4()">
 
 🖨️ Print A4
 
@@ -1409,92 +1333,25 @@ onclick="printIDCards()">
 
 
 <div
-id="cardStatus"
+id="printInfo"
 class="status">
 
-Front/Back image upload करें।
-
-</div>
-
-</div>
-
-
-<!-- =========================
-     PREVIEW
-========================= -->
-
-<div>
-
-<div class="id-preview-area">
-
-<div class="editor-stage">
-
-<div
-id="idCardPreview"
-class="id-card-preview">
-
-<img
-id="idCardImage"
-src=""
-style="display:none">
-
-<div
-class="crop-frame">
-</div>
-
-</div>
-
-</div>
+Source चुनें और Generate Layout दबाएँ।
 
 </div>
 
 
-<div class="status">
-
-<b>Live Preview:</b>
-
-Width:
-<span id="previewWidth">
-85.60
-</span>
-mm
-
-×
-
-Height:
-<span id="previewHeight">
-53.98
-</span>
-mm
-
-<br>
-
-Zoom:
-<span id="previewZoom">
-100
-</span>%
-
 </div>
 
 
-<!-- A4 -->
-
-<div class="a4-print-preview">
-
-<h3>
-📄 A4 Print Preview
-</h3>
+<div class="preview">
 
 <div
 id="a4Page"
-class="a4-page">
-
-<h3>
-Bharat Digital Centre - ID Card Print
-</h3>
+class="a4">
 
 <div
-id="a4Grid"
+id="printGrid"
 class="print-grid">
 </div>
 
@@ -1502,1740 +1359,1015 @@ class="print-grid">
 
 </div>
 
-</div>
 
 </div>
 
 </section>
 
-
-<!-- =========================
-     PHOTO EDITOR
-========================= -->
-
-<section
-id="photo"
-class="section">
-
-<h2 class="title">
-📷 Photo Editor
-</h2>
-
-<div class="editor">
-
-<div class="controls">
-
-<h3>
-Photo Tools
-</h3>
-
-<label>
-Upload Photo
-</label>
-
-<input
-type="file"
-id="photoInput"
-accept="image/*">
-
-<button
-class="btn"
-onclick="rotatePhoto()">
-
-🔄 Rotate
-
-</button>
-
-<button
-class="btn blue"
-onclick="downloadPhoto()">
-
-⬇️ Download
-
-</button>
-
-</div>
-
-<div class="canvasbox">
-
-<canvas
-id="photoCanvas">
-</canvas>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     PDF
-========================= -->
-
-<section
-id="pdf"
-class="section">
-
-<h2 class="title">
-📄 PDF Tools
-</h2>
-
-<div class="card">
-
-<p>
-यहाँ PDF tools के लिए workspace तैयार है।
-</p>
-
-<input
-type="file"
-accept="application/pdf">
-
-<div class="status">
-PDF upload करके आगे processing की जा सकती है।
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     CONVERTER
-========================= -->
-
-<section
-id="converter"
-class="section">
-
-<h2 class="title">
-🔄 Converter
-</h2>
-
-<div class="card">
-
-<h3>
-Image / Document Converter
-</h3>
-
-<input
-type="file"
-id="converterInput">
-
-<button
-class="btn"
-onclick="alert('Converter module तैयार है।')">
-
-Convert
-
-</button>
-
-</div>
-
-</section>
 
 </main>
 
 
 <footer>
 
-Bharat Digital Centre © 2026
-
-<br>
-
-Citizen Digital Services • Photo • ID Print • PDF
+Bharat Digital Centre
+•
+Photo & ID Print Studio
 
 </footer>
 
 
+
 <script>
 
-/* =====================================================
-   GLOBAL VARIABLES
-===================================================== */
 
-let frontImage = null;
-let backImage = null;
+const $ =
+id => document.getElementById(id);
 
-let activeSide = "front";
 
-let imageMode = "fill";
+let photoImg = null;
 
-let editorSettings = {
+let frontImg = null;
 
-    zoom:100,
-    x:0,
-    y:0,
-    rotate:0
+let backImg = null;
 
-};
 
 
 /* =====================================================
-   NAVIGATION
+SECTION NAVIGATION
 ===================================================== */
-
-document
-.querySelectorAll(".nav-btn")
-.forEach(function(btn){
-
-    btn.addEventListener(
-        "click",
-        function(){
-
-            const section =
-                this.dataset.section;
-
-            openSection(section);
-
-        }
-    );
-
-});
-
-
-document
-.querySelectorAll("[data-open-section]")
-.forEach(function(btn){
-
-    btn.addEventListener(
-        "click",
-        function(){
-
-            openSection(
-                this.dataset.openSection
-            );
-
-        }
-    );
-
-});
-
 
 function openSection(id){
 
-    document
-    .querySelectorAll(".section")
-    .forEach(function(section){
+document
+.querySelectorAll(".section")
+.forEach(x =>
+x.classList.remove("active")
+);
 
-        section.classList.remove("active");
+document
+.querySelectorAll(".nav button")
+.forEach(x =>
+x.classList.remove("active")
+);
 
-    });
+$(id).classList.add("active");
 
+let b =
+document.querySelector(
+'[data-s="'+id+'"]'
+);
 
-    const target =
-        document.getElementById(id);
+if(b)
+b.classList.add("active");
 
-    if(target){
-
-        target.classList.add("active");
-
-    }
-
-
-    document
-    .querySelectorAll(".nav-btn")
-    .forEach(function(btn){
-
-        btn.classList.toggle(
-            "active",
-            btn.dataset.section === id
-        );
-
-    });
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+scrollTo(0,0);
 
 }
 
 
-/* =====================================================
-   OFFICIAL LINKS
-===================================================== */
 
 document
-.querySelectorAll(".official")
-.forEach(function(btn){
+.querySelectorAll(".nav button")
+.forEach(
+b =>
+b.onclick =
+() =>
+openSection(b.dataset.s)
+);
 
-    btn.addEventListener(
-        "click",
-        function(){
-
-            window.open(
-                this.dataset.url,
-                "_blank"
-            );
-
-        }
-    );
-
-});
 
 
 /* =====================================================
-   CARD SIZE
+IMAGE LOADER
 ===================================================== */
 
-const cardSizes = {
+function loadImage(file,cb){
 
-    cr80:[85.60,53.98],
+if(!file)
+return;
 
-    aadhar:[85.60,53.98],
+let r =
+new FileReader();
 
-    pan:[85.60,53.98],
+r.onload =
+e => {
 
-    voter:[85.60,53.98],
+let im =
+new Image();
 
-    dl:[85.60,53.98],
+im.onload =
+() => cb(im);
 
-    ayushman:[85.60,53.98],
+im.src =
+e.target.result;
 
-    health:[85.60,53.98],
+};
 
-    employee:[85.60,53.98],
+r.readAsDataURL(file);
 
-    school:[85.60,53.98],
+}
 
-    college:[85.60,53.98],
 
-    office:[85.60,53.98]
+
+/* =====================================================
+PHOTO LOAD
+===================================================== */
+
+$("photoInput").onchange =
+e => {
+
+loadImage(
+e.target.files[0],
+im => {
+
+photoImg = im;
+
+$("photoStatus").className =
+"status success";
+
+$("photoStatus").textContent =
+"Photo loaded.";
+
+drawPhoto();
+
+}
+);
 
 };
 
 
-document
-.getElementById("cardType")
-.addEventListener(
-    "change",
-    function(){
-
-        const type =
-            this.value;
-
-        if(
-            cardSizes[type]
-        ){
-
-            setCardSize(
-                cardSizes[type][0],
-                cardSizes[type][1]
-            );
-
-        }
-
-    }
-);
-
 
 /* =====================================================
-   SET SIZE
+FRONT LOAD
 ===================================================== */
 
-window.setCardSize =
-function(width,height){
+$("frontInput").onchange =
+e => {
 
-    document
-    .getElementById("cardWidth")
-    .value = width;
+loadImage(
+e.target.files[0],
+im => {
 
-    document
-    .getElementById("cardHeight")
-    .value = height;
+frontImg = im;
 
-    updateCardSize();
+$("cardStatus").className =
+"status success";
+
+$("cardStatus").textContent =
+"Front image loaded.";
+
+drawCard();
+
+}
+);
 
 };
 
 
-document
-.getElementById("cardWidth")
-.addEventListener(
-    "input",
-    updateCardSize
+
+/* =====================================================
+BACK LOAD
+===================================================== */
+
+$("backInput").onchange =
+e => {
+
+loadImage(
+e.target.files[0],
+im => {
+
+backImg = im;
+
+$("cardStatus").className =
+"status success";
+
+$("cardStatus").textContent =
+"Back image loaded.";
+
+drawCard();
+
+}
 );
-
-
-document
-.getElementById("cardHeight")
-.addEventListener(
-    "input",
-    updateCardSize
-);
-
-
-function updateCardSize(){
-
-    const width =
-        parseFloat(
-            document.getElementById(
-                "cardWidth"
-            ).value
-        ) || 85.60;
-
-
-    const height =
-        parseFloat(
-            document.getElementById(
-                "cardHeight"
-            ).value
-        ) || 53.98;
-
-
-    const preview =
-        document.getElementById(
-            "idCardPreview"
-        );
-
-
-    preview.style.width =
-        width + "mm";
-
-
-    preview.style.height =
-        height + "mm";
-
-
-    document
-    .getElementById(
-        "previewWidth"
-    )
-    .textContent =
-        width.toFixed(2);
-
-
-    document
-    .getElementById(
-        "previewHeight"
-    )
-    .textContent =
-        height.toFixed(2);
-
-
-    updateImageTransform();
 
 };
 
 
-/* =====================================================
-   FRONT IMAGE
-===================================================== */
-
-document
-.getElementById("frontImage")
-.addEventListener(
-    "change",
-    function(){
-
-        loadImageFile(
-            this.files[0],
-            "front"
-        );
-
-    }
-);
-
 
 /* =====================================================
-   BACK IMAGE
+SIZE FUNCTION
 ===================================================== */
 
-document
-.getElementById("backImage")
-.addEventListener(
-    "change",
-    function(){
+function getSize(id,cw,ch){
 
-        loadImageFile(
-            this.files[0],
-            "back"
-        );
+let v =
+$(id).value;
 
-    }
-);
+if(v === "custom")
+return [
+Number($(cw).value)||35,
+Number($(ch).value)||45
+];
+
+return v.split("x").map(Number);
+
+}
+
 
 
 /* =====================================================
-   LOAD IMAGE
+DRAW IMAGE
 ===================================================== */
 
-function loadImageFile(
-    file,
-    side
+function drawImageCover(
+ctx,
+img,
+w,
+h,
+zoom,
+x,
+y,
+rot,
+fit
 ){
 
-    if(!file){
-        return;
-    }
+ctx.save();
 
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-    function(e){
-
-        const img =
-            new Image();
-
-
-        img.onload =
-        function(){
-
-            if(side === "front"){
-
-                frontImage = img;
-
-                activeSide = "front";
-
-            }
-            else{
-
-                backImage = img;
-
-                activeSide = "back";
-
-            }
-
-
-            resetEditor();
-
-
-            showActiveImage();
-
-
-            document
-            .getElementById(
-                "cardStatus"
-            )
-            .className =
-                "status success";
-
-
-            document
-            .getElementById(
-                "cardStatus"
-            )
-            .textContent =
-                side === "front"
-                ? "Front Side image loaded successfully."
-                : "Back Side image loaded successfully.";
-
-        };
-
-
-        img.src =
-            e.target.result;
-
-    };
-
-
-    reader.readAsDataURL(file);
-
-}
-
-
-/* =====================================================
-   SHOW ACTIVE IMAGE
-===================================================== */
-
-function showActiveImage(){
-
-    const image =
-        activeSide === "front"
-        ? frontImage
-        : backImage;
-
-
-    const previewImage =
-        document.getElementById(
-            "idCardImage"
-        );
-
-
-    if(!image){
-
-        previewImage.style.display =
-            "none";
-
-        return;
-
-    }
-
-
-    previewImage.src =
-        image.src;
-
-
-    previewImage.style.display =
-        "block";
-
-
-    updateImageTransform();
-
-}
-
-
-/* =====================================================
-   PRINT SIDE CHANGE
-===================================================== */
-
-document
-.getElementById("printSide")
-.addEventListener(
-    "change",
-    function(){
-
-        const value =
-            this.value;
-
-        if(value === "back" && backImage){
-
-            activeSide = "back";
-
-        }
-        else{
-
-            activeSide = "front";
-
-        }
-
-        showActiveImage();
-
-    }
+ctx.translate(
+w/2+x,
+h/2+y
 );
 
+ctx.rotate(
+rot*Math.PI/180
+);
+
+ctx.scale(
+zoom,
+zoom
+);
+
+let s;
+
+if(fit === "contain"){
+
+s =
+Math.min(
+w/img.width,
+h/img.height
+);
+
+}
+
+else if(fit === "fill"){
+
+s =
+w/img.width;
+
+}
+
+else{
+
+s =
+Math.max(
+w/img.width,
+h/img.height
+);
+
+}
+
+let dw =
+img.width*s;
+
+let dh =
+img.height*s;
+
+ctx.drawImage(
+img,
+-dw/2,
+-dh/2,
+dw,
+dh
+);
+
+ctx.restore();
+
+}
+
+
 
 /* =====================================================
-   IMAGE MODE
+PHOTO PRESET
 ===================================================== */
 
-window.setImageMode =
-function(mode){
+$("photoPreset").onchange =
+() => {
 
-    imageMode =
-        mode;
+$("photoCustom").style.display =
+$("photoPreset").value === "custom"
+? "block"
+: "none";
 
-    updateImageTransform();
+drawPhoto();
 
 };
 
 
+
 /* =====================================================
-   ZOOM
+PHOTO CONTROLS
 ===================================================== */
 
-document
-.getElementById("zoom")
-.addEventListener(
-    "input",
-    function(){
-
-        editorSettings.zoom =
-            Number(this.value);
-
-        document
-        .getElementById(
-            "zoomValue"
-        )
-        .textContent =
-            this.value + "%";
-
-
-        document
-        .getElementById(
-            "previewZoom"
-        )
-        .textContent =
-            this.value;
-
-
-        updateImageTransform();
-
-    }
+[
+"zoom",
+"posX",
+"posY",
+"brightness",
+"contrast",
+"saturation",
+"rotate"
+]
+.forEach(
+id =>
+$(id).oninput =
+drawPhoto
 );
 
 
-/* =====================================================
-   X POSITION
-===================================================== */
+$("photoBg").onchange =
+drawPhoto;
 
-document
-.getElementById("posX")
-.addEventListener(
-    "input",
-    function(){
-
-        editorSettings.x =
-            Number(this.value);
-
-        document
-        .getElementById(
-            "posXValue"
-        )
-        .textContent =
-            this.value;
-
-
-        updateImageTransform();
-
-    }
-);
 
 
 /* =====================================================
-   Y POSITION
+DRAW PHOTO
 ===================================================== */
-
-document
-.getElementById("posY")
-.addEventListener(
-    "input",
-    function(){
-
-        editorSettings.y =
-            Number(this.value);
-
-        document
-        .getElementById(
-            "posYValue"
-        )
-        .textContent =
-            this.value;
-
-
-        updateImageTransform();
-
-    }
-);
-
-
-/* =====================================================
-   ROTATE
-===================================================== */
-
-document
-.getElementById("rotate")
-.addEventListener(
-    "input",
-    function(){
-
-        editorSettings.rotate =
-            Number(this.value);
-
-        document
-        .getElementById(
-            "rotateValue"
-        )
-        .textContent =
-            this.value + "°";
-
-
-        updateImageTransform();
-
-    }
-);
-
-
-/* =====================================================
-   IMAGE TRANSFORM
-===================================================== */
-
-function updateImageTransform(){
-
-    const img =
-        document.getElementById(
-            "idCardImage"
-        );
-
-
-    const card =
-        document.getElementById(
-            "idCardPreview"
-        );
-
-
-    const source =
-        activeSide === "front"
-        ? frontImage
-        : backImage;
-
-
-    if(!source){
-
-        img.style.display =
-            "none";
-
-        return;
-
-    }
-
-
-    img.style.display =
-        "block";
-
-
-    const cardWidth =
-        card.clientWidth;
-
-
-    const cardHeight =
-        card.clientHeight;
-
-
-    const imageRatio =
-        source.width /
-        source.height;
-
-
-    const cardRatio =
-        cardWidth /
-        cardHeight;
-
-
-    let baseWidth;
-    let baseHeight;
-
-
-    /* FILL = COVER / CROP */
-
-    if(imageMode === "fill"){
-
-        if(imageRatio > cardRatio){
-
-            baseHeight =
-                cardHeight;
-
-            baseWidth =
-                baseHeight *
-                imageRatio;
-
-        }
-        else{
-
-            baseWidth =
-                cardWidth;
-
-            baseHeight =
-                baseWidth /
-                imageRatio;
-
-        }
-
-    }
-
-    /* FIT = CONTAIN */
-
-    else{
-
-        if(imageRatio > cardRatio){
-
-            baseWidth =
-                cardWidth;
-
-            baseHeight =
-                baseWidth /
-                imageRatio;
-
-        }
-        else{
-
-            baseHeight =
-                cardHeight;
-
-            baseWidth =
-                baseHeight *
-                imageRatio;
-
-        }
-
-    }
-
-
-    const zoom =
-        editorSettings.zoom / 100;
-
-
-    const finalWidth =
-        baseWidth * zoom;
-
-
-    const finalHeight =
-        baseHeight * zoom;
-
-
-    const x =
-        (cardWidth - finalWidth) / 2
-        +
-        (editorSettings.x *
-        cardWidth / 100);
-
-
-    const y =
-        (cardHeight - finalHeight) / 2
-        +
-        (editorSettings.y *
-        cardHeight / 100);
-
-
-    img.style.width =
-        finalWidth + "px";
-
-
-    img.style.height =
-        finalHeight + "px";
-
-
-    img.style.left =
-        x + "px";
-
-
-    img.style.top =
-        y + "px";
-
-
-    img.style.transform =
-        `rotate(${editorSettings.rotate}deg)`;
-
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
-
-window.resetEditor =
-function(){
-
-    editorSettings = {
-
-        zoom:100,
-        x:0,
-        y:0,
-        rotate:0
-
-    };
-
-
-    document
-    .getElementById("zoom")
-    .value = 100;
-
-
-    document
-    .getElementById("posX")
-    .value = 0;
-
-
-    document
-    .getElementById("posY")
-    .value = 0;
-
-
-    document
-    .getElementById("rotate")
-    .value = 0;
-
-
-    document
-    .getElementById("zoomValue")
-    .textContent = "100%";
-
-
-    document
-    .getElementById("posXValue")
-    .textContent = "0";
-
-
-    document
-    .getElementById("posYValue")
-    .textContent = "0";
-
-
-    document
-    .getElementById("rotateValue")
-    .textContent = "0°";
-
-
-    document
-    .getElementById("previewZoom")
-    .textContent = "100";
-
-
-    showActiveImage();
-
-};
-
-
-/* =====================================================
-   CREATE PRINT CARD
-===================================================== */
-
-function createPrintCard(
-    image,
-    settings,
-    width,
-    height,
-    title
-){
-
-    const card =
-        document.createElement(
-            "div"
-        );
-
-
-    card.className =
-        "print-card";
-
-
-    card.style.width =
-        width + "mm";
-
-
-    card.style.height =
-        height + "mm";
-
-
-    const img =
-        document.createElement(
-            "img"
-        );
-
-
-    img.src =
-        image.src;
-
-
-    img.style.width =
-        "100%";
-
-
-    img.style.height =
-        "100%";
-
-
-    img.style.objectFit =
-        "fill";
-
-
-    /*
-       For printing we use the
-       same visual crop settings
-       by applying object positioning.
-    */
-
-    img.style.transform =
-        `scale(${settings.zoom / 100})
-         translate(
-             ${settings.x / 2}%,
-             ${settings.y / 2}%
-         )
-         rotate(${settings.rotate}deg)`;
-
-
-    img.style.transformOrigin =
-        "center center";
-
-
-    card.appendChild(img);
-
-
-    const label =
-        document.createElement(
-            "div"
-        );
-
-
-    label.className =
-        "print-label";
-
-
-    label.textContent =
-        title;
-
-
-    card.appendChild(label);
-
-
-    return card;
-
-}
-
-
-/* =====================================================
-   ADD CURRENT CARD TO A4
-===================================================== */
-
-window.addCurrentCardToA4 =
-function(){
-
-    const side =
-        document.getElementById(
-            "printSide"
-        ).value;
-
-
-    const width =
-        parseFloat(
-            document.getElementById(
-                "cardWidth"
-            ).value
-        );
-
-
-    const height =
-        parseFloat(
-            document.getElementById(
-                "cardHeight"
-            ).value
-        );
-
-
-    const grid =
-        document.getElementById(
-            "a4Grid"
-        );
-
-
-    grid.innerHTML = "";
-
-
-    if(
-        (side === "front" ||
-         side === "both") &&
-        frontImage
-    ){
-
-        grid.appendChild(
-            createPrintCard(
-                frontImage,
-                editorSettings,
-                width,
-                height,
-                "FRONT"
-            )
-        );
-
-    }
-
-
-    if(
-        (side === "back" ||
-         side === "both") &&
-        backImage
-    ){
-
-        grid.appendChild(
-            createPrintCard(
-                backImage,
-                editorSettings,
-                width,
-                height,
-                "BACK"
-            )
-        );
-
-    }
-
-
-    if(grid.children.length === 0){
-
-        alert(
-            "पहले Front या Back image upload करें।"
-        );
-
-        return;
-
-    }
-
-
-    document
-    .getElementById(
-        "cardStatus"
-    )
-    .className =
-        "status success";
-
-
-    document
-    .getElementById(
-        "cardStatus"
-    )
-    .textContent =
-        "A4 preview तैयार है।";
-
-};
-
-
-/* =====================================================
-   AUTOMATIC MULTIPLE A4
-===================================================== */
-
-window.generateMultiIDCards =
-function(){
-
-    const side =
-        document.getElementById(
-            "printSide"
-        ).value;
-
-
-    const width =
-        parseFloat(
-            document.getElementById(
-                "cardWidth"
-            ).value
-        );
-
-
-    const height =
-        parseFloat(
-            document.getElementById(
-                "cardHeight"
-            ).value
-        );
-
-
-    const grid =
-        document.getElementById(
-            "a4Grid"
-        );
-
-
-    grid.innerHTML = "";
-
-
-    let image =
-        null;
-
-    let title =
-        "";
-
-
-    if(
-        side === "back" &&
-        backImage
-    ){
-
-        image =
-            backImage;
-
-        title =
-            "BACK";
-
-    }
-    else if(
-        frontImage
-    ){
-
-        image =
-            frontImage;
-
-        title =
-            "FRONT";
-
-    }
-
-
-    if(!image){
-
-        alert(
-            "पहले image upload करें।"
-        );
-
-        return;
-
-    }
-
-
-    /*
-       A4 usable area लगभग
-       194 × 281 mm
-       padding के बाद
-    */
-
-    const usableWidth =
-        194;
-
-
-    const usableHeight =
-        281;
-
-
-    const columns =
-        Math.max(
-            1,
-            Math.floor(
-                usableWidth /
-                (width + 5)
-            )
-        );
-
-
-    const rows =
-        Math.max(
-            1,
-            Math.floor(
-                usableHeight /
-                (height + 5)
-            )
-        );
-
-
-    const capacity =
-        columns * rows;
-
-
-    grid.style.gridTemplateColumns =
-        `repeat(${columns}, ${width}mm)`;
-
-
-    for(
-        let i=0;
-        i<capacity;
-        i++
-    ){
-
-        grid.appendChild(
-            createPrintCard(
-                image,
-                editorSettings,
-                width,
-                height,
-                title
-            )
-        );
-
-    }
-
-
-    document
-    .getElementById(
-        "cardStatus"
-    )
-    .className =
-        "status success";
-
-
-    document
-    .getElementById(
-        "cardStatus"
-    )
-    .textContent =
-        "A4 पर लगभग " +
-        capacity +
-        " ID Cards तैयार हैं।";
-
-};
-
-
-/* =====================================================
-   PRINT A4
-===================================================== */
-
-window.printIDCards =
-function(){
-
-    const grid =
-        document.getElementById(
-            "a4Grid"
-        );
-
-
-    if(
-        !grid.children.length
-    ){
-
-        addCurrentCardToA4();
-
-    }
-
-
-    if(
-        !grid.children.length
-    ){
-
-        return;
-
-    }
-
-
-    const printWindow =
-        window.open(
-            "",
-            "_blank"
-        );
-
-
-    if(!printWindow){
-
-        alert(
-            "Popup blocked है। Browser में popup allow करें।"
-        );
-
-        return;
-
-    }
-
-
-    const content =
-        document
-        .getElementById(
-            "a4Page"
-        )
-        .outerHTML;
-
-
-    printWindow.document.write(`
-
-<!DOCTYPE html>
-
-<html>
-
-<head>
-
-<meta charset="UTF-8">
-
-<title>ID Card A4 Print</title>
-
-<style>
-
-@page{
-
-    size:A4 portrait;
-
-    margin:0;
-
-}
-
-*{
-
-    box-sizing:border-box;
-
-}
-
-html,
-body{
-
-    margin:0;
-
-    padding:0;
-
-    width:210mm;
-
-    min-height:297mm;
-
-    background:#fff;
-
-}
-
-.a4-page{
-
-    width:210mm;
-
-    min-height:297mm;
-
-    padding:8mm;
-
-    background:white;
-
-}
-
-.a4-page h3{
-
-    text-align:center;
-
-    font-family:Arial,sans-serif;
-
-    font-size:12px;
-
-    margin:
-        0 0 5mm 0;
-
-}
-
-.print-grid{
-
-    display:grid;
-
-    justify-content:center;
-
-    align-content:start;
-
-    gap:5mm;
-
-}
-
-.print-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:#fff;
-
-    border:.35mm dashed #555;
-
-}
-
-.print-card img{
-
-    position:absolute;
-
-    display:block;
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:fill;
-
-}
-
-.print-label{
-
-    position:absolute;
-
-    top:1mm;
-
-    left:1mm;
-
-    background:
-        rgba(255,255,255,.8);
-
-    font-size:7px;
-
-    padding:1px 3px;
-
-    z-index:20;
-
-}
-
-@media print{
-
-    body{
-
-        width:210mm;
-
-    }
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-${content}
-
-<script>
-
-window.onload=function(){
-
-    setTimeout(function(){
-
-        window.focus();
-
-        window.print();
-
-    },500);
-
-};
-
-<\/script>
-
-</body>
-
-</html>
-
-`);
-
-
-    printWindow.document.close();
-
-};
-
-
-/* =====================================================
-   PHOTO EDITOR
-===================================================== */
-
-const photoCanvas =
-    document.getElementById(
-        "photoCanvas"
-    );
-
-
-const photoCtx =
-    photoCanvas.getContext("2d");
-
-
-let photoImage =
-    new Image();
-
-
-let photoAngle =
-    0;
-
-
-document
-.getElementById("photoInput")
-.addEventListener(
-    "change",
-    function(){
-
-        const file =
-            this.files[0];
-
-        if(!file){
-            return;
-        }
-
-
-        const reader =
-            new FileReader();
-
-
-        reader.onload =
-        function(e){
-
-            photoImage.onload =
-            function(){
-
-                drawPhoto();
-
-            };
-
-            photoImage.src =
-                e.target.result;
-
-        };
-
-
-        reader.readAsDataURL(file);
-
-    }
-);
-
 
 function drawPhoto(){
 
-    if(!photoImage.src){
-        return;
-    }
+let c =
+$("photoCanvas");
 
+if(!photoImg){
 
-    const w =
-        photoImage.width;
+c.width=500;
 
-    const h =
-        photoImage.height;
+c.height=650;
 
+let x =
+c.getContext("2d");
 
-    if(
-        photoAngle === 90 ||
-        photoAngle === 270
-    ){
+x.fillStyle="#eee";
 
-        photoCanvas.width = h;
-        photoCanvas.height = w;
+x.fillRect(
+0,
+0,
+c.width,
+c.height
+);
 
-    }
-    else{
+x.fillStyle="#777";
 
-        photoCanvas.width = w;
-        photoCanvas.height = h;
+x.font=
+"22px Arial";
 
-    }
+x.textAlign=
+"center";
 
+x.fillText(
+"Upload Photo",
+250,
+325
+);
 
-    photoCtx.save();
-
-
-    photoCtx.translate(
-        photoCanvas.width / 2,
-        photoCanvas.height / 2
-    );
-
-
-    photoCtx.rotate(
-        photoAngle *
-        Math.PI /
-        180
-    );
-
-
-    photoCtx.drawImage(
-        photoImage,
-        -w/2,
-        -h/2
-    );
-
-
-    photoCtx.restore();
+return;
 
 }
 
 
-window.rotatePhoto =
-function(){
-
-    photoAngle =
-        (photoAngle + 90) % 360;
-
-    drawPhoto();
-
-};
-
-
-window.downloadPhoto =
-function(){
-
-    if(
-        !photoCanvas.width
-    ){
-
-        alert(
-            "पहले photo upload करें।"
-        );
-
-        return;
-
-    }
+let [
+sx,
+sy
+] =
+getSize(
+"photoPreset",
+"photoW",
+"photoH"
+);
 
 
-    const link =
-        document.createElement("a");
+c.width=700;
+
+c.height =
+Math.round(
+700*sy/sx
+);
 
 
-    link.download =
-        "bharat-digital-photo.png";
+let x =
+c.getContext("2d");
 
 
-    link.href =
-        photoCanvas.toDataURL(
-            "image/png"
-        );
+let bg =
+$("photoBg").value;
 
 
-    link.click();
+x.fillStyle =
+bg === "blue"
+? "#dff3ff"
+:
+bg === "red"
+? "#ffe8e8"
+:
+"#fff";
 
-};
+
+x.fillRect(
+0,
+0,
+c.width,
+c.height
+);
+
+
+x.filter =
+`brightness(${$("brightness").value})
+contrast(${$("contrast").value})
+saturate(${$("saturation").value})`;
+
+
+drawImageCover(
+x,
+photoImg,
+c.width,
+c.height,
++$("zoom").value,
++$("posX").value,
++$("posY").value,
++$("rotate").value,
+"cover"
+);
+
+
+x.filter="none";
+
+}
+
 
 
 /* =====================================================
-   INITIALIZE
+SMART AUTO ADJUST
 ===================================================== */
 
-updateCardSize();
+function smartAdjust(){
+
+if(!photoImg){
+
+alert(
+"पहले photo upload करें।"
+);
+
+return;
+
+}
+
+$("zoom").value=1;
+
+$("posX").value=0;
+
+$("posY").value=0;
+
+$("brightness").value=1;
+
+$("contrast").value=1.05;
+
+$("saturation").value=1;
+
+drawPhoto();
+
+$("photoStatus").className =
+"status success";
+
+$("photoStatus").textContent =
+"Smart Auto Adjust लागू हो गया।";
+
+}
+
+
+
+/* =====================================================
+RESET PHOTO
+===================================================== */
+
+function resetPhoto(){
+
+$("zoom").value=1;
+
+$("posX").value=0;
+
+$("posY").value=0;
+
+$("brightness").value=1;
+
+$("contrast").value=1;
+
+$("saturation").value=1;
+
+$("rotate").value=0;
+
+$("photoBg").value="white";
+
+drawPhoto();
+
+}
+
+
+
+/* =====================================================
+DOWNLOAD PHOTO
+===================================================== */
+
+function downloadPhoto(){
+
+if(!photoImg){
+
+alert(
+"Photo upload करें।"
+);
+
+return;
+
+}
+
+let a =
+document.createElement("a");
+
+a.download =
+"passport-photo.jpg";
+
+a.href =
+$("photoCanvas")
+.toDataURL(
+"image/jpeg",
+.95
+);
+
+a.click();
+
+}
+
+
+
+/* =====================================================
+CARD SIZE
+===================================================== */
+
+$("cardSize").onchange =
+() => {
+
+$("cardCustom").style.display =
+$("cardSize").value === "custom"
+? "block"
+: "none";
+
+drawCard();
+
+};
+
+
+
+/* =====================================================
+CARD CONTROLS
+===================================================== */
+
+[
+"cardZoom",
+"cardX",
+"cardY",
+"cardRotate",
+"cardFit"
+]
+.forEach(
+id =>
+$(id).oninput =
+drawCard
+);
+
+
+
+/* =====================================================
+DRAW CARD
+===================================================== */
+
+function drawCard(){
+
+let c =
+$("cardCanvas");
+
+let [
+w,
+h
+] =
+getSize(
+"cardSize",
+"cardW",
+"cardH"
+);
+
+
+c.width=850;
+
+c.height =
+Math.round(
+850*h/w
+);
+
+
+let x =
+c.getContext("2d");
+
+
+x.fillStyle="#fff";
+
+x.fillRect(
+0,
+0,
+c.width,
+c.height
+);
+
+
+let im =
+frontImg || backImg;
+
+
+if(!im){
+
+x.fillStyle="#aaa";
+
+x.font=
+"25px Arial";
+
+x.textAlign=
+"center";
+
+x.fillText(
+"Upload Front / Back",
+c.width/2,
+c.height/2
+);
+
+return;
+
+}
+
+
+drawImageCover(
+x,
+im,
+c.width,
+c.height,
++$("cardZoom").value,
++$("cardX").value,
++$("cardY").value,
++$("cardRotate").value,
+$("cardFit").value
+);
+
+}
+
+
+
+/* =====================================================
+AUTO CARD
+===================================================== */
+
+function autoCard(){
+
+$("cardZoom").value=1;
+
+$("cardX").value=0;
+
+$("cardY").value=0;
+
+$("cardRotate").value=0;
+
+$("cardFit").value="cover";
+
+drawCard();
+
+}
+
+
+
+/* =====================================================
+RESET CARD
+===================================================== */
+
+function resetCard(){
+
+$("cardZoom").value=1;
+
+$("cardX").value=0;
+
+$("cardY").value=0;
+
+$("cardRotate").value=0;
+
+$("cardFit").value="fill";
+
+drawCard();
+
+}
+
+
+
+/* =====================================================
+PREPARE CARD PRINT
+===================================================== */
+
+function prepareCardPrint(){
+
+openSection("print");
+
+$("printSource").value =
+$("cardMode").value;
+
+let v =
+$("cardSize").value;
+
+if(v !== "custom")
+$("printSize").value=v;
+
+makePrint();
+
+}
+
+
+
+/* =====================================================
+CUSTOM PRINT SIZE
+===================================================== */
+
+$("printSize").onchange =
+() => {
+
+$("customBox").style.display =
+$("printSize").value === "custom"
+? "block"
+: "none";
+
+};
+
+
+
+/* =====================================================
+PRINT SOURCES
+===================================================== */
+
+function sources(){
+
+let s =
+$("printSource").value;
+
+if(s==="photo")
+return photoImg
+? [photoImg]
+: [];
+
+if(s==="front")
+return frontImg
+? [frontImg]
+: [];
+
+if(s==="back")
+return backImg
+? [backImg]
+: [];
+
+return [
+frontImg,
+backImg
+].filter(Boolean);
+
+}
+
+
+
+/* =====================================================
+GENERATE PRINT
+===================================================== */
+
+function makePrint(){
+
+let imgs =
+sources();
+
+
+if(!imgs.length){
+
+$("printInfo").className =
+"status error";
+
+$("printInfo").textContent =
+"पहले image upload करें।";
+
+return;
+
+}
+
+
+let [
+w,
+h
+] =
+getSize(
+"printSize",
+"customW",
+"customH"
+);
+
+
+let copies =
++$("copies").value;
+
+
+let gap =
++$("gap").value || 0;
+
+
+let margin =
++$("margin").value || 0;
+
+
+let page =
+$("a4Page");
+
+
+let grid =
+$("printGrid");
+
+
+let land =
+$("orientation").value ===
+"landscape";
+
+
+page.style.width =
+land
+? "297mm"
+: "210mm";
+
+
+page.style.minHeight =
+land
+? "210mm"
+: "297mm";
+
+
+page.style.padding =
+margin+"mm";
+
+
+grid.style.gridTemplateColumns =
+`repeat(auto-fill,${w}mm)`;
+
+
+grid.style.gap =
+gap+"mm";
+
+
+grid.innerHTML="";
+
+
+for(
+let i=0;
+i<copies;
+i++
+){
+
+let box =
+document.createElement("div");
+
+
+box.className =
+"print-item";
+
+
+box.style.width =
+w+"mm";
+
+
+box.style.height =
+h+"mm";
+
+
+let im =
+imgs[
+i % imgs.length
+];
+
+
+let img =
+document.createElement("img");
+
+
+img.src =
+im.src;
+
+
+box.appendChild(img);
+
+
+if(
+$("border").value === "yes"
+){
+
+let cut =
+document.createElement("div");
+
+cut.className =
+"cut";
+
+box.appendChild(cut);
+
+}
+
+
+grid.appendChild(box);
+
+}
+
+
+$("printInfo").className =
+"status success";
+
+
+$("printInfo").textContent =
+`A4 layout तैयार:
+${copies} copies •
+${w} × ${h} mm`;
+
+}
+
+
+
+/* =====================================================
+AUTO REGENERATE
+===================================================== */
+
+[
+"copies",
+"gap",
+"margin",
+"orientation",
+"border",
+"printSource"
+]
+.forEach(
+id =>
+$(id).onchange =
+() => {
+
+if(
+$("printGrid")
+.children.length
+)
+makePrint();
+
+}
+);
+
+
+
+/* =====================================================
+PRINT A4
+===================================================== */
+
+function printA4(){
+
+makePrint();
+
+setTimeout(
+() =>
+window.print(),
+300
+);
+
+}
+
+
+
+/* =====================================================
+INITIAL DRAW
+===================================================== */
+
+drawPhoto();
+
+drawCard();
 
 </script>
+
 
 </body>
 </html>
