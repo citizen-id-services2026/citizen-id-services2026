@@ -8,46 +8,40 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
-    background:#f5f7fb;
-    color:#202938;
-}
-
-button,input,select,textarea{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f7f8fc;
+    color:#273142;
 }
 
 a{
     text-decoration:none;
+    color:inherit;
 }
 
-.header{
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+header{
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:100;
     background:#fff;
-    border-bottom:1px solid #e5e7eb;
+    border-bottom:1px solid #eee;
 }
 
 .nav{
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
-    min-height:70px;
-    padding:10px 15px;
+    padding:11px 16px;
     display:flex;
     align-items:center;
     gap:18px;
@@ -56,782 +50,367 @@ a{
 .logo{
     display:flex;
     align-items:center;
-    gap:10px;
-    flex:1;
+    gap:9px;
+    margin-right:auto;
 }
 
 .logoIcon{
-    width:45px;
-    height:45px;
-    border-radius:12px;
-    background:linear-gradient(135deg,#4d3ddd,#8d43d7);
+    width:42px;
+    height:42px;
+    border-radius:11px;
+    background:linear-gradient(135deg,#6d28d9,#a855f7);
     color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display:grid;
+    place-items:center;
     font-weight:bold;
-    font-size:14px;
 }
 
-.logo h2{
-    font-size:18px;
-}
-
-.logo h2 span{
-    color:#5144dd;
+.logo b{
+    font-size:19px;
 }
 
 .logo small{
     display:block;
+    font-size:10px;
     color:#777;
-    font-size:9px;
-    margin-top:2px;
 }
 
-.navLinks{
+.navlinks{
     display:flex;
-    gap:20px;
+    gap:18px;
+    font-size:14px;
 }
 
-.navLinks a{
-    color:#333;
-    font-size:13px;
-    font-weight:bold;
+.navlinks a:hover{
+    color:#6d28d9;
 }
 
-.navBtn{
+.btn{
     border:0;
-    background:#5144dd;
-    color:#fff;
-    padding:10px 15px;
     border-radius:9px;
+    padding:10px 16px;
     font-weight:bold;
+    cursor:pointer;
 }
 
-.menu{
-    display:none;
-    border:0;
-    padding:9px 12px;
-    border-radius:8px;
-    background:#eee;
+.primary{
+    background:#5b21b6;
+    color:white;
+}
+
+.green{
+    background:#16a34a;
+    color:white;
+}
+
+.light{
+    background:white;
+    border:1px solid #ddd;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 16px;
 }
 
 .hero{
-    max-width:1250px;
-    margin:20px auto;
-    padding:0 15px;
-}
-
-.heroBox{
-    min-height:280px;
-    border-radius:22px;
-    background:linear-gradient(110deg,#dc2d91,#9548d4,#438fe1);
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    margin:24px 0;
+    padding:43px 20px;
+    border-radius:18px;
     text-align:center;
-    padding:30px 20px;
+    color:#fff;
+    background:linear-gradient(
+        110deg,
+        #ec168d,
+        #7c3aed,
+        #3185c8
+    );
 }
 
-.heroBox h1{
+.hero h1{
     font-size:35px;
-    margin-bottom:10px;
+    margin:0 0 10px;
 }
 
-.heroBox p{
-    font-size:15px;
-    max-width:750px;
-    line-height:1.7;
+.hero p{
+    line-height:1.6;
+    max-width:780px;
+    margin:0 auto 20px;
 }
 
-.heroButtons{
-    margin-top:20px;
+.heroBtns{
     display:flex;
     justify-content:center;
     gap:10px;
     flex-wrap:wrap;
 }
 
-.btn{
-    border:0;
-    border-radius:9px;
-    padding:10px 17px;
-    background:#5144dd;
-    color:#fff;
-    font-weight:bold;
-}
-
-.btn.white{
-    background:#fff;
-    color:#5144dd;
-}
-
-.btn.green{
-    background:#12a968;
-}
-
-.btn.red{
-    background:#e64d61;
-}
-
-.btn.gray{
-    background:#e9edf4;
-    color:#333;
-}
-
-.btn.small{
-    padding:7px 10px;
-    font-size:11px;
-}
-
 .search{
-    max-width:1000px;
-    margin:0 auto 25px;
-    padding:0 15px;
-}
-
-.searchBox{
-    height:55px;
+    max-width:760px;
+    margin:20px auto 32px;
     background:#fff;
-    border-radius:15px;
-    box-shadow:0 5px 20px #0000000b;
-    display:flex;
-    align-items:center;
-    padding:0 15px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    padding:14px 17px;
+    box-shadow:0 5px 18px #ddd;
 }
 
-.searchBox span{
-    font-size:23px;
-    color:#777;
-    margin-right:10px;
-}
-
-.searchBox input{
+.search input{
+    width:100%;
     border:0;
     outline:0;
-    width:100%;
+    font-size:16px;
 }
 
-.container{
-    max-width:1250px;
-    margin:auto;
-    padding:0 15px 50px;
+section{
+    margin:36px 0;
 }
 
-.section{
-    margin-bottom:35px;
+h2{
+    font-size:21px;
+    border-left:4px solid #7c3aed;
+    padding-left:9px;
 }
 
-.sectionTitle{
-    font-size:20px;
-    margin-bottom:15px;
-    display:flex;
-    align-items:center;
-    gap:8px;
+.notice{
+    background:#ecfdf3;
+    border:1px solid #bbf7d0;
+    color:#166534;
+    border-radius:9px;
+    padding:11px;
+    margin:13px 0;
 }
 
-.sectionTitle:before{
-    content:"";
-    width:4px;
-    height:23px;
-    background:#5144dd;
-    border-radius:4px;
-}
-
-.serviceGrid{
+.grid{
     display:grid;
     grid-template-columns:repeat(5,1fr);
-    gap:12px;
+    gap:13px;
 }
 
-.serviceCard{
+.card{
     background:#fff;
-    border:1px solid #dfe5ed;
-    border-radius:16px;
+    border:1px solid #d8eee7;
+    border-radius:15px;
+    min-height:175px;
     padding:14px 8px;
     text-align:center;
-    min-height:165px;
-    position:relative;
-    transition:.2s;
-}
-
-.serviceCard:hover{
-    transform:translateY(-3px);
-    box-shadow:0 8px 22px #0001;
-}
-
-.serviceIcon{
-    font-size:37px;
-    height:60px;
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
+    box-shadow:0 2px 8px #00000009;
 }
 
-.serviceCard h3{
-    font-size:13px;
+.icon{
+    font-size:36px;
+}
+
+.card h3{
+    font-size:14px;
     margin:7px 0;
 }
 
 .free{
-    color:#0a9b61;
     font-size:12px;
+    color:#16a34a;
     font-weight:bold;
 }
 
-.freeBadge{
-    position:absolute;
-    right:6px;
-    top:6px;
-    background:#0caf6c;
-    color:#fff;
-    font-size:8px;
-    padding:4px 6px;
-    border-radius:12px;
-}
-
-.serviceCard button{
-    border:0;
-    background:#5144dd;
-    color:#fff;
-    border-radius:7px;
-    padding:7px 12px;
+.card .btn{
+    font-size:12px;
+    padding:8px 11px;
     margin-top:7px;
-    font-size:11px;
 }
 
-.toolGrid{
+.features{
     display:grid;
-    grid-template-columns:repeat(6,1fr);
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+}
+
+.feature{
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:13px;
+    text-align:center;
+    padding:22px;
+}
+
+.faq{
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:15px;
+    padding:18px;
+}
+
+.faq details{
+    padding:13px 0;
+    border-bottom:1px solid #eee;
+}
+
+.faq summary{
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.panel{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+    padding:20px;
+}
+
+.form{
+    display:grid;
     gap:10px;
 }
 
-.toolCard{
-    background:#fff;
-    border:1px solid #e0e5ed;
-    border-radius:14px;
-    padding:16px 8px;
-    text-align:center;
-    cursor:pointer;
+.form input,
+.form select,
+.form textarea{
+    width:100%;
+    padding:11px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
 }
 
-.toolCard:hover{
-    box-shadow:0 6px 18px #0001;
-}
-
-.toolCard div{
-    font-size:30px;
-    margin-bottom:8px;
-}
-
-.toolCard h3{
-    font-size:12px;
-}
-
-.infoGrid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-}
-
-.infoCard{
-    background:#fff;
-    border-radius:15px;
-    padding:22px 12px;
-    text-align:center;
-}
-
-.infoCard .icon{
-    font-size:30px;
-    margin-bottom:8px;
-}
-
-.infoCard h3{
-    font-size:14px;
-}
-
-.govGrid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:12px;
-}
-
-.govCard{
-    background:#fff;
-    border-radius:15px;
-    padding:18px 8px;
-    text-align:center;
-}
-
-.govCard .govIcon{
-    font-size:32px;
-    margin-bottom:8px;
-}
-
-.govCard h3{
-    font-size:12px;
-    margin-bottom:7px;
-}
-
-.govCard button{
-    border:0;
-    background:#5144dd;
-    color:#fff;
-    border-radius:7px;
-    padding:6px 10px;
-    font-size:10px;
-}
-
-.about{
-    background:#fff;
-    border-radius:18px;
-    padding:25px;
-    margin-bottom:30px;
-}
-
-.about h2{
-    text-align:center;
-    margin-bottom:10px;
-}
-
-.about p{
-    color:#687384;
-    font-size:14px;
-    line-height:1.8;
-}
-
-details{
-    background:#f7f8fb;
-    margin:8px 0;
-    border-radius:9px;
-}
-
-summary{
-    padding:13px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:13px;
-}
-
-details p{
-    padding:0 13px 13px;
-}
-
-.footer{
-    background:#10172e;
-    color:#fff;
-    padding:45px 20px 20px;
-}
-
-.footerGrid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:30px;
-}
-
-.footer h3{
-    font-size:14px;
-    margin-bottom:13px;
-}
-
-.footer p,.footer a{
-    color:#b8c0d0;
-    font-size:13px;
-    line-height:1.8;
-}
-
-.footer a{
-    display:block;
-    margin-bottom:5px;
-}
-
-.copy{
-    max-width:1200px;
-    margin:30px auto 0;
-    padding-top:15px;
-    border-top:1px solid #29334d;
-    text-align:center;
-    color:#8993a8;
-    font-size:12px;
+.form textarea{
+    min-height:80px;
 }
 
 .modal{
+    display:none;
     position:fixed;
     inset:0;
-    background:#0009;
-    z-index:3000;
-    display:none;
+    background:#0008;
+    z-index:500;
     align-items:center;
     justify-content:center;
-    padding:15px;
+    padding:14px;
 }
 
 .modal.show{
     display:flex;
 }
 
-.modalBox{
+.box{
     background:#fff;
-    width:min(720px,100%);
-    max-height:92vh;
-    overflow:auto;
-    border-radius:18px;
-    padding:22px;
-    position:relative;
-}
-
-.close{
-    position:absolute;
-    right:12px;
-    top:10px;
-    width:35px;
-    height:35px;
-    border:0;
-    border-radius:50%;
-    background:#edf0f5;
-    font-size:22px;
-}
-
-.modalTitle{
-    margin-bottom:18px;
-    padding-right:40px;
-}
-
-.formGroup{
-    margin-bottom:13px;
-}
-
-.formGroup label{
-    display:block;
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:5px;
-}
-
-.formGroup input,
-.formGroup select,
-.formGroup textarea{
     width:100%;
-    padding:10px;
-    border:1px solid #ccd3df;
-    border-radius:8px;
-    outline:0;
+    max-width:650px;
+    max-height:90vh;
+    overflow:auto;
+    border-radius:17px;
+    padding:22px;
 }
 
-.formGroup textarea{
-    min-height:100px;
-    resize:vertical;
-}
-
-.tabs{
-    display:flex;
-    gap:8px;
-    margin-bottom:18px;
-}
-
-.tabs button{
-    flex:1;
-    border:0;
-    padding:10px;
-    border-radius:8px;
-    background:#edf0f6;
-}
-
-.tabs button.active{
-    background:#5144dd;
-    color:#fff;
-}
-
-.hidden{
-    display:none!important;
-}
-
-.dashboard{
-    display:none;
-    max-width:1250px;
-    margin:auto;
-    padding:25px 15px 50px;
-}
-
-.dashboard.show{
-    display:block;
-}
-
-.dashboardHeader,
-.adminHeader{
-    background:#fff;
-    padding:18px;
-    border-radius:15px;
-    margin-bottom:18px;
+.top{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:10px;
 }
 
-.dashboardHeader p,
-.adminHeader p{
-    color:#777;
-    font-size:13px;
-    margin-top:5px;
+.close{
+    border:0;
+    border-radius:50%;
+    width:34px;
+    height:34px;
+    cursor:pointer;
 }
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-bottom:18px;
-}
-
-.stat{
-    background:#fff;
-    border-radius:14px;
-    padding:20px;
-}
-
-.stat span{
-    color:#777;
-    font-size:12px;
-}
-
-.stat b{
-    display:block;
-    font-size:26px;
-    margin-top:5px;
-}
-
-.panel{
-    background:#fff;
-    border-radius:15px;
-    padding:18px;
-}
-
-.panel h3{
-    margin-bottom:15px;
-}
-
-.orderWrap{
-    overflow:auto;
-}
-
-.orderTable{
+.table{
     width:100%;
     border-collapse:collapse;
-    min-width:700px;
 }
 
-.orderTable th,
-.orderTable td{
-    padding:11px;
+.table th,
+.table td{
+    padding:9px;
     border-bottom:1px solid #eee;
     text-align:left;
     font-size:12px;
 }
 
+.scroll{
+    overflow:auto;
+}
+
 .status{
-    display:inline-block;
-    padding:4px 8px;
-    border-radius:12px;
-    font-size:10px;
-    font-weight:bold;
+    background:#f3f4f6;
+    padding:12px;
+    border-radius:9px;
+    margin-top:10px;
 }
 
-.pending{
-    background:#fff0c7;
-    color:#956800;
-}
-
-.processing{
-    background:#dceaff;
-    color:#2256a5;
-}
-
-.completed{
-    background:#d8f8e8;
-    color:#087444;
-}
-
-.cancelled{
-    background:#ffe0e4;
-    color:#b51f36;
-}
-
-.adminPanel{
-    display:none;
-    max-width:1250px;
-    margin:auto;
-    padding:25px 15px 50px;
-}
-
-.adminPanel.show{
-    display:block;
-}
-
-.adminGrid{
-    display:grid;
-    grid-template-columns:1fr 2fr;
-    gap:15px;
-}
-
-.serviceAdmin{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:8px;
-    padding:12px 0;
-    border-bottom:1px solid #eee;
-}
-
-.serviceAdmin:last-child{
-    border-bottom:0;
-}
-
-.serviceAdmin small{
-    color:#777;
-}
-
-.help{
+.wa{
     position:fixed;
-    right:15px;
-    bottom:15px;
-    z-index:1500;
-}
-
-.help a{
-    display:block;
-    background:#18c975;
+    right:16px;
+    bottom:16px;
+    background:#22c55e;
     color:#fff;
-    padding:12px 16px;
-    border-radius:30px;
+    padding:12px 17px;
+    border-radius:28px;
     font-weight:bold;
-    font-size:12px;
-    box-shadow:0 5px 20px #0003;
+    z-index:300;
 }
 
-.toast{
-    position:fixed;
-    left:50%;
-    bottom:25px;
-    transform:translateX(-50%);
+footer{
+    margin-top:50px;
     background:#111827;
     color:#fff;
-    padding:12px 18px;
-    border-radius:9px;
-    z-index:6000;
-    display:none;
-    font-size:13px;
+    padding:40px 16px;
 }
 
-.toast.show{
-    display:block;
+.foot{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:28px;
 }
 
-.freeNotice{
-    background:#e7fff3;
-    border:1px solid #b9f0d5;
-    color:#087444;
-    border-radius:10px;
-    padding:11px;
-    font-size:12px;
-    margin-bottom:15px;
+.foot p,
+.foot a{
+    color:#cbd5e1;
+    line-height:1.7;
 }
 
-.noData{
-    text-align:center;
-    padding:25px;
-    color:#777;
-    font-size:13px;
-}
+@media(max-width:900px){
 
-@media(max-width:1050px){
-
-    .serviceGrid{
+    .grid{
         grid-template-columns:repeat(3,1fr);
     }
 
-    .govGrid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .toolGrid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .navLinks{
-        display:none;
-    }
-
-    .menu{
-        display:block;
-    }
-
-    .infoGrid{
+    .features{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .footerGrid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .adminGrid{
-        grid-template-columns:1fr;
+    .navlinks{
+        display:none;
     }
 }
 
 @media(max-width:600px){
 
-    .heroBox{
-        min-height:230px;
-    }
-
-    .heroBox h1{
-        font-size:25px;
-    }
-
-    .heroBox p{
-        font-size:12px;
-    }
-
-    .serviceGrid{
+    .grid{
         grid-template-columns:repeat(2,1fr);
-        gap:8px;
+        gap:9px;
     }
 
-    .govGrid{
-        grid-template-columns:repeat(2,1fr);
+    .card{
+        min-height:155px;
     }
 
-    .toolGrid{
-        grid-template-columns:repeat(2,1fr);
+    .features{
+        grid-template-columns:1fr 1fr;
     }
 
-    .infoGrid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .footerGrid{
+    .foot{
         grid-template-columns:1fr;
     }
 
-    .dashboardHeader,
-    .adminHeader{
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    .logo h2{
-        font-size:15px;
-    }
-
-    .logo small{
-        font-size:8px;
+    .hero h1{
+        font-size:28px;
     }
 }
 </style>
@@ -839,3260 +418,1305 @@ details p{
 
 <body>
 
-<header class="header">
+<header>
 
-<div class="nav">
+<nav class="nav">
 
-<div class="logo">
+<a class="logo" href="#">
 
-<div class="logoIcon">
+<span class="logoIcon">
 BD
+</span>
+
+<span>
+<b>Bharat Digital Centre</b>
+
+<small>
+Free Digital Services • Documentation • Online Help
+</small>
+
+</span>
+
+</a>
+
+<div class="navlinks">
+
+<a href="#home">
+Home
+</a>
+
+<a href="#services">
+Services
+</a>
+
+<a href="#tools">
+PDF Tools
+</a>
+
+<a href="#government">
+Government
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
 </div>
 
-<div>
-<h2>Bharat <span>Digital Centre</span></h2>
-<small>Free Digital Services • Documentation • Online Help</small>
-</div>
+<button
+class="btn primary"
+onclick="loginBox()">
 
-</div>
+Login
 
-<nav class="navLinks">
-
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#tools">PDF Tools</a>
-<a href="#government">Government</a>
-<a href="#faq">FAQ</a>
+</button>
 
 </nav>
-
-<button class="navBtn" onclick="openLogin()">
-👤 Login
-</button>
-
-<button class="menu" onclick="toggleMenu()">
-☰
-</button>
-
-</div>
 
 </header>
 
 
-<section class="hero" id="home">
+<main class="container" id="home">
 
-<div class="heroBox">
 
-<div>
+<div class="hero">
 
 <h1>
 Bharat Digital Centre
 </h1>
 
 <p>
-आपके लिए Digital, Documentation, Photo, PDF और Online सहायता सेवाएँ एक ही जगह।
-हमारी उपलब्ध Centre Services पर कोई service charge नहीं।
+Digital, Documentation, Photo, PDF और Online सहायता सेवाएँ
+एक ही जगह। उपलब्ध Centre Services पर कोई service charge नहीं।
 </p>
 
-<div class="heroButtons">
+<div class="heroBtns">
 
-<button class="btn white" onclick="openRegister()">
+<button
+class="btn light"
+onclick="registerBox()">
+
 Free Registration
+
 </button>
 
-<button class="btn green" onclick="openOrder('General Digital Service')">
+<button
+class="btn green"
+onclick="requestBox()">
+
 Free Service Request
+
 </button>
 
 </div>
 
 </div>
-
-</div>
-
-</section>
 
 
 <div class="search">
 
-<div class="searchBox">
-
-<span>⌕</span>
-
 <input
-id="searchInput"
-type="search"
-placeholder="Service खोजें... जैसे PAN, Photo, PDF"
-oninput="searchServices">
+id="search"
+oninput="filter()"
+placeholder="🔎 Search services... जैसे PAN, Photo, PDF, Aadhaar">
 
 </div>
 
-</div>
 
+<section id="services">
 
-<main class="container">
-
-<section class="section" id="services">
-
-<h2 class="sectionTitle">
+<h2>
 Free Digital Services
 </h2>
 
-<div class="freeNotice">
-✅ Bharat Digital Centre की उपलब्ध service requests पर Centre Service Charge:
-<b>₹0 — FREE</b>
+<div class="notice">
+
+✅ Listed centre assistance services:
+<b>₹0 / FREE</b>
+
 </div>
 
-<div class="serviceGrid" id="serviceGrid"></div>
-
-</section>
-
-
-<section class="section" id="tools">
-
-<h2 class="sectionTitle">
-Free PDF & Image Tools
-</h2>
-
-<div class="toolGrid">
-
-<div class="toolCard" onclick="openTool('JPG To PDF')">
-<div>🖼️📄</div>
-<h3>JPG To PDF</h3>
-</div>
-
-<div class="toolCard" onclick="openTool('Photo Resize')">
-<div>📸</div>
-<h3>Photo Resize</h3>
-</div>
-
-<div class="toolCard" onclick="openTool('Photo Compress')">
-<div>🗜️</div>
-<h3>Photo Compress</h3>
-</div>
-
-<div class="toolCard" onclick="openTool('Text To PDF')">
-<div>📝📄</div>
-<h3>Text To PDF</h3>
-</div>
-
-<div class="toolCard" onclick="openTool('PDF Information')">
-<div>📄🔎</div>
-<h3>PDF Information</h3>
-</div>
-
-<div class="toolCard" onclick="openTool('Image Preview')">
-<div>🖼️</div>
-<h3>Image Preview</h3>
-</div>
-
+<div
+class="grid"
+id="servicesGrid">
 </div>
 
 </section>
 
 
-<section class="section" id="government">
-
-<h2 class="sectionTitle">
-Government & Online Assistance
-</h2>
-
-<div class="govGrid">
-
-<div class="govCard">
-<div class="govIcon">💳</div>
-<h3>PAN Card Assistance</h3>
-<button onclick="openOrder('PAN Card Assistance')">Free Request</button>
-</div>
-
-<div class="govCard">
-<div class="govIcon">🗳️</div>
-<h3>Voter ID Assistance</h3>
-<button onclick="openOrder('Voter ID Assistance')">Free Request</button>
-</div>
-
-<div class="govCard">
-<div class="govIcon">🪪</div>
-<h3>Aadhaar Assistance</h3>
-<button onclick="openOrder('Aadhaar Assistance')">Free Request</button>
-</div>
-
-<div class="govCard">
-<div class="govIcon">🚗</div>
-<h3>Driving Licence Help</h3>
-<button onclick="openOrder('Driving Licence Help')">Free Request</button>
-</div>
-
-<div class="govCard">
-<div class="govIcon">🌾</div>
-<h3>PM Kisan Assistance</h3>
-<button onclick="openOrder('PM Kisan Assistance')">Free Request</button>
-</div>
-
-<div class="govCard">
-<div class="govIcon">🏥</div>
-<h3>Ayushman Assistance</h3>
-<button onclick="openOrder('Ayushman Assistance')">Free Request</button>
-</div>
-
-<div class="govCard">
-<div class="govIcon">📱</div>
-<h3>E-Shram Assistance</h3>
-<button onclick="openOrder('E-Shram Assistance')">Free Request</button>
-</div>
-
-<div class="govCard">
-<div class="govIcon">🏠</div>
-<h3>Government Scheme Help</h3>
-<button onclick="openOrder('Government Scheme Help')">Free Request</button>
-</div>
-
-<div class="govCard">
-<div class="govIcon">🏦</div>
-<h3>EPFO Assistance</h3>
-<button onclick="openOrder('EPFO Assistance')">Free Request</button>
-</div>
-
-<div class="govCard">
-<div class="govIcon">📋</div>
-<h3>Online Form Assistance</h3>
-<button onclick="openOrder('Online Form Assistance')">Free Request</button>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="section">
-
-<h2 class="sectionTitle">
-Why Bharat Digital Centre?
-</h2>
-
-<div class="infoGrid">
-
-<div class="infoCard">
-<div class="icon">🆓</div>
-<h3>Free Service Request</h3>
-</div>
-
-<div class="infoCard">
-<div class="icon">⚡</div>
-<h3>Simple & Fast</h3>
-</div>
-
-<div class="infoCard">
-<div class="icon">📱</div>
-<h3>Mobile Friendly</h3>
-</div>
-
-<div class="infoCard">
-<div class="icon">🔒</div>
-<h3>Privacy Focused</h3>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="about">
+<section id="tools">
 
 <h2>
-Bharat Digital Centre
+Smart PDF & Image Tools
 </h2>
 
-<p>
-Bharat Digital Centre एक digital assistance platform है जहाँ customer
-उपलब्ध digital/documentation services के लिए free request भेज सकता है।
-Request submit होने के बाद customer को एक Request ID मिलती है और वह
-अपने dashboard से status देख सकता है।
-</p>
+<div
+class="grid"
+id="toolsGrid">
+</div>
 
 </section>
 
 
-<section class="about" id="faq">
+<section id="government">
 
 <h2>
-Frequently Asked Questions
+Government Assistance
 </h2>
 
-<details>
-<summary>
-क्या service request के लिए payment करना होगा?
-</summary>
-
-<p>
-नहीं। इस portal में Bharat Digital Centre की अपनी service charge ₹0 रखी गई है।
-</p>
-
-</details>
-
-<details>
-<summary>
-Request submit करने के बाद क्या होगा?
-</summary>
-
-<p>
-आपको एक Request ID मिलेगी। Admin request देखकर उसे Pending, Processing या Completed कर सकता है।
-</p>
-
-</details>
-
-<details>
-<summary>
-क्या Login के बिना request कर सकते हैं?
-</summary>
-
-<p>
-हाँ। लेकिन Login करने पर आप अपने पुराने requests और उनका status देख सकते हैं।
-</p>
-
-</details>
-
-<details>
-<summary>
-क्या सरकारी विभाग की कोई अलग fee हो सकती है?
-</summary>
-
-<p>
-हाँ। किसी सरकारी सेवा की official fee, यदि लागू हो, तो वह संबंधित सरकारी विभाग के नियमों के अनुसार हो सकती है।
-</p>
-
-</details>
+<div
+class="grid"
+id="govGrid">
+</div>
 
 </section>
+
+
+<section>
+
+<h2>
+Why Choose Bharat Digital Centre?
+</h2>
+
+<div class="features">
+
+<div class="feature">
+
+⚡
+
+<h3>
+Simple & Fast
+</h3>
+
+<p>
+आसान interface
+</p>
+
+</div>
+
+
+<div class="feature">
+
+📦
+
+<h3>
+Everything in One Place
+</h3>
+
+<p>
+Digital tools और assistance
+</p>
+
+</div>
+
+
+<div class="feature">
+
+🛡️
+
+<h3>
+Privacy Focused
+</h3>
+
+<p>
+अनावश्यक जानकारी साझा न करें
+</p>
+
+</div>
+
+
+<div class="feature">
+
+🆓
+
+<h3>
+Free Services
+</h3>
+
+<p>
+Listed services ₹0
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="faq">
+
+<h2>
+Frequently Asked Questions (FAQ)
+</h2>
+
+<div class="faq">
+
+<details open>
+
+<summary>
+क्या services free हैं?
+</summary>
+
+<p>
+हाँ, इस वेबसाइट पर listed centre assistance services को FREE रखा गया है।
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Service request कैसे भेजें?
+</summary>
+
+<p>
+Free Service Request पर क्लिक करें, details भरें और submit करें।
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Request ID क्या है?
+</summary>
+
+<p>
+हर request की unique ID बनेगी। इसे संभालकर रखें।
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+सरकारी portal की official fee हो सकती है?
+</summary>
+
+<p>
+Centre assistance free हो सकती है, लेकिन किसी सरकारी विभाग/portal की official fee अलग हो सकती है।
+</p>
+
+</details>
+
+</div>
+
+</section>
+
+
+<section class="panel">
+
+<h2>
+🔎 Request Status
+</h2>
+
+<div class="form">
+
+<label>
+Request ID
+</label>
+
+<input
+id="statusId"
+placeholder="जैसे BDC-123456">
+
+<button
+class="btn primary"
+onclick="checkStatus()">
+
+Check Status
+
+</button>
+
+<div id="statusResult">
+</div>
+
+</div>
+
+</section>
+
 
 </main>
 
 
-<section class="dashboard" id="dashboard">
-
-<div class="dashboardHeader">
-
-<div>
-<h2>My Dashboard</h2>
-<p id="welcomeUser"></p>
-</div>
-
-<button class="btn red" onclick="logout()">
-Logout
-</button>
-
-</div>
-
-
-<div class="stats">
-
-<div class="stat">
-<span>Total Requests</span>
-<b id="userTotal">0</b>
-</div>
-
-<div class="stat">
-<span>Pending</span>
-<b id="userPending">0</b>
-</div>
-
-<div class="stat">
-<span>Processing</span>
-<b id="userProcessing">0</b>
-</div>
-
-<div class="stat">
-<span>Completed</span>
-<b id="userCompleted">0</b>
-</div>
-
-</div>
-
-
-<div class="panel">
-
-<h3>
-My Service Requests
-</h3>
-
-<div class="orderWrap">
-
-<table class="orderTable">
-
-<thead>
-
-<tr>
-<th>Request ID</th>
-<th>Service</th>
-<th>Date</th>
-<th>Status</th>
-<th>View</th>
-</tr>
-
-</thead>
-
-<tbody id="userOrders"></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="adminPanel" id="adminPanel">
-
-<div class="adminHeader">
-
-<div>
-
-<h2>
-Admin Panel
-</h2>
-
-<p>
-Bharat Digital Centre — Free Service Management
-</p>
-
-</div>
-
-<button class="btn red" onclick="logout()">
-Logout
-</button>
-
-</div>
-
-
-<div class="stats">
-
-<div class="stat">
-<span>Total Requests</span>
-<b id="adminTotal">0</b>
-</div>
-
-<div class="stat">
-<span>Pending</span>
-<b id="adminPending">0</b>
-</div>
-
-<div class="stat">
-<span>Processing</span>
-<b id="adminProcessing">0</b>
-</div>
-
-<div class="stat">
-<span>Completed</span>
-<b id="adminCompleted">0</b>
-</div>
-
-</div>
-
-
-<div class="adminGrid">
-
-<div class="panel">
-
-<h3>
-Add Free Service
-</h3>
-
-<div class="formGroup">
-
-<label>
-Service Name
-</label>
-
-<input
-id="newServiceName"
-placeholder="जैसे: Birth Certificate Help">
-
-</div>
-
-<div class="formGroup">
-
-<label>
-Icon
-</label>
-
-<input id="newServiceIcon" value="📄">
-
-</div>
-
-<button class="btn green" onclick="addService()">
-Add Free Service
-</button>
-
-</div>
-
-
-<div class="panel">
-
-<h3>
-Manage Services
-</h3>
-
-<div id="adminServices"></div>
-
-</div>
-
-</div>
-
-
-<div class="panel" style="margin-top:15px">
-
-<h3>
-All Customer Requests
-</h3>
-
-<div class="orderWrap">
-
-<table class="orderTable">
-
-<thead>
-
-<tr>
-<th>Request ID</th>
-<th>Customer</th>
-<th>Mobile</th>
-<th>Service</th>
-<th>Date</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
-
-</thead>
-
-<tbody id="adminOrders"></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-</section>
-
-
-<footer class="footer">
-
-<div class="footerGrid">
-
-<div>
-
-<h2>
-Bharat Digital Centre
-</h2>
-
-<p>
-Free Digital Assistance • Documentation • PDF • Photo • Online Help
-</p>
-
-</div>
-
-<div>
-
-<h3>SERVICES</h3>
-
-<a href="#services">Free Services</a>
-<a href="#tools">PDF Tools</a>
-<a href="#government">Government Assistance</a>
-
-</div>
-
-<div>
-
-<h3>ACCOUNT</h3>
-
-<a href="#" onclick="openLogin()">Login</a>
-<a href="#" onclick="openRegister()">Register</a>
-
-</div>
-
-<div>
-
-<h3>HELP</h3>
-
-<a href="#faq">FAQ</a>
-
 <a
-href="https://wa.me/918890922880"
-target="_blank">
-WhatsApp
-</a>
-
-</div>
-
-</div>
-
-<div class="copy">
-© 2026 Bharat Digital Centre. All Rights Reserved.
-</div>
-
-</footer>
-
-
-<div class="help">
-
-<a
-href="https://wa.me/918890922880"
-target="_blank">
+class="wa"
+target="_blank"
+href="https://wa.me/918890922880?text=Namaste%20Bharat%20Digital%20Centre%2C%20mujhe%20free%20service%20chahiye.">
 
 💬 WhatsApp Help
 
 </a>
 
-</div>
+
+<footer>
+
+<div class="foot">
 
 
-<div class="modal" id="authModal">
+<div>
 
-<div class="modalBox">
+<h2
+style="border:0;padding:0;color:white">
 
-<button class="close" onclick="closeModal('authModal')">
-×
-</button>
+Bharat<span style="color:#a78bfa">
+Digital
+</span>
+Centre
 
-<h2 class="modalTitle">
-Bharat Digital Centre
 </h2>
 
-<div class="tabs">
-
-<button id="loginTab" class="active" onclick="showLoginForm()">
-Login
-</button>
-
-<button id="registerTab" onclick="showRegisterForm()">
-Register
-</button>
+<p>
+Free digital assistance, documentation,
+PDF tools और online help के लिए सरल platform.
+</p>
 
 </div>
 
 
-<div id="loginForm">
+<div>
 
-<div class="formGroup">
+<h3>
+SERVICES
+</h3>
 
-<label>Email</label>
+<p>
 
-<input
-id="loginEmail"
-type="email"
-placeholder="आपका email">
-
-</div>
-
-<div class="formGroup">
-
-<label>Password</label>
-
-<input
-id="loginPassword"
-type="password"
-placeholder="Password">
-
-</div>
-
-<button class="btn" onclick="login()">
-Login
-</button>
-
-</div>
-
-
-<div id="registerForm" class="hidden">
-
-<div class="formGroup">
-
-<label>Name</label>
-
-<input
-id="regName"
-placeholder="पूरा नाम">
-
-</div>
-
-<div class="formGroup">
-
-<label>Mobile</label>
-
-<input
-id="regMobile"
-placeholder="मोबाइल नंबर">
-
-</div>
-
-<div class="formGroup">
-
-<label>Email</label>
-
-<input
-id="regEmail"
-type="email"
-placeholder="Email">
-
-</div>
-
-<div class="formGroup">
-
-<label>Password</label>
-
-<input
-id="regPassword"
-type="password"
-placeholder="Password">
-
-</div>
-
-<button class="btn green" onclick="register()">
-Create Free Account
-</button>
-
-</div>
-
-
-<div class="freeNotice" style="margin-top:15px">
-Account बनाना पूरी तरह FREE है।
-</div>
-
-
-<div style="background:#f4f5f8;padding:10px;border-radius:8px;font-size:11px">
-
-<b>Demo Admin Login</b><br>
-
-Email: admin@bharatdigital.in
+<a href="#services">
+Free Services
+</a>
 
 <br>
 
-Password: 123456
+<a href="#tools">
+PDF Tools
+</a>
+
+<br>
+
+<a href="#government">
+Government Assistance
+</a>
+
+</p>
 
 </div>
 
-</div>
+
+<div>
+
+<h3>
+HELP
+</h3>
+
+<p>
+
+FAQ
+<br>
+
+Privacy Policy
+<br>
+
+Terms & Conditions
+<br>
+
+Contact:
+8890922880
+
+</p>
 
 </div>
 
 
-<div class="modal" id="orderModal">
+</div>
 
-<div class="modalBox">
+</footer>
 
-<button class="close" onclick="closeModal('orderModal')">
-×
-</button>
 
-<h2 class="modalTitle">
-Free Service Request
+<div
+class="modal"
+id="modal">
+
+<div class="box">
+
+<div class="top">
+
+<h2 id="title">
+Bharat Digital Centre
 </h2>
 
-<div class="freeNotice">
-इस request के लिए Bharat Digital Centre Service Charge:
-<b>₹0 — FREE</b>
-</div>
+<button
+class="close"
+onclick="closeBox()">
 
-<div class="formGroup">
-
-<label>Service</label>
-
-<input id="orderService" readonly>
-
-</div>
-
-<div class="formGroup">
-
-<label>Name</label>
-
-<input id="orderName">
-
-</div>
-
-<div class="formGroup">
-
-<label>Mobile Number</label>
-
-<input id="orderMobile">
-
-</div>
-
-<div class="formGroup">
-
-<label>Email</label>
-
-<input id="orderEmail">
-
-</div>
-
-<div class="formGroup">
-
-<label>Your Requirement</label>
-
-<textarea
-id="orderDetails"
-placeholder="अपनी समस्या या requirement लिखें"></textarea>
-
-</div>
-
-<button class="btn green" onclick="submitRequest()">
-Submit FREE Request
-</button>
-
-</div>
-
-</div>
-
-
-<div class="modal" id="toolModal">
-
-<div class="modalBox">
-
-<button class="close" onclick="closeModal('toolModal')">
 ×
+
 </button>
 
-<h2 id="toolTitle" class="modalTitle"></h2>
+</div>
 
-<div id="toolBody"></div>
-
+<div id="body">
 </div>
 
 </div>
 
-
-<div class="toast" id="toast"></div>
+</div>
 
 
 <script>
 
-/* =====================================================
-BHARAT DIGITAL CENTRE CONFIGURATION
-===================================================== */
 
-const WHATSAPP_NUMBER = "918890922880";
+const services = [
 
-const ADMIN_EMAIL = "admin@bharatdigital.in";
+["💼","Latest Jobs Assistance"],
 
-const ADMIN_PASSWORD = "123456";
+["🪪","ID Card Preparation"],
 
+["🧑","Passport Photo"],
 
-/* =====================================================
-DEFAULT SERVICES
-===================================================== */
+["✂️","Photo Crop & Resize"],
 
-const DEFAULT_SERVICES = [
+["📄","Resume / CV"],
 
-{
-name:"Latest Jobs Assistance",
-icon:"💼"
-},
+["🖨️","Document Scan"],
 
-{
-name:"ID Card Preparation",
-icon:"🪪"
-},
+["💳","PAN Card Assistance"],
 
-{
-name:"Passport Photo",
-icon:"👤"
-},
+["🗳️","Voter ID Assistance"],
 
-{
-name:"Photo Crop & Resize",
-icon:"✂️"
-},
+["🚗","Driving Licence Help"],
 
-{
-name:"Resume / CV",
-icon:"📄"
-},
+["🌾","PM Kisan Assistance"],
 
-{
-name:"Document Scan",
-icon:"📑"
-},
+["📝","Application Form"],
 
-{
-name:"PAN Card Assistance",
-icon:"💳"
-},
+["📑","Document Print"],
 
-{
-name:"Voter ID Assistance",
-icon:"🗳️"
-},
+["📸","Photo Print"],
 
-{
-name:"Driving Licence Help",
-icon:"🚗"
-},
+["🪪","PVC ID Preparation"],
 
-{
-name:"PM Kisan Assistance",
-icon:"🌾"
-}
+["📋","Biodata Maker"]
 
 ];
 
 
-/* =====================================================
-LOCAL STORAGE
-===================================================== */
+const tools = [
 
-function getServices(){
+["🖼️","JPG to PDF"],
 
-const saved =
-localStorage.getItem("bdc_services");
+["📄","PDF to JPG"],
 
-if(!saved){
+["🖼️","PNG to PDF"],
 
-localStorage.setItem(
-"bdc_services",
-JSON.stringify(DEFAULT_SERVICES)
-);
+["📄","PNG to JPG"],
 
-return DEFAULT_SERVICES;
-}
+["🗑️","Delete PDF Page"],
 
-return JSON.parse(saved);
-}
+["📚","Merge PDF"]
 
+];
 
-function saveServices(data){
 
-localStorage.setItem(
-"bdc_services",
-JSON.stringify(data)
-);
+const govt = [
 
-}
+["🏛️","Aadhaar Information"],
 
+["💳","PAN Card Service"],
 
-function getUsers(){
+["🗳️","Voter ID Correction"],
 
-return JSON.parse(
-localStorage.getItem("bdc_users") || "[]"
-);
+["🏥","Ayushman Bharat"],
 
-}
+["🚘","Driving Licence Service"],
 
+["🚙","RC Service"],
 
-function saveUsers(data){
+["🛻","Vehicle Service"],
 
-localStorage.setItem(
-"bdc_users",
-JSON.stringify(data)
-);
+["🎓","National Scholarship"],
 
-}
+["🌾","PM Kisan"],
 
+["💼","E-Shram Card"],
 
-function getRequests(){
+["👨‍🌾","PM Fasal Bima"],
 
-return JSON.parse(
-localStorage.getItem("bdc_requests") || "[]"
-);
+["⛽","Gas Service"],
 
-}
+["📜","Birth & Death Certificate"],
 
+["🚆","Railway Service"],
 
-function saveRequests(data){
+["🧾","GST Verification"]
 
-localStorage.setItem(
-"bdc_requests",
-JSON.stringify(data)
-);
+];
 
-}
 
+function render(arr,id,buttons=true){
 
-function getCurrentUser(){
+let e=document.getElementById(id);
 
-return JSON.parse(
-localStorage.getItem("bdc_current_user") || "null"
-);
+e.innerHTML="";
 
-}
+arr.forEach(s=>{
 
+let d=document.createElement("div");
 
-/* =====================================================
-TOAST
-===================================================== */
+d.className="card service-card";
 
-function showToast(message){
+d.dataset.name=s[1].toLowerCase();
 
-const toast =
-document.getElementById("toast");
+d.innerHTML=
 
-toast.textContent = message;
-
-toast.classList.add("show");
-
-setTimeout(function(){
-
-toast.classList.remove("show");
-
-},2500);
-
-}
-
-
-/* =====================================================
-MODAL
-===================================================== */
-
-function openModal(id){
-
-document
-.getElementById(id)
-.classList.add("show");
-
-}
-
-
-function closeModal(id){
-
-document
-.getElementById(id)
-.classList.remove("show");
-
-}
-
-
-window.addEventListener(
-"click",
-function(event){
-
-document
-.querySelectorAll(".modal")
-.forEach(function(modal){
-
-if(event.target === modal){
-
-modal.classList.remove("show");
-
-}
-
-});
-
-});
-
-
-/* =====================================================
-AUTH
-===================================================== */
-
-function openLogin(){
-
-showLoginForm();
-
-openModal("authModal");
-
-}
-
-
-function openRegister(){
-
-showRegisterForm();
-
-openModal("authModal");
-
-}
-
-
-function showLoginForm(){
-
-document
-.getElementById("loginForm")
-.classList.remove("hidden");
-
-document
-.getElementById("registerForm")
-.classList.add("hidden");
-
-document
-.getElementById("loginTab")
-.classList.add("active");
-
-document
-.getElementById("registerTab")
-.classList.remove("active");
-
-}
-
-
-function showRegisterForm(){
-
-document
-.getElementById("loginForm")
-.classList.add("hidden");
-
-document
-.getElementById("registerForm")
-.classList.remove("hidden");
-
-document
-.getElementById("loginTab")
-.classList.remove("active");
-
-document
-.getElementById("registerTab")
-.classList.add("active");
-
-}
-
-
-/* =====================================================
-REGISTER
-===================================================== */
-
-function register(){
-
-const name =
-document
-.getElementById("regName")
-.value
-.trim();
-
-const mobile =
-document
-.getElementById("regMobile")
-.value
-.trim();
-
-const email =
-document
-.getElementById("regEmail")
-.value
-.trim()
-.toLowerCase();
-
-const password =
-document
-.getElementById("regPassword")
-.value;
-
-
-if(!name || !mobile || !email || !password){
-
-showToast("सभी details भरें");
-
-return;
-
-}
-
-
-if(password.length < 4){
-
-showToast(
-"Password कम से कम 4 characters का रखें"
-);
-
-return;
-
-}
-
-
-let users = getUsers();
-
-
-if(
-users.some(function(user){
-
-return user.email === email;
-
-})
-){
-
-showToast(
-"यह email पहले से registered है"
-);
-
-return;
-
-}
-
-
-users.push({
-
-id:Date.now(),
-
-name:name,
-
-mobile:mobile,
-
-email:email,
-
-password:password,
-
-role:"user"
-
-});
-
-
-saveUsers(users);
-
-
-document
-.getElementById("loginEmail")
-.value = email;
-
-
-showLoginForm();
-
-showToast(
-"Free account सफलतापूर्वक बन गया"
-);
-
-}
-
-
-/* =====================================================
-LOGIN
-===================================================== */
-
-function login(){
-
-const email =
-document
-.getElementById("loginEmail")
-.value
-.trim()
-.toLowerCase();
-
-const password =
-document
-.getElementById("loginPassword")
-.value;
-
-
-if(
-email === ADMIN_EMAIL &&
-password === ADMIN_PASSWORD
-){
-
-localStorage.setItem(
-"bdc_current_user",
-JSON.stringify({
-
-name:"Administrator",
-
-email:ADMIN_EMAIL,
-
-role:"admin"
-
-})
-);
-
-closeModal("authModal");
-
-showAdmin();
-
-showToast("Admin login सफल");
-
-return;
-
-}
-
-
-const users = getUsers();
-
-
-const user =
-users.find(function(u){
-
-return(
-u.email === email &&
-u.password === password
-);
-
-});
-
-
-if(!user){
-
-showToast(
-"Email या password गलत है"
-);
-
-return;
-
-}
-
-
-localStorage.setItem(
-"bdc_current_user",
-JSON.stringify(user)
-);
-
-
-closeModal("authModal");
-
-showDashboard();
-
-showToast("Login सफल");
-
-}
-
-
-/* =====================================================
-LOGOUT
-===================================================== */
-
-function logout(){
-
-localStorage.removeItem(
-"bdc_current_user"
-);
-
-document
-.getElementById("dashboard")
-.classList.remove("show");
-
-document
-.getElementById("adminPanel")
-.classList.remove("show");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-showToast("Logout हो गया");
-
-}
-
-
-/* =====================================================
-SERVICES
-===================================================== */
-
-function renderServices(){
-
-const grid =
-document.getElementById("serviceGrid");
-
-const services =
-getServices();
-
-grid.innerHTML = "";
-
-
-services.forEach(function(service,index){
-
-const card =
-document.createElement("div");
-
-card.className =
-"serviceCard";
-
-card.dataset.name =
-service.name.toLowerCase();
-
-
-card.innerHTML = `
-
-<div class="freeBadge">
-FREE
-</div>
-
-<div class="serviceIcon">
-${escapeHTML(service.icon)}
+`<div class="icon">
+${s[0]}
 </div>
 
 <h3>
-${escapeHTML(service.name)}
+${s[1]}
 </h3>
 
 <div class="free">
 ₹0 • FREE
 </div>
 
-<button>
+${buttons ?
+
+`<button
+class="btn primary"
+onclick="requestBox('${s[1].replaceAll("'","")}')">
+
 Free Request
-</button>
 
-`;
+</button>`
 
+:""}`;
 
-card
-.querySelector("button")
-.onclick = function(){
-
-openOrder(service.name);
-
-};
-
-
-grid.appendChild(card);
+e.appendChild(d);
 
 });
 
 }
 
 
-/* =====================================================
-SEARCH
-===================================================== */
+render(
+services,
+"servicesGrid"
+);
 
-function searchServices(){
+render(
+tools,
+"toolsGrid",
+false
+);
 
-const query =
+render(
+govt,
+"govGrid"
+);
+
+
+function filter(){
+
+let q =
 document
-.getElementById("searchInput")
+.getElementById("search")
 .value
-.toLowerCase()
-.trim();
-
-
-document
-.querySelectorAll(
-"#serviceGrid .serviceCard"
-)
-.forEach(function(card){
-
-if(
-card.dataset.name
-.includes(query)
-){
-
-card.style.display =
-"block";
-
-}else{
-
-card.style.display =
-"none";
-
-}
-
-});
-
-}
-
-
-/* =====================================================
-ORDER
-===================================================== */
-
-function openOrder(service){
-
-const user =
-getCurrentUser();
-
-
-document
-.getElementById("orderService")
-.value = service;
-
-
-if(
-user &&
-user.role === "user"
-){
-
-document
-.getElementById("orderName")
-.value =
-user.name;
-
-document
-.getElementById("orderMobile")
-.value =
-user.mobile;
-
-document
-.getElementById("orderEmail")
-.value =
-user.email;
-
-}else{
-
-document
-.getElementById("orderName")
-.value = "";
-
-document
-.getElementById("orderMobile")
-.value = "";
-
-document
-.getElementById("orderEmail")
-.value = "";
-
-}
-
-
-document
-.getElementById("orderDetails")
-.value = "";
-
-
-openModal("orderModal");
-
-}
-
-
-/* =====================================================
-SUBMIT REQUEST
-===================================================== */
-
-function submitRequest(){
-
-const service =
-document
-.getElementById("orderService")
-.value
-.trim();
-
-const name =
-document
-.getElementById("orderName")
-.value
-.trim();
-
-const mobile =
-document
-.getElementById("orderMobile")
-.value
-.trim();
-
-const email =
-document
-.getElementById("orderEmail")
-.value
-.trim()
 .toLowerCase();
 
-const details =
 document
-.getElementById("orderDetails")
-.value
-.trim();
+.querySelectorAll(".service-card")
+.forEach(x=>{
 
-
-if(!name || !mobile){
-
-showToast(
-"Name और Mobile जरूरी है"
-);
-
-return;
-
-}
-
-
-if(mobile.length < 10){
-
-showToast(
-"सही mobile number डालें"
-);
-
-return;
-
-}
-
-
-const id =
-"BDC" +
-Date.now()
-.toString()
-.slice(-8);
-
-
-const requests =
-getRequests();
-
-
-requests.push({
-
-id:id,
-
-name:name,
-
-mobile:mobile,
-
-email:email,
-
-service:service,
-
-details:details,
-
-status:"Pending",
-
-date:new Date()
-.toLocaleString("en-IN")
+x.style.display =
+x.dataset.name.includes(q)
+?
+"flex"
+:
+"none";
 
 });
 
-
-saveRequests(requests);
-
-
-closeModal("orderModal");
-
-
-showToast(
-"Free Request Submit हो गई: " + id
-);
-
-
-/* =====================================================
-WHATSAPP
-===================================================== */
-
-const message =
-"नमस्ते Bharat Digital Centre,%0A%0A" +
-"नई Free Service Request%0A" +
-"Request ID: " + id + "%0A" +
-"Name: " + name + "%0A" +
-"Mobile: " + mobile + "%0A" +
-"Service: " + service + "%0A" +
-"Details: " + details;
-
-
-const whatsappURL =
-"https://wa.me/" +
-WHATSAPP_NUMBER +
-"?text=" +
-message;
-
-
-setTimeout(function(){
-
-window.open(
-whatsappURL,
-"_blank"
-);
-
-},500);
-
-
-const user =
-getCurrentUser();
-
-
-if(
-user &&
-user.role === "user"
-){
-
-renderUserDashboard();
-
-}
-
 }
 
 
-/* =====================================================
-USER DASHBOARD
-===================================================== */
+function openBox(t,b){
 
-function showDashboard(){
+document.getElementById("title").textContent=t;
 
-document
-.getElementById("adminPanel")
-.classList.remove("show");
+document.getElementById("body").innerHTML=b;
 
 document
-.getElementById("dashboard")
+.getElementById("modal")
 .classList.add("show");
 
-renderUserDashboard();
+}
+
+
+function closeBox(){
 
 document
-.getElementById("dashboard")
-.scrollIntoView({
-behavior:"smooth"
-});
+.getElementById("modal")
+.classList.remove("show");
 
 }
 
 
-function renderUserDashboard(){
+function registerBox(){
 
-const user =
-getCurrentUser();
+openBox(
 
+"Free Registration",
 
-if(
-!user ||
-user.role !== "user"
-){
+`
 
-return;
+<form
+class="form"
+onsubmit="register(event)">
 
-}
+<label>
+पूरा नाम
+</label>
 
+<input
+id="rn"
+required>
 
-document
-.getElementById("welcomeUser")
-.textContent =
-"Welcome, " + user.name;
+<label>
+मोबाइल
+</label>
 
+<input
+id="rm"
+required
+pattern="[0-9]{10}">
 
-const requests =
-getRequests()
-.filter(function(request){
+<label>
+Email (optional)
+</label>
 
-return request.email === user.email;
+<input
+id="re"
+type="email">
 
-});
+<label>
+Password
+</label>
 
-
-document
-.getElementById("userTotal")
-.textContent =
-requests.length;
-
-
-document
-.getElementById("userPending")
-.textContent =
-requests.filter(function(r){
-
-return r.status === "Pending";
-
-}).length;
-
-
-document
-.getElementById("userProcessing")
-.textContent =
-requests.filter(function(r){
-
-return r.status === "Processing";
-
-}).length;
-
-
-document
-.getElementById("userCompleted")
-.textContent =
-requests.filter(function(r){
-
-return r.status === "Completed";
-
-}).length;
-
-
-const tbody =
-document.getElementById(
-"userOrders"
-);
-
-
-tbody.innerHTML = "";
-
-
-if(requests.length === 0){
-
-tbody.innerHTML = `
-
-<tr>
-
-<td colspan="5">
-
-<div class="noData">
-अभी कोई request नहीं है।
-</div>
-
-</td>
-
-</tr>
-
-`;
-
-return;
-
-}
-
-
-requests
-.slice()
-.reverse()
-.forEach(function(request){
-
-const tr =
-document.createElement("tr");
-
-
-tr.innerHTML = `
-
-<td>
-${escapeHTML(request.id)}
-</td>
-
-<td>
-${escapeHTML(request.service)}
-</td>
-
-<td>
-${escapeHTML(request.date)}
-</td>
-
-<td>
-
-<span class="status ${request.status.toLowerCase()}">
-
-${escapeHTML(request.status)}
-
-</span>
-
-</td>
-
-<td>
+<input
+id="rp"
+type="password"
+minlength="4"
+required>
 
 <button
-class="btn small"
-onclick="viewRequest('${request.id}')">
+class="btn primary">
 
-View
+Create Free Account
 
 </button>
 
-</td>
+</form>
 
-`;
+<p id="rmsg">
+</p>
 
-
-tbody.appendChild(tr);
-
-});
-
-}
-
-
-/* =====================================================
-VIEW REQUEST
-===================================================== */
-
-function viewRequest(id){
-
-const request =
-getRequests()
-.find(function(r){
-
-return r.id === id;
-
-});
-
-
-if(!request){
-
-return;
-
-}
-
-
-alert(
-
-"Request ID: " +
-request.id +
-
-"\nService: " +
-request.service +
-
-"\nName: " +
-request.name +
-
-"\nMobile: " +
-request.mobile +
-
-"\nStatus: " +
-request.status +
-
-"\nDate: " +
-request.date +
-
-"\nDetails: " +
-request.details
+`
 
 );
 
 }
 
 
-/* =====================================================
-ADMIN
-===================================================== */
+function register(e){
+
+e.preventDefault();
+
+localStorage.setItem(
+
+"bdc_user",
+
+JSON.stringify({
+
+name:rn.value,
+
+mobile:rm.value,
+
+email:re.value,
+
+password:rp.value
+
+})
+
+);
+
+rmsg.innerHTML =
+"✅ Registration successful. अब Login करें।";
+
+}
+
+
+function loginBox(){
+
+openBox(
+
+"Login",
+
+`
+
+<form
+class="form"
+onsubmit="login(event)">
+
+<label>
+Mobile
+</label>
+
+<input
+id="lm"
+required>
+
+<label>
+Password
+</label>
+
+<input
+id="lp"
+type="password"
+required>
+
+<button
+class="btn primary">
+
+Login
+
+</button>
+
+</form>
+
+<hr>
+
+<button
+class="btn light"
+onclick="adminBox()">
+
+Admin Panel
+
+</button>
+
+<p id="lmsg">
+</p>
+
+`
+
+);
+
+}
+
+
+function login(e){
+
+e.preventDefault();
+
+let u =
+JSON.parse(
+localStorage.getItem("bdc_user")
+||
+"null"
+);
+
+lmsg.innerHTML =
+
+u &&
+u.mobile===lm.value &&
+u.password===lp.value
+
+?
+
+"✅ Login successful."
+
+:
+
+"❌ Mobile/password गलत है।";
+
+}
+
+
+function adminBox(){
+
+openBox(
+
+"Admin Login",
+
+`
+
+<form
+class="form"
+onsubmit="admin(event)">
+
+<label>
+Admin Email
+</label>
+
+<input
+id="ae"
+type="email"
+required>
+
+<label>
+Password
+</label>
+
+<input
+id="ap"
+type="password"
+required>
+
+<button
+class="btn primary">
+
+Open Admin Panel
+
+</button>
+
+</form>
+
+<p>
+
+<small>
+Demo:
+admin@bharatdigital.in / 123456
+</small>
+
+</p>
+
+`
+
+);
+
+}
+
+
+function admin(e){
+
+e.preventDefault();
+
+if(
+
+ae.value==="admin@bharatdigital.in"
+
+&&
+
+ap.value==="123456"
+
+){
+
+showAdmin();
+
+}
+
+else{
+
+alert("Invalid admin login");
+
+}
+
+}
+
 
 function showAdmin(){
 
-document
-.getElementById("dashboard")
-.classList.remove("show");
-
-document
-.getElementById("adminPanel")
-.classList.add("show");
-
-renderAdmin();
-
-document
-.getElementById("adminPanel")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-function renderAdmin(){
-
-const requests =
-getRequests();
-
-
-document
-.getElementById("adminTotal")
-.textContent =
-requests.length;
-
-
-document
-.getElementById("adminPending")
-.textContent =
-requests.filter(function(r){
-
-return r.status === "Pending";
-
-}).length;
-
-
-document
-.getElementById("adminProcessing")
-.textContent =
-requests.filter(function(r){
-
-return r.status === "Processing";
-
-}).length;
-
-
-document
-.getElementById("adminCompleted")
-.textContent =
-requests.filter(function(r){
-
-return r.status === "Completed";
-
-}).length;
-
-
-renderAdminOrders();
-
-renderAdminServices();
-
-}
-
-
-/* =====================================================
-ADMIN ORDERS
-===================================================== */
-
-function renderAdminOrders(){
-
-const tbody =
-document.getElementById(
-"adminOrders"
+let a =
+JSON.parse(
+localStorage.getItem("bdc_requests")
+||
+"[]"
 );
 
+openBox(
 
-tbody.innerHTML = "";
+"Admin Panel",
 
+`
 
-const requests =
-getRequests()
-.slice()
-.reverse();
+<div class="notice">
 
+📊 इस browser में जमा हुई requests
 
-if(requests.length === 0){
+</div>
 
-tbody.innerHTML = `
+<div class="scroll">
+
+<table class="table">
 
 <tr>
 
-<td colspan="7">
+<th>ID</th>
 
-<div class="noData">
-अभी कोई customer request नहीं है।
-</div>
+<th>Customer</th>
 
-</td>
+<th>Mobile</th>
+
+<th>Service</th>
+
+<th>Status</th>
 
 </tr>
 
-`;
+${
+a.length
 
-return;
+?
 
-}
+a.map((r,i)=>
 
+`
 
-requests.forEach(function(request){
-
-const tr =
-document.createElement("tr");
-
-
-tr.innerHTML = `
+<tr>
 
 <td>
-${escapeHTML(request.id)}
+${r.id}
 </td>
 
 <td>
-${escapeHTML(request.name)}
+${r.name}
 </td>
 
 <td>
-${escapeHTML(request.mobile)}
+${r.mobile}
 </td>
 
 <td>
-${escapeHTML(request.service)}
-</td>
-
-<td>
-${escapeHTML(request.date)}
+${r.service}
 </td>
 
 <td>
 
 <select
-onchange="changeStatus(
-'${request.id}',
-this.value
-)">
+onchange="updateStatus(${i},this.value)">
 
-<option value="Pending"
-${request.status === "Pending" ? "selected" : ""}>
+<option
+${r.status=="Pending"?"selected":""}>
+
 Pending
+
 </option>
 
-<option value="Processing"
-${request.status === "Processing" ? "selected" : ""}>
+<option
+${r.status=="Processing"?"selected":""}>
+
 Processing
+
 </option>
 
-<option value="Completed"
-${request.status === "Completed" ? "selected" : ""}>
+<option
+${r.status=="Completed"?"selected":""}>
+
 Completed
+
 </option>
 
-<option value="Cancelled"
-${request.status === "Cancelled" ? "selected" : ""}>
-Cancelled
+<option
+${r.status=="Rejected"?"selected":""}>
+
+Rejected
+
 </option>
 
 </select>
 
 </td>
 
-<td>
+</tr>
 
-<button
-class="btn small"
-onclick="viewRequest('${request.id}')">
+`
 
-View
+).join("")
 
-</button>
+:
 
-<button
-class="btn red small"
-onclick="deleteRequest('${request.id}')">
+`
 
-Delete
+<tr>
 
-</button>
+<td colspan="5">
+
+No requests yet
 
 </td>
 
-`;
+</tr>
 
-
-tbody.appendChild(tr);
-
-});
+`
 
 }
 
+</table>
 
-/* =====================================================
-CHANGE STATUS
-===================================================== */
+</div>
 
-function changeStatus(id,status){
+`
 
-const requests =
-getRequests();
-
-
-const request =
-requests.find(function(r){
-
-return r.id === id;
-
-});
-
-
-if(!request){
-
-return;
-
-}
-
-
-request.status =
-status;
-
-
-saveRequests(requests);
-
-
-renderAdmin();
-
-
-showToast(
-"Request status updated"
 );
 
 }
 
 
-/* =====================================================
-DELETE REQUEST
-===================================================== */
+function updateStatus(i,s){
 
-function deleteRequest(id){
+let a =
+JSON.parse(
+localStorage.getItem("bdc_requests")
+||
+"[]"
+);
 
-if(
-!confirm(
-"क्या यह request delete करनी है?"
-)
-){
+a[i].status=s;
 
-return;
-
-}
-
-
-const requests =
-getRequests()
-.filter(function(r){
-
-return r.id !== id;
-
-});
-
-
-saveRequests(requests);
-
-
-renderAdmin();
-
-
-showToast(
-"Request delete हो गई"
+localStorage.setItem(
+"bdc_requests",
+JSON.stringify(a)
 );
 
 }
 
 
-/* =====================================================
-ADMIN SERVICES
-===================================================== */
+function requestBox(service=""){
 
-function renderAdminServices(){
+openBox(
 
-const box =
-document.getElementById(
-"adminServices"
+"Free Service Request",
+
+`
+
+<form
+class="form"
+onsubmit="submitRequest(event)">
+
+<label>
+पूरा नाम
+</label>
+
+<input
+id="qn"
+required>
+
+<label>
+मोबाइल
+</label>
+
+<input
+id="qm"
+required
+pattern="[0-9]{10}">
+
+<label>
+Service
+</label>
+
+<select
+id="qs">
+
+${
+
+services.map(x=>
+
+`
+
+<option
+${x[1]===service?"selected":""}>
+
+${x[1]}
+
+</option>
+
+`
+
+).join("")
+
+}
+
+</select>
+
+<label>
+विवरण
+</label>
+
+<textarea
+id="qd"
+placeholder="आपको किस प्रकार की सहायता चाहिए?">
+</textarea>
+
+<button
+class="btn green">
+
+Submit Free Request
+
+</button>
+
+</form>
+
+<p id="qmsg">
+</p>
+
+`
+
 );
 
-
-box.innerHTML = "";
-
-
-getServices()
-.forEach(function(service,index){
-
-const div =
-document.createElement("div");
+}
 
 
-div.className =
-"serviceAdmin";
+function submitRequest(e){
 
+e.preventDefault();
 
-div.innerHTML = `
+let id =
+"BDC-" +
+Math.floor(
+100000 +
+Math.random()*900000
+);
 
-<div>
+let r={
+
+id:id,
+
+name:qn.value,
+
+mobile:qm.value,
+
+service:qs.value,
+
+details:qd.value,
+
+status:"Pending",
+
+time:
+new Date()
+.toLocaleString("en-IN")
+
+};
+
+let a =
+JSON.parse(
+localStorage.getItem("bdc_requests")
+||
+"[]"
+);
+
+a.unshift(r);
+
+localStorage.setItem(
+"bdc_requests",
+JSON.stringify(a)
+);
+
+qmsg.innerHTML =
+
+`
+
+✅ Request submitted!
+
+<br>
 
 <b>
-${escapeHTML(service.icon)}
-${escapeHTML(service.name)}
+Your Request ID: ${id}
 </b>
 
 <br>
 
-<small>
-Service Charge: ₹0 — FREE
-</small>
-
-</div>
-
-<button
-class="btn red small"
-onclick="deleteService(${index})">
-
-Delete
-
-</button>
+इस ID को संभालकर रखें।
 
 `;
 
-
-box.appendChild(div);
-
-});
-
 }
 
 
-/* =====================================================
-ADD SERVICE
-===================================================== */
+function checkStatus(){
 
-function addService(){
+let id =
+statusId.value.trim();
 
-const name =
-document
-.getElementById(
-"newServiceName"
-)
-.value
-.trim();
-
-
-const icon =
-document
-.getElementById(
-"newServiceIcon"
-)
-.value
-.trim() ||
-"📄";
-
-
-if(!name){
-
-showToast(
-"Service name डालें"
+let a =
+JSON.parse(
+localStorage.getItem("bdc_requests")
+||
+"[]"
 );
 
-return;
+let r =
+a.find(x=>x.id===id);
+
+statusResult.innerHTML =
+
+r
+
+?
+
+`
+
+<div class="status">
+
+👤 <b>
+${r.name}
+</b>
+
+<br>
+
+Service:
+${r.service}
+
+<br>
+
+Status:
+<b>
+${r.status}
+</b>
+
+<br>
+
+Date:
+${r.time}
+
+</div>
+
+`
+
+:
+
+`
+
+<div class="status">
+
+❌ Request ID नहीं मिली।
+
+</div>
+
+`;
 
 }
-
-
-const services =
-getServices();
-
-
-services.push({
-
-name:name,
-
-icon:icon
-
-});
-
-
-saveServices(services);
 
 
 document
-.getElementById(
-"newServiceName"
-)
-.value = "";
-
-
-renderServices();
-
-renderAdminServices();
-
-
-showToast(
-"Free service add हो गई"
-);
-
-}
-
-
-/* =====================================================
-DELETE SERVICE
-===================================================== */
-
-function deleteService(index){
+.getElementById("modal")
+.onclick=function(e){
 
 if(
-!confirm(
-"क्या service delete करनी है?"
-)
+e.target===this
 ){
 
-return;
+closeBox();
 
 }
-
-
-const services =
-getServices();
-
-
-services.splice(
-index,
-1
-);
-
-
-saveServices(services);
-
-
-renderServices();
-
-renderAdminServices();
-
-
-showToast(
-"Service delete हो गई"
-);
-
-}
-
-
-/* =====================================================
-TOOLS
-===================================================== */
-
-function openTool(tool){
-
-document
-.getElementById("toolTitle")
-.textContent =
-tool;
-
-
-const body =
-document.getElementById(
-"toolBody"
-);
-
-
-if(tool === "JPG To PDF"){
-
-body.innerHTML = `
-
-<div class="freeNotice">
-यह tool browser में free में काम करता है।
-</div>
-
-<div class="formGroup">
-
-<label>
-JPG / PNG Images
-</label>
-
-<input
-id="jpgFiles"
-type="file"
-accept="image/*"
-multiple>
-
-</div>
-
-<button
-class="btn"
-onclick="imagesToPDF()">
-
-Create Free PDF
-
-</button>
-
-`;
-
-}
-
-
-else if(tool === "Photo Resize"){
-
-body.innerHTML = `
-
-<div class="formGroup">
-
-<label>
-Photo Select करें
-</label>
-
-<input
-id="resizeFile"
-type="file"
-accept="image/*">
-
-</div>
-
-<div class="formGroup">
-
-<label>
-Width
-</label>
-
-<input
-id="resizeWidth"
-type="number"
-value="800">
-
-</div>
-
-<div class="formGroup">
-
-<label>
-Height
-</label>
-
-<input
-id="resizeHeight"
-type="number"
-value="800">
-
-</div>
-
-<button
-class="btn"
-onclick="resizeImage()">
-
-Resize & Save
-
-</button>
-
-`;
-
-}
-
-
-else if(tool === "Photo Compress"){
-
-body.innerHTML = `
-
-<div class="formGroup">
-
-<label>
-Photo
-</label>
-
-<input
-id="compressFile"
-type="file"
-accept="image/*">
-
-</div>
-
-<div class="formGroup">
-
-<label>
-Quality
-</label>
-
-<select id="compressQuality">
-
-<option value="0.9">
-High
-</option>
-
-<option value="0.7" selected>
-Medium
-</option>
-
-<option value="0.5">
-Low
-</option>
-
-</select>
-
-</div>
-
-<button
-class="btn"
-onclick="compressImage()">
-
-Compress Free
-
-</button>
-
-`;
-
-}
-
-
-else if(tool === "Text To PDF"){
-
-body.innerHTML = `
-
-<div class="formGroup">
-
-<label>
-Text
-</label>
-
-<textarea
-id="pdfText"
-placeholder="अपना text यहाँ लिखें"></textarea>
-
-</div>
-
-<button
-class="btn"
-onclick="textToPDF()">
-
-Create PDF
-
-</button>
-
-`;
-
-}
-
-
-else if(tool === "PDF Information"){
-
-body.innerHTML = `
-
-<div class="formGroup">
-
-<label>
-PDF Select करें
-</label>
-
-<input
-id="pdfInfoFile"
-type="file"
-accept="application/pdf">
-
-</div>
-
-<button
-class="btn"
-onclick="pdfInfo()">
-
-Check PDF
-
-</button>
-
-<div
-id="pdfInfoResult"
-style="margin-top:15px">
-
-</div>
-
-`;
-
-}
-
-
-else{
-
-body.innerHTML = `
-
-<div class="formGroup">
-
-<label>
-Image Select करें
-</label>
-
-<input
-id="previewImage"
-type="file"
-accept="image/*"
-onchange="previewSelectedImage()">
-
-</div>
-
-<div
-id="previewArea"
-style="text-align:center">
-
-</div>
-
-`;
-
-}
-
-
-openModal("toolModal");
-
-}
-
-
-/* =====================================================
-IMAGE TO PDF
-===================================================== */
-
-async function imagesToPDF(){
-
-const files =
-document
-.getElementById("jpgFiles")
-.files;
-
-
-if(!files.length){
-
-showToast(
-"Image select करें"
-);
-
-return;
-
-}
-
-
-if(!window.jspdf){
-
-showToast(
-"PDF library load नहीं हुई"
-);
-
-return;
-
-}
-
-
-const {
-jsPDF
-} = window.jspdf;
-
-
-const pdf =
-new jsPDF(
-"p",
-"mm",
-"a4"
-);
-
-
-for(
-let i=0;
-i<files.length;
-i++
-){
-
-const data =
-await readFile(
-files[i]
-);
-
-
-const img =
-await loadImage(
-data
-);
-
-
-let width = 190;
-
-let height =
-width *
-img.height /
-img.width;
-
-
-if(height > 277){
-
-height = 277;
-
-width =
-height *
-img.width /
-img.height;
-
-}
-
-
-if(i > 0){
-
-pdf.addPage();
-
-}
-
-
-pdf.addImage(
-data,
-"JPEG",
-(210-width)/2,
-(297-height)/2,
-width,
-height
-);
-
-}
-
-
-pdf.save(
-"Bharat-Digital-Centre-Free.pdf"
-);
-
-
-showToast(
-"Free PDF तैयार है"
-);
-
-}
-
-
-/* =====================================================
-RESIZE
-===================================================== */
-
-async function resizeImage(){
-
-const file =
-document
-.getElementById(
-"resizeFile"
-)
-.files[0];
-
-
-if(!file){
-
-showToast(
-"Photo select करें"
-);
-
-return;
-
-}
-
-
-const width =
-Number(
-document
-.getElementById(
-"resizeWidth"
-)
-.value
-);
-
-
-const height =
-Number(
-document
-.getElementById(
-"resizeHeight"
-)
-.value
-);
-
-
-const img =
-await loadImage(
-await readFile(file)
-);
-
-
-const canvas =
-document.createElement(
-"canvas"
-);
-
-
-canvas.width =
-width;
-
-canvas.height =
-height;
-
-
-canvas
-.getContext("2d")
-.drawImage(
-img,
-0,
-0,
-width,
-height
-);
-
-
-downloadData(
-canvas.toDataURL(
-"image/jpeg",
-0.92
-),
-"resized-photo.jpg"
-);
-
-
-showToast(
-"Photo तैयार है"
-);
-
-}
-
-
-/* =====================================================
-COMPRESS
-===================================================== */
-
-async function compressImage(){
-
-const file =
-document
-.getElementById(
-"compressFile"
-)
-.files[0];
-
-
-if(!file){
-
-showToast(
-"Photo select करें"
-);
-
-return;
-
-}
-
-
-const quality =
-Number(
-document
-.getElementById(
-"compressQuality"
-)
-.value
-);
-
-
-const img =
-await loadImage(
-await readFile(file)
-);
-
-
-const canvas =
-document.createElement(
-"canvas"
-);
-
-
-canvas.width =
-img.width;
-
-canvas.height =
-img.height;
-
-
-canvas
-.getContext("2d")
-.drawImage(
-img,
-0,
-0
-);
-
-
-downloadData(
-canvas.toDataURL(
-"image/jpeg",
-quality
-),
-"compressed-photo.jpg"
-);
-
-
-showToast(
-"Compressed photo तैयार है"
-);
-
-}
-
-
-/* =====================================================
-TEXT TO PDF
-===================================================== */
-
-function textToPDF(){
-
-const text =
-document
-.getElementById(
-"pdfText"
-)
-.value
-.trim();
-
-
-if(!text){
-
-showToast(
-"Text लिखें"
-);
-
-return;
-
-}
-
-
-if(!window.jspdf){
-
-showToast(
-"PDF library load नहीं हुई"
-);
-
-return;
-
-}
-
-
-const {
-jsPDF
-} = window.jspdf;
-
-
-const pdf =
-new jsPDF();
-
-
-const lines =
-pdf.splitTextToSize(
-text,
-180
-);
-
-
-pdf.text(
-lines,
-15,
-20
-);
-
-
-pdf.save(
-"Bharat-Digital-Centre-Text.pdf"
-);
-
-
-showToast(
-"PDF तैयार है"
-);
-
-}
-
-
-/* =====================================================
-PDF INFO
-===================================================== */
-
-function pdfInfo(){
-
-const file =
-document
-.getElementById(
-"pdfInfoFile"
-)
-.files[0];
-
-
-const result =
-document
-.getElementById(
-"pdfInfoResult"
-);
-
-
-if(!file){
-
-showToast(
-"PDF select करें"
-);
-
-return;
-
-}
-
-
-result.innerHTML = `
-
-<div class="freeNotice">
-
-<b>File Name:</b>
-${escapeHTML(file.name)}
-
-<br>
-
-<b>Size:</b>
-${(file.size/1024).toFixed(2)}
-KB
-
-<br>
-
-<b>Type:</b>
-${escapeHTML(file.type)}
-
-</div>
-
-`;
-
-}
-
-
-/* =====================================================
-IMAGE PREVIEW
-===================================================== */
-
-async function previewSelectedImage(){
-
-const file =
-document
-.getElementById(
-"previewImage"
-)
-.files[0];
-
-
-if(!file){
-
-return;
-
-}
-
-
-const data =
-await readFile(file);
-
-
-document
-.getElementById(
-"previewArea"
-)
-.innerHTML = `
-
-<img
-src="${data}"
-style="
-max-width:100%;
-max-height:400px;
-border-radius:10px;
-margin-top:10px;
-">
-
-`;
-
-}
-
-
-/* =====================================================
-HELPERS
-===================================================== */
-
-function readFile(file){
-
-return new Promise(
-function(resolve,reject){
-
-const reader =
-new FileReader();
-
-
-reader.onload =
-function(){
-
-resolve(
-reader.result
-);
 
 };
 
 
-reader.onerror =
-reject;
-
-
-reader.readAsDataURL(
-file
-);
-
-}
-);
-
-}
-
-
-function loadImage(src){
-
-return new Promise(
-function(resolve,reject){
-
-const img =
-new Image();
-
-
-img.onload =
-function(){
-
-resolve(img);
-
-};
-
-
-img.onerror =
-reject;
-
-
-img.src =
-src;
-
-}
-);
-
-}
-
-
-function downloadData(
-data,
-filename
-){
-
-const a =
-document.createElement(
-"a"
-);
-
-a.href = data;
-
-a.download =
-filename;
-
-document
-.body
-.appendChild(a);
-
-a.click();
-
-a.remove();
-
-}
-
-
-function escapeHTML(value){
-
-return String(value)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-
-}
-
-
-/* =====================================================
-MOBILE MENU
-===================================================== */
-
-function toggleMenu(){
-
-const nav =
-document.querySelector(
-".navLinks"
-);
-
-
-if(
-getComputedStyle(nav).display
-=== "none"
-){
-
-nav.style.display =
-"flex";
-
-nav.style.position =
-"absolute";
-
-nav.style.top =
-"70px";
-
-nav.style.left =
-"0";
-
-nav.style.right =
-"0";
-
-nav.style.background =
-"#fff";
-
-nav.style.padding =
-"20px";
-
-nav.style.flexDirection =
-"column";
-
-}else{
-
-nav.style.display =
-"none";
-
-}
-
-}
-
-
-/* =====================================================
-START
-===================================================== */
-
-window.addEventListener(
-"load",
-function(){
-
-renderServices();
-
-
-const user =
-getCurrentUser();
-
-
-if(user){
-
-if(
-user.role === "admin"
-){
-
-showAdmin();
-
-}else{
-
-showDashboard();
-
-}
-
-}
-
-}
-);
-
-</script>
-
-
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
 </script>
 
 </body>
