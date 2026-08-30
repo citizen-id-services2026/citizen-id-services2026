@@ -56,7 +56,60 @@ function autoCrop(){if(!img())return toast("पहले photo upload करे�
 function reset(){rot=0;bg="white";["zoom","x","y","bright","contrast"].forEach((id,i)=>$("#"+id).value=[100,0,0,100,100][i]);draw()}
 function download(){let c=$("#editor");if(!c)return;let a=document.createElement("a");a.download="bharat-digital-centre.jpg";a.href=c.toDataURL("image/jpeg",.95);a.click()}
 function oneClickPrint(){if(!front)return toast("Front photo upload करें");openStudio("a4");setTimeout(()=>{if($("#both"))$("#both").value=back?"yes":"no";renderSheet()},40)}
-function renderSheet(){let h=$("#sheetPreview");if(!h)return;let n=Math.min(30,Math.max(1,+$("#copies").value||1)),type=$("#layout").value,s=type==="passport"?[35,45]:size(),w=type==="passport"?300:430,hh=Math.round(w*s[1]/s[0]),page=document.createElement("div");page.className="sheet";let g=document.createElement("div");g.className="sheetgrid";g.style.gridTemplateColumns=type==="passport"?"repeat(4,35mm)":"repeat(2,1fr)";for(let i=0;i<n;i++){let it=document.createElement("div");it.className="item";let c=document.createElement("canvas");c.width=w;c.height=hh;drawCanvas(c,front,s);it.appendChild(c);g.appendChild(it)}page.appendChild(g);h.innerHTML="";h.appendChild(page);if($("#both").value==="yes"&&back){let p=page.cloneNode(false),g2=document.createElement("div");g2.className="sheetgrid";g2.style.gridTemplateColumns=g.style.gridTemplateColumns;for(let i=0;i<n;i++){let it=document.createElement("div");it.className="item";let c=document.createElement("canvas");c.width=w;c.height=hh;drawCanvas(c,back,s);it.appendChild(c);g2.appendChild(it)}p.appendChild(g2);p.classList.add("pagebreak");h.appendChild(p)}}
+function renderSheet(){
+  let h=$("#sheetPreview");
+  if(!h)return;
+
+  let n=Math.min(30,Math.max(1,+$("#copies").value||1));
+  let type=$("#layout").value;
+  let s=type==="passport"?[35,45]:size();
+  let w=type==="passport"?300:430;
+  let hh=Math.round(w*s[1]/s[0]);
+
+  let page=document.createElement("div");
+  page.className="sheet";
+
+  let g=document.createElement("div");
+  g.className="sheetgrid";
+
+  let both=$("#both").value==="yes" && back;
+
+  if(both){
+    g.style.gridTemplateColumns="repeat(4,1fr)";
+  }else{
+    g.style.gridTemplateColumns=type==="passport"?"repeat(4,35mm)":"repeat(2,1fr)";
+  }
+
+  for(let i=0;i<n;i++){
+    let it=document.createElement("div");
+    it.className="item";
+
+    let c=document.createElement("canvas");
+    c.width=w;
+    c.height=hh;
+    drawCanvas(c,front,s);
+
+    it.appendChild(c);
+    g.appendChild(it);
+
+    if(both){
+      let it2=document.createElement("div");
+      it2.className="item";
+
+      let c2=document.createElement("canvas");
+      c2.width=w;
+      c2.height=hh;
+      drawCanvas(c2,back,s);
+
+      it2.appendChild(c2);
+      g.appendChild(it2);
+    }
+  }
+
+  page.appendChild(g);
+  h.innerHTML="";
+  h.appendChild(page);
+}
 function drawCanvas(c,im,s){let ctx=c.getContext("2d");ctx.fillStyle={white:"#fff",sky:"#55afe8",red:"#df4b4b",gray:"#e8e8e8"}[bg];ctx.fillRect(0,0,c.width,c.height);if(!im)return;let sc=Math.max(c.width/im.width,c.height/im.height),nw=im.width*sc,nh=im.height*sc;ctx.drawImage(im,(c.width-nw)/2,(c.height-nh)/2,nw,nh)}
 function printSheet(){renderSheet();$("#printArea").innerHTML=$("#sheetPreview").innerHTML;setTimeout(()=>window.print(),100)}
 function saveAPI(){let v=$("#api").value.trim();if(v){localStorage.setItem("BDC_AI_API",v);toast("AI API URL saved")}}
