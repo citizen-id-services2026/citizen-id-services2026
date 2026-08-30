@@ -2,722 +2,837 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Bharat Digital Centre</title>
+<title>Bharat Digital Centre | Free Digital Services</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,"Noto Sans Devanagari",sans-serif;
-background:#f5f7fb;
-color:#202938
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-button,input,select,textarea{font:inherit}
+html{
+    scroll-behavior:smooth;
+}
 
-button{cursor:pointer}
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f5f7fb;
+    color:#202938;
+}
+
+button,input,select,textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+}
 
 .header{
-background:#fff;
-border-bottom:1px solid #e5e7eb;
-position:sticky;
-top:0;
-z-index:1000
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
 }
 
 .nav{
-max-width:1250px;
-margin:auto;
-min-height:70px;
-padding:10px 15px;
-display:flex;
-align-items:center;
-gap:20px
+    max-width:1250px;
+    margin:auto;
+    min-height:70px;
+    padding:10px 15px;
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:10px;
-flex:1
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex:1;
 }
 
 .logoIcon{
-width:45px;
-height:45px;
-border-radius:12px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#493be0,#8245db);
-color:#fff;
-font-weight:bold
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#4d3ddd,#8d43d7);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:14px;
 }
 
 .logo h2{
-font-size:19px
+    font-size:18px;
 }
 
-.logo span{
-color:#5144dd
+.logo h2 span{
+    color:#5144dd;
 }
 
 .logo small{
-display:block;
-font-size:9px;
-color:#777
+    display:block;
+    color:#777;
+    font-size:9px;
+    margin-top:2px;
 }
 
 .navLinks{
-display:flex;
-gap:22px
+    display:flex;
+    gap:20px;
 }
 
 .navLinks a{
-text-decoration:none;
-color:#333;
-font-size:14px;
-font-weight:bold
+    color:#333;
+    font-size:13px;
+    font-weight:bold;
 }
 
 .navBtn{
-border:0;
-background:#eef1ff;
-padding:10px 14px;
-border-radius:9px
+    border:0;
+    background:#5144dd;
+    color:#fff;
+    padding:10px 15px;
+    border-radius:9px;
+    font-weight:bold;
 }
 
 .menu{
-display:none;
-border:0;
-background:#eee;
-padding:9px 12px;
-border-radius:8px
+    display:none;
+    border:0;
+    padding:9px 12px;
+    border-radius:8px;
+    background:#eee;
 }
 
 .hero{
-max-width:1250px;
-margin:20px auto;
-padding:0 15px
+    max-width:1250px;
+    margin:20px auto;
+    padding:0 15px;
 }
 
 .heroBox{
-min-height:190px;
-border-radius:20px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:#fff;
-background:linear-gradient(110deg,#df3091,#9347d1,#448fe0);
-padding:25px
+    min-height:280px;
+    border-radius:22px;
+    background:linear-gradient(110deg,#dc2d91,#9548d4,#438fe1);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px 20px;
 }
 
 .heroBox h1{
-font-size:32px;
-margin-bottom:10px
+    font-size:35px;
+    margin-bottom:10px;
 }
 
 .heroBox p{
-font-size:15px
+    font-size:15px;
+    max-width:750px;
+    line-height:1.7;
+}
+
+.heroButtons{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    border-radius:9px;
+    padding:10px 17px;
+    background:#5144dd;
+    color:#fff;
+    font-weight:bold;
+}
+
+.btn.white{
+    background:#fff;
+    color:#5144dd;
+}
+
+.btn.green{
+    background:#12a968;
+}
+
+.btn.red{
+    background:#e64d61;
+}
+
+.btn.gray{
+    background:#e9edf4;
+    color:#333;
+}
+
+.btn.small{
+    padding:7px 10px;
+    font-size:11px;
 }
 
 .search{
-max-width:1000px;
-margin:0 auto 25px;
-padding:0 15px
+    max-width:1000px;
+    margin:0 auto 25px;
+    padding:0 15px;
 }
 
 .searchBox{
-background:#fff;
-height:56px;
-border-radius:15px;
-display:flex;
-align-items:center;
-padding:0 17px;
-box-shadow:0 4px 18px #0000000d
+    height:55px;
+    background:#fff;
+    border-radius:15px;
+    box-shadow:0 5px 20px #0000000b;
+    display:flex;
+    align-items:center;
+    padding:0 15px;
 }
 
 .searchBox span{
-font-size:23px;
-color:#777;
-margin-right:10px
+    font-size:23px;
+    color:#777;
+    margin-right:10px;
 }
 
 .searchBox input{
-border:0;
-outline:0;
-width:100%;
-font-size:15px
+    border:0;
+    outline:0;
+    width:100%;
 }
 
 .container{
-max-width:1250px;
-margin:auto;
-padding:0 15px 50px
+    max-width:1250px;
+    margin:auto;
+    padding:0 15px 50px;
 }
 
 .section{
-margin-bottom:35px
+    margin-bottom:35px;
 }
 
 .sectionTitle{
-font-size:19px;
-margin-bottom:15px;
-display:flex;
-align-items:center;
-gap:8px
+    font-size:20px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .sectionTitle:before{
-content:"";
-width:4px;
-height:23px;
-background:#5144dd;
-border-radius:4px
+    content:"";
+    width:4px;
+    height:23px;
+    background:#5144dd;
+    border-radius:4px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:12px
+.serviceGrid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
 }
 
-.card{
-background:#fff;
-border:1px solid #dce8e4;
-border-radius:16px;
-padding:13px 8px;
-min-height:135px;
-text-align:center;
-position:relative;
-transition:.2s
+.serviceCard{
+    background:#fff;
+    border:1px solid #dfe5ed;
+    border-radius:16px;
+    padding:14px 8px;
+    text-align:center;
+    min-height:165px;
+    position:relative;
+    transition:.2s;
 }
 
-.card:hover{
-transform:translateY(-3px);
-box-shadow:0 8px 22px #0001
+.serviceCard:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 22px #0001;
 }
 
-.cardIcon{
-height:65px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:37px
+.serviceIcon{
+    font-size:37px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.card h3{
-font-size:13px;
-margin-bottom:8px
+.serviceCard h3{
+    font-size:13px;
+    margin:7px 0;
 }
 
-.price{
-color:#5144dd;
-font-size:12px;
-font-weight:bold
+.free{
+    color:#0a9b61;
+    font-size:12px;
+    font-weight:bold;
 }
 
-.badge{
-position:absolute;
-right:6px;
-top:6px;
-background:#e84661;
-color:#fff;
-font-size:8px;
-padding:3px 6px;
-border-radius:10px
+.freeBadge{
+    position:absolute;
+    right:6px;
+    top:6px;
+    background:#0caf6c;
+    color:#fff;
+    font-size:8px;
+    padding:4px 6px;
+    border-radius:12px;
 }
 
-.card button{
-border:0;
-background:#5144dd;
-color:#fff;
-padding:7px 12px;
-border-radius:7px;
-font-size:11px;
-margin-top:6px
+.serviceCard button{
+    border:0;
+    background:#5144dd;
+    color:#fff;
+    border-radius:7px;
+    padding:7px 12px;
+    margin-top:7px;
+    font-size:11px;
+}
+
+.toolGrid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:10px;
+}
+
+.toolCard{
+    background:#fff;
+    border:1px solid #e0e5ed;
+    border-radius:14px;
+    padding:16px 8px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.toolCard:hover{
+    box-shadow:0 6px 18px #0001;
+}
+
+.toolCard div{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.toolCard h3{
+    font-size:12px;
+}
+
+.infoGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.infoCard{
+    background:#fff;
+    border-radius:15px;
+    padding:22px 12px;
+    text-align:center;
+}
+
+.infoCard .icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.infoCard h3{
+    font-size:14px;
+}
+
+.govGrid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+}
+
+.govCard{
+    background:#fff;
+    border-radius:15px;
+    padding:18px 8px;
+    text-align:center;
+}
+
+.govCard .govIcon{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.govCard h3{
+    font-size:12px;
+    margin-bottom:7px;
+}
+
+.govCard button{
+    border:0;
+    background:#5144dd;
+    color:#fff;
+    border-radius:7px;
+    padding:6px 10px;
+    font-size:10px;
 }
 
 .about{
-background:#fff;
-border-radius:18px;
-padding:25px;
-margin-bottom:30px
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:30px;
 }
 
 .about h2{
-text-align:center;
-margin-bottom:10px
+    text-align:center;
+    margin-bottom:10px;
 }
 
 .about p{
-font-size:14px;
-line-height:1.7;
-color:#657080
+    color:#687384;
+    font-size:14px;
+    line-height:1.8;
 }
 
-.whyGrid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px
+details{
+    background:#f7f8fb;
+    margin:8px 0;
+    border-radius:9px;
 }
 
-.why{
-background:#fff;
-border-radius:15px;
-padding:24px 10px;
-text-align:center
+summary{
+    padding:13px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:13px;
 }
 
-.whyIcon{
-font-size:29px;
-margin-bottom:8px
-}
-
-.why h3{
-font-size:14px
+details p{
+    padding:0 13px 13px;
 }
 
 .footer{
-background:#10172e;
-color:#fff;
-padding:45px 20px 20px
+    background:#10172e;
+    color:#fff;
+    padding:45px 20px 20px;
 }
 
 .footerGrid{
-max-width:1200px;
-margin:auto;
-display:grid;
-grid-template-columns:2fr 1fr 1fr 1fr;
-gap:30px
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:30px;
 }
 
 .footer h3{
-margin-bottom:14px;
-font-size:14px
+    font-size:14px;
+    margin-bottom:13px;
 }
 
 .footer p,.footer a{
-color:#b8c0d0;
-font-size:13px;
-line-height:1.7
+    color:#b8c0d0;
+    font-size:13px;
+    line-height:1.8;
 }
 
 .footer a{
-display:block;
-text-decoration:none;
-margin-bottom:8px
+    display:block;
+    margin-bottom:5px;
 }
 
 .copy{
-border-top:1px solid #29334d;
-max-width:1200px;
-margin:30px auto 0;
-padding-top:15px;
-text-align:center;
-font-size:12px;
-color:#8993a8
+    max-width:1200px;
+    margin:30px auto 0;
+    padding-top:15px;
+    border-top:1px solid #29334d;
+    text-align:center;
+    color:#8993a8;
+    font-size:12px;
 }
 
 .modal{
-position:fixed;
-inset:0;
-background:#0009;
-z-index:3000;
-display:none;
-align-items:center;
-justify-content:center;
-padding:15px
+    position:fixed;
+    inset:0;
+    background:#0009;
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
 }
 
 .modal.show{
-display:flex
+    display:flex;
 }
 
 .modalBox{
-background:#fff;
-width:min(700px,100%);
-max-height:92vh;
-overflow:auto;
-border-radius:18px;
-padding:22px;
-position:relative
+    background:#fff;
+    width:min(720px,100%);
+    max-height:92vh;
+    overflow:auto;
+    border-radius:18px;
+    padding:22px;
+    position:relative;
 }
 
 .close{
-position:absolute;
-right:12px;
-top:10px;
-width:35px;
-height:35px;
-border:0;
-border-radius:50%;
-background:#eef0f5;
-font-size:22px
+    position:absolute;
+    right:12px;
+    top:10px;
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#edf0f5;
+    font-size:22px;
 }
 
 .modalTitle{
-margin-bottom:18px;
-padding-right:40px
+    margin-bottom:18px;
+    padding-right:40px;
 }
 
 .formGroup{
-margin-bottom:13px
+    margin-bottom:13px;
 }
 
 .formGroup label{
-display:block;
-font-size:13px;
-font-weight:bold;
-margin-bottom:5px
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:5px;
 }
 
 .formGroup input,
 .formGroup select,
 .formGroup textarea{
-width:100%;
-border:1px solid #ccd3df;
-border-radius:8px;
-padding:10px;
-outline:0
+    width:100%;
+    padding:10px;
+    border:1px solid #ccd3df;
+    border-radius:8px;
+    outline:0;
 }
 
 .formGroup textarea{
-min-height:90px;
-resize:vertical
+    min-height:100px;
+    resize:vertical;
 }
 
-.btn{
-border:0;
-border-radius:9px;
-padding:10px 16px;
-background:#5144dd;
-color:#fff;
-font-weight:bold
+.tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:18px;
 }
 
-.btn.green{
-background:#15a96b
+.tabs button{
+    flex:1;
+    border:0;
+    padding:10px;
+    border-radius:8px;
+    background:#edf0f6;
 }
 
-.btn.red{
-background:#e74b60
-}
-
-.btn.gray{
-background:#e9edf4;
-color:#333
-}
-
-.btn.small{
-padding:7px 10px;
-font-size:11px
-}
-
-.btnRow{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-margin-top:15px
-}
-
-.authTabs{
-display:flex;
-margin-bottom:18px;
-gap:8px
-}
-
-.authTabs button{
-flex:1;
-padding:10px;
-border:0;
-background:#edf0f6;
-border-radius:8px
-}
-
-.authTabs button.active{
-background:#5144dd;
-color:#fff
-}
-
-.dashboard{
-display:none;
-max-width:1250px;
-margin:auto;
-padding:25px 15px 50px
-}
-
-.dashboard.show{
-display:block
-}
-
-.dashboardHeader{
-background:#fff;
-border-radius:15px;
-padding:18px;
-margin-bottom:18px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
-margin-bottom:18px
-}
-
-.stat{
-background:#fff;
-padding:20px;
-border-radius:14px
-}
-
-.stat b{
-font-size:25px;
-display:block;
-margin-top:5px
-}
-
-.orderTable{
-width:100%;
-border-collapse:collapse;
-background:#fff
-}
-
-.orderTable th,
-.orderTable td{
-padding:11px;
-border-bottom:1px solid #eee;
-text-align:left;
-font-size:12px
-}
-
-.status{
-padding:4px 8px;
-border-radius:12px;
-font-size:10px;
-font-weight:bold
-}
-
-.pending{
-background:#fff0c7;
-color:#9a6900
-}
-
-.processing{
-background:#dceaff;
-color:#2459aa
-}
-
-.completed{
-background:#d8f8e8;
-color:#087444
-}
-
-.cancelled{
-background:#ffe0e4;
-color:#b51f36
-}
-
-.adminPanel{
-display:none;
-max-width:1250px;
-margin:auto;
-padding:25px 15px 50px
-}
-
-.adminPanel.show{
-display:block
-}
-
-.adminHeader{
-background:#fff;
-border-radius:15px;
-padding:18px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:18px
-}
-
-.adminGrid{
-display:grid;
-grid-template-columns:1fr 2fr;
-gap:15px
-}
-
-.panel{
-background:#fff;
-border-radius:15px;
-padding:18px
-}
-
-.panel h3{
-margin-bottom:15px
-}
-
-.serviceAdmin{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:8px;
-padding:12px 0;
-border-bottom:1px solid #eee
-}
-
-.serviceAdmin:last-child{
-border-bottom:0
-}
-
-.serviceAdmin small{
-color:#777
-}
-
-.toolGrid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px
-}
-
-.toolCard{
-background:#fff;
-border:1px solid #e0e4eb;
-border-radius:13px;
-padding:15px;
-text-align:center
-}
-
-.toolCard div{
-font-size:30px;
-margin-bottom:8px
-}
-
-.help{
-position:fixed;
-right:15px;
-bottom:15px;
-z-index:1500
-}
-
-.help a{
-background:#19c976;
-color:#fff;
-text-decoration:none;
-padding:12px 16px;
-border-radius:30px;
-font-weight:bold;
-font-size:13px;
-box-shadow:0 5px 20px #0003
-}
-
-.toast{
-position:fixed;
-left:50%;
-bottom:25px;
-transform:translateX(-50%);
-background:#111827;
-color:#fff;
-padding:12px 18px;
-border-radius:9px;
-display:none;
-z-index:5000
-}
-
-.toast.show{
-display:block
+.tabs button.active{
+    background:#5144dd;
+    color:#fff;
 }
 
 .hidden{
-display:none!important
+    display:none!important;
 }
 
-@media(max-width:1000px){
-
-.grid{
-grid-template-columns:repeat(3,1fr)
+.dashboard{
+    display:none;
+    max-width:1250px;
+    margin:auto;
+    padding:25px 15px 50px;
 }
 
-.navLinks{
-display:none
-}
-
-.menu{
-display:block
-}
-
-.whyGrid{
-grid-template-columns:repeat(2,1fr)
-}
-
-.footerGrid{
-grid-template-columns:1fr 1fr
-}
-
-.adminGrid{
-grid-template-columns:1fr
-}
-
-}
-
-@media(max-width:600px){
-
-.grid{
-grid-template-columns:repeat(2,1fr);
-gap:8px
-}
-
-.heroBox{
-min-height:140px
-}
-
-.heroBox h1{
-font-size:23px
-}
-
-.heroBox p{
-font-size:12px
-}
-
-.logo h2{
-font-size:16px
-}
-
-.stats{
-grid-template-columns:repeat(2,1fr)
-}
-
-.toolGrid{
-grid-template-columns:repeat(2,1fr)
-}
-
-.footerGrid{
-grid-template-columns:1fr
+.dashboard.show{
+    display:block;
 }
 
 .dashboardHeader,
 .adminHeader{
-flex-direction:column;
-align-items:flex-start
+    background:#fff;
+    padding:18px;
+    border-radius:15px;
+    margin-bottom:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
 }
 
-.orderTable{
-min-width:700px
+.dashboardHeader p,
+.adminHeader p{
+    color:#777;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.stat{
+    background:#fff;
+    border-radius:14px;
+    padding:20px;
+}
+
+.stat span{
+    color:#777;
+    font-size:12px;
+}
+
+.stat b{
+    display:block;
+    font-size:26px;
+    margin-top:5px;
+}
+
+.panel{
+    background:#fff;
+    border-radius:15px;
+    padding:18px;
+}
+
+.panel h3{
+    margin-bottom:15px;
 }
 
 .orderWrap{
-overflow:auto
+    overflow:auto;
 }
 
-.modalBox{
-padding:15px
+.orderTable{
+    width:100%;
+    border-collapse:collapse;
+    min-width:700px;
 }
 
+.orderTable th,
+.orderTable td{
+    padding:11px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+    font-size:12px;
+}
+
+.status{
+    display:inline-block;
+    padding:4px 8px;
+    border-radius:12px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.pending{
+    background:#fff0c7;
+    color:#956800;
+}
+
+.processing{
+    background:#dceaff;
+    color:#2256a5;
+}
+
+.completed{
+    background:#d8f8e8;
+    color:#087444;
+}
+
+.cancelled{
+    background:#ffe0e4;
+    color:#b51f36;
+}
+
+.adminPanel{
+    display:none;
+    max-width:1250px;
+    margin:auto;
+    padding:25px 15px 50px;
+}
+
+.adminPanel.show{
+    display:block;
+}
+
+.adminGrid{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:15px;
+}
+
+.serviceAdmin{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.serviceAdmin:last-child{
+    border-bottom:0;
+}
+
+.serviceAdmin small{
+    color:#777;
+}
+
+.help{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:1500;
+}
+
+.help a{
+    display:block;
+    background:#18c975;
+    color:#fff;
+    padding:12px 16px;
+    border-radius:30px;
+    font-weight:bold;
+    font-size:12px;
+    box-shadow:0 5px 20px #0003;
+}
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%);
+    background:#111827;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:9px;
+    z-index:6000;
+    display:none;
+    font-size:13px;
+}
+
+.toast.show{
+    display:block;
+}
+
+.freeNotice{
+    background:#e7fff3;
+    border:1px solid #b9f0d5;
+    color:#087444;
+    border-radius:10px;
+    padding:11px;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.noData{
+    text-align:center;
+    padding:25px;
+    color:#777;
+    font-size:13px;
+}
+
+@media(max-width:1050px){
+
+    .serviceGrid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .govGrid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .toolGrid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .navLinks{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .infoGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footerGrid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .adminGrid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .heroBox{
+        min-height:230px;
+    }
+
+    .heroBox h1{
+        font-size:25px;
+    }
+
+    .heroBox p{
+        font-size:12px;
+    }
+
+    .serviceGrid{
+        grid-template-columns:repeat(2,1fr);
+        gap:8px;
+    }
+
+    .govGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .toolGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .infoGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footerGrid{
+        grid-template-columns:1fr;
+    }
+
+    .dashboardHeader,
+    .adminHeader{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .logo h2{
+        font-size:15px;
+    }
+
+    .logo small{
+        font-size:8px;
+    }
 }
 </style>
 </head>
@@ -730,16 +845,18 @@ padding:15px
 
 <div class="logo">
 
-<div class="logoIcon">BD</div>
+<div class="logoIcon">
+BD
+</div>
 
 <div>
 <h2>Bharat <span>Digital Centre</span></h2>
-<small>Digital Services • Printing • Documentation</small>
+<small>Free Digital Services • Documentation • Online Help</small>
 </div>
 
 </div>
 
-<div class="navLinks">
+<nav class="navLinks">
 
 <a href="#home">Home</a>
 <a href="#services">Services</a>
@@ -747,13 +864,15 @@ padding:15px
 <a href="#government">Government</a>
 <a href="#faq">FAQ</a>
 
-</div>
+</nav>
 
 <button class="navBtn" onclick="openLogin()">
 👤 Login
 </button>
 
-<button class="menu" onclick="toggleMenu()">☰</button>
+<button class="menu" onclick="toggleMenu()">
+☰
+</button>
 
 </div>
 
@@ -766,20 +885,23 @@ padding:15px
 
 <div>
 
-<h1>Bharat Digital Centre</h1>
+<h1>
+Bharat Digital Centre
+</h1>
 
 <p>
-आपके सभी Digital, Photo, PDF, Printing और Documentation Services एक ही जगह
+आपके लिए Digital, Documentation, Photo, PDF और Online सहायता सेवाएँ एक ही जगह।
+हमारी उपलब्ध Centre Services पर कोई service charge नहीं।
 </p>
 
-<div class="btnRow" style="justify-content:center">
+<div class="heroButtons">
 
-<button class="btn" onclick="openRegister()">
-Get Started
+<button class="btn white" onclick="openRegister()">
+Free Registration
 </button>
 
 <button class="btn green" onclick="openOrder('General Digital Service')">
-Order Service
+Free Service Request
 </button>
 
 </div>
@@ -799,8 +921,9 @@ Order Service
 
 <input
 id="searchInput"
-placeholder="Search service... जैसे PDF, Photo, Aadhaar"
-oninput="searchServices()">
+type="search"
+placeholder="Service खोजें... जैसे PAN, Photo, PDF"
+oninput="searchServices">
 
 </div>
 
@@ -809,16 +932,18 @@ oninput="searchServices()">
 
 <main class="container">
 
-
 <section class="section" id="services">
 
 <h2 class="sectionTitle">
-Essential & Digital Services
+Free Digital Services
 </h2>
 
-<div class="grid" id="serviceGrid">
-
+<div class="freeNotice">
+✅ Bharat Digital Centre की उपलब्ध service requests पर Centre Service Charge:
+<b>₹0 — FREE</b>
 </div>
+
+<div class="serviceGrid" id="serviceGrid"></div>
 
 </section>
 
@@ -826,39 +951,39 @@ Essential & Digital Services
 <section class="section" id="tools">
 
 <h2 class="sectionTitle">
-Smart PDF & Image Tools
+Free PDF & Image Tools
 </h2>
 
 <div class="toolGrid">
 
 <div class="toolCard" onclick="openTool('JPG To PDF')">
 <div>🖼️📄</div>
-<b>JPG To PDF</b>
-</div>
-
-<div class="toolCard" onclick="openTool('PNG To PDF')">
-<div>🖼️📄</div>
-<b>PNG To PDF</b>
-</div>
-
-<div class="toolCard" onclick="openTool('PDF To JPG')">
-<div>📄🖼️</div>
-<b>PDF To JPG</b>
-</div>
-
-<div class="toolCard" onclick="openTool('Merge PDF')">
-<div>📚📄</div>
-<b>Merge PDF</b>
-</div>
-
-<div class="toolCard" onclick="openTool('Delete PDF Page')">
-<div>📄❌</div>
-<b>Delete PDF Page</b>
+<h3>JPG To PDF</h3>
 </div>
 
 <div class="toolCard" onclick="openTool('Photo Resize')">
 <div>📸</div>
-<b>Photo Resize</b>
+<h3>Photo Resize</h3>
+</div>
+
+<div class="toolCard" onclick="openTool('Photo Compress')">
+<div>🗜️</div>
+<h3>Photo Compress</h3>
+</div>
+
+<div class="toolCard" onclick="openTool('Text To PDF')">
+<div>📝📄</div>
+<h3>Text To PDF</h3>
+</div>
+
+<div class="toolCard" onclick="openTool('PDF Information')">
+<div>📄🔎</div>
+<h3>PDF Information</h3>
+</div>
+
+<div class="toolCard" onclick="openTool('Image Preview')">
+<div>🖼️</div>
+<h3>Image Preview</h3>
 </div>
 
 </div>
@@ -869,69 +994,102 @@ Smart PDF & Image Tools
 <section class="section" id="government">
 
 <h2 class="sectionTitle">
-Government & Online Services
+Government & Online Assistance
 </h2>
 
-<div class="grid">
+<div class="govGrid">
 
-<div class="card">
-<div class="cardIcon">🇮🇳</div>
-<h3>Aadhaar Service</h3>
-<button onclick="openOrder('Aadhaar Service')">Apply</button>
+<div class="govCard">
+<div class="govIcon">💳</div>
+<h3>PAN Card Assistance</h3>
+<button onclick="openOrder('PAN Card Assistance')">Free Request</button>
 </div>
 
-<div class="card">
-<div class="cardIcon">💳</div>
-<h3>PAN Card</h3>
-<button onclick="openOrder('PAN Card Service')">Apply</button>
+<div class="govCard">
+<div class="govIcon">🗳️</div>
+<h3>Voter ID Assistance</h3>
+<button onclick="openOrder('Voter ID Assistance')">Free Request</button>
 </div>
 
-<div class="card">
-<div class="cardIcon">🗳️</div>
-<h3>Voter ID</h3>
-<button onclick="openOrder('Voter ID Service')">Apply</button>
+<div class="govCard">
+<div class="govIcon">🪪</div>
+<h3>Aadhaar Assistance</h3>
+<button onclick="openOrder('Aadhaar Assistance')">Free Request</button>
 </div>
 
-<div class="card">
-<div class="cardIcon">🚗</div>
-<h3>Driving Licence</h3>
-<button onclick="openOrder('Driving Licence')">Apply</button>
+<div class="govCard">
+<div class="govIcon">🚗</div>
+<h3>Driving Licence Help</h3>
+<button onclick="openOrder('Driving Licence Help')">Free Request</button>
 </div>
 
-<div class="card">
-<div class="cardIcon">🚘</div>
-<h3>Vehicle Service</h3>
-<button onclick="openOrder('Vehicle Service')">Apply</button>
+<div class="govCard">
+<div class="govIcon">🌾</div>
+<h3>PM Kisan Assistance</h3>
+<button onclick="openOrder('PM Kisan Assistance')">Free Request</button>
 </div>
 
-<div class="card">
-<div class="cardIcon">🌾</div>
-<h3>PM Kisan</h3>
-<button onclick="openOrder('PM Kisan')">Apply</button>
+<div class="govCard">
+<div class="govIcon">🏥</div>
+<h3>Ayushman Assistance</h3>
+<button onclick="openOrder('Ayushman Assistance')">Free Request</button>
 </div>
 
-<div class="card">
-<div class="cardIcon">🏥</div>
-<h3>Ayushman Bharat</h3>
-<button onclick="openOrder('Ayushman Bharat')">Apply</button>
+<div class="govCard">
+<div class="govIcon">📱</div>
+<h3>E-Shram Assistance</h3>
+<button onclick="openOrder('E-Shram Assistance')">Free Request</button>
 </div>
 
-<div class="card">
-<div class="cardIcon">📱</div>
-<h3>E-Shram</h3>
-<button onclick="openOrder('E-Shram')">Apply</button>
+<div class="govCard">
+<div class="govIcon">🏠</div>
+<h3>Government Scheme Help</h3>
+<button onclick="openOrder('Government Scheme Help')">Free Request</button>
 </div>
 
-<div class="card">
-<div class="cardIcon">🏠</div>
-<h3>PM Awas</h3>
-<button onclick="openOrder('PM Awas')">Apply</button>
+<div class="govCard">
+<div class="govIcon">🏦</div>
+<h3>EPFO Assistance</h3>
+<button onclick="openOrder('EPFO Assistance')">Free Request</button>
 </div>
 
-<div class="card">
-<div class="cardIcon">🏦</div>
-<h3>EPFO Service</h3>
-<button onclick="openOrder('EPFO Service')">Apply</button>
+<div class="govCard">
+<div class="govIcon">📋</div>
+<h3>Online Form Assistance</h3>
+<button onclick="openOrder('Online Form Assistance')">Free Request</button>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2 class="sectionTitle">
+Why Bharat Digital Centre?
+</h2>
+
+<div class="infoGrid">
+
+<div class="infoCard">
+<div class="icon">🆓</div>
+<h3>Free Service Request</h3>
+</div>
+
+<div class="infoCard">
+<div class="icon">⚡</div>
+<h3>Simple & Fast</h3>
+</div>
+
+<div class="infoCard">
+<div class="icon">📱</div>
+<h3>Mobile Friendly</h3>
+</div>
+
+<div class="infoCard">
+<div class="icon">🔒</div>
+<h3>Privacy Focused</h3>
 </div>
 
 </div>
@@ -942,106 +1100,81 @@ Government & Online Services
 <section class="about">
 
 <h2>
-Bharat Digital Centre – One Stop Digital Solution
+Bharat Digital Centre
 </h2>
 
 <p>
-Bharat Digital Centre एक modern digital-service platform है।
-यहाँ customer digital services, document preparation,
-photo/PDF tools और service orders एक ही जगह से manage कर सकता है।
+Bharat Digital Centre एक digital assistance platform है जहाँ customer
+उपलब्ध digital/documentation services के लिए free request भेज सकता है।
+Request submit होने के बाद customer को एक Request ID मिलती है और वह
+अपने dashboard से status देख सकता है।
 </p>
-
-</section>
-
-
-<section class="section">
-
-<h2 style="text-align:center;margin-bottom:15px">
-Why Choose Bharat Digital Centre?
-</h2>
-
-<div class="whyGrid">
-
-<div class="why">
-<div class="whyIcon">⚡</div>
-<h3>Fast Service</h3>
-</div>
-
-<div class="why">
-<div class="whyIcon">📚</div>
-<h3>Everything In One Place</h3>
-</div>
-
-<div class="why">
-<div class="whyIcon">🛡️</div>
-<h3>Privacy Focused</h3>
-</div>
-
-<div class="why">
-<div class="whyIcon">💰</div>
-<h3>Affordable Pricing</h3>
-</div>
-
-</div>
 
 </section>
 
 
 <section class="about" id="faq">
 
-<h2>Frequently Asked Questions</h2>
-
-<div style="margin-top:15px">
+<h2>
+Frequently Asked Questions
+</h2>
 
 <details>
-<summary style="padding:13px;font-weight:bold;cursor:pointer">
-क्या मैं online service order कर सकता हूँ?
+<summary>
+क्या service request के लिए payment करना होगा?
 </summary>
 
-<p style="padding:10px">
-हाँ। Service चुनकर customer details भरें और order submit करें।
+<p>
+नहीं। इस portal में Bharat Digital Centre की अपनी service charge ₹0 रखी गई है।
 </p>
+
 </details>
 
 <details>
-<summary style="padding:13px;font-weight:bold;cursor:pointer">
-क्या Login जरूरी है?
+<summary>
+Request submit करने के बाद क्या होगा?
 </summary>
 
-<p style="padding:10px">
-Order history देखने के लिए Login उपयोगी है।
+<p>
+आपको एक Request ID मिलेगी। Admin request देखकर उसे Pending, Processing या Completed कर सकता है।
 </p>
+
 </details>
 
 <details>
-<summary style="padding:13px;font-weight:bold;cursor:pointer">
-क्या PDF tools browser में काम करते हैं?
+<summary>
+क्या Login के बिना request कर सकते हैं?
 </summary>
 
-<p style="padding:10px">
-हाँ। उपलब्ध PDF/Image tools browser में process किए जा सकते हैं।
+<p>
+हाँ। लेकिन Login करने पर आप अपने पुराने requests और उनका status देख सकते हैं।
 </p>
+
 </details>
 
-</div>
+<details>
+<summary>
+क्या सरकारी विभाग की कोई अलग fee हो सकती है?
+</summary>
+
+<p>
+हाँ। किसी सरकारी सेवा की official fee, यदि लागू हो, तो वह संबंधित सरकारी विभाग के नियमों के अनुसार हो सकती है।
+</p>
+
+</details>
 
 </section>
 
 </main>
 
 
-<!-- USER DASHBOARD -->
-
 <section class="dashboard" id="dashboard">
 
 <div class="dashboardHeader">
 
 <div>
-
-<h2>User Dashboard</h2>
-
+<h2>My Dashboard</h2>
 <p id="welcomeUser"></p>
-
 </div>
 
 <button class="btn red" onclick="logout()">
@@ -1054,22 +1187,22 @@ Logout
 <div class="stats">
 
 <div class="stat">
-Orders
-<b id="userOrderCount">0</b>
+<span>Total Requests</span>
+<b id="userTotal">0</b>
 </div>
 
 <div class="stat">
-Pending
+<span>Pending</span>
 <b id="userPending">0</b>
 </div>
 
 <div class="stat">
-Processing
+<span>Processing</span>
 <b id="userProcessing">0</b>
 </div>
 
 <div class="stat">
-Completed
+<span>Completed</span>
 <b id="userCompleted">0</b>
 </div>
 
@@ -1078,7 +1211,9 @@ Completed
 
 <div class="panel">
 
-<h3>My Orders</h3>
+<h3>
+My Service Requests
+</h3>
 
 <div class="orderWrap">
 
@@ -1087,18 +1222,16 @@ Completed
 <thead>
 
 <tr>
-<th>Order ID</th>
+<th>Request ID</th>
 <th>Service</th>
 <th>Date</th>
 <th>Status</th>
-<th>Action</th>
+<th>View</th>
 </tr>
 
 </thead>
 
-<tbody id="userOrders">
-
-</tbody>
+<tbody id="userOrders"></tbody>
 
 </table>
 
@@ -1109,17 +1242,19 @@ Completed
 </section>
 
 
-<!-- ADMIN PANEL -->
-
 <section class="adminPanel" id="adminPanel">
 
 <div class="adminHeader">
 
 <div>
 
-<h2>Admin Panel</h2>
+<h2>
+Admin Panel
+</h2>
 
-<p>Bharat Digital Centre Management</p>
+<p>
+Bharat Digital Centre — Free Service Management
+</p>
 
 </div>
 
@@ -1133,22 +1268,22 @@ Logout
 <div class="stats">
 
 <div class="stat">
-Total Orders
-<b id="adminTotalOrders">0</b>
+<span>Total Requests</span>
+<b id="adminTotal">0</b>
 </div>
 
 <div class="stat">
-Pending
+<span>Pending</span>
 <b id="adminPending">0</b>
 </div>
 
 <div class="stat">
-Processing
+<span>Processing</span>
 <b id="adminProcessing">0</b>
 </div>
 
 <div class="stat">
-Completed
+<span>Completed</span>
 <b id="adminCompleted">0</b>
 </div>
 
@@ -1159,34 +1294,34 @@ Completed
 
 <div class="panel">
 
-<h3>Add / Update Service</h3>
+<h3>
+Add Free Service
+</h3>
 
 <div class="formGroup">
 
-<label>Service Name</label>
+<label>
+Service Name
+</label>
 
-<input id="adminServiceName">
+<input
+id="newServiceName"
+placeholder="जैसे: Birth Certificate Help">
 
 </div>
 
 <div class="formGroup">
 
-<label>Price ₹</label>
+<label>
+Icon
+</label>
 
-<input id="adminServicePrice" type="number">
-
-</div>
-
-<div class="formGroup">
-
-<label>Icon</label>
-
-<input id="adminServiceIcon" value="📄">
+<input id="newServiceIcon" value="📄">
 
 </div>
 
-<button class="btn" onclick="addService()">
-Add Service
+<button class="btn green" onclick="addService()">
+Add Free Service
 </button>
 
 </div>
@@ -1194,7 +1329,9 @@ Add Service
 
 <div class="panel">
 
-<h3>Services & Pricing</h3>
+<h3>
+Manage Services
+</h3>
 
 <div id="adminServices"></div>
 
@@ -1205,7 +1342,9 @@ Add Service
 
 <div class="panel" style="margin-top:15px">
 
-<h3>All Customer Orders</h3>
+<h3>
+All Customer Requests
+</h3>
 
 <div class="orderWrap">
 
@@ -1214,7 +1353,7 @@ Add Service
 <thead>
 
 <tr>
-<th>ID</th>
+<th>Request ID</th>
 <th>Customer</th>
 <th>Mobile</th>
 <th>Service</th>
@@ -1225,9 +1364,7 @@ Add Service
 
 </thead>
 
-<tbody id="adminOrders">
-
-</tbody>
+<tbody id="adminOrders"></tbody>
 
 </table>
 
@@ -1244,12 +1381,12 @@ Add Service
 
 <div>
 
-<h2>Bharat Digital Centre</h2>
+<h2>
+Bharat Digital Centre
+</h2>
 
 <p>
-Digital Services, Printing, Documentation,
-Photo, PDF और Online Services के लिए
-एक सरल platform.
+Free Digital Assistance • Documentation • PDF • Photo • Online Help
 </p>
 
 </div>
@@ -1258,9 +1395,18 @@ Photo, PDF और Online Services के लिए
 
 <h3>SERVICES</h3>
 
-<a href="#services">All Services</a>
+<a href="#services">Free Services</a>
 <a href="#tools">PDF Tools</a>
-<a href="#government">Government Services</a>
+<a href="#government">Government Assistance</a>
+
+</div>
+
+<div>
+
+<h3>ACCOUNT</h3>
+
+<a href="#" onclick="openLogin()">Login</a>
+<a href="#" onclick="openRegister()">Register</a>
 
 </div>
 
@@ -1269,16 +1415,10 @@ Photo, PDF और Online Services के लिए
 <h3>HELP</h3>
 
 <a href="#faq">FAQ</a>
-<a href="#" onclick="openLogin()">Login</a>
-<a href="#" onclick="openRegister()">Register</a>
 
-</div>
-
-<div>
-
-<h3>CONNECT</h3>
-
-<a href="https://wa.me/919000000000" target="_blank">
+<a
+href="https://wa.me/918890922880"
+target="_blank">
 WhatsApp
 </a>
 
@@ -1295,14 +1435,16 @@ WhatsApp
 
 <div class="help">
 
-<a href="https://wa.me/919000000000" target="_blank">
+<a
+href="https://wa.me/918890922880"
+target="_blank">
+
 💬 WhatsApp Help
+
 </a>
 
 </div>
 
-
-<!-- AUTH MODAL -->
 
 <div class="modal" id="authModal">
 
@@ -1316,7 +1458,7 @@ WhatsApp
 Bharat Digital Centre
 </h2>
 
-<div class="authTabs">
+<div class="tabs">
 
 <button id="loginTab" class="active" onclick="showLoginForm()">
 Login
@@ -1332,13 +1474,25 @@ Register
 <div id="loginForm">
 
 <div class="formGroup">
+
 <label>Email</label>
-<input id="loginEmail" type="email">
+
+<input
+id="loginEmail"
+type="email"
+placeholder="आपका email">
+
 </div>
 
 <div class="formGroup">
+
 <label>Password</label>
-<input id="loginPassword" type="password">
+
+<input
+id="loginPassword"
+type="password"
+placeholder="Password">
+
 </div>
 
 <button class="btn" onclick="login()">
@@ -1351,35 +1505,67 @@ Login
 <div id="registerForm" class="hidden">
 
 <div class="formGroup">
+
 <label>Name</label>
-<input id="regName">
+
+<input
+id="regName"
+placeholder="पूरा नाम">
+
 </div>
 
 <div class="formGroup">
+
 <label>Mobile</label>
-<input id="regMobile">
+
+<input
+id="regMobile"
+placeholder="मोबाइल नंबर">
+
 </div>
 
 <div class="formGroup">
+
 <label>Email</label>
-<input id="regEmail" type="email">
+
+<input
+id="regEmail"
+type="email"
+placeholder="Email">
+
 </div>
 
 <div class="formGroup">
+
 <label>Password</label>
-<input id="regPassword" type="password">
+
+<input
+id="regPassword"
+type="password"
+placeholder="Password">
+
 </div>
 
 <button class="btn green" onclick="register()">
-Create Account
+Create Free Account
 </button>
 
 </div>
 
-<div style="margin-top:18px;background:#f5f6fa;padding:10px;border-radius:8px;font-size:11px">
+
+<div class="freeNotice" style="margin-top:15px">
+Account बनाना पूरी तरह FREE है।
+</div>
+
+
+<div style="background:#f4f5f8;padding:10px;border-radius:8px;font-size:11px">
 
 <b>Demo Admin Login</b><br>
-Email: admin@bharatdigital.in<br>
+
+Email: admin@bharatdigital.in
+
+<br>
+
 Password: 123456
 
 </div>
@@ -1388,8 +1574,6 @@ Password: 123456
 
 </div>
 
-
-<!-- ORDER MODAL -->
 
 <div class="modal" id="orderModal">
 
@@ -1400,8 +1584,13 @@ Password: 123456
 </button>
 
 <h2 class="modalTitle">
-Service Order
+Free Service Request
 </h2>
+
+<div class="freeNotice">
+इस request के लिए Bharat Digital Centre Service Charge:
+<b>₹0 — FREE</b>
+</div>
 
 <div class="formGroup">
 
@@ -1413,7 +1602,7 @@ Service Order
 
 <div class="formGroup">
 
-<label>Your Name</label>
+<label>Name</label>
 
 <input id="orderName">
 
@@ -1437,35 +1626,22 @@ Service Order
 
 <div class="formGroup">
 
-<label>Details / Requirement</label>
+<label>Your Requirement</label>
 
-<textarea id="orderDetails"
-placeholder="अपनी requirement लिखें"></textarea>
-
-</div>
-
-<div class="formGroup">
-
-<label>Payment</label>
-
-<select id="orderPayment">
-
-<option value="Cash">Cash / Centre</option>
-<option value="UPI">UPI</option>
-</select>
+<textarea
+id="orderDetails"
+placeholder="अपनी समस्या या requirement लिखें"></textarea>
 
 </div>
 
-<button class="btn green" onclick="submitOrder()">
-Submit Order
+<button class="btn green" onclick="submitRequest()">
+Submit FREE Request
 </button>
 
 </div>
 
 </div>
 
-
-<!-- TOOL MODAL -->
 
 <div class="modal" id="toolModal">
 
@@ -1490,96 +1666,95 @@ Submit Order
 <script>
 
 /* =====================================================
-DATA
+BHARAT DIGITAL CENTRE CONFIGURATION
 ===================================================== */
 
-const defaultServices = [
+const WHATSAPP_NUMBER = "918890922880";
+
+const ADMIN_EMAIL = "admin@bharatdigital.in";
+
+const ADMIN_PASSWORD = "123456";
+
+
+/* =====================================================
+DEFAULT SERVICES
+===================================================== */
+
+const DEFAULT_SERVICES = [
 
 {
-name:"Latest Jobs",
-price:0,
+name:"Latest Jobs Assistance",
 icon:"💼"
 },
 
 {
-name:"ID Card Print",
-price:50,
+name:"ID Card Preparation",
 icon:"🪪"
 },
 
 {
 name:"Passport Photo",
-price:40,
 icon:"👤"
 },
 
 {
 name:"Photo Crop & Resize",
-price:20,
 icon:"✂️"
 },
 
 {
 name:"Resume / CV",
-price:50,
 icon:"📄"
 },
 
 {
 name:"Document Scan",
-price:10,
 icon:"📑"
 },
 
 {
-name:"PAN Card Service",
-price:100,
+name:"PAN Card Assistance",
 icon:"💳"
 },
 
 {
-name:"Voter ID Service",
-price:50,
+name:"Voter ID Assistance",
 icon:"🗳️"
 },
 
 {
-name:"Driving Licence",
-price:100,
+name:"Driving Licence Help",
 icon:"🚗"
 },
 
 {
-name:"PM Kisan",
-price:50,
+name:"PM Kisan Assistance",
 icon:"🌾"
 }
 
 ];
 
 
+/* =====================================================
+LOCAL STORAGE
+===================================================== */
+
 function getServices(){
 
-let data =
-localStorage.getItem(
-"bdc_services"
-);
+const saved =
+localStorage.getItem("bdc_services");
 
-if(!data){
+if(!saved){
 
 localStorage.setItem(
 "bdc_services",
-JSON.stringify(
-defaultServices
-)
+JSON.stringify(DEFAULT_SERVICES)
 );
 
-return defaultServices;
-
+return DEFAULT_SERVICES;
 }
 
-return JSON.parse(data);
-
+return JSON.parse(saved);
 }
 
 
@@ -1596,38 +1771,45 @@ JSON.stringify(data)
 function getUsers(){
 
 return JSON.parse(
-localStorage.getItem("bdc_users")
-|| "[]"
+localStorage.getItem("bdc_users") || "[]"
 );
 
 }
 
 
-function saveUsers(users){
+function saveUsers(data){
 
 localStorage.setItem(
 "bdc_users",
-JSON.stringify(users)
+JSON.stringify(data)
 );
 
 }
 
 
-function getOrders(){
+function getRequests(){
 
 return JSON.parse(
-localStorage.getItem("bdc_orders")
-|| "[]"
+localStorage.getItem("bdc_requests") || "[]"
 );
 
 }
 
 
-function saveOrders(orders){
+function saveRequests(data){
 
 localStorage.setItem(
-"bdc_orders",
-JSON.stringify(orders)
+"bdc_requests",
+JSON.stringify(data)
+);
+
+}
+
+
+function getCurrentUser(){
+
+return JSON.parse(
+localStorage.getItem("bdc_current_user") || "null"
 );
 
 }
@@ -1637,29 +1819,26 @@ JSON.stringify(orders)
 TOAST
 ===================================================== */
 
-function toast(msg){
+function showToast(message){
 
-const el =
-document.getElementById(
-"toast"
-);
+const toast =
+document.getElementById("toast");
 
-el.textContent=msg;
+toast.textContent = message;
 
-el.classList.add("show");
+toast.classList.add("show");
 
-setTimeout(
-()=>{
-el.classList.remove("show");
-},
-2500
-);
+setTimeout(function(){
+
+toast.classList.remove("show");
+
+},2500);
 
 }
 
 
 /* =====================================================
-MODALS
+MODAL
 ===================================================== */
 
 function openModal(id){
@@ -1679,6 +1858,29 @@ document
 
 }
 
+
+window.addEventListener(
+"click",
+function(event){
+
+document
+.querySelectorAll(".modal")
+.forEach(function(modal){
+
+if(event.target === modal){
+
+modal.classList.remove("show");
+
+}
+
+});
+
+});
+
+
+/* =====================================================
+AUTH
+===================================================== */
 
 function openLogin(){
 
@@ -1747,35 +1949,64 @@ REGISTER
 function register(){
 
 const name =
-document.getElementById("regName").value.trim();
+document
+.getElementById("regName")
+.value
+.trim();
 
 const mobile =
-document.getElementById("regMobile").value.trim();
+document
+.getElementById("regMobile")
+.value
+.trim();
 
 const email =
-document.getElementById("regEmail").value.trim().toLowerCase();
+document
+.getElementById("regEmail")
+.value
+.trim()
+.toLowerCase();
 
 const password =
-document.getElementById("regPassword").value;
+document
+.getElementById("regPassword")
+.value;
 
 
 if(!name || !mobile || !email || !password){
 
-toast("सभी details भरें");
+showToast("सभी details भरें");
 
 return;
 
 }
 
 
-let users=getUsers();
+if(password.length < 4){
+
+showToast(
+"Password कम से कम 4 characters का रखें"
+);
+
+return;
+
+}
 
 
-if(users.some(
-u=>u.email===email
-)){
+let users = getUsers();
 
-toast("यह email पहले से registered है");
+
+if(
+users.some(function(user){
+
+return user.email === email;
+
+})
+){
+
+showToast(
+"यह email पहले से registered है"
+);
 
 return;
 
@@ -1786,13 +2017,13 @@ users.push({
 
 id:Date.now(),
 
-name,
+name:name,
 
-mobile,
+mobile:mobile,
 
-email,
+email:email,
 
-password,
+password:password,
 
 role:"user"
 
@@ -1801,13 +2032,17 @@ role:"user"
 
 saveUsers(users);
 
-toast("Registration सफल हुआ");
-
-showLoginForm();
 
 document
 .getElementById("loginEmail")
-.value=email;
+.value = email;
+
+
+showLoginForm();
+
+showToast(
+"Free account सफलतापूर्वक बन गया"
+);
 
 }
 
@@ -1832,17 +2067,20 @@ document
 
 
 if(
-email==="admin@bharatdigital.in"
-&&
-password==="123456"
+email === ADMIN_EMAIL &&
+password === ADMIN_PASSWORD
 ){
 
 localStorage.setItem(
 "bdc_current_user",
 JSON.stringify({
+
 name:"Administrator",
-email,
+
+email:ADMIN_EMAIL,
+
 role:"admin"
+
 })
 );
 
@@ -1850,25 +2088,32 @@ closeModal("authModal");
 
 showAdmin();
 
+showToast("Admin login सफल");
+
 return;
 
 }
 
 
-const users=getUsers();
+const users = getUsers();
+
 
 const user =
-users.find(
-u=>
-u.email===email
-&&
-u.password===password
+users.find(function(u){
+
+return(
+u.email === email &&
+u.password === password
 );
+
+});
 
 
 if(!user){
 
-toast("Email या password गलत है");
+showToast(
+"Email या password गलत है"
+);
 
 return;
 
@@ -1880,27 +2125,12 @@ localStorage.setItem(
 JSON.stringify(user)
 );
 
+
 closeModal("authModal");
 
 showDashboard();
 
-toast("Login सफल हुआ");
-
-}
-
-
-/* =====================================================
-CURRENT USER
-===================================================== */
-
-function currentUser(){
-
-return JSON.parse(
-localStorage.getItem(
-"bdc_current_user"
-)
-|| "null"
-);
+showToast("Login सफल");
 
 }
 
@@ -1923,77 +2153,76 @@ document
 .getElementById("adminPanel")
 .classList.remove("show");
 
-window.scrollTo(
-{
+window.scrollTo({
 top:0,
 behavior:"smooth"
-}
-);
+});
 
-toast("Logout हो गया");
+showToast("Logout हो गया");
 
 }
 
 
 /* =====================================================
-SERVICE DISPLAY
+SERVICES
 ===================================================== */
 
 function renderServices(){
 
 const grid =
-document.getElementById(
-"serviceGrid"
-);
+document.getElementById("serviceGrid");
 
-const services=getServices();
+const services =
+getServices();
 
-grid.innerHTML="";
+grid.innerHTML = "";
 
 
-services.forEach(
-service=>{
+services.forEach(function(service,index){
 
 const card =
 document.createElement("div");
 
-card.className="card";
+card.className =
+"serviceCard";
 
-card.dataset.name=
+card.dataset.name =
 service.name.toLowerCase();
 
-card.innerHTML=`
 
-<div class="cardIcon">
-${service.icon}
+card.innerHTML = `
+
+<div class="freeBadge">
+FREE
+</div>
+
+<div class="serviceIcon">
+${escapeHTML(service.icon)}
 </div>
 
 <h3>
-${service.name}
+${escapeHTML(service.name)}
 </h3>
 
-<div class="price">
-${
-service.price>0
-?
-"₹"+service.price
-:
-"Free"
-}
+<div class="free">
+₹0 • FREE
 </div>
 
 <button>
-Order Now
+Free Request
 </button>
 
 `;
 
+
 card
 .querySelector("button")
-.onclick=
-()=>openOrder(
-service.name
-);
+.onclick = function(){
+
+openOrder(service.name);
+
+};
+
 
 grid.appendChild(card);
 
@@ -2002,26 +2231,40 @@ grid.appendChild(card);
 }
 
 
+/* =====================================================
+SEARCH
+===================================================== */
+
 function searchServices(){
 
-const q =
+const query =
 document
 .getElementById("searchInput")
 .value
-.toLowerCase();
+.toLowerCase()
+.trim();
+
 
 document
-.querySelectorAll("#serviceGrid .card")
-.forEach(
-card=>{
+.querySelectorAll(
+"#serviceGrid .serviceCard"
+)
+.forEach(function(card){
 
-card.style.display=
+if(
 card.dataset.name
-.includes(q)
-?
-"block"
-:
+.includes(query)
+){
+
+card.style.display =
+"block";
+
+}else{
+
+card.style.display =
 "none";
+
+}
 
 });
 
@@ -2034,47 +2277,55 @@ ORDER
 
 function openOrder(service){
 
-const user=currentUser();
+const user =
+getCurrentUser();
+
 
 document
 .getElementById("orderService")
-.value=service;
+.value = service;
 
 
-if(user && user.role==="user"){
+if(
+user &&
+user.role === "user"
+){
 
 document
 .getElementById("orderName")
-.value=user.name;
+.value =
+user.name;
 
 document
 .getElementById("orderMobile")
-.value=user.mobile;
+.value =
+user.mobile;
 
 document
 .getElementById("orderEmail")
-.value=user.email;
+.value =
+user.email;
 
 }else{
 
 document
 .getElementById("orderName")
-.value="";
+.value = "";
 
 document
 .getElementById("orderMobile")
-.value="";
+.value = "";
 
 document
 .getElementById("orderEmail")
-.value="";
+.value = "";
 
 }
 
 
 document
 .getElementById("orderDetails")
-.value="";
+.value = "";
 
 
 openModal("orderModal");
@@ -2082,72 +2333,90 @@ openModal("orderModal");
 }
 
 
-function submitOrder(){
+/* =====================================================
+SUBMIT REQUEST
+===================================================== */
+
+function submitRequest(){
 
 const service =
 document
 .getElementById("orderService")
-.value;
+.value
+.trim();
 
 const name =
 document
 .getElementById("orderName")
-.value.trim();
+.value
+.trim();
 
 const mobile =
 document
 .getElementById("orderMobile")
-.value.trim();
+.value
+.trim();
 
 const email =
 document
 .getElementById("orderEmail")
-.value.trim();
+.value
+.trim()
+.toLowerCase();
 
 const details =
 document
 .getElementById("orderDetails")
-.value.trim();
-
-const payment =
-document
-.getElementById("orderPayment")
-.value;
+.value
+.trim();
 
 
 if(!name || !mobile){
 
-toast("Name और Mobile जरूरी है");
+showToast(
+"Name और Mobile जरूरी है"
+);
 
 return;
 
 }
 
 
-const orders=getOrders();
+if(mobile.length < 10){
 
-const id=
-"BDC"+
+showToast(
+"सही mobile number डालें"
+);
+
+return;
+
+}
+
+
+const id =
+"BDC" +
 Date.now()
 .toString()
-.slice(-7);
+.slice(-8);
 
 
-orders.push({
+const requests =
+getRequests();
 
-id,
 
-name,
+requests.push({
 
-mobile,
+id:id,
 
-email,
+name:name,
 
-service,
+mobile:mobile,
 
-details,
+email:email,
 
-payment,
+service:service,
+
+details:details,
 
 status:"Pending",
 
@@ -2157,27 +2426,60 @@ date:new Date()
 });
 
 
-saveOrders(orders);
+saveRequests(requests);
+
 
 closeModal("orderModal");
 
-toast(
-"Order successfully submit हुआ: "+id
+
+showToast(
+"Free Request Submit हो गई: " + id
 );
 
 
-const whatsapp =
-"आपका Bharat Digital Centre order "+id+
-" submit हो गया। Service: "+service;
+/* =====================================================
+WHATSAPP
+===================================================== */
 
+const message =
+"नमस्ते Bharat Digital Centre,%0A%0A" +
+"नई Free Service Request%0A" +
+"Request ID: " + id + "%0A" +
+"Name: " + name + "%0A" +
+"Mobile: " + mobile + "%0A" +
+"Service: " + service + "%0A" +
+"Details: " + details;
+
+
+const whatsappURL =
+"https://wa.me/" +
+WHATSAPP_NUMBER +
+"?text=" +
+message;
+
+
+setTimeout(function(){
 
 window.open(
-"https://wa.me/919000000000?text="+
-encodeURIComponent(
-whatsapp
-),
+whatsappURL,
 "_blank"
 );
+
+},500);
+
+
+const user =
+getCurrentUser();
+
+
+if(
+user &&
+user.role === "user"
+){
+
+renderUserDashboard();
+
+}
 
 }
 
@@ -2196,15 +2498,7 @@ document
 .getElementById("dashboard")
 .classList.add("show");
 
-const user=currentUser();
-
-document
-.getElementById("welcomeUser")
-.textContent=
-"Welcome, "+user.name;
-
-
-renderUserOrders();
+renderUserDashboard();
 
 document
 .getElementById("dashboard")
@@ -2215,54 +2509,71 @@ behavior:"smooth"
 }
 
 
-function renderUserOrders(){
+function renderUserDashboard(){
 
-const user=currentUser();
+const user =
+getCurrentUser();
 
-if(!user)return;
 
-const orders =
-getOrders()
-.filter(
-o=>o.email===user.email
-);
+if(
+!user ||
+user.role !== "user"
+){
 
-document
-.getElementById(
-"userOrderCount"
-)
-.textContent=
-orders.length;
+return;
+
+}
 
 
 document
-.getElementById(
-"userPending"
-)
-.textContent=
-orders.filter(
-o=>o.status==="Pending"
-).length;
+.getElementById("welcomeUser")
+.textContent =
+"Welcome, " + user.name;
+
+
+const requests =
+getRequests()
+.filter(function(request){
+
+return request.email === user.email;
+
+});
 
 
 document
-.getElementById(
-"userProcessing"
-)
-.textContent=
-orders.filter(
-o=>o.status==="Processing"
-).length;
+.getElementById("userTotal")
+.textContent =
+requests.length;
 
 
 document
-.getElementById(
-"userCompleted"
-)
-.textContent=
-orders.filter(
-o=>o.status==="Completed"
-).length;
+.getElementById("userPending")
+.textContent =
+requests.filter(function(r){
+
+return r.status === "Pending";
+
+}).length;
+
+
+document
+.getElementById("userProcessing")
+.textContent =
+requests.filter(function(r){
+
+return r.status === "Processing";
+
+}).length;
+
+
+document
+.getElementById("userCompleted")
+.textContent =
+requests.filter(function(r){
+
+return r.status === "Completed";
+
+}).length;
 
 
 const tbody =
@@ -2270,41 +2581,80 @@ document.getElementById(
 "userOrders"
 );
 
-tbody.innerHTML="";
+
+tbody.innerHTML = "";
 
 
-orders
+if(requests.length === 0){
+
+tbody.innerHTML = `
+
+<tr>
+
+<td colspan="5">
+
+<div class="noData">
+अभी कोई request नहीं है।
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+requests
 .slice()
 .reverse()
-.forEach(
-order=>{
+.forEach(function(request){
 
 const tr =
 document.createElement("tr");
 
-tr.innerHTML=`
 
-<td>${order.id}</td>
-
-<td>${order.service}</td>
-
-<td>${order.date}</td>
+tr.innerHTML = `
 
 <td>
-<span class="status ${order.status.toLowerCase()}">
-${order.status}
-</span>
+${escapeHTML(request.id)}
 </td>
 
 <td>
+${escapeHTML(request.service)}
+</td>
+
+<td>
+${escapeHTML(request.date)}
+</td>
+
+<td>
+
+<span class="status ${request.status.toLowerCase()}">
+
+${escapeHTML(request.status)}
+
+</span>
+
+</td>
+
+<td>
+
 <button
 class="btn small"
-onclick="showOrderDetails('${order.id}')">
+onclick="viewRequest('${request.id}')">
+
 View
+
 </button>
+
 </td>
 
 `;
+
 
 tbody.appendChild(tr);
 
@@ -2314,27 +2664,50 @@ tbody.appendChild(tr);
 
 
 /* =====================================================
-ORDER DETAILS
+VIEW REQUEST
 ===================================================== */
 
-function showOrderDetails(id){
+function viewRequest(id){
 
-const order =
-getOrders()
-.find(
-o=>o.id===id
-);
+const request =
+getRequests()
+.find(function(r){
 
-if(!order)return;
+return r.id === id;
+
+});
+
+
+if(!request){
+
+return;
+
+}
+
 
 alert(
-"Order ID: "+order.id+
-"\nService: "+order.service+
-"\nName: "+order.name+
-"\nMobile: "+order.mobile+
-"\nStatus: "+order.status+
-"\nPayment: "+order.payment+
-"\nDetails: "+order.details
+
+"Request ID: " +
+request.id +
+
+"\nService: " +
+request.service +
+
+"\nName: " +
+request.name +
+
+"\nMobile: " +
+request.mobile +
+
+"\nStatus: " +
+request.status +
+
+"\nDate: " +
+request.date +
+
+"\nDetails: " +
+request.details
+
 );
 
 }
@@ -2367,43 +2740,44 @@ behavior:"smooth"
 
 function renderAdmin(){
 
-const orders=getOrders();
-
-document
-.getElementById(
-"adminTotalOrders"
-)
-.textContent=orders.length;
+const requests =
+getRequests();
 
 
 document
-.getElementById(
-"adminPending"
-)
-.textContent=
-orders.filter(
-o=>o.status==="Pending"
-).length;
+.getElementById("adminTotal")
+.textContent =
+requests.length;
 
 
 document
-.getElementById(
-"adminProcessing"
-)
-.textContent=
-orders.filter(
-o=>o.status==="Processing"
-).length;
+.getElementById("adminPending")
+.textContent =
+requests.filter(function(r){
+
+return r.status === "Pending";
+
+}).length;
 
 
 document
-.getElementById(
-"adminCompleted"
-)
-.textContent=
-orders.filter(
-o=>o.status==="Completed"
-).length;
+.getElementById("adminProcessing")
+.textContent =
+requests.filter(function(r){
+
+return r.status === "Processing";
+
+}).length;
+
+
+document
+.getElementById("adminCompleted")
+.textContent =
+requests.filter(function(r){
+
+return r.status === "Completed";
+
+}).length;
 
 
 renderAdminOrders();
@@ -2413,68 +2787,103 @@ renderAdminServices();
 }
 
 
+/* =====================================================
+ADMIN ORDERS
+===================================================== */
+
 function renderAdminOrders(){
 
 const tbody =
-document
-.getElementById(
+document.getElementById(
 "adminOrders"
 );
 
-tbody.innerHTML="";
+
+tbody.innerHTML = "";
 
 
-getOrders()
+const requests =
+getRequests()
 .slice()
-.reverse()
-.forEach(
-order=>{
+.reverse();
+
+
+if(requests.length === 0){
+
+tbody.innerHTML = `
+
+<tr>
+
+<td colspan="7">
+
+<div class="noData">
+अभी कोई customer request नहीं है।
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+requests.forEach(function(request){
 
 const tr =
 document.createElement("tr");
 
-tr.innerHTML=`
 
-<td>${order.id}</td>
+tr.innerHTML = `
 
-<td>${order.name}</td>
+<td>
+${escapeHTML(request.id)}
+</td>
 
-<td>${order.mobile}</td>
+<td>
+${escapeHTML(request.name)}
+</td>
 
-<td>${order.service}</td>
+<td>
+${escapeHTML(request.mobile)}
+</td>
 
-<td>${order.date}</td>
+<td>
+${escapeHTML(request.service)}
+</td>
+
+<td>
+${escapeHTML(request.date)}
+</td>
 
 <td>
 
 <select
-onchange="changeOrderStatus('${order.id}',this.value)">
+onchange="changeStatus(
+'${request.id}',
+this.value
+)">
 
-<option ${
-order.status==="Pending"
-?"selected":""
-}>
+<option value="Pending"
+${request.status === "Pending" ? "selected" : ""}>
 Pending
 </option>
 
-<option ${
-order.status==="Processing"
-?"selected":""
-}>
+<option value="Processing"
+${request.status === "Processing" ? "selected" : ""}>
 Processing
 </option>
 
-<option ${
-order.status==="Completed"
-?"selected":""
-}>
+<option value="Completed"
+${request.status === "Completed" ? "selected" : ""}>
 Completed
 </option>
 
-<option ${
-order.status==="Cancelled"
-?"selected":""
-}>
+<option value="Cancelled"
+${request.status === "Cancelled" ? "selected" : ""}>
 Cancelled
 </option>
 
@@ -2485,14 +2894,25 @@ Cancelled
 <td>
 
 <button
+class="btn small"
+onclick="viewRequest('${request.id}')">
+
+View
+
+</button>
+
+<button
 class="btn red small"
-onclick="deleteOrder('${order.id}')">
+onclick="deleteRequest('${request.id}')">
+
 Delete
+
 </button>
 
 </td>
 
 `;
+
 
 tbody.appendChild(tr);
 
@@ -2501,48 +2921,83 @@ tbody.appendChild(tr);
 }
 
 
-function changeOrderStatus(
-id,
-status
-){
+/* =====================================================
+CHANGE STATUS
+===================================================== */
 
-const orders=getOrders();
+function changeStatus(id,status){
 
-const order =
-orders.find(
-o=>o.id===id
-);
+const requests =
+getRequests();
 
-if(!order)return;
 
-order.status=status;
+const request =
+requests.find(function(r){
 
-saveOrders(orders);
+return r.id === id;
 
-renderAdmin();
+});
 
-toast("Order status updated");
+
+if(!request){
+
+return;
 
 }
 
 
-function deleteOrder(id){
+request.status =
+status;
+
+
+saveRequests(requests);
+
+
+renderAdmin();
+
+
+showToast(
+"Request status updated"
+);
+
+}
+
+
+/* =====================================================
+DELETE REQUEST
+===================================================== */
+
+function deleteRequest(id){
 
 if(
 !confirm(
-"क्या यह order delete करना है?"
+"क्या यह request delete करनी है?"
 )
-)return;
+){
 
-const orders =
-getOrders()
-.filter(
-o=>o.id!==id
-);
+return;
 
-saveOrders(orders);
+}
+
+
+const requests =
+getRequests()
+.filter(function(r){
+
+return r.id !== id;
+
+});
+
+
+saveRequests(requests);
+
 
 renderAdmin();
+
+
+showToast(
+"Request delete हो गई"
+);
 
 }
 
@@ -2554,55 +3009,52 @@ ADMIN SERVICES
 function renderAdminServices(){
 
 const box =
-document
-.getElementById(
+document.getElementById(
 "adminServices"
 );
 
-box.innerHTML="";
+
+box.innerHTML = "";
 
 
 getServices()
-.forEach(
-(service,index)=>{
+.forEach(function(service,index){
 
 const div =
 document.createElement("div");
 
-div.className=
+
+div.className =
 "serviceAdmin";
 
-div.innerHTML=`
+
+div.innerHTML = `
 
 <div>
 
-<b>${service.icon} ${service.name}</b>
+<b>
+${escapeHTML(service.icon)}
+${escapeHTML(service.name)}
+</b>
 
 <br>
 
 <small>
-Price: ₹${service.price}
+Service Charge: ₹0 — FREE
 </small>
 
 </div>
 
-<div>
-
-<button
-class="btn small"
-onclick="editService(${index})">
-Edit
-</button>
-
 <button
 class="btn red small"
 onclick="deleteService(${index})">
+
 Delete
+
 </button>
 
-</div>
-
 `;
+
 
 box.appendChild(div);
 
@@ -2611,135 +3063,115 @@ box.appendChild(div);
 }
 
 
+/* =====================================================
+ADD SERVICE
+===================================================== */
+
 function addService(){
 
 const name =
 document
 .getElementById(
-"adminServiceName"
+"newServiceName"
 )
 .value
 .trim();
 
-const price =
-Number(
-document
-.getElementById(
-"adminServicePrice"
-)
-.value
-);
 
 const icon =
 document
 .getElementById(
-"adminServiceIcon"
+"newServiceIcon"
 )
 .value
-.trim()
-||"📄";
+.trim() ||
+"📄";
 
 
 if(!name){
 
-toast("Service name डालें");
+showToast(
+"Service name डालें"
+);
 
 return;
 
 }
 
 
-const services=getServices();
+const services =
+getServices();
+
 
 services.push({
-name,
-price,
-icon
+
+name:name,
+
+icon:icon
+
 });
 
+
 saveServices(services);
 
-document
-.getElementById(
-"adminServiceName"
-)
-.value="";
 
 document
 .getElementById(
-"adminServicePrice"
+"newServiceName"
 )
-.value="";
+.value = "";
 
-renderAdminServices();
 
 renderServices();
 
-toast("Service add हो गई");
+renderAdminServices();
+
+
+showToast(
+"Free service add हो गई"
+);
 
 }
 
 
-function editService(index){
-
-const services=getServices();
-
-const service=services[index];
-
-const name =
-prompt(
-"Service Name",
-service.name
-);
-
-if(name===null)return;
-
-const price =
-prompt(
-"Price",
-service.price
-);
-
-if(price===null)return;
-
-service.name=name;
-
-service.price=
-Number(price)||0;
-
-saveServices(services);
-
-renderAdminServices();
-
-renderServices();
-
-toast("Service updated");
-
-}
-
+/* =====================================================
+DELETE SERVICE
+===================================================== */
 
 function deleteService(index){
 
 if(
 !confirm(
-"Service delete करनी है?"
+"क्या service delete करनी है?"
 )
-)return;
+){
 
-const services=getServices();
+return;
+
+}
+
+
+const services =
+getServices();
+
 
 services.splice(
 index,
 1
 );
 
+
 saveServices(services);
 
-renderAdminServices();
 
 renderServices();
 
-toast("Service delete हो गई");
+renderAdminServices();
+
+
+showToast(
+"Service delete हो गई"
+);
 
 }
 
@@ -2750,32 +3182,34 @@ TOOLS
 
 function openTool(tool){
 
-openModal("toolModal");
-
 document
 .getElementById("toolTitle")
-.textContent=tool;
+.textContent =
+tool;
+
 
 const body =
-document
-.getElementById("toolBody");
+document.getElementById(
+"toolBody"
+);
 
 
-if(
-tool==="JPG To PDF" ||
-tool==="PNG To PDF"
-){
+if(tool === "JPG To PDF"){
 
-body.innerHTML=`
+body.innerHTML = `
+
+<div class="freeNotice">
+यह tool browser में free में काम करता है।
+</div>
 
 <div class="formGroup">
 
 <label>
-Image Select करें
+JPG / PNG Images
 </label>
 
 <input
-id="imageToPdf"
+id="jpgFiles"
 type="file"
 accept="image/*"
 multiple>
@@ -2784,132 +3218,29 @@ multiple>
 
 <button
 class="btn"
-onclick="imageToPDF()">
+onclick="imagesToPDF()">
 
-PDF Download करें
+Create Free PDF
 
 </button>
 
 `;
 
-return;
-
 }
 
 
-if(tool==="PDF To JPG"){
+else if(tool === "Photo Resize"){
 
-body.innerHTML=`
+body.innerHTML = `
 
 <div class="formGroup">
 
 <label>
-PDF Select करें
+Photo Select करें
 </label>
 
 <input
-type="file"
-id="pdfToJpgFile"
-accept="application/pdf">
-
-</div>
-
-<p style="font-size:12px;color:#777">
-यह basic browser tool PDF page preview/download के लिए है।
-</p>
-
-`;
-
-return;
-
-}
-
-
-if(tool==="Merge PDF"){
-
-body.innerHTML=`
-
-<div class="formGroup">
-
-<label>
-PDF Files Select करें
-</label>
-
-<input
-id="mergeFiles"
-type="file"
-accept="application/pdf"
-multiple>
-
-</div>
-
-<button
-class="btn"
-onclick="mergePDF()">
-
-Merge PDF
-
-</button>
-
-`;
-
-return;
-
-}
-
-
-if(tool==="Delete PDF Page"){
-
-body.innerHTML=`
-
-<div class="formGroup">
-
-<label>PDF</label>
-
-<input
-id="deletePdfFile"
-type="file"
-accept="application/pdf">
-
-</div>
-
-<div class="formGroup">
-
-<label>Page Number</label>
-
-<input
-id="deletePageNo"
-type="number"
-min="1"
-value="1">
-
-</div>
-
-<button
-class="btn red"
-onclick="deletePDFPage()">
-
-Page Delete करें
-
-</button>
-
-`;
-
-return;
-
-}
-
-
-if(tool==="Photo Resize"){
-
-body.innerHTML=`
-
-<div class="formGroup">
-
-<label>Photo</label>
-
-<input
-id="resizePhoto"
+id="resizeFile"
 type="file"
 accept="image/*">
 
@@ -2917,7 +3248,9 @@ accept="image/*">
 
 <div class="formGroup">
 
-<label>Width</label>
+<label>
+Width
+</label>
 
 <input
 id="resizeWidth"
@@ -2928,7 +3261,9 @@ value="800">
 
 <div class="formGroup">
 
-<label>Height</label>
+<label>
+Height
+</label>
 
 <input
 id="resizeHeight"
@@ -2939,36 +3274,166 @@ value="800">
 
 <button
 class="btn"
-onclick="resizePhoto()">
+onclick="resizeImage()">
 
-Photo Download करें
+Resize & Save
 
 </button>
 
 `;
 
-return;
+}
+
+
+else if(tool === "Photo Compress"){
+
+body.innerHTML = `
+
+<div class="formGroup">
+
+<label>
+Photo
+</label>
+
+<input
+id="compressFile"
+type="file"
+accept="image/*">
+
+</div>
+
+<div class="formGroup">
+
+<label>
+Quality
+</label>
+
+<select id="compressQuality">
+
+<option value="0.9">
+High
+</option>
+
+<option value="0.7" selected>
+Medium
+</option>
+
+<option value="0.5">
+Low
+</option>
+
+</select>
+
+</div>
+
+<button
+class="btn"
+onclick="compressImage()">
+
+Compress Free
+
+</button>
+
+`;
 
 }
 
 
-body.innerHTML=`
+else if(tool === "Text To PDF"){
 
-<div style="text-align:center;padding:30px">
+body.innerHTML = `
 
-<div style="font-size:45px">
-🛠️
+<div class="formGroup">
+
+<label>
+Text
+</label>
+
+<textarea
+id="pdfText"
+placeholder="अपना text यहाँ लिखें"></textarea>
+
 </div>
 
-<h3>${tool}</h3>
+<button
+class="btn"
+onclick="textToPDF()">
 
-<p style="color:#777;margin-top:8px">
-यह service module तैयार किया जा सकता है।
-</p>
+Create PDF
+
+</button>
+
+`;
+
+}
+
+
+else if(tool === "PDF Information"){
+
+body.innerHTML = `
+
+<div class="formGroup">
+
+<label>
+PDF Select करें
+</label>
+
+<input
+id="pdfInfoFile"
+type="file"
+accept="application/pdf">
+
+</div>
+
+<button
+class="btn"
+onclick="pdfInfo()">
+
+Check PDF
+
+</button>
+
+<div
+id="pdfInfoResult"
+style="margin-top:15px">
 
 </div>
 
 `;
+
+}
+
+
+else{
+
+body.innerHTML = `
+
+<div class="formGroup">
+
+<label>
+Image Select करें
+</label>
+
+<input
+id="previewImage"
+type="file"
+accept="image/*"
+onchange="previewSelectedImage()">
+
+</div>
+
+<div
+id="previewArea"
+style="text-align:center">
+
+</div>
+
+`;
+
+}
+
+
+openModal("toolModal");
 
 }
 
@@ -2977,30 +3442,39 @@ body.innerHTML=`
 IMAGE TO PDF
 ===================================================== */
 
-async function imageToPDF(){
+async function imagesToPDF(){
 
 const files =
-[
-...
 document
-.getElementById(
-"imageToPdf"
-)
-.files
-];
+.getElementById("jpgFiles")
+.files;
 
 
 if(!files.length){
 
-toast("Image select करें");
+showToast(
+"Image select करें"
+);
 
 return;
 
 }
 
 
-const {jsPDF} =
-window.jspdf;
+if(!window.jspdf){
+
+showToast(
+"PDF library load नहीं हुई"
+);
+
+return;
+
+}
+
+
+const {
+jsPDF
+} = window.jspdf;
 
 
 const pdf =
@@ -3018,75 +3492,92 @@ i++
 ){
 
 const data =
-await fileDataURL(
+await readFile(
 files[i]
 );
 
+
 const img =
-await loadImage(data);
+await loadImage(
+data
+);
 
-let w=190;
 
-let h=
-w*
-img.height/
+let width = 190;
+
+let height =
+width *
+img.height /
 img.width;
 
-if(h>277){
 
-h=277;
+if(height > 277){
 
-w=
-h*
-img.width/
+height = 277;
+
+width =
+height *
+img.width /
 img.height;
 
 }
 
-if(i>0)
+
+if(i > 0){
+
 pdf.addPage();
+
+}
+
 
 pdf.addImage(
 data,
 "JPEG",
-(210-w)/2,
-(297-h)/2,
-w,
-h
+(210-width)/2,
+(297-height)/2,
+width,
+height
 );
 
 }
 
 
 pdf.save(
-"bharat-digital-centre.pdf"
+"Bharat-Digital-Centre-Free.pdf"
 );
 
-toast("PDF तैयार है");
+
+showToast(
+"Free PDF तैयार है"
+);
 
 }
 
 
 /* =====================================================
-RESIZE PHOTO
+RESIZE
 ===================================================== */
 
-async function resizePhoto(){
+async function resizeImage(){
 
 const file =
 document
 .getElementById(
-"resizePhoto"
+"resizeFile"
 )
 .files[0];
 
+
 if(!file){
 
-toast("Photo select करें");
+showToast(
+"Photo select करें"
+);
 
 return;
 
 }
+
 
 const width =
 Number(
@@ -3097,6 +3588,7 @@ document
 .value
 );
 
+
 const height =
 Number(
 document
@@ -3106,18 +3598,25 @@ document
 .value
 );
 
+
 const img =
 await loadImage(
-await fileDataURL(file)
+await readFile(file)
 );
 
+
 const canvas =
-document
-.createElement("canvas");
+document.createElement(
+"canvas"
+);
 
-canvas.width=width;
 
-canvas.height=height;
+canvas.width =
+width;
+
+canvas.height =
+height;
+
 
 canvas
 .getContext("2d")
@@ -3129,22 +3628,272 @@ width,
 height
 );
 
-const a =
-document
-.createElement("a");
 
-a.href =
+downloadData(
 canvas.toDataURL(
 "image/jpeg",
-.92
+0.92
+),
+"resized-photo.jpg"
 );
 
-a.download=
-"resized-photo.jpg";
 
-a.click();
+showToast(
+"Photo तैयार है"
+);
 
-toast("Photo तैयार है");
+}
+
+
+/* =====================================================
+COMPRESS
+===================================================== */
+
+async function compressImage(){
+
+const file =
+document
+.getElementById(
+"compressFile"
+)
+.files[0];
+
+
+if(!file){
+
+showToast(
+"Photo select करें"
+);
+
+return;
+
+}
+
+
+const quality =
+Number(
+document
+.getElementById(
+"compressQuality"
+)
+.value
+);
+
+
+const img =
+await loadImage(
+await readFile(file)
+);
+
+
+const canvas =
+document.createElement(
+"canvas"
+);
+
+
+canvas.width =
+img.width;
+
+canvas.height =
+img.height;
+
+
+canvas
+.getContext("2d")
+.drawImage(
+img,
+0,
+0
+);
+
+
+downloadData(
+canvas.toDataURL(
+"image/jpeg",
+quality
+),
+"compressed-photo.jpg"
+);
+
+
+showToast(
+"Compressed photo तैयार है"
+);
+
+}
+
+
+/* =====================================================
+TEXT TO PDF
+===================================================== */
+
+function textToPDF(){
+
+const text =
+document
+.getElementById(
+"pdfText"
+)
+.value
+.trim();
+
+
+if(!text){
+
+showToast(
+"Text लिखें"
+);
+
+return;
+
+}
+
+
+if(!window.jspdf){
+
+showToast(
+"PDF library load नहीं हुई"
+);
+
+return;
+
+}
+
+
+const {
+jsPDF
+} = window.jspdf;
+
+
+const pdf =
+new jsPDF();
+
+
+const lines =
+pdf.splitTextToSize(
+text,
+180
+);
+
+
+pdf.text(
+lines,
+15,
+20
+);
+
+
+pdf.save(
+"Bharat-Digital-Centre-Text.pdf"
+);
+
+
+showToast(
+"PDF तैयार है"
+);
+
+}
+
+
+/* =====================================================
+PDF INFO
+===================================================== */
+
+function pdfInfo(){
+
+const file =
+document
+.getElementById(
+"pdfInfoFile"
+)
+.files[0];
+
+
+const result =
+document
+.getElementById(
+"pdfInfoResult"
+);
+
+
+if(!file){
+
+showToast(
+"PDF select करें"
+);
+
+return;
+
+}
+
+
+result.innerHTML = `
+
+<div class="freeNotice">
+
+<b>File Name:</b>
+${escapeHTML(file.name)}
+
+<br>
+
+<b>Size:</b>
+${(file.size/1024).toFixed(2)}
+KB
+
+<br>
+
+<b>Type:</b>
+${escapeHTML(file.type)}
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+IMAGE PREVIEW
+===================================================== */
+
+async function previewSelectedImage(){
+
+const file =
+document
+.getElementById(
+"previewImage"
+)
+.files[0];
+
+
+if(!file){
+
+return;
+
+}
+
+
+const data =
+await readFile(file);
+
+
+document
+.getElementById(
+"previewArea"
+)
+.innerHTML = `
+
+<img
+src="${data}"
+style="
+max-width:100%;
+max-height:400px;
+border-radius:10px;
+margin-top:10px;
+">
+
+`;
 
 }
 
@@ -3153,27 +3902,35 @@ toast("Photo तैयार है");
 HELPERS
 ===================================================== */
 
-function fileDataURL(file){
+function readFile(file){
 
 return new Promise(
-(resolve,reject)=>{
+function(resolve,reject){
 
 const reader =
 new FileReader();
 
-reader.onload=
-()=>resolve(
+
+reader.onload =
+function(){
+
+resolve(
 reader.result
 );
 
-reader.onerror=
+};
+
+
+reader.onerror =
 reject;
+
 
 reader.readAsDataURL(
 file
 );
 
-});
+}
+);
 
 }
 
@@ -3181,61 +3938,116 @@ file
 function loadImage(src){
 
 return new Promise(
-(resolve,reject)=>{
+function(resolve,reject){
 
-const img=
+const img =
 new Image();
 
-img.onload=
-()=>resolve(img);
 
-img.onerror=
+img.onload =
+function(){
+
+resolve(img);
+
+};
+
+
+img.onerror =
 reject;
 
-img.src=src;
 
-});
+img.src =
+src;
+
+}
+);
+
+}
+
+
+function downloadData(
+data,
+filename
+){
+
+const a =
+document.createElement(
+"a"
+);
+
+a.href = data;
+
+a.download =
+filename;
+
+document
+.body
+.appendChild(a);
+
+a.click();
+
+a.remove();
+
+}
+
+
+function escapeHTML(value){
+
+return String(value)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
 }
 
 
 /* =====================================================
-MENU
+MOBILE MENU
 ===================================================== */
 
 function toggleMenu(){
 
-const links =
-document
-.querySelector(".navLinks");
+const nav =
+document.querySelector(
+".navLinks"
+);
+
 
 if(
-getComputedStyle(
-links
-).display==="none"
+getComputedStyle(nav).display
+=== "none"
 ){
 
-links.style.display=
+nav.style.display =
 "flex";
 
-links.style.position=
+nav.style.position =
 "absolute";
 
-links.style.top="70px";
+nav.style.top =
+"70px";
 
-links.style.left="0";
+nav.style.left =
+"0";
 
-links.style.right="0";
+nav.style.right =
+"0";
 
-links.style.background="#fff";
+nav.style.background =
+"#fff";
 
-links.style.padding="20px";
+nav.style.padding =
+"20px";
 
-links.style.flexDirection="column";
+nav.style.flexDirection =
+"column";
 
 }else{
 
-links.style.display="none";
+nav.style.display =
+"none";
 
 }
 
@@ -3243,7 +4055,7 @@ links.style.display="none";
 
 
 /* =====================================================
-AUTO LOGIN
+START
 ===================================================== */
 
 window.addEventListener(
@@ -3252,11 +4064,16 @@ function(){
 
 renderServices();
 
-const user=currentUser();
+
+const user =
+getCurrentUser();
+
 
 if(user){
 
-if(user.role==="admin"){
+if(
+user.role === "admin"
+){
 
 showAdmin();
 
@@ -3268,62 +4085,15 @@ showDashboard();
 
 }
 
-});
-
-
-/* =====================================================
-CLOSE MODAL
-===================================================== */
-
-window.addEventListener(
-"click",
-function(e){
-
-document
-.querySelectorAll(".modal")
-.forEach(
-modal=>{
-
-if(e.target===modal){
-
-modal.classList.remove(
-"show"
-);
-
 }
-
-});
-
-});
-
-
-/* =====================================================
-DEMO PDF FUNCTIONS
-===================================================== */
-
-async function mergePDF(){
-
-toast(
-"Merge PDF के लिए PDF library जोड़ने पर इसे full production tool बनाया जा सकता है।"
 );
-
-}
-
-
-async function deletePDFPage(){
-
-toast(
-"PDF Page Delete module के लिए PDF processing library आवश्यक है।"
-);
-
-}
 
 </script>
 
 
-<!-- JS PDF LIBRARY -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+</script>
 
 </body>
 </html>
