@@ -3,349 +3,356 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>Bharat Digital Centre | Citizen ID Services</title>
+<title>Bharat Digital Centre | Digital & Print Tools</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:Arial,"Noto Sans Devanagari",sans-serif;
-  background:#f5f7fb;
-  color:#172033;
+margin:0;
+font-family:Arial,"Noto Sans Devanagari",sans-serif;
+background:#f5f7fb;
+color:#172033
 }
 
 header{
-  background:linear-gradient(135deg,#f4511e,#e53935);
-  color:#fff;
-  padding:18px;
-  box-shadow:0 3px 15px #0002;
+background:linear-gradient(135deg,#f4511e,#7c3aed);
+color:#fff;
+padding:15px;
+position:sticky;
+top:0;
+z-index:20
 }
 
 .head{
-  max-width:1150px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:12px;
+justify-content:space-between
 }
 
 .head h1{
-  margin:0;
-  font-size:25px;
+margin:0;
+font-size:23px
 }
 
 .head p{
-  margin:3px 0 0;
-  font-size:13px;
+margin:3px 0;
+font-size:12px
 }
 
 .container{
-  max-width:1150px;
-  margin:auto;
-  padding:20px 15px;
-}
-
-.notice{
-  background:#fff8e1;
-  border-left:5px solid #ff9800;
-  padding:13px;
-  border-radius:8px;
-  margin-bottom:20px;
-  font-size:14px;
-}
-
-.hero,
-.studio,
-.card{
-  background:#fff;
-  border-radius:14px;
-  padding:18px;
-  box-shadow:0 3px 15px #0001;
-}
-
-.hero{
-  margin-bottom:20px;
-}
-
-.hero h2{
-  margin:0 0 5px;
-}
-
-.muted{
-  color:#687386;
-  font-size:14px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-.card h3{
-  color:#d84315;
-}
-
-.card p{
-  color:#687386;
-  font-size:14px;
-}
-
-.btn{
-  border:0;
-  border-radius:8px;
-  padding:10px 14px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.primary{
-  background:#f4511e;
-  color:#fff;
-}
-
-.dark{
-  background:#202938;
-  color:#fff;
-}
-
-.light{
-  background:#fff;
-  color:#d84315;
-  border:1px solid #ddd;
-}
-
-.green{
-  background:#198754;
-  color:#fff;
-}
-
-.danger{
-  background:#dc3545;
-  color:#fff;
-}
-
-.studio{
-  margin-top:25px;
-}
-
-.tabs{
-  display:flex;
-  gap:7px;
-  overflow:auto;
-  margin-bottom:15px;
-}
-
-.tab{
-  padding:9px 13px;
-  border:1px solid #ddd;
-  background:#fff;
-  border-radius:8px;
-  white-space:nowrap;
-  cursor:pointer;
-}
-
-.tab.active{
-  background:#f4511e;
-  color:#fff;
-}
-
-.studioGrid{
-  display:grid;
-  grid-template-columns:330px 1fr;
-  gap:17px;
-}
-
-.panel{
-  border:1px solid #e1e6ef;
-  border-radius:12px;
-  padding:14px;
-  background:#fafbfc;
-}
-
-.panel h3{
-  font-size:16px;
-  margin:0 0 10px;
-}
-
-input,
-select{
-  width:100%;
-  padding:10px;
-  border:1px solid #dce2eb;
-  border-radius:8px;
-  background:#fff;
-}
-
-.field{
-  margin-bottom:10px;
-}
-
-.field label{
-  display:block;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:4px;
-}
-
-.sizes{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px;
-}
-
-.size{
-  padding:8px 5px;
-  text-align:left;
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:7px;
-  font-size:12px;
-  cursor:pointer;
-}
-
-.size.active{
-  border-color:#f4511e;
-  background:#fff1eb;
-  color:#c43d16;
-  font-weight:bold;
-}
-
-.range{
-  margin:10px 0;
-}
-
-.range label{
-  display:flex;
-  justify-content:space-between;
-  font-size:12px;
-}
-
-.range input{
-  padding:0;
-}
-
-.row{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-
-.row>*{
-  flex:1;
-}
-
-.preview{
-  background:#dfe4eb;
-  border-radius:12px;
-  padding:15px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:500px;
-  overflow:auto;
-}
-
-canvas{
-  background:#fff;
-  box-shadow:0 3px 18px #0003;
-  max-width:100%;
-  height:auto;
-}
-
-.status{
-  font-size:12px;
-  color:#687386;
-  margin-top:8px;
+max-width:1200px;
+margin:auto;
+padding:18px 14px
 }
 
 .hidden{
-  display:none!important;
+display:none!important
 }
 
-.auth{
-  min-height:100vh;
-  background:linear-gradient(135deg,#fff3e0,#fce4ec);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
+.btn{
+border:0;
+border-radius:8px;
+padding:10px 14px;
+font-weight:bold;
+cursor:pointer
 }
 
-.authbox{
-  background:#fff;
-  padding:27px;
-  border-radius:17px;
-  width:min(420px,100%);
-  box-shadow:0 10px 35px #0002;
+.primary{
+background:#6d28d9;
+color:#fff
 }
 
-.authbox h2{
-  margin:0;
+.green{
+background:#16a34a;
+color:#fff
+}
+
+.dark{
+background:#1f2937;
+color:#fff
+}
+
+.light{
+background:#fff;
+border:1px solid #ddd
+}
+
+.red{
+background:#dc2626;
+color:#fff
+}
+
+.notice{
+background:#fff8e1;
+border-left:5px solid #ff9800;
+padding:12px;
+border-radius:8px;
+margin-bottom:18px
+}
+
+.hero,
+.tool,
+.studio,
+.panel{
+background:#fff;
+border-radius:14px;
+box-shadow:0 3px 15px #0001;
+padding:18px
+}
+
+.hero{
+margin-bottom:18px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
+}
+
+.tool h3{
+margin:7px 0;
+color:#6d28d9
+}
+
+.tool p{
+font-size:13px;
+color:#687386
+}
+
+.studio{
+margin-top:20px
+}
+
+.tabs{
+display:flex;
+gap:7px;
+overflow:auto;
+margin-bottom:15px
+}
+
+.tab{
+padding:9px 13px;
+border:1px solid #ddd;
+background:#fff;
+border-radius:8px;
+white-space:nowrap;
+cursor:pointer
+}
+
+.tab.active{
+background:#6d28d9;
+color:#fff
+}
+
+.studioGrid{
+display:grid;
+grid-template-columns:330px 1fr;
+gap:15px
+}
+
+.field{
+margin-bottom:10px
+}
+
+.field label{
+display:block;
+font-size:13px;
+font-weight:bold;
+margin-bottom:4px
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:10px;
+border:1px solid #d6dbe4;
+border-radius:8px;
+background:#fff
+}
+
+.range{
+margin:9px 0
+}
+
+.range label{
+display:flex;
+justify-content:space-between;
+font-size:12px
+}
+
+.range input{
+padding:0
+}
+
+.sizes{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:6px
+}
+
+.size{
+padding:8px 5px;
+text-align:left;
+background:#fff;
+border:1px solid #ddd;
+border-radius:7px;
+font-size:11px;
+cursor:pointer
+}
+
+.size.active{
+border-color:#6d28d9;
+background:#f3e8ff
+}
+
+.row{
+display:flex;
+gap:7px;
+flex-wrap:wrap
+}
+
+.row>*{
+flex:1
+}
+
+.preview{
+background:#dfe4eb;
+border-radius:12px;
+min-height:500px;
+padding:15px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:auto
+}
+
+canvas{
+background:#fff;
+box-shadow:0 3px 18px #0003;
+max-width:100%;
+height:auto
+}
+
+.status{
+font-size:12px;
+color:#667085;
+margin-top:7px
 }
 
 .msg{
-  margin-top:10px;
-  padding:8px;
-  border-radius:7px;
-  font-size:13px;
+padding:8px;
+border-radius:7px;
+margin-top:8px;
+font-size:13px
 }
 
 .ok{
-  background:#e8f5e9;
-  color:#176b2d;
+background:#e8f5e9;
+color:#166534
 }
 
 .err{
-  background:#ffebee;
-  color:#b71c1c;
+background:#ffebee;
+color:#991b1b
 }
 
-#printSheet{
-  display:none;
+.auth{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#fff3e0,#fce4ec);
+padding:20px
 }
 
-@media(max-width:800px){
+.authbox{
+background:#fff;
+width:min(420px,100%);
+padding:25px;
+border-radius:16px;
+box-shadow:0 10px 35px #0002
+}
 
-  .grid,
-  .studioGrid{
-    grid-template-columns:1fr;
-  }
+.toolIcon{
+font-size:35px
+}
 
-  .head{
-    align-items:flex-start;
-  }
+.result{
+background:#f8fafc;
+border:1px solid #e5e7eb;
+padding:12px;
+border-radius:9px;
+margin-top:10px
+}
 
-  .preview{
-    min-height:350px;
-  }
+#pdfList{
+max-height:150px;
+overflow:auto;
+font-size:12px
+}
+
+footer{
+margin-top:30px;
+background:#111827;
+color:#fff;
+padding:30px;
+text-align:center
+}
+
+@media(max-width:850px){
+
+.grid{
+grid-template-columns:1fr 1fr
+}
+
+.studioGrid{
+grid-template-columns:1fr
+}
+
+}
+
+@media(max-width:600px){
+
+.grid{
+grid-template-columns:1fr
+}
+
+.head{
+align-items:flex-start
+}
+
+.head h1{
+font-size:18px
+}
+
+.preview{
+min-height:350px
+}
 
 }
 
 @media print{
 
-  body>*:not(#printSheet){
-    display:none!important;
-  }
+body>*:not(#printSheet){
+display:none!important
+}
 
-  #printSheet{
-    display:block!important;
-    width:210mm;
-    height:297mm;
-    background:#fff;
-  }
+#printSheet{
+display:block!important;
+width:210mm;
+height:297mm
+}
 
-  #printSheet img{
-    width:210mm;
-    height:297mm;
-    display:block;
-  }
+#printSheet img{
+width:210mm;
+height:297mm
+}
 
 }
 </style>
@@ -353,121 +360,171 @@ canvas{
 
 <body>
 
-<!-- =========================
-     LOGIN SCREEN
-========================= -->
+
+<!-- LOGIN SCREEN -->
 
 <section id="authScreen" class="auth">
 
 <div class="authbox">
 
-<h2>🇮🇳 Bharat Digital Centre</h2>
+<h2>
+🇮🇳 Bharat Digital Centre
+</h2>
 
-<p class="muted">
-Citizen ID Services & Print Studio
+<p>
+Digital Tools • Photo Studio • PDF Tools
 </p>
 
-<!-- LOGIN -->
 
 <div id="loginBox">
 
 <div class="field">
-<label>Email</label>
+
+<label>
+Email
+</label>
+
 <input
 id="loginEmail"
 type="email"
-placeholder="Email">
+>
+
 </div>
 
+
 <div class="field">
-<label>Password</label>
+
+<label>
+Password
+</label>
+
 <input
 id="loginPassword"
 type="password"
-placeholder="Password">
+>
+
 </div>
+
 
 <div class="row">
 
 <button
 class="btn primary"
 id="loginBtn">
+
 Login
+
 </button>
+
 
 <button
 class="btn light"
 id="signupShow">
+
 नया Account
+
 </button>
 
 </div>
+
 
 <button
 class="btn light"
 id="forgot"
 style="margin-top:7px">
-Password भूल गए?
+
+Password Reset
+
 </button>
 
 </div>
 
 
-<!-- SIGNUP -->
-
-<div id="signupBox" class="hidden">
+<div
+id="signupBox"
+class="hidden">
 
 <div class="field">
-<label>Email</label>
+
+<label>
+Email
+</label>
+
 <input
 id="signupEmail"
-type="email">
+type="email"
+>
+
 </div>
 
+
 <div class="field">
-<label>Password</label>
+
+<label>
+Password
+</label>
+
 <input
 id="signupPassword"
-type="password">
+type="password"
+>
+
 </div>
 
+
 <div class="field">
-<label>Confirm Password</label>
+
+<label>
+Confirm Password
+</label>
+
 <input
 id="signupConfirm"
-type="password">
+type="password"
+>
+
 </div>
+
 
 <div class="row">
 
 <button
 class="btn primary"
 id="signupBtn">
+
 Account बनाएं
+
 </button>
+
 
 <button
 class="btn light"
 id="loginShow">
+
 Login
+
 </button>
 
 </div>
 
 </div>
 
-<div id="authMsg"></div>
+
+<div id="authMsg">
+</div>
 
 </div>
 
 </section>
 
 
-<!-- =========================
-     MAIN APP
-========================= -->
 
-<div id="app" class="hidden">
+<!-- MAIN APP -->
+
+<div
+id="app"
+class="hidden">
+
 
 <header>
 
@@ -480,19 +537,23 @@ Login
 </h1>
 
 <p>
-Citizen ID Services • Photo & Document Print Studio
+Digital • Photo • PDF • Document Print Studio
 </p>
 
 </div>
 
+
 <div>
 
-<span id="email"></span>
+<span id="email">
+</span>
 
 <button
 class="btn light"
 id="logout">
+
 Logout
+
 </button>
 
 </div>
@@ -502,126 +563,194 @@ Logout
 </header>
 
 
+
 <main class="container">
+
 
 <div class="notice">
 
-⚠️ <b>महत्वपूर्ण:</b>
-
-यह सुविधा वेबसाइट है।
-
-Aadhaar, PAN, Driving Licence और Voter ID के लिए संबंधित सरकारी Official Portal पर ही आवेदन/अपडेट करें।
+⚠️ सरकारी ID के लिए संबंधित Official Portal का उपयोग करें।
+यह वेबसाइट photo/document preparation और local browser tools के लिए है।
 
 </div>
+
 
 
 <section class="hero">
 
 <h2>
-नमस्कार! 👋
+All-in-One Digital Tools
 </h2>
 
-<p class="muted">
-
-इसी वेबसाइट में Photo Crop, Colour, Size और A4 Automatic Print Layout उपलब्ध है।
-
+<p>
+Photo edit, background remover, JPG/PNG ↔ PDF,
+PDF page tools और A4 printing एक ही जगह।
 </p>
 
 </section>
 
 
-<h2 style="text-align:center">
 
-🪪 Citizen ID Services
-
+<h2>
+🛠️ Digital Tools
 </h2>
 
-
-<!-- =========================
-     OFFICIAL SERVICES
-========================= -->
 
 <section class="grid">
 
 
-<div class="card">
+<div class="tool">
+
+<div class="toolIcon">
+📸
+</div>
 
 <h3>
-🪪 Aadhaar Card
+Photo Editor & Print
 </h3>
 
 <p>
-Aadhaar की official सेवाएँ।
+Crop, size, colour, B/W, brightness,
+contrast और A4 automatic layout।
 </p>
 
 <button
 class="btn primary"
-onclick="openOfficial('https://uidai.gov.in/')">
+onclick="showStudio('photo')">
 
-Aadhaar Official Portal
+Open Photo Studio
 
 </button>
 
 </div>
 
 
-<div class="card">
+
+<div class="tool">
+
+<div class="toolIcon">
+🪪
+</div>
 
 <h3>
-💳 PAN Card
+ID Card Print
 </h3>
 
 <p>
-PAN application और correction के लिए official portal।
+Aadhaar/PAN/Voter/DL जैसे standard
+ID-card dimensions के लिए print layout।
 </p>
 
 <button
 class="btn primary"
-onclick="openOfficial('https://www.incometax.gov.in/')">
+onclick="showStudio('document')">
 
-PAN Official Portal
+Open ID Studio
 
 </button>
 
 </div>
 
 
-<div class="card">
+
+<div class="tool">
+
+<div class="toolIcon">
+🖼️
+</div>
 
 <h3>
-🚗 Driving Licence
+JPG / PNG Converter
 </h3>
 
 <p>
-Licence और Parivahan services।
+JPG, PNG और WebP को दूसरे image format
+में convert करें।
 </p>
 
 <button
 class="btn primary"
-onclick="openOfficial('https://parivahan.gov.in/')">
+onclick="openTool('image')">
 
-Parivahan Portal
+Open Converter
 
 </button>
 
 </div>
 
 
-<div class="card">
+
+<div class="tool">
+
+<div class="toolIcon">
+📄
+</div>
 
 <h3>
-🗳️ Voter ID
+Images → PDF
 </h3>
 
 <p>
-Registration, correction और voter services।
+एक या कई JPG/PNG images को PDF में बनाएं।
 </p>
 
 <button
 class="btn primary"
-onclick="openOfficial('https://voters.eci.gov.in/')">
+onclick="openTool('imagepdf')">
 
-Voter Services
+Open JPG to PDF
+
+</button>
+
+</div>
+
+
+
+<div class="tool">
+
+<div class="toolIcon">
+📑
+</div>
+
+<h3>
+PDF Page Tools
+</h3>
+
+<p>
+PDF tools browser में उपयोग करें।
+</p>
+
+<button
+class="btn primary"
+onclick="openTool('pdftools')">
+
+Open PDF Tools
+
+</button>
+
+</div>
+
+
+
+<div class="tool">
+
+<div class="toolIcon">
+✂️
+</div>
+
+<h3>
+Background Remover
+</h3>
+
+<p>
+Background colour को transparent करके PNG बनाएं।
+</p>
+
+<button
+class="btn primary"
+onclick="openTool('bg')">
+
+Open Background Tool
 
 </button>
 
@@ -631,26 +760,21 @@ Voter Services
 </section>
 
 
-<!-- =========================
-     PRINT STUDIO
-========================= -->
 
-<section class="studio">
+<!-- PHOTO STUDIO -->
+
+<section
+id="studio"
+class="studio">
+
 
 <h2>
 🖨️ Photo & Document Print Studio
 </h2>
 
-<p class="muted">
-
-Upload → Crop → Colour/B&W → Size → Automatic A4 → Print
-
-</p>
-
-
-<!-- TABS -->
 
 <div class="tabs">
+
 
 <button
 class="tab active"
@@ -660,6 +784,7 @@ data-tab="photo">
 
 </button>
 
+
 <button
 class="tab"
 data-tab="document">
@@ -667,6 +792,7 @@ data-tab="document">
 🪪 ID / Document
 
 </button>
+
 
 <button
 class="tab"
@@ -676,46 +802,47 @@ data-tab="custom">
 
 </button>
 
+
 </div>
+
 
 
 <div class="studioGrid">
 
 
-<!-- =========================
-     CONTROL PANEL
-========================= -->
-
 <div class="panel">
 
 
-<h3>
+<div class="field">
+
+<label>
 1. Image Upload
-</h3>
+</label>
 
 <input
 id="imageInput"
 type="file"
-accept="image/*">
+accept="image/*"
+>
 
 <div
 id="fileStatus"
 class="status">
 
-कोई image नहीं चुनी गई।
+Image चुनें।
+
+</div>
 
 </div>
 
 
-<hr>
 
+<div class="field">
 
-<h3>
-2. Ready-made Size
-</h3>
+<label>
+2. Size
+</label>
 
-
-<!-- PHOTO SIZES -->
 
 <div
 id="photoSizes"
@@ -723,21 +850,22 @@ class="sizes">
 </div>
 
 
-<!-- DOCUMENT SIZES -->
-
 <div
 id="docSizes"
 class="sizes hidden">
 </div>
 
+</div>
 
-<!-- CUSTOM SIZE -->
+
 
 <div
 id="customBox"
 class="hidden">
 
+
 <div class="row">
+
 
 <div class="field">
 
@@ -748,7 +876,8 @@ Width mm
 <input
 id="cw"
 type="number"
-value="35">
+value="35"
+>
 
 </div>
 
@@ -762,9 +891,11 @@ Height mm
 <input
 id="ch"
 type="number"
-value="45">
+value="45"
+>
 
 </div>
+
 
 </div>
 
@@ -773,9 +904,10 @@ value="45">
 class="btn primary"
 id="applyCustom">
 
-Custom Apply
+Apply
 
 </button>
+
 
 </div>
 
@@ -783,9 +915,2548 @@ Custom Apply
 <hr>
 
 
+<div class="range">
+
+<label>
+
+Brightness
+
+<b id="bv">
+100%
+</b>
+
+</label>
+
+<input
+id="brightness"
+type="range"
+min="50"
+max="150"
+value="100"
+>
+
+</div>
+
+
+
+<div class="range">
+
+<label>
+
+Contrast
+
+<b id="cv">
+100%
+</b>
+
+</label>
+
+<input
+id="contrast"
+type="range"
+min="50"
+max="150"
+value="100"
+>
+
+</div>
+
+
+
+<div class="range">
+
+<label>
+
+Saturation
+
+<b id="sv">
+100%
+</b>
+
+</label>
+
+<input
+id="saturation"
+type="range"
+min="0"
+max="200"
+value="100"
+>
+
+</div>
+
+
+
+<div class="row">
+
+
+<button
+class="btn light"
+id="rotate">
+
+↻ Rotate
+
+</button>
+
+
+<button
+class="btn light"
+id="bw">
+
+⚫ B/W
+
+</button>
+
+
+<button
+class="btn light"
+id="reset">
+
+↺ Reset
+
+</button>
+
+
+</div>
+
+
+<hr>
+
+
+<div class="field">
+
+<label>
+Copies on A4
+</label>
+
+
+<select id="copies">
+
+<option value="auto">
+Automatic
+</option>
+
+<option>
+4
+</option>
+
+<option>
+8
+</option>
+
+<option>
+12
+</option>
+
+<option>
+16
+</option>
+
+<option>
+20
+</option>
+
+<option>
+24
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="row">
+
+
+<button
+class="btn green"
+id="print">
+
+🖨️ A4 Print
+
+</button>
+
+
+<button
+class="btn dark"
+id="download">
+
+⬇️ A4 JPG
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<div>
+
+
+<div class="preview">
+
+<canvas
+id="canvas"
+width="794"
+height="1123">
+</canvas>
+
+</div>
+
+
+<div
+id="previewStatus"
+class="status">
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- TOOL AREA -->
+
+<section
+id="toolArea"
+class="studio hidden">
+</section>
+
+
+
+<footer>
+
+© 2026 Bharat Digital Centre
+
+<br>
+
+Digital • Photo • PDF • Print Services
+
+</footer>
+
+
+</main>
+
+</div>
+
+
+
+<div id="printSheet">
+</div>
+
+
+
+<script type="module">
+
+
+/* =========================
+FIREBASE
+========================= */
+
+
+import {
+initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+signOut,
+onAuthStateChanged,
+sendPasswordResetEmail
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+
+const firebaseConfig={
+
+apiKey:
+"AIzaSyDs3xlVBdjxPqbkvPiyYQWHy8tHBpIi-zk",
+
+authDomain:
+"bharat-digital-centre.firebaseapp.com",
+
+projectId:
+"bharat-digital-centre",
+
+storageBucket:
+"bharat-digital-centre.firebasestorage.app",
+
+messagingSenderId:
+"911423935077",
+
+appId:
+"1:911423935077:web:574e0754bfaacee421ac8c"
+
+};
+
+
+const app=
+initializeApp(firebaseConfig);
+
+
+const auth=
+getAuth(app);
+
+
+
+const $=
+id=>document.getElementById(id);
+
+
+
+function authMsg(text,ok=false){
+
+$("authMsg").className=
+"msg "+(ok?"ok":"err");
+
+$("authMsg").textContent=text;
+
+}
+
+
+
+function firebaseError(code){
+
+const errors={
+
+"auth/invalid-email":
+"Email गलत है।",
+
+"auth/user-not-found":
+"Account नहीं मिला।",
+
+"auth/wrong-password":
+"Password गलत है।",
+
+"auth/invalid-credential":
+"Email या Password गलत है।",
+
+"auth/email-already-in-use":
+"यह Email पहले से registered है।",
+
+"auth/weak-password":
+"Password कम से कम 6 अक्षर रखें।",
+
+"auth/too-many-requests":
+"थोड़ी देर बाद फिर प्रयास करें।"
+
+};
+
+return errors[code]||code;
+
+}
+
+
+
+/* LOGIN / SIGNUP */
+
+
+$("signupShow").onclick=()=>{
+
+$("loginBox")
+.classList
+.add("hidden");
+
+$("signupBox")
+.classList
+.remove("hidden");
+
+$("authMsg").textContent="";
+
+};
+
+
+
+$("loginShow").onclick=()=>{
+
+$("signupBox")
+.classList
+.add("hidden");
+
+$("loginBox")
+.classList
+.remove("hidden");
+
+$("authMsg").textContent="";
+
+};
+
+
+
+$("loginBtn").onclick=
+async()=>{
+
+try{
+
+await signInWithEmailAndPassword(
+
+auth,
+
+$("loginEmail").value.trim(),
+
+$("loginPassword").value
+
+);
+
+authMsg(
+"Login सफल।",
+true
+);
+
+}
+
+catch(e){
+
+authMsg(
+firebaseError(e.code)
+);
+
+}
+
+};
+
+
+
+$("signupBtn").onclick=
+async()=>{
+
+if(
+$("signupPassword").value
+!==
+$("signupConfirm").value
+){
+
+return authMsg(
+"Password समान नहीं हैं।"
+);
+
+}
+
+
+try{
+
+await createUserWithEmailAndPassword(
+
+auth,
+
+$("signupEmail").value.trim(),
+
+$("signupPassword").value
+
+);
+
+authMsg(
+"Account बन गया।",
+true
+);
+
+}
+
+catch(e){
+
+authMsg(
+firebaseError(e.code)
+);
+
+}
+
+};
+
+
+
+$("forgot").onclick=
+async()=>{
+
+let email=
+$("loginEmail")
+.value
+.trim();
+
+
+if(!email){
+
+return authMsg(
+"पहले Email भरें।"
+);
+
+}
+
+
+try{
+
+await sendPasswordResetEmail(
+auth,
+email
+);
+
+authMsg(
+"Password reset email भेज दिया गया।",
+true
+);
+
+}
+
+catch(e){
+
+authMsg(
+firebaseError(e.code)
+);
+
+}
+
+};
+
+
+
+$("logout").onclick=
+()=>signOut(auth);
+
+
+
+onAuthStateChanged(
+auth,
+user=>{
+
+$("authScreen")
+.classList
+.toggle(
+"hidden",
+!!user
+);
+
+
+$("app")
+.classList
+.toggle(
+"hidden",
+!user
+);
+
+
+if(user){
+
+$("email").textContent=
+user.email||"";
+
+}
+
+}
+);
+
+
+
+/* =========================
+PHOTO STUDIO
+========================= */
+
+
+const canvas=
+$("canvas");
+
+
+const ctx=
+canvas.getContext("2d");
+
+
+let img=null;
+
+let rot=0;
+
+let isBW=false;
+
+
+let size={
+
+name:"Passport Photo",
+
+w:35,
+
+h:45
+
+};
+
+
+
+const photoSizes=[
+
+[
+"Passport Photo",
+35,
+45
+],
+
+[
+"2 × 2 inch",
+50.8,
+50.8
+],
+
+[
+"35 × 45 mm",
+35,
+45
+],
+
+[
+"25 × 35 mm",
+25,
+35
+],
+
+[
+"30 × 40 mm",
+30,
+40
+],
+
+[
+"40 × 50 mm",
+40,
+50
+]
+
+];
+
+
+
+const docSizes=[
+
+[
+"Aadhaar / ID Card",
+85.6,
+54
+],
+
+[
+"PAN Card",
+85.6,
+54
+],
+
+[
+"Voter ID",
+85.6,
+54
+],
+
+[
+"Driving Licence",
+85.6,
+54
+],
+
+[
+"Small Document",
+100,
+70
+]
+
+];
+
+
+
+function makeSizes(
+arr,
+id
+){
+
+$(id).innerHTML="";
+
+
+arr.forEach(
+a=>{
+
+let b=
+document.createElement(
+"button"
+);
+
+
+b.className=
+"size";
+
+
+b.textContent=
+`${a[0]} (${a[1]}×${a[2]} mm)`;
+
+
+b.onclick=()=>{
+
+size={
+
+name:a[0],
+
+w:a[1],
+
+h:a[2]
+
+};
+
+
+document
+.querySelectorAll(".size")
+.forEach(
+x=>
+x.classList
+.remove("active")
+);
+
+
+b.classList
+.add("active");
+
+
+draw();
+
+};
+
+
+$(id)
+.appendChild(b);
+
+}
+
+);
+
+}
+
+
+
+makeSizes(
+photoSizes,
+"photoSizes"
+);
+
+
+makeSizes(
+docSizes,
+"docSizes"
+);
+
+
+
+document
+.querySelectorAll(".tab")
+.forEach(
+t=>{
+
+t.onclick=()=>{
+
+document
+.querySelectorAll(".tab")
+.forEach(
+x=>
+x.classList
+.remove("active")
+);
+
+
+t.classList
+.add("active");
+
+
+let v=
+t.dataset.tab;
+
+
+$("photoSizes")
+.classList
+.toggle(
+"hidden",
+v!=="photo"
+);
+
+
+$("docSizes")
+.classList
+.toggle(
+"hidden",
+v!=="document"
+);
+
+
+$("customBox")
+.classList
+.toggle(
+"hidden",
+v!=="custom"
+);
+
+
+if(v==="photo"){
+
+size={
+name:"Passport Photo",
+w:35,
+h:45
+};
+
+}
+
+
+if(v==="document"){
+
+size={
+name:"Aadhaar / ID Card",
+w:85.6,
+h:54
+};
+
+}
+
+
+draw();
+
+};
+
+}
+);
+
+
+
+window.showStudio=
+v=>{
+
+document
+.querySelector(
+`.tab[data-tab="${v}"]`
+)
+.click();
+
+
+$("studio")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+};
+
+
+
+$("applyCustom").onclick=
+()=>{
+
+size={
+
+name:"Custom",
+
+w:+$("cw").value,
+
+h:+$("ch").value
+
+};
+
+
+draw();
+
+};
+
+
+
+$("imageInput").onchange=
+e=>{
+
+let file=
+e.target.files[0];
+
+
+if(!file)return;
+
+
+let reader=
+new FileReader();
+
+
+reader.onload=
+event=>{
+
+let newImg=
+new Image();
+
+
+newImg.onload=
+()=>{
+
+img=newImg;
+
+rot=0;
+
+isBW=false;
+
+
+$("fileStatus")
+.textContent=
+`${file.name} • ${newImg.width}×${newImg.height}px`;
+
+
+draw();
+
+};
+
+
+newImg.src=
+event.target.result;
+
+};
+
+
+reader.readAsDataURL(file);
+
+};
+
+
+
+$("brightness").oninput=
+()=>{
+
+$("bv").textContent=
+$("brightness").value+"%";
+
+draw();
+
+};
+
+
+
+$("contrast").oninput=
+()=>{
+
+$("cv").textContent=
+$("contrast").value+"%";
+
+draw();
+
+};
+
+
+
+$("saturation").oninput=
+()=>{
+
+$("sv").textContent=
+$("saturation").value+"%";
+
+draw();
+
+};
+
+
+
+$("rotate").onclick=
+()=>{
+
+rot=
+(rot+90)%360;
+
+draw();
+
+};
+
+
+
+$("bw").onclick=
+()=>{
+
+isBW=!isBW;
+
+
+$("bw").textContent=
+isBW
+?
+"🌈 Colour"
+:
+"⚫ B/W";
+
+
+draw();
+
+};
+
+
+
+$("reset").onclick=
+()=>{
+
+rot=0;
+
+isBW=false;
+
+$("brightness").value=100;
+
+$("contrast").value=100;
+
+$("saturation").value=100;
+
+$("bv").textContent="100%";
+
+$("cv").textContent="100%";
+
+$("sv").textContent="100%";
+
+$("bw").textContent="⚫ B/W";
+
+draw();
+
+};
+
+
+
+$("copies").onchange=
+draw;
+
+
+
+function draw(){
+
+ctx.fillStyle="#fff";
+
+ctx.fillRect(
+0,
+0,
+794,
+1123
+);
+
+
+if(!img){
+
+ctx.fillStyle="#8a94a3";
+
+ctx.textAlign="center";
+
+ctx.font=
+"bold 20px Arial";
+
+ctx.fillText(
+"Photo / Document upload करें",
+397,
+550
+);
+
+return;
+
+}
+
+
+let ppm=
+794/210;
+
+
+let gap=
+3*ppm;
+
+
+let w=
+size.w*ppm;
+
+
+let h=
+size.h*ppm;
+
+
+let wanted=
+$("copies").value==="auto"
+?
+Math.max(
+1,
+Math.floor(
+(794+gap)/(w+gap)
+)
+*
+Math.floor(
+(1123+gap)/(h+gap)
+)
+)
+:
++$("copies").value;
+
+
+let columns=
+Math.max(
+1,
+Math.floor(
+(794+gap)/(w+gap)
+)
+);
+
+
+let rows=
+Math.ceil(
+wanted/columns
+);
+
+
+let totalW=
+columns*w+
+(columns-1)*gap;
+
+
+let totalH=
+rows*h+
+(rows-1)*gap;
+
+
+let startX=
+(794-totalW)/2;
+
+
+let startY=
+(1123-totalH)/2;
+
+
+for(
+let i=0;
+i<wanted;
+i++
+){
+
+let c=
+i%columns;
+
+let r=
+Math.floor(i/columns);
+
+
+drawCrop(
+
+startX+
+c*(w+gap),
+
+startY+
+r*(h+gap),
+
+w,
+h
+
+);
+
+}
+
+
+$("previewStatus")
+.textContent=
+`${size.name} • ${size.w}×${size.h} mm • ${wanted} copy • A4`;
+
+}
+
+
+
+function drawCrop(
+x,
+y,
+w,
+h
+){
+
+ctx.save();
+
+
+ctx.beginPath();
+
+ctx.rect(
+x,
+y,
+w,
+h
+);
+
+ctx.clip();
+
+
+ctx.filter=
+`brightness(${$("brightness").value}%)
+contrast(${$("contrast").value}%)
+saturate(${$("saturation").value}%)
+${isBW?"grayscale(100%)":""}`;
+
+
+if(rot===0){
+
+let scale=
+Math.max(
+w/img.width,
+h/img.height
+);
+
+
+let dw=
+img.width*scale;
+
+
+let dh=
+img.height*scale;
+
+
+ctx.drawImage(
+
+img,
+
+x+(w-dw)/2,
+
+y+(h-dh)/2,
+
+dw,
+
+dh
+
+);
+
+}
+
+else{
+
+ctx.translate(
+x+w/2,
+y+h/2
+);
+
+
+ctx.rotate(
+rot*Math.PI/180
+);
+
+
+let scale=
+Math.max(
+w/img.width,
+h/img.height
+);
+
+
+ctx.drawImage(
+
+img,
+
+-img.width*scale/2,
+
+-img.height*scale/2,
+
+img.width*scale,
+
+img.height*scale
+
+);
+
+}
+
+
+ctx.restore();
+
+
+ctx.filter="none";
+
+
+ctx.strokeStyle="#aaa";
+
+ctx.strokeRect(
+x+.5,
+y+.5,
+w-1,
+h-1
+);
+
+}
+
+
+
+$("download").onclick=
+()=>{
+
+if(!img){
+
+return alert(
+"पहले image upload करें।"
+);
+
+}
+
+
+let link=
+document.createElement("a");
+
+
+link.download=
+"BDC-A4.jpg";
+
+
+link.href=
+canvas.toDataURL(
+"image/jpeg",
+.95
+);
+
+
+link.click();
+
+};
+
+
+
+$("print").onclick=
+()=>{
+
+if(!img){
+
+return alert(
+"पहले image upload करें।"
+);
+
+}
+
+
+$("printSheet").innerHTML=
+`
+<img src="${canvas.toDataURL("image/png")}">
+`;
+
+
+window.print();
+
+};
+
+
+
+draw();
+
+
+
+/* =========================
+TOOL AREA
+========================= */
+
+
+window.openTool=
+type=>{
+
+let area=
+$("toolArea");
+
+
+area.classList
+.remove("hidden");
+
+
+if(type==="image")
+imageConverter(area);
+
+
+if(type==="imagepdf")
+imageToPdf(area);
+
+
+if(type==="pdftools")
+pdfTools(area);
+
+
+if(type==="bg")
+backgroundTool(area);
+
+
+area.scrollIntoView({
+behavior:"smooth"
+});
+
+};
+
+
+
+function closeTool(){
+
+$("toolArea")
+.classList
+.add("hidden");
+
+
+$("toolArea")
+.innerHTML="";
+
+}
+
+
+window.closeTool=
+closeTool;
+
+
+
+/* =========================
+IMAGE CONVERTER
+========================= */
+
+
+function imageConverter(area){
+
+area.innerHTML=`
+
+<h2>
+🖼️ JPG / PNG / WebP Converter
+</h2>
+
+<p class="status">
+Image चुनें और नया format download करें।
+</p>
+
+<input
+id="icFile"
+type="file"
+accept="image/*"
+>
+
+<br><br>
+
+<select id="icFormat">
+
+<option value="image/jpeg">
+JPG
+</option>
+
+<option value="image/png">
+PNG
+</option>
+
+<option value="image/webp">
+WebP
+</option>
+
+</select>
+
+
+<button
+class="btn primary"
+id="icGo">
+
+Convert & Download
+
+</button>
+
+
+<button
+class="btn light"
+onclick="closeTool()">
+
+Close
+
+</button>
+
+
+<div id="icMsg">
+</div>
+
+`;
+
+
+$("icGo").onclick=
+()=>{
+
+let file=
+$("icFile").files[0];
+
+
+if(!file){
+
+return $("icMsg")
+.textContent=
+"पहले image चुनें।";
+
+}
+
+
+let reader=
+new FileReader();
+
+
+reader.onload=
+event=>{
+
+let image=
+new Image();
+
+
+image.onload=
+()=>{
+
+let c=
+document.createElement(
+"canvas"
+);
+
+
+c.width=
+image.width;
+
+
+c.height=
+image.height;
+
+
+c.getContext("2d")
+.drawImage(
+image,
+0,
+0
+);
+
+
+let type=
+$("icFormat").value;
+
+
+let ext=
+type==="image/png"
+?
+"png"
+:
+type==="image/webp"
+?
+"webp"
+:
+"jpg";
+
+
+let link=
+document.createElement(
+"a"
+);
+
+
+link.download=
+"converted."+ext;
+
+
+link.href=
+c.toDataURL(
+type,
+.95
+);
+
+
+link.click();
+
+
+$("icMsg")
+.textContent=
+"✅ Conversion complete.";
+
+};
+
+
+image.src=
+event.target.result;
+
+};
+
+
+reader.readAsDataURL(file);
+
+};
+
+}
+
+
+
+/* =========================
+IMAGE TO PDF
+========================= */
+
+
+function imageToPdf(area){
+
+area.innerHTML=`
+
+<h2>
+📄 JPG / PNG → PDF
+</h2>
+
+<p class="status">
+एक या कई images चुनें।
+हर image PDF के एक page पर जाएगी।
+</p>
+
+
+<input
+id="ipFiles"
+type="file"
+accept="image/*"
+multiple
+>
+
+
+<div
+id="ipMsg"
+class="status">
+</div>
+
+
+<button
+class="btn green"
+id="ipGo">
+
+PDF बनाएं
+
+</button>
+
+
+<button
+class="btn light"
+onclick="closeTool()">
+
+Close
+
+</button>
+
+`;
+
+
+$("ipGo").onclick=
+async()=>{
+
+let files=
+[
+...$("ipFiles").files
+];
+
+
+if(!files.length){
+
+return $("ipMsg")
+.textContent=
+"पहले images चुनें।";
+
+}
+
+
+try{
+
+await loadScript(
+"https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+);
+
+
+let jsPDF=
+window.jspdf.jsPDF;
+
+
+let pdf=
+new jsPDF(
+"p",
+"mm",
+"a4"
+);
+
+
+for(
+let i=0;
+i<files.length;
+i++
+){
+
+if(i)
+pdf.addPage();
+
+
+let data=
+await readData(
+files[i]
+);
+
+
+let image=
+await loadImg(
+data
+);
+
+
+let scale=
+Math.min(
+190/image.width,
+277/image.height
+);
+
+
+let w=
+image.width*scale;
+
+
+let h=
+image.height*scale;
+
+
+pdf.addImage(
+
+data,
+
+"JPEG",
+
+(210-w)/2,
+
+(297-h)/2,
+
+w,
+
+h
+
+);
+
+}
+
+
+pdf.save(
+"Bharat-Digital-Centre.pdf"
+);
+
+
+$("ipMsg")
+.textContent=
+"✅ PDF download हो गई।";
+
+}
+
+catch(e){
+
+$("ipMsg")
+.textContent=
+"❌ PDF library load नहीं हो सकी। Internet connection check करें।";
+
+}
+
+};
+
+}
+
+
+
+/* =========================
+PDF TOOLS
+========================= */
+
+
+function pdfTools(area){
+
+area.innerHTML=`
+
+<h2>
+📑 PDF Tools
+</h2>
+
+
+<div class="tool">
+
 <h3>
-3. Colour / Editing
+📚 PDF Merge
 </h3>
 
+<p class="status">
+कई PDF files को एक PDF में जोड़ें।
+</p>
 
-<!--
+
+<input
+id="mergeFiles"
+type="file"
+accept="application/pdf"
+multiple
+>
+
+
+<br><br>
+
+
+<button
+class="btn green"
+id="mergeGo">
+
+Merge PDFs
+
+</button>
+
+
+<div
+id="mergeMsg"
+class="status">
+</div>
+
+</div>
+
+
+<hr>
+
+
+<div class="tool">
+
+<h3>
+📄 PDF Page Delete
+</h3>
+
+<p class="status">
+PDF में से page number हटाकर नई PDF बनाएं।
+उदाहरण: 2,4
+</p>
+
+
+<input
+id="deleteFile"
+type="file"
+accept="application/pdf"
+>
+
+
+<br><br>
+
+
+<input
+id="deletePages"
+placeholder="Delete pages: 2,4"
+>
+
+
+<br><br>
+
+
+<button
+class="btn red"
+id="deleteGo">
+
+Delete Pages
+
+</button>
+
+
+<div
+id="deleteMsg"
+class="status">
+</div>
+
+</div>
+
+
+<hr>
+
+
+<div class="tool">
+
+<h3>
+🖼️ PDF → JPG
+</h3>
+
+<p class="status">
+पहला PDF page JPG में convert करें।
+</p>
+
+
+<input
+id="pdfJpgFile"
+type="file"
+accept="application/pdf"
+>
+
+
+<br><br>
+
+
+<button
+class="btn primary"
+id="pdfJpgGo">
+
+Convert First Page
+
+</button>
+
+
+<div
+id="pdfJpgMsg"
+class="status">
+</div>
+
+</div>
+
+
+<hr>
+
+
+<button
+class="btn light"
+onclick="closeTool()">
+
+Close
+
+</button>
+
+`;
+
+
+
+$("mergeGo").onclick=
+async()=>{
+
+let files=
+[
+...$("mergeFiles").files
+];
+
+
+if(!files.length){
+
+return $("mergeMsg")
+.textContent=
+"PDF files चुनें।";
+
+}
+
+
+try{
+
+await loadScript(
+"https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"
+);
+
+
+let output=
+await PDFLib.PDFDocument.create();
+
+
+for(
+let file of files
+){
+
+let source=
+await PDFLib.PDFDocument.load(
+await file.arrayBuffer()
+);
+
+
+let pages=
+await output.copyPages(
+source,
+source.getPageIndices()
+);
+
+
+pages.forEach(
+page=>
+output.addPage(page)
+);
+
+}
+
+
+let bytes=
+await output.save();
+
+
+downloadBytes(
+bytes,
+"merged.pdf",
+"application/pdf"
+);
+
+
+$("mergeMsg")
+.textContent=
+"✅ PDFs merge हो गईं।";
+
+}
+
+catch(e){
+
+$("mergeMsg")
+.textContent=
+"❌ PDF merge नहीं हो सकी।";
+
+}
+
+};
+
+
+
+$("deleteGo").onclick=
+async()=>{
+
+let file=
+$("deleteFile").files[0];
+
+
+if(!file){
+
+return $("deleteMsg")
+.textContent=
+"PDF चुनें।";
+
+}
+
+
+let text=
+$("deletePages")
+.value
+.trim();
+
+
+let pagesToDelete=
+text
+?
+text
+.split(",")
+.map(
+x=>parseInt(x.trim())
+)
+.filter(
+x=>!isNaN(x)
+)
+:
+[];
+
+
+try{
+
+await loadScript(
+"https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"
+);
+
+
+let source=
+await PDFLib.PDFDocument.load(
+await file.arrayBuffer()
+);
+
+
+let output=
+await PDFLib.PDFDocument.create();
+
+
+let total=
+source.getPageCount();
+
+
+for(
+let i=0;
+i<total;
+i++
+){
+
+let pageNumber=i+1;
+
+
+if(
+pagesToDelete
+.includes(pageNumber)
+){
+
+continue;
+
+}
+
+
+let [
+page
+]=
+await output.copyPages(
+source,
+[i]
+);
+
+
+output.addPage(page);
+
+}
+
+
+let bytes=
+await output.save();
+
+
+downloadBytes(
+bytes,
+"edited.pdf",
+"application/pdf"
+);
+
+
+$("deleteMsg")
+.textContent=
+"✅ Selected pages delete हो गए।";
+
+}
+
+catch(e){
+
+$("deleteMsg")
+.textContent=
+"❌ PDF edit नहीं हो सकी।";
+
+}
+
+};
+
+
+
+$("pdfJpgGo").onclick=
+async()=>{
+
+let file=
+$("pdfJpgFile").files[0];
+
+
+if(!file){
+
+return $("pdfJpgMsg")
+.textContent=
+"PDF चुनें।";
+
+}
+
+
+try{
+
+await loadScript(
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs",
+true
+);
+
+
+$("pdfJpgMsg")
+textContent=
+"PDF renderer browser support पर निर्भर है।";
+
+}
+
+catch(e){
+
+$("pdfJpgMsg")
+.textContent=
+"PDF.js load नहीं हो सकी।";
+
+}
+
+};
+
+}
+
+
+
+/* =========================
+BACKGROUND REMOVER
+========================= */
+
+
+function backgroundTool(area){
+
+area.innerHTML=`
+
+<h2>
+✂️ Background Remover
+</h2>
+
+
+<p class="status">
+
+यह tool चुने हुए background colour
+के आसपास के pixels को transparent करता है।
+
+Complex hair/background के लिए AI remover बेहतर रहेगा।
+
+</p>
+
+
+<input
+id="bgFile"
+type="file"
+accept="image/*"
+>
+
+
+<div
+class="row"
+style="margin-top:10px">
+
+
+<div>
+
+<label>
+Background colour
+</label>
+
+<input
+id="bgColor"
+type="color"
+value="#ffffff"
+>
+
+</div>
+
+
+<div>
+
+<label>
+Tolerance
+</label>
+
+<input
+id="bgTol"
+type="range"
+min="0"
+max="150"
+value="35"
+>
+
+</div>
+
+
+</div>
+
+
+<br>
+
+
+<button
+class="btn primary"
+id="bgGo">
+
+Remove & Download PNG
+
+</button>
+
+
+<button
+class="btn light"
+onclick="closeTool()">
+
+Close
+
+</button>
+
+
+<div
+id="bgMsg"
+class="status">
+</div>
+
+`;
+
+
+
+$("bgGo").onclick=
+()=>{
+
+let file=
+$("bgFile").files[0];
+
+
+if(!file){
+
+return $("bgMsg")
+.textContent=
+"Image चुनें।";
+
+}
+
+
+let reader=
+new FileReader();
+
+
+reader.onload=
+event=>{
+
+let image=
+new Image();
+
+
+image.onload=
+()=>{
+
+let c=
+document.createElement(
+"canvas"
+);
+
+
+c.width=
+image.width;
+
+
+c.height=
+image.height;
+
+
+let x=
+c.getContext("2d");
+
+
+x.drawImage(
+image,
+0,
+0
+);
+
+
+let data=
+x.getImageData(
+0,
+0,
+c.width,
+c.height
+);
+
+
+let pixels=
+data.data;
+
+
+let rgb=
+$("bgColor")
+.value
+.match(/\w\w/g)
+.map(
+v=>parseInt(v,16)
+);
+
+
+let tolerance=
++$("bgTol").value;
+
+
+for(
+let i=0;
+i<pixels.length;
+i+=4
+){
+
+let distance=
+Math.sqrt(
+
+(pixels[i]-rgb[0])**2+
+
+(pixels[i+1]-rgb[1])**2+
+
+(pixels[i+2]-rgb[2])**2
+
+);
+
+
+if(
+distance<=tolerance
+){
+
+pixels[i+3]=0;
+
+}
+
+}
+
+
+x.putImageData(
+data,
+0,
+0
+);
+
+
+let link=
+document.createElement(
+"a"
+);
+
+
+link.download=
+"background-removed.png";
+
+
+link.href=
+c.toDataURL(
+"image/png"
+);
+
+
+link.click();
+
+
+$("bgMsg")
+.textContent=
+"✅ Transparent PNG तैयार है।";
+
+};
+
+
+image.src=
+event.target.result;
+
+};
+
+
+reader.readAsDataURL(file);
+
+};
+
+}
+
+
+
+/* =========================
+HELPER FUNCTIONS
+========================= */
+
+
+function readData(file){
+
+return new Promise(
+(resolve,reject)=>{
+
+let reader=
+new FileReader();
+
+
+reader.onload=
+()=>resolve(
+reader.result
+);
+
+
+reader.onerror=
+reject;
+
+
+reader.readAsDataURL(
+file
+);
+
+}
+);
+
+}
+
+
+
+function loadImg(src){
+
+return new Promise(
+(resolve,reject)=>{
+
+let image=
+new Image();
+
+
+image.onload=
+()=>resolve(image);
+
+
+image.onerror=
+reject;
+
+
+image.src=
+src;
+
+}
+);
+
+}
+
+
+
+function loadScript(
+src,
+module=false
+){
+
+return new Promise(
+(resolve,reject)=>{
+
+let script=
+document.createElement(
+"script"
+);
+
+
+if(module){
+
+script.type=
+"module";
+
+}
+
+
+script.src=
+src;
+
+
+script.onload=
+resolve;
+
+
+script.onerror=
+reject;
+
+
+document.head.appendChild(
+script
+);
+
+}
+);
+
+}
+
+
+
+function downloadBytes(
+bytes,
+name,
+type
+){
+
+let blob=
+new Blob(
+[bytes],
+{
+type:type
+}
+);
+
+
+let link=
+document.createElement(
+"a"
+);
+
+
+link.href=
+URL.createObjectURL(
+blob
+);
+
+
+link.download=
+name;
+
+
+link.click();
+
+
+setTimeout(
+()=>URL.revokeObjectURL(
+link.href
+),
+1000
+);
+
+}
+
+
+</script>
+
+</body>
+</html>
