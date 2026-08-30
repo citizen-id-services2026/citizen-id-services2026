@@ -2,11 +2,16 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Bharat Digital Centre - Citizen ID Services</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Bharat Digital Centre | Citizen ID Services</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,25 +19,43 @@
     }
 
     body {
-      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+      font-family:
+        Arial,
+        "Noto Sans Devanagari",
+        sans-serif;
+
       background: #f4f7fb;
       color: #222;
       line-height: 1.6;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
-      background: linear-gradient(135deg, #ff7a00, #e65100);
+      background:
+        linear-gradient(
+          135deg,
+          #ff7a00,
+          #e65100
+        );
+
       color: white;
-      padding: 18px 20px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      padding: 18px 15px;
+
+      box-shadow:
+        0 3px 12px rgba(0,0,0,0.18);
     }
 
     .header-inner {
       max-width: 1100px;
       margin: auto;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       gap: 15px;
     }
 
@@ -43,34 +66,37 @@
 
     .logo-area p {
       font-size: 14px;
-      opacity: 0.95;
     }
 
     #authArea {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+
+      gap: 8px;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .user-email {
-      font-size: 13px;
       background: rgba(255,255,255,0.18);
-      padding: 7px 10px;
+      padding: 7px 12px;
       border-radius: 20px;
+      font-size: 13px;
     }
 
     button {
       border: none;
       border-radius: 7px;
-      padding: 10px 16px;
+
+      padding: 10px 15px;
+
       cursor: pointer;
+
       font-size: 14px;
       font-weight: bold;
     }
 
-    .login-btn {
+    .login-header-btn {
       background: white;
       color: #e65100;
     }
@@ -80,287 +106,473 @@
       color: white;
     }
 
+    /* =========================
+       MAIN
+    ========================= */
+
     main {
       max-width: 1100px;
       margin: auto;
-      padding: 25px 15px 50px;
+
+      padding:
+        25px 15px 50px;
     }
+
+    /* =========================
+       NOTICE
+    ========================= */
 
     .notice {
       background: #fff8e1;
-      border-left: 5px solid #ff9800;
-      padding: 14px;
+
+      border-left:
+        5px solid #ff9800;
+
+      padding: 15px;
+
+      border-radius: 7px;
+
       margin-bottom: 25px;
-      border-radius: 6px;
     }
 
     .notice strong {
       color: #e65100;
     }
 
+    /* =========================
+       LOGIN BOX
+    ========================= */
+
+    .login-box {
+      max-width: 450px;
+
+      margin: 25px auto;
+
+      background: white;
+
+      padding: 25px;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 5px 20px rgba(0,0,0,0.12);
+    }
+
+    .login-box h2 {
+      text-align: center;
+
+      color: #e65100;
+
+      margin-bottom: 20px;
+    }
+
+    .login-box input {
+      width: 100%;
+
+      padding: 13px;
+
+      margin-bottom: 12px;
+
+      border:
+        1px solid #ccc;
+
+      border-radius: 7px;
+
+      font-size: 15px;
+    }
+
+    .login-box input:focus {
+      outline: none;
+
+      border-color: #ff7a00;
+
+      box-shadow:
+        0 0 0 2px rgba(255,122,0,0.12);
+    }
+
+    .primary-btn {
+      width: 100%;
+
+      background: #e65100;
+
+      color: white;
+
+      margin-bottom: 10px;
+    }
+
+    .primary-btn:hover {
+      background: #bf360c;
+    }
+
+    .secondary-btn {
+      width: 100%;
+
+      background: #eeeeee;
+
+      color: #333;
+
+      margin-bottom: 10px;
+    }
+
+    .secondary-btn:hover {
+      background: #dddddd;
+    }
+
+    .forgot-btn {
+      width: 100%;
+
+      background: transparent;
+
+      color: #e65100;
+
+      padding: 6px;
+    }
+
+    .forgot-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       MESSAGE
+    ========================= */
+
+    .auth-message {
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 11px;
+
+      border-radius: 7px;
+
+      font-size: 14px;
+
+      text-align: center;
+    }
+
+    /* =========================
+       DASHBOARD
+    ========================= */
+
+    #dashboard {
+      display: none;
+    }
+
     .welcome {
       background: white;
-      border-radius: 12px;
+
       padding: 25px;
+
+      border-radius: 12px;
+
       margin-bottom: 25px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.08);
     }
 
     .welcome h2 {
       color: #e65100;
+
       margin-bottom: 8px;
     }
 
+    /* =========================
+       SERVICES
+    ========================= */
+
     .services-title {
       text-align: center;
-      margin: 25px 0 18px;
+
+      margin:
+        25px 0 20px;
+
       color: #333;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
       gap: 18px;
     }
 
     .service-card {
       background: white;
+
       border-radius: 12px;
+
       padding: 22px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-      border-top: 4px solid #ff7a00;
-      transition: 0.2s;
+
+      border-top:
+        4px solid #ff7a00;
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.08);
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s;
     }
 
     .service-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(0,0,0,0.12);
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 7px 22px rgba(0,0,0,0.12);
     }
 
     .service-icon {
-      font-size: 35px;
-      margin-bottom: 8px;
+      font-size: 38px;
+
+      margin-bottom: 7px;
     }
 
     .service-card h3 {
-      margin-bottom: 7px;
       color: #e65100;
+
+      margin-bottom: 7px;
     }
 
     .service-card p {
       color: #555;
+
       font-size: 14px;
+
       margin-bottom: 15px;
     }
 
     .service-btn {
-      background: #e65100;
-      color: white;
       width: 100%;
+
+      background: #e65100;
+
+      color: white;
     }
 
     .service-btn:hover {
       background: #bf360c;
     }
 
-    .login-box {
-      max-width: 430px;
-      margin: 25px auto;
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.12);
-    }
-
-    .login-box h2 {
-      text-align: center;
-      color: #e65100;
-      margin-bottom: 18px;
-    }
-
-    .login-box input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
-      border-radius: 7px;
-      font-size: 15px;
-    }
-
-    .login-box input:focus {
-      outline: none;
-      border-color: #ff7a00;
-    }
-
-    .primary-btn {
-      width: 100%;
-      background: #e65100;
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    .secondary-btn {
-      width: 100%;
-      background: #f1f1f1;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .forgot-btn {
-      background: none;
-      color: #e65100;
-      width: 100%;
-      padding: 5px;
-    }
-
-    .auth-message {
-      margin-top: 12px;
-      padding: 10px;
-      border-radius: 6px;
-      display: none;
-      font-size: 14px;
-    }
-
-    .dashboard {
-      display: none;
-    }
-
-    .logged-out {
-      display: none;
-    }
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       background: #212121;
+
       color: white;
+
       text-align: center;
-      padding: 22px 15px;
+
+      padding: 23px 15px;
+
       margin-top: 30px;
     }
 
     footer p {
-      margin: 5px 0;
       font-size: 13px;
+
+      margin: 5px 0;
     }
 
-    .official {
-      color: #0d47a1;
-      font-weight: bold;
-    }
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 700px) {
+
       .header-inner {
         flex-direction: column;
+
         text-align: center;
       }
 
+      .logo-area h1 {
+        font-size: 23px;
+      }
+
       #authArea {
-        justify-content: center;
+        width: 100%;
       }
 
       .services-grid {
         grid-template-columns: 1fr;
       }
 
-      .logo-area h1 {
-        font-size: 23px;
+      .welcome {
+        padding: 20px;
       }
+
+      .service-card {
+        padding: 20px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
+
+<!-- ======================================================
+     HEADER
+====================================================== -->
+
 <header>
+
   <div class="header-inner">
 
     <div class="logo-area">
-      <h1>🇮🇳 Bharat Digital Centre</h1>
-      <p>Citizen ID Services</p>
+
+      <h1>
+        🇮🇳 Bharat Digital Centre
+      </h1>
+
+      <p>
+        Citizen ID Services
+      </p>
+
     </div>
+
 
     <div id="authArea">
 
-      <span id="userEmail" class="user-email" style="display:none;"></span>
+      <span
+        id="userEmail"
+        class="user-email"
+        style="display:none;"
+      ></span>
+
 
       <button
         id="headerLoginBtn"
-        class="login-btn"
-        onclick="showLogin()">
+        class="login-header-btn"
+        onclick="showLogin()"
+      >
         Login / Register
       </button>
+
 
       <button
         id="logoutBtn"
         class="logout-btn"
         style="display:none;"
-        onclick="logoutUser()">
+        onclick="logoutUser()"
+      >
         Logout
       </button>
 
     </div>
 
   </div>
+
 </header>
 
 
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
 <main>
 
+
+  <!-- NOTICE -->
+
   <div class="notice">
-    <strong>⚠️ महत्वपूर्ण:</strong>
+
+    <strong>
+      ⚠️ महत्वपूर्ण:
+    </strong>
+
     यह Bharat Digital Centre की नागरिक सुविधा वेबसाइट है।
-    Aadhaar, PAN, Driving Licence एवं Voter ID के लिए आवेदन/सेवा
-    संबंधित सरकारी Official Portal पर ही पूरी करें।
+    Aadhaar, PAN, Driving Licence और Voter ID जैसी सेवाओं के लिए
+    संबंधित सरकारी Official Portal पर ही आवेदन/सेवा पूरी करें।
+
   </div>
 
 
-  <!-- LOGIN / REGISTER -->
+  <!-- ====================================================
+       LOGIN / REGISTER
+  ==================================================== -->
 
-  <section id="loginSection" class="login-box">
+  <section
+    id="loginSection"
+    class="login-box"
+  >
 
-    <h2>🔐 Login / Register</h2>
+    <h2>
+      🔐 Login / Register
+    </h2>
+
 
     <input
       type="email"
       id="email"
       placeholder="अपना Email दर्ज करें"
-      autocomplete="email">
+      autocomplete="email"
+    >
+
 
     <input
       type="password"
       id="password"
       placeholder="Password दर्ज करें"
-      autocomplete="current-password">
+      autocomplete="current-password"
+    >
+
 
     <button
       class="primary-btn"
-      onclick="loginUser()">
-      Login करें
+      onclick="loginUser()"
+    >
+      🔑 Login करें
     </button>
+
 
     <button
       class="secondary-btn"
-      onclick="registerUser()">
-      नया Account बनाएं
+      onclick="registerUser()"
+    >
+      📝 नया Account बनाएं
     </button>
+
 
     <button
       class="forgot-btn"
-      onclick="forgotPassword()">
+      onclick="forgotPassword()"
+    >
       Password भूल गए?
     </button>
 
-    <div id="authMessage" class="auth-message"></div>
+
+    <div
+      id="authMessage"
+      class="auth-message"
+    ></div>
 
   </section>
 
 
-  <!-- DASHBOARD -->
+  <!-- ====================================================
+       DASHBOARD
+  ==================================================== -->
 
-  <section id="dashboard" class="dashboard">
+  <section
+    id="dashboard"
+  >
+
 
     <div class="welcome">
 
-      <h2>नमस्कार! 👋</h2>
+      <h2>
+        नमस्कार! 👋
+      </h2>
 
       <p>
         Bharat Digital Centre में आपका स्वागत है।
@@ -378,105 +590,125 @@
     <div class="services-grid">
 
 
-      <!-- AADHAAR -->
+      <!-- ==================================================
+           AADHAAR
+      ================================================== -->
 
       <div class="service-card">
 
-        <div class="service-icon">🪪</div>
+        <div class="service-icon">
+          🪪
+        </div>
 
-        <h3>Aadhaar Card</h3>
+        <h3>
+          Aadhaar Card
+        </h3>
 
         <p>
           Aadhaar enrolment, update और Aadhaar से संबंधित
-          अन्य सेवाओं के लिए Official UIDAI Portal खोलें।
+          अन्य सेवाओं के लिए UIDAI का Official Portal खोलें।
         </p>
 
         <button
           class="service-btn"
           onclick="openOfficial(
             'https://uidai.gov.in/'
-          )">
-
+          )"
+        >
           Aadhaar Official Portal
-
         </button>
 
       </div>
 
 
-      <!-- PAN -->
+      <!-- ==================================================
+           PAN
+      ================================================== -->
 
       <div class="service-card">
 
-        <div class="service-icon">💳</div>
+        <div class="service-icon">
+          💳
+        </div>
 
-        <h3>PAN Card</h3>
+        <h3>
+          PAN Card
+        </h3>
 
         <p>
           PAN Card application, correction और PAN से संबंधित
-          सेवाओं के लिए Official Income Tax Portal खोलें।
+          सेवाओं के लिए Income Tax का Official Portal खोलें।
         </p>
 
         <button
           class="service-btn"
           onclick="openOfficial(
             'https://www.incometax.gov.in/'
-          )">
-
+          )"
+        >
           PAN Official Portal
-
         </button>
 
       </div>
 
 
-      <!-- DRIVING LICENCE -->
+      <!-- ==================================================
+           DRIVING LICENCE
+      ================================================== -->
 
       <div class="service-card">
 
-        <div class="service-icon">🚗</div>
+        <div class="service-icon">
+          🚗
+        </div>
 
-        <h3>Driving Licence</h3>
+        <h3>
+          Driving Licence
+        </h3>
 
         <p>
-          Learner Licence, Driving Licence और vehicle related
-          services के लिए भारत सरकार का Parivahan Portal खोलें।
+          Learner Licence, Driving Licence और वाहन संबंधी
+          सेवाओं के लिए Parivahan का Official Portal खोलें।
         </p>
 
         <button
           class="service-btn"
           onclick="openOfficial(
             'https://parivahan.gov.in/'
-          )">
-
+          )"
+        >
           Parivahan Official Portal
-
         </button>
 
       </div>
 
 
-      <!-- VOTER ID -->
+      <!-- ==================================================
+           VOTER ID
+      ================================================== -->
 
       <div class="service-card">
 
-        <div class="service-icon">🗳️</div>
+        <div class="service-icon">
+          🗳️
+        </div>
 
-        <h3>Voter ID</h3>
+        <h3>
+          Voter ID
+        </h3>
 
         <p>
           Voter registration, correction, voter search और
-          अन्य election services के लिए Official Portal खोलें।
+          election services के लिए Election Commission Portal खोलें।
         </p>
 
         <button
           class="service-btn"
           onclick="openOfficial(
             'https://voters.eci.gov.in/'
-          )">
-
+          )"
+        >
           Voter Official Portal
-
         </button>
 
       </div>
@@ -486,8 +718,13 @@
 
   </section>
 
+
 </main>
 
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
 
 <footer>
 
@@ -501,42 +738,62 @@
 
   <p>
     यह Government Website नहीं है।
-    सभी सरकारी सेवाओं के लिए संबंधित Official Portal का उपयोग करें।
   </p>
 
 </footer>
 
 
-<!-- =========================================================
+<!-- ======================================================
      FIREBASE
-========================================================= -->
+====================================================== -->
 
 <script type="module">
 
-  import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
 
+  /* ======================================================
+     FIREBASE APP
+  ====================================================== */
 
   import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged,
-    sendPasswordResetEmail
+    initializeApp
   }
-  from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+  from
+  "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
 
 
-  /*
-   ============================================================
-   YOUR FIREBASE CONFIGURATION
-   ============================================================
-  */
+  /* ======================================================
+     FIREBASE AUTH
+  ====================================================== */
+
+  import {
+
+    getAuth,
+
+    createUserWithEmailAndPassword,
+
+    signInWithEmailAndPassword,
+
+    signOut,
+
+    onAuthStateChanged,
+
+    sendPasswordResetEmail
+
+  }
+  from
+  "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+
+
+  /* ======================================================
+     YOUR FIREBASE CONFIGURATION
+
+     आपकी Firebase configuration यहाँ पहले से डाली गई है।
+  ====================================================== */
 
   const firebaseConfig = {
 
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey:
+      "AIzaSyDs3xlVBdjxPqbkvPiyYQWHy8tHBpIi-zk",
 
     authDomain:
       "bharat-digital-centre.firebaseapp.com",
@@ -556,360 +813,569 @@
   };
 
 
-  /*
-   ============================================================
-   INITIALIZE FIREBASE
-   ============================================================
-  */
+  /* ======================================================
+     INITIALIZE FIREBASE
+  ====================================================== */
 
-  const app = initializeApp(firebaseConfig);
-
-  const auth = getAuth(app);
+  const app =
+    initializeApp(firebaseConfig);
 
 
-  /*
-   ============================================================
-   ELEMENTS
-   ============================================================
-  */
+  /* ======================================================
+     INITIALIZE AUTH
+  ====================================================== */
+
+  const auth =
+    getAuth(app);
+
+
+  /* ======================================================
+     HTML ELEMENTS
+  ====================================================== */
 
   const loginSection =
-    document.getElementById("loginSection");
+    document.getElementById(
+      "loginSection"
+    );
+
 
   const dashboard =
-    document.getElementById("dashboard");
+    document.getElementById(
+      "dashboard"
+    );
+
 
   const headerLoginBtn =
-    document.getElementById("headerLoginBtn");
+    document.getElementById(
+      "headerLoginBtn"
+    );
+
 
   const logoutBtn =
-    document.getElementById("logoutBtn");
+    document.getElementById(
+      "logoutBtn"
+    );
+
 
   const userEmail =
-    document.getElementById("userEmail");
+    document.getElementById(
+      "userEmail"
+    );
+
 
   const authMessage =
-    document.getElementById("authMessage");
+    document.getElementById(
+      "authMessage"
+    );
 
 
-  /*
-   ============================================================
-   MESSAGE FUNCTION
-   ============================================================
-  */
+  /* ======================================================
+     MESSAGE FUNCTION
+  ====================================================== */
 
-  function showMessage(message, success = false) {
+  function showMessage(
+    message,
+    success = false
+  ) {
 
-    authMessage.style.display = "block";
+    authMessage.style.display =
+      "block";
 
-    authMessage.textContent = message;
+
+    authMessage.textContent =
+      message;
+
 
     if (success) {
 
-      authMessage.style.background = "#e8f5e9";
-      authMessage.style.color = "#1b5e20";
+      authMessage.style.background =
+        "#e8f5e9";
 
-    } else {
+      authMessage.style.color =
+        "#1b5e20";
 
-      authMessage.style.background = "#ffebee";
-      authMessage.style.color = "#b71c1c";
+    }
+
+    else {
+
+      authMessage.style.background =
+        "#ffebee";
+
+      authMessage.style.color =
+        "#b71c1c";
 
     }
 
   }
 
 
-  /*
-   ============================================================
-   SHOW LOGIN
-   ============================================================
-  */
+  /* ======================================================
+     SHOW LOGIN
+  ====================================================== */
 
-  window.showLogin = function() {
+  window.showLogin =
+    function() {
 
-    loginSection.style.display = "block";
-
-    dashboard.style.display = "none";
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-  };
+      loginSection.style.display =
+        "block";
 
 
-  /*
-   ============================================================
-   REGISTER
-   ============================================================
-  */
-
-  window.registerUser = async function() {
-
-    const email =
-      document.getElementById("email").value.trim();
-
-    const password =
-      document.getElementById("password").value;
+      dashboard.style.display =
+        "none";
 
 
-    if (!email || !password) {
+      window.scrollTo({
 
-      showMessage(
-        "कृपया Email और Password दोनों दर्ज करें।"
-      );
+        top: 0,
 
-      return;
+        behavior: "smooth"
+
+      });
+
+    };
+
+
+  /* ======================================================
+     REGISTER USER
+  ====================================================== */
+
+  window.registerUser =
+    async function() {
+
+
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim();
+
+
+      const password =
+        document
+          .getElementById("password")
+          .value;
+
+
+      if (!email) {
+
+        showMessage(
+          "कृपया Email दर्ज करें।"
+        );
+
+        return;
+
+      }
+
+
+      if (!password) {
+
+        showMessage(
+          "कृपया Password दर्ज करें।"
+        );
+
+        return;
+
+      }
+
+
+      if (password.length < 6) {
+
+        showMessage(
+          "Password कम से कम 6 characters का होना चाहिए।"
+        );
+
+        return;
+
+      }
+
+
+      try {
+
+
+        await createUserWithEmailAndPassword(
+
+          auth,
+
+          email,
+
+          password
+
+        );
+
+
+        showMessage(
+
+          "Account सफलतापूर्वक बन गया।",
+
+          true
+
+        );
+
+
+      }
+
+      catch (error) {
+
+
+        showMessage(
+
+          firebaseError(
+            error.code
+          )
+
+        );
+
+      }
+
+    };
+
+
+  /* ======================================================
+     LOGIN USER
+  ====================================================== */
+
+  window.loginUser =
+    async function() {
+
+
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim();
+
+
+      const password =
+        document
+          .getElementById("password")
+          .value;
+
+
+      if (!email) {
+
+        showMessage(
+          "कृपया Email दर्ज करें।"
+        );
+
+        return;
+
+      }
+
+
+      if (!password) {
+
+        showMessage(
+          "कृपया Password दर्ज करें।"
+        );
+
+        return;
+
+      }
+
+
+      try {
+
+
+        await signInWithEmailAndPassword(
+
+          auth,
+
+          email,
+
+          password
+
+        );
+
+
+        showMessage(
+
+          "Login सफल रहा।",
+
+          true
+
+        );
+
+
+      }
+
+      catch (error) {
+
+
+        showMessage(
+
+          firebaseError(
+            error.code
+          )
+
+        );
+
+      }
+
+    };
+
+
+  /* ======================================================
+     FORGOT PASSWORD
+  ====================================================== */
+
+  window.forgotPassword =
+    async function() {
+
+
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim();
+
+
+      if (!email) {
+
+        showMessage(
+          "पहले अपना Email दर्ज करें।"
+        );
+
+        return;
+
+      }
+
+
+      try {
+
+
+        await sendPasswordResetEmail(
+
+          auth,
+
+          email
+
+        );
+
+
+        showMessage(
+
+          "Password reset link आपके Email पर भेज दिया गया है।",
+
+          true
+
+        );
+
+
+      }
+
+      catch (error) {
+
+
+        showMessage(
+
+          firebaseError(
+            error.code
+          )
+
+        );
+
+      }
+
+    };
+
+
+  /* ======================================================
+     LOGOUT
+  ====================================================== */
+
+  window.logoutUser =
+    async function() {
+
+
+      try {
+
+
+        await signOut(auth);
+
+
+      }
+
+      catch (error) {
+
+
+        console.error(error);
+
+
+      }
+
+    };
+
+
+  /* ======================================================
+     AUTH STATE CHANGE
+  ====================================================== */
+
+  onAuthStateChanged(
+
+    auth,
+
+    function(user) {
+
+
+      if (user) {
+
+
+        /* Logged In */
+
+
+        loginSection.style.display =
+          "none";
+
+
+        dashboard.style.display =
+          "block";
+
+
+        headerLoginBtn.style.display =
+          "none";
+
+
+        logoutBtn.style.display =
+          "inline-block";
+
+
+        userEmail.style.display =
+          "inline-block";
+
+
+        userEmail.textContent =
+          user.email || "Logged in";
+
+
+      }
+
+      else {
+
+
+        /* Logged Out */
+
+
+        loginSection.style.display =
+          "block";
+
+
+        dashboard.style.display =
+          "none";
+
+
+        headerLoginBtn.style.display =
+          "inline-block";
+
+
+        logoutBtn.style.display =
+          "none";
+
+
+        userEmail.style.display =
+          "none";
+
+
+      }
+
     }
 
+  );
 
-    if (password.length < 6) {
 
-      showMessage(
-        "Password कम से कम 6 characters का होना चाहिए।"
+  /* ======================================================
+     OPEN OFFICIAL WEBSITE
+  ====================================================== */
+
+  window.openOfficial =
+    function(url) {
+
+
+      window.open(
+
+        url,
+
+        "_blank",
+
+        "noopener,noreferrer"
+
       );
 
-      return;
-    }
+    };
 
 
-    try {
-
-      await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      showMessage(
-        "Account सफलतापूर्वक बन गया।",
-        true
-      );
-
-    } catch (error) {
-
-      showMessage(
-        firebaseError(error.code)
-      );
-
-    }
-
-  };
-
-
-  /*
-   ============================================================
-   LOGIN
-   ============================================================
-  */
-
-  window.loginUser = async function() {
-
-    const email =
-      document.getElementById("email").value.trim();
-
-    const password =
-      document.getElementById("password").value;
-
-
-    if (!email || !password) {
-
-      showMessage(
-        "कृपया Email और Password दर्ज करें।"
-      );
-
-      return;
-    }
-
-
-    try {
-
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      showMessage(
-        "Login सफल रहा।",
-        true
-      );
-
-    } catch (error) {
-
-      showMessage(
-        firebaseError(error.code)
-      );
-
-    }
-
-  };
-
-
-  /*
-   ============================================================
-   FORGOT PASSWORD
-   ============================================================
-  */
-
-  window.forgotPassword = async function() {
-
-    const email =
-      document.getElementById("email").value.trim();
-
-
-    if (!email) {
-
-      showMessage(
-        "पहले अपना Email दर्ज करें।"
-      );
-
-      return;
-    }
-
-
-    try {
-
-      await sendPasswordResetEmail(
-        auth,
-        email
-      );
-
-      showMessage(
-        "Password reset link आपके Email पर भेज दिया गया है।",
-        true
-      );
-
-    } catch (error) {
-
-      showMessage(
-        firebaseError(error.code)
-      );
-
-    }
-
-  };
-
-
-  /*
-   ============================================================
-   LOGOUT
-   ============================================================
-  */
-
-  window.logoutUser = async function() {
-
-    try {
-
-      await signOut(auth);
-
-    } catch (error) {
-
-      console.error(error);
-
-    }
-
-  };
-
-
-  /*
-   ============================================================
-   AUTH STATE
-   ============================================================
-  */
-
-  onAuthStateChanged(auth, (user) => {
-
-    if (user) {
-
-      loginSection.style.display = "none";
-
-      dashboard.style.display = "block";
-
-      headerLoginBtn.style.display = "none";
-
-      logoutBtn.style.display = "inline-block";
-
-      userEmail.style.display = "inline-block";
-
-      userEmail.textContent =
-        user.email || "Logged in";
-
-    } else {
-
-      loginSection.style.display = "block";
-
-      dashboard.style.display = "none";
-
-      headerLoginBtn.style.display = "inline-block";
-
-      logoutBtn.style.display = "none";
-
-      userEmail.style.display = "none";
-
-    }
-
-  });
-
-
-  /*
-   ============================================================
-   OPEN OFFICIAL WEBSITE
-   ============================================================
-  */
-
-  window.openOfficial = function(url) {
-
-    window.open(
-      url,
-      "_blank",
-      "noopener,noreferrer"
-    );
-
-  };
-
-
-  /*
-   ============================================================
-   FIREBASE ERROR MESSAGES
-   ============================================================
-  */
+  /* ======================================================
+     FIREBASE ERROR MESSAGES
+  ====================================================== */
 
   function firebaseError(code) {
 
+
     switch (code) {
 
+
       case "auth/email-already-in-use":
-        return "यह Email पहले से registered है। Login करें।";
+
+        return
+          "यह Email पहले से registered है। कृपया Login करें।";
+
 
       case "auth/invalid-email":
-        return "Email address सही नहीं है।";
+
+        return
+          "Email address सही नहीं है।";
+
 
       case "auth/weak-password":
-        return "Password बहुत कमजोर है। कम से कम 6 characters रखें।";
+
+        return
+          "Password कमजोर है। कम से कम 6 characters रखें।";
+
 
       case "auth/invalid-credential":
-        return "Email या Password गलत है।";
+
+        return
+          "Email या Password गलत है।";
+
 
       case "auth/user-not-found":
-        return "इस Email से कोई Account नहीं मिला।";
+
+        return
+          "इस Email से कोई Account नहीं मिला।";
+
 
       case "auth/wrong-password":
-        return "Password गलत है।";
+
+        return
+          "Password गलत है।";
+
 
       case "auth/too-many-requests":
-        return "बहुत अधिक प्रयास किए गए हैं। कुछ समय बाद दोबारा प्रयास करें।";
+
+        return
+          "बहुत अधिक प्रयास किए गए हैं। कुछ समय बाद दोबारा प्रयास करें।";
+
 
       case "auth/network-request-failed":
-        return "Internet connection जांचें।";
+
+        return
+          "Internet connection जांचें।";
+
+
+      case "auth/operation-not-allowed":
+
+        return
+          "Firebase में Email/Password Sign-in अभी Enabled नहीं है।";
+
 
       default:
-        return "Error: " + code;
+
+        return
+          "Login/Register में समस्या हुई। Error: " + code;
 
     }
 
   }
+
 
 </script>
 
