@@ -1,68 +1,2258 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<title>Citizen ID Services – Online Citizen Services</title>
-<meta name="description" content="Citizen ID Services से नागरिकों के लिए उपयोगी ऑनलाइन सेवाओं और जानकारी को आसान तरीके से प्राप्त करें।">
-<meta name="google-site-verification" content="r3ZYckNVtdC7Bo9WIumEe3eGrV4nMXBOb6eeTD48JkI" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>Bharat Digital Centre | Digital Services</title>
 
 <style>
-:root{--bg:#f5f7fa;--card:#fff;--text:#253044;--muted:#667085;--orange:#ff6333;--green:#21b573;--blue:#3478f6;--line:#d9eee7;--shadow:0 5px 18px #1d29390f}
+:root{
+--bg:#f5f7fa;
+--card:#fff;
+--text:#253044;
+--muted:#667085;
+--orange:#ff6333;
+--green:#21b573;
+--blue:#3478f6;
+--line:#d9eee7;
+--shadow:0 5px 18px #1d29390f
+}
+
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:var(--text)}
-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee}
-.nav{max-width:1250px;margin:auto;min-height:66px;padding:7px 12px;display:flex;align-items:center;gap:10px}
-.logo{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#ff6b35,#ff9d3d);color:#fff;display:grid;place-items:center;font-weight:900}
+
+body{
+margin:0;
+font-family:Arial,"Noto Sans Devanagari",sans-serif;
+background:var(--bg);
+color:var(--text)
+}
+
+header{
+position:sticky;
+top:0;
+z-index:20;
+background:#fff;
+border-bottom:1px solid #eee
+}
+
+.nav{
+max-width:1250px;
+margin:auto;
+min-height:66px;
+padding:7px 12px;
+display:flex;
+align-items:center;
+gap:10px
+}
+
+.logo{
+width:42px;
+height:42px;
+border-radius:11px;
+background:linear-gradient(135deg,#ff6b35,#ff9d3d);
+color:#fff;
+display:grid;
+place-items:center;
+font-weight:900
+}
+
 .brand b{font-size:18px}
 .brand small{color:#ff6333;font-size:10px}
-.navlinks{margin-left:auto;display:flex;gap:18px}
-.navlinks a{text-decoration:none;color:#344054;font-weight:700;font-size:13px}
-.menu{display:none;margin-left:auto;border:0;border-radius:9px;background:#f1f5f9;padding:9px;font-size:20px}
 
-main{max-width:1250px;margin:auto;padding:18px 10px 45px}
-.hero{color:#fff;text-align:center;border-radius:18px;padding:25px 12px;background:linear-gradient(110deg,#d936a0,#ee5c84,#468bd8);box-shadow:var(--shadow);overflow:hidden}
-.hero h1{margin:0 0 7px;font-size:27px}
+.navlinks{
+margin-left:auto;
+display:flex;
+gap:18px
+}
+
+.navlinks a{
+text-decoration:none;
+color:#344054;
+font-weight:700;
+font-size:13px
+}
+
+.menu{
+display:none;
+margin-left:auto;
+border:0;
+border-radius:9px;
+background:#f1f5f9;
+padding:9px;
+font-size:20px
+}
+
+main{
+max-width:1250px;
+margin:auto;
+padding:18px 10px 45px
+}
+
+.hero{
+color:#fff;
+text-align:center;
+border-radius:18px;
+padding:25px 12px;
+background:linear-gradient(110deg,#d936a0,#ee5c84,#468bd8);
+box-shadow:var(--shadow);
+overflow:hidden
+}
+
+.hero h1{
+margin:0 0 7px;
+font-size:27px
+}
+
 .hero p{margin:0}
-.search{max-width:1000px;margin:18px auto 25px}
-.search input{width:100%;padding:15px 17px;border:1px solid #e1e6ed;border-radius:15px;box-shadow:var(--shadow);font-size:15px}
+
+.search{
+max-width:1000px;
+margin:18px auto 25px
+}
+
+.search input{
+width:100%;
+padding:15px 17px;
+border:1px solid #e1e6ed;
+border-radius:15px;
+box-shadow:var(--shadow);
+font-size:15px
+}
+
 .section{margin:25px 0}
-.section h2{font-size:18px;margin:0 0 12px;padding-left:10px;border-left:4px solid #6c5ce7}
+
+.section h2{
+font-size:18px;
+margin:0 0 12px;
+padding-left:10px;
+border-left:4px solid #6c5ce7
+}
+
 .orange h2{border-color:#ff6a35}
 .green h2{border-color:#24b68a}
 .blue h2{border-color:#3d7cf5}
 .pink h2{border-color:#d42aa6}
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.card{min-height:136px;background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px 7px;text-align:center;cursor:pointer;position:relative;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;align-items:center;transition:.15s}
-.card:hover{transform:translateY(-2px)}
-.icon{font-size:35px;margin-bottom:9px}
-.card b{font-size:14px;line-height:1.35}
-.tag{position:absolute;right:6px;top:6px;background:#75c900;color:#fff;border-radius:8px;padding:3px 6px;font-size:9px}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px
+}
+
+.card{
+min-height:136px;
+background:#fff;
+border:1px solid var(--line);
+border-radius:17px;
+padding:12px 7px;
+text-align:center;
+cursor:pointer;
+position:relative;
+box-shadow:var(--shadow);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+transition:.15s
+}
+
+.card:hover{
+transform:translateY(-2px)
+}
+
+.icon{
+font-size:35px;
+margin-bottom:9px
+}
+
+.card b{
+font-size:14px;
+line-height:1.35
+}
+
+.tag{
+position:absolute;
+right:6px;
+top:6px;
+background:#75c900;
+color:#fff;
+border-radius:8px;
+padding:3px 6px;
+font-size:9px
+}
+
 .hot{background:#f04469}
-.about{background:#fff;border:1px solid #edf0f4;border-radius:17px;padding:20px;margin-top:25px;box-shadow:var(--shadow)}
-.whygrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.whybox{padding:18px;background:#fff;border:1px solid #edf0f4;border-radius:14px;text-align:center;font-weight:800}
-footer{background:#25313d;color:#fff;text-align:center;padding:25px}
-.modal{position:fixed;inset:0;background:#0009;z-index:100;display:none;align-items:center;justify-content:center;padding:9px}
+
+.about{
+background:#fff;
+border:1px solid #edf0f4;
+border-radius:17px;
+padding:20px;
+margin-top:25px;
+box-shadow:var(--shadow)
+}
+
+.whygrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px
+}
+
+.whybox{
+padding:18px;
+background:#fff;
+border:1px solid #edf0f4;
+border-radius:14px;
+text-align:center;
+font-weight:800
+}
+
+footer{
+background:#25313d;
+color:#fff;
+text-align:center;
+padding:25px
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:#0009;
+z-index:100;
+display:none;
+align-items:center;
+justify-content:center;
+padding:9px
+}
+
 .modal.show{display:flex}
-.box{background:#fff;width:min(1150px,100%);max-height:95vh;overflow:auto;border-radius:19px;padding:17px;position:relative}
-.close{position:absolute;right:10px;top:9px;border:0;background:#f1f5f9;border-radius:9px;font-size:22px;padding:3px 10px}
-.studio{display:grid;grid-template-columns:330px 1fr;gap:14px;margin-top:14px}
-.panel{background:#f7f9fc;border:1px solid #e4e9ef;border-radius:14px;padding:13px}
-.panel h3{margin:0 0 10px;font-size:15px}
-.control{margin-bottom:10px}
-.control label{display:block;font-size:13px;font-weight:800;margin-bottom:5px}
-.control input,.control select,.control textarea{width:100%;padding:9px;border:1px solid #dce2ea;border-radius:9px;background:#fff}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.actions{display:flex;gap:7px;flex-wrap:wrap}
-.btn{border:0;border-radius:9px;padding:10px 12px;background:var(--orange);color:#fff;font-weight:800;cursor:pointer}
+
+.box{
+background:#fff;
+width:min(1150px,100%);
+max-height:95vh;
+overflow:auto;
+border-radius:19px;
+padding:17px;
+position:relative
+}
+
+.close{
+position:absolute;
+right:10px;
+top:9px;
+border:0;
+background:#f1f5f9;
+border-radius:9px;
+font-size:22px;
+padding:3px 10px
+}
+
+.studio{
+display:grid;
+grid-template-columns:330px 1fr;
+gap:14px;
+margin-top:14px
+}
+
+.panel{
+background:#f7f9fc;
+border:1px solid #e4e9ef;
+border-radius:14px;
+padding:13px
+}
+
+.panel h3{
+margin:0 0 10px;
+font-size:15px
+}
+
+.control{
+margin-bottom:10px
+}
+
+.control label{
+display:block;
+font-size:13px;
+font-weight:800;
+margin-bottom:5px
+}
+
+.control input,
+.control select,
+.control textarea{
+width:100%;
+padding:9px;
+border:1px solid #dce2ea;
+border-radius:9px;
+background:#fff
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px
+}
+
+.actions{
+display:flex;
+gap:7px;
+flex-wrap:wrap
+}
+
+.btn{
+border:0;
+border-radius:9px;
+padding:10px 12px;
+background:var(--orange);
+color:#fff;
+font-weight:800;
+cursor:pointer
+}
+
 .btn.blue{background:var(--blue)}
 .btn.green{background:var(--green)}
 .btn.dark{background:#26313d}
-.preview{background:#e8edf3;border-radius:14px;min-height:430px;padding:10px;display:grid;place-items:center;overflow:auto}
-.preview canvas{max-width:100%;height:auto;background:#fff;box-shadow:0 5px 20px #0002}
-.tabs{display:flex;gap:7px;margin-bottom:8px}
-.tab{border:1px solid #dce2ea;background:#fff;border-radius:9px;padding:8px 13px;font-weight:800}
-.tab.active{background:#ffefe9;border-color:#ff
+
+.preview{
+background:#e8edf3;
+border-radius:14px;
+min-height:430px;
+padding:10px;
+display:grid;
+place-items:center;
+overflow:auto
+}
+
+.preview canvas{
+max-width:100%;
+height:auto;
+background:#fff;
+box-shadow:0 5px 20px #0002
+}
+
+.tabs{
+display:flex;
+gap:7px;
+margin-bottom:8px
+}
+
+.tab{
+border:1px solid #dce2ea;
+background:#fff;
+border-radius:9px;
+padding:8px 13px;
+font-weight:800
+}
+
+.tab.active{
+background:#ffefe9;
+border-color:#ffb69e;
+color:#d9461f
+}
+
+.bggrid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:5px
+}
+
+.bg{
+height:29px;
+border:1px solid #ccd5df;
+border-radius:7px;
+cursor:pointer
+}
+
+.white{background:#fff}
+.sky{background:#55afe8}
+.red{background:#df4b4b}
+.gray{background:#e8e8e8}
+
+.info{
+font-size:12px;
+background:#fff;
+border:1px dashed #ccd7e2;
+border-radius:9px;
+padding:8px;
+margin-top:7px
+}
+
+.airesult{
+background:#eef3f8;
+border-radius:12px;
+padding:10px;
+text-align:center
+}
+
+.airesult img{
+max-width:100%;
+max-height:430px;
+border-radius:10px
+}
+
+.sheet{
+background:#fff;
+padding:10mm;
+min-height:297mm;
+width:210mm
+}
+
+.sheetgrid{
+display:grid;
+gap:4mm
+}
+
+.item{
+border:1px solid #999
+}
+
+.item canvas{
+display:block;
+width:100%
+}
+
+#printArea{
+display:none
+}
+
+@media(max-width:850px){
+
+.navlinks{display:none}
+
+.navlinks.mobile{
+display:flex;
+position:absolute;
+top:64px;
+left:10px;
+right:10px;
+background:#fff;
+border:1px solid #eee;
+padding:12px;
+border-radius:12px;
+flex-direction:column
+}
+
+.menu{display:block}
+
+.grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.studio{
+grid-template-columns:1fr
+}
+
+.row{
+grid-template-columns:1fr
+}
+
+.hero h1{
+font-size:22px
+}
+
+.preview{
+min-height:320px
+}
+
+.sheet{
+transform-origin:top left;
+overflow:hidden
+}
+}
+
+@media print{
+
+body>*:not(#printArea){
+display:none!important
+}
+
+#printArea{
+display:block!important
+}
+
+.sheet{
+box-shadow:none;
+margin:0
+}
+
+.pagebreak{
+page-break-after:always
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">BD</div>
+
+<div class="brand">
+<b>Bharat Digital Centre</b>
+<br>
+<small>AI Photo • ID Card • A4 Print Studio</small>
+</div>
+
+<div class="navlinks" id="navlinks">
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#tools">Photo & ID Tools</a>
+<a href="#faq">FAQ</a>
+</div>
+
+<button class="menu" onclick="toggleMenu()">☰</button>
+
+</div>
+</header>
+
+
+<main id="home">
+
+<section class="hero">
+
+<h1>
+Launch Your Digital Operations With Bharat Digital Centre
+</h1>
+
+<p>
+AI Photo • Passport Photo • ID Card Edit/Crop • Background • Front & Back • A4 Print
+</p>
+
+</section>
+
+
+<div class="search">
+
+<input
+id="search"
+oninput="filterCards()"
+placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
+>
+
+</div>
+
+
+<section id="tools" class="section orange">
+
+<h2>🪪 ID Card & AI Photo Studio</h2>
+
+<div class="grid" id="toolGrid"></div>
+
+</section>
+
+
+<section id="services" class="section">
+
+<h2>⚡ Essential & Services</h2>
+
+<div class="grid" id="serviceGrid"></div>
+
+</section>
+
+
+<section class="section pink">
+
+<h2>🎨 Creative Design Studio</h2>
+
+<div class="grid" id="creativeGrid"></div>
+
+</section>
+
+
+<section class="section blue">
+
+<h2>📄 Smart PDF & Image Tools</h2>
+
+<div class="grid" id="pdfGrid"></div>
+
+</section>
+
+
+<section class="section green">
+
+<h2>🪪 Card Printing Services</h2>
+
+<div class="grid" id="cardGrid"></div>
+
+</section>
+
+
+<section class="section green">
+
+<h2>🌐 Portal Services</h2>
+
+<div class="grid" id="portalGrid"></div>
+
+</section>
+
+
+<section class="about">
+
+<h2>Bharat Digital Centre — One Stop Solution</h2>
+
+<p>
+यह portal photo editing, passport-size photo,
+ID card crop/resize, background tools,
+AI tools और A4 print layout को एक जगह उपलब्ध कराने के लिए बनाया गया है।
+सरकारी सेवाओं के लिए संबंधित official portal का उपयोग करें।
+</p>
+
+</section>
+
+
+<section class="about">
+
+<h2>Why Choose Bharat Digital Centre?</h2>
+
+<div class="whygrid">
+
+<div class="whybox">⚡ Simple & Fast</div>
+<div class="whybox">📦 Everything In One Place</div>
+<div class="whybox">🛡️ Safe & Reliable</div>
+<div class="whybox">💰 Affordable & Easy</div>
+
+</div>
+
+</section>
+
+
+<section id="faq" class="about">
+
+<h2>FAQ</h2>
+
+<details>
+<summary>
+क्या Front और Back ID Card एक साथ print होगा?
+</summary>
+
+<p>
+हाँ। दोनों images upload करके One Click A4 Print से
+अलग-अलग front/back pages तैयार किए जा सकते हैं।
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+क्या custom ID card size है?
+</summary>
+
+<p>
+हाँ। Standard, School/College, Aadhaar/PAN-style,
+Passport और Custom size उपलब्ध हैं।
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+क्या Real AI Background Remove और AI Generate चलेगा?
+</summary>
+
+<p>
+हाँ। Backend deploy करके AI API endpoint सेट करने के बाद
+Real AI functions काम करेंगे।
+</p>
+
+</details>
+
+</section>
+
+</main>
+
+
+<footer>
+
+© 2026 Bharat Digital Centre • Photo & ID Print Studio
+
+</footer>
+
+
+<div id="toast"></div>
+
+
+<div class="modal" id="modal">
+
+<div class="box">
+
+<button class="close" onclick="closeModal()">×</button>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+
+<div id="printArea"></div>
+
+
+<script>
+
+const API_URL =
+localStorage.getItem("BDC_AI_API") || "";
+
+let front = null;
+let back = null;
+let side = "front";
+let bg = "white";
+let rot = 0;
+
+const $ = s => document.querySelector(s);
+
+const esc = s =>
+String(s).replace(/[&<>"']/g,m=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[m]));
+
+
+const tools = [
+
+["🪪","ID Card Studio","id","HOT"],
+["📐","All ID Card Sizes","id"],
+["🔄","Front + Back Print","id","NEW"],
+["✂️","PVC Auto Crop","id"],
+["👤","Passport Photo","photo"],
+["🪄","AI Background Remover","background","AI"],
+["🎨","Background Change","background"],
+["🤖","AI Auto Photo","photo","AI"],
+["✨","AI Generate Photo","generate","AI"],
+["🖨️","One Click ID Print","print"]
+
+];
+
+
+const services = [
+
+["📰","Latest Jobs"],
+["📝","Mock Test"],
+["🖼️","Photo Crop & Resize","photo"],
+["📄","Resume/CV"],
+["🗂️","Document Album"],
+["📝","New Service Post"],
+["🗃️","Document Manager"]
+
+];
+
+
+const creative = [
+
+["📄","Pro Resume Maker"],
+["💌","Marriage Biodata"],
+["🪪","Pro ID Maker","id"],
+["📸","Pro Poster Maker"],
+["🗂️","Application Maker"],
+["📣","Shop Promotion Maker"]
+
+];
+
+
+const pdf = [
+
+["🖼️📄","JPG To PDF"],
+["📄🖼️","PDF To JPG"],
+["🖼️📄","PNG To PDF"],
+["🖼️","PNG To JPG"],
+["📄❌","Delete PDF Page"],
+["📑","Merge PDF"]
+
+];
+
+
+const cards = [
+
+["🪪","Unique ID Card Print"],
+["🗳️","Election Card Print"],
+["🏥","Health Plan Card Print"],
+["🧾","Tax ID Card Print"],
+["🚘","Driving Permit Print"],
+["🎓","School/College ID"],
+["🍚","Food Subsidy Card Print"]
+
+];
+
+
+const portals = [
+
+["🏛️","Census Of India"],
+
+["🪪","Aadhaar Service","https://uidai.gov.in/"],
+
+["💳","Aadhaar Information","https://uidai.gov.in/"],
+
+["📄","PAN Card Service","https://www.incometax.gov.in/"],
+
+["🗳️","Voter ID Correction","https://voters.eci.gov.in/"],
+
+["💳","Ayushman Bharat","https://beneficiary.nha.gov.in/"],
+
+["🚘","Driving Licence","https://parivahan.gov.in/"],
+
+["📋","RC Service","https://parivahan.gov.in/"],
+
+["🚗","Vehicle Service","https://parivahan.gov.in/"],
+
+["🏥","Birth & Death Certificate"],
+
+["💰","E-Challan","https://echallan.parivahan.gov.in/"],
+
+["💼","E-Shram Card","https://eshram.gov.in/"],
+
+["🪪","APAAR ID Card"],
+
+["💳","ABHA Card","https://abha.abdm.gov.in/"],
+
+["🌾","PM Kisan","https://pmkisan.gov.in/"],
+
+["🏠","PMAY-Gramin"],
+
+["🏠","PMAY-Urban/Sehri"],
+
+["🏢","EPFO","https://www.epfindia.gov.in/"],
+
+["❤️","LIC Service"],
+
+["🌐","E-NAM","https://www.enam.gov.in/"],
+
+["💵","PM SVANidhi"],
+
+["🌱","Soil Health Card"],
+
+["👨‍🌾","MKisan Portal"],
+
+["☀️","PM Surya Ghar"],
+
+["🏭","Udyam Aadhaar/MSME","https://udyamregistration.gov.in/"],
+
+["🎓","National Scholarship","https://scholarships.gov.in/"],
+
+["📱","Lost/Found Mobile"],
+
+["🚆","Railway Service","https://www.indianrail.gov.in/"],
+
+["🛂","Passport Seva","https://www.passportindia.gov.in/"],
+
+["🌾","PM Kisan Samman","https://pmkisan.gov.in/"],
+
+["🧾","GST Verification","https://www.gst.gov.in/"],
+
+["🛣️","Chackpost Tax/Road Tax"],
+
+["🚗","Vahan Green Seva"],
+
+["🛵","PUC Service"],
+
+["📱","National Payments"],
+
+["👨‍👩‍👧","National Consumer"],
+
+["💼","National Career Service","https://www.ncs.gov.in/"],
+
+["📊","CIBIL Score"],
+
+["🔥","INDANE GAS"],
+
+["🔥","HP GAS"],
+
+["🔥","BHARAT GAS"],
+
+["♿","Unique Disability ID","https://www.swavlambancard.gov.in/"],
+
+["🚻","Swachh Bharat"],
+
+["⭐","Fancy Mobile Number"]
+
+];
+
+
+function fill(id,data){
+
+$(id).innerHTML = data.map(x => {
+
+let action;
+
+if(x[2] && x[2].startsWith("http")){
+
+action =
+`onclick="window.open('${x[2]}','_blank','noopener,noreferrer')"`; 
+
+}else if(x[2]){
+
+action =
+`onclick="openStudio('${x[2]}')"`; 
+
+}else{
+
+action =
+`onclick="notice('${esc(x[1])}')"`; 
+
+}
+
+return `
+
+<div class="card"
+data-name="${esc(x[1].toLowerCase())}"
+${action}>
+
+<div class="icon">${x[0]}</div>
+
+<b>${esc(x[1])}</b>
+
+${x[3] ?
+
+`<i class="tag ${x[3]=="HOT"||x[3]=="AI"?"hot":""}">
+${x[3]}
+</i>` : ""}
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+fill("#toolGrid",tools);
+fill("#serviceGrid",services);
+fill("#creativeGrid",creative);
+fill("#pdfGrid",pdf);
+fill("#cardGrid",cards);
+fill("#portalGrid",portals);
+
+
+function toggleMenu(){
+
+$("#navlinks").classList.toggle("mobile");
+
+}
+
+
+function notice(t){
+
+toast(t+" — module ready");
+
+}
+
+
+function toast(t){
+
+let e=$("#toast");
+
+e.textContent=t;
+
+e.style.cssText=
+"display:block;position:fixed;right:15px;bottom:15px;background:#26313d;color:#fff;padding:12px 15px;border-radius:10px;z-index:300";
+
+clearTimeout(window.t);
+
+window.t=setTimeout(
+()=>e.style.display="none",
+2600
+);
+
+}
+
+
+function closeModal(){
+
+$("#modal").classList.remove("show");
+
+}
+
+
+function filterCards(){
+
+let q=$("#search").value.toLowerCase();
+
+document.querySelectorAll(".card").forEach(c=>{
+
+c.style.display =
+(!q || c.innerText.toLowerCase().includes(q))
+?""
+:"none";
+
+});
+
+}
+
+
+function openStudio(mode){
+
+$("#modalBody").innerHTML =
+mode==="generate"
+?generateUI()
+:mode==="a4"||mode==="print"
+?printUI()
+:editorUI();
+
+$("#modal").classList.add("show");
+
+setTimeout(()=>{
+
+draw();
+updateInfo();
+
+},30);
+
+}
+
+
+function editorUI(){
+
+return `
+
+<h2>🪪 Professional Photo & ID Card Studio</h2>
+
+<p style="color:#667085">
+Upload • Crop • Resize • Background • AI Auto • Front/Back • Print
+</p>
+
+<div class="studio">
+
+<div class="panel">
+
+<h3>Photo & Card Settings</h3>
+
+
+<div class="control">
+
+<label>Front Photo</label>
+
+<input
+type="file"
+accept="image/*"
+onchange="loadImg(this,'front')">
+
+</div>
+
+
+<div class="control">
+
+<label>Back Photo</label>
+
+<input
+type="file"
+accept="image/*"
+onchange="loadImg(this,'back')">
+
+</div>
+
+
+<div class="control">
+
+<label>Size</label>
+
+<select
+id="size"
+onchange="draw();updateInfo()">
+
+<option value="id">
+Standard ID/PVC — 85.6×54 mm
+</option>
+
+<option value="school">
+School/College — 90×55 mm
+</option>
+
+<option value="aadhar">
+Aadhaar Style — 85.6×54 mm
+</option>
+
+<option value="pan">
+PAN Style — 85.6×54 mm
+</option>
+
+<option value="passport">
+Passport Photo — 35×45 mm
+</option>
+
+<option value="small">
+Small Photo — 25×35 mm
+</option>
+
+<option value="custom">
+Custom
+</option>
+
+</select>
+
+</div>
+
+
+<div class="row">
+
+<div class="control">
+
+<label>Width mm</label>
+
+<input
+id="cw"
+type="number"
+value="85.6"
+oninput="draw()">
+
+</div>
+
+<div class="control">
+
+<label>Height mm</label>
+
+<input
+id="ch"
+type="number"
+value="54"
+oninput="draw()">
+
+</div>
+
+</div>
+
+
+<div class="control">
+
+<label>Zoom</label>
+
+<input
+id="zoom"
+type="range"
+min="50"
+max="200"
+value="100"
+oninput="draw()">
+
+</div>
+
+
+<div class="row">
+
+<div class="control">
+
+<label>Move X</label>
+
+<input
+id="x"
+type="range"
+min="-100"
+max="100"
+value="0"
+oninput="draw()">
+
+</div>
+
+<div class="control">
+
+<label>Move Y</label>
+
+<input
+id="y"
+type="range"
+min="-100"
+max="100"
+value="0"
+oninput="draw()">
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="control">
+
+<label>Brightness</label>
+
+<input
+id="bright"
+type="range"
+min="70"
+max="140"
+value="100"
+oninput="draw()">
+
+</div>
+
+<div class="control">
+
+<label>Contrast</label>
+
+<input
+id="contrast"
+type="range"
+min="70"
+max="140"
+value="100"
+oninput="draw()">
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<button class="btn blue"
+onclick="rotImg(-90)">
+↶ Rotate
+</button>
+
+<button class="btn blue"
+onclick="rotImg(90)">
+↷ Rotate
+</button>
+
+</div>
+
+
+<div class="control">
+
+<label>Background</label>
+
+<div class="bggrid">
+
+<button class="bg white"
+onclick="setBG('white')"></button>
+
+<button class="bg sky"
+onclick="setBG('sky')"></button>
+
+<button class="bg red"
+onclick="setBG('red')"></button>
+
+<button class="bg gray"
+onclick="setBG('gray')"></button>
+
+</div>
+
+</div>
+
+
+<div class="actions">
+
+<button class="btn green"
+onclick="aiAuto()">
+🤖 AI Auto
+</button>
+
+<button class="btn"
+onclick="autoCrop()">
+✂️ Auto Crop
+</button>
+
+<button class="btn blue"
+onclick="removeBG()">
+🪄 AI Remove BG
+</button>
+
+</div>
+
+
+<div class="info" id="info"></div>
+
+</div>
+
+
+<div>
+
+<div class="tabs">
+
+<button
+class="tab active"
+id="frontTab"
+onclick="switchSide('front')">
+Front
+</button>
+
+<button
+class="tab"
+id="backTab"
+onclick="switchSide('back')">
+Back
+</button>
+
+</div>
+
+
+<div class="preview">
+
+<canvas
+id="editor"
+width="856"
+height="540">
+</canvas>
+
+</div>
+
+
+<div
+class="actions"
+style="margin-top:8px">
+
+<button class="btn"
+onclick="download()">
+⬇ Download
+</button>
+
+<button class="btn green"
+onclick="oneClickPrint()">
+🖨️ One Click Print
+</button>
+
+<button class="btn blue"
+onclick="openStudio('a4')">
+📄 A4 Layout
+</button>
+
+<button class="btn dark"
+onclick="reset()">
+↺ Reset
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+function generateUI(){
+
+return `
+
+<h2>✨ Real AI Generate Photo</h2>
+
+<div class="panel" style="margin-top:12px">
+
+<p>
+अपने उपयोग के लिए prompt लिखें।
+Official ID के लिए AI-generated face की जगह
+वास्तविक ग्राहक की photo इस्तेमाल करें।
+</p>
+
+
+<div class="control">
+
+<label>AI Prompt</label>
+
+<textarea
+id="prompt"
+placeholder="Professional studio portrait, formal shirt, clean white background, passport-photo style..."
+></textarea>
+
+</div>
+
+
+<div class="control">
+
+<label>Secure AI API Endpoint</label>
+
+<input
+id="api"
+value="${esc(API_URL)}"
+placeholder="Your deployed AI backend endpoint">
+
+</div>
+
+
+<div class="actions">
+
+<button
+class="btn"
+onclick="saveAPI()">
+💾 Save API URL
+</button>
+
+<button
+class="btn green"
+onclick="generateAI()">
+✨ Generate With AI
+</button>
+
+<button
+class="btn blue"
+onclick="openStudio('photo')">
+📸 Open Photo Studio
+</button>
+
+</div>
+
+
+<div
+id="genResult"
+class="airesult"
+style="margin-top:12px">
+
+AI result यहाँ दिखाई देगा।
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+function printUI(){
+
+return `
+
+<h2>📄 A4 Automatic Print Studio</h2>
+
+<div class="studio">
+
+<div class="panel">
+
+<div class="control">
+
+<label>Copies</label>
+
+<input
+id="copies"
+type="number"
+min="1"
+max="30"
+value="8"
+oninput="renderSheet()">
+
+</div>
+
+
+<div class="control">
+
+<label>Layout</label>
+
+<select
+id="layout"
+onchange="renderSheet()">
+
+<option value="id">
+ID Card/PVC
+</option>
+
+<option value="passport">
+Passport Photo
+</option>
+
+</select>
+
+</div>
+
+
+<div class="control">
+
+<label>Front + Back</label>
+
+<select
+id="both"
+onchange="renderSheet()">
+
+<option value="yes">
+Yes — separate pages
+</option>
+
+<option value="no">
+No — front only
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="btn green"
+onclick="printSheet()">
+
+🖨️ Print Now
+
+</button>
+
+
+<p class="info">
+Printer में A4 और scale 100% रखें।
+</p>
+
+</div>
+
+
+<div
+class="preview"
+style="display:block">
+
+<div id="sheetPreview"></div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+function loadImg(inp,which){
+
+let f=inp.files[0];
+
+if(!f)return;
+
+let r=new FileReader();
+
+r.onload=e=>{
+
+let im=new Image();
+
+im.onload=()=>{
+
+if(which==="front")
+front=im;
+else
+back=im;
+
+side=which;
+
+draw();
+
+toast(
+which==="front"
+?"Front photo loaded"
+:"Back photo loaded"
+);
+
+};
+
+im.src=e.target.result;
+
+};
+
+r.readAsDataURL(f);
+
+}
+
+
+function switchSide(s){
+
+side=s;
+
+$("#frontTab")?.classList.toggle(
+"active",
+s==="front"
+);
+
+$("#backTab")?.classList.toggle(
+"active",
+s==="back"
+);
+
+draw();
+
+}
+
+
+function setBG(v){
+
+bg=v;
+
+draw();
+
+toast("Background changed");
+
+}
+
+
+function rotImg(d){
+
+rot+=d;
+
+draw();
+
+}
+
+
+function img(){
+
+return side==="front"
+?front
+:back;
+
+}
+
+
+function size(){
+
+let v=$("#size")?.value||"id";
+
+let m={
+
+id:[85.6,54],
+
+school:[90,55],
+
+aadhar:[85.6,54],
+
+pan:[85.6,54],
+
+passport:[35,45],
+
+small:[25,35],
+
+custom:[
++$("#cw")?.value||85.6,
++$("#ch")?.value||54
+]
+
+};
+
+return m[v]||m.id;
+
+}
+
+
+function updateInfo(){
+
+let s=size();
+
+if($("#info"))
+
+$("#info").innerHTML=
+`${s[0]} × ${s[1]} mm •
+${Math.round(s[0]/25.4*300)} ×
+${Math.round(s[1]/25.4*300)}
+px @ 300 DPI`;
+
+}
+
+
+function draw(){
+
+let c=$("#editor");
+
+if(!c)return;
+
+let s=size();
+
+let w=856;
+
+let h=Math.round(w*s[1]/s[0]);
+
+c.width=w;
+
+c.height=h;
+
+let ctx=c.getContext("2d");
+
+ctx.fillStyle={
+
+white:"#fff",
+sky:"#55afe8",
+red:"#df4b4b",
+gray:"#e8e8e8"
+
+}[bg];
+
+ctx.fillRect(
+0,
+0,
+w,
+h
+);
+
+let im=img();
+
+if(!im){
+
+ctx.fillStyle="#98a2b3";
+
+ctx.font="bold 22px Arial";
+
+ctx.textAlign="center";
+
+ctx.fillText(
+"Upload Photo",
+w/2,
+h/2
+);
+
+return;
+
+}
+
+
+let z=
+(+$(`#zoom`)?.value||100)/100;
+
+let sc=
+Math.max(
+w/im.width,
+h/im.height
+)*z;
+
+let nw=im.width*sc;
+let nh=im.height*sc;
+
+let px=
+(+$(`#x`)?.value||0)*w/200;
+
+let py=
+(+$(`#y`)?.value||0)*h/200;
+
+ctx.save();
+
+ctx.translate(
+w/2+px,
+h/2+py
+);
+
+ctx.rotate(
+rot*Math.PI/180
+);
+
+ctx.filter=
+`brightness(${+$(`#bright`)?.value||100}%)
+contrast(${+$(`#contrast`)?.value||100}%)`;
+
+ctx.drawImage(
+im,
+-nw/2,
+-nh/2,
+nw,
+nh
+);
+
+ctx.restore();
+
+}
+
+
+function aiAuto(){
+
+if(!img())
+return toast("पहले photo upload करें");
+
+$("#bright").value=106;
+
+$("#contrast").value=108;
+
+$("#zoom").value=105;
+
+draw();
+
+toast(
+"AI Auto enhancement applied"
+);
+
+}
+
+
+function autoCrop(){
+
+if(!img())
+return toast("पहले photo upload करें");
+
+$("#x").value=0;
+
+$("#y").value=0;
+
+$("#zoom").value=100;
+
+draw();
+
+toast(
+"Auto Crop applied"
+);
+
+}
+
+
+function reset(){
+
+rot=0;
+
+bg="white";
+
+["zoom","x","y","bright","contrast"]
+.forEach(
+(id,i)=>
+$("#"+id).value=
+[100,0,0,100,100][i]
+);
+
+draw();
+
+}
+
+
+function download(){
+
+let c=$("#editor");
+
+if(!c)return;
+
+let a=document.createElement("a");
+
+a.download=
+"bharat-digital-centre.jpg";
+
+a.href=
+c.toDataURL(
+"image/jpeg",
+.95
+);
+
+a.click();
+
+}
+
+
+function oneClickPrint(){
+
+if(!front)
+return toast("Front photo upload करें");
+
+openStudio("a4");
+
+setTimeout(()=>{
+
+if($("#both"))
+$("#both").value=
+back?"yes":"no";
+
+renderSheet();
+
+},40);
+
+}
+
+
+function renderSheet(){
+
+let h=$("#sheetPreview");
+
+if(!h)return;
+
+let n=
+Math.min(
+30,
+Math.max(
+1,
++$("#copies").value||1
+)
+);
+
+let type=$("#layout").value;
+
+let s=
+type==="passport"
+?[35,45]
+:size();
+
+let w=
+type==="passport"
+?300
+:430;
+
+let hh=
+Math.round(
+w*s[1]/s[0]
+);
+
+let page=
+document.createElement("div");
+
+page.className="sheet";
+
+let g=
+document.createElement("div");
+
+g.className="sheetgrid";
+
+g.style.gridTemplateColumns=
+type==="passport"
+?"repeat(4,35mm)"
+:"repeat(2,1fr)";
+
+
+for(let i=0;i<n;i++){
+
+let it=
+document.createElement("div");
+
+it.className="item";
+
+let c=
+document.createElement("canvas");
+
+c.width=w;
+c.height=hh;
+
+drawCanvas(
+c,
+front,
+s
+);
+
+it.appendChild(c);
+
+g.appendChild(it);
+
+}
+
+page.appendChild(g);
+
+h.innerHTML="";
+
+h.appendChild(page);
+
+
+if(
+$("#both").value==="yes"
+&&back
+){
+
+let p=
+page.cloneNode(false);
+
+let g2=
+document.createElement("div");
+
+g2.className="sheetgrid";
+
+g2.style.gridTemplateColumns=
+g.style.gridTemplateColumns;
+
+
+for(let i=0;i<n;i++){
+
+let it=
+document.createElement("div");
+
+it.className="item";
+
+let c=
+document.createElement("canvas");
+
+c.width=w;
+
+c.height=hh;
+
+drawCanvas(
+c,
+back,
+s
+);
+
+it.appendChild(c);
+
+g2.appendChild(it);
+
+}
+
+p.appendChild(g2);
+
+p.classList.add("pagebreak");
+
+h.appendChild(p);
+
+}
+
+}
+
+
+function drawCanvas(c,im,s){
+
+let ctx=c.getContext("2d");
+
+ctx.fillStyle={
+white:"#fff",
+sky:"#55afe8",
+red:"#df4b4b",
+gray:"#e8e8e8"
+}[bg];
+
+ctx.fillRect(
+0,
+0,
+c.width,
+c.height
+);
+
+if(!im)return;
+
+let sc=
+Math.max(
+c.width/im.width,
+c.height/im.height
+);
+
+let nw=im.width*sc;
+
+let nh=im.height*sc;
+
+ctx.drawImage(
+im,
+(c.width-nw)/2,
+(c.height-nh)/2,
+nw,
+nh
+);
+
+}
+
+
+function printSheet(){
+
+renderSheet();
+
+$("#printArea").innerHTML=
+$("#sheetPreview").innerHTML;
+
+setTimeout(
+()=>window.print(),
+100
+);
+
+}
+
+
+function saveAPI(){
+
+let v=$("#api").value.trim();
+
+if(v){
+
+localStorage.setItem(
+"BDC_AI_API",
+v
+);
+
+toast(
+"AI API URL saved"
+);
+
+}
+
+}
+
+
+async function apiCall(action,payload){
+
+let url=
+$("#api")?.value.trim()
+||
+localStorage.getItem("BDC_AI_API")
+||
+API_URL;
+
+if(!url)
+throw Error(
+"AI API Endpoint सेट करें"
+);
+
+let r=
+await fetch(
+url,
+{
+method:"POST",
+headers:{
+"Content-Type":
+"application/json"
+},
+body:JSON.stringify({
+action,
+...payload
+})
+}
+);
+
+let d=
+await r.json();
+
+if(!r.ok)
+throw Error(
+d.error||
+"AI request failed"
+);
+
+return d;
+
+}
+
+
+async function generateAI(){
+
+let box=$("#genResult");
+
+box.innerHTML=
+"⏳ AI image generating...";
+
+try{
+
+let d=
+await apiCall(
+"generate",
+{
+prompt:
+$("#prompt").value.trim()
+}
+);
+
+box.innerHTML=`
+
+<img
+src="data:image/png;base64,${d.image}">
+
+<br><br>
+
+<button
+class="btn green"
+onclick="useAIImage('data:image/png;base64,${d.image}')">
+
+📸 Use In Photo Studio
+
+</button>
+
+`;
+
+}catch(e){
+
+box.innerHTML=
+"❌ "+esc(e.message);
+
+toast(
+"AI request failed"
+);
+
+}
+
+}
+
+
+function useAIImage(url){
+
+let im=new Image();
+
+im.onload=()=>{
+
+front=im;
+
+side="front";
+
+closeModal();
+
+openStudio("photo");
+
+toast(
+"AI image loaded into Photo Studio"
+);
+
+};
+
+im.src=url;
+
+}
+
+
+async function removeBG(){
+
+if(!img())
+return toast(
+"पहले photo upload करें"
+);
+
+let c=
+document.createElement("canvas");
+
+c.width=
+img().naturalWidth;
+
+c.height=
+img().naturalHeight;
+
+c.getContext("2d")
+.drawImage(
+img(),
+0,
+0
+);
+
+let data=
+c.toDataURL("image/png");
+
+toast(
+"AI background removal चल रहा है..."
+);
+
+try{
+
+let d=
+await apiCall(
+"remove-background",
+{
+image:data
+}
+);
+
+let im=new Image();
+
+im.onload=()=>{
+
+if(side==="front")
+front=im;
+else
+back=im;
+
+bg="white";
+
+draw();
+
+toast(
+"AI background removed"
+);
+
+};
+
+im.src=
+"data:image/png;base64,"
++d.image;
+
+}catch(e){
+
+toast(
+e.message
+);
+
+}
+
+}
+
+
+$("#modal").addEventListener(
+"click",
+e=>{
+if(e.target.id==="modal")
+closeModal();
+}
+);
+
+</script>
+
+</body>
+</html>
