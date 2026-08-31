@@ -5,7 +5,207 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bharat Digital Centre | Digital Services</title>
+/* =====================================================
+   🌈 COLORFUL SERVICE CARDS
+   पुराना layout बिल्कुल वही रहेगा
+   ===================================================== */
 
+.card{
+    background:linear-gradient(145deg,#ffffff,#f8fbff);
+    border:2px solid #e2e8f0;
+    box-shadow:0 6px 18px rgba(30,41,59,.10);
+    overflow:hidden;
+}
+
+/* ऊपर की colorful strip */
+.card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:5px;
+    background:linear-gradient(
+        90deg,
+        #ff6333,
+        #ffb000,
+        #21b573,
+        #3478f6,
+        #d42aa6
+    );
+}
+
+/* अलग-अलग card colors */
+#toolGrid .card{
+    background:linear-gradient(145deg,#fff7f2,#ffffff);
+    border-color:#ffd8c8;
+}
+
+#serviceGrid .card{
+    background:linear-gradient(145deg,#f2fff9,#ffffff);
+    border-color:#c9f0df;
+}
+
+#creativeGrid .card{
+    background:linear-gradient(145deg,#fff3fc,#ffffff);
+    border-color:#f0c9e7;
+}
+
+#pdfGrid .card{
+    background:linear-gradient(145deg,#f1f6ff,#ffffff);
+    border-color:#cbdcfb;
+}
+
+#cardGrid .card{
+    background:linear-gradient(145deg,#f2fff7,#ffffff);
+    border-color:#c9edda;
+}
+
+#portalGrid .card{
+    background:linear-gradient(145deg,#fffdf0,#ffffff);
+    border-color:#f1df9c;
+}
+
+/* Icon को colorful circle */
+.card .icon{
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    margin-bottom:10px;
+    background:linear-gradient(
+        135deg,
+        #fff0e8,
+        #ffe0d2
+    );
+    box-shadow:0 5px 12px rgba(0,0,0,.08);
+}
+
+/* अलग sections के icons */
+#serviceGrid .icon{
+    background:linear-gradient(135deg,#dcfff0,#bdf4dc);
+}
+
+#creativeGrid .icon{
+    background:linear-gradient(135deg,#ffe4f7,#f7c5e9);
+}
+
+#pdfGrid .icon{
+    background:linear-gradient(135deg,#e2edff,#c8dcff);
+}
+
+#cardGrid .icon{
+    background:linear-gradient(135deg,#e0fff0,#c2f1d8);
+}
+
+#portalGrid .icon{
+    background:linear-gradient(135deg,#fff6c9,#ffeaa0);
+}
+
+/* Card title */
+.card b{
+    color:#253044;
+    font-weight:900;
+}
+
+/* Hover effect */
+.card:hover{
+    transform:translateY(-5px) scale(1.02);
+    box-shadow:0 12px 25px rgba(30,41,59,.16);
+    border-color:#ff9b75;
+}
+
+/* Click effect */
+.card:active{
+    transform:scale(.97);
+}
+
+/* HOT / AI / NEW tags */
+.tag{
+    background:linear-gradient(135deg,#65c900,#21a900);
+    box-shadow:0 3px 8px rgba(0,0,0,.12);
+    font-weight:900;
+}
+
+.tag.hot{
+    background:linear-gradient(135deg,#ff4d6d,#e51f4f);
+}
+
+/* Search box भी थोड़ा colorful */
+.search input{
+    border:2px solid #e3e8ef;
+    background:#fff;
+    transition:.2s;
+}
+
+.search input:focus{
+    outline:none;
+    border-color:#ff8a65;
+    box-shadow:0 0 0 4px rgba(255,99,51,.10);
+}
+
+/* Section headings */
+.section h2{
+    border-left-width:6px;
+    border-radius:4px;
+}
+
+/* Buttons */
+.btn{
+    background:linear-gradient(135deg,#ff6333,#ff8a55);
+    box-shadow:0 4px 10px rgba(255,99,51,.20);
+    transition:.15s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.05);
+}
+
+.btn.blue{
+    background:linear-gradient(135deg,#3478f6,#5b96ff);
+}
+
+.btn.green{
+    background:linear-gradient(135deg,#21b573,#32cc8a);
+}
+
+.btn.dark{
+    background:linear-gradient(135deg,#26313d,#475467);
+}
+
+.btn.gray{
+    background:linear-gradient(135deg,#667085,#8993a3);
+}
+
+/* Portal link */
+.service-link{
+    background:linear-gradient(135deg,#21b573,#35cf8d);
+    box-shadow:0 5px 12px rgba(33,181,115,.22);
+}
+
+.service-link:hover{
+    transform:translateY(-2px);
+}
+
+/* Mobile में भी same colorful design */
+@media(max-width:430px){
+
+    .card{
+        border-width:2px;
+    }
+
+    .card .icon{
+        width:56px;
+        height:56px;
+        font-size:29px;
+    }
+
+    .card:hover{
+        transform:translateY(-3px);
+    }
+}
 <style>
 
 :root{
