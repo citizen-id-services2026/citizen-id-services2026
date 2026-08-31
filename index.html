@@ -1,8 +1,13 @@
-<!DOCTYPE html><html lang="hi">
+<!DOCTYPE html>
+<html lang="hi">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bharat Digital Centre | Digital Services</title><style>
+<title>Bharat Digital Centre | Digital Services</title>
+
+<style>
+
 :root{
 --bg:#f5f7fa;
 --card:#fff;
@@ -15,7 +20,9 @@
 --shadow:0 5px 18px #1d29390f
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box
+}
 
 body{
 margin:0;
@@ -53,8 +60,14 @@ place-items:center;
 font-weight:900
 }
 
-.brand b{font-size:18px}
-.brand small{color:#ff6333;font-size:10px}
+.brand b{
+font-size:18px
+}
+
+.brand small{
+color:#ff6333;
+font-size:10px
+}
 
 .navlinks{
 margin-left:auto;
@@ -100,7 +113,9 @@ margin:0 0 7px;
 font-size:27px
 }
 
-.hero p{margin:0}
+.hero p{
+margin:0
+}
 
 .search{
 max-width:1000px;
@@ -116,7 +131,9 @@ box-shadow:var(--shadow);
 font-size:15px
 }
 
-.section{margin:25px 0}
+.section{
+margin:25px 0
+}
 
 .section h2{
 font-size:18px;
@@ -125,11 +142,23 @@ padding-left:10px;
 border-left:4px solid #6c5ce7
 }
 
-.orange h2{border-color:#ff6a35}
-.green h2{border-color:#24b68a}
-.blue h2{border-color:#3d7cf5}
-.pink h2{border-color:#d42aa6}
+.orange h2{
+border-color:#ff6a35
+}
 
+.green h2{
+border-color:#24b68a
+}
+
+.blue h2{
+border-color:#3d7cf5
+}
+
+.pink h2{
+border-color:#d42aa6
+}
+
+/* सभी options अलग-अलग card में */
 .grid{
 display:grid;
 grid-template-columns:repeat(5,1fr);
@@ -150,11 +179,17 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-transition:.15s
+transition:.15s;
+user-select:none
 }
 
 .card:hover{
-transform:translateY(-2px)
+transform:translateY(-2px);
+box-shadow:0 8px 22px #1d293918
+}
+
+.card:active{
+transform:scale(.98)
 }
 
 .icon{
@@ -175,10 +210,13 @@ background:#75c900;
 color:#fff;
 border-radius:8px;
 padding:3px 6px;
-font-size:9px
+font-size:9px;
+font-style:normal
 }
 
-.hot{background:#f04469}
+.hot{
+background:#f04469
+}
 
 .about{
 background:#fff;
@@ -222,7 +260,9 @@ justify-content:center;
 padding:9px
 }
 
-.modal.show{display:flex}
+.modal.show{
+display:flex
+}
 
 .box{
 background:#fff;
@@ -313,10 +353,21 @@ font-weight:800;
 cursor:pointer
 }
 
-.btn.blue{background:var(--blue)}
-.btn.green{background:var(--green)}
-.btn.dark{background:#26313d}
-.btn.gray{background:#667085}
+.btn.blue{
+background:var(--blue)
+}
+
+.btn.green{
+background:var(--green)
+}
+
+.btn.dark{
+background:#26313d
+}
+
+.btn.gray{
+background:#667085
+}
 
 .preview{
 background:#e8edf3;
@@ -369,10 +420,21 @@ border-radius:7px;
 cursor:pointer
 }
 
-.white{background:#fff}
-.sky{background:#55afe8}
-.red{background:#df4b4b}
-.gray{background:#e8e8e8}
+.white{
+background:#fff
+}
+
+.sky{
+background:#55afe8
+}
+
+.red{
+background:#df4b4b
+}
+
+.gray{
+background:#e8e8e8
+}
 
 .info{
 font-size:12px;
@@ -422,7 +484,8 @@ width:100%
 display:none
 }
 
-/* NEW SERVICE MODULE */
+/* SERVICE MODULE */
+
 .service-module{
 text-align:center;
 padding:20px
@@ -463,6 +526,18 @@ margin-top:15px;
 font-size:13px
 }
 
+/* SERVICE ACTION BUTTONS */
+
+.service-actions{
+display:flex;
+justify-content:center;
+gap:8px;
+flex-wrap:wrap;
+margin-top:15px
+}
+
+/* MOBILE */
+
 @media(max-width:1000px){
 
 .grid{
@@ -473,7 +548,9 @@ grid-template-columns:repeat(4,1fr)
 
 @media(max-width:850px){
 
-.navlinks{display:none}
+.navlinks{
+display:none
+}
 
 .navlinks.mobile{
 display:flex;
@@ -488,7 +565,9 @@ border-radius:12px;
 flex-direction:column
 }
 
-.menu{display:block}
+.menu{
+display:block
+}
 
 .grid{
 grid-template-columns:repeat(2,1fr)
@@ -558,58 +637,266 @@ page-break-after:always
 }
 
 }
-</style></head><body><header><div class="nav"><div class="logo">BD</div><div class="brand">
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+BD
+</div>
+
+<div class="brand">
 <b>Bharat Digital Centre</b>
 <br>
 <small>AI Photo • ID Card • A4 Print Studio</small>
-</div><div class="navlinks" id="navlinks">
+</div>
+
+<div class="navlinks" id="navlinks">
+
 <a href="#home">Home</a>
 <a href="#services">Services</a>
 <a href="#tools">Photo & ID Tools</a>
 <a href="#faq">FAQ</a>
-</div><button class="menu" onclick="toggleMenu()">☰</button>
 
 </div>
-</header><main id="home"><section class="hero"><h1>
+
+<button class="menu" onclick="toggleMenu()">
+☰
+</button>
+
+</div>
+
+</header>
+
+
+<main id="home">
+
+<section class="hero">
+
+<h1>
 Launch Your Digital Operations With Bharat Digital Centre
-</h1><p>
+</h1>
+
+<p>
 AI Photo • Passport Photo • ID Card Edit/Crop • Background • Front & Back • A4 Print
-</p></section><div class="search"><input
+</p>
+
+</section>
+
+
+<div class="search">
+
+<input
 id="search"
 oninput="filterCards()"
 placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
+>
 
-«»
+</div>
 
-</div><section id="tools" class="section orange"><h2>🪪 ID Card & AI Photo Studio</h2><div class="grid" id="toolGrid"></div></section><section id="services" class="section"><h2>⚡ Essential & Services</h2><div class="grid" id="serviceGrid"></div></section><section class="section pink"><h2>🎨 Creative Design Studio</h2><div class="grid" id="creativeGrid"></div></section><section class="section blue"><h2>📄 Smart PDF & Image Tools</h2><div class="grid" id="pdfGrid"></div></section><section class="section green"><h2>🪪 Card Printing Services</h2><div class="grid" id="cardGrid"></div></section><section class="section green"><h2>🌐 Portal Services</h2><div class="grid" id="portalGrid"></div></section><section class="about"><h2>Bharat Digital Centre — One Stop Solution</h2><p>
+
+<section id="tools" class="section orange">
+
+<h2>
+🪪 ID Card & AI Photo Studio
+</h2>
+
+<div class="grid" id="toolGrid"></div>
+
+</section>
+
+
+<section id="services" class="section">
+
+<h2>
+⚡ Essential & Services
+</h2>
+
+<div class="grid" id="serviceGrid"></div>
+
+</section>
+
+
+<section class="section pink">
+
+<h2>
+🎨 Creative Design Studio
+</h2>
+
+<div class="grid" id="creativeGrid"></div>
+
+</section>
+
+
+<section class="section blue">
+
+<h2>
+📄 Smart PDF & Image Tools
+</h2>
+
+<div class="grid" id="pdfGrid"></div>
+
+</section>
+
+
+<section class="section green">
+
+<h2>
+🪪 Card Printing Services
+</h2>
+
+<div class="grid" id="cardGrid"></div>
+
+</section>
+
+
+<section class="section green">
+
+<h2>
+🌐 Portal Services
+</h2>
+
+<div class="grid" id="portalGrid"></div>
+
+</section>
+
+
+<section class="about">
+
+<h2>
+Bharat Digital Centre — One Stop Solution
+</h2>
+
+<p>
 यह portal photo editing, passport-size photo,
 ID card crop/resize, background tools,
 AI tools और A4 print layout को एक जगह उपलब्ध कराने के लिए बनाया गया है।
 सरकारी सेवाओं के लिए संबंधित official portal का उपयोग करें।
-</p></section><section class="about"><h2>Why Choose Bharat Digital Centre?</h2><div class="whygrid"><div class="whybox">⚡ Simple & Fast</div>
-<div class="whybox">📦 Everything In One Place</div>
-<div class="whybox">🛡️ Safe & Reliable</div>
-<div class="whybox">💰 Affordable & Easy</div></div></section><section id="faq" class="about"><h2>FAQ</h2><details>
+</p>
+
+</section>
+
+
+<section class="about">
+
+<h2>
+Why Choose Bharat Digital Centre?
+</h2>
+
+<div class="whygrid">
+
+<div class="whybox">
+⚡ Simple & Fast
+</div>
+
+<div class="whybox">
+📦 Everything In One Place
+</div>
+
+<div class="whybox">
+🛡️ Safe & Reliable
+</div>
+
+<div class="whybox">
+💰 Affordable & Easy
+</div>
+
+</div>
+
+</section>
+
+
+<section id="faq" class="about">
+
+<h2>
+FAQ
+</h2>
+
+<details>
+
 <summary>
 क्या Front और Back ID Card एक साथ print होगा?
-</summary><p>
+</summary>
+
+<p>
 हाँ। दोनों images upload करके One Click A4 Print से
 अलग-अलग front/back pages तैयार किए जा सकते हैं।
-</p></details><details><summary>
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
 क्या custom ID card size है?
-</summary><p>
+</summary>
+
+<p>
 हाँ। Standard, School/College, Aadhaar/PAN-style,
 Passport और Custom size उपलब्ध हैं।
-</p></details><details><summary>
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
 क्या Real AI Background Remove और AI Generate चलेगा?
-</summary><p>
+</summary>
+
+<p>
 हाँ। Backend deploy करके AI API endpoint सेट करने के बाद
 Real AI functions काम करेंगे।
-</p></details></section></main><footer>© 2026 Bharat Digital Centre • Photo & ID Print Studio
+</p>
 
-</footer><div id="toast"></div><div class="modal" id="modal"><div class="box"><button class="close" onclick="closeModal()">×</button>
+</details>
 
-<div id="modalBody"></div></div></div><div id="printArea"></div><script>
+</section>
+
+</main>
+
+
+<footer>
+
+© 2026 Bharat Digital Centre • Photo & ID Print Studio
+
+</footer>
+
+
+<div id="toast"></div>
+
+
+<div class="modal" id="modal">
+
+<div class="box">
+
+<button class="close" onclick="closeModal()">
+×
+</button>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+
+<div id="printArea"></div>
+
+
+<script>
+
+/* =========================
+   GLOBAL SETTINGS
+========================= */
 
 const API_URL =
 localStorage.getItem("BDC_AI_API") || "";
@@ -622,6 +909,11 @@ let rot = 0;
 
 const $ = s => document.querySelector(s);
 
+
+/* =========================
+   SECURITY
+========================= */
+
 const esc = s =>
 String(s).replace(/[&<>"']/g,m=>({
 "&":"&amp;",
@@ -631,11 +923,16 @@ String(s).replace(/[&<>"']/g,m=>({
 "'":"&#039;"
 }[m]));
 
+
+/* =========================
+   ID / PHOTO TOOLS
+========================= */
+
 const tools = [
 
 ["🪪","ID Card Studio","id","HOT"],
 ["📐","All ID Card Sizes","id"],
-["🔄","Front + Back Print","id","NEW"],
+["🔄","Front + Back Print","print","NEW"],
 ["✂️","PVC Auto Crop","id"],
 ["👤","Passport Photo","photo"],
 ["🪄","AI Background Remover","background","AI"],
@@ -645,6 +942,11 @@ const tools = [
 ["🖨️","One Click ID Print","print"]
 
 ];
+
+
+/* =========================
+   SERVICES
+========================= */
 
 const services = [
 
@@ -658,6 +960,11 @@ const services = [
 
 ];
 
+
+/* =========================
+   CREATIVE
+========================= */
+
 const creative = [
 
 ["📄","Pro Resume Maker","resume"],
@@ -669,6 +976,11 @@ const creative = [
 
 ];
 
+
+/* =========================
+   PDF TOOLS
+========================= */
+
 const pdf = [
 
 ["🖼️📄","JPG To PDF","jpgpdf"],
@@ -679,6 +991,11 @@ const pdf = [
 ["📑","Merge PDF","mergepdf"]
 
 ];
+
+
+/* =========================
+   CARD PRINTING
+========================= */
 
 const cards = [
 
@@ -692,11 +1009,10 @@ const cards = [
 
 ];
 
-/*
- IMPORTANT:
- सभी portal links को अलग-अलग रखा गया है।
- जहाँ official portal उपलब्ध है वहाँ direct link खुलेगा।
-*/
+
+/* =========================
+   OFFICIAL PORTALS
+========================= */
 
 const portals = [
 
@@ -758,11 +1074,9 @@ const portals = [
 
 ["🛂","Passport Seva","https://www.passportindia.gov.in/"],
 
-["🌾","PM Kisan Samman","https://pmkisan.gov.in/"],
-
 ["🧾","GST Verification","https://www.gst.gov.in/"],
 
-["🛣️","Chackpost Tax/Road Tax","https://parivahan.gov.in/"],
+["🛣️","Checkpost Tax/Road Tax","https://parivahan.gov.in/"],
 
 ["🚗","Vahan Green Seva","https://parivahan.gov.in/"],
 
@@ -790,11 +1104,18 @@ const portals = [
 
 ];
 
-/* ---------- CARD CREATOR ---------- */
+
+/* =========================
+   CARD CREATOR
+========================= */
 
 function fill(id,data){
 
-$(id).innerHTML = data.map(x => {
+const box = $(id);
+
+if(!box)return;
+
+box.innerHTML = data.map(x => {
 
 let icon = x[0];
 let name = x[1];
@@ -843,6 +1164,9 @@ ${x[3]}
 
 }
 
+
+/* CREATE ALL CARDS */
+
 fill("#toolGrid",tools);
 fill("#serviceGrid",services);
 fill("#creativeGrid",creative);
@@ -850,7 +1174,10 @@ fill("#pdfGrid",pdf);
 fill("#cardGrid",cards);
 fill("#portalGrid",portals);
 
-/* ---------- NAV ---------- */
+
+/* =========================
+   NAVIGATION
+========================= */
 
 function toggleMenu(){
 
@@ -858,7 +1185,10 @@ $("#navlinks").classList.toggle("mobile");
 
 }
 
-/* ---------- TOAST ---------- */
+
+/* =========================
+   TOAST
+========================= */
 
 function toast(t){
 
@@ -878,13 +1208,21 @@ window.t=setTimeout(
 
 }
 
-/* ---------- MODAL ---------- */
+
+/* =========================
+   MODAL
+========================= */
 
 function closeModal(){
 
 $("#modal").classList.remove("show");
 
 }
+
+
+/* =========================
+   PORTAL OPEN
+========================= */
 
 function openPortal(name,icon,url){
 
@@ -902,6 +1240,8 @@ $("#modalBody").innerHTML = `
 Official website को नए tab में खोलने के लिए नीचे button दबाएँ।
 </p>
 
+<div class="service-actions">
+
 <a
 class="service-link"
 href="${esc(url)}"
@@ -911,6 +1251,16 @@ rel="noopener noreferrer">
 🌐 Official Website खोलें
 
 </a>
+
+<button
+class="btn gray"
+onclick="closeModal()">
+
+✕ Close
+
+</button>
+
+</div>
 
 <div class="service-note">
 
@@ -926,6 +1276,11 @@ rel="noopener noreferrer">
 $("#modal").classList.add("show");
 
 }
+
+
+/* =========================
+   LOCAL SERVICE
+========================= */
 
 function openService(name,icon){
 
@@ -943,18 +1298,22 @@ $("#modalBody").innerHTML = `
 </p>
 
 <div class="service-note">
+
 🛠️ यह module अभी local service screen के रूप में तैयार है।
-Official portal उपलब्ध होने पर उसका link यहाँ जोड़ा जा सकता है।
+
 </div>
+
+<div class="service-actions">
 
 <button
 class="btn blue"
-onclick="closeModal()"
-style="margin-top:12px">
+onclick="closeModal()">
 
 ✓ Close
 
 </button>
+
+</div>
 
 </div>
 
@@ -964,7 +1323,10 @@ $("#modal").classList.add("show");
 
 }
 
-/* ---------- SEARCH ---------- */
+
+/* =========================
+   SEARCH
+========================= */
 
 function filterCards(){
 
@@ -981,14 +1343,19 @@ c.style.display =
 
 }
 
-/* ---------- STUDIO ---------- */
+
+/* =========================
+   STUDIO
+========================= */
 
 function openStudio(mode){
 
 $("#modalBody").innerHTML =
 mode==="generate"
 ?generateUI()
-:mode==="a4"||mode==="print"
+:mode==="print"
+?printUI()
+:mode==="a4"
 ?printUI()
 :editorUI();
 
@@ -1007,11 +1374,18 @@ renderSheet();
 
 }
 
+
+/* =========================
+   EDITOR UI
+========================= */
+
 function editorUI(){
 
 return `
 
-<h2>🪪 Professional Photo & ID Card Studio</h2>
+<h2>
+🪪 Professional Photo & ID Card Studio
+</h2>
 
 <p style="color:#667085">
 Upload • Crop • Resize • Background • AI Auto • Front/Back • Print
@@ -1021,11 +1395,15 @@ Upload • Crop • Resize • Background • AI Auto • Front/Back • Print
 
 <div class="panel">
 
-<h3>Photo & Card Settings</h3>
+<h3>
+Photo & Card Settings
+</h3>
 
 <div class="control">
 
-<label>Front Photo</label>
+<label>
+Front Photo
+</label>
 
 <input
 type="file"
@@ -1034,9 +1412,12 @@ onchange="loadImg(this,'front')">
 
 </div>
 
+
 <div class="control">
 
-<label>Back Photo</label>
+<label>
+Back Photo
+</label>
 
 <input
 type="file"
@@ -1045,9 +1426,12 @@ onchange="loadImg(this,'back')">
 
 </div>
 
+
 <div class="control">
 
-<label>Size</label>
+<label>
+Size
+</label>
 
 <select
 id="size"
@@ -1085,11 +1469,14 @@ Custom
 
 </div>
 
+
 <div class="row">
 
 <div class="control">
 
-<label>Width mm</label>
+<label>
+Width mm
+</label>
 
 <input
 id="cw"
@@ -1099,9 +1486,12 @@ oninput="draw();updateInfo()">
 
 </div>
 
+
 <div class="control">
 
-<label>Height mm</label>
+<label>
+Height mm
+</label>
 
 <input
 id="ch"
@@ -1113,9 +1503,12 @@ oninput="draw();updateInfo()">
 
 </div>
 
+
 <div class="control">
 
-<label>Zoom</label>
+<label>
+Zoom
+</label>
 
 <input
 id="zoom"
@@ -1127,11 +1520,14 @@ oninput="draw()">
 
 </div>
 
+
 <div class="row">
 
 <div class="control">
 
-<label>Move X</label>
+<label>
+Move X
+</label>
 
 <input
 id="x"
@@ -1143,9 +1539,12 @@ oninput="draw()">
 
 </div>
 
+
 <div class="control">
 
-<label>Move Y</label>
+<label>
+Move Y
+</label>
 
 <input
 id="y"
@@ -1159,11 +1558,14 @@ oninput="draw()">
 
 </div>
 
+
 <div class="row">
 
 <div class="control">
 
-<label>Brightness</label>
+<label>
+Brightness
+</label>
 
 <input
 id="bright"
@@ -1175,9 +1577,12 @@ oninput="draw()">
 
 </div>
 
+
 <div class="control">
 
-<label>Contrast</label>
+<label>
+Contrast
+</label>
 
 <input
 id="contrast"
@@ -1191,64 +1596,96 @@ oninput="draw()">
 
 </div>
 
+
 <div class="row">
 
-<button class="btn blue"
+<button
+class="btn blue"
 onclick="rotImg(-90)">
+
 ↶ Rotate
+
 </button>
 
-<button class="btn blue"
+<button
+class="btn blue"
 onclick="rotImg(90)">
+
 ↷ Rotate
+
 </button>
 
 </div>
+
 
 <div class="control">
 
-<label>Background</label>
+<label>
+Background
+</label>
 
 <div class="bggrid">
 
-<button class="bg white"
-onclick="setBG('white')"></button>
+<button
+class="bg white"
+onclick="setBG('white')">
+</button>
 
-<button class="bg sky"
-onclick="setBG('sky')"></button>
+<button
+class="bg sky"
+onclick="setBG('sky')">
+</button>
 
-<button class="bg red"
-onclick="setBG('red')"></button>
+<button
+class="bg red"
+onclick="setBG('red')">
+</button>
 
-<button class="bg gray"
-onclick="setBG('gray')"></button>
+<button
+class="bg gray"
+onclick="setBG('gray')">
+</button>
 
 </div>
 
 </div>
+
 
 <div class="actions">
 
-<button class="btn green"
+<button
+class="btn green"
 onclick="aiAuto()">
+
 🤖 AI Auto
+
 </button>
 
-<button class="btn"
+<button
+class="btn"
 onclick="autoCrop()">
+
 ✂️ Auto Crop
+
 </button>
 
-<button class="btn blue"
+<button
+class="btn blue"
 onclick="removeBG()">
+
 🪄 AI Remove BG
+
 </button>
 
 </div>
 
-<div class="info" id="info"></div>
+
+<div class="info"
+id="info">
+</div>
 
 </div>
+
 
 <div>
 
@@ -1258,17 +1695,22 @@ onclick="removeBG()">
 class="tab active"
 id="frontTab"
 onclick="switchSide('front')">
+
 Front
+
 </button>
 
 <button
 class="tab"
 id="backTab"
 onclick="switchSide('back')">
+
 Back
+
 </button>
 
 </div>
+
 
 <div class="preview">
 
@@ -1280,28 +1722,41 @@ height="540">
 
 </div>
 
+
 <div
 class="actions"
 style="margin-top:8px">
 
-<button class="btn"
+<button
+class="btn"
 onclick="download()">
+
 ⬇ Download
+
 </button>
 
-<button class="btn green"
+<button
+class="btn green"
 onclick="oneClickPrint()">
+
 🖨️ One Click Print
+
 </button>
 
-<button class="btn blue"
+<button
+class="btn blue"
 onclick="openStudio('a4')">
+
 📄 A4 Layout
+
 </button>
 
-<button class="btn dark"
+<button
+class="btn dark"
 onclick="reset()">
+
 ↺ Reset
+
 </button>
 
 </div>
@@ -1314,13 +1769,22 @@ onclick="reset()">
 
 }
 
+
+/* =========================
+   GENERATE UI
+========================= */
+
 function generateUI(){
 
 return `
 
-<h2>✨ Real AI Generate Photo</h2>
+<h2>
+✨ Real AI Generate Photo
+</h2>
 
-<div class="panel" style="margin-top:12px">
+<div
+class="panel"
+style="margin-top:12px">
 
 <p>
 अपने उपयोग के लिए prompt लिखें।
@@ -1330,50 +1794,100 @@ Official ID के लिए AI-generated face की जगह
 
 <div class="control">
 
-<label>AI Prompt</label>
+<label>
+AI Prompt
+</label>
 
 <textarea
 id="prompt"
 placeholder="Professional studio portrait, formal shirt, clean white background, passport-photo style..."
-></textarea></div><div class="control"><label>Secure AI API Endpoint</label>
+></textarea>
+
+</div>
+
+
+<div class="control">
+
+<label>
+Secure AI API Endpoint
+</label>
 
 <input
 id="api"
 value="${esc(API_URL)}"
 placeholder="Your deployed AI backend endpoint">
 
-</div><div class="actions"><button
+</div>
+
+
+<div class="actions">
+
+<button
 class="btn"
 onclick="saveAPI()">
+
 💾 Save API URL
+
 </button>
+
 
 <button
 class="btn green"
 onclick="generateAI()">
+
 ✨ Generate With AI
+
 </button>
+
 
 <button
 class="btn blue"
 onclick="openStudio('photo')">
+
 📸 Open Photo Studio
+
 </button>
 
-</div><div
+</div>
+
+
+<div
 id="genResult"
 class="airesult"
-style="margin-top:12px">AI result यहाँ दिखाई देगा।
+style="margin-top:12px">
 
-</div></div>`;
+AI result यहाँ दिखाई देगा।
+
+</div>
+
+</div>
+
+`;
 
 }
+
+
+/* =========================
+   PRINT UI
+========================= */
 
 function printUI(){
 
 return `
 
-<h2>📄 A4 Automatic Print Studio</h2><div class="studio"><div class="panel"><div class="control"><label>Copies</label>
+<h2>
+📄 A4 Automatic Print Studio
+</h2>
+
+<div class="studio">
+
+<div class="panel">
+
+<div class="control">
+
+<label>
+Copies
+</label>
 
 <input
 id="copies"
@@ -1383,7 +1897,14 @@ max="30"
 value="8"
 oninput="renderSheet()">
 
-</div><div class="control"><label>Layout</label>
+</div>
+
+
+<div class="control">
+
+<label>
+Layout
+</label>
 
 <select
 id="layout"
@@ -1391,9 +1912,22 @@ onchange="renderSheet()">
 
 <option value="id">
 ID Card/PVC
-</option><option value="passport">
+</option>
+
+<option value="passport">
 Passport Photo
-</option></select></div><div class="control"><label>Front + Back</label>
+</option>
+
+</select>
+
+</div>
+
+
+<div class="control">
+
+<label>
+Front + Back
+</label>
 
 <select
 id="both"
@@ -1401,23 +1935,53 @@ onchange="renderSheet()">
 
 <option value="yes">
 Yes — separate pages
-</option><option value="no">
+</option>
+
+<option value="no">
 No — front only
-</option></select></div><button
+</option>
+
+</select>
+
+</div>
+
+
+<button
 class="btn green"
 onclick="printSheet()">
 
 🖨️ Print Now
 
-</button><p class="info">
+</button>
+
+
+<p class="info">
+
 Printer में A4 और scale 100% रखें।
-</p></div><div
+
+</p>
+
+</div>
+
+
+<div
 class="preview"
-style="display:block"><div id="sheetPreview"></div></div></div>`;
+style="display:block">
+
+<div id="sheetPreview"></div>
+
+</div>
+
+</div>
+
+`;
 
 }
 
-/* ---------- IMAGE ---------- */
+
+/* =========================
+   IMAGE LOADING
+========================= */
 
 function loadImg(inp,which){
 
@@ -1426,8 +1990,11 @@ let f=inp.files[0];
 if(!f)return;
 
 if(!f.type.startsWith("image/")){
+
 toast("कृपया image file चुनें");
+
 return;
+
 }
 
 let r=new FileReader();
@@ -1463,6 +2030,11 @@ r.readAsDataURL(f);
 
 }
 
+
+/* =========================
+   SWITCH FRONT / BACK
+========================= */
+
 function switchSide(s){
 
 side=s;
@@ -1481,6 +2053,11 @@ draw();
 
 }
 
+
+/* =========================
+   BACKGROUND
+========================= */
+
 function setBG(v){
 
 bg=v;
@@ -1491,6 +2068,11 @@ toast("Background changed");
 
 }
 
+
+/* =========================
+   ROTATE
+========================= */
+
 function rotImg(d){
 
 rot+=d;
@@ -1499,6 +2081,11 @@ draw();
 
 }
 
+
+/* =========================
+   CURRENT IMAGE
+========================= */
+
 function img(){
 
 return side==="front"
@@ -1506,6 +2093,11 @@ return side==="front"
 :back;
 
 }
+
+
+/* =========================
+   SIZE
+========================= */
 
 function size(){
 
@@ -1536,6 +2128,11 @@ return m[v]||m.id;
 
 }
 
+
+/* =========================
+   INFO
+========================= */
+
 function updateInfo(){
 
 let s=size();
@@ -1543,9 +2140,14 @@ let s=size();
 if($("#info"))
 
 $("#info").innerHTML=
-"${s[0]} × ${s[1]} mm • ${Math.round(s[0]/25.4*300)} × ${Math.round(s[1]/25.4*300)} px @ 300 DPI";
+`${s[0]} × ${s[1]} mm • ${Math.round(s[0]/25.4*300)} × ${Math.round(s[1]/25.4*300)} px @ 300 DPI`;
 
 }
+
+
+/* =========================
+   MAIN CANVAS DRAW
+========================= */
 
 function draw(){
 
@@ -1610,14 +2212,23 @@ w/im.width,
 h/im.height
 )*z;
 
-let nw=im.widthsc;
-let nh=im.heightsc;
+
+/*
+ IMPORTANT FIX:
+ पहले यहाँ im.widthsc था,
+ अब सही multiplication है।
+*/
+
+let nw=im.width * sc;
+let nh=im.height * sc;
+
 
 let px=
 (+$("#x")?.value||0)*w/200;
 
 let py=
 (+$("#y")?.value||0)*h/200;
+
 
 ctx.save();
 
@@ -1631,7 +2242,7 @@ rot*Math.PI/180
 );
 
 ctx.filter=
-"brightness(${+$("#bright")?.value||100}%) contrast(${+$("#contrast")?.value||100}%)";
+`brightness(${+$("#bright")?.value||100}%) contrast(${+$("#contrast")?.value||100}%)`;
 
 ctx.drawImage(
 im,
@@ -1644,6 +2255,11 @@ nh
 ctx.restore();
 
 }
+
+
+/* =========================
+   AI AUTO
+========================= */
 
 function aiAuto(){
 
@@ -1664,6 +2280,11 @@ toast(
 
 }
 
+
+/* =========================
+   AUTO CROP
+========================= */
+
 function autoCrop(){
 
 if(!img())
@@ -1682,6 +2303,11 @@ toast(
 );
 
 }
+
+
+/* =========================
+   RESET
+========================= */
 
 function reset(){
 
@@ -1702,7 +2328,10 @@ draw();
 
 }
 
-/* ---------- DOWNLOAD ---------- */
+
+/* =========================
+   DOWNLOAD
+========================= */
 
 function download(){
 
@@ -1727,7 +2356,10 @@ toast("Photo downloaded");
 
 }
 
-/* ---------- PRINT ---------- */
+
+/* =========================
+   ONE CLICK PRINT
+========================= */
 
 function oneClickPrint(){
 
@@ -1747,6 +2379,11 @@ renderSheet();
 },80);
 
 }
+
+
+/* =========================
+   A4 SHEET
+========================= */
 
 function renderSheet(){
 
@@ -1795,6 +2432,7 @@ type==="passport"
 ?"repeat(4,35mm)"
 :"repeat(2,1fr)";
 
+
 for(let i=0;i<n;i++){
 
 let it=
@@ -1806,6 +2444,7 @@ let c=
 document.createElement("canvas");
 
 c.width=w;
+
 c.height=hh;
 
 drawCanvas(
@@ -1826,6 +2465,7 @@ h.innerHTML="";
 
 h.appendChild(page);
 
+
 if(
 $("#both")?.value==="yes"
 &&back
@@ -1844,6 +2484,7 @@ g2.className="sheetgrid";
 g2.style.gridTemplateColumns=
 g.style.gridTemplateColumns;
 
+
 for(let i=0;i<n;i++){
 
 let it=
@@ -1855,6 +2496,7 @@ let c=
 document.createElement("canvas");
 
 c.width=w;
+
 c.height=hh;
 
 drawCanvas(
@@ -1877,15 +2519,22 @@ h.appendChild(p);
 
 }
 
+
+/* =========================
+   DRAW PRINT CANVAS
+========================= */
+
 function drawCanvas(c,im,s){
 
 let ctx=c.getContext("2d");
 
 ctx.fillStyle={
+
 white:"#fff",
 sky:"#55afe8",
 red:"#df4b4b",
 gray:"#e8e8e8"
+
 }[bg];
 
 ctx.fillRect(
@@ -1903,8 +2552,15 @@ c.width/im.width,
 c.height/im.height
 );
 
-let nw=im.widthsc;
-let nh=im.heightsc;
+
+/*
+ IMPORTANT FIX:
+ यहाँ भी width/height multiplication
+ सही कर दी गई है।
+*/
+
+let nw=im.width * sc;
+let nh=im.height * sc;
 
 ctx.drawImage(
 im,
@@ -1915,6 +2571,11 @@ nh
 );
 
 }
+
+
+/* =========================
+   PRINT
+========================= */
 
 function printSheet(){
 
@@ -1930,7 +2591,10 @@ setTimeout(
 
 }
 
-/* ---------- AI API ---------- */
+
+/* =========================
+   SAVE AI API
+========================= */
 
 function saveAPI(){
 
@@ -1950,6 +2614,11 @@ toast(
 }
 
 }
+
+
+/* =========================
+   AI API CALL
+========================= */
 
 async function apiCall(action,payload){
 
@@ -1993,6 +2662,11 @@ d.error||
 return d;
 
 }
+
+
+/* =========================
+   GENERATE AI
+========================= */
 
 async function generateAI(){
 
@@ -2043,6 +2717,11 @@ toast(
 
 }
 
+
+/* =========================
+   USE AI IMAGE
+========================= */
+
 function useAIImage(url){
 
 let im=new Image();
@@ -2066,6 +2745,11 @@ toast(
 im.src=url;
 
 }
+
+
+/* =========================
+   REMOVE BACKGROUND
+========================= */
 
 async function removeBG(){
 
@@ -2143,25 +2827,54 @@ e.message
 
 }
 
-/* ---------- MODAL CLOSE ---------- */
+
+/* =========================
+   MODAL OUTSIDE CLICK
+========================= */
 
 $("#modal").addEventListener(
 "click",
 e=>{
+
 if(e.target.id==="modal")
 closeModal();
+
 }
 );
 
-/* ---------- ESC KEY ---------- */
+
+/* =========================
+   ESC KEY
+========================= */
 
 document.addEventListener(
 "keydown",
 e=>{
+
 if(e.key==="Escape")
 closeModal();
+
 }
 );
 
-</script></body>
+
+/* =========================
+   ERROR PROTECTION
+========================= */
+
+window.addEventListener(
+"error",
+function(e){
+
+console.error(
+"Bharat Digital Centre Error:",
+e.message
+);
+
+}
+);
+
+</script>
+
+</body>
 </html>
