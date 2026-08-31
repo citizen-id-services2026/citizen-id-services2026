@@ -287,7 +287,7 @@ background:#fff
 }
 
 .control textarea{
-min-height:110px;
+min-height:100px;
 resize:vertical
 }
 
@@ -396,39 +396,6 @@ max-height:430px;
 border-radius:10px
 }
 
-.toolpage{
-background:#fff;
-border:1px solid #edf0f4;
-border-radius:15px;
-padding:15px
-}
-
-.toolpage h2{
-margin-top:0
-}
-
-.formgrid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px
-}
-
-.output{
-margin-top:12px;
-padding:15px;
-border-radius:12px;
-background:#f3f6fa;
-min-height:80px
-}
-
-.previewImage{
-max-width:100%;
-max-height:500px;
-border-radius:10px;
-display:block;
-margin:auto
-}
-
 .sheet{
 background:#fff;
 padding:10mm;
@@ -451,38 +418,57 @@ display:block;
 width:100%
 }
 
-.portalInfo{
-padding:15px;
-background:#f7f9fc;
-border-radius:12px;
-border:1px solid #e4e9ef;
-margin-top:10px
-}
-
-.portalList{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:8px;
-margin-top:12px
-}
-
-.portalLink{
-padding:12px;
-background:#fff;
-border:1px solid #dce2ea;
-border-radius:10px;
-text-decoration:none;
-color:#253044;
-font-weight:700;
-display:block
-}
-
-.portalLink:hover{
-background:#f8fafc
-}
-
 #printArea{
 display:none
+}
+
+/* NEW SERVICE MODULE */
+.service-module{
+text-align:center;
+padding:20px
+}
+
+.service-icon{
+font-size:55px;
+margin-bottom:8px
+}
+
+.service-module h2{
+margin:5px 0 10px
+}
+
+.service-module p{
+color:#667085;
+line-height:1.6
+}
+
+.service-link{
+display:inline-block;
+text-decoration:none;
+border:0;
+border-radius:10px;
+padding:12px 18px;
+background:#21b573;
+color:#fff;
+font-weight:800;
+margin-top:8px
+}
+
+.service-note{
+background:#f7f9fc;
+border:1px dashed #ccd7e2;
+padding:12px;
+border-radius:10px;
+margin-top:15px;
+font-size:13px
+}
+
+@media(max-width:1000px){
+
+.grid{
+grid-template-columns:repeat(4,1fr)
+}
+
 }
 
 @media(max-width:850px){
@@ -512,9 +498,7 @@ grid-template-columns:repeat(2,1fr)
 grid-template-columns:1fr
 }
 
-.row,
-.formgrid,
-.portalList{
+.row{
 grid-template-columns:1fr
 }
 
@@ -530,6 +514,28 @@ min-height:320px
 transform-origin:top left;
 overflow:hidden
 }
+
+}
+
+@media(max-width:430px){
+
+.grid{
+grid-template-columns:repeat(2,1fr);
+gap:8px
+}
+
+.card{
+min-height:130px
+}
+
+.icon{
+font-size:31px
+}
+
+.card b{
+font-size:13px
+}
+
 }
 
 @media print{
@@ -550,6 +556,7 @@ margin:0
 .pagebreak{
 page-break-after:always
 }
+
 }
 </style></head><body><header><div class="nav"><div class="logo">BD</div><div class="brand">
 <b>Bharat Digital Centre</b>
@@ -583,50 +590,40 @@ AI tools और A4 print layout को एक जगह उपलब्ध क�
 <div class="whybox">📦 Everything In One Place</div>
 <div class="whybox">🛡️ Safe & Reliable</div>
 <div class="whybox">💰 Affordable & Easy</div></div></section><section id="faq" class="about"><h2>FAQ</h2><details>
-<summary>क्या Front और Back ID Card एक साथ print होगा?</summary>
-<p>
+<summary>
+क्या Front और Back ID Card एक साथ print होगा?
+</summary><p>
 हाँ। दोनों images upload करके One Click A4 Print से
 अलग-अलग front/back pages तैयार किए जा सकते हैं।
-</p>
-</details><details>
-<summary>क्या custom ID card size है?</summary>
-<p>
+</p></details><details><summary>
+क्या custom ID card size है?
+</summary><p>
 हाँ। Standard, School/College, Aadhaar/PAN-style,
 Passport और Custom size उपलब्ध हैं।
-</p>
-</details><details>
-<summary>क्या Real AI Background Remove और AI Generate चलेगा?</summary>
-<p>
+</p></details><details><summary>
+क्या Real AI Background Remove और AI Generate चलेगा?
+</summary><p>
 हाँ। Backend deploy करके AI API endpoint सेट करने के बाद
 Real AI functions काम करेंगे।
-</p>
-</details></section></main><footer>
-© 2026 Bharat Digital Centre • Photo & ID Print Studio
+</p></details></section></main><footer>© 2026 Bharat Digital Centre • Photo & ID Print Studio
+
 </footer><div id="toast"></div><div class="modal" id="modal"><div class="box"><button class="close" onclick="closeModal()">×</button>
 
 <div id="modalBody"></div></div></div><div id="printArea"></div><script>
 
-/* =========================================================
-   BHARAT DIGITAL CENTRE
-   VERSION 3
-   OLD DESIGN + IMPROVED BUTTON ROUTING
-   ========================================================= */
-
 const API_URL =
 localStorage.getItem("BDC_AI_API") || "";
 
-let front=null;
-let back=null;
-let side="front";
-let bg="white";
-let rot=0;
-let posterImg=null;
-let pdfImages=[];
+let front = null;
+let back = null;
+let side = "front";
+let bg = "white";
+let rot = 0;
 
-const $=s=>document.querySelector(s);
+const $ = s => document.querySelector(s);
 
-const esc=s=>
-String(s??"").replace(/[&<>"']/g,m=>({
+const esc = s =>
+String(s).replace(/[&<>"']/g,m=>({
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
@@ -634,333 +631,209 @@ String(s??"").replace(/[&<>"']/g,m=>({
 "'":"&#039;"
 }[m]));
 
-
-/* =========================================================
-   OFFICIAL PORTALS
-   ========================================================= */
-
-const OFFICIAL={
-
-"census":"https://censusindia.gov.in/",
-
-"aadhaar":"https://uidai.gov.in/",
-
-"pan":"https://www.incometax.gov.in/",
-
-"voter":"https://voters.eci.gov.in/",
-
-"ayushman":"https://beneficiary.nha.gov.in/",
-
-"dl":"https://parivahan.gov.in/",
-
-"echallan":"https://echallan.parivahan.gov.in/",
-
-"eshram":"https://eshram.gov.in/",
-
-"abha":"https://abha.abdm.gov.in/",
-
-"pmkisan":"https://pmkisan.gov.in/",
-
-"epfo":"https://www.epfindia.gov.in/",
-
-"lic":"https://licindia.in/",
-
-"enam":"https://www.enam.gov.in/",
-
-"soil":"https://soilhealth.dac.gov.in/",
-
-"mkisan":"https://mkisan.gov.in/",
-
-"udyam":"https://udyamregistration.gov.in/",
-
-"scholarship":"https://scholarships.gov.in/",
-
-"railway":"https://www.indianrail.gov.in/",
-
-"passport":"https://www.passportindia.gov.in/",
-
-"gst":"https://www.gst.gov.in/",
-
-"ncs":"https://www.ncs.gov.in/",
-
-"cibil":"https://www.cibil.com/",
-
-"indane":"https://cx.indianoil.in/",
-
-"hpgas":"https://myhpgas.in/",
-
-"bharatgas":"https://my.ebharatgas.com/",
-
-"disability":"https://www.swavlambancard.gov.in/",
-
-"swachh":"https://swachhbharatmission.gov.in/",
-
-"npcI":"https://www.npci.org.in/",
-
-"consumer":"https://consumerhelpline.gov.in/",
-
-"ceir":"https://ceir.sancharsaathi.gov.in/",
-
-"vahan":"https://vahan.parivahan.gov.in/",
-
-"puc":"https://puc.parivahan.gov.in/",
-
-"pmayg":"https://pmayg.nic.in/",
-
-"pmayurban":"https://pmay-urban.gov.in/",
-
-"svanidhi":"https://pmsvanidhi.mohua.gov.in/",
-
-"surya":"https://pmsuryaghar.gov.in/"
-
-};
-
-
-/* =========================================================
-   TOOL DATA
-   ========================================================= */
-
-const tools=[
+const tools = [
 
 ["🪪","ID Card Studio","id","HOT"],
-
-["📐","All ID Card Sizes","sizes"],
-
-["🔄","Front + Back Print","print","NEW"],
-
-["✂️","PVC Auto Crop","crop"],
-
+["📐","All ID Card Sizes","id"],
+["🔄","Front + Back Print","id","NEW"],
+["✂️","PVC Auto Crop","id"],
 ["👤","Passport Photo","photo"],
-
 ["🪄","AI Background Remover","background","AI"],
-
 ["🎨","Background Change","background"],
-
 ["🤖","AI Auto Photo","photo","AI"],
-
 ["✨","AI Generate Photo","generate","AI"],
-
 ["🖨️","One Click ID Print","print"]
 
 ];
 
-
-const services=[
+const services = [
 
 ["📰","Latest Jobs","jobs"],
-
-["📝","Mock Test","mock"],
-
-["🖼️","Photo Crop & Resize","crop"],
-
+["📝","Mock Test","mocktest"],
+["🖼️","Photo Crop & Resize","photo"],
 ["📄","Resume/CV","resume"],
-
 ["🗂️","Document Album","album"],
-
-["📝","New Service Post","post"],
-
+["📝","New Service Post","servicepost"],
 ["🗃️","Document Manager","documents"]
 
 ];
 
-
-const creative=[
+const creative = [
 
 ["📄","Pro Resume Maker","resume"],
-
 ["💌","Marriage Biodata","biodata"],
-
 ["🪪","Pro ID Maker","id"],
-
 ["📸","Pro Poster Maker","poster"],
-
 ["🗂️","Application Maker","application"],
-
 ["📣","Shop Promotion Maker","promotion"]
 
 ];
 
-
-const pdf=[
+const pdf = [
 
 ["🖼️📄","JPG To PDF","jpgpdf"],
-
 ["📄🖼️","PDF To JPG","pdfjpg"],
-
 ["🖼️📄","PNG To PDF","pngpdf"],
-
 ["🖼️","PNG To JPG","pngjpg"],
-
 ["📄❌","Delete PDF Page","deletepdf"],
-
 ["📑","Merge PDF","mergepdf"]
 
 ];
 
+const cards = [
 
-const cards=[
-
-["🪪","Unique ID Card Print","print"],
-
-["🗳️","Election Card Print","print"],
-
-["🏥","Health Plan Card Print","print"],
-
-["🧾","Tax ID Card Print","print"],
-
-["🚘","Driving Permit Print","print"],
-
-["🎓","School/College ID","print"],
-
-["🍚","Food Subsidy Card Print","print"]
+["🪪","Unique ID Card Print","id"],
+["🗳️","Election Card Print","card"],
+["🏥","Health Plan Card Print","card"],
+["🧾","Tax ID Card Print","card"],
+["🚘","Driving Permit Print","card"],
+["🎓","School/College ID","card"],
+["🍚","Food Subsidy Card Print","card"]
 
 ];
 
+/*
+ IMPORTANT:
+ सभी portal links को अलग-अलग रखा गया है।
+ जहाँ official portal उपलब्ध है वहाँ direct link खुलेगा।
+*/
 
-/* =========================================================
-   PORTAL DATA
-   IMPORTANT:
-   Official website URL is directly attached to each card.
-   Therefore these cards never call notice()/module ready.
-   ========================================================= */
+const portals = [
 
-const portals=[
+["🏛️","Census Of India","https://censusindia.gov.in/"],
 
-["🏛️","Census Of India",OFFICIAL.census],
+["🪪","Aadhaar Service","https://uidai.gov.in/"],
 
-["🪪","Aadhaar Service",OFFICIAL.aadhaar],
+["💳","Aadhaar Information","https://uidai.gov.in/"],
 
-["💳","Aadhaar Information",OFFICIAL.aadhaar],
+["📄","PAN Card Service","https://www.incometax.gov.in/"],
 
-["📄","PAN Card Service",OFFICIAL.pan],
+["🗳️","Voter ID Correction","https://voters.eci.gov.in/"],
 
-["🗳️","Voter ID Correction",OFFICIAL.voter],
+["💳","Ayushman Bharat","https://beneficiary.nha.gov.in/"],
 
-["💳","Ayushman Bharat",OFFICIAL.ayushman],
+["🚘","Driving Licence","https://parivahan.gov.in/"],
 
-["🚘","Driving Licence",OFFICIAL.dl],
+["📋","RC Service","https://parivahan.gov.in/"],
 
-["📋","RC Service",OFFICIAL.dl],
+["🚗","Vehicle Service","https://parivahan.gov.in/"],
 
-["🚗","Vehicle Service",OFFICIAL.dl],
+["🏥","Birth & Death Certificate","https://crsorgi.gov.in/"],
 
-["🏥","Birth & Death Certificate","birth"],
+["💰","E-Challan","https://echallan.parivahan.gov.in/"],
 
-["💰","E-Challan",OFFICIAL.echallan],
+["💼","E-Shram Card","https://eshram.gov.in/"],
 
-["💼","E-Shram Card",OFFICIAL.eshram],
+["🪪","APAAR ID Card","https://apaar.education.gov.in/"],
 
-["🪪","APAAR ID Card","apaar"],
+["💳","ABHA Card","https://abha.abdm.gov.in/"],
 
-["💳","ABHA Card",OFFICIAL.abha],
+["🌾","PM Kisan","https://pmkisan.gov.in/"],
 
-["🌾","PM Kisan",OFFICIAL.pmkisan],
+["🏠","PMAY-Gramin","https://pmayg.nic.in/"],
 
-["🏠","PMAY-Gramin",OFFICIAL.pmayg],
+["🏠","PMAY-Urban/Sehri","https://pmay-urban.gov.in/"],
 
-["🏠","PMAY-Urban/Sehri",OFFICIAL.pmayurban],
+["🏢","EPFO","https://www.epfindia.gov.in/"],
 
-["🏢","EPFO",OFFICIAL.epfo],
+["❤️","LIC Service","https://licindia.in/"],
 
-["❤️","LIC Service",OFFICIAL.lic],
+["🌐","E-NAM","https://www.enam.gov.in/"],
 
-["🌐","E-NAM",OFFICIAL.enam],
+["💵","PM SVANidhi","https://pmsvanidhi.mohua.gov.in/"],
 
-["💵","PM SVANidhi",OFFICIAL.svanidhi],
+["🌱","Soil Health Card","https://soilhealth.dac.gov.in/"],
 
-["🌱","Soil Health Card",OFFICIAL.soil],
+["👨‍🌾","MKisan Portal","https://mkisan.gov.in/"],
 
-["👨‍🌾","MKisan Portal",OFFICIAL.mkisan],
+["☀️","PM Surya Ghar","https://pmsuryaghar.gov.in/"],
 
-["☀️","PM Surya Ghar",OFFICIAL.surya],
+["🏭","Udyam Aadhaar/MSME","https://udyamregistration.gov.in/"],
 
-["🏭","Udyam Aadhaar/MSME",OFFICIAL.udyam],
+["🎓","National Scholarship","https://scholarships.gov.in/"],
 
-["🎓","National Scholarship",OFFICIAL.scholarship],
+["📱","Lost/Found Mobile","https://sancharsaathi.gov.in/"],
 
-["📱","Lost/Found Mobile",OFFICIAL.ceir],
+["🚆","Railway Service","https://www.indianrail.gov.in/"],
 
-["🚆","Railway Service",OFFICIAL.railway],
+["🛂","Passport Seva","https://www.passportindia.gov.in/"],
 
-["🛂","Passport Seva",OFFICIAL.passport],
+["🌾","PM Kisan Samman","https://pmkisan.gov.in/"],
 
-["🌾","PM Kisan Samman",OFFICIAL.pmkisan],
+["🧾","GST Verification","https://www.gst.gov.in/"],
 
-["🧾","GST Verification",OFFICIAL.gst],
+["🛣️","Chackpost Tax/Road Tax","https://parivahan.gov.in/"],
 
-["🛣️","Chackpost Tax/Road Tax","road"],
+["🚗","Vahan Green Seva","https://parivahan.gov.in/"],
 
-["🚗","Vahan Green Seva",OFFICIAL.vahan],
+["🛵","PUC Service","https://puc.parivahan.gov.in/"],
 
-["🛵","PUC Service",OFFICIAL.puc],
+["📱","National Payments","https://www.npci.org.in/"],
 
-["📱","National Payments",OFFICIAL.npcI],
+["👨‍👩‍👧","National Consumer","https://consumerhelpline.gov.in/"],
 
-["👨‍👩‍👧","National Consumer",OFFICIAL.consumer],
+["💼","National Career Service","https://www.ncs.gov.in/"],
 
-["💼","National Career Service",OFFICIAL.ncs],
+["📊","CIBIL Score","https://www.cibil.com/"],
 
-["📊","CIBIL Score",OFFICIAL.cibil],
+["🔥","INDANE GAS","https://iocl.com/"],
 
-/* GAS BUTTONS FIXED */
+["🔥","HP GAS","https://myhpgas.in/"],
 
-["🔥","INDANE GAS",OFFICIAL.indane],
+["🔥","BHARAT GAS","https://www.bharatpetroleum.in/"],
 
-["🔥","HP GAS",OFFICIAL.hpgas],
+["♿","Unique Disability ID","https://www.swavlambancard.gov.in/"],
 
-["🔥","BHARAT GAS",OFFICIAL.bharatgas],
+["🚻","Swachh Bharat","https://swachhbharatmission.gov.in/"],
 
-["♿","Unique Disability ID",OFFICIAL.disability],
-
-["🚻","Swachh Bharat",OFFICIAL.swachh],
-
-["⭐","Fancy Mobile Number","fancy"]
+["⭐","Fancy Mobile Number","https://www.sancharsaathi.gov.in/"]
 
 ];
 
-
-/* =========================================================
-   CARD RENDERING
-   ========================================================= */
+/* ---------- CARD CREATOR ---------- */
 
 function fill(id,data){
 
-$(id).innerHTML=data.map(x=>{
+$(id).innerHTML = data.map(x => {
 
-let action="";
+let icon = x[0];
+let name = x[1];
+let target = x[2];
 
-if(x[2]&&x[2].startsWith("http")){
+let action = "";
 
-action=
-`onclick="openExternal('${x[2]}')"`; 
+if(target && /^https?:\/\//i.test(target)){
 
-}else if(x[2]){
+action =
+`onclick="openPortal('${esc(name)}','${esc(icon)}','${esc(target)}')"`; 
 
-action=
-`onclick="openService('${esc(x[2])}','${esc(x[1])}')"`; 
+}else if(target){
+
+action =
+`onclick="openStudio('${esc(target)}')"`; 
 
 }else{
 
-action=
-`onclick="openService('info','${esc(x[1])}')"`; 
+action =
+`onclick="openService('${esc(name)}','${esc(icon)}')"`; 
 
 }
 
 return `
 
 <div class="card"
-data-name="${esc(x[1].toLowerCase())}"
+data-name="${esc(name.toLowerCase())}"
 ${action}>
 
-<div class="icon">${x[0]}</div>
+<div class="icon">${icon}</div>
 
-<b>${esc(x[1])}</b>
+<b>${esc(name)}</b>
 
-${x[3]?
+${x[3] ?
 
 `<i class="tag ${x[3]=="HOT"||x[3]=="AI"?"hot":""}">
 ${x[3]}
-</i>`:""}
+</i>` : ""}
 
 </div>
 
@@ -977,34 +850,15 @@ fill("#pdfGrid",pdf);
 fill("#cardGrid",cards);
 fill("#portalGrid",portals);
 
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* ---------- NAV ---------- */
 
 function toggleMenu(){
+
 $("#navlinks").classList.toggle("mobile");
-}
-
-function openExternal(url){
-
-if(!url)return;
-
-let w=window.open(
-url,
-"_blank",
-"noopener,noreferrer"
-);
-
-if(!w){
-
-toast("Popup blocked — link खोलने की कोशिश करें");
-
-window.location.href=url;
 
 }
 
-}
+/* ---------- TOAST ---------- */
 
 function toast(t){
 
@@ -1013,38 +867,113 @@ let e=$("#toast");
 e.textContent=t;
 
 e.style.cssText=
-"display:block;position:fixed;right:15px;bottom:15px;background:#26313d;color:#fff;padding:12px 15px;border-radius:10px;z-index:300;max-width:90%;box-shadow:0 5px 20px #0003";
+"display:block;position:fixed;right:15px;bottom:15px;background:#26313d;color:#fff;padding:12px 15px;border-radius:10px;z-index:300;box-shadow:0 5px 20px #0003";
 
-clearTimeout(window.bdcToast);
+clearTimeout(window.t);
 
-window.bdcToast=
-setTimeout(
+window.t=setTimeout(
 ()=>e.style.display="none",
-3000
+2600
 );
 
 }
 
+/* ---------- MODAL ---------- */
 
-/* =========================================================
-   SEARCH
-   ========================================================= */
+function closeModal(){
+
+$("#modal").classList.remove("show");
+
+}
+
+function openPortal(name,icon,url){
+
+$("#modalBody").innerHTML = `
+
+<div class="service-module">
+
+<div class="service-icon">${icon}</div>
+
+<h2>${esc(name)}</h2>
+
+<p>
+आप ${esc(name)} के official portal पर जाने वाले हैं।
+<br>
+Official website को नए tab में खोलने के लिए नीचे button दबाएँ।
+</p>
+
+<a
+class="service-link"
+href="${esc(url)}"
+target="_blank"
+rel="noopener noreferrer">
+
+🌐 Official Website खोलें
+
+</a>
+
+<div class="service-note">
+
+⚠️ महत्वपूर्ण: सरकारी सेवा के लिए केवल official website
+पर ही अपनी व्यक्तिगत जानकारी दर्ज करें।
+
+</div>
+
+</div>
+
+`;
+
+$("#modal").classList.add("show");
+
+}
+
+function openService(name,icon){
+
+$("#modalBody").innerHTML = `
+
+<div class="service-module">
+
+<div class="service-icon">${icon}</div>
+
+<h2>${esc(name)}</h2>
+
+<p>
+यह ${esc(name)} module Bharat Digital Centre में
+उपलब्ध है।
+</p>
+
+<div class="service-note">
+🛠️ यह module अभी local service screen के रूप में तैयार है।
+Official portal उपलब्ध होने पर उसका link यहाँ जोड़ा जा सकता है।
+</div>
+
+<button
+class="btn blue"
+onclick="closeModal()"
+style="margin-top:12px">
+
+✓ Close
+
+</button>
+
+</div>
+
+`;
+
+$("#modal").classList.add("show");
+
+}
+
+/* ---------- SEARCH ---------- */
 
 function filterCards(){
 
-let q=
-$("#search").value
-.toLowerCase()
-.trim();
+let q=$("#search").value.toLowerCase();
 
-document.querySelectorAll(".card")
-.forEach(c=>{
+document.querySelectorAll(".card").forEach(c=>{
 
-c.style.display=
-(!q||
-c.innerText
-.toLowerCase()
-.includes(q))
+c.style.display =
+(!q || c.innerText.toLowerCase().includes(q))
 ?""
 :"none";
 
@@ -1052,90 +981,16 @@ c.innerText
 
 }
 
+/* ---------- STUDIO ---------- */
 
-/* =========================================================
-   MODAL
-   ========================================================= */
+function openStudio(mode){
 
-function closeModal(){
-$("#modal").classList.remove("show");
-}
-
-$("#modal").addEventListener(
-"click",
-e=>{
-if(e.target.id==="modal")
-closeModal();
-});
-
-
-/* =========================================================
-   SERVICE ROUTER
-   ========================================================= */
-
-function openService(mode,title){
-
-if(mode==="info"){
-
-$("#modalBody").innerHTML=
-generalUI(title,"info");
-
-}else if(
-["id","sizes","print","crop","photo","background"]
-.includes(mode)
-){
-
-$("#modalBody").innerHTML=
-editorUI(mode);
-
-}else if(mode==="generate"){
-
-$("#modalBody").innerHTML=
-generateUI();
-
-}else if(mode==="resume"){
-
-$("#modalBody").innerHTML=
-resumeUI();
-
-}else if(mode==="biodata"){
-
-$("#modalBody").innerHTML=
-biodataUI();
-
-}else if(
-mode==="poster"||
-mode==="promotion"
-){
-
-$("#modalBody").innerHTML=
-posterUI(mode);
-
-}else if(mode==="application"){
-
-$("#modalBody").innerHTML=
-applicationUI();
-
-}else if(
-[
-"jpgpdf",
-"pngpdf",
-"pdfjpg",
-"pngjpg",
-"deletepdf",
-"mergepdf"
-].includes(mode)
-){
-
-$("#modalBody").innerHTML=
-fileToolUI(mode);
-
-}else{
-
-$("#modalBody").innerHTML=
-generalUI(title,mode);
-
-}
+$("#modalBody").innerHTML =
+mode==="generate"
+?generateUI()
+:mode==="a4"||mode==="print"
+?printUI()
+:editorUI();
 
 $("#modal").classList.add("show");
 
@@ -1144,17 +999,13 @@ setTimeout(()=>{
 draw();
 updateInfo();
 
-if(mode==="print")
+if(mode==="a4"||mode==="print"){
 renderSheet();
-
-},50);
-
 }
 
+},30);
 
-/* =========================================================
-   PHOTO EDITOR
-   ========================================================= */
+}
 
 function editorUI(){
 
@@ -1342,14 +1193,12 @@ oninput="draw()">
 
 <div class="row">
 
-<button
-class="btn blue"
+<button class="btn blue"
 onclick="rotImg(-90)">
 ↶ Rotate
 </button>
 
-<button
-class="btn blue"
+<button class="btn blue"
 onclick="rotImg(90)">
 ↷ Rotate
 </button>
@@ -1380,20 +1229,17 @@ onclick="setBG('gray')"></button>
 
 <div class="actions">
 
-<button
-class="btn green"
+<button class="btn green"
 onclick="aiAuto()">
 🤖 AI Auto
 </button>
 
-<button
-class="btn"
+<button class="btn"
 onclick="autoCrop()">
 ✂️ Auto Crop
 </button>
 
-<button
-class="btn blue"
+<button class="btn blue"
 onclick="removeBG()">
 🪄 AI Remove BG
 </button>
@@ -1438,26 +1284,22 @@ height="540">
 class="actions"
 style="margin-top:8px">
 
-<button
-class="btn"
+<button class="btn"
 onclick="download()">
 ⬇ Download
 </button>
 
-<button
-class="btn green"
+<button class="btn green"
 onclick="oneClickPrint()">
 🖨️ One Click Print
 </button>
 
-<button
-class="btn blue"
-onclick="openService('print','A4 Layout')">
+<button class="btn blue"
+onclick="openStudio('a4')">
 📄 A4 Layout
 </button>
 
-<button
-class="btn dark"
+<button class="btn dark"
 onclick="reset()">
 ↺ Reset
 </button>
@@ -1472,10 +1314,110 @@ onclick="reset()">
 
 }
 
+function generateUI(){
 
-/* =========================================================
-   IMAGE FUNCTIONS
-   ========================================================= */
+return `
+
+<h2>✨ Real AI Generate Photo</h2>
+
+<div class="panel" style="margin-top:12px">
+
+<p>
+अपने उपयोग के लिए prompt लिखें।
+Official ID के लिए AI-generated face की जगह
+वास्तविक ग्राहक की photo इस्तेमाल करें।
+</p>
+
+<div class="control">
+
+<label>AI Prompt</label>
+
+<textarea
+id="prompt"
+placeholder="Professional studio portrait, formal shirt, clean white background, passport-photo style..."
+></textarea></div><div class="control"><label>Secure AI API Endpoint</label>
+
+<input
+id="api"
+value="${esc(API_URL)}"
+placeholder="Your deployed AI backend endpoint">
+
+</div><div class="actions"><button
+class="btn"
+onclick="saveAPI()">
+💾 Save API URL
+</button>
+
+<button
+class="btn green"
+onclick="generateAI()">
+✨ Generate With AI
+</button>
+
+<button
+class="btn blue"
+onclick="openStudio('photo')">
+📸 Open Photo Studio
+</button>
+
+</div><div
+id="genResult"
+class="airesult"
+style="margin-top:12px">AI result यहाँ दिखाई देगा।
+
+</div></div>`;
+
+}
+
+function printUI(){
+
+return `
+
+<h2>📄 A4 Automatic Print Studio</h2><div class="studio"><div class="panel"><div class="control"><label>Copies</label>
+
+<input
+id="copies"
+type="number"
+min="1"
+max="30"
+value="8"
+oninput="renderSheet()">
+
+</div><div class="control"><label>Layout</label>
+
+<select
+id="layout"
+onchange="renderSheet()">
+
+<option value="id">
+ID Card/PVC
+</option><option value="passport">
+Passport Photo
+</option></select></div><div class="control"><label>Front + Back</label>
+
+<select
+id="both"
+onchange="renderSheet()">
+
+<option value="yes">
+Yes — separate pages
+</option><option value="no">
+No — front only
+</option></select></div><button
+class="btn green"
+onclick="printSheet()">
+
+🖨️ Print Now
+
+</button><p class="info">
+Printer में A4 और scale 100% रखें।
+</p></div><div
+class="preview"
+style="display:block"><div id="sheetPreview"></div></div></div>`;
+
+}
+
+/* ---------- IMAGE ---------- */
 
 function loadImg(inp,which){
 
@@ -1484,10 +1426,8 @@ let f=inp.files[0];
 if(!f)return;
 
 if(!f.type.startsWith("image/")){
-
 toast("कृपया image file चुनें");
 return;
-
 }
 
 let r=new FileReader();
@@ -1544,14 +1484,17 @@ draw();
 function setBG(v){
 
 bg=v;
+
 draw();
+
 toast("Background changed");
 
 }
 
 function rotImg(d){
 
-rot=(rot+d)%360;
+rot+=d;
+
 draw();
 
 }
@@ -1566,8 +1509,7 @@ return side==="front"
 
 function size(){
 
-let v=
-$("#size")?.value||"id";
+let v=$("#size")?.value||"id";
 
 let m={
 
@@ -1584,8 +1526,8 @@ passport:[35,45],
 small:[25,35],
 
 custom:[
-Number($("#cw")?.value)||85.6,
-Number($("#ch")?.value)||54
++($("#cw")?.value)||85.6,
++($("#ch")?.value)||54
 ]
 
 };
@@ -1601,17 +1543,9 @@ let s=size();
 if($("#info"))
 
 $("#info").innerHTML=
-`${s[0]} × ${s[1]} mm •
-${Math.round(s[0]/25.4*300)} ×
-${Math.round(s[1]/25.4*300)}
-px @ 300 DPI`;
+"${s[0]} × ${s[1]} mm • ${Math.round(s[0]/25.4*300)} × ${Math.round(s[1]/25.4*300)} px @ 300 DPI";
 
 }
-
-
-/* =========================================================
-   DRAW
-   ========================================================= */
 
 function draw(){
 
@@ -1623,20 +1557,13 @@ let s=size();
 
 let w=856;
 
-let h=
-Math.round(
-w*s[1]/s[0]
-);
+let h=Math.round(w*s[1]/s[0]);
 
 c.width=w;
+
 c.height=h;
 
-let ctx=
-c.getContext("2d");
-
-ctx.clearRect(
-0,0,w,h
-);
+let ctx=c.getContext("2d");
 
 ctx.fillStyle={
 
@@ -1645,10 +1572,13 @@ sky:"#55afe8",
 red:"#df4b4b",
 gray:"#e8e8e8"
 
-}[bg]||"#fff";
+}[bg];
 
 ctx.fillRect(
-0,0,w,h
+0,
+0,
+w,
+h
 );
 
 let im=img();
@@ -1672,8 +1602,7 @@ return;
 }
 
 let z=
-(Number($("#zoom")?.value)||100)
-/100;
+(+$("#zoom")?.value||100)/100;
 
 let sc=
 Math.max(
@@ -1681,19 +1610,14 @@ w/im.width,
 h/im.height
 )*z;
 
-let nw=
-im.width*sc;
-
-let nh=
-im.height*sc;
+let nw=im.widthsc;
+let nh=im.heightsc;
 
 let px=
-(Number($("#x")?.value)||0)
-*w/200;
+(+$("#x")?.value||0)*w/200;
 
 let py=
-(Number($("#y")?.value)||0)
-*h/200;
+(+$("#y")?.value||0)*h/200;
 
 ctx.save();
 
@@ -1707,8 +1631,7 @@ rot*Math.PI/180
 );
 
 ctx.filter=
-`brightness(${Number($("#bright")?.value)||100}%)
-contrast(${Number($("#contrast")?.value)||100}%)`;
+"brightness(${+$("#bright")?.value||100}%) contrast(${+$("#contrast")?.value||100}%)";
 
 ctx.drawImage(
 im,
@@ -1722,23 +1645,22 @@ ctx.restore();
 
 }
 
-
-/* =========================================================
-   PHOTO CONTROLS
-   ========================================================= */
-
 function aiAuto(){
 
 if(!img())
 return toast("पहले photo upload करें");
 
 $("#bright").value=106;
+
 $("#contrast").value=108;
+
 $("#zoom").value=105;
 
 draw();
 
-toast("AI Auto enhancement applied");
+toast(
+"AI Auto enhancement applied"
+);
 
 }
 
@@ -1748,31 +1670,39 @@ if(!img())
 return toast("पहले photo upload करें");
 
 $("#x").value=0;
+
 $("#y").value=0;
+
 $("#zoom").value=100;
 
 draw();
 
-toast("Auto Crop applied");
+toast(
+"Auto Crop applied"
+);
 
 }
 
 function reset(){
 
 rot=0;
+
 bg="white";
 
-if($("#zoom"))$("#zoom").value=100;
-if($("#x"))$("#x").value=0;
-if($("#y"))$("#y").value=0;
-if($("#bright"))$("#bright").value=100;
-if($("#contrast"))$("#contrast").value=100;
+["zoom","x","y","bright","contrast"]
+.forEach(
+(id,i)=>{
+if($("#"+id))
+$("#"+id).value=
+[100,0,0,100,100][i]
+}
+);
 
 draw();
 
-toast("Studio reset");
-
 }
+
+/* ---------- DOWNLOAD ---------- */
 
 function download(){
 
@@ -1791,30 +1721,20 @@ c.toDataURL(
 .95
 );
 
-document.body.appendChild(a);
-
 a.click();
 
-a.remove();
-
-toast("Image downloaded");
+toast("Photo downloaded");
 
 }
 
-
-/* =========================================================
-   PRINT
-   ========================================================= */
+/* ---------- PRINT ---------- */
 
 function oneClickPrint(){
 
 if(!front)
 return toast("Front photo upload करें");
 
-openService(
-"print",
-"A4 Print"
-);
+openStudio("a4");
 
 setTimeout(()=>{
 
@@ -1824,97 +1744,7 @@ back?"yes":"no";
 
 renderSheet();
 
-},100);
-
-}
-
-function printUI(){
-
-return `
-
-<h2>📄 A4 Automatic Print Studio</h2>
-
-<div class="studio">
-
-<div class="panel">
-
-<div class="control">
-
-<label>Copies</label>
-
-<input
-id="copies"
-type="number"
-min="1"
-max="30"
-value="8"
-oninput="renderSheet()">
-
-</div>
-
-<div class="control">
-
-<label>Layout</label>
-
-<select
-id="layout"
-onchange="renderSheet()">
-
-<option value="id">
-ID Card/PVC
-</option>
-
-<option value="passport">
-Passport Photo
-</option>
-
-</select>
-
-</div>
-
-<div class="control">
-
-<label>Front + Back</label>
-
-<select
-id="both"
-onchange="renderSheet()">
-
-<option value="yes">
-Yes — separate pages
-</option>
-
-<option value="no">
-No — front only
-</option>
-
-</select>
-
-</div>
-
-<button
-class="btn green"
-onclick="printSheet()">
-🖨️ Print Now
-</button>
-
-<p class="info">
-Printer में A4 और scale 100% रखें।
-</p>
-
-</div>
-
-<div
-class="preview"
-style="display:block">
-
-<div id="sheetPreview"></div>
-
-</div>
-
-</div>
-
-`;
+},80);
 
 }
 
@@ -1929,11 +1759,11 @@ Math.min(
 30,
 Math.max(
 1,
-Number($("#copies").value)||1
++($("#copies")?.value)||1
 )
 );
 
-let type=$("#layout").value;
+let type=$("#layout")?.value||"id";
 
 let s=
 type==="passport"
@@ -1993,6 +1823,7 @@ g.appendChild(it);
 page.appendChild(g);
 
 h.innerHTML="";
+
 h.appendChild(page);
 
 if(
@@ -2055,27 +1886,16 @@ white:"#fff",
 sky:"#55afe8",
 red:"#df4b4b",
 gray:"#e8e8e8"
-}[bg]||"#fff";
+}[bg];
 
 ctx.fillRect(
-0,0,c.width,c.height
+0,
+0,
+c.width,
+c.height
 );
 
-if(!im){
-
-ctx.fillStyle="#98a2b3";
-ctx.font="16px Arial";
-ctx.textAlign="center";
-
-ctx.fillText(
-"PHOTO",
-c.width/2,
-c.height/2
-);
-
-return;
-
-}
+if(!im)return;
 
 let sc=
 Math.max(
@@ -2083,11 +1903,8 @@ c.width/im.width,
 c.height/im.height
 );
 
-let nw=
-im.width*sc;
-
-let nh=
-im.height*sc;
+let nw=im.widthsc;
+let nh=im.heightsc;
 
 ctx.drawImage(
 im,
@@ -2108,75 +1925,16 @@ $("#sheetPreview").innerHTML;
 
 setTimeout(
 ()=>window.print(),
-150
+100
 );
 
 }
 
-
-/* =========================================================
-   AI
-   ========================================================= */
-
-function generateUI(){
-
-return `
-
-<h2>✨ Real AI Generate Photo</h2>
-
-<div class="panel">
-
-<p>
-अपने उपयोग के लिए prompt लिखें।
-Official ID के लिए AI-generated face की जगह
-वास्तविक ग्राहक की photo इस्तेमाल करें।
-</p>
-
-<div class="control">
-
-<label>AI Prompt</label>
-
-<textarea
-id="prompt"
-placeholder="Professional studio portrait, formal shirt, clean white background, passport-photo style..."
-></textarea></div><div class="control"><label>Secure AI API Endpoint</label>
-
-<input
-id="api"
-value="${esc(API_URL)}"
-placeholder="Your deployed AI backend endpoint">
-
-</div><div class="actions"><button
-class="btn"
-onclick="saveAPI()">
-💾 Save API URL
-</button>
-
-<button
-class="btn green"
-onclick="generateAI()">
-✨ Generate With AI
-</button>
-
-<button
-class="btn blue"
-onclick="openService('photo','Photo Studio')">
-📸 Open Photo Studio
-</button>
-
-</div><div
-id="genResult"
-class="airesult"
-style="margin-top:12px">AI result यहाँ दिखाई देगा।
-
-</div></div>`;
-
-}
+/* ---------- AI API ---------- */
 
 function saveAPI(){
 
-let v=
-$("#api")?.value.trim();
+let v=$("#api")?.value.trim();
 
 if(v){
 
@@ -2185,16 +1943,15 @@ localStorage.setItem(
 v
 );
 
-toast("AI API URL saved");
+toast(
+"AI API URL saved"
+);
 
 }
 
 }
 
-async function apiCall(
-action,
-payload
-){
+async function apiCall(action,payload){
 
 let url=
 $("#api")?.value.trim()
@@ -2241,9 +1998,6 @@ async function generateAI(){
 
 let box=$("#genResult");
 
-if(!$("#prompt")?.value.trim())
-return toast("AI prompt लिखें");
-
 box.innerHTML=
 "⏳ AI image generating...";
 
@@ -2259,9 +2013,7 @@ $("#prompt").value.trim()
 );
 
 if(!d.image)
-throw Error(
-"AI image नहीं मिली"
-);
+throw Error("AI image नहीं मिली");
 
 box.innerHTML=`
 
@@ -2298,14 +2050,12 @@ let im=new Image();
 im.onload=()=>{
 
 front=im;
+
 side="front";
 
 closeModal();
 
-openService(
-"photo",
-"Photo Studio"
-);
+openStudio("photo");
 
 toast(
 "AI image loaded into Photo Studio"
@@ -2323,12 +2073,6 @@ if(!img())
 return toast(
 "पहले photo upload करें"
 );
-
-toast(
-"AI background removal चल रहा है..."
-);
-
-try{
 
 let c=
 document.createElement("canvas");
@@ -2349,6 +2093,12 @@ img(),
 let data=
 c.toDataURL("image/png");
 
+toast(
+"AI background removal चल रहा है..."
+);
+
+try{
+
 let d=
 await apiCall(
 "remove-background",
@@ -2358,9 +2108,7 @@ image:data
 );
 
 if(!d.image)
-throw Error(
-"AI result नहीं मिला"
-);
+throw Error("AI result नहीं मिला");
 
 let im=new Image();
 
@@ -2388,7 +2136,6 @@ im.src=
 }catch(e){
 
 toast(
-"AI API उपलब्ध नहीं है: "+
 e.message
 );
 
@@ -2396,753 +2143,23 @@ e.message
 
 }
 
-/* =========================================================
-RESUME
-========================================================= */
+/* ---------- MODAL CLOSE ---------- */
 
-function resumeUI(){
-
-return `
-
-<div class="toolpage"><h2>📄 Pro Resume Maker</h2><div class="formgrid"><div class="control">
-<label>Full Name</label>
-<input id="rname">
-</div><div class="control">
-<label>Mobile</label>
-<input id="rphone">
-</div><div class="control">
-<label>Email</label>
-<input id="remail">
-</div><div class="control">
-<label>Qualification</label>
-<input id="rqual">
-</div></div><div class="control">
-<label>Skills</label>
-<textarea id="rskills"></textarea>
-</div><div class="control">
-<label>Experience</label>
-<textarea id="rexp"></textarea>
-</div><div class="actions"><button
-class="btn green"
-onclick="makeResume()">
-✨ Create Resume
-</button>
-
-<button
-class="btn blue"
-onclick="printTool('resumeOutput')">
-🖨️ Print
-</button>
-
-</div><div
-id="resumeOutput"
-class="output">
-Resume preview यहाँ आएगा।
-</div></div>`;
-
+$("#modal").addEventListener(
+"click",
+e=>{
+if(e.target.id==="modal")
+closeModal();
 }
-
-function makeResume(){
-
-let name=
-$("#rname").value||
-"Your Name";
-
-$("#resumeOutput").innerHTML=`
-
-<div
-style="
-background:#fff;
-padding:20px;
-text-align:left"><h1 style="margin:0">
-${esc(name)}
-</h1><p>
-${esc($("#rphone").value)}
- •
-${esc($("#remail").value)}
-</p><hr><h3>EDUCATION</h3><p>
-${esc($("#rqual").value)}
-</p><h3>SKILLS</h3><p>
-${esc($("#rskills").value)
-.replace(/\n/g,"<br>")}
-</p><h3>EXPERIENCE</h3><p>
-${esc($("#rexp").value)
-.replace(/\n/g,"<br>")}
-</p></div>`;
-
-}
-
-/* =========================================================
-BIODATA
-========================================================= */
-
-function biodataUI(){
-
-return `
-
-<div class="toolpage"><h2>💌 Marriage Biodata Maker</h2><div class="formgrid"><div class="control">
-<label>Name</label>
-<input id="bname">
-</div><div class="control">
-<label>Date of Birth</label>
-<input id="bdob" type="date">
-</div><div class="control">
-<label>Education</label>
-<input id="bedu">
-</div><div class="control">
-<label>Profession</label>
-<input id="bjob">
-</div><div class="control">
-<label>Father's Name</label>
-<input id="bfather">
-</div><div class="control">
-<label>Mother's Name</label>
-<input id="bmother">
-</div></div><div class="control">
-<label>Address</label>
-<textarea id="baddress"></textarea>
-</div><button
-class="btn green"
-onclick="makeBiodata()">
-💌 Create Biodata
-</button>
-
-<button
-class="btn blue"
-onclick="printTool('biodataOutput')">
-🖨️ Print
-</button>
-
-<div
-id="biodataOutput"
-class="output">
-Preview यहाँ आएगा।
-</div></div>`;
-
-}
-
-function makeBiodata(){
-
-$("#biodataOutput").innerHTML=`
-
-<div
-style="
-background:#fff;
-padding:25px;
-text-align:center"><h1>
-Marriage Biodata
-</h1><h2>
-${esc($("#bname").value)}
-</h2><hr><p>
-<b>Date of Birth:</b>
-${esc($("#bdob").value)}
-</p><p>
-<b>Education:</b>
-${esc($("#bedu").value)}
-</p><p>
-<b>Profession:</b>
-${esc($("#bjob").value)}
-</p><p>
-<b>Father's Name:</b>
-${esc($("#bfather").value)}
-</p><p>
-<b>Mother's Name:</b>
-${esc($("#bmother").value)}
-</p><p>
-<b>Address:</b><br>
-${esc($("#baddress").value)
-.replace(/\n/g,"<br>")}
-</p></div>`;
-
-}
-
-/* =========================================================
-POSTER
-========================================================= */
-
-function posterUI(type){
-
-let title=
-type==="promotion"
-?
-"📣 Shop Promotion Maker"
-:
-"📸 Pro Poster Maker";
-
-return `
-
-<div class="toolpage"><h2>${title}</h2><div class="control"><label>Heading</label>
-
-<input
-id="pheading"
-placeholder="Bharat Digital Centre">
-
-</div><div class="control"><label>Main Message</label>
-
-<textarea
-id="pmessage"
-placeholder="All Digital Services Available Here">
-</textarea></div><div class="control"><label>Upload Image</label>
-
-<input
-id="pimage"
-type="file"
-accept="image/*"
-onchange="loadPosterImage(this)">
-
-</div><div class="actions"><button
-class="btn green"
-onclick="makePoster()">
-🎨 Create Design
-</button>
-
-<button
-class="btn blue"
-onclick="printTool('posterOutput')">
-🖨️ Print
-</button>
-
-</div><div
-id="posterOutput"
-class="output"
-style="text-align:center">Poster preview यहाँ आएगा।
-
-</div></div>`;
-
-}
-
-function loadPosterImage(input){
-
-let file=input.files[0];
-
-if(!file)return;
-
-let r=new FileReader();
-
-r.onload=e=>{
-
-let im=new Image();
-
-im.onload=()=>{
-
-posterImg=im;
-makePoster();
-
-};
-
-im.src=e.target.result;
-
-};
-
-r.readAsDataURL(file);
-
-}
-
-function makePoster(){
-
-let heading=
-$("#pheading").value||
-"Bharat Digital Centre";
-
-let msg=
-$("#pmessage").value||
-"Digital Services Available Here";
-
-let imageHTML=
-posterImg
-?
-"<img class="previewImage" src="${posterImg.src}">"
-:
-"";
-
-$("#posterOutput").innerHTML=`
-
-<div
-style="
-padding:25px;
-background:linear-gradient(135deg,#fff,#f2f5ff);
-text-align:center;
-border-radius:15px"><h1>
-${esc(heading)}
-</h1>${imageHTML}
-
-<h2>
-${esc(msg)
-.replace(/\n/g,"<br>")}
-</h2><p>
-📸 Photo • 🪪 ID Card • 📄 Print • 🌐 Online Services
-</p></div>`;
-
-}
-
-/* =========================================================
-APPLICATION
-========================================================= */
-
-function applicationUI(){
-
-return `
-
-<div class="toolpage"><h2>🗂️ Application Maker</h2><div class="control"><label>To</label>
-
-<input
-id="ato"
-placeholder="Office / Officer Name">
-
-</div><div class="control"><label>Subject</label>
-
-<input
-id="asub"
-placeholder="Application Subject">
-
-</div><div class="control"><label>Application</label>
-
-<textarea
-id="abody"
-style="min-height:220px"
-placeholder="यहाँ application लिखें...">
-</textarea></div><div class="control"><label>Name</label>
-
-<input id="aname"></div><div class="actions"><button
-class="btn green"
-onclick="makeApplication()">
-📝 Create Application
-</button>
-
-<button
-class="btn blue"
-onclick="printTool('applicationOutput')">
-🖨️ Print
-</button>
-
-</div><div
-id="applicationOutput"
-class="output">Application preview यहाँ आएगा।
-
-</div></div>`;
-
-}
-
-function makeApplication(){
-
-$("#applicationOutput").innerHTML=`
-
-<div
-style="
-background:#fff;
-padding:30px;
-text-align:left;
-line-height:1.7"><p>
-To,<br>
-${esc($("#ato").value)}
-</p><p>
-<b>Subject:</b>
-${esc($("#asub").value)}
-</p><p>
-${esc($("#abody").value)
-.replace(/\n/g,"<br>")}
-</p><br><p>
-Thank You
-<br><br>
-${esc($("#aname").value)}
-</p></div>`;
-
-}
-
-/* =========================================================
-FILE TOOLS
-========================================================= */
-
-function fileToolUI(type){
-
-let names={
-
-jpgpdf:"🖼️ JPG To PDF",
-
-pngpdf:"🖼️ PNG To PDF",
-
-pdfjpg:"📄 PDF To JPG",
-
-pngjpg:"🖼️ PNG To JPG",
-
-deletepdf:"📄 Delete PDF Page",
-
-mergepdf:"📑 Merge PDF"
-
-};
-
-let accept=
-[
-"jpgpdf",
-"pngpdf",
-"pngjpg"
-].includes(type)
-?
-"image/"
-:
-".pdf,image/";
-
-return `
-
-<div class="toolpage"><h2>
-${names[type]}
-</h2><div class="control"><label>
-Select File(s)
-</label><input
-id="fileToolInput"
-type="file"
-accept="${accept}"
-${type==="mergepdf"?"multiple":""}
-onchange="handleFileTool('${type}',this)">
-
-</div><div
-id="fileToolOutput"
-class="output">File tool ready.
-
-</div></div>`;
-
-}
-
-function handleFileTool(
-type,
-input
-){
-
-let files=
-[...input.files];
-
-if(!files.length)
-return;
-
-let out=
-$("#fileToolOutput");
-
-if(
-type==="jpgpdf"||
-type==="pngpdf"
-){
-
-pdfImages=files;
-
-out.innerHTML=`
-
-<p>
-✅ ${files.length} image selected.
-</p><button
-class="btn green"
-onclick="imagesToPrintPDF()">
-📄 Prepare PDF
-</button>
-
-<p class="info">
-Browser print dialog में
-"Save as PDF" चुन सकते हैं।
-</p>`;
-
-}else if(type==="pngjpg"){
-
-convertImageToJPG(
-files[0],
-out
 );
 
-}else if(type==="pdfjpg"){
+/* ---------- ESC KEY ---------- */
 
-out.innerHTML=`
-
-<p>
-📄 PDF selected.
-</p><p>
-PDF को JPG में convert करने के लिए
-browser PDF rendering library/backend
-जोड़ना आवश्यक है।
-</p>`;
-
-}else{
-
-out.innerHTML=`
-
-<p>
-📄 ${files.length} PDF file selected.
-</p><p>
-Advanced PDF page editing/merging के लिए
-PDF processing library/backend आवश्यक है।
-</p>`;
-
-}
-
-}
-
-function convertImageToJPG(
-file,
-out
-){
-
-let r=new FileReader();
-
-r.onload=e=>{
-
-let im=new Image();
-
-im.onload=()=>{
-
-let c=
-document.createElement("canvas");
-
-c.width=im.width;
-c.height=im.height;
-
-c.getContext("2d")
-.drawImage(im,0,0);
-
-let url=
-c.toDataURL(
-"image/jpeg",
-.95
-);
-
-out.innerHTML=`
-
-<img
-class="previewImage"
-src="${url}">
-
-<br><a
-class="btn"
-download="converted.jpg"
-href="${url}"
-style="
-display:inline-block;
-text-decoration:none">
-
-⬇ Download JPG
-
-</a>`;
-
-};
-
-im.src=e.target.result;
-
-};
-
-r.readAsDataURL(file);
-
-}
-
-function imagesToPrintPDF(){
-
-let files=
-pdfImages||[];
-
-if(!files.length)
-return;
-
-let win=
-window.open(
-"",
-"_blank"
-);
-
-if(!win)
-return toast(
-"Popup allow करें"
-);
-
-win.document.write(`
-
-<html>
-<head>
-<title>
-Bharat Digital Centre PDF
-</title>
-<style>
-body{margin:0}
-.page{
-width:210mm;
-min-height:297mm;
-display:flex;
-align-items:center;
-justify-content:center;
-page-break-after:always;
-}
-img{
-max-width:190mm;
-max-height:280mm
-}
-</style>
-</head>
-<body>
-`);let loaded=0;
-
-files.forEach(file=>{
-
-let r=new FileReader();
-
-r.onload=e=>{
-
-let imgEl=
-win.document.createElement("img");
-
-imgEl.src=
-e.target.result;
-
-let page=
-win.document.createElement("div");
-
-page.className="page";
-
-page.appendChild(imgEl);
-
-win.document.body
-.appendChild(page);
-
-loaded++;
-
-if(
-loaded===files.length
-){
-
-win.document.close();
-
-setTimeout(
-()=>win.print(),
-500
-);
-
-}
-
-};
-
-r.readAsDataURL(file);
-
-});
-
-}
-
-/* =========================================================
-GENERAL INFORMATION MODULE
-========================================================= */
-
-function generalUI(
-title,
-type
-){
-
-let text={
-
-jobs:
-"Latest Jobs service section तैयार है।",
-
-mock:
-"Mock Test service section तैयार है।",
-
-album:
-"Document Album section तैयार है।",
-
-post:
-"New Service Post section तैयार है।",
-
-documents:
-"Document Manager section तैयार है।",
-
-birth:
-"Birth & Death Certificate के लिए official government portal का उपयोग करें।",
-
-apaar:
-"APAAR ID के लिए official education portal का उपयोग करें।",
-
-road:
-"Road Tax / Checkpost के लिए संबंधित state transport portal का उपयोग करें।",
-
-fancy:
-"Fancy Mobile Number के लिए अपने telecom operator के official portal/app का उपयोग करें।",
-
-info:
-"यह Bharat Digital Centre service module है।"
-
-};
-
-let portal="";
-
-if(type==="birth"){
-
-portal=`
-
-<button
-class="btn blue"
-onclick="openExternal('https://crsorgi.gov.in/')">
-🌐 Official Portal
-</button>
-
-`;
-
-}
-
-if(type==="apaar"){
-
-portal=`
-
-<button
-class="btn blue"
-onclick="openExternal('https://apaar.education.gov.in/')">
-🌐 Official Portal
-</button>
-
-`;
-
-}
-
-return `
-
-<div class="toolpage"><h2>
-🛠️ ${esc(title)}
-</h2><div class="portalInfo"><p>
-${esc(text[type]||"Digital Service Module")}
-</p>${portal}
-
-</div><br><button
-class="btn"
-onclick="closeModal()">
-← Back
-</button>
-
-</div>`;
-
-}
-
-/* =========================================================
-PRINT ANY TOOL
-========================================================= */
-
-function printTool(id){
-
-let el=$("#"+id);
-
-if(!el)
-return toast(
-"Preview तैयार नहीं है"
-);
-
-$("#printArea").innerHTML=`
-
-<div class="sheet">
-${el.innerHTML}
-</div>
-`;window.print();
-
-}
-
-/* =========================================================
-ESCAPE KEY
-========================================================= */
-
-window.addEventListener(
+document.addEventListener(
 "keydown",
 e=>{
-
 if(e.key==="Escape")
 closeModal();
-
 }
 );
 
