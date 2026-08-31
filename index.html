@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Bharat Digital Centre - Digital Services, Photo, ID Card, PDF Tools and Online Services">
+<meta name="description" content="Bharat Digital Centre - Digital Services, Photo, ID Card, PDF and Printing Tools">
 <title>Bharat Digital Centre | Digital Services</title>
 
 <style>
+
 :root{
---navy:#062b78;
---blue:#1769e0;
---orange:#ff7200;
---green:#0b9b55;
---red:#df3030;
---pink:#d82a8a;
---purple:#7136c9;
---bg:#f4f7fb;
---text:#182230;
+--bg:#f5f7fa;
+--card:#fff;
+--text:#253044;
 --muted:#667085;
---line:#dfe6ef;
---shadow:0 5px 18px rgba(16,24,40,.10)
+--orange:#ff6333;
+--green:#21b573;
+--blue:#3478f6;
+--purple:#7c3aed;
+--pink:#d42aa6;
+--line:#d9eee7;
+--shadow:0 5px 18px #1d29390f
 }
 
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
+*{
+box-sizing:border-box
+}
 
 body{
 margin:0;
@@ -33,439 +34,247 @@ background:var(--bg);
 color:var(--text)
 }
 
-/* TOP BAR */
-
-.topbar{
-background:var(--navy);
-color:#fff;
-padding:8px 4%;
-display:flex;
-justify-content:space-between;
-gap:10px;
-flex-wrap:wrap;
-font-size:13px
-}
-
-/* HEADER */
-
 header{
+position:sticky;
+top:0;
+z-index:20;
 background:#fff;
-border-bottom:1px solid #dfe5ee
+border-bottom:1px solid #eee
 }
 
-.head{
+.nav{
 max-width:1250px;
 margin:auto;
-padding:13px 18px;
-min-height:100px;
+min-height:66px;
+padding:7px 12px;
 display:flex;
 align-items:center;
-gap:16px
+gap:10px
 }
 
 .logo{
-width:68px;
-height:68px;
-border-radius:50%;
+width:42px;
+height:42px;
+border-radius:11px;
+background:linear-gradient(135deg,#ff6b35,#ff9d3d);
+color:#fff;
 display:grid;
 place-items:center;
 font-weight:900;
-font-size:21px;
-color:#062b78;
-background:
-linear-gradient(
-135deg,
-#ff7200 0 33%,
-#fff 33% 66%,
-#0b9b55 66%
-);
-border:5px solid #eef2f7;
-box-shadow:var(--shadow)
+box-shadow:0 4px 12px #ff633344
 }
 
-.brand{
-flex:1
+.brand b{
+font-size:18px
 }
 
-.brand h1{
-margin:0;
-font-size:27px;
-color:var(--navy)
+.brand small{
+color:#ff6333;
+font-size:10px
 }
 
-.brand h1 span{
-color:var(--orange)
-}
-
-.brand p{
-margin:5px 0 0;
-color:var(--muted);
-font-size:14px
-}
-
-/* SEARCH */
-
-.searchbox{
+.navlinks{
+margin-left:auto;
 display:flex;
-width:min(430px,42vw)
+gap:18px
 }
 
-.searchbox input{
-flex:1;
-padding:12px 14px;
-border:1px solid #d7dee8;
-border-radius:9px 0 0 9px;
-font-size:14px;
-outline:none
-}
-
-.searchbox button{
-border:0;
-background:var(--orange);
-color:#fff;
-padding:0 18px;
-border-radius:0 9px 9px 0;
-font-weight:800;
-cursor:pointer
-}
-
-/* NAVIGATION */
-
-.nav{
-background:var(--navy);
-position:sticky;
-top:0;
-z-index:50
-}
-
-.navin{
-max-width:1250px;
-margin:auto;
-display:flex;
-align-items:center
-}
-
-.nav a{
-color:#fff;
+.navlinks a{
 text-decoration:none;
-padding:14px 18px;
-font-weight:800;
-font-size:14px;
-border-right:1px solid #ffffff18
+color:#344054;
+font-weight:700;
+font-size:13px
 }
 
-.nav a:hover,
-.nav a.active{
-background:var(--blue)
+.navlinks a:hover{
+color:#ff6333
 }
 
 .menu{
 display:none;
 margin-left:auto;
 border:0;
-background:#fff;
-color:var(--navy);
-border-radius:8px;
-padding:8px 12px;
-font-size:20px
+border-radius:9px;
+background:#f1f5f9;
+padding:9px;
+font-size:20px;
+cursor:pointer
 }
-
-/* MAIN */
 
 main{
 max-width:1250px;
 margin:auto;
-padding:14px 14px 45px
+padding:18px 10px 45px
 }
-
-.notice{
-background:#eefaf3;
-border:1px solid #ccebd9;
-border-radius:8px;
-padding:11px 14px;
-margin-bottom:15px;
-font-size:14px
-}
-
-.notice b{
-color:var(--green)
-}
-
-/* HERO */
 
 .hero{
-background:linear-gradient(
-110deg,
-#062b78,
-#1769e0,
-#168bce
-);
 color:#fff;
-border-radius:13px;
-padding:28px 20px;
 text-align:center;
+border-radius:18px;
+padding:25px 12px;
+background:linear-gradient(110deg,#d936a0,#ee5c84,#468bd8);
 box-shadow:var(--shadow);
-margin-bottom:20px
+overflow:hidden
 }
 
-.hero h2{
-margin:0 0 8px;
-font-size:28px
+.hero h1{
+margin:0 0 7px;
+font-size:27px
 }
 
 .hero p{
-margin:0;
-font-size:15px
+margin:0
 }
 
-/* LAYOUT */
+.search{
+max-width:1000px;
+margin:18px auto 25px
+}
 
-.layout{
-display:grid;
-grid-template-columns:1fr 320px;
-gap:18px
+.search input{
+width:100%;
+padding:15px 17px;
+border:1px solid #e1e6ed;
+border-radius:15px;
+box-shadow:var(--shadow);
+font-size:15px;
+outline:none
+}
+
+.search input:focus{
+border-color:#7c3aed;
+box-shadow:0 0 0 3px #7c3aed18
 }
 
 .section{
-margin:0 0 24px
+margin:25px 0
 }
 
 .section h2{
+font-size:18px;
 margin:0 0 12px;
-padding:0 0 8px 10px;
-border-left:5px solid var(--blue);
-border-bottom:1px solid #dce3ed;
-font-size:19px
+padding-left:10px;
+border-left:4px solid #6c5ce7
 }
 
-.orange h2{border-left-color:var(--orange)}
-.green h2{border-left-color:var(--green)}
-.pink h2{border-left-color:var(--pink)}
-.purple h2{border-left-color:var(--purple)}
+.orange h2{
+border-color:#ff6a35
+}
 
-/* CARDS */
+.green h2{
+border-color:#24b68a
+}
+
+.blue h2{
+border-color:#3d7cf5
+}
+
+.pink h2{
+border-color:#d42aa6
+}
+
+/* ALL OPTIONS */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px
+grid-template-columns:repeat(5,1fr);
+gap:10px
 }
 
 .card{
+min-height:136px;
 background:#fff;
 border:1px solid var(--line);
-border-radius:12px;
-padding:15px 9px;
-min-height:175px;
+border-radius:17px;
+padding:12px 7px;
 text-align:center;
 cursor:pointer;
 position:relative;
 box-shadow:var(--shadow);
 display:flex;
 flex-direction:column;
-align-items:center;
 justify-content:center;
-transition:.18s
+align-items:center;
+transition:.15s;
+user-select:none
 }
 
 .card:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 25px rgba(16,24,40,.16)
+transform:translateY(-3px);
+box-shadow:0 10px 25px #1d29391c;
+border-color:#b8ded3
 }
 
 .card:active{
 transform:scale(.98)
 }
 
-/* COLOURFUL ICONS */
-
 .icon{
-width:58px;
-height:58px;
-border-radius:15px;
-display:grid;
-place-items:center;
-font-size:31px;
-margin-bottom:10px
-}
-
-.card:nth-child(4n+1) .icon{
-background:#e7f0ff
-}
-
-.card:nth-child(4n+2) .icon{
-background:#e7faef
-}
-
-.card:nth-child(4n+3) .icon{
-background:#fff0e5
-}
-
-.card:nth-child(4n) .icon{
-background:#f2e8ff
+font-size:35px;
+margin-bottom:9px
 }
 
 .card b{
 font-size:14px;
-line-height:1.4
+line-height:1.35
 }
 
 .tag{
 position:absolute;
-right:7px;
-top:7px;
-background:var(--green);
+right:6px;
+top:6px;
+background:#75c900;
 color:#fff;
-border-radius:12px;
-padding:3px 7px;
+border-radius:8px;
+padding:3px 6px;
 font-size:9px;
-font-style:normal;
-font-weight:800
+font-style:normal
 }
 
-.tag.hot{
-background:var(--red)
+.hot{
+background:#f04469
 }
-
-/* SIDEBAR */
-
-.sidebar{
-display:flex;
-flex-direction:column;
-gap:15px
-}
-
-.sidebox{
-background:#fff;
-border:1px solid var(--line);
-border-radius:10px;
-padding:15px;
-box-shadow:var(--shadow)
-}
-
-.sidebox h3{
-margin:0 0 11px;
-color:var(--navy);
-font-size:17px
-}
-
-.sidebox ul{
-margin:0;
-padding-left:19px
-}
-
-.sidebox li{
-margin:9px 0;
-font-size:13px
-}
-
-.portal{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:8px;
-padding:9px 0;
-border-bottom:1px solid #edf0f4;
-font-size:12px
-}
-
-.portal:last-child{
-border-bottom:0
-}
-
-.portal a{
-background:var(--green);
-color:#fff;
-text-decoration:none;
-border-radius:6px;
-padding:6px 10px;
-font-weight:800
-}
-
-/* INFO */
-
-.info{
-background:linear-gradient(90deg,#eef7ff,#f8fbff);
-border:1px solid #d5e5fb;
-border-radius:10px;
-padding:16px;
-display:flex;
-align-items:center;
-gap:15px
-}
-
-.info .big{
-font-size:35px
-}
-
-.info h3{
-margin:0 0 4px;
-color:var(--navy)
-}
-
-.info p{
-margin:0;
-color:var(--muted);
-font-size:13px
-}
-
-/* ABOUT */
 
 .about{
 background:#fff;
-border:1px solid var(--line);
-border-radius:10px;
-padding:18px;
-margin-top:18px;
+border:1px solid #edf0f4;
+border-radius:17px;
+padding:20px;
+margin-top:25px;
 box-shadow:var(--shadow)
-}
-
-.about h2{
-margin-top:0;
-color:var(--navy)
 }
 
 .whygrid{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(2,1fr);
 gap:10px
 }
 
 .whybox{
-border:1px solid var(--line);
-border-radius:9px;
-padding:16px;
+padding:18px;
+background:#fff;
+border:1px solid #edf0f4;
+border-radius:14px;
 text-align:center;
-font-weight:800;
-background:#fbfcfe
+font-weight:800
 }
-
-/* FOOTER */
 
 footer{
-background:#09265f;
+background:#25313d;
 color:#fff;
-padding:25px 15px;
-text-align:center
+text-align:center;
+padding:25px
 }
-
-footer p{
-margin:6px;
-font-size:12px;
-color:#dce7ff
-}
-
-/* MODAL */
 
 .modal{
 position:fixed;
 inset:0;
-background:#000a;
+background:#0009;
 z-index:100;
 display:none;
 align-items:center;
 justify-content:center;
-padding:10px
+padding:9px
 }
 
 .modal.show{
@@ -475,10 +284,10 @@ display:flex
 .box{
 background:#fff;
 width:min(1150px,100%);
-max-height:94vh;
+max-height:95vh;
 overflow:auto;
-border-radius:14px;
-padding:18px;
+border-radius:19px;
+padding:17px;
 position:relative
 }
 
@@ -487,88 +296,12 @@ position:absolute;
 right:10px;
 top:9px;
 border:0;
-background:#edf1f6;
-border-radius:8px;
+background:#f1f5f9;
+border-radius:9px;
 font-size:22px;
 padding:3px 10px;
 cursor:pointer
 }
-
-/* SERVICE */
-
-.service-module{
-text-align:center;
-padding:25px
-}
-
-.service-icon{
-font-size:58px
-}
-
-.service-module h2{
-margin:7px 0 10px
-}
-
-.service-module p{
-color:var(--muted);
-line-height:1.7
-}
-
-.service-actions{
-display:flex;
-justify-content:center;
-gap:8px;
-flex-wrap:wrap;
-margin-top:15px
-}
-
-/* COLOUR BUTTONS */
-
-.btn,
-.service-link{
-display:inline-block;
-border:0;
-border-radius:8px;
-padding:11px 17px;
-background:linear-gradient(135deg,#ff6500,#ff9d32);
-color:#fff;
-font-weight:800;
-cursor:pointer;
-text-decoration:none;
-box-shadow:0 4px 10px #0002
-}
-
-.btn:hover,
-.service-link:hover{
-transform:translateY(-1px);
-filter:brightness(1.05)
-}
-
-.btn.blue{
-background:linear-gradient(135deg,#1769e0,#3d8bff)
-}
-
-.btn.green{
-background:linear-gradient(135deg,#0b9b55,#20c77a)
-}
-
-.btn.red{
-background:linear-gradient(135deg,#d92d49,#f04469)
-}
-
-.btn.purple{
-background:linear-gradient(135deg,#7136c9,#9b5de5)
-}
-
-.btn.dark{
-background:#26313d
-}
-
-.btn.gray{
-background:#667085
-}
-
-/* STUDIO */
 
 .studio{
 display:grid;
@@ -580,7 +313,7 @@ margin-top:14px
 .panel{
 background:#f7f9fc;
 border:1px solid #e4e9ef;
-border-radius:11px;
+border-radius:14px;
 padding:13px
 }
 
@@ -606,7 +339,7 @@ margin-bottom:5px
 width:100%;
 padding:9px;
 border:1px solid #dce2ea;
-border-radius:8px;
+border-radius:9px;
 background:#fff
 }
 
@@ -627,9 +360,51 @@ gap:7px;
 flex-wrap:wrap
 }
 
+/* COLORFUL BUTTONS */
+
+.btn{
+border:0;
+border-radius:10px;
+padding:10px 12px;
+background:linear-gradient(135deg,#ff6333,#ff8a4c);
+color:#fff;
+font-weight:800;
+cursor:pointer;
+box-shadow:0 3px 8px #ff633333
+}
+
+.btn:hover{
+filter:brightness(1.05);
+transform:translateY(-1px)
+}
+
+.btn.blue{
+background:linear-gradient(135deg,#3478f6,#5b8ff8)
+}
+
+.btn.green{
+background:linear-gradient(135deg,#21b573,#35c989)
+}
+
+.btn.dark{
+background:linear-gradient(135deg,#26313d,#46515d)
+}
+
+.btn.gray{
+background:linear-gradient(135deg,#667085,#7c8798)
+}
+
+.btn.purple{
+background:linear-gradient(135deg,#7c3aed,#9b5cff)
+}
+
+.btn.pink{
+background:linear-gradient(135deg,#d42aa6,#ed4bc1)
+}
+
 .preview{
 background:#e8edf3;
-border-radius:11px;
+border-radius:14px;
 min-height:430px;
 padding:10px;
 display:grid;
@@ -653,16 +428,16 @@ margin-bottom:8px
 .tab{
 border:1px solid #dce2ea;
 background:#fff;
-border-radius:8px;
+border-radius:9px;
 padding:8px 13px;
 font-weight:800;
 cursor:pointer
 }
 
 .tab.active{
-background:#eaf2ff;
-border-color:#9fc1ff;
-color:var(--navy)
+background:#ffefe9;
+border-color:#ffb69e;
+color:#d9461f
 }
 
 .bggrid{
@@ -672,29 +447,40 @@ gap:5px
 }
 
 .bg{
-height:30px;
+height:29px;
 border:1px solid #ccd5df;
 border-radius:7px;
 cursor:pointer
 }
 
-.white{background:#fff}
-.sky{background:#55afe8}
-.red{background:#df4b4b}
-.gray{background:#e8e8e8}
+.white{
+background:#fff
+}
 
-.info2{
+.sky{
+background:#55afe8
+}
+
+.red{
+background:#df4b4b
+}
+
+.gray{
+background:#e8e8e8
+}
+
+.info{
 font-size:12px;
 background:#fff;
 border:1px dashed #ccd7e2;
-border-radius:8px;
+border-radius:9px;
 padding:8px;
 margin-top:7px
 }
 
 .airesult{
 background:#eef3f8;
-border-radius:10px;
+border-radius:12px;
 padding:10px;
 text-align:center
 }
@@ -702,10 +488,8 @@ text-align:center
 .airesult img{
 max-width:100%;
 max-height:430px;
-border-radius:8px
+border-radius:10px
 }
-
-/* PRINT */
 
 .sheet{
 background:#fff;
@@ -733,64 +517,84 @@ width:100%
 display:none
 }
 
-details{
-padding:10px 0;
-border-bottom:1px solid #edf0f4
+/* SERVICE MODULE */
+
+.service-module{
+text-align:center;
+padding:20px
 }
 
-summary{
+.service-icon{
+font-size:55px;
+margin-bottom:8px
+}
+
+.service-module h2{
+margin:5px 0 10px
+}
+
+.service-module p{
+color:#667085;
+line-height:1.6
+}
+
+.service-link{
+display:inline-block;
+text-decoration:none;
+border:0;
+border-radius:10px;
+padding:12px 18px;
+background:linear-gradient(135deg,#21b573,#35c989);
+color:#fff;
 font-weight:800;
-cursor:pointer
+margin-top:8px;
+box-shadow:0 4px 10px #21b57333
+}
+
+.service-note{
+background:#f7f9fc;
+border:1px dashed #ccd7e2;
+padding:12px;
+border-radius:10px;
+margin-top:15px;
+font-size:13px
+}
+
+.service-actions{
+display:flex;
+justify-content:center;
+gap:8px;
+flex-wrap:wrap;
+margin-top:15px
 }
 
 /* MOBILE */
 
-@media(max-width:1050px){
+@media(max-width:1000px){
 
 .grid{
-grid-template-columns:repeat(3,1fr)
-}
-
-.layout{
-grid-template-columns:1fr
+grid-template-columns:repeat(4,1fr)
 }
 
 }
 
-@media(max-width:800px){
+@media(max-width:850px){
 
-.head{
-min-height:auto;
-flex-wrap:wrap
-}
-
-.searchbox{
-width:100%;
-order:3
-}
-
-.brand h1{
-font-size:22px
-}
-
-.logo{
-width:58px;
-height:58px
-}
-
-.navin{
-position:relative;
-flex-wrap:wrap;
-padding:5px 10px
-}
-
-.nav a{
+.navlinks{
 display:none
 }
 
-.nav.open a{
-display:block;
-width:100%
+.navlinks.mobile{
+display:flex;
+position:absolute;
+top:64px;
+left:10px;
+right:10px;
+background:#fff;
+border:1px solid #eee;
+padding:12px;
+border-radius:12px;
+flex-direction:column
 }
 
 .menu{
@@ -809,48 +613,41 @@ grid-template-columns:1fr
 grid-template-columns:1fr
 }
 
-.whygrid{
-grid-template-columns:repeat(2,1fr)
+.hero h1{
+font-size:22px
 }
 
-.hero h2{
-font-size:21px
+.preview{
+min-height:320px
+}
+
+.sheet{
+transform-origin:top left;
+overflow:hidden
 }
 
 }
 
 @media(max-width:430px){
 
-.topbar{
-font-size:11px
-}
-
 .grid{
+grid-template-columns:repeat(2,1fr);
 gap:8px
 }
 
 .card{
-min-height:155px;
-padding:10px 6px
+min-height:130px
 }
 
 .icon{
-width:47px;
-height:47px;
-font-size:25px
+font-size:31px
 }
 
 .card b{
 font-size:13px
 }
 
-.whygrid{
-grid-template-columns:1fr
 }
-
-}
-
-/* PRINT */
 
 @media print{
 
@@ -872,132 +669,50 @@ page-break-after:always
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-
-<div class="topbar">
-
-<b>🇮🇳 Bharat Digital Centre | Digital Services Portal</b>
-
-<span>
-📞 Digital Help • 🌐 Online Services
-</span>
-
-</div>
-
-
-<!-- HEADER -->
-
 <header>
 
-<div class="head">
+<div class="nav">
 
 <div class="logo">
 BD
 </div>
 
 <div class="brand">
+<b>Bharat Digital Centre</b>
+<br>
+<small>AI Photo • ID Card • A4 Print Studio</small>
+</div>
 
-<h1>
-Bharat <span>Digital</span> Centre
-</h1>
+<div class="navlinks" id="navlinks">
 
-<p>
-आपका डिजिटल साथी • Photo • ID Card • PDF • Print & Online Services
-</p>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#tools">Photo & ID Tools</a>
+<a href="#faq">FAQ</a>
 
 </div>
 
-<div class="searchbox">
-
-<input
-id="search"
-oninput="filterCards()"
-placeholder="🔎 Search services, ID card, photo, PDF..."
->
-
-<button
-onclick="document.getElementById('services').scrollIntoView()">
-
-Search
-
+<button class="menu" onclick="toggleMenu()">
+☰
 </button>
-
-</div>
 
 </div>
 
 </header>
 
-
-<!-- NAVIGATION -->
-
-<nav
-class="nav"
-id="nav">
-
-<div class="navin">
-
-<a
-href="#home"
-class="active">
-
-🏠 Home
-
-</a>
-
-<a href="#tools">
-🪪 ID Services
-</a>
-
-<a href="#services">
-🛠️ Tools
-</a>
-
-<a href="#portals">
-🏛️ Official Links
-</a>
-
-<a href="#faq">
-❓ FAQ
-</a>
-
-<button
-class="menu"
-onclick="document.getElementById('nav').classList.toggle('open')">
-
-☰
-
-</button>
-
-</div>
-
-</nav>
-
-
-<!-- MAIN -->
-
 <main id="home">
-
-
-<div class="notice">
-
-<b>📢 Latest Update:</b>
-
-सभी Photo, ID Card, PDF और Digital Tools एक ही जगह पर उपलब्ध हैं।
-
-</div>
-
 
 <section class="hero">
 
-<h2>
+<h1>
 Launch Your Digital Operations With Bharat Digital Centre
-</h2>
+</h1>
 
 <p>
 AI Photo • Passport Photo • ID Card Edit/Crop • Background • Front & Back • A4 Print
@@ -1005,192 +720,90 @@ AI Photo • Passport Photo • ID Card Edit/Crop • Background • Front & Bac
 
 </section>
 
+<div class="search">
 
-<div class="layout">
+<input
+id="search"
+oninput="filterCards()"
+placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
+>
 
+</div>
 
-<div>
-
-
-<!-- ID SERVICES -->
-
-<section
-id="tools"
-class="section orange">
+<section id="tools" class="section orange">
 
 <h2>
-🪪 हमारी प्रमुख ID & Photo Services
+🪪 ID Card & AI Photo Studio
 </h2>
 
-<div
-class="grid"
-id="toolGrid">
-</div>
+<div class="grid" id="toolGrid"></div>
 
 </section>
 
-
-<!-- SERVICES -->
-
-<section
-id="services"
-class="section">
+<section id="services" class="section">
 
 <h2>
-⚡ Essential Digital Services
+⚡ Essential & Services
 </h2>
 
-<div
-class="grid"
-id="serviceGrid">
-</div>
+<div class="grid" id="serviceGrid"></div>
 
 </section>
 
-
-<!-- CREATIVE -->
-
-<section
-class="section pink">
+<section class="section pink">
 
 <h2>
 🎨 Creative Design Studio
 </h2>
 
-<div
-class="grid"
-id="creativeGrid">
-</div>
+<div class="grid" id="creativeGrid"></div>
 
 </section>
 
-
-<!-- PDF -->
-
-<section
-class="section purple">
+<section class="section blue">
 
 <h2>
 📄 Smart PDF & Image Tools
 </h2>
 
-<div
-class="grid"
-id="pdfGrid">
-</div>
+<div class="grid" id="pdfGrid"></div>
 
 </section>
 
-
-<!-- CARD PRINT -->
-
-<section
-class="section green">
+<section class="section green">
 
 <h2>
 🪪 Card Printing Services
 </h2>
 
-<div
-class="grid"
-id="cardGrid">
-</div>
+<div class="grid" id="cardGrid"></div>
 
 </section>
 
+<section class="section green">
 
-<div class="info">
+<h2>
+🌐 Portal Services
+</h2>
 
-<div class="big">
-🏅
-</div>
+<div class="grid" id="portalGrid"></div>
 
-<div>
-
-<h3>
-एक ही जगह पर आसान Digital Services
-</h3>
-
-<p>
-Photo, ID Card, PDF और print preparation tools को सरल तरीके से उपयोग करें।
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SIDEBAR -->
-
-<aside class="sidebar">
-
-
-<div class="sidebox">
-
-<h3>
-⚠️ महत्वपूर्ण सूचना
-</h3>
-
-<ul>
-
-<li>
-सरकारी सेवाओं के लिए केवल संबंधित official portal का उपयोग करें।
-</li>
-
-<li>
-अपनी व्यक्तिगत जानकारी केवल trusted official website पर दर्ज करें।
-</li>
-
-<li>
-Bharat Digital Centre एक independent digital service portal है।
-</li>
-
-</ul>
-
-</div>
-
-
-<div
-class="sidebox"
-id="portals">
-
-<h3>
-🏛️ Official Government Portals
-</h3>
-
-<div id="portalSide">
-</div>
-
-</div>
-
-</aside>
-
-</div>
-
-
-<!-- ABOUT -->
+</section>
 
 <section class="about">
 
 <h2>
-भारत Digital Centre — One Stop Digital Solution
+Bharat Digital Centre — One Stop Solution
 </h2>
 
 <p>
-
 यह portal photo editing, passport-size photo,
 ID card crop/resize, background tools,
 AI tools और A4 print layout को एक जगह उपलब्ध कराने के लिए बनाया गया है।
 सरकारी सेवाओं के लिए संबंधित official portal का उपयोग करें।
-
 </p>
 
 </section>
-
-
-<!-- WHY -->
 
 <section class="about">
 
@@ -1220,12 +833,7 @@ Why Choose Bharat Digital Centre?
 
 </section>
 
-
-<!-- FAQ -->
-
-<section
-id="faq"
-class="about">
+<section id="faq" class="about">
 
 <h2>
 FAQ
@@ -1244,7 +852,6 @@ FAQ
 
 </details>
 
-
 <details>
 
 <summary>
@@ -1258,7 +865,6 @@ Passport और Custom size उपलब्ध हैं।
 
 </details>
 
-
 <details>
 
 <summary>
@@ -1266,7 +872,7 @@ Passport और Custom size उपलब्ध हैं।
 </summary>
 
 <p>
-Backend deploy करके AI API endpoint सेट करने के बाद
+हाँ। Backend deploy करके AI API endpoint सेट करने के बाद
 Real AI functions काम करेंगे।
 </p>
 
@@ -1276,359 +882,332 @@ Real AI functions काम करेंगे।
 
 </main>
 
-
-<!-- FOOTER -->
-
 <footer>
 
-<b>
-© 2026 Bharat Digital Centre
-</b>
-
-<p>
-यह एक स्वतंत्र digital service portal है और किसी सरकारी विभाग की official website नहीं है।
-</p>
-
-<p>
-Privacy • Terms • Disclaimer
-</p>
+© 2026 Bharat Digital Centre • Photo & ID Print Studio
 
 </footer>
 
+<div id="toast"></div>
 
-<!-- TOAST -->
-
-<div id="toast">
-</div>
-
-
-<!-- MODAL -->
-
-<div
-class="modal"
-id="modal">
+<div class="modal" id="modal">
 
 <div class="box">
 
-<button
-class="close"
-onclick="closeModal()">
-
+<button class="close" onclick="closeModal()">
 ×
-
 </button>
 
-<div id="modalBody">
-</div>
+<div id="modalBody"></div>
 
 </div>
 
 </div>
 
-
-<div id="printArea">
-</div>
-
+<div id="printArea"></div>
 
 <script>
 
 /* =========================
-GLOBAL
+   GLOBAL SETTINGS
 ========================= */
 
 const API_URL =
 localStorage.getItem("BDC_AI_API") || "";
 
-let front=null;
-let back=null;
-let side="front";
-let bg="white";
-let rot=0;
+let front = null;
+let back = null;
+let side = "front";
+let bg = "white";
+let rot = 0;
 
-const $ =
-s => document.querySelector(s);
+const $ = s => document.querySelector(s);
 
 
 /* =========================
-SECURITY
+   SECURITY
 ========================= */
 
-const esc =
-s =>
-String(s).replace(
-/[&<>"']/g,
-m=>({
+const esc = s =>
+String(s).replace(/[&<>"']/g,m=>({
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
 '"':"&quot;",
 "'":"&#039;"
-}[m])
-);
+}[m]));
 
 
 /* =========================
-ID / PHOTO TOOLS
+   ID / PHOTO TOOLS
 ========================= */
 
-const tools=[
+const tools = [
 
 ["🪪","ID Card Studio","id","HOT"],
-
 ["📐","All ID Card Sizes","id"],
-
 ["🔄","Front + Back Print","print","NEW"],
-
 ["✂️","PVC Auto Crop","id"],
-
 ["👤","Passport Photo","photo"],
-
 ["🪄","AI Background Remover","background","AI"],
-
 ["🎨","Background Change","background"],
-
 ["🤖","AI Auto Photo","photo","AI"],
-
 ["✨","AI Generate Photo","generate","AI"],
-
 ["🖨️","One Click ID Print","print"]
 
 ];
 
 
 /* =========================
-SERVICES
+   SERVICES
 ========================= */
 
-const services=[
+const services = [
 
 ["📰","Latest Jobs","jobs"],
-
 ["📝","Mock Test","mocktest"],
-
 ["🖼️","Photo Crop & Resize","photo"],
-
 ["📄","Resume/CV","resume"],
-
 ["🗂️","Document Album","album"],
-
 ["📝","New Service Post","servicepost"],
-
 ["🗃️","Document Manager","documents"]
 
 ];
 
 
 /* =========================
-CREATIVE
+   CREATIVE
 ========================= */
 
-const creative=[
+const creative = [
 
 ["📄","Pro Resume Maker","resume"],
-
 ["💌","Marriage Biodata","biodata"],
-
 ["🪪","Pro ID Maker","id"],
-
 ["📸","Pro Poster Maker","poster"],
-
 ["🗂️","Application Maker","application"],
-
 ["📣","Shop Promotion Maker","promotion"]
 
 ];
 
 
 /* =========================
-PDF
+   PDF TOOLS
 ========================= */
 
-const pdf=[
+const pdf = [
 
 ["🖼️📄","JPG To PDF","jpgpdf"],
-
 ["📄🖼️","PDF To JPG","pdfjpg"],
-
 ["🖼️📄","PNG To PDF","pngpdf"],
-
 ["🖼️","PNG To JPG","pngjpg"],
-
 ["📄❌","Delete PDF Page","deletepdf"],
-
 ["📑","Merge PDF","mergepdf"]
 
 ];
 
 
 /* =========================
-CARDS
+   CARD PRINTING
 ========================= */
 
-const cards=[
+const cards = [
 
 ["🪪","Unique ID Card Print","id"],
-
 ["🗳️","Election Card Print","card"],
-
 ["🏥","Health Plan Card Print","card"],
-
 ["🧾","Tax ID Card Print","card"],
-
 ["🚘","Driving Permit Print","card"],
-
 ["🎓","School/College ID","card"],
-
 ["🍚","Food Subsidy Card Print","card"]
 
 ];
 
 
 /* =========================
-OFFICIAL PORTALS
+   OFFICIAL PORTALS
 ========================= */
 
-const portals=[
+const portals = [
 
-["🪪","Aadhaar Service",
-"https://uidai.gov.in/"],
+["🏛️","Census Of India","https://censusindia.gov.in/"],
 
-["📄","PAN Card Service",
-"https://www.incometax.gov.in/"],
+["🪪","Aadhaar Service","https://uidai.gov.in/"],
 
-["🗳️","Voter ID",
-"https://voters.eci.gov.in/"],
+["💳","Aadhaar Information","https://uidai.gov.in/"],
 
-["💳","Ayushman Bharat",
-"https://beneficiary.nha.gov.in/"],
+["📄","PAN Card Service","https://www.incometax.gov.in/"],
 
-["🚘","Driving Licence",
-"https://parivahan.gov.in/"],
+["🗳️","Voter ID Correction","https://voters.eci.gov.in/"],
 
-["📋","RC Service",
-"https://parivahan.gov.in/"],
+["💳","Ayushman Bharat","https://beneficiary.nha.gov.in/"],
 
-["🏥","Birth & Death Certificate",
-"https://crsorgi.gov.in/"],
+["🚘","Driving Licence","https://parivahan.gov.in/"],
 
-["💰","E-Challan",
-"https://echallan.parivahan.gov.in/"],
+["📋","RC Service","https://parivahan.gov.in/"],
 
-["💼","E-Shram Card",
-"https://eshram.gov.in/"],
+["🚗","Vehicle Service","https://parivahan.gov.in/"],
 
-["🪪","APAAR ID Card",
-"https://apaar.education.gov.in/"],
+["🏥","Birth & Death Certificate","https://crsorgi.gov.in/"],
 
-["💳","ABHA Card",
-"https://abha.abdm.gov.in/"],
+["💰","E-Challan","https://echallan.parivahan.gov.in/"],
 
-["🌾","PM Kisan",
-"https://pmkisan.gov.in/"],
+["💼","E-Shram Card","https://eshram.gov.in/"],
 
-["🏠","PMAY-Gramin",
-"https://pmayg.nic.in/"],
+["🪪","APAAR ID Card","https://apaar.education.gov.in/"],
 
-["🏢","EPFO",
-"https://www.epfindia.gov.in/"],
+["💳","ABHA Card","https://abha.abdm.gov.in/"],
 
-["❤️","LIC Service",
-"https://licindia.in/"],
+["🌾","PM Kisan","https://pmkisan.gov.in/"],
 
-["🌐","E-NAM",
-"https://www.enam.gov.in/"],
+["🏠","PMAY-Gramin","https://pmayg.nic.in/"],
 
-["💵","PM SVANidhi",
-"https://pmsvanidhi.mohua.gov.in/"],
+["🏠","PMAY-Urban/Sehri","https://pmay-urban.gov.in/"],
 
-["🌱","Soil Health Card",
-"https://soilhealth.dac.gov.in/"],
+["🏢","EPFO","https://www.epfindia.gov.in/"],
 
-["☀️","PM Surya Ghar",
-"https://pmsuryaghar.gov.in/"],
+["❤️","LIC Service","https://licindia.in/"],
 
-["🏭","Udyam Registration",
-"https://udyamregistration.gov.in/"],
+["🌐","E-NAM","https://www.enam.gov.in/"],
 
-["🎓","National Scholarship",
-"https://scholarships.gov.in/"],
+["💵","PM SVANidhi","https://pmsvanidhi.mohua.gov.in/"],
 
-["📱","Sanchar Saathi",
-"https://sancharsaathi.gov.in/"],
+["🌱","Soil Health Card","https://soilhealth.dac.gov.in/"],
 
-["🚆","Railway Service",
-"https://www.indianrail.gov.in/"],
+["👨‍🌾","MKisan Portal","https://mkisan.gov.in/"],
 
-["🛂","Passport Seva",
-"https://www.passportindia.gov.in/"],
+["☀️","PM Surya Ghar","https://pmsuryaghar.gov.in/"],
 
-["🧾","GST",
-"https://www.gst.gov.in/"],
+["🏭","Udyam Aadhaar/MSME","https://udyamregistration.gov.in/"],
 
-["📱","National Payments",
-"https://www.npci.org.in/"],
+["🎓","National Scholarship","https://scholarships.gov.in/"],
 
-["👨‍👩‍👧","National Consumer",
-"https://consumerhelpline.gov.in/"],
+["📱","Lost/Found Mobile","https://sancharsaathi.gov.in/"],
 
-["💼","National Career Service",
-"https://www.ncs.gov.in/"],
+["🚆","Railway Service","https://www.indianrail.gov.in/"],
 
-["📊","CIBIL Score",
-"https://www.cibil.com/"],
+["🛂","Passport Seva","https://www.passportindia.gov.in/"],
 
-["♿","Unique Disability ID",
-"https://www.swavlambancard.gov.in/"],
+["🧾","GST Verification","https://www.gst.gov.in/"],
 
-["🚻","Swachh Bharat",
-"https://swachhbharatmission.gov.in/"]
+["🛣️","Checkpost Tax/Road Tax","https://parivahan.gov.in/"],
+
+["🚗","Vahan Green Seva","https://parivahan.gov.in/"],
+
+["🛵","PUC Service","https://puc.parivahan.gov.in/"],
+
+["📱","National Payments","https://www.npci.org.in/"],
+
+["👨‍👩‍👧","National Consumer","https://consumerhelpline.gov.in/"],
+
+["💼","National Career Service","https://www.ncs.gov.in/"],
+
+["📊","CIBIL Score","https://www.cibil.com/"],
+
+["🔥","INDANE GAS","https://iocl.com/"],
+
+["🔥","HP GAS","https://myhpgas.in/"],
+
+["🔥","BHARAT GAS","https://www.bharatpetroleum.in/"],
+
+["♿","Unique Disability ID","https://www.swavlambancard.gov.in/"],
+
+["🚻","Swachh Bharat","https://swachhbharatmission.gov.in/"],
+
+["⭐","Fancy Mobile Number","https://www.sancharsaathi.gov.in/"]
 
 ];
 
 
-/* =========================
-CARD CREATOR
-========================= */
+/* =====================================================
+   FIXED CARD CREATOR
+   यही मुख्य बदलाव है
+===================================================== */
+
+/*
+   सिर्फ इन targets को Photo/ID Studio में भेजना है।
+   बाकी services openService() में जाएँगी।
+*/
+
+const studioModes = [
+
+"id",
+"photo",
+"background",
+"generate",
+"print",
+"a4"
+
+];
+
 
 function fill(id,data){
 
-const box=$(id);
+const box = $(id);
 
 if(!box)return;
 
-box.innerHTML=data.map(x=>{
+box.innerHTML = data.map(x => {
 
-const icon=x[0];
-const name=x[1];
-const target=x[2];
-const badge=x[3];
+let icon = x[0];
+let name = x[1];
+let target = x[2];
 
-let action;
+let action = "";
 
-if(/^https?:\/\//i.test(target)){
 
-action=
+/* OFFICIAL PORTAL */
+
+if(
+target &&
+/^https?:\/\//i.test(target)
+){
+
+action =
 `onclick="openPortal(
 '${esc(name)}',
 '${esc(icon)}',
 '${esc(target)}'
 )"`;
 
-}else{
+}
 
-action=
+
+/* PHOTO / ID STUDIO */
+
+else if(
+studioModes.includes(target)
+){
+
+action =
 `onclick="openStudio(
 '${esc(target)}'
 )"`;
 
 }
 
+
+/* OTHER SERVICES */
+
+else{
+
+action =
+`onclick="openService(
+'${esc(name)}',
+'${esc(icon)}',
+'${esc(target || "")}'
+)"`;
+
+}
+
+
 return `
 
 <div
 class="card"
 data-name="${esc(name.toLowerCase())}"
-${action}>
+${action}
+>
 
 <div class="icon">
 ${icon}
@@ -1638,13 +1217,19 @@ ${icon}
 ${esc(name)}
 </b>
 
-${badge?
+${
+x[3]
+?
 `<i class="tag ${
-badge==="HOT"||badge==="AI"
-?"hot":""
+x[3]=="HOT" || x[3]=="AI"
+? "hot"
+: ""
 }">
-${badge}
-</i>`:""}
+${esc(x[3])}
+</i>`
+:
+""
+}
 
 </div>
 
@@ -1655,84 +1240,48 @@ ${badge}
 }
 
 
-/* CREATE */
+/* CREATE ALL CARDS */
 
 fill("#toolGrid",tools);
+
 fill("#serviceGrid",services);
+
 fill("#creativeGrid",creative);
+
 fill("#pdfGrid",pdf);
+
 fill("#cardGrid",cards);
 
-
-/* PORTALS */
-
-$("#portalSide").innerHTML=
-
-portals.slice(0,12).map(x=>`
-
-<div class="portal">
-
-<span>
-${x[0]} ${esc(x[1])}
-</span>
-
-<a
-href="${esc(x[2])}"
-target="_blank"
-rel="noopener noreferrer">
-
-Visit
-
-</a>
-
-</div>
-
-`).join("");
+fill("#portalGrid",portals);
 
 
 /* =========================
-SEARCH
+   NAVIGATION
 ========================= */
 
-function filterCards(){
+function toggleMenu(){
 
-const q=
-$("#search").value.toLowerCase();
-
-document
-.querySelectorAll(".card")
-.forEach(c=>{
-
-c.style.display=
-(!q ||
-c.innerText
-.toLowerCase()
-.includes(q))
-?""
-:"none";
-
-});
+$("#navlinks").classList.toggle("mobile");
 
 }
 
 
 /* =========================
-TOAST
+   TOAST
 ========================= */
 
 function toast(t){
 
-const e=$("#toast");
+let e=$("#toast");
 
 e.textContent=t;
 
 e.style.cssText=
-"display:block;position:fixed;right:15px;bottom:15px;background:#09265f;color:#fff;padding:12px 15px;border-radius:9px;z-index:300;box-shadow:0 5px 20px #0003";
+"display:block;position:fixed;right:15px;bottom:15px;background:#26313d;color:#fff;padding:12px 15px;border-radius:10px;z-index:300;box-shadow:0 5px 20px #0003";
 
 clearTimeout(window.t);
 
-window.t=
-setTimeout(
+window.t=setTimeout(
 ()=>e.style.display="none",
 2600
 );
@@ -1741,25 +1290,23 @@ setTimeout(
 
 
 /* =========================
-MODAL
+   MODAL
 ========================= */
 
 function closeModal(){
 
-$("#modal")
-.classList
-.remove("show");
+$("#modal").classList.remove("show");
 
 }
 
 
 /* =========================
-PORTAL
+   OFFICIAL PORTAL
 ========================= */
 
 function openPortal(name,icon,url){
 
-$("#modalBody").innerHTML=`
+$("#modalBody").innerHTML = `
 
 <div class="service-module">
 
@@ -1772,7 +1319,16 @@ ${esc(name)}
 </h2>
 
 <p>
-आप ${esc(name)} के official portal पर जाने वाले हैं।
+
+आप
+<b>${esc(name)}</b>
+के official portal पर जाने वाले हैं।
+
+<br><br>
+
+Official website को नए tab में खोलने के लिए
+नीचे button दबाएँ।
+
 </p>
 
 <div class="service-actions">
@@ -1799,7 +1355,8 @@ onclick="closeModal()">
 
 <div class="service-note">
 
-⚠️ सरकारी सेवा के लिए केवल official website
+⚠️ महत्वपूर्ण:
+सरकारी सेवा के लिए केवल official website
 पर ही अपनी व्यक्तिगत जानकारी दर्ज करें।
 
 </div>
@@ -1808,85 +1365,367 @@ onclick="closeModal()">
 
 `;
 
-$("#modal")
-.classList
-.add("show");
+$("#modal").classList.add("show");
 
 }
 
 
-/* =========================
-LOCAL SERVICE
-========================= */
+/* =====================================================
+   FIXED LOCAL SERVICE
+===================================================== */
 
-function openService(name,icon){
+function openService(name,icon,target){
 
-$("#modalBody").innerHTML=`
+let title = name;
+
+let description = "";
+
+let extra = "";
+
+
+switch(target){
+
+
+case "jobs":
+
+description =
+"यहाँ Latest Jobs और रोजगार से संबंधित जानकारी उपलब्ध होगी।";
+
+extra = `
+
+<button
+class="btn blue"
+onclick="toast('Jobs module जल्द तैयार होगा')">
+
+🔎 Jobs देखें
+
+</button>
+
+`;
+
+break;
+
+
+case "mocktest":
+
+description =
+"यहाँ Online Mock Test और Practice Questions उपलब्ध होंगे।";
+
+extra = `
+
+<button
+class="btn green"
+onclick="toast('Mock Test module जल्द तैयार होगा')">
+
+📝 Mock Test शुरू करें
+
+</button>
+
+`;
+
+break;
+
+
+case "resume":
+
+description =
+"Professional Resume और CV बनाने के लिए यह module इस्तेमाल करें।";
+
+extra = `
+
+<button
+class="btn blue"
+onclick="toast('Resume Maker module जल्द तैयार होगा')">
+
+📄 Resume बनाएं
+
+</button>
+
+`;
+
+break;
+
+
+case "biodata":
+
+description =
+"Marriage Biodata बनाने और तैयार करने के लिए यह module है।";
+
+extra = `
+
+<button
+class="btn pink"
+onclick="toast('Biodata Maker module जल्द तैयार होगा')">
+
+💌 Biodata बनाएं
+
+</button>
+
+`;
+
+break;
+
+
+case "poster":
+
+description =
+"Poster और promotional design बनाने के लिए यह Creative Studio है।";
+
+extra = `
+
+<button
+class="btn purple"
+onclick="toast('Poster Maker module जल्द तैयार होगा')">
+
+🎨 Poster बनाएं
+
+</button>
+
+`;
+
+break;
+
+
+case "application":
+
+description =
+"Application और document format तैयार करने के लिए यह module है।";
+
+break;
+
+
+case "promotion":
+
+description =
+"Shop Promotion और advertising design बनाने के लिए यह module है।";
+
+break;
+
+
+case "album":
+
+description =
+"Documents और photos को व्यवस्थित करने के लिए Document Album है।";
+
+break;
+
+
+case "documents":
+
+description =
+"Documents को manage और organize करने के लिए यह module है।";
+
+break;
+
+
+case "servicepost":
+
+description =
+"नई digital service जोड़ने और service information तैयार करने का module।";
+
+break;
+
+
+/* PDF */
+
+case "jpgpdf":
+
+description =
+"JPG images को PDF document में convert करने का tool।";
+
+extra = `
+
+<button
+class="btn blue"
+onclick="toast('JPG To PDF tool जल्द तैयार होगा')">
+
+🖼️ JPG To PDF
+
+</button>
+
+`;
+
+break;
+
+
+case "pdfjpg":
+
+description =
+"PDF pages को JPG images में convert करने का tool।";
+
+break;
+
+
+case "pngpdf":
+
+description =
+"PNG images को PDF में convert करने का tool।";
+
+break;
+
+
+case "pngjpg":
+
+description =
+"PNG image को JPG format में convert करने का tool।";
+
+break;
+
+
+case "deletepdf":
+
+description =
+"PDF से selected pages हटाने के लिए यह tool है।";
+
+break;
+
+
+case "mergepdf":
+
+description =
+"Multiple PDF files को एक PDF में merge करने का tool।";
+
+break;
+
+
+/* CARD PRINTING */
+
+case "card":
+
+description =
+"Card printing service के लिए यह module उपलब्ध है।";
+
+break;
+
+
+default:
+
+description =
+"यह Bharat Digital Centre की digital service है।";
+
+}
+
+
+$("#modalBody").innerHTML = `
 
 <div class="service-module">
 
 <div class="service-icon">
+
 ${icon}
+
 </div>
 
 <h2>
-${esc(name)}
+
+${esc(title)}
+
 </h2>
 
 <p>
-यह ${esc(name)} module Bharat Digital Centre में उपलब्ध है।
+
+${esc(description)}
+
 </p>
 
 <div class="service-note">
 
-🛠️ यह module अभी local service screen के रूप में तैयार है।
+🛠️
+
+<b>Bharat Digital Centre</b>
+
+<br><br>
+
+यह service module अलग screen/interface
+में काम करने के लिए तैयार किया गया है।
 
 </div>
 
+<div class="service-actions">
+
+${extra}
+
 <button
-class="btn blue"
+class="btn dark"
 onclick="closeModal()">
 
-✓ Close
+✕ Close
 
 </button>
 
 </div>
 
+</div>
+
 `;
 
-$("#modal")
-.classList
-.add("show");
+$("#modal").classList.add("show");
 
 }
 
 
 /* =========================
-STUDIO
+   SEARCH
+========================= */
+
+function filterCards(){
+
+let q=$("#search").value.toLowerCase();
+
+document.querySelectorAll(".card").forEach(c=>{
+
+c.style.display =
+(
+!q ||
+c.innerText.toLowerCase().includes(q)
+)
+?
+""
+:
+"none";
+
+});
+
+}
+
+
+/* =========================
+   STUDIO
 ========================= */
 
 function openStudio(mode){
 
-$("#modalBody").innerHTML=
+$("#modalBody").innerHTML =
 
 mode==="generate"
-?generateUI()
-:mode==="print"||mode==="a4"
-?printUI()
-:editorUI();
+?
+generateUI()
 
-$("#modal")
-.classList
-.add("show");
+:
+mode==="print"
+?
+printUI()
+
+:
+mode==="a4"
+?
+printUI()
+
+:
+editorUI();
+
+
+$("#modal").classList.add("show");
+
 
 setTimeout(()=>{
 
 draw();
+
 updateInfo();
 
 if(
-mode==="a4"||
+mode==="a4" ||
 mode==="print"
 ){
 
@@ -1900,7 +1739,7 @@ renderSheet();
 
 
 /* =========================
-EDITOR
+   EDITOR UI
 ========================= */
 
 function editorUI(){
@@ -1912,9 +1751,7 @@ return `
 </h2>
 
 <p style="color:#667085">
-
 Upload • Crop • Resize • Background • AI Auto • Front/Back • Print
-
 </p>
 
 <div class="studio">
@@ -1924,7 +1761,6 @@ Upload • Crop • Resize • Background • AI Auto • Front/Back • Print
 <h3>
 Photo & Card Settings
 </h3>
-
 
 <div class="control">
 
@@ -1939,7 +1775,6 @@ onchange="loadImg(this,'front')">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -1952,7 +1787,6 @@ accept="image/*"
 onchange="loadImg(this,'back')">
 
 </div>
-
 
 <div class="control">
 
@@ -1996,7 +1830,6 @@ Custom
 
 </div>
 
-
 <div class="row">
 
 <div class="control">
@@ -2012,7 +1845,6 @@ value="85.6"
 oninput="draw();updateInfo()">
 
 </div>
-
 
 <div class="control">
 
@@ -2030,7 +1862,6 @@ oninput="draw();updateInfo()">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -2046,7 +1877,6 @@ value="100"
 oninput="draw()">
 
 </div>
-
 
 <div class="row">
 
@@ -2066,7 +1896,6 @@ oninput="draw()">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -2084,7 +1913,6 @@ oninput="draw()">
 </div>
 
 </div>
-
 
 <div class="row">
 
@@ -2104,7 +1932,6 @@ oninput="draw()">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -2122,7 +1949,6 @@ oninput="draw()">
 </div>
 
 </div>
-
 
 <div class="row">
 
@@ -2143,7 +1969,6 @@ onclick="rotImg(90)">
 </button>
 
 </div>
-
 
 <div class="control">
 
@@ -2177,7 +2002,6 @@ onclick="setBG('gray')">
 
 </div>
 
-
 <div class="actions">
 
 <button
@@ -2206,14 +2030,12 @@ onclick="removeBG()">
 
 </div>
 
-
 <div
-class="info2"
+class="info"
 id="info">
 </div>
 
 </div>
-
 
 <div>
 
@@ -2239,7 +2061,6 @@ Back
 
 </div>
 
-
 <div class="preview">
 
 <canvas
@@ -2249,7 +2070,6 @@ height="540">
 </canvas>
 
 </div>
-
 
 <div
 class="actions"
@@ -2299,7 +2119,7 @@ onclick="reset()">
 
 
 /* =========================
-GENERATE UI
+   GENERATE UI
 ========================= */
 
 function generateUI(){
@@ -2317,6 +2137,7 @@ style="margin-top:12px">
 <p>
 
 अपने उपयोग के लिए prompt लिखें।
+
 Official ID के लिए AI-generated face की जगह
 वास्तविक ग्राहक की photo इस्तेमाल करें।
 
@@ -2330,11 +2151,10 @@ AI Prompt
 
 <textarea
 id="prompt"
-placeholder="Professional studio portrait, formal shirt, clean white background..."
+placeholder="Professional studio portrait, formal shirt, clean white background, passport-photo style..."
 ></textarea>
 
 </div>
-
 
 <div class="control">
 
@@ -2348,7 +2168,6 @@ value="${esc(API_URL)}"
 placeholder="Your deployed AI backend endpoint">
 
 </div>
-
 
 <div class="actions">
 
@@ -2378,7 +2197,6 @@ onclick="openStudio('photo')">
 
 </div>
 
-
 <div
 id="genResult"
 class="airesult"
@@ -2396,7 +2214,7 @@ AI result यहाँ दिखाई देगा।
 
 
 /* =========================
-PRINT UI
+   PRINT UI
 ========================= */
 
 function printUI(){
@@ -2427,7 +2245,6 @@ oninput="renderSheet()">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -2449,7 +2266,6 @@ Passport Photo
 </select>
 
 </div>
-
 
 <div class="control">
 
@@ -2473,7 +2289,6 @@ No — front only
 
 </div>
 
-
 <button
 class="btn green"
 onclick="printSheet()">
@@ -2482,8 +2297,7 @@ onclick="printSheet()">
 
 </button>
 
-
-<p class="info2">
+<p class="info">
 
 Printer में A4 और scale 100% रखें।
 
@@ -2491,13 +2305,11 @@ Printer में A4 और scale 100% रखें।
 
 </div>
 
-
 <div
 class="preview"
 style="display:block">
 
-<div id="sheetPreview">
-</div>
+<div id="sheetPreview"></div>
 
 </div>
 
@@ -2509,30 +2321,28 @@ style="display:block">
 
 
 /* =========================
-IMAGE LOAD
+   IMAGE LOADING
 ========================= */
 
 function loadImg(inp,which){
 
-const f=inp.files[0];
+let f=inp.files[0];
 
 if(!f)return;
 
 if(!f.type.startsWith("image/")){
 
-return toast(
-"कृपया image file चुनें"
-);
+toast("कृपया image file चुनें");
+
+return;
 
 }
 
-const r=
-new FileReader();
+let r=new FileReader();
 
 r.onload=e=>{
 
-const im=
-new Image();
+let im=new Image();
 
 im.onload=()=>{
 
@@ -2547,8 +2357,10 @@ draw();
 
 toast(
 which==="front"
-?"Front photo loaded"
-:"Back photo loaded"
+?
+"Front photo loaded"
+:
+"Back photo loaded"
 );
 
 };
@@ -2563,7 +2375,7 @@ r.readAsDataURL(f);
 
 
 /* =========================
-FRONT BACK
+   SWITCH FRONT / BACK
 ========================= */
 
 function switchSide(s){
@@ -2586,7 +2398,7 @@ draw();
 
 
 /* =========================
-BACKGROUND
+   BACKGROUND
 ========================= */
 
 function setBG(v){
@@ -2595,15 +2407,13 @@ bg=v;
 
 draw();
 
-toast(
-"Background changed"
-);
+toast("Background changed");
 
 }
 
 
 /* =========================
-ROTATE
+   ROTATE
 ========================= */
 
 function rotImg(d){
@@ -2616,28 +2426,29 @@ draw();
 
 
 /* =========================
-CURRENT IMAGE
+   CURRENT IMAGE
 ========================= */
 
 function img(){
 
 return side==="front"
-?front
-:back;
+?
+front
+:
+back;
 
 }
 
 
 /* =========================
-SIZE
+   SIZE
 ========================= */
 
 function size(){
 
-const v=
-$("#size")?.value||"id";
+let v=$("#size")?.value||"id";
 
-const m={
+let m={
 
 id:[85.6,54],
 
@@ -2652,8 +2463,11 @@ passport:[35,45],
 small:[25,35],
 
 custom:[
+
 +($("#cw")?.value)||85.6,
+
 +($("#ch")?.value)||54
+
 ]
 
 };
@@ -2664,41 +2478,36 @@ return m[v]||m.id;
 
 
 /* =========================
-INFO
+   INFO
 ========================= */
 
 function updateInfo(){
 
-const s=size();
+let s=size();
 
 if($("#info"))
 
 $("#info").innerHTML=
-`${s[0]} × ${s[1]} mm • ${
-Math.round(s[0]/25.4*300)
-} × ${
-Math.round(s[1]/25.4*300)
-} px @ 300 DPI`;
+`${s[0]} × ${s[1]} mm • ${Math.round(s[0]/25.4*300)} × ${Math.round(s[1]/25.4*300)} px @ 300 DPI`;
 
 }
 
 
 /* =========================
-DRAW
+   MAIN CANVAS DRAW
 ========================= */
 
 function draw(){
 
-const c=$("#editor");
+let c=$("#editor");
 
 if(!c)return;
 
-const s=size();
+let s=size();
 
-const w=856;
+let w=856;
 
-const h=
-Math.round(
+let h=Math.round(
 w*s[1]/s[0]
 );
 
@@ -2706,17 +2515,13 @@ c.width=w;
 
 c.height=h;
 
-const ctx=
-c.getContext("2d");
+let ctx=c.getContext("2d");
 
 ctx.fillStyle={
 
 white:"#fff",
-
 sky:"#55afe8",
-
 red:"#df4b4b",
-
 gray:"#e8e8e8"
 
 }[bg];
@@ -2728,14 +2533,13 @@ w,
 h
 );
 
-const im=img();
+let im=img();
 
 if(!im){
 
 ctx.fillStyle="#98a2b3";
 
-ctx.font=
-"bold 22px Arial";
+ctx.font="bold 22px Arial";
 
 ctx.textAlign="center";
 
@@ -2749,25 +2553,23 @@ return;
 
 }
 
-const z=
+let z=
 (+$("#zoom")?.value||100)/100;
 
-const sc=
+let sc=
 Math.max(
 w/im.width,
 h/im.height
 )*z;
 
-const nw=
-im.width*sc;
+let nw=im.width*sc;
 
-const nh=
-im.height*sc;
+let nh=im.height*sc;
 
-const px=
+let px=
 (+$("#x")?.value||0)*w/200;
 
-const py=
+let py=
 (+$("#y")?.value||0)*h/200;
 
 ctx.save();
@@ -2782,11 +2584,7 @@ rot*Math.PI/180
 );
 
 ctx.filter=
-`brightness(${
-+$("#bright")?.value||100
-}%) contrast(${
-+$("#contrast")?.value||100
-}%)`;
+`brightness(${+$("#bright")?.value||100}%) contrast(${+$("#contrast")?.value||100}%)`;
 
 ctx.drawImage(
 im,
@@ -2802,15 +2600,13 @@ ctx.restore();
 
 
 /* =========================
-AI AUTO
+   AI AUTO
 ========================= */
 
 function aiAuto(){
 
 if(!img())
-return toast(
-"पहले photo upload करें"
-);
+return toast("पहले photo upload करें");
 
 $("#bright").value=106;
 
@@ -2828,15 +2624,13 @@ toast(
 
 
 /* =========================
-AUTO CROP
+   AUTO CROP
 ========================= */
 
 function autoCrop(){
 
 if(!img())
-return toast(
-"पहले photo upload करें"
-);
+return toast("पहले photo upload करें");
 
 $("#x").value=0;
 
@@ -2854,7 +2648,7 @@ toast(
 
 
 /* =========================
-RESET
+   RESET
 ========================= */
 
 function reset(){
@@ -2863,16 +2657,23 @@ rot=0;
 
 bg="white";
 
-["zoom","x","y","bright","contrast"]
+[
+"zoom",
+"x",
+"y",
+"bright",
+"contrast"
+]
 .forEach(
 (id,i)=>{
 
 if($("#"+id))
 
 $("#"+id).value=
-[100,0,0,100,100][i];
+[100,0,0,100,100][i]
 
-});
+}
+);
 
 draw();
 
@@ -2880,17 +2681,16 @@ draw();
 
 
 /* =========================
-DOWNLOAD
+   DOWNLOAD
 ========================= */
 
 function download(){
 
-const c=$("#editor");
+let c=$("#editor");
 
 if(!c)return;
 
-const a=
-document.createElement("a");
+let a=document.createElement("a");
 
 a.download=
 "bharat-digital-centre.jpg";
@@ -2911,7 +2711,7 @@ toast(
 
 
 /* =========================
-ONE CLICK PRINT
+   ONE CLICK PRINT
 ========================= */
 
 function oneClickPrint(){
@@ -2929,7 +2729,11 @@ setTimeout(()=>{
 if($("#both"))
 
 $("#both").value=
-back?"yes":"no";
+back
+?
+"yes"
+:
+"no";
 
 renderSheet();
 
@@ -2939,16 +2743,16 @@ renderSheet();
 
 
 /* =========================
-A4 SHEET
+   A4 SHEET
 ========================= */
 
 function renderSheet(){
 
-const h=$("#sheetPreview");
+let h=$("#sheetPreview");
 
 if(!h)return;
 
-const n=
+let n=
 Math.min(
 30,
 Math.max(
@@ -2957,48 +2761,58 @@ Math.max(
 )
 );
 
-const type=
+let type=
 $("#layout")?.value||"id";
 
-const s=
+let s=
 type==="passport"
-?[35,45]
-:size();
+?
+[35,45]
+:
+size();
 
-const w=
+let w=
 type==="passport"
-?300
-:430;
+?
+300
+:
+430;
 
-const hh=
+let hh=
 Math.round(
 w*s[1]/s[0]
 );
 
-const page=
+let page=
 document.createElement("div");
 
 page.className="sheet";
 
-const g=
+let g=
 document.createElement("div");
 
 g.className="sheetgrid";
 
 g.style.gridTemplateColumns=
 type==="passport"
-?"repeat(4,35mm)"
-:"repeat(2,1fr)";
+?
+"repeat(4,35mm)"
+:
+"repeat(2,1fr)";
 
 
-for(let i=0;i<n;i++){
+for(
+let i=0;
+i<n;
+i++
+){
 
-const it=
+let it=
 document.createElement("div");
 
 it.className="item";
 
-const c=
+let c=
 document.createElement("canvas");
 
 c.width=w;
@@ -3026,16 +2840,17 @@ h.appendChild(page);
 
 if(
 $("#both")?.value==="yes"
-&&back
+&&
+back
 ){
 
-const p=
+let p=
 document.createElement("div");
 
 p.className=
 "sheet pagebreak";
 
-const g2=
+let g2=
 document.createElement("div");
 
 g2.className="sheetgrid";
@@ -3044,14 +2859,18 @@ g2.style.gridTemplateColumns=
 g.style.gridTemplateColumns;
 
 
-for(let i=0;i<n;i++){
+for(
+let i=0;
+i<n;
+i++
+){
 
-const it=
+let it=
 document.createElement("div");
 
 it.className="item";
 
-const c=
+let c=
 document.createElement("canvas");
 
 c.width=w;
@@ -3080,22 +2899,19 @@ h.appendChild(p);
 
 
 /* =========================
-PRINT CANVAS
+   DRAW PRINT CANVAS
 ========================= */
 
 function drawCanvas(c,im,s){
 
-const ctx=
+let ctx=
 c.getContext("2d");
 
 ctx.fillStyle={
 
 white:"#fff",
-
 sky:"#55afe8",
-
 red:"#df4b4b",
-
 gray:"#e8e8e8"
 
 }[bg];
@@ -3109,16 +2925,16 @@ c.height
 
 if(!im)return;
 
-const sc=
+let sc=
 Math.max(
 c.width/im.width,
 c.height/im.height
 );
 
-const nw=
+let nw=
 im.width*sc;
 
-const nh=
+let nh=
 im.height*sc;
 
 ctx.drawImage(
@@ -3133,7 +2949,7 @@ nh
 
 
 /* =========================
-PRINT
+   PRINT
 ========================= */
 
 function printSheet(){
@@ -3152,12 +2968,12 @@ setTimeout(
 
 
 /* =========================
-SAVE API
+   SAVE AI API
 ========================= */
 
 function saveAPI(){
 
-const v=
+let v=
 $("#api")?.value.trim();
 
 if(v){
@@ -3177,15 +2993,12 @@ toast(
 
 
 /* =========================
-AI API
+   AI API CALL
 ========================= */
 
-async function apiCall(
-action,
-payload
-){
+async function apiCall(action,payload){
 
-const url=
+let url=
 $("#api")?.value.trim()
 ||
 localStorage.getItem("BDC_AI_API")
@@ -3198,27 +3011,23 @@ throw Error(
 "AI API Endpoint सेट करें"
 );
 
-const r=
+let r=
 await fetch(
 url,
 {
 method:"POST",
-
 headers:{
 "Content-Type":
 "application/json"
 },
-
-body:
-JSON.stringify({
+body:JSON.stringify({
 action,
 ...payload
 })
-
 }
 );
 
-const d=
+let d=
 await r.json();
 
 if(!r.ok)
@@ -3234,19 +3043,19 @@ return d;
 
 
 /* =========================
-GENERATE AI
+   GENERATE AI
 ========================= */
 
 async function generateAI(){
 
-const box=$("#genResult");
+let box=$("#genResult");
 
 box.innerHTML=
 "⏳ AI image generating...";
 
 try{
 
-const d=
+let d=
 await apiCall(
 "generate",
 {
@@ -3270,9 +3079,7 @@ src="data:image/png;base64,${d.image}">
 
 <button
 class="btn green"
-onclick="useAIImage(
-'data:image/png;base64,${d.image}'
-)">
+onclick="useAIImage('data:image/png;base64,${d.image}')">
 
 📸 Use In Photo Studio
 
@@ -3295,13 +3102,12 @@ toast(
 
 
 /* =========================
-USE AI IMAGE
+   USE AI IMAGE
 ========================= */
 
 function useAIImage(url){
 
-const im=
-new Image();
+let im=new Image();
 
 im.onload=()=>{
 
@@ -3325,7 +3131,7 @@ im.src=url;
 
 
 /* =========================
-REMOVE BACKGROUND
+   REMOVE BACKGROUND
 ========================= */
 
 async function removeBG(){
@@ -3336,7 +3142,7 @@ return toast(
 "पहले photo upload करें"
 );
 
-const c=
+let c=
 document.createElement("canvas");
 
 c.width=
@@ -3352,18 +3158,22 @@ img(),
 0
 );
 
+let data=
+c.toDataURL(
+"image/png"
+);
+
 toast(
 "AI background removal चल रहा है..."
 );
 
 try{
 
-const d=
+let d=
 await apiCall(
 "remove-background",
 {
-image:
-c.toDataURL("image/png")
+image:data
 }
 );
 
@@ -3373,7 +3183,7 @@ throw Error(
 "AI result नहीं मिला"
 );
 
-const im=
+let im=
 new Image();
 
 im.onload=()=>{
@@ -3409,15 +3219,16 @@ e.message
 
 
 /* =========================
-MODAL CLICK
+   MODAL OUTSIDE CLICK
 ========================= */
 
-$("#modal")
-.addEventListener(
+$("#modal").addEventListener(
 "click",
 e=>{
 
-if(e.target.id==="modal")
+if(
+e.target.id==="modal"
+)
 
 closeModal();
 
@@ -3426,7 +3237,7 @@ closeModal();
 
 
 /* =========================
-ESC
+   ESC KEY
 ========================= */
 
 document.addEventListener(
@@ -3436,6 +3247,23 @@ e=>{
 if(e.key==="Escape")
 
 closeModal();
+
+}
+);
+
+
+/* =========================
+   ERROR PROTECTION
+========================= */
+
+window.addEventListener(
+"error",
+function(e){
+
+console.error(
+"Bharat Digital Centre Error:",
+e.message
+);
 
 }
 );
