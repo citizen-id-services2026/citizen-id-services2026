@@ -6,8 +6,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bharat Digital Centre | Digital Services</title>
 
-   
-
 <style>
 
 :root{
@@ -160,7 +158,10 @@ border-color:#3d7cf5
 border-color:#d42aa6
 }
 
-/* सभी options अलग-अलग card में */
+/* =========================
+   SERVICE CARDS
+========================= */
+
 .grid{
 display:grid;
 grid-template-columns:repeat(5,1fr);
@@ -181,13 +182,14 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-transition:.15s;
+transition:.18s;
 user-select:none
 }
 
 .card:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 22px #1d293918
+transform:translateY(-3px);
+box-shadow:0 8px 22px #1d293918;
+border-color:#ffb69e
 }
 
 .card:active{
@@ -220,6 +222,10 @@ font-style:normal
 background:#f04469
 }
 
+/* =========================
+   ABOUT
+========================= */
+
 .about{
 background:#fff;
 border:1px solid #edf0f4;
@@ -244,12 +250,20 @@ text-align:center;
 font-weight:800
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 footer{
 background:#25313d;
 color:#fff;
 text-align:center;
 padding:25px
 }
+
+/* =========================
+   MODAL
+========================= */
 
 .modal{
 position:fixed;
@@ -276,17 +290,32 @@ padding:17px;
 position:relative
 }
 
+/* =========================
+   COLORFUL CLOSE BUTTON
+========================= */
+
 .close{
 position:absolute;
 right:10px;
 top:9px;
 border:0;
-background:#f1f5f9;
-border-radius:9px;
+background:linear-gradient(135deg,#ff4d6d,#ef233c);
+color:#fff;
+border-radius:10px;
 font-size:22px;
 padding:3px 10px;
-cursor:pointer
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,.15);
+transition:.18s
 }
+
+.close:hover{
+transform:scale(1.05)
+}
+
+/* =========================
+   STUDIO
+========================= */
 
 .studio{
 display:grid;
@@ -339,6 +368,10 @@ grid-template-columns:1fr 1fr;
 gap:8px
 }
 
+/* =========================
+   COLORFUL PROFESSIONAL BUTTONS
+========================= */
+
 .actions{
 display:flex;
 gap:7px;
@@ -347,29 +380,77 @@ flex-wrap:wrap
 
 .btn{
 border:0;
-border-radius:9px;
-padding:10px 12px;
-background:var(--orange);
+border-radius:12px;
+padding:11px 15px;
 color:#fff;
 font-weight:800;
-cursor:pointer
+cursor:pointer;
+transition:all .18s ease;
+box-shadow:0 4px 12px rgba(0,0,0,.12);
+background:linear-gradient(135deg,#ff6333,#ff9d3d)
 }
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 7px 18px rgba(0,0,0,.18)
+}
+
+.btn:active{
+transform:scale(.97)
+}
+
+/* Blue */
 
 .btn.blue{
-background:var(--blue)
+background:linear-gradient(135deg,#3478f6,#6257e8)
 }
+
+/* Green */
 
 .btn.green{
-background:var(--green)
+background:linear-gradient(135deg,#16a66b,#21c58a)
 }
+
+/* Dark */
 
 .btn.dark{
-background:#26313d
+background:linear-gradient(135deg,#26313d,#475467)
 }
 
+/* Gray */
+
 .btn.gray{
-background:#667085
+background:linear-gradient(135deg,#667085,#98a2b3)
 }
+
+/* Purple */
+
+.btn.purple{
+background:linear-gradient(135deg,#8b5cf6,#d946ef)
+}
+
+/* Pink */
+
+.btn.pink{
+background:linear-gradient(135deg,#ec4899,#f43f5e)
+}
+
+/* Sky */
+
+.btn.sky{
+background:linear-gradient(135deg,#0ea5e9,#38bdf8)
+}
+
+/* Yellow */
+
+.btn.yellow{
+background:linear-gradient(135deg,#f59e0b,#f97316);
+color:#fff
+}
+
+/* =========================
+   PREVIEW
+========================= */
 
 .preview{
 background:#e8edf3;
@@ -388,6 +469,10 @@ background:#fff;
 box-shadow:0 5px 20px #0002
 }
 
+/* =========================
+   TABS
+========================= */
+
 .tabs{
 display:flex;
 gap:7px;
@@ -396,18 +481,28 @@ margin-bottom:8px
 
 .tab{
 border:1px solid #dce2ea;
-background:#fff;
-border-radius:9px;
+background:linear-gradient(135deg,#ffffff,#f1f5f9);
+border-radius:10px;
 padding:8px 13px;
 font-weight:800;
-cursor:pointer
+cursor:pointer;
+transition:.18s
+}
+
+.tab:hover{
+transform:translateY(-1px)
 }
 
 .tab.active{
-background:#ffefe9;
-border-color:#ffb69e;
-color:#d9461f
+background:linear-gradient(135deg,#ff6333,#ff9d3d);
+border-color:#ff6333;
+color:#fff;
+box-shadow:0 4px 12px rgba(255,99,51,.25)
 }
+
+/* =========================
+   BACKGROUND COLORS
+========================= */
 
 .bggrid{
 display:grid;
@@ -419,7 +514,12 @@ gap:5px
 height:29px;
 border:1px solid #ccd5df;
 border-radius:7px;
-cursor:pointer
+cursor:pointer;
+transition:.15s
+}
+
+.bg:hover{
+transform:scale(1.05)
 }
 
 .white{
@@ -437,6 +537,10 @@ background:#df4b4b
 .gray{
 background:#e8e8e8
 }
+
+/* =========================
+   INFO
+========================= */
 
 .info{
 font-size:12px;
@@ -459,6 +563,10 @@ max-width:100%;
 max-height:430px;
 border-radius:10px
 }
+
+/* =========================
+   A4 SHEET
+========================= */
 
 .sheet{
 background:#fff;
@@ -486,7 +594,9 @@ width:100%
 display:none
 }
 
-/* SERVICE MODULE */
+/* =========================
+   SERVICE MODULE
+========================= */
 
 .service-module{
 text-align:center;
@@ -507,16 +617,27 @@ color:#667085;
 line-height:1.6
 }
 
+/* =========================
+   SERVICE LINK
+========================= */
+
 .service-link{
 display:inline-block;
 text-decoration:none;
 border:0;
-border-radius:10px;
-padding:12px 18px;
-background:#21b573;
+border-radius:12px;
+padding:12px 19px;
+background:linear-gradient(135deg,#21b573,#10b981);
 color:#fff;
 font-weight:800;
-margin-top:8px
+margin-top:8px;
+box-shadow:0 4px 12px rgba(0,0,0,.12);
+transition:.18s
+}
+
+.service-link:hover{
+transform:translateY(-2px);
+box-shadow:0 7px 18px rgba(0,0,0,.18)
 }
 
 .service-note{
@@ -528,8 +649,6 @@ margin-top:15px;
 font-size:13px
 }
 
-/* SERVICE ACTION BUTTONS */
-
 .service-actions{
 display:flex;
 justify-content:center;
@@ -538,7 +657,9 @@ flex-wrap:wrap;
 margin-top:15px
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:1000px){
 
@@ -617,7 +738,16 @@ font-size:31px
 font-size:13px
 }
 
+.btn{
+padding:10px 12px;
+font-size:13px
 }
+
+}
+
+/* =========================
+   PRINT
+========================= */
 
 @media print{
 
@@ -676,7 +806,6 @@ BD
 
 </header>
 
-
 <main id="home">
 
 <section class="hero">
@@ -691,7 +820,6 @@ AI Photo • Passport Photo • ID Card Edit/Crop • Background • Front & Bac
 
 </section>
 
-
 <div class="search">
 
 <input
@@ -701,7 +829,6 @@ placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
 >
 
 </div>
-
 
 <section id="tools" class="section orange">
 
@@ -713,7 +840,6 @@ placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
 
 </section>
 
-
 <section id="services" class="section">
 
 <h2>
@@ -723,7 +849,6 @@ placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
 <div class="grid" id="serviceGrid"></div>
 
 </section>
-
 
 <section class="section pink">
 
@@ -735,7 +860,6 @@ placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
 
 </section>
 
-
 <section class="section blue">
 
 <h2>
@@ -745,7 +869,6 @@ placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
 <div class="grid" id="pdfGrid"></div>
 
 </section>
-
 
 <section class="section green">
 
@@ -757,7 +880,6 @@ placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
 
 </section>
 
-
 <section class="section green">
 
 <h2>
@@ -767,7 +889,6 @@ placeholder="🔎 Search services, ID card, photo, Aadhaar, PDF..."
 <div class="grid" id="portalGrid"></div>
 
 </section>
-
 
 <section class="about">
 
@@ -783,7 +904,6 @@ AI tools और A4 print layout को एक जगह उपलब्ध क�
 </p>
 
 </section>
-
 
 <section class="about">
 
@@ -813,7 +933,6 @@ Why Choose Bharat Digital Centre?
 
 </section>
 
-
 <section id="faq" class="about">
 
 <h2>
@@ -833,7 +952,6 @@ FAQ
 
 </details>
 
-
 <details>
 
 <summary>
@@ -846,7 +964,6 @@ Passport और Custom size उपलब्ध हैं।
 </p>
 
 </details>
-
 
 <details>
 
@@ -865,16 +982,13 @@ Real AI functions काम करेंगे।
 
 </main>
 
-
 <footer>
 
 © 2026 Bharat Digital Centre • Photo & ID Print Studio
 
 </footer>
 
-
 <div id="toast"></div>
-
 
 <div class="modal" id="modal">
 
@@ -890,9 +1004,7 @@ Real AI functions काम करेंगे।
 
 </div>
 
-
 <div id="printArea"></div>
-
 
 <script>
 
@@ -911,7 +1023,6 @@ let rot = 0;
 
 const $ = s => document.querySelector(s);
 
-
 /* =========================
    SECURITY
 ========================= */
@@ -924,7 +1035,6 @@ String(s).replace(/[&<>"']/g,m=>({
 '"':"&quot;",
 "'":"&#039;"
 }[m]));
-
 
 /* =========================
    ID / PHOTO TOOLS
@@ -945,7 +1055,6 @@ const tools = [
 
 ];
 
-
 /* =========================
    SERVICES
 ========================= */
@@ -962,7 +1071,6 @@ const services = [
 
 ];
 
-
 /* =========================
    CREATIVE
 ========================= */
@@ -978,7 +1086,6 @@ const creative = [
 
 ];
 
-
 /* =========================
    PDF TOOLS
 ========================= */
@@ -993,7 +1100,6 @@ const pdf = [
 ["📑","Merge PDF","mergepdf"]
 
 ];
-
 
 /* =========================
    CARD PRINTING
@@ -1011,7 +1117,6 @@ const cards = [
 
 ];
 
-
 /* =========================
    OFFICIAL PORTALS
 ========================= */
@@ -1019,93 +1124,50 @@ const cards = [
 const portals = [
 
 ["🏛️","Census Of India","https://censusindia.gov.in/"],
-
 ["🪪","Aadhaar Service","https://uidai.gov.in/"],
-
 ["💳","Aadhaar Information","https://uidai.gov.in/"],
-
 ["📄","PAN Card Service","https://www.incometax.gov.in/"],
-
 ["🗳️","Voter ID Correction","https://voters.eci.gov.in/"],
-
 ["💳","Ayushman Bharat","https://beneficiary.nha.gov.in/"],
-
 ["🚘","Driving Licence","https://parivahan.gov.in/"],
-
 ["📋","RC Service","https://parivahan.gov.in/"],
-
 ["🚗","Vehicle Service","https://parivahan.gov.in/"],
-
 ["🏥","Birth & Death Certificate","https://crsorgi.gov.in/"],
-
 ["💰","E-Challan","https://echallan.parivahan.gov.in/"],
-
 ["💼","E-Shram Card","https://eshram.gov.in/"],
-
 ["🪪","APAAR ID Card","https://apaar.education.gov.in/"],
-
 ["💳","ABHA Card","https://abha.abdm.gov.in/"],
-
 ["🌾","PM Kisan","https://pmkisan.gov.in/"],
-
 ["🏠","PMAY-Gramin","https://pmayg.nic.in/"],
-
 ["🏠","PMAY-Urban/Sehri","https://pmay-urban.gov.in/"],
-
 ["🏢","EPFO","https://www.epfindia.gov.in/"],
-
 ["❤️","LIC Service","https://licindia.in/"],
-
 ["🌐","E-NAM","https://www.enam.gov.in/"],
-
 ["💵","PM SVANidhi","https://pmsvanidhi.mohua.gov.in/"],
-
 ["🌱","Soil Health Card","https://soilhealth.dac.gov.in/"],
-
 ["👨‍🌾","MKisan Portal","https://mkisan.gov.in/"],
-
 ["☀️","PM Surya Ghar","https://pmsuryaghar.gov.in/"],
-
 ["🏭","Udyam Aadhaar/MSME","https://udyamregistration.gov.in/"],
-
 ["🎓","National Scholarship","https://scholarships.gov.in/"],
-
 ["📱","Lost/Found Mobile","https://sancharsaathi.gov.in/"],
-
 ["🚆","Railway Service","https://www.indianrail.gov.in/"],
-
 ["🛂","Passport Seva","https://www.passportindia.gov.in/"],
-
 ["🧾","GST Verification","https://www.gst.gov.in/"],
-
 ["🛣️","Checkpost Tax/Road Tax","https://parivahan.gov.in/"],
-
 ["🚗","Vahan Green Seva","https://parivahan.gov.in/"],
-
 ["🛵","PUC Service","https://puc.parivahan.gov.in/"],
-
 ["📱","National Payments","https://www.npci.org.in/"],
-
 ["👨‍👩‍👧","National Consumer","https://consumerhelpline.gov.in/"],
-
 ["💼","National Career Service","https://www.ncs.gov.in/"],
-
 ["📊","CIBIL Score","https://www.cibil.com/"],
-
 ["🔥","INDANE GAS","https://iocl.com/"],
-
 ["🔥","HP GAS","https://myhpgas.in/"],
-
 ["🔥","BHARAT GAS","https://www.bharatpetroleum.in/"],
-
 ["♿","Unique Disability ID","https://www.swavlambancard.gov.in/"],
-
 ["🚻","Swachh Bharat","https://swachhbharatmission.gov.in/"],
-
 ["⭐","Fancy Mobile Number","https://www.sancharsaathi.gov.in/"]
 
 ];
-
 
 /* =========================
    CARD CREATOR
@@ -1166,7 +1228,6 @@ ${x[3]}
 
 }
 
-
 /* CREATE ALL CARDS */
 
 fill("#toolGrid",tools);
@@ -1175,7 +1236,6 @@ fill("#creativeGrid",creative);
 fill("#pdfGrid",pdf);
 fill("#cardGrid",cards);
 fill("#portalGrid",portals);
-
 
 /* =========================
    NAVIGATION
@@ -1186,7 +1246,6 @@ function toggleMenu(){
 $("#navlinks").classList.toggle("mobile");
 
 }
-
 
 /* =========================
    TOAST
@@ -1210,7 +1269,6 @@ window.t=setTimeout(
 
 }
 
-
 /* =========================
    MODAL
 ========================= */
@@ -1220,7 +1278,6 @@ function closeModal(){
 $("#modal").classList.remove("show");
 
 }
-
 
 /* =========================
    PORTAL OPEN
@@ -1279,7 +1336,6 @@ $("#modal").classList.add("show");
 
 }
 
-
 /* =========================
    LOCAL SERVICE
 ========================= */
@@ -1325,7 +1381,6 @@ $("#modal").classList.add("show");
 
 }
 
-
 /* =========================
    SEARCH
 ========================= */
@@ -1344,7 +1399,6 @@ c.style.display =
 });
 
 }
-
 
 /* =========================
    STUDIO
@@ -1375,7 +1429,6 @@ renderSheet();
 },30);
 
 }
-
 
 /* =========================
    EDITOR UI
@@ -1414,7 +1467,6 @@ onchange="loadImg(this,'front')">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -1427,7 +1479,6 @@ accept="image/*"
 onchange="loadImg(this,'back')">
 
 </div>
-
 
 <div class="control">
 
@@ -1471,7 +1522,6 @@ Custom
 
 </div>
 
-
 <div class="row">
 
 <div class="control">
@@ -1487,7 +1537,6 @@ value="85.6"
 oninput="draw();updateInfo()">
 
 </div>
-
 
 <div class="control">
 
@@ -1505,7 +1554,6 @@ oninput="draw();updateInfo()">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -1521,7 +1569,6 @@ value="100"
 oninput="draw()">
 
 </div>
-
 
 <div class="row">
 
@@ -1541,7 +1588,6 @@ oninput="draw()">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -1559,7 +1605,6 @@ oninput="draw()">
 </div>
 
 </div>
-
 
 <div class="row">
 
@@ -1579,7 +1624,6 @@ oninput="draw()">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -1598,7 +1642,6 @@ oninput="draw()">
 
 </div>
 
-
 <div class="row">
 
 <button
@@ -1610,7 +1653,7 @@ onclick="rotImg(-90)">
 </button>
 
 <button
-class="btn blue"
+class="btn purple"
 onclick="rotImg(90)">
 
 ↷ Rotate
@@ -1618,7 +1661,6 @@ onclick="rotImg(90)">
 </button>
 
 </div>
-
 
 <div class="control">
 
@@ -1652,7 +1694,6 @@ onclick="setBG('gray')">
 
 </div>
 
-
 <div class="actions">
 
 <button
@@ -1664,7 +1705,7 @@ onclick="aiAuto()">
 </button>
 
 <button
-class="btn"
+class="btn yellow"
 onclick="autoCrop()">
 
 ✂️ Auto Crop
@@ -1681,13 +1722,11 @@ onclick="removeBG()">
 
 </div>
 
-
 <div class="info"
 id="info">
 </div>
 
 </div>
-
 
 <div>
 
@@ -1713,7 +1752,6 @@ Back
 
 </div>
 
-
 <div class="preview">
 
 <canvas
@@ -1723,7 +1761,6 @@ height="540">
 </canvas>
 
 </div>
-
 
 <div
 class="actions"
@@ -1746,7 +1783,7 @@ onclick="oneClickPrint()">
 </button>
 
 <button
-class="btn blue"
+class="btn sky"
 onclick="openStudio('a4')">
 
 📄 A4 Layout
@@ -1770,7 +1807,6 @@ onclick="reset()">
 `;
 
 }
-
 
 /* =========================
    GENERATE UI
@@ -1807,7 +1843,6 @@ placeholder="Professional studio portrait, formal shirt, clean white background,
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -1821,7 +1856,6 @@ placeholder="Your deployed AI backend endpoint">
 
 </div>
 
-
 <div class="actions">
 
 <button
@@ -1832,7 +1866,6 @@ onclick="saveAPI()">
 
 </button>
 
-
 <button
 class="btn green"
 onclick="generateAI()">
@@ -1840,7 +1873,6 @@ onclick="generateAI()">
 ✨ Generate With AI
 
 </button>
-
 
 <button
 class="btn blue"
@@ -1851,7 +1883,6 @@ onclick="openStudio('photo')">
 </button>
 
 </div>
-
 
 <div
 id="genResult"
@@ -1867,7 +1898,6 @@ AI result यहाँ दिखाई देगा।
 `;
 
 }
-
 
 /* =========================
    PRINT UI
@@ -1901,7 +1931,6 @@ oninput="renderSheet()">
 
 </div>
 
-
 <div class="control">
 
 <label>
@@ -1923,7 +1952,6 @@ Passport Photo
 </select>
 
 </div>
-
 
 <div class="control">
 
@@ -1947,7 +1975,6 @@ No — front only
 
 </div>
 
-
 <button
 class="btn green"
 onclick="printSheet()">
@@ -1956,7 +1983,6 @@ onclick="printSheet()">
 
 </button>
 
-
 <p class="info">
 
 Printer में A4 और scale 100% रखें।
@@ -1964,7 +1990,6 @@ Printer में A4 और scale 100% रखें।
 </p>
 
 </div>
-
 
 <div
 class="preview"
@@ -1979,7 +2004,6 @@ style="display:block">
 `;
 
 }
-
 
 /* =========================
    IMAGE LOADING
@@ -2032,7 +2056,6 @@ r.readAsDataURL(f);
 
 }
 
-
 /* =========================
    SWITCH FRONT / BACK
 ========================= */
@@ -2055,7 +2078,6 @@ draw();
 
 }
 
-
 /* =========================
    BACKGROUND
 ========================= */
@@ -2070,7 +2092,6 @@ toast("Background changed");
 
 }
 
-
 /* =========================
    ROTATE
 ========================= */
@@ -2083,7 +2104,6 @@ draw();
 
 }
 
-
 /* =========================
    CURRENT IMAGE
 ========================= */
@@ -2095,7 +2115,6 @@ return side==="front"
 :back;
 
 }
-
 
 /* =========================
    SIZE
@@ -2130,7 +2149,6 @@ return m[v]||m.id;
 
 }
 
-
 /* =========================
    INFO
 ========================= */
@@ -2145,7 +2163,6 @@ $("#info").innerHTML=
 `${s[0]} × ${s[1]} mm • ${Math.round(s[0]/25.4*300)} × ${Math.round(s[1]/25.4*300)} px @ 300 DPI`;
 
 }
-
 
 /* =========================
    MAIN CANVAS DRAW
@@ -2214,23 +2231,14 @@ w/im.width,
 h/im.height
 )*z;
 
-
-/*
- IMPORTANT FIX:
- पहले यहाँ im.widthsc था,
- अब सही multiplication है।
-*/
-
 let nw=im.width * sc;
 let nh=im.height * sc;
-
 
 let px=
 (+$("#x")?.value||0)*w/200;
 
 let py=
 (+$("#y")?.value||0)*h/200;
-
 
 ctx.save();
 
@@ -2258,7 +2266,6 @@ ctx.restore();
 
 }
 
-
 /* =========================
    AI AUTO
 ========================= */
@@ -2281,7 +2288,6 @@ toast(
 );
 
 }
-
 
 /* =========================
    AUTO CROP
@@ -2306,7 +2312,6 @@ toast(
 
 }
 
-
 /* =========================
    RESET
 ========================= */
@@ -2329,7 +2334,6 @@ $("#"+id).value=
 draw();
 
 }
-
 
 /* =========================
    DOWNLOAD
@@ -2358,7 +2362,6 @@ toast("Photo downloaded");
 
 }
 
-
 /* =========================
    ONE CLICK PRINT
 ========================= */
@@ -2381,7 +2384,6 @@ renderSheet();
 },80);
 
 }
-
 
 /* =========================
    A4 SHEET
@@ -2434,7 +2436,6 @@ type==="passport"
 ?"repeat(4,35mm)"
 :"repeat(2,1fr)";
 
-
 for(let i=0;i<n;i++){
 
 let it=
@@ -2467,7 +2468,6 @@ h.innerHTML="";
 
 h.appendChild(page);
 
-
 if(
 $("#both")?.value==="yes"
 &&back
@@ -2485,7 +2485,6 @@ g2.className="sheetgrid";
 
 g2.style.gridTemplateColumns=
 g.style.gridTemplateColumns;
-
 
 for(let i=0;i<n;i++){
 
@@ -2521,7 +2520,6 @@ h.appendChild(p);
 
 }
 
-
 /* =========================
    DRAW PRINT CANVAS
 ========================= */
@@ -2554,13 +2552,6 @@ c.width/im.width,
 c.height/im.height
 );
 
-
-/*
- IMPORTANT FIX:
- यहाँ भी width/height multiplication
- सही कर दी गई है।
-*/
-
 let nw=im.width * sc;
 let nh=im.height * sc;
 
@@ -2573,7 +2564,6 @@ nh
 );
 
 }
-
 
 /* =========================
    PRINT
@@ -2592,7 +2582,6 @@ setTimeout(
 );
 
 }
-
 
 /* =========================
    SAVE AI API
@@ -2616,7 +2605,6 @@ toast(
 }
 
 }
-
 
 /* =========================
    AI API CALL
@@ -2664,7 +2652,6 @@ d.error||
 return d;
 
 }
-
 
 /* =========================
    GENERATE AI
@@ -2719,7 +2706,6 @@ toast(
 
 }
 
-
 /* =========================
    USE AI IMAGE
 ========================= */
@@ -2747,7 +2733,6 @@ toast(
 im.src=url;
 
 }
-
 
 /* =========================
    REMOVE BACKGROUND
@@ -2829,7 +2814,6 @@ e.message
 
 }
 
-
 /* =========================
    MODAL OUTSIDE CLICK
 ========================= */
@@ -2844,7 +2828,6 @@ closeModal();
 }
 );
 
-
 /* =========================
    ESC KEY
 ========================= */
@@ -2858,7 +2841,6 @@ closeModal();
 
 }
 );
-
 
 /* =========================
    ERROR PROTECTION
