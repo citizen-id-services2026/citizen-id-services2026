@@ -3,232 +3,765 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Bharat Digital Centre | Digital Services</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
---blue:#0756b8;--dark:#062b57;--cyan:#08a1d8;
---green:#138a45;--orange:#ff8a00;--purple:#673ab7;
---red:#d62828;--bg:#f4f7fb;--white:#fff;
---text:#172033;--muted:#687386;--border:#dce4ee
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
 }
+
+:root{
+--blue:#0756b8;
+--dark:#062b57;
+--cyan:#08a1d8;
+--green:#138a45;
+--orange:#ff8a00;
+--purple:#673ab7;
+--red:#d62828;
+--bg:#f4f7fb;
+--white:#fff;
+--text:#172033;
+--muted:#687386;
+--border:#dce4ee
+}
+
 html{scroll-behavior:smooth}
+
 body{
 font-family:Arial,"Noto Sans Devanagari",sans-serif;
-background:var(--bg);color:var(--text);line-height:1.5
+background:var(--bg);
+color:var(--text);
+line-height:1.5
 }
+
 button{
-border:0;border-radius:9px;padding:10px 15px;background:var(--blue);
-color:#fff;cursor:pointer;font-weight:bold;margin:4px
+border:0;
+border-radius:9px;
+padding:10px 15px;
+background:var(--blue);
+color:#fff;
+cursor:pointer;
+font-weight:bold;
+margin:4px
 }
+
 button:hover{opacity:.88}
+
 input,select,textarea{
-width:100%;padding:11px;border:1px solid #ccd5e0;
-border-radius:9px;margin:6px 0;font-size:14px
+width:100%;
+padding:11px;
+border:1px solid #ccd5e0;
+border-radius:9px;
+margin:6px 0;
+font-size:14px
 }
+
 textarea{min-height:90px}
+
 .topbar{
-background:var(--dark);color:#fff;padding:7px 5%;
-display:flex;justify-content:space-between;font-size:13px
+background:var(--dark);
+color:#fff;
+padding:7px 5%;
+display:flex;
+justify-content:space-between;
+font-size:13px
 }
+
 header{
 background:linear-gradient(110deg,#063b82,#0877d9 55%,#0aa6c8);
-color:#fff;position:sticky;top:0;z-index:1000;
+color:#fff;
+position:sticky;
+top:0;
+z-index:1000;
 box-shadow:0 3px 15px #0003
 }
+
 .header-inner{
-width:min(1250px,94%);margin:auto;min-height:78px;
-display:flex;align-items:center;justify-content:space-between;gap:20px
+width:min(1250px,94%);
+margin:auto;
+min-height:78px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px
 }
-.brand{display:flex;align-items:center;gap:14px}
+
+.brand{
+display:flex;
+align-items:center;
+gap:14px
+}
+
 .brand-logo{
-width:54px;height:54px;border-radius:12px;background:#fff;color:var(--blue);
-display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:bold
+width:54px;
+height:54px;
+border-radius:12px;
+background:#fff;
+color:var(--blue);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+font-weight:bold
 }
-.brand h1{font-size:22px}.brand small{color:#e4f3ff}
-.nav{display:flex;gap:5px;flex-wrap:wrap}
-.nav button{background:transparent;border:1px solid #ffffff40}
-.mobile-menu{display:none}
+
+.brand h1{font-size:22px}
+.brand small{color:#e4f3ff}
+
+.nav{
+display:flex;
+gap:5px;
+flex-wrap:wrap
+}
+
+.nav button{
+background:transparent;
+border:1px solid #ffffff40
+}
+
+.mobile-menu{
+display:none
+}
+
 .tricolor{
 height:5px;
 background:linear-gradient(to right,#ff7a00 0 33%,white 33% 66%,#138a45 66%)
 }
+
 .hero{
 background:
 radial-gradient(circle at 10% 20%,#ffffff40,transparent 25%),
 linear-gradient(120deg,#0756b8,#08a1d8);
-color:#fff;padding:50px 5%
+color:#fff;
+padding:50px 5%
 }
+
 .hero-inner{
-width:min(1250px,94%);margin:auto;display:grid;
-grid-template-columns:1.5fr 1fr;gap:40px;align-items:center
+width:min(1250px,94%);
+margin:auto;
+display:grid;
+grid-template-columns:1.5fr 1fr;
+gap:40px;
+align-items:center
 }
-.hero h2{font-size:40px}.hero p{font-size:17px;margin-top:10px}
+
+.hero h2{font-size:40px}
+
+.hero p{
+font-size:17px;
+margin-top:10px
+}
+
 .hero-card{
-background:#ffffff20;border:1px solid #ffffff4d;border-radius:20px;
-padding:25px;backdrop-filter:blur(10px)
+background:#ffffff20;
+border:1px solid #ffffff4d;
+border-radius:20px;
+padding:25px;
+backdrop-filter:blur(10px)
 }
-.hero-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}
-.hero-list div{background:#ffffff20;padding:10px;border-radius:10px}
-.container{width:min(1250px,94%);margin:30px auto}
+
+.hero-list{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:15px
+}
+
+.hero-list div{
+background:#ffffff20;
+padding:10px;
+border-radius:10px
+}
+
+.container{
+width:min(1250px,94%);
+margin:30px auto
+}
+
 .notice{
-background:linear-gradient(90deg,#fff5e8,#fff);border-left:5px solid var(--orange);
-padding:15px;margin:25px 0;border-radius:8px
+background:linear-gradient(90deg,#fff5e8,#fff);
+border-left:5px solid var(--orange);
+padding:15px;
+margin:25px 0;
+border-radius:8px
 }
+
 .search-box{
-background:#fff;padding:18px;border-radius:15px;
-box-shadow:0 5px 18px #0000000d;margin-bottom:25px
+background:#fff;
+padding:18px;
+border-radius:15px;
+box-shadow:0 5px 18px #0000000d;
+margin-bottom:25px
 }
-.section-title{margin:35px 0 15px}.section-title h2{font-size:27px}
+
+.section-title{
+margin:35px 0 15px
+}
+
+.section-title h2{font-size:27px}
+
 .section-title p{color:var(--muted)}
+
 .category{
-background:#fff;border-radius:18px;margin-bottom:25px;overflow:hidden;
-box-shadow:0 5px 20px #0000000d;border-top:5px solid var(--blue)
+background:#fff;
+border-radius:18px;
+margin-bottom:25px;
+overflow:hidden;
+box-shadow:0 5px 20px #0000000d;
+border-top:5px solid var(--blue)
 }
+
 .category.green-border{border-color:var(--green)}
 .category.orange-border{border-color:var(--orange)}
 .category.purple-border{border-color:var(--purple)}
 .category.red-border{border-color:var(--red)}
-.category-head{padding:18px 20px;background:linear-gradient(90deg,#f7fbff,#fff)}
+
+.category-head{
+padding:18px 20px;
+background:linear-gradient(90deg,#f7fbff,#fff)
+}
+
 .service-grid{
-padding:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px
+padding:18px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px
 }
+
 .service{
-border:1px solid var(--border);border-radius:14px;padding:17px;
-background:#fff;transition:.2s
+border:1px solid var(--border);
+border-radius:14px;
+padding:17px;
+background:#fff;
+transition:.2s
 }
-.service:hover{transform:translateY(-3px);box-shadow:0 8px 22px #00000018}
-.service-icon{font-size:30px}.service h4{margin:5px 0}
-.service p{color:var(--muted);font-size:12px;min-height:38px}
-.service button{width:100%;margin:10px 0 0}
-.quick{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+
+.service:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 22px #00000018
+}
+
+.service-icon{font-size:30px}
+
+.service h4{margin:5px 0}
+
+.service p{
+color:var(--muted);
+font-size:12px;
+min-height:38px
+}
+
+.service button{
+width:100%;
+margin:10px 0 0
+}
+
+.quick{
+display:grid;
+grid-template-columns:repeat(8,1fr);
+gap:10px
+}
+
 .quick-item{
-background:#fff;border:1px solid var(--border);border-radius:12px;
-padding:14px 7px;text-align:center;cursor:pointer
+background:#fff;
+border:1px solid var(--border);
+border-radius:12px;
+padding:14px 7px;
+text-align:center;
+cursor:pointer
 }
-.quick-item:hover{transform:translateY(-2px);box-shadow:0 5px 15px #0002}
-.quick-item div{font-size:26px}.quick-item span{font-size:12px;font-weight:bold}
-.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+.quick-item:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 15px #0002
+}
+
+.quick-item div{font-size:26px}
+
+.quick-item span{
+font-size:12px;
+font-weight:bold
+}
+
+.tool-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px
+}
+
 .tool{
-background:#fff;border:1px solid var(--border);border-radius:15px;
-padding:20px;box-shadow:0 4px 14px #0000000a
+background:#fff;
+border:1px solid var(--border);
+border-radius:15px;
+padding:20px;
+box-shadow:0 4px 14px #0000000a
 }
-.tool h3{margin-bottom:10px}.tool p{color:var(--muted);font-size:13px}
+
+.tool h3{margin-bottom:10px}
+
+.tool p{
+color:var(--muted);
+font-size:13px
+}
+
 .result{
-background:#edf6ff;border-radius:9px;padding:10px;margin-top:10px;
-font-weight:bold;word-break:break-word
+background:#edf6ff;
+border-radius:9px;
+padding:10px;
+margin-top:10px;
+font-weight:bold;
+word-break:break-word
 }
+
 .result a{color:var(--blue)}
+
 .preview{
-margin-top:15px;padding:20px;border:1px dashed #9aa7b8;
-border-radius:12px;text-align:center;background:#fafcff
+margin-top:15px;
+padding:20px;
+border:1px dashed #9aa7b8;
+border-radius:12px;
+text-align:center;
+background:#fafcff
 }
+
 .full{grid-column:1/-1}
 
-/* ID CARD */
-.id-maker,.passport-maker{grid-column:1/-1}
-.id-controls,.photo-controls{
-display:grid;grid-template-columns:repeat(3,1fr);gap:12px
+.green{background:var(--green)}
+.orange{background:var(--orange)}
+.red{background:var(--red)}
+.purple{background:var(--purple)}
+.dark{background:#172033}
+
+/* ================= AADHAAR TOOL ================= */
+
+.aadhaar-maker{
+grid-column:1/-1
 }
-.id-preview-area{
-margin-top:20px;background:#eef4fa;padding:25px;border-radius:15px
+
+.aadhaar-controls{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px
 }
-.id-card{
-width:85.6mm;height:54mm;max-width:100%;margin:15px auto;
-padding:5mm;border:1px solid #0756b8;border-radius:3mm;
-background:linear-gradient(135deg,#fff,#eaf4ff);
-position:relative;overflow:hidden;font-family:Arial,sans-serif
+
+.aadhaar-preview-area{
+margin-top:20px;
+background:#eef4fa;
+padding:25px;
+border-radius:15px
 }
-.id-card-header{
-font-size:11pt;font-weight:bold;color:#0756b8;
-border-bottom:1px solid #0756b8;padding-bottom:2mm
+
+.aadhaar-card{
+width:85.6mm;
+height:54mm;
+max-width:100%;
+margin:15px auto;
+padding:4mm;
+border:1px solid #777;
+border-radius:2mm;
+background:#fff;
+position:relative;
+overflow:hidden;
+font-family:Arial,sans-serif
 }
-.id-card-photo{
-width:22mm;height:27mm;object-fit:cover;float:left;
-margin:4mm 4mm 2mm 0;border:1px solid #777
+
+.aadhaar-front-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #d62828;
+padding-bottom:2mm
 }
-.id-card-name{font-size:12pt;font-weight:bold;margin-top:5mm}
-.id-card-info{font-size:8pt;margin-top:1mm}
-.id-back{text-align:left;font-size:8pt}
-.id-back h3{text-align:center;color:#0756b8;margin-bottom:5mm}
-.print-settings{
-background:#f8fbff;border:1px solid var(--border);
-border-radius:12px;padding:18px;margin-top:15px
+
+.aadhaar-logo{
+font-size:18px;
+font-weight:bold;
+color:#d62828
 }
-.radio-row{display:flex;flex-wrap:wrap;gap:8px}
+
+.aadhaar-gov{
+font-size:8px;
+text-align:right;
+line-height:1.2
+}
+
+.aadhaar-content{
+display:flex;
+gap:3mm;
+margin-top:3mm
+}
+
+.aadhaar-photo{
+width:20mm;
+height:24mm;
+object-fit:cover;
+border:1px solid #777;
+display:none
+}
+
+.aadhaar-details{
+font-size:8px;
+line-height:1.7
+}
+
+.aadhaar-number{
+font-size:11px;
+font-weight:bold;
+letter-spacing:1px;
+margin-top:2mm
+}
+
+.aadhaar-bottom{
+position:absolute;
+left:4mm;
+right:4mm;
+bottom:2.5mm;
+border-top:1px solid #ddd;
+padding-top:1mm;
+font-size:7px;
+text-align:center
+}
+
+.aadhaar-back{
+font-size:8px
+}
+
+.aadhaar-back-header{
+text-align:center;
+font-size:11px;
+font-weight:bold;
+color:#d62828;
+border-bottom:1px solid #ddd;
+padding-bottom:2mm;
+margin-bottom:3mm
+}
+
+.aadhaar-qr{
+width:18mm;
+height:18mm;
+border:1px dashed #777;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:7px;
+float:right;
+margin-left:3mm;
+background:#fafafa
+}
+
+.radio-row{
+display:flex;
+flex-wrap:wrap;
+gap:8px
+}
+
 .radio-row label{
-background:#fff;border:1px solid var(--border);
-padding:8px 10px;border-radius:8px;font-size:13px;cursor:pointer
+background:#fff;
+border:1px solid var(--border);
+padding:8px 10px;
+border-radius:8px;
+font-size:13px;
+cursor:pointer
 }
-.radio-row input{width:auto;margin-right:5px}
+
+.radio-row input{
+width:auto;
+margin-right:5px
+}
+
+.print-settings{
+background:#f8fbff;
+border:1px solid var(--border);
+border-radius:12px;
+padding:18px;
+margin-top:15px
+}
+
+/* ID CARD */
+
+.id-maker,.passport-maker{
+grid-column:1/-1
+}
+
+.id-controls,.photo-controls{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px
+}
+
+.id-preview-area{
+margin-top:20px;
+background:#eef4fa;
+padding:25px;
+border-radius:15px
+}
+
+.id-card{
+width:85.6mm;
+height:54mm;
+max-width:100%;
+margin:15px auto;
+padding:5mm;
+border:1px solid #0756b8;
+border-radius:3mm;
+background:linear-gradient(135deg,#fff,#eaf4ff);
+position:relative;
+overflow:hidden;
+font-family:Arial,sans-serif
+}
+
+.id-card-header{
+font-size:11pt;
+font-weight:bold;
+color:#0756b8;
+border-bottom:1px solid #0756b8;
+padding-bottom:2mm
+}
+
+.id-card-photo{
+width:22mm;
+height:27mm;
+object-fit:cover;
+float:left;
+margin:4mm 4mm 2mm 0;
+border:1px solid #777
+}
+
+.id-card-name{
+font-size:12pt;
+font-weight:bold;
+margin-top:5mm
+}
+
+.id-card-info{
+font-size:8pt;
+margin-top:1mm
+}
+
+.id-back{
+text-align:left;
+font-size:8pt
+}
+
+.id-back h3{
+text-align:center;
+color:#0756b8;
+margin-bottom:5mm
+}
 
 /* PASSPORT */
+
 .photo-preview{
-background:#eef4fa;padding:25px;border-radius:15px;text-align:center
+background:#eef4fa;
+padding:25px;
+border-radius:15px;
+text-align:center
 }
+
 .passport-photo{
-object-fit:cover;background:#fff;border:1px solid #555;display:inline-block
+object-fit:cover;
+background:#fff;
+border:1px solid #555;
+display:inline-block
 }
+
 .photo-sheet-preview{
-margin-top:20px;background:#fff;border:1px dashed #999;
-padding:20px;overflow:auto
+margin-top:20px;
+background:#fff;
+border:1px dashed #999;
+padding:20px;
+overflow:auto
 }
+
 .a4-sheet{
-width:210mm;min-height:297mm;margin:auto;background:#fff;
-padding:10mm;display:grid;align-content:start;gap:4mm
+width:210mm;
+min-height:297mm;
+margin:auto;
+background:#fff;
+padding:10mm;
+display:grid;
+align-content:start;
+gap:4mm
 }
-.photo-item{background:#fff;overflow:hidden}
-.photo-item img{display:block;width:100%;height:100%;object-fit:cover}
-.cut-line{outline:1px dashed #777;outline-offset:1mm}
+
+.photo-item{
+background:#fff;
+overflow:hidden
+}
+
+.photo-item img{
+display:block;
+width:100%;
+height:100%;
+object-fit:cover
+}
+
+.cut-line{
+outline:1px dashed #777;
+outline-offset:1mm
+}
 
 /* STATS */
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+
+.stat-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px
+}
+
 .stat{
-background:#fff;border-radius:15px;padding:20px;text-align:center;
+background:#fff;
+border-radius:15px;
+padding:20px;
+text-align:center;
 border:1px solid var(--border)
 }
-.stat strong{display:block;font-size:30px;color:var(--blue)}
-.stat span{color:var(--muted);font-size:13px}
+
+.stat strong{
+display:block;
+font-size:30px;
+color:var(--blue)
+}
+
+.stat span{
+color:var(--muted);
+font-size:13px
+}
 
 /* FOOTER */
-footer{margin-top:50px;color:#fff;background:#092b52}
+
+footer{
+margin-top:50px;
+color:#fff;
+background:#092b52
+}
+
 .footer-main{
-width:min(1250px,94%);margin:auto;padding:35px 0;
-display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px
+width:min(1250px,94%);
+margin:auto;
+padding:35px 0;
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:30px
 }
+
 .footer-main a{
-color:#d9edff;text-decoration:none;display:block;padding:4px 0;font-size:13px
+color:#d9edff;
+text-decoration:none;
+display:block;
+padding:4px 0;
+font-size:13px
 }
-.footer-bottom{text-align:center;padding:15px;border-top:1px solid #ffffff26;font-size:13px}
-.green{background:var(--green)}.orange{background:var(--orange)}
-.red{background:var(--red)}.purple{background:var(--purple)}
-.dark{background:#172033}
+
+.footer-bottom{
+text-align:center;
+padding:15px;
+border-top:1px solid #ffffff26;
+font-size:13px
+}
+
 .whatsapp{
-position:fixed;right:18px;bottom:18px;width:58px;height:58px;
-border-radius:50%;background:#25d366;color:#fff;
-display:flex;align-items:center;justify-content:center;font-size:28px;
-text-decoration:none;box-shadow:0 5px 20px #0004;z-index:2000
+position:fixed;
+right:18px;
+bottom:18px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:#25d366;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+box-shadow:0 5px 20px #0004;
+z-index:2000
 }
 
 @media(max-width:1000px){
-.service-grid{grid-template-columns:repeat(3,1fr)}
-.quick{grid-template-columns:repeat(4,1fr)}
-.hero-inner{grid-template-columns:1fr}
-.tool-grid{grid-template-columns:repeat(2,1fr)}
-.footer-main{grid-template-columns:1fr 1fr}
-.stat-grid{grid-template-columns:repeat(2,1fr)}
+
+.service-grid{
+grid-template-columns:repeat(3,1fr)
 }
+
+.quick{
+grid-template-columns:repeat(4,1fr)
+}
+
+.hero-inner{
+grid-template-columns:1fr
+}
+
+.tool-grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.footer-main{
+grid-template-columns:1fr 1fr
+}
+
+.stat-grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.aadhaar-controls{
+grid-template-columns:1fr 1fr
+}
+
+}
+
 @media(max-width:650px){
-.topbar{display:none}.header-inner{min-height:70px}
-.nav{display:none}.mobile-menu{display:block;background:#ffffff22}
-.hero{padding:35px 4%}.hero h2{font-size:29px}
-.service-grid{grid-template-columns:1fr 1fr}
-.quick{grid-template-columns:repeat(4,1fr)}
-.tool-grid{grid-template-columns:1fr}
-.footer-main{grid-template-columns:1fr}
-.id-controls,.photo-controls{grid-template-columns:1fr}
-.stat-grid{grid-template-columns:1fr 1fr}
+
+.topbar{display:none}
+
+.header-inner{
+min-height:70px
+}
+
+.nav{display:none}
+
+.mobile-menu{
+display:block;
+background:#ffffff22
+}
+
+.hero{
+padding:35px 4%
+}
+
+.hero h2{
+font-size:29px
+}
+
+.service-grid{
+grid-template-columns:1fr 1fr
+}
+
+.quick{
+grid-template-columns:repeat(4,1fr)
+}
+
+.tool-grid{
+grid-template-columns:1fr
+}
+
+.footer-main{
+grid-template-columns:1fr
+}
+
+.id-controls,
+.photo-controls,
+.aadhaar-controls{
+grid-template-columns:1fr
+}
+
+.stat-grid{
+grid-template-columns:1fr 1fr
+}
+
 }
 </style>
 </head>
@@ -241,724 +774,2582 @@ text-decoration:none;box-shadow:0 5px 20px #0004;z-index:2000
 </div>
 
 <header>
+
 <div class="header-inner">
+
 <div class="brand">
+
 <div class="brand-logo">BD</div>
+
 <div>
 <h1>Bharat Digital Centre</h1>
 <small>Smart Citizen Digital Services</small>
 </div>
+
 </div>
 
 <div class="nav">
+
 <button onclick="scrollToId('services')">Services</button>
-<button onclick="scrollToId('tools')">Digital Tools</button>
-<button onclick="scrollToId('online-services')">Online Services</button>
-<button onclick="scrollToId('rajasthan-services')">Rajasthan</button>
-<button onclick="scrollToId('important')">Important Links</button>
+
+<button onclick="scrollToId('tools')">
+Digital Tools
+</button>
+
+<button onclick="scrollToId('online-services')">
+Online Services
+</button>
+
+<button onclick="scrollToId('rajasthan-services')">
+Rajasthan
+</button>
+
+<button onclick="scrollToId('important')">
+Important Links
+</button>
+
 </div>
 
-<button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+<button class="mobile-menu"
+onclick="toggleMobileMenu()">☰</button>
+
 </div>
+
 <div class="tricolor"></div>
+
 </header>
 
 <section class="hero">
+
 <div class="hero-inner">
+
 <div>
-<h2>आपकी डिजिटल सेवाएँ,<br>एक ही जगह</h2>
-<p>Government portals, ID Card, Passport Photo, PDF, Photo Tools और Digital Services तक आसान पहुँच।</p>
+
+<h2>
+आपकी डिजिटल सेवाएँ,<br>
+एक ही जगह
+</h2>
+
+<p>
+Government portals, Aadhaar, ID Card,
+Passport Photo, PDF, Photo Tools और
+Digital Services तक आसान पहुँच।
+</p>
+
 <div style="margin-top:20px">
-<button onclick="scrollToId('services')">🔎 सभी सेवाएँ</button>
-<button class="orange" onclick="scrollToId('tools')">🛠 Digital Tools</button>
+
+<button onclick="scrollToId('services')">
+🔎 सभी सेवाएँ
+</button>
+
+<button class="orange"
+onclick="scrollToId('tools')">
+🛠 Digital Tools
+</button>
+
 </div>
+
 </div>
 
 <div class="hero-card">
+
 <h3>⚡ Quick Access</h3>
+
 <div class="hero-list">
-<div>🪪 Aadhaar</div><div>💳 PAN</div>
-<div>🗳️ Voter</div><div>🌾 PM-Kisan</div>
-<div>👷 e-Shram</div><div>🛂 Passport</div>
+
+<div>🪪 Aadhaar</div>
+<div>💳 PAN</div>
+<div>🗳️ Voter</div>
+<div>🌾 PM-Kisan</div>
+<div>👷 e-Shram</div>
+<div>🛂 Passport</div>
+
 </div>
+
 </div>
+
 </div>
+
 </section>
 
 <div class="container">
 
 <div class="notice">
+
 <b>⚠️ महत्वपूर्ण:</b>
+
 यह Bharat Digital Centre एक स्वतंत्र digital service platform है।
 Government portals के buttons संबंधित external websites पर ले जाते हैं।
 यह Government Department या CSC की official website नहीं है।
+
 </div>
 
 <div class="search-box">
-<input id="serviceSearch" type="search"
+
+<input
+id="serviceSearch"
+type="search"
 placeholder="🔎 सेवा खोजें... जैसे Aadhaar, PAN, Voter, Passport"
 oninput="searchServices()">
+
 </div>
 
 <div class="stat-grid">
-<div class="stat"><strong>40+</strong><span>Digital Services</span></div>
-<div class="stat"><strong>25+</strong><span>Official Portals</span></div>
-<div class="stat"><strong>15+</strong><span>Digital Tools</span></div>
-<div class="stat"><strong>24×7</strong><span>Online Access</span></div>
+
+<div class="stat">
+<strong>50+</strong>
+<span>Digital Services</span>
 </div>
 
-<!-- SERVICES -->
+<div class="stat">
+<strong>30+</strong>
+<span>Official Portals</span>
+</div>
+
+<div class="stat">
+<strong>15+</strong>
+<span>Digital Tools</span>
+</div>
+
+<div class="stat">
+<strong>24×7</strong>
+<span>Online Access</span>
+</div>
+
+</div>
+
+<!-- ================= SERVICES ================= -->
+
 <div id="services">
+
 <div class="section-title">
+
 <h2>🏛️ नागरिक एवं डिजिटल सेवाएँ</h2>
-<p>महत्वपूर्ण सरकारी और public-service portals तक आसान पहुँच</p>
+
+<p>
+महत्वपूर्ण सरकारी और public-service portals तक आसान पहुँच
+</p>
+
 </div>
 
 <div class="category">
-<div class="category-head"><h3>🪪 पहचान एवं नागरिक सेवाएँ</h3></div>
+
+<div class="category-head">
+<h3>🪪 पहचान एवं नागरिक सेवाएँ</h3>
+</div>
+
 <div class="service-grid">
 
-<div class="service"><div class="service-icon">🪪</div><h4>Aadhaar / MyAadhaar</h4><p>Aadhaar online services</p><button onclick="openPortal('https://myaadhaar.uidai.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">🪪</div>
+<h4>Aadhaar / MyAadhaar</h4>
+<p>Aadhaar online services</p>
+<button onclick="openPortal('https://myaadhaar.uidai.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">💳</div><h4>PAN / Income Tax</h4><p>PAN और Income Tax services</p><button onclick="openPortal('https://www.incometax.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">💳</div>
+<h4>PAN / Income Tax</h4>
+<p>PAN और Income Tax services</p>
+<button onclick="openPortal('https://www.incometax.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">🗳️</div><h4>Voter Services</h4><p>Registration, correction और e-EPIC</p><button onclick="openPortal('https://voters.eci.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">🗳️</div>
+<h4>Voter Services</h4>
+<p>Registration, correction और e-EPIC</p>
+<button onclick="openPortal('https://voters.eci.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">🛂</div><h4>Passport Seva</h4><p>Passport application और appointment</p><button onclick="openPortal('https://www.passportindia.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">🛂</div>
+<h4>Passport Seva</h4>
+<p>Passport application और appointment</p>
+<button onclick="openPortal('https://www.passportindia.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">👷</div><h4>e-Shram</h4><p>Unorganised worker services</p><button onclick="openPortal('https://www.eshram.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">👷</div>
+<h4>e-Shram</h4>
+<p>Unorganised worker services</p>
+<button onclick="openPortal('https://www.eshram.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">🇮🇳</div><h4>India.gov.in</h4><p>National Government Portal</p><button onclick="openPortal('https://www.india.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">🇮🇳</div>
+<h4>India.gov.in</h4>
+<p>National Government Portal</p>
+<button onclick="openPortal('https://www.india.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">📱</div><h4>Digital India</h4><p>Digital India Programme</p><button onclick="openPortal('https://www.digitalindia.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">📱</div>
+<h4>Digital India</h4>
+<p>Digital India Programme</p>
+<button onclick="openPortal('https://www.digitalindia.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">💻</div><h4>CSC</h4><p>CSC related information</p><button onclick="openPortal('https://csc.gov.in/')">Open CSC ↗</button></div>
+<div class="service">
+<div class="service-icon">💻</div>
+<h4>CSC</h4>
+<p>CSC related information</p>
+<button onclick="openPortal('https://csc.gov.in/')">
+Open CSC ↗
+</button>
+</div>
 
 </div>
 </div>
 
 <div class="category green-border">
-<div class="category-head"><h3>🌾 किसान एवं सरकारी योजनाएँ</h3></div>
+
+<div class="category-head">
+<h3>🌾 किसान एवं सरकारी योजनाएँ</h3>
+</div>
+
 <div class="service-grid">
 
-<div class="service"><div class="service-icon">🌾</div><h4>PM-KISAN</h4><p>Farmer registration और status</p><button onclick="openPortal('https://pmkisan.gov.in/')">Open PM-KISAN ↗</button></div>
+<div class="service">
+<div class="service-icon">🌾</div>
+<h4>PM-KISAN</h4>
+<p>Farmer registration और status</p>
+<button onclick="openPortal('https://pmkisan.gov.in/')">
+Open PM-KISAN ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">🏛️</div><h4>myScheme</h4><p>Government schemes खोजें</p><button onclick="openPortal('https://www.myscheme.gov.in/hi')">Open myScheme ↗</button></div>
+<div class="service">
+<div class="service-icon">🏛️</div>
+<h4>myScheme</h4>
+<p>Government schemes खोजें</p>
+<button onclick="openPortal('https://www.myscheme.gov.in/hi')">
+Open myScheme ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">🧑‍🌾</div><h4>e-NAM</h4><p>National Agriculture Market</p><button onclick="openPortal('https://www.enam.gov.in/')">Open e-NAM ↗</button></div>
+<div class="service">
+<div class="service-icon">🧑‍🌾</div>
+<h4>e-NAM</h4>
+<p>National Agriculture Market</p>
+<button onclick="openPortal('https://www.enam.gov.in/')">
+Open e-NAM ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">🌱</div><h4>Agriculture</h4><p>कृषि से जुड़ी digital information</p><button onclick="openPortal('https://agriwelfare.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">🌱</div>
+<h4>Agriculture</h4>
+<p>कृषि से जुड़ी information</p>
+<button onclick="openPortal('https://agriwelfare.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
 </div>
 </div>
 
 <div class="category red-border">
-<div class="category-head"><h3>🏥 Health, Legal & Welfare</h3></div>
+
+<div class="category-head">
+<h3>🏥 Health, Legal & Welfare</h3>
+</div>
+
 <div class="service-grid">
 
-<div class="service"><div class="service-icon">🩺</div><h4>Ayushman Bharat</h4><p>Health scheme information</p><button onclick="openPortal('https://pmjay.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">🩺</div>
+<h4>Ayushman Bharat</h4>
+<p>Health scheme information</p>
+<button onclick="openPortal('https://pmjay.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">⚖️</div><h4>Tele-Law</h4><p>Legal advice access</p><button onclick="openPortal('https://www.tele-law.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">⚖️</div>
+<h4>Tele-Law</h4>
+<p>Legal advice access</p>
+<button onclick="openPortal('https://www.tele-law.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">🏥</div><h4>National Health Portal</h4><p>Health information</p><button onclick="openPortal('https://www.nhp.gov.in/')">Open Portal ↗</button></div>
+<div class="service">
+<div class="service-icon">🏥</div>
+<h4>National Health Portal</h4>
+<p>Health information</p>
+<button onclick="openPortal('https://www.nhp.gov.in/')">
+Open Portal ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">💼</div><h4>National Career Service</h4><p>Jobs और career services</p><button onclick="openPortal('https://www.ncs.gov.in/')">Open NCS ↗</button></div>
+<div class="service">
+<div class="service-icon">💼</div>
+<h4>National Career Service</h4>
+<p>Jobs और career services</p>
+<button onclick="openPortal('https://www.ncs.gov.in/')">
+Open NCS ↗
+</button>
+</div>
 
 </div>
 </div>
 
 <div class="category orange-border">
-<div class="category-head"><h3>🚆 Travel, Transport & Utility</h3></div>
+
+<div class="category-head">
+<h3>🚆 Travel, Transport & Utility</h3>
+</div>
+
 <div class="service-grid">
 
-<div class="service"><div class="service-icon">🚆</div><h4>IRCTC</h4><p>Railway ticketing services</p><button onclick="openPortal('https://www.irctc.co.in/')">Open IRCTC ↗</button></div>
+<div class="service">
+<div class="service-icon">🚆</div>
+<h4>IRCTC</h4>
+<p>Railway ticketing services</p>
+<button onclick="openPortal('https://www.irctc.co.in/')">
+Open IRCTC ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">🚗</div><h4>Parivahan</h4><p>Driving licence और vehicle services</p><button onclick="openPortal('https://parivahan.gov.in/')">Open Parivahan ↗</button></div>
+<div class="service">
+<div class="service-icon">🚗</div>
+<h4>Parivahan</h4>
+<p>Driving licence और vehicle services</p>
+<button onclick="openPortal('https://parivahan.gov.in/')">
+Open Parivahan ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">💡</div><h4>BBPS</h4><p>Bill payment information</p><button onclick="openPortal('https://www.bharatbillpay.com/')">Open BBPS ↗</button></div>
+<div class="service">
+<div class="service-icon">💡</div>
+<h4>BBPS</h4>
+<p>Bill payment information</p>
+<button onclick="openPortal('https://www.bharatbillpay.com/')">
+Open BBPS ↗
+</button>
+</div>
 
-<div class="service"><div class="service-icon">🔥</div><h4>My LPG</h4><p>LPG related information</p><button onclick="openPortal('https://www.mylpg.in/')">Open LPG ↗</button></div>
+<div class="service">
+<div class="service-icon">🔥</div>
+<h4>My LPG</h4>
+<p>LPG related information</p>
+<button onclick="openPortal('https://www.mylpg.in/')">
+Open LPG ↗
+</button>
+</div>
 
 </div>
 </div>
+
 </div>
 
 <!-- QUICK -->
+
 <div class="section-title">
-<h2>⚡ Quick Services</h2><p>एक क्लिक में लोकप्रिय सेवाएँ</p>
+
+<h2>⚡ Quick Services</h2>
+<p>एक क्लिक में लोकप्रिय सेवाएँ</p>
+
 </div>
 
 <div class="quick">
-<div class="quick-item" onclick="openPortal('https://myaadhaar.uidai.gov.in/')"><div>🪪</div><span>Aadhaar</span></div>
-<div class="quick-item" onclick="openPortal('https://www.incometax.gov.in/')"><div>💳</div><span>PAN</span></div>
-<div class="quick-item" onclick="openPortal('https://voters.eci.gov.in/')"><div>🗳️</div><span>Voter</span></div>
-<div class="quick-item" onclick="openPortal('https://pmkisan.gov.in/')"><div>🌾</div><span>PM-Kisan</span></div>
-<div class="quick-item" onclick="openPortal('https://www.eshram.gov.in/')"><div>👷</div><span>e-Shram</span></div>
-<div class="quick-item" onclick="openPortal('https://www.passportindia.gov.in/')"><div>🛂</div><span>Passport</span></div>
-<div class="quick-item" onclick="openPortal('https://parivahan.gov.in/')"><div>🚗</div><span>DL / RC</span></div>
-<div class="quick-item" onclick="openPortal('https://www.myscheme.gov.in/hi')"><div>🏛️</div><span>myScheme</span></div>
+
+<div class="quick-item"
+onclick="openPortal('https://myaadhaar.uidai.gov.in/')">
+<div>🪪</div>
+<span>Aadhaar</span>
 </div>
 
-<!-- ONLINE -->
+<div class="quick-item"
+onclick="openPortal('https://www.incometax.gov.in/')">
+<div>💳</div>
+<span>PAN</span>
+</div>
+
+<div class="quick-item"
+onclick="openPortal('https://voters.eci.gov.in/')">
+<div>🗳️</div>
+<span>Voter</span>
+</div>
+
+<div class="quick-item"
+onclick="openPortal('https://pmkisan.gov.in/')">
+<div>🌾</div>
+<span>PM-Kisan</span>
+</div>
+
+<div class="quick-item"
+onclick="openPortal('https://www.eshram.gov.in/')">
+<div>👷</div>
+<span>e-Shram</span>
+</div>
+
+<div class="quick-item"
+onclick="openPortal('https://www.passportindia.gov.in/')">
+<div>🛂</div>
+<span>Passport</span>
+</div>
+
+<div class="quick-item"
+onclick="openPortal('https://parivahan.gov.in/')">
+<div>🚗</div>
+<span>DL / RC</span>
+</div>
+
+<div class="quick-item"
+onclick="openPortal('https://www.myscheme.gov.in/hi')">
+<div>🏛️</div>
+<span>myScheme</span>
+</div>
+
+</div>
+
+<!-- ONLINE SERVICES -->
+
 <div id="online-services" class="section-title">
-<h2>🧾 Online Application Services</h2><p>महत्वपूर्ण आवेदन और नागरिक सेवाएँ</p>
+
+<h2>🧾 Online Application Services</h2>
+
+<p>महत्वपूर्ण आवेदन और नागरिक सेवाएँ</p>
+
 </div>
 
 <div class="tool-grid">
 
-<div class="tool"><h3>🪪 Aadhaar Services</h3><p>MyAadhaar की ऑनलाइन सेवाएँ</p><button onclick="openPortal('https://myaadhaar.uidai.gov.in/')">Open Aadhaar ↗</button></div>
-<div class="tool"><h3>💳 PAN Card</h3><p>PAN आवेदन और Income Tax सेवाएँ</p><button onclick="openPortal('https://www.incometax.gov.in/')">Open PAN ↗</button></div>
-<div class="tool"><h3>🗳️ Voter ID</h3><p>Registration, correction और e-EPIC</p><button onclick="openPortal('https://voters.eci.gov.in/')">Open Voter ↗</button></div>
-<div class="tool"><h3>🛂 Passport</h3><p>Passport application और appointment</p><button onclick="openPortal('https://www.passportindia.gov.in/')">Passport Seva ↗</button></div>
-<div class="tool"><h3>🚗 Driving Licence</h3><p>DL application और licence services</p><button onclick="openPortal('https://parivahan.gov.in/')">Parivahan ↗</button></div>
-<div class="tool"><h3>🚘 Vehicle Services</h3><p>RC और vehicle services</p><button onclick="openPortal('https://parivahan.gov.in/')">Vehicle Services ↗</button></div>
-<div class="tool"><h3>🌾 PM-KISAN</h3><p>किसान registration और status</p><button onclick="openPortal('https://pmkisan.gov.in/')">PM-KISAN ↗</button></div>
-<div class="tool"><h3>👷 e-Shram</h3><p>असंगठित श्रमिक services</p><button onclick="openPortal('https://www.eshram.gov.in/')">e-Shram ↗</button></div>
-<div class="tool"><h3>🏥 Ayushman Bharat</h3><p>Health scheme services</p><button onclick="openPortal('https://pmjay.gov.in/')">Ayushman ↗</button></div>
-<div class="tool"><h3>💼 Government Jobs</h3><p>Employment और career services</p><button onclick="openPortal('https://www.ncs.gov.in/')">NCS ↗</button></div>
-<div class="tool"><h3>🎓 Scholarship</h3><p>छात्रवृत्ति और education services</p><button onclick="openPortal('https://scholarships.gov.in/')">Scholarship ↗</button></div>
-<div class="tool"><h3>🏛️ Government Schemes</h3><p>अपने लिए सरकारी योजनाएँ खोजें</p><button onclick="openPortal('https://www.myscheme.gov.in/hi')">Find Schemes ↗</button></div>
+<div class="tool">
+<h3>🪪 Aadhaar Services</h3>
+<p>MyAadhaar की ऑनलाइन सेवाएँ</p>
+<button onclick="openPortal('https://myaadhaar.uidai.gov.in/')">
+Open Aadhaar ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>💳 PAN Card</h3>
+<p>PAN आवेदन और Income Tax सेवाएँ</p>
+<button onclick="openPortal('https://www.incometax.gov.in/')">
+Open PAN ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🗳️ Voter ID</h3>
+<p>Registration, correction और e-EPIC</p>
+<button onclick="openPortal('https://voters.eci.gov.in/')">
+Open Voter ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🛂 Passport</h3>
+<p>Passport application और appointment</p>
+<button onclick="openPortal('https://www.passportindia.gov.in/')">
+Passport Seva ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🚗 Driving Licence</h3>
+<p>DL application और licence services</p>
+<button onclick="openPortal('https://parivahan.gov.in/')">
+Parivahan ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🌾 PM-KISAN</h3>
+<p>किसान registration और status</p>
+<button onclick="openPortal('https://pmkisan.gov.in/')">
+PM-KISAN ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>👷 e-Shram</h3>
+<p>असंगठित श्रमिक services</p>
+<button onclick="openPortal('https://www.eshram.gov.in/')">
+e-Shram ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🏥 Ayushman Bharat</h3>
+<p>Health scheme services</p>
+<button onclick="openPortal('https://pmjay.gov.in/')">
+Ayushman ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🏛️ Government Schemes</h3>
+<p>अपने लिए सरकारी योजनाएँ खोजें</p>
+<button onclick="openPortal('https://www.myscheme.gov.in/hi')">
+Find Schemes ↗
+</button>
+</div>
 
 </div>
 
-<!-- RAJASTHAN -->
+<!-- ================= RAJASTHAN ================= -->
+
 <div id="rajasthan-services" class="section-title">
+
 <h2>🏜️ Rajasthan Government Services</h2>
+
 <p>राजस्थान की महत्वपूर्ण ऑनलाइन सेवाएँ</p>
+
 </div>
 
 <div class="tool-grid">
 
-<div class="tool"><h3>🔐 Rajasthan SSO</h3><p>राजस्थान की online services के लिए SSO</p><button onclick="openPortal('https://sso.rajasthan.gov.in/')">Open SSO ↗</button></div>
-<div class="tool"><h3>📊 Jan Soochna Portal</h3><p>योजनाओं और लाभार्थी जानकारी</p><button onclick="openPortal('https://jansoochna.rajasthan.gov.in/')">Jan Soochna ↗</button></div>
-<div class="tool"><h3>📢 Rajasthan Sampark</h3><p>शिकायत दर्ज करने और status देखने की सुविधा</p><button onclick="openPortal('https://sampark.rajasthan.gov.in/')">Rajasthan Sampark ↗</button></div>
-<div class="tool"><h3>🌾 Apna Khata</h3><p>जमीन और भू-अभिलेख सेवाएँ</p><button onclick="openPortal('https://apnakhata.rajasthan.gov.in/')">Apna Khata ↗</button></div>
-<div class="tool"><h3>💻 e-Mitra</h3><p>राजस्थान की नागरिक सेवाएँ</p><button onclick="openPortal('https://emitra.rajasthan.gov.in/')">e-Mitra ↗</button></div>
-<div class="tool"><h3>👨‍💼 Rajasthan Recruitment</h3><p>राजस्थान भर्ती और परीक्षा जानकारी</p><button onclick="openPortal('https://rsmssb.rajasthan.gov.in/')">RSSB ↗</button></div>
-<div class="tool"><h3>📚 RPSC</h3><p>राजस्थान लोक सेवा आयोग</p><button onclick="openPortal('https://rpsc.rajasthan.gov.in/')">RPSC ↗</button></div>
-<div class="tool"><h3>👮 Rajasthan Police</h3><p>Police related online services</p><button onclick="openPortal('https://police.rajasthan.gov.in/')">Rajasthan Police ↗</button></div>
+<div class="tool">
+<h3>🔐 Rajasthan SSO</h3>
+<p>राजस्थान की online services</p>
+<button onclick="openPortal('https://sso.rajasthan.gov.in/')">
+Open SSO ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>📊 Jan Soochna Portal</h3>
+<p>योजनाओं और लाभार्थी जानकारी</p>
+<button onclick="openPortal('https://jansoochna.rajasthan.gov.in/')">
+Jan Soochna ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>📢 Rajasthan Sampark</h3>
+<p>शिकायत दर्ज करने की सुविधा</p>
+<button onclick="openPortal('https://sampark.rajasthan.gov.in/')">
+Rajasthan Sampark ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🌾 Apna Khata</h3>
+<p>जमीन और भू-अभिलेख सेवाएँ</p>
+<button onclick="openPortal('https://apnakhata.rajasthan.gov.in/')">
+Apna Khata ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>💻 e-Mitra</h3>
+<p>राजस्थान की नागरिक सेवाएँ</p>
+<button onclick="openPortal('https://emitra.rajasthan.gov.in/')">
+e-Mitra ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>📚 RPSC</h3>
+<p>राजस्थान लोक सेवा आयोग</p>
+<button onclick="openPortal('https://rpsc.rajasthan.gov.in/')">
+RPSC ↗
+</button>
+</div>
 
 </div>
 
-<!-- BANKING -->
-<div id="banking-services" class="section-title">
-<h2>🏦 Banking & Financial Services</h2><p>महत्वपूर्ण banking और financial portals</p>
-</div>
+<!-- ================= DIGITAL TOOLS ================= -->
 
-<div class="tool-grid">
-<div class="tool"><h3>🏦 SBI</h3><p>State Bank of India official website</p><button onclick="openPortal('https://sbi.co.in/')">Open SBI ↗</button></div>
-<div class="tool"><h3>🏦 Bank of Baroda</h3><p>Banking services और information</p><button onclick="openPortal('https://www.bankofbaroda.in/')">Open Bank ↗</button></div>
-<div class="tool"><h3>💰 Income Tax</h3><p>Income Tax return और tax services</p><button onclick="openPortal('https://www.incometax.gov.in/')">Income Tax ↗</button></div>
-<div class="tool"><h3>💳 EPFO</h3><p>PF और pension related services</p><button onclick="openPortal('https://www.epfindia.gov.in/')">EPFO ↗</button></div>
-</div>
-
-<!-- EDUCATION -->
-<div id="education-services" class="section-title">
-<h2>🎓 Education Services</h2><p>छात्रों के लिए महत्वपूर्ण portals</p>
-</div>
-
-<div class="tool-grid">
-<div class="tool"><h3>🎓 National Scholarship Portal</h3><p>Scholarship application और status</p><button onclick="openPortal('https://scholarships.gov.in/')">Open Portal ↗</button></div>
-<div class="tool"><h3>📚 DIKSHA</h3><p>Digital education और learning resources</p><button onclick="openPortal('https://diksha.gov.in/')">DIKSHA ↗</button></div>
-<div class="tool"><h3>📖 SWAYAM</h3><p>Online courses और learning</p><button onclick="openPortal('https://swayam.gov.in/')">SWAYAM ↗</button></div>
-<div class="tool"><h3>💼 National Career Service</h3><p>Jobs और career opportunities</p><button onclick="openPortal('https://www.ncs.gov.in/')">NCS ↗</button></div>
-</div>
-
-<!-- DIGITAL TOOLS -->
 <div id="tools" class="section-title">
+
 <h2>🛠️ Bharat Digital Centre — Digital Tools</h2>
+
 <p>Tools आपकी वेबसाइट पर सीधे चलेंगे।</p>
+
 </div>
 
 <div class="tool-grid">
 
-<!-- ID CARD -->
-<div class="tool id-maker">
-<h3>🪪 Professional ID Card Maker</h3>
+<!-- ================= AADHAAR PRINT ================= -->
 
-<div class="id-controls">
-<div>
-<label>Name</label><input id="cardName" placeholder="Name">
-<label>Class / Designation</label><input id="cardClass" placeholder="Class / Designation">
-<label>Mobile</label><input id="cardMobile" placeholder="Mobile">
-</div>
+<div class="tool aadhaar-maker">
 
-<div>
-<label>Organization</label><input id="cardOrg" placeholder="School / Company / Centre">
-<label>Card Number</label><input id="cardNumber" placeholder="ID Card Number">
-<label>Photo</label><input type="file" id="cardImage" accept="image/*" onchange="loadCardPhoto(event)">
-</div>
+<h3>🪪 Aadhaar Card Print — Front / Back / Front + Back</h3>
+
+<p>
+Aadhaar card standard card size:
+<b>85.6 × 54 mm</b>
+</p>
+
+<div class="aadhaar-controls">
 
 <div>
-<label>Card Size</label>
-<select id="cardSize" onchange="updateCardSize()">
-<option value="cr80">CR80 / PVC — 85.6 × 54 mm</option>
-<option value="small">Small ID — 80 × 50 mm</option>
-<option value="custom">Custom Size</option>
+
+<label>नाम</label>
+
+<input
+id="aadhaarName"
+placeholder="Name">
+
+<label>जन्म वर्ष / DOB</label>
+
+<input
+id="aadhaarDOB"
+placeholder="DD/MM/YYYY">
+
+<label>Gender</label>
+
+<select id="aadhaarGender">
+
+<option>Male / पुरुष</option>
+<option>Female / महिला</option>
+<option>Other</option>
+
 </select>
-<label>Custom Width (mm)</label><input type="number" id="customCardWidth" value="85.6">
-<label>Custom Height (mm)</label><input type="number" id="customCardHeight" value="54">
+
 </div>
+
+<div>
+
+<label>Aadhaar Number</label>
+
+<input
+id="aadhaarNumber"
+maxlength="14"
+placeholder="XXXX XXXX XXXX"
+oninput="formatAadhaarNumber(this)">
+
+<label>Address</label>
+
+<textarea
+id="aadhaarAddress"
+placeholder="Address"></textarea>
+
+</div>
+
+<div>
+
+<label>Aadhaar Photo</label>
+
+<input
+type="file"
+id="aadhaarPhoto"
+accept="image/*"
+onchange="loadAadhaarPhoto(event)">
+
+<label>Print Side</label>
+
+<div class="radio-row">
+
+<label>
+<input
+type="radio"
+name="aadhaarSide"
+value="front"
+checked>
+Front Only
+</label>
+
+<label>
+<input
+type="radio"
+name="aadhaarSide"
+value="back">
+Back Only
+</label>
+
+<label>
+<input
+type="radio"
+name="aadhaarSide"
+value="both">
+Front + Back
+</label>
+
+</div>
+
+</div>
+
 </div>
 
 <div class="print-settings">
-<h3>🖨️ Print Settings</h3>
 
-<label>Print Side</label>
-<div class="radio-row">
-<label><input type="radio" name="cardSide" value="front" checked> Front Only</label>
-<label><input type="radio" name="cardSide" value="back"> Back Only</label>
-<label><input type="radio" name="cardSide" value="both"> Front + Back</label>
-</div>
+<h3>🖨️ A4 Print Settings</h3>
 
 <label>Cards per A4</label>
-<select id="cardsPerA4">
-<option value="1">1 Card</option><option value="2">2 Cards</option>
-<option value="4">4 Cards</option><option value="6">6 Cards</option>
-<option value="8">8 Cards</option><option value="10">10 Cards</option>
-<option value="12" selected>12 Cards</option><option value="16">16 Cards</option>
+
+<select id="aadhaarCopies">
+
+<option value="1">1 Card</option>
+<option value="2">2 Cards</option>
+<option value="4">4 Cards</option>
+<option value="6">6 Cards</option>
+<option value="8" selected>8 Cards</option>
+<option value="10">10 Cards</option>
+<option value="12">12 Cards</option>
+
 </select>
 
 <label>A4 Orientation</label>
+
 <div class="radio-row">
-<label><input type="radio" name="cardOrientation" value="portrait" checked> A4 Portrait</label>
-<label><input type="radio" name="cardOrientation" value="landscape"> A4 Landscape</label>
+
+<label>
+<input
+type="radio"
+name="aadhaarOrientation"
+value="portrait"
+checked>
+A4 Portrait
+</label>
+
+<label>
+<input
+type="radio"
+name="aadhaarOrientation"
+value="landscape">
+A4 Landscape
+</label>
+
 </div>
 
 <label>Cut Lines</label>
+
 <div class="radio-row">
-<label><input type="radio" name="cutLines" value="yes" checked> ✂ ON</label>
-<label><input type="radio" name="cutLines" value="no"> OFF</label>
+
+<label>
+<input
+type="radio"
+name="aadhaarCut"
+value="yes"
+checked>
+✂ ON
+</label>
+
+<label>
+<input
+type="radio"
+name="aadhaarCut"
+value="no">
+OFF
+</label>
+
 </div>
 
 <div style="margin-top:15px">
-<button onclick="updateIDCard()">👁 Preview</button>
-<button class="green" onclick="printIDCards()">🖨️ ONE CLICK PRINT</button>
+
+<button onclick="updateAadhaarPreview()">
+👁 Preview
+</button>
+
+<button class="green"
+onclick="printAadhaarCards()">
+🖨️ ONE CLICK PRINT
+</button>
+
 </div>
+
+</div>
+
+<div class="aadhaar-preview-area">
+
+<h3 style="text-align:center">
+Aadhaar Preview
+</h3>
+
+<div id="aadhaarFrontPreview"
+class="aadhaar-card">
+
+<div class="aadhaar-front-header">
+
+<div class="aadhaar-logo">
+🇮🇳 Aadhaar
+</div>
+
+<div class="aadhaar-gov">
+भारत सरकार<br>
+Government of India
+</div>
+
+</div>
+
+<div class="aadhaar-content">
+
+<img
+id="aadhaarPreviewPhoto"
+class="aadhaar-photo">
+
+<div class="aadhaar-details">
+
+<b id="aadhaarPreviewName">
+Name
+</b>
+
+<br>
+
+<span id="aadhaarPreviewDOB">
+DOB
+</span>
+
+<br>
+
+<span id="aadhaarPreviewGender">
+Gender
+</span>
+
+<div class="aadhaar-number"
+id="aadhaarPreviewNumber">
+XXXX XXXX XXXX
+</div>
+
+</div>
+
+</div>
+
+<div class="aadhaar-bottom">
+मेरा आधार, मेरी पहचान
+</div>
+
+</div>
+
+<div id="aadhaarBackPreview"
+class="aadhaar-card aadhaar-back">
+
+<div class="aadhaar-back-header">
+Aadhaar — Back
+</div>
+
+<div class="aadhaar-qr">
+QR
+</div>
+
+<p>
+<b>Address:</b>
+</p>
+
+<p id="aadhaarPreviewAddress">
+Address will appear here
+</p>
+
+<br>
+
+<p>
+<b>
+Aadhaar is proof of identity,
+not of citizenship.
+</b>
+</p>
+
+<br>
+
+<p>
+If found, please return to the Aadhaar holder.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= ID CARD ================= -->
+
+<div class="tool id-maker">
+
+<h3>🪪 Professional ID Card Maker</h3>
+
+<div class="id-controls">
+
+<div>
+
+<label>Name</label>
+<input id="cardName" placeholder="Name">
+
+<label>Class / Designation</label>
+<input id="cardClass" placeholder="Class / Designation">
+
+<label>Mobile</label>
+<input id="cardMobile" placeholder="Mobile">
+
+</div>
+
+<div>
+
+<label>Organization</label>
+<input id="cardOrg" placeholder="School / Company / Centre">
+
+<label>Card Number</label>
+<input id="cardNumber" placeholder="ID Card Number">
+
+<label>Photo</label>
+<input
+type="file"
+id="cardImage"
+accept="image/*"
+onchange="loadCardPhoto(event)">
+
+</div>
+
+<div>
+
+<label>Card Size</label>
+
+<select id="cardSize"
+onchange="updateCardSize()">
+
+<option value="cr80">
+CR80 / PVC — 85.6 × 54 mm
+</option>
+
+<option value="small">
+Small ID — 80 × 50 mm
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="print-settings">
+
+<label>Print Side</label>
+
+<div class="radio-row">
+
+<label>
+<input
+type="radio"
+name="cardSide"
+value="front"
+checked>
+Front Only
+</label>
+
+<label>
+<input
+type="radio"
+name="cardSide"
+value="back">
+Back Only
+</label>
+
+<label>
+<input
+type="radio"
+name="cardSide"
+value="both">
+Front + Back
+</label>
+
+</div>
+
+<label>Cards per A4</label>
+
+<select id="cardsPerA4">
+
+<option value="1">1 Card</option>
+<option value="2">2 Cards</option>
+<option value="4">4 Cards</option>
+<option value="6">6 Cards</option>
+<option value="8">8 Cards</option>
+<option value="10">10 Cards</option>
+<option value="12" selected>12 Cards</option>
+
+</select>
+
+<label>A4 Orientation</label>
+
+<div class="radio-row">
+
+<label>
+<input
+type="radio"
+name="cardOrientation"
+value="portrait"
+checked>
+A4 Portrait
+</label>
+
+<label>
+<input
+type="radio"
+name="cardOrientation"
+value="landscape">
+A4 Landscape
+</label>
+
+</div>
+
+<button onclick="updateIDCard()">
+👁 Preview
+</button>
+
+<button class="green"
+onclick="printIDCards()">
+🖨️ ONE CLICK PRINT
+</button>
+
 </div>
 
 <div class="id-preview-area">
-<div id="cardFrontPreview" class="id-card">
-<div class="id-card-header" id="previewOrg">Bharat Digital Centre</div>
-<img id="cardPhoto" class="id-card-photo" style="display:none">
-<div class="id-card-name" id="previewName">Your Name</div>
-<div class="id-card-info" id="previewClass">Class / Designation</div>
-<div class="id-card-info" id="previewMobile">Mobile</div>
-<div class="id-card-info" id="previewNumber">ID No.</div>
+
+<div id="cardFrontPreview"
+class="id-card">
+
+<div
+class="id-card-header"
+id="previewOrg">
+Bharat Digital Centre
 </div>
 
-<div id="cardBackPreview" class="id-card id-back">
+<img
+id="cardPhoto"
+class="id-card-photo"
+style="display:none">
+
+<div
+class="id-card-name"
+id="previewName">
+Your Name
+</div>
+
+<div
+class="id-card-info"
+id="previewClass">
+Class / Designation
+</div>
+
+<div
+class="id-card-info"
+id="previewMobile">
+Mobile
+</div>
+
+<div
+class="id-card-info"
+id="previewNumber">
+ID No.
+</div>
+
+</div>
+
+<div
+id="cardBackPreview"
+class="id-card id-back">
+
 <h3>IDENTITY CARD</h3>
-<p><b>Organization:</b> <span id="backOrg">Bharat Digital Centre</span></p>
-<p><b>ID Number:</b> <span id="backNumber">ID No.</span></p>
-<br><p>यह कार्ड केवल पहचान के लिए है।</p>
-<br><p>यदि कार्ड मिले तो संबंधित संस्था से संपर्क करें।</p>
-<br><p><b>Authorized Signature</b></p>
-</div>
-</div>
+
+<p>
+<b>Organization:</b>
+<span id="backOrg">
+Bharat Digital Centre
+</span>
+</p>
+
+<p>
+<b>ID Number:</b>
+<span id="backNumber">
+ID No.
+</span>
+</p>
+
+<br>
+
+<p>
+यह कार्ड केवल पहचान के लिए है।
+</p>
+
+<br>
+
+<p>
+यदि कार्ड मिले तो संबंधित संस्था से संपर्क करें।
+</p>
+
 </div>
 
-<!-- PASSPORT PHOTO -->
+</div>
+
+</div>
+
+<!-- ================= PASSPORT PHOTO ================= -->
+
 <div class="tool passport-maker">
-<h3>📸 Passport Photo Maker + A4 Print</h3>
+
+<h3>
+📸 Passport Photo Maker + A4 Print
+</h3>
 
 <div class="photo-controls">
+
 <div>
+
 <label>Photo</label>
-<input type="file" id="passportImage" accept="image/*" onchange="loadPassportPhoto(event)">
+
+<input
+type="file"
+id="passportImage"
+accept="image/*"
+onchange="loadPassportPhoto(event)">
+
 <label>Photo Size</label>
-<select id="passportSize" onchange="updatePassportSize()">
-<option value="35x45">35 × 45 mm</option>
-<option value="35x35">35 × 35 mm</option>
-<option value="51x51">2 × 2 inch — 51 × 51 mm</option>
-<option value="25x35">25 × 35 mm</option>
-<option value="custom">Custom Size</option>
+
+<select
+id="passportSize"
+onchange="updatePassportSize()">
+
+<option value="35x45">
+35 × 45 mm
+</option>
+
+<option value="35x35">
+35 × 35 mm
+</option>
+
+<option value="51x51">
+51 × 51 mm
+</option>
+
+<option value="25x35">
+25 × 35 mm
+</option>
+
+<option value="custom">
+Custom
+</option>
+
 </select>
+
 </div>
 
 <div>
-<label>Custom Width (mm)</label><input type="number" id="photoWidth" value="35">
-<label>Custom Height (mm)</label><input type="number" id="photoHeight" value="45">
-<label>Copies per A4</label>
+
+<label>Custom Width</label>
+<input
+type="number"
+id="photoWidth"
+value="35">
+
+<label>Custom Height</label>
+<input
+type="number"
+id="photoHeight"
+value="45">
+
+<label>Copies</label>
+
 <select id="photoCopies">
-<option value="4">4 Photos</option><option value="6">6 Photos</option>
-<option value="8">8 Photos</option><option value="12">12 Photos</option>
-<option value="16">16 Photos</option><option value="20">20 Photos</option>
-<option value="24">24 Photos</option><option value="32" selected>32 Photos</option>
+
+<option value="4">4 Photos</option>
+<option value="8">8 Photos</option>
+<option value="12">12 Photos</option>
+<option value="16">16 Photos</option>
+<option value="20">20 Photos</option>
+<option value="24">24 Photos</option>
+<option value="32" selected>32 Photos</option>
+
 </select>
+
 </div>
 
 <div>
+
 <label>A4 Orientation</label>
+
 <select id="photoOrientation">
-<option value="portrait">A4 Portrait</option>
-<option value="landscape">A4 Landscape</option>
+
+<option value="portrait">
+A4 Portrait
+</option>
+
+<option value="landscape">
+A4 Landscape
+</option>
+
 </select>
 
 <label>Cut Lines</label>
+
 <select id="photoCutLines">
-<option value="yes">✂ ON</option>
-<option value="no">OFF</option>
+
+<option value="yes">
+✂ ON
+</option>
+
+<option value="no">
+OFF
+</option>
+
 </select>
 
-<button onclick="createPassportSheet()">👁 Preview A4</button>
-<button class="green" onclick="printPassportPhotos()">🖨️ ONE CLICK PRINT</button>
+<button onclick="createPassportSheet()">
+👁 Preview A4
+</button>
+
+<button class="green"
+onclick="printPassportPhotos()">
+🖨️ ONE CLICK PRINT
+</button>
+
 </div>
+
 </div>
 
 <div class="photo-preview">
-<img id="passportPreview" class="passport-photo" style="display:none">
-<p id="passportInfo">पहले photo चुनें।</p>
-</div>
-<div id="passportSheet" class="photo-sheet-preview"></div>
+
+<img
+id="passportPreview"
+class="passport-photo"
+style="display:none">
+
+<p id="passportInfo">
+पहले photo चुनें।
+</p>
+
 </div>
 
-<!-- VISITING CARD -->
+<div
+id="passportSheet"
+class="photo-sheet-preview">
+</div>
+
+</div>
+
+<!-- ================= VISITING CARD ================= -->
+
 <div class="tool">
+
 <h3>👤 Visiting Card Maker</h3>
-<input id="visitName" placeholder="Your Name">
-<input id="visitRole" placeholder="Profession">
-<input id="visitPhone" placeholder="Phone">
-<input id="visitEmail" placeholder="Email">
-<input id="visitAddress" placeholder="Address">
-<button onclick="createVisitingCard()">Create</button>
-<button class="green" onclick="printElement('visitPreview')">🖨 Print</button>
-<div id="visitPreview" class="preview">Visiting Card Preview</div>
+
+<input
+id="visitName"
+placeholder="Your Name">
+
+<input
+id="visitRole"
+placeholder="Profession">
+
+<input
+id="visitPhone"
+placeholder="Phone">
+
+<input
+id="visitEmail"
+placeholder="Email">
+
+<input
+id="visitAddress"
+placeholder="Address">
+
+<button onclick="createVisitingCard()">
+Create
+</button>
+
+<button
+class="green"
+onclick="printElement('visitPreview')">
+🖨 Print
+</button>
+
+<div
+id="visitPreview"
+class="preview">
+Visiting Card Preview
 </div>
 
-<!-- STUDENT CARD -->
+</div>
+
+<!-- ================= STUDENT CARD ================= -->
+
 <div class="tool">
+
 <h3>🎓 Student Card</h3>
-<input id="studentName" placeholder="Student Name">
-<input id="studentClass" placeholder="Class">
-<input id="studentRoll" placeholder="Roll Number">
-<input id="studentSchool" placeholder="School">
-<button onclick="createStudentCard()">Create</button>
-<button class="green" onclick="printElement('studentPreview')">🖨 Print</button>
-<div id="studentPreview" class="preview">Student Card Preview</div>
+
+<input
+id="studentName"
+placeholder="Student Name">
+
+<input
+id="studentClass"
+placeholder="Class">
+
+<input
+id="studentRoll"
+placeholder="Roll Number">
+
+<input
+id="studentSchool"
+placeholder="School">
+
+<button onclick="createStudentCard()">
+Create
+</button>
+
+<button
+class="green"
+onclick="printElement('studentPreview')">
+🖨 Print
+</button>
+
+<div
+id="studentPreview"
+class="preview">
+Student Card Preview
 </div>
 
-<!-- RESIZE -->
+</div>
+
+<!-- ================= RESIZE ================= -->
+
 <div class="tool">
+
 <h3>📐 Image Resize</h3>
-<input type="file" id="resizeImage" accept="image/*">
-<input type="number" id="resizeWidth" placeholder="Width">
-<input type="number" id="resizeHeight" placeholder="Height">
-<button onclick="resizeImageTool()">Resize</button>
-<div id="resizeResult" class="result"></div>
+
+<input
+type="file"
+id="resizeImage"
+accept="image/*">
+
+<input
+type="number"
+id="resizeWidth"
+placeholder="Width">
+
+<input
+type="number"
+id="resizeHeight"
+placeholder="Height">
+
+<button onclick="resizeImageTool()">
+Resize
+</button>
+
+<div
+id="resizeResult"
+class="result">
 </div>
 
-<!-- COMPRESS -->
+</div>
+
+<!-- ================= COMPRESS ================= -->
+
 <div class="tool">
+
 <h3>📦 Image Compress</h3>
-<input type="file" id="compressImage" accept="image/*">
+
+<input
+type="file"
+id="compressImage"
+accept="image/*">
+
 <label>Quality</label>
-<input type="range" id="quality" min="10" max="100" value="70"
+
+<input
+type="range"
+id="quality"
+min="10"
+max="100"
+value="70"
 oninput="qualityValue.innerText=this.value+'%'">
-<p>Quality: <span id="qualityValue">70%</span></p>
-<button onclick="compressImageTool()">Compress</button>
-<div id="compressResult" class="result"></div>
+
+<p>
+Quality:
+<span id="qualityValue">70%</span>
+</p>
+
+<button onclick="compressImageTool()">
+Compress
+</button>
+
+<div
+id="compressResult"
+class="result">
 </div>
 
-<!-- CONVERTER -->
+</div>
+
+<!-- ================= CONVERTER ================= -->
+
 <div class="tool">
+
 <h3>🔄 Image Converter</h3>
-<input type="file" id="convertImage" accept="image/*">
+
+<input
+type="file"
+id="convertImage"
+accept="image/*">
+
 <select id="convertFormat">
-<option value="image/png">PNG</option>
-<option value="image/jpeg">JPG</option>
-<option value="image/webp">WEBP</option>
+
+<option value="image/png">
+PNG
+</option>
+
+<option value="image/jpeg">
+JPG
+</option>
+
+<option value="image/webp">
+WEBP
+</option>
+
 </select>
-<button onclick="convertImageTool()">Convert & Download</button>
+
+<button onclick="convertImageTool()">
+Convert & Download
+</button>
+
 </div>
 
-<!-- POSTER -->
+<!-- ================= POSTER ================= -->
+
 <div class="tool">
+
 <h3>📢 Poster Maker</h3>
-<input id="posterTitle" placeholder="Poster Title">
-<textarea id="posterText" placeholder="Poster Message"></textarea>
-<input type="file" id="posterImage" accept="image/*">
-<button onclick="createPoster()">Create Poster</button>
-<button class="green" onclick="printElement('designCanvas')">🖨 Print</button>
+
+<input
+id="posterTitle"
+placeholder="Poster Title">
+
+<textarea
+id="posterText"
+placeholder="Poster Message">
+</textarea>
+
+<input
+type="file"
+id="posterImage"
+accept="image/*">
+
+<button onclick="createPoster()">
+Create Poster
+</button>
+
+<button
+class="green"
+onclick="printElement('designCanvas')">
+🖨 Print
+</button>
+
 </div>
 
-<!-- CERTIFICATE -->
+<!-- ================= CERTIFICATE ================= -->
+
 <div class="tool">
+
 <h3>🏆 Certificate Maker</h3>
-<input id="certificateTitle" value="CERTIFICATE OF ACHIEVEMENT">
-<input id="certificateName" placeholder="Recipient Name">
-<textarea id="certificateText" placeholder="Certificate description"></textarea>
-<button onclick="createCertificate()">Create Certificate</button>
-<button class="green" onclick="printElement('designCanvas')">🖨 Print</button>
+
+<input
+id="certificateTitle"
+value="CERTIFICATE OF ACHIEVEMENT">
+
+<input
+id="certificateName"
+placeholder="Recipient Name">
+
+<textarea
+id="certificateText"
+placeholder="Certificate description">
+</textarea>
+
+<button onclick="createCertificate()">
+Create Certificate
+</button>
+
+<button
+class="green"
+onclick="printElement('designCanvas')">
+🖨 Print
+</button>
+
 </div>
 
-<!-- INVITATION -->
+<!-- ================= INVITATION ================= -->
+
 <div class="tool">
+
 <h3>💌 Invitation Card</h3>
-<input id="inviteTitle" placeholder="Event Title">
-<input id="inviteDate" placeholder="Date & Time">
-<input id="invitePlace" placeholder="Venue">
-<textarea id="inviteMessage" placeholder="Invitation message"></textarea>
-<button onclick="createInvitation()">Create Invitation</button>
-<button class="green" onclick="printElement('designCanvas')">🖨 Print</button>
+
+<input
+id="inviteTitle"
+placeholder="Event Title">
+
+<input
+id="inviteDate"
+placeholder="Date & Time">
+
+<input
+id="invitePlace"
+placeholder="Venue">
+
+<textarea
+id="inviteMessage"
+placeholder="Invitation message">
+</textarea>
+
+<button onclick="createInvitation()">
+Create Invitation
+</button>
+
+<button
+class="green"
+onclick="printElement('designCanvas')">
+🖨 Print
+</button>
+
 </div>
 
-<!-- CALCULATOR -->
+<!-- ================= CALCULATOR ================= -->
+
 <div class="tool">
+
 <h3>🧮 Calculator</h3>
-<input id="calcA" type="number" placeholder="First Number">
-<input id="calcB" type="number" placeholder="Second Number">
+
+<input
+id="calcA"
+type="number"
+placeholder="First Number">
+
+<input
+id="calcB"
+type="number"
+placeholder="Second Number">
+
 <button onclick="calculate('+')">+</button>
 <button onclick="calculate('-')">−</button>
 <button onclick="calculate('*')">×</button>
 <button onclick="calculate('/')">÷</button>
-<div id="calcResult" class="result">Result</div>
+
+<div
+id="calcResult"
+class="result">
+Result
 </div>
 
-<!-- PERCENTAGE -->
+</div>
+
+<!-- ================= PERCENTAGE ================= -->
+
 <div class="tool">
+
 <h3>📊 Percentage Calculator</h3>
-<input id="percentNumber" type="number" placeholder="Number">
-<input id="percentTotal" type="number" placeholder="Total">
-<button onclick="percentage()">Calculate</button>
-<div id="percentResult" class="result"></div>
+
+<input
+id="percentNumber"
+type="number"
+placeholder="Number">
+
+<input
+id="percentTotal"
+type="number"
+placeholder="Total">
+
+<button onclick="percentage()">
+Calculate
+</button>
+
+<div
+id="percentResult"
+class="result">
 </div>
 
-<!-- NUMBER WORDS -->
+</div>
+
+<!-- ================= NUMBER WORDS ================= -->
+
 <div class="tool">
+
 <h3>🔢 Number to Words</h3>
-<input id="numberInput" type="number" placeholder="Enter number">
-<button onclick="numberWords()">Convert</button>
-<div id="wordsResult" class="result"></div>
+
+<input
+id="numberInput"
+type="number"
+placeholder="Enter number">
+
+<button onclick="numberWords()">
+Convert
+</button>
+
+<div
+id="wordsResult"
+class="result">
 </div>
 
-<!-- TEXT COUNTER -->
+</div>
+
+<!-- ================= TEXT COUNTER ================= -->
+
 <div class="tool">
+
 <h3>📝 Text Counter</h3>
-<textarea id="textCounter" oninput="countText()" placeholder="Type text"></textarea>
-<div id="textResult" class="result">Characters: 0 | Words: 0</div>
+
+<textarea
+id="textCounter"
+oninput="countText()"
+placeholder="Type text">
+</textarea>
+
+<div
+id="textResult"
+class="result">
+Characters: 0 | Words: 0
 </div>
 
-<!-- PASSWORD -->
+</div>
+
+<!-- ================= PASSWORD ================= -->
+
 <div class="tool">
+
 <h3>🔐 Password Generator</h3>
-<input id="passwordLength" type="number" value="12" min="4" max="50">
-<button onclick="generatePassword()">Generate</button>
-<input id="generatedPassword" readonly>
-<button class="green" onclick="copyPassword()">Copy</button>
+
+<input
+id="passwordLength"
+type="number"
+value="12"
+min="4"
+max="50">
+
+<button onclick="generatePassword()">
+Generate
+</button>
+
+<input
+id="generatedPassword"
+readonly>
+
+<button
+class="green"
+onclick="copyPassword()">
+Copy
+</button>
+
 </div>
 
-<!-- AGE -->
+<!-- ================= AGE ================= -->
+
 <div class="tool">
+
 <h3>📅 Age Calculator</h3>
+
 <label>Date of Birth</label>
-<input type="date" id="dob">
-<button onclick="calculateAge()">Calculate</button>
-<div id="ageResult" class="result"></div>
+
+<input
+type="date"
+id="dob">
+
+<button onclick="calculateAge()">
+Calculate
+</button>
+
+<div
+id="ageResult"
+class="result">
 </div>
 
-<!-- QR -->
+</div>
+
+<!-- ================= QR ================= -->
+
 <div class="tool">
+
 <h3>🔳 QR Code Generator</h3>
-<input id="qrText" placeholder="Text / URL">
-<button onclick="generateQR()">Generate QR</button>
-<div id="qrResult" class="preview">QR Code यहाँ दिखाई देगा</div>
+
+<input
+id="qrText"
+placeholder="Text / URL">
+
+<button onclick="generateQR()">
+Generate QR
+</button>
+
+<div
+id="qrResult"
+class="preview">
+QR Code यहाँ दिखाई देगा
 </div>
 
-<!-- DESIGN -->
+</div>
+
+<!-- ================= DESIGN ================= -->
+
 <div class="tool full">
+
 <h3>🎨 Design Preview</h3>
-<div id="designCanvas" class="design-canvas">
-<div id="designContent" class="design-content">
+
+<div
+id="designCanvas"
+style="
+background:#fff;
+padding:30px;
+border-radius:15px;
+text-align:center;
+border:1px solid #ddd;
+">
+
+<div id="designContent">
+
 <h1>Your Design</h1>
-<p>यहाँ आपका design दिखाई देगा</p>
+
+<p>
+यहाँ आपका design दिखाई देगा
+</p>
+
 </div>
+
 </div>
+
 <br>
-<button class="green" onclick="printElement('designCanvas')">🖨 Print Design</button>
-<button class="purple" onclick="downloadDesign()">⬇ Download Design</button>
-</div>
+
+<button
+class="green"
+onclick="printElement('designCanvas')">
+🖨 Print Design
+</button>
 
 </div>
 
-<!-- IMPORTANT LINKS -->
+</div>
+
+<!-- ================= IMPORTANT LINKS ================= -->
+
 <div id="important" class="section-title">
+
 <h2>🔗 Important Official Links</h2>
-<p>महत्वपूर्ण Government portals</p>
+
+<p>
+महत्वपूर्ण Government portals
+</p>
+
 </div>
 
 <div class="tool-grid">
-<div class="tool"><h3>🇮🇳 India.gov.in</h3><p>National Government Portal</p><button onclick="openPortal('https://www.india.gov.in/')">Open ↗</button></div>
-<div class="tool"><h3>🪪 UIDAI</h3><p>Aadhaar official website</p><button onclick="openPortal('https://uidai.gov.in/')">Open ↗</button></div>
-<div class="tool"><h3>🗳️ Election Commission</h3><p>Official ECI website</p><button onclick="openPortal('https://www.eci.gov.in/')">Open ↗</button></div>
-<div class="tool"><h3>🛂 Passport Seva</h3><p>Ministry of External Affairs</p><button onclick="openPortal('https://www.passportindia.gov.in/')">Open ↗</button></div>
-<div class="tool"><h3>🏛️ myScheme</h3><p>Government Scheme Finder</p><button onclick="openPortal('https://www.myscheme.gov.in/hi')">Open ↗</button></div>
-<div class="tool"><h3>💻 Digital India</h3><p>Digital India Programme</p><button onclick="openPortal('https://www.digitalindia.gov.in/')">Open ↗</button></div>
-<div class="tool"><h3>🔐 Rajasthan SSO</h3><p>Rajasthan Single Sign-On</p><button onclick="openPortal('https://sso.rajasthan.gov.in/')">Open ↗</button></div>
-<div class="tool"><h3>📢 Rajasthan Sampark</h3><p>Public grievance portal</p><button onclick="openPortal('https://sampark.rajasthan.gov.in/')">Open ↗</button></div>
+
+<div class="tool">
+<h3>🇮🇳 India.gov.in</h3>
+<button onclick="openPortal('https://www.india.gov.in/')">
+Open ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🪪 UIDAI</h3>
+<button onclick="openPortal('https://uidai.gov.in/')">
+Open ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🗳️ Election Commission</h3>
+<button onclick="openPortal('https://www.eci.gov.in/')">
+Open ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🛂 Passport Seva</h3>
+<button onclick="openPortal('https://www.passportindia.gov.in/')">
+Open ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🏛️ myScheme</h3>
+<button onclick="openPortal('https://www.myscheme.gov.in/hi')">
+Open ↗
+</button>
+</div>
+
+<div class="tool">
+<h3>🔐 Rajasthan SSO</h3>
+<button onclick="openPortal('https://sso.rajasthan.gov.in/')">
+Open ↗
+</button>
+</div>
+
 </div>
 
 </div>
 
 <footer>
+
 <div class="footer-main">
+
 <div>
-<h3>🇮🇳 Bharat Digital Centre</h3>
-<p>Smart Citizen Digital Services</p>
-<p style="margin-top:10px;color:#c9def5;font-size:13px">
-Digital tools, citizen-service links, printing और document assistance.
+
+<h3>
+🇮🇳 Bharat Digital Centre
+</h3>
+
+<p>
+Smart Citizen Digital Services
 </p>
+
+<p style="margin-top:10px;color:#c9def5;font-size:13px">
+Digital tools, citizen-service links,
+printing और document assistance.
+</p>
+
 </div>
 
 <div>
+
 <h3>Services</h3>
+
 <a href="#services">Aadhaar</a>
 <a href="#services">PAN</a>
 <a href="#services">Voter</a>
 <a href="#services">PM-Kisan</a>
 <a href="#services">Passport</a>
+
 </div>
 
 <div>
+
 <h3>Digital Tools</h3>
+
+<a href="#tools">Aadhaar Print</a>
 <a href="#tools">ID Card</a>
 <a href="#tools">Passport Photo</a>
-<a href="#tools">Photo Tools</a>
 <a href="#tools">Certificate</a>
 <a href="#tools">Calculator</a>
+
 </div>
 
 <div>
+
 <h3>Official Portals</h3>
-<a href="https://www.india.gov.in/" target="_blank">India.gov.in ↗</a>
-<a href="https://uidai.gov.in/" target="_blank">UIDAI ↗</a>
-<a href="https://www.eci.gov.in/" target="_blank">ECI ↗</a>
-<a href="https://www.passportindia.gov.in/" target="_blank">Passport Seva ↗</a>
-<a href="https://www.myscheme.gov.in/hi" target="_blank">myScheme ↗</a>
+
+<a href="https://www.india.gov.in/" target="_blank">
+India.gov.in ↗
+</a>
+
+<a href="https://uidai.gov.in/" target="_blank">
+UIDAI ↗
+</a>
+
+<a href="https://www.eci.gov.in/" target="_blank">
+ECI ↗
+</a>
+
+<a href="https://www.passportindia.gov.in/" target="_blank">
+Passport Seva ↗
+</a>
+
 </div>
+
 </div>
 
 <div class="footer-bottom">
-© 2026 Bharat Digital Centre | Smart Citizen Digital Services
+
+© 2026 Bharat Digital Centre |
+Smart Citizen Digital Services
+
 <br>
-यह वेबसाइट किसी Government Department या CSC की official website नहीं है।
+
+यह वेबसाइट किसी Government Department या CSC की
+official website नहीं है।
+
 </div>
+
 </footer>
 
-<a class="whatsapp"
+<a
+class="whatsapp"
 href="https://wa.me/919999999999"
-target="_blank" title="WhatsApp Help">☏</a>
+target="_blank"
+title="WhatsApp Help">
+☏
+</a>
 
 <script>
 
-/* BASIC */
+/* ================= BASIC ================= */
+
 function openPortal(url){
 window.open(url,"_blank","noopener,noreferrer");
 }
 
 function scrollToId(id){
+
 const el=document.getElementById(id);
-if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
-}
 
-function toggleMobileMenu(){
-const nav=document.querySelector(".nav");
-nav.style.display=nav.style.display==="flex"?"none":"flex";
-}
-
-/* SEARCH */
-function searchServices(){
-const q=document.getElementById("serviceSearch").value.toLowerCase().trim();
-
-document.querySelectorAll(".service").forEach(card=>{
-card.style.display=card.innerText.toLowerCase().includes(q)?"":"none";
+if(el){
+el.scrollIntoView({
+behavior:"smooth",
+block:"start"
 });
 }
 
-/* SECURITY */
+}
+
+function toggleMobileMenu(){
+
+const nav=document.querySelector(".nav");
+
+nav.style.display=
+nav.style.display==="flex"?"none":"flex";
+
+}
+
+/* ================= SEARCH ================= */
+
+function searchServices(){
+
+const q=
+document.getElementById("serviceSearch")
+.value
+.toLowerCase()
+.trim();
+
+document
+.querySelectorAll(".service")
+.forEach(card=>{
+
+card.style.display=
+card.innerText
+.toLowerCase()
+.includes(q)
+?"":"none";
+
+});
+
+}
+
+/* ================= SECURITY ================= */
+
 function escapeHTML(value){
+
 return String(value)
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
 .replace(/"/g,"&quot;")
 .replace(/'/g,"&#039;");
+
 }
 
-/* ================= ID CARD ================= */
+/* =====================================================
+   AADHAAR CARD
+   STANDARD CARD SIZE = 85.6mm × 54mm
+===================================================== */
 
-function getCardDimensions(){
-const size=document.getElementById("cardSize").value;
+let aadhaarPhotoData="";
 
-if(size==="small")return [80,50];
+function formatAadhaarNumber(input){
 
-if(size==="custom"){
-return[
-parseFloat(document.getElementById("customCardWidth").value)||85.6,
-parseFloat(document.getElementById("customCardHeight").value)||54
-];
+let value=input.value
+.replace(/\D/g,"")
+.substring(0,12);
+
+let parts=[];
+
+for(let i=0;i<value.length;i+=4){
+parts.push(value.substring(i,i+4));
 }
 
-return[85.6,54];
+input.value=parts.join(" ");
+
 }
 
-function updateCardSize(){
-const[w,h]=getCardDimensions();
+function loadAadhaarPhoto(event){
 
-document.getElementById("cardFrontPreview").style.width=w+"mm";
-document.getElementById("cardFrontPreview").style.height=h+"mm";
-
-document.getElementById("cardBackPreview").style.width=w+"mm";
-document.getElementById("cardBackPreview").style.height=h+"mm";
-}
-
-function updateIDCard(){
-
-document.getElementById("previewName").innerText=
-document.getElementById("cardName").value||"Your Name";
-
-document.getElementById("previewClass").innerText=
-document.getElementById("cardClass").value||"Class / Designation";
-
-document.getElementById("previewMobile").innerText=
-document.getElementById("cardMobile").value||"Mobile";
-
-document.getElementById("previewOrg").innerText=
-document.getElementById("cardOrg").value||"Bharat Digital Centre";
-
-document.getElementById("previewNumber").innerText=
-document.getElementById("cardNumber").value||"ID No.";
-
-document.getElementById("backOrg").innerText=
-document.getElementById("cardOrg").value||"Bharat Digital Centre";
-
-document.getElementById("backNumber").innerText=
-document.getElementById("cardNumber").value||"ID No.";
-
-updateCardSize();
-}
-
-function loadCardPhoto(event){
 const file=event.target.files[0];
+
 if(!file)return;
 
 const reader=new FileReader();
 
 reader.onload=e=>{
-const img=document.getElementById("cardPhoto");
-img.src=e.target.result;
+
+aadhaarPhotoData=e.target.result;
+
+const img=
+document.getElementById("aadhaarPreviewPhoto");
+
+img.src=aadhaarPhotoData;
 img.style.display="block";
+
 };
 
 reader.readAsDataURL(file);
+
+}
+
+function updateAadhaarPreview(){
+
+const name=
+document.getElementById("aadhaarName")
+.value||"Name";
+
+const dob=
+document.getElementById("aadhaarDOB")
+.value||"DOB";
+
+const gender=
+document.getElementById("aadhaarGender")
+.value||"Gender";
+
+const number=
+document.getElementById("aadhaarNumber")
+.value||"XXXX XXXX XXXX";
+
+const address=
+document.getElementById("aadhaarAddress")
+.value||
+"Address will appear here";
+
+document.getElementById(
+"aadhaarPreviewName"
+).innerText=name;
+
+document.getElementById(
+"aadhaarPreviewDOB"
+).innerText=dob;
+
+document.getElementById(
+"aadhaarPreviewGender"
+).innerText=gender;
+
+document.getElementById(
+"aadhaarPreviewNumber"
+).innerText=number;
+
+document.getElementById(
+"aadhaarPreviewAddress"
+).innerText=address;
+
+}
+
+function getAadhaarFrontHTML(){
+
+return document
+.getElementById("aadhaarFrontPreview")
+.outerHTML;
+
+}
+
+function getAadhaarBackHTML(){
+
+return document
+.getElementById("aadhaarBackPreview")
+.outerHTML;
+
 }
 
 /*
-IMPORTANT:
-Front + Back में हर card का front और back
-एक साथ रखा जाएगा।
-इससे अलग-अलग pages बनने की समस्या कम होगी।
+Front + Back को एक ही A4 print document में रखा जाता है।
+दोनों sides एक साथ दिखेंगी।
 */
+
+function printAadhaarCards(){
+
+updateAadhaarPreview();
+
+const side=document.querySelector(
+'input[name="aadhaarSide"]:checked'
+).value;
+
+const count=parseInt(
+document.getElementById("aadhaarCopies").value
+);
+
+const orientation=document.querySelector(
+'input[name="aadhaarOrientation"]:checked'
+).value;
+
+const cut=document.querySelector(
+'input[name="aadhaarCut"]:checked'
+).value==="yes";
+
+const front=getAadhaarFrontHTML();
+const back=getAadhaarBackHTML();
+
+let cards="";
+
+/* FRONT ONLY */
+
+if(side==="front"){
+
+for(let i=0;i<count;i++){
+
+cards+=`
+<div class="print-item ${cut?"cut":""}">
+${front}
+</div>
+`;
+
+}
+
+}
+
+/* BACK ONLY */
+
+if(side==="back"){
+
+for(let i=0;i<count;i++){
+
+cards+=`
+<div class="print-item ${cut?"cut":""}">
+${back}
+</div>
+`;
+
+}
+
+}
+
+/*
+FRONT + BACK
+
+हर Aadhaar card का Front और Back
+एक ही group में रखा जाता है।
+इसलिए दोनों अलग print documents में नहीं जाते।
+*/
+
+if(side==="both"){
+
+for(let i=0;i<count;i++){
+
+cards+=`
+
+<div class="aadhaar-pair">
+
+<div class="print-item ${cut?"cut":""}">
+${front}
+</div>
+
+<div class="print-item ${cut?"cut":""}">
+${back}
+</div>
+
+</div>
+
+`;
+
+}
+
+}
+
+const printWindow=window.open(
+"",
+"_blank"
+);
+
+if(!printWindow){
+
+alert(
+"Popup blocked है। Browser में pop-up allow करें।"
+);
+
+return;
+
+}
+
+printWindow.document.write(`
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Aadhaar Card Print</title>
+
+<style>
+
+@page{
+size:A4 ${orientation};
+margin:8mm;
+}
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+padding:0;
+background:#fff;
+font-family:Arial,sans-serif;
+}
+
+.sheet{
+
+width:100%;
+
+display:grid;
+
+grid-template-columns:
+repeat(2,max-content);
+
+justify-content:center;
+
+align-content:start;
+
+gap:8mm;
+
+}
+
+.print-item{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.print-item.cut{
+
+outline:1px dashed #777;
+
+outline-offset:2mm;
+
+}
+
+.aadhaar-pair{
+
+display:flex;
+
+flex-direction:column;
+
+gap:6mm;
+
+break-inside:avoid;
+
+page-break-inside:avoid;
+
+}
+
+.aadhaar-card{
+
+width:85.6mm !important;
+
+height:54mm !important;
+
+padding:4mm;
+
+border:1px solid #777;
+
+border-radius:2mm;
+
+background:#fff;
+
+position:relative;
+
+overflow:hidden;
+
+font-family:Arial,sans-serif;
+
+}
+
+.aadhaar-front-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+border-bottom:1px solid #d62828;
+
+padding-bottom:2mm;
+
+}
+
+.aadhaar-logo{
+
+font-size:18px;
+
+font-weight:bold;
+
+color:#d62828;
+
+}
+
+.aadhaar-gov{
+
+font-size:8px;
+
+text-align:right;
+
+line-height:1.2;
+
+}
+
+.aadhaar-content{
+
+display:flex;
+
+gap:3mm;
+
+margin-top:3mm;
+
+}
+
+.aadhaar-photo{
+
+width:20mm;
+
+height:24mm;
+
+object-fit:cover;
+
+border:1px solid #777;
+
+}
+
+.aadhaar-details{
+
+font-size:8px;
+
+line-height:1.7;
+
+}
+
+.aadhaar-number{
+
+font-size:11px;
+
+font-weight:bold;
+
+letter-spacing:1px;
+
+margin-top:2mm;
+
+}
+
+.aadhaar-bottom{
+
+position:absolute;
+
+left:4mm;
+
+right:4mm;
+
+bottom:2.5mm;
+
+border-top:1px solid #ddd;
+
+padding-top:1mm;
+
+font-size:7px;
+
+text-align:center;
+
+}
+
+.aadhaar-back{
+
+font-size:8px;
+
+}
+
+.aadhaar-back-header{
+
+text-align:center;
+
+font-size:11px;
+
+font-weight:bold;
+
+color:#d62828;
+
+border-bottom:1px solid #ddd;
+
+padding-bottom:2mm;
+
+margin-bottom:3mm;
+
+}
+
+.aadhaar-qr{
+
+width:18mm;
+
+height:18mm;
+
+border:1px dashed #777;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:7px;
+
+float:right;
+
+margin-left:3mm;
+
+background:#fafafa;
+
+}
+
+@media print{
+
+body{
+
+-webkit-print-color-adjust:exact;
+
+print-color-adjust:exact;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sheet">
+
+${cards}
+
+</div>
+
+<script>
+
+window.onload=function(){
+
+setTimeout(function(){
+
+window.print();
+
+},500);
+
+};
+
+<\/script>
+
+</body>
+
+</html>
+
+`);
+
+printWindow.document.close();
+
+}
+
+/* ================= ID CARD ================= */
+
+function getCardDimensions(){
+
+const size=
+document.getElementById("cardSize").value;
+
+if(size==="small")
+return[80,50];
+
+return[85.6,54];
+
+}
+
+function updateCardSize(){
+
+const[w,h]=getCardDimensions();
+
+const front=
+document.getElementById("cardFrontPreview");
+
+const back=
+document.getElementById("cardBackPreview");
+
+front.style.width=w+"mm";
+front.style.height=h+"mm";
+
+back.style.width=w+"mm";
+back.style.height=h+"mm";
+
+}
+
+function updateIDCard(){
+
+document.getElementById(
+"previewName"
+).innerText=
+document.getElementById("cardName").value
+||"Your Name";
+
+document.getElementById(
+"previewClass"
+).innerText=
+document.getElementById("cardClass").value
+||"Class / Designation";
+
+document.getElementById(
+"previewMobile"
+).innerText=
+document.getElementById("cardMobile").value
+||"Mobile";
+
+document.getElementById(
+"previewOrg"
+).innerText=
+document.getElementById("cardOrg").value
+||"Bharat Digital Centre";
+
+document.getElementById(
+"previewNumber"
+).innerText=
+document.getElementById("cardNumber").value
+||"ID No.";
+
+document.getElementById(
+"backOrg"
+).innerText=
+document.getElementById("cardOrg").value
+||"Bharat Digital Centre";
+
+document.getElementById(
+"backNumber"
+).innerText=
+document.getElementById("cardNumber").value
+||"ID No.";
+
+updateCardSize();
+
+}
+
+function loadCardPhoto(event){
+
+const file=event.target.files[0];
+
+if(!file)return;
+
+const reader=new FileReader();
+
+reader.onload=e=>{
+
+const img=
+document.getElementById("cardPhoto");
+
+img.src=e.target.result;
+
+img.style.display="block";
+
+};
+
+reader.readAsDataURL(file);
+
+}
 
 function printIDCards(){
 
@@ -976,29 +3367,28 @@ const orientation=document.querySelector(
 'input[name="cardOrientation"]:checked'
 ).value;
 
-const cut=document.querySelector(
-'input[name="cutLines"]:checked'
-).value==="yes";
-
-const[w,h]=getCardDimensions();
-
-const front=document.getElementById(
+const front=
+document.getElementById(
 "cardFrontPreview"
 ).outerHTML;
 
-const back=document.getElementById(
+const back=
+document.getElementById(
 "cardBackPreview"
 ).outerHTML;
 
-let repeated="";
+let cards="";
 
 if(side==="front"){
 
 for(let i=0;i<count;i++){
-repeated+=`
-<div class="print-card ${cut?"cut":""}">
+
+cards+=`
+<div class="print-item">
 ${front}
-</div>`;
+</div>
+`;
+
 }
 
 }
@@ -1006,54 +3396,68 @@ ${front}
 if(side==="back"){
 
 for(let i=0;i<count;i++){
-repeated+=`
-<div class="print-card ${cut?"cut":""}">
+
+cards+=`
+<div class="print-item">
 ${back}
-</div>`;
-}
+</div>
+`;
 
 }
 
-/*
-Front + Back:
-हर ID card को एक group माना जाएगा।
-हर group में Front + Back दोनों होंगे।
-इससे Front और Back अलग-अलग pages में नहीं जाएंगे।
-*/
+}
 
 if(side==="both"){
 
 for(let i=0;i<count;i++){
 
-repeated+=`
+cards+=`
+
 <div class="card-pair">
 
-<div class="print-card ${cut?"cut":""}">
+<div class="print-item">
 ${front}
 </div>
 
-<div class="print-card ${cut?"cut":""}">
+<div class="print-item">
 ${back}
 </div>
 
 </div>
+
 `;
 
 }
+
 }
 
-const printWindow=window.open("","_blank");
+const printWindow=window.open(
+"",
+"_blank"
+);
 
 if(!printWindow){
-alert("Popup blocked है। Browser में pop-up allow करें।");
+
+alert(
+"Popup blocked है। Browser में pop-up allow करें।"
+);
+
 return;
+
 }
 
+const[w,h]=getCardDimensions();
+
 printWindow.document.write(`
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>ID Card Print</title>
 
 <style>
@@ -1063,162 +3467,231 @@ size:A4 ${orientation};
 margin:8mm;
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
-padding:0;
-font-family:Arial,sans-serif;
+font-family:Arial;
 }
 
 .sheet{
-width:100%;
+
 display:grid;
-grid-template-columns:repeat(2,max-content);
+
+grid-template-columns:
+repeat(2,max-content);
+
 justify-content:center;
-align-content:start;
+
 gap:8mm;
+
 }
 
 .card-pair{
+
 display:flex;
+
 flex-direction:column;
+
 gap:6mm;
+
 break-inside:avoid;
-page-break-inside:avoid;
-}
 
-.print-card{
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.print-card.cut{
-outline:1px dashed #777;
-outline-offset:2mm;
 }
 
 .id-card{
+
 width:${w}mm !important;
+
 height:${h}mm !important;
+
 padding:5mm;
+
 border:1px solid #0756b8;
+
 border-radius:3mm;
-background:linear-gradient(135deg,#fff,#eaf4ff);
+
+background:#fff;
+
 position:relative;
+
 overflow:hidden;
-font-family:Arial,sans-serif;
+
 }
 
 .id-card-header{
+
 font-size:11pt;
+
 font-weight:bold;
+
 color:#0756b8;
+
 border-bottom:1px solid #0756b8;
+
 padding-bottom:2mm;
+
 }
 
 .id-card-photo{
+
 width:22mm;
+
 height:27mm;
+
 object-fit:cover;
+
 float:left;
+
 margin:4mm 4mm 2mm 0;
+
 border:1px solid #777;
+
 }
 
 .id-card-name{
+
 font-size:12pt;
+
 font-weight:bold;
+
 margin-top:5mm;
+
 }
 
 .id-card-info{
+
 font-size:8pt;
+
 margin-top:1mm;
+
 }
 
 .id-back{
+
 text-align:left;
+
 font-size:8pt;
+
 }
 
 .id-back h3{
+
 text-align:center;
+
 color:#0756b8;
+
 margin-bottom:5mm;
+
 }
 
 @media print{
+
 body{
+
 -webkit-print-color-adjust:exact;
+
 print-color-adjust:exact;
+
 }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="sheet">
-${repeated}
+
+${cards}
+
 </div>
 
 <script>
+
 window.onload=function(){
+
 setTimeout(function(){
+
 window.print();
+
 },500);
+
 };
+
 <\/script>
 
 </body>
+
 </html>
+
 `);
 
 printWindow.document.close();
+
 }
 
-/* ================= PASSPORT PHOTO ================= */
+/* ================= PASSPORT ================= */
 
 let passportData="";
 
 function getPassportDimensions(){
 
-const size=document.getElementById("passportSize").value;
+const size=
+document.getElementById("passportSize").value;
 
 if(size==="35x35")return[35,35];
+
 if(size==="51x51")return[51,51];
+
 if(size==="25x35")return[25,35];
 
 if(size==="custom"){
+
 return[
-parseFloat(document.getElementById("photoWidth").value)||35,
-parseFloat(document.getElementById("photoHeight").value)||45
+
+parseFloat(
+document.getElementById("photoWidth").value
+)||35,
+
+parseFloat(
+document.getElementById("photoHeight").value
+)||45
+
 ];
+
 }
 
 return[35,45];
+
 }
 
 function updatePassportSize(){
 
 const[w,h]=getPassportDimensions();
 
-const img=document.getElementById("passportPreview");
+const img=
+document.getElementById("passportPreview");
 
 img.style.width=w+"mm";
+
 img.style.height=h+"mm";
 
-document.getElementById("passportInfo").innerText=
+document.getElementById(
+"passportInfo"
+).innerText=
 "Photo Size: "+w+" × "+h+" mm";
+
 }
 
 function loadPassportPhoto(event){
 
 const file=event.target.files[0];
+
 if(!file)return;
 
 const reader=new FileReader();
@@ -1227,26 +3700,36 @@ reader.onload=e=>{
 
 passportData=e.target.result;
 
-const img=document.getElementById("passportPreview");
+const img=
+document.getElementById(
+"passportPreview"
+);
 
 img.src=passportData;
+
 img.style.display="inline-block";
 
 updatePassportSize();
+
 createPassportSheet();
+
 };
 
 reader.readAsDataURL(file);
+
 }
 
 function createPassportSheet(){
 
 if(!passportData){
 
-document.getElementById("passportSheet").innerHTML=
+document.getElementById(
+"passportSheet"
+).innerHTML=
 "<div class='result'>पहले passport photo चुनें।</div>";
 
 return;
+
 }
 
 const[w,h]=getPassportDimensions();
@@ -1255,33 +3738,45 @@ const count=parseInt(
 document.getElementById("photoCopies").value
 );
 
-const cut=document.getElementById("photoCutLines").value==="yes";
+const cut=
+document.getElementById(
+"photoCutLines"
+).value==="yes";
 
-let html=`
-<div class="a4-sheet">
-`;
+let html=`<div class="a4-sheet">`;
 
 for(let i=0;i<count;i++){
 
 html+=`
-<div class="photo-item ${cut?"cut-line":""}"
+
+<div
+class="photo-item ${cut?"cut-line":""}"
 style="width:${w}mm;height:${h}mm">
+
 <img src="${passportData}">
+
 </div>
+
 `;
 
 }
 
 html+=`</div>`;
 
-document.getElementById("passportSheet").innerHTML=html;
+document.getElementById(
+"passportSheet"
+).innerHTML=html;
+
 }
 
 function printPassportPhotos(){
 
 if(!passportData){
+
 alert("पहले passport photo चुनें।");
+
 return;
+
 }
 
 const[w,h]=getPassportDimensions();
@@ -1290,11 +3785,13 @@ const count=parseInt(
 document.getElementById("photoCopies").value
 );
 
-const orientation=document.getElementById(
+const orientation=
+document.getElementById(
 "photoOrientation"
 ).value;
 
-const cut=document.getElementById(
+const cut=
+document.getElementById(
 "photoCutLines"
 ).value==="yes";
 
@@ -1303,25 +3800,44 @@ let photos="";
 for(let i=0;i<count;i++){
 
 photos+=`
-<div class="photo ${cut?"cut":""}"
+
+<div
+class="photo ${cut?"cut":""}"
 style="width:${w}mm;height:${h}mm">
+
 <img src="${passportData}">
+
 </div>
+
 `;
+
 }
 
-const printWindow=window.open("","_blank");
+const printWindow=window.open(
+"",
+"_blank"
+);
 
 if(!printWindow){
-alert("Popup blocked है। Browser में pop-up allow करें।");
+
+alert(
+"Popup blocked है। Browser में pop-up allow करें।"
+);
+
 return;
+
 }
 
 printWindow.document.write(`
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>Passport Photo Print</title>
 
 <style>
@@ -1331,8 +3847,6 @@ size:A4 ${orientation};
 margin:8mm;
 }
 
-*{box-sizing:border-box}
-
 body{
 margin:0;
 padding:0;
@@ -1340,14 +3854,22 @@ background:#fff;
 }
 
 .sheet{
+
 width:100%;
-min-height:281mm;
+
 display:grid;
-grid-template-columns:repeat(auto-fit,${w}mm);
+
+grid-template-columns:
+repeat(auto-fit,${w}mm);
+
 grid-auto-rows:${h}mm;
+
 gap:4mm;
+
 align-content:start;
+
 justify-content:center;
+
 }
 
 .photo{
@@ -1360,148 +3882,244 @@ outline-offset:1mm;
 }
 
 .photo img{
-display:block;
-width:100%;
-height:100%;
-object-fit:cover;
-}
 
-@media print{
-body{
--webkit-print-color-adjust:exact;
-print-color-adjust:exact;
-}
+display:block;
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="sheet">
+
 ${photos}
+
 </div>
 
 <script>
+
 window.onload=function(){
+
 setTimeout(function(){
+
 window.print();
-},500);
+
+},300);
+
 };
+
 <\/script>
 
 </body>
+
 </html>
+
 `);
 
 printWindow.document.close();
+
 }
 
 /* ================= VISITING CARD ================= */
 
 function createVisitingCard(){
 
-const name=document.getElementById("visitName").value||"Your Name";
-const role=document.getElementById("visitRole").value||"Profession";
-const phone=document.getElementById("visitPhone").value||"Phone";
-const email=document.getElementById("visitEmail").value||"Email";
-const address=document.getElementById("visitAddress").value||"Address";
+const name=
+document.getElementById("visitName").value
+||"Your Name";
 
-document.getElementById("visitPreview").innerHTML=`
+const role=
+document.getElementById("visitRole").value
+||"Profession";
+
+const phone=
+document.getElementById("visitPhone").value
+||"Phone";
+
+const email=
+document.getElementById("visitEmail").value
+||"Email";
+
+const address=
+document.getElementById("visitAddress").value
+||"Address";
+
+document.getElementById(
+"visitPreview"
+).innerHTML=`
+
 <div style="
 padding:25px;
 border:3px solid #0756b8;
 border-radius:15px;
 background:linear-gradient(135deg,#fff,#eaf4ff)
 ">
+
 <h2>${escapeHTML(name)}</h2>
-<p><b>${escapeHTML(role)}</b></p>
+
+<p>
+<b>${escapeHTML(role)}</b>
+</p>
+
 <hr>
+
 <p>📞 ${escapeHTML(phone)}</p>
+
 <p>✉ ${escapeHTML(email)}</p>
+
 <p>📍 ${escapeHTML(address)}</p>
+
 </div>
+
 `;
+
 }
 
-/* STUDENT CARD */
+/* ================= STUDENT ================= */
 
 function createStudentCard(){
 
-const name=document.getElementById("studentName").value||"Student Name";
-const cls=document.getElementById("studentClass").value||"Class";
-const roll=document.getElementById("studentRoll").value||"Roll Number";
-const school=document.getElementById("studentSchool").value||"School Name";
+const name=
+document.getElementById("studentName").value
+||"Student Name";
 
-document.getElementById("studentPreview").innerHTML=`
+const cls=
+document.getElementById("studentClass").value
+||"Class";
+
+const roll=
+document.getElementById("studentRoll").value
+||"Roll Number";
+
+const school=
+document.getElementById("studentSchool").value
+||"School Name";
+
+document.getElementById(
+"studentPreview"
+).innerHTML=`
+
 <div style="
 padding:25px;
 border:3px solid #138a45;
 border-radius:15px;
 background:#f0fff6
 ">
+
 <h2>🎓 ${escapeHTML(school)}</h2>
+
 <h3>${escapeHTML(name)}</h3>
+
 <p>Class: ${escapeHTML(cls)}</p>
+
 <p>Roll No: ${escapeHTML(roll)}</p>
+
 </div>
+
 `;
+
 }
 
 /* ================= RESIZE ================= */
 
 function resizeImageTool(){
 
-const file=document.getElementById("resizeImage").files[0];
-const width=parseInt(document.getElementById("resizeWidth").value);
-const height=parseInt(document.getElementById("resizeHeight").value);
+const file=
+document.getElementById(
+"resizeImage"
+).files[0];
+
+const width=parseInt(
+document.getElementById("resizeWidth").value
+);
+
+const height=parseInt(
+document.getElementById("resizeHeight").value
+);
 
 if(!file||!width||!height){
-alert("Image, width और height भरें।");
+
+alert(
+"Image, width और height भरें।"
+);
+
 return;
+
 }
 
 const img=new Image();
 
 img.onload=function(){
 
-const canvas=document.createElement("canvas");
+const canvas=
+document.createElement("canvas");
 
 canvas.width=width;
+
 canvas.height=height;
 
-canvas.getContext("2d").drawImage(
+canvas
+.getContext("2d")
+.drawImage(
 img,0,0,width,height
 );
 
 canvas.toBlob(blob=>{
 
-const url=URL.createObjectURL(blob);
+const url=
+URL.createObjectURL(blob);
 
-document.getElementById("resizeResult").innerHTML=`
-<a href="${url}" download="resized-image.jpg">
+document.getElementById(
+"resizeResult"
+).innerHTML=`
+
+<a
+href="${url}"
+download="resized-image.jpg">
+
 ⬇ Download Resized Image
+
 </a>
+
 `;
 
 },"image/jpeg",.9);
+
 };
 
-img.src=URL.createObjectURL(file);
+img.src=
+URL.createObjectURL(file);
+
 }
 
 /* ================= COMPRESS ================= */
 
 function compressImageTool(){
 
-const file=document.getElementById("compressImage").files[0];
+const file=
+document.getElementById(
+"compressImage"
+).files[0];
 
 if(!file){
+
 alert("Image चुनें।");
+
 return;
+
 }
 
-const quality=parseInt(
+const quality=
+parseInt(
 document.getElementById("quality").value
 )/100;
 
@@ -1509,99 +4127,168 @@ const img=new Image();
 
 img.onload=function(){
 
-const canvas=document.createElement("canvas");
+const canvas=
+document.createElement("canvas");
 
 canvas.width=img.width;
+
 canvas.height=img.height;
 
-canvas.getContext("2d").drawImage(img,0,0);
+canvas
+.getContext("2d")
+.drawImage(img,0,0);
 
 canvas.toBlob(blob=>{
 
-const url=URL.createObjectURL(blob);
+const url=
+URL.createObjectURL(blob);
 
-document.getElementById("compressResult").innerHTML=`
-<a href="${url}" download="compressed-image.jpg">
+document.getElementById(
+"compressResult"
+).innerHTML=`
+
+<a
+href="${url}"
+download="compressed-image.jpg">
+
 ⬇ Download Compressed Image
+
 </a>
+
 <br>
+
 <small>
-Original: ${(file.size/1024).toFixed(1)} KB |
-New: ${(blob.size/1024).toFixed(1)} KB
+
+Original:
+${(file.size/1024).toFixed(1)} KB
+
+|
+
+New:
+${(blob.size/1024).toFixed(1)} KB
+
 </small>
+
 `;
 
 },"image/jpeg",quality);
+
 };
 
-img.src=URL.createObjectURL(file);
+img.src=
+URL.createObjectURL(file);
+
 }
 
 /* ================= CONVERTER ================= */
 
 function convertImageTool(){
 
-const file=document.getElementById("convertImage").files[0];
+const file=
+document.getElementById(
+"convertImage"
+).files[0];
 
 if(!file){
+
 alert("Image चुनें।");
+
 return;
+
 }
 
-const format=document.getElementById("convertFormat").value;
+const format=
+document.getElementById(
+"convertFormat"
+).value;
 
 const img=new Image();
 
 img.onload=function(){
 
-const canvas=document.createElement("canvas");
+const canvas=
+document.createElement("canvas");
 
 canvas.width=img.width;
+
 canvas.height=img.height;
 
-canvas.getContext("2d").drawImage(img,0,0);
+canvas
+.getContext("2d")
+.drawImage(img,0,0);
 
 canvas.toBlob(blob=>{
 
-const url=URL.createObjectURL(blob);
+const url=
+URL.createObjectURL(blob);
 
-const ext=format.split("/")[1];
+const ext=
+format.split("/")[1];
 
-const a=document.createElement("a");
+const a=
+document.createElement("a");
 
 a.href=url;
-a.download="converted-image."+ext;
+
+a.download=
+"converted-image."+ext;
+
 a.click();
 
-setTimeout(()=>{
-URL.revokeObjectURL(url);
-},1000);
-
 },format,.92);
+
 };
 
-img.src=URL.createObjectURL(file);
+img.src=
+URL.createObjectURL(file);
+
 }
 
 /* ================= POSTER ================= */
 
 function createPoster(){
 
-const title=document.getElementById("posterTitle").value||"POSTER";
-const text=document.getElementById("posterText").value||"Your Message";
-const file=document.getElementById("posterImage").files[0];
+const title=
+document.getElementById(
+"posterTitle"
+).value||"POSTER";
+
+const text=
+document.getElementById(
+"posterText"
+).value||"Your Message";
+
+const file=
+document.getElementById(
+"posterImage"
+).files[0];
 
 if(file){
 
-const reader=new FileReader();
+const reader=
+new FileReader();
 
 reader.onload=e=>{
 
-document.getElementById("designContent").innerHTML=`
-<h1>${escapeHTML(title)}</h1>
-<img src="${e.target.result}"
-style="max-width:90%;max-height:180px;object-fit:contain">
-<p>${escapeHTML(text)}</p>
+document.getElementById(
+"designContent"
+).innerHTML=`
+
+<h1>
+${escapeHTML(title)}
+</h1>
+
+<img
+src="${e.target.result}"
+style="
+max-width:90%;
+max-height:180px;
+object-fit:contain">
+
+<p>
+${escapeHTML(text)}
+</p>
+
 `;
 
 };
@@ -1610,127 +4297,187 @@ reader.readAsDataURL(file);
 
 }else{
 
-document.getElementById("designContent").innerHTML=`
-<h1>${escapeHTML(title)}</h1>
-<p>${escapeHTML(text)}</p>
+document.getElementById(
+"designContent"
+).innerHTML=`
+
+<h1>
+${escapeHTML(title)}
+</h1>
+
+<p>
+${escapeHTML(text)}
+</p>
+
 `;
 
 }
+
 }
 
 /* ================= CERTIFICATE ================= */
 
 function createCertificate(){
 
-const title=document.getElementById("certificateTitle").value||"CERTIFICATE";
-const name=document.getElementById("certificateName").value||"Recipient Name";
-const text=document.getElementById("certificateText").value||
+const title=
+document.getElementById(
+"certificateTitle"
+).value||"CERTIFICATE";
+
+const name=
+document.getElementById(
+"certificateName"
+).value||"Recipient Name";
+
+const text=
+document.getElementById(
+"certificateText"
+).value||
 "This certificate is presented in recognition of achievement.";
 
-document.getElementById("designContent").innerHTML=`
+document.getElementById(
+"designContent"
+).innerHTML=`
+
 <div style="
 border:8px double #c59b32;
 padding:35px;
 min-height:260px;
 background:#fffdf5
 ">
-<h1>${escapeHTML(title)}</h1>
+
+<h1>
+${escapeHTML(title)}
+</h1>
+
 <br>
-<p>This certificate is proudly presented to</p>
-<h2 style="font-size:30px">${escapeHTML(name)}</h2>
-<p>${escapeHTML(text)}</p>
+
+<p>
+This certificate is proudly presented to
+</p>
+
+<h2 style="font-size:30px">
+${escapeHTML(name)}
+</h2>
+
+<p>
+${escapeHTML(text)}
+</p>
+
 <br>
-<p>________________________</p>
-<small>Authorized Signature</small>
+
+<p>
+________________________
+</p>
+
+<small>
+Authorized Signature
+</small>
+
 </div>
+
 `;
+
 }
 
 /* ================= INVITATION ================= */
 
 function createInvitation(){
 
-const title=document.getElementById("inviteTitle").value||"YOU ARE INVITED";
-const date=document.getElementById("inviteDate").value||"Date & Time";
-const place=document.getElementById("invitePlace").value||"Venue";
-const message=document.getElementById("inviteMessage").value||
+const title=
+document.getElementById(
+"inviteTitle"
+).value||"YOU ARE INVITED";
+
+const date=
+document.getElementById(
+"inviteDate"
+).value||"Date & Time";
+
+const place=
+document.getElementById(
+"invitePlace"
+).value||"Venue";
+
+const message=
+document.getElementById(
+"inviteMessage"
+).value||
 "We warmly invite you to join us.";
 
-document.getElementById("designContent").innerHTML=`
+document.getElementById(
+"designContent"
+).innerHTML=`
+
 <div style="
 padding:35px;
 border:4px solid #673ab7;
 border-radius:20px;
 background:linear-gradient(135deg,#fff,#f5efff)
 ">
-<h1>💌 ${escapeHTML(title)}</h1>
+
+<h1>
+💌 ${escapeHTML(title)}
+</h1>
+
 <br>
-<p>${escapeHTML(message)}</p>
+
+<p>
+${escapeHTML(message)}
+</p>
+
 <br>
-<h3>📅 ${escapeHTML(date)}</h3>
-<h3>📍 ${escapeHTML(place)}</h3>
+
+<h3>
+📅 ${escapeHTML(date)}
+</h3>
+
+<h3>
+📍 ${escapeHTML(place)}
+</h3>
+
 </div>
+
 `;
+
 }
 
-/* ================= DOWNLOAD DESIGN ================= */
-
-function downloadDesign(){
-
-const content=document.getElementById(
-"designCanvas"
-).outerHTML;
-
-const blob=new Blob([`
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Bharat Digital Design</title>
-</head>
-<body>
-${content}
-</body>
-</html>
-`],{type:"text/html"});
-
-const url=URL.createObjectURL(blob);
-
-const a=document.createElement("a");
-
-a.href=url;
-a.download="Bharat-Digital-Design.html";
-a.click();
-
-setTimeout(()=>{
-URL.revokeObjectURL(url);
-},1000);
-}
-
-/* ================= PRINT ELEMENT ================= */
+/* ================= PRINT ================= */
 
 function printElement(id){
 
-const element=document.getElementById(id);
+const element=
+document.getElementById(id);
 
 if(!element)return;
 
-const printWindow=window.open("","_blank");
+const printWindow=
+window.open("","_blank");
 
 if(!printWindow){
 
-alert("Popup blocked है। Browser में pop-up allow करें।");
+alert(
+"Popup blocked है। Browser में pop-up allow करें।"
+);
+
 return;
+
 }
 
 printWindow.document.write(`
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>Print - Bharat Digital Centre</title>
 
 <style>
+
 @page{
 size:A4;
 margin:10mm;
@@ -1742,6 +4489,7 @@ text-align:center;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -1749,56 +4497,82 @@ text-align:center;
 ${element.outerHTML}
 
 <script>
+
 window.onload=function(){
+
 setTimeout(function(){
+
 window.print();
+
 },300);
+
 };
+
 <\/script>
 
 </body>
+
 </html>
+
 `);
 
 printWindow.document.close();
+
 }
 
 /* ================= CALCULATOR ================= */
 
 function calculate(operator){
 
-const a=parseFloat(document.getElementById("calcA").value);
-const b=parseFloat(document.getElementById("calcB").value);
+const a=parseFloat(
+document.getElementById("calcA").value
+);
+
+const b=parseFloat(
+document.getElementById("calcB").value
+);
 
 if(isNaN(a)||isNaN(b)){
 
-document.getElementById("calcResult").innerText=
+document.getElementById(
+"calcResult"
+).innerText=
 "दोनों numbers डालें।";
 
 return;
+
 }
 
 let result;
 
 if(operator==="+")result=a+b;
+
 if(operator==="-")result=a-b;
+
 if(operator==="*")result=a*b;
 
 if(operator==="/"){
 
 if(b===0){
 
-document.getElementById("calcResult").innerText=
+document.getElementById(
+"calcResult"
+).innerText=
 "0 से divide नहीं कर सकते।";
 
 return;
+
 }
 
 result=a/b;
+
 }
 
-document.getElementById("calcResult").innerText=
+document.getElementById(
+"calcResult"
+).innerText=
 "Result: "+result;
+
 }
 
 /* ================= PERCENTAGE ================= */
@@ -1806,47 +4580,67 @@ document.getElementById("calcResult").innerText=
 function percentage(){
 
 const number=parseFloat(
-document.getElementById("percentNumber").value
+document.getElementById(
+"percentNumber"
+).value
 );
 
 const total=parseFloat(
-document.getElementById("percentTotal").value
+document.getElementById(
+"percentTotal"
+).value
 );
 
-if(isNaN(number)||isNaN(total)||total===0){
+if(
+isNaN(number)||
+isNaN(total)||
+total===0
+){
 
-document.getElementById("percentResult").innerText=
+document.getElementById(
+"percentResult"
+).innerText=
 "Valid numbers डालें।";
 
 return;
+
 }
 
-document.getElementById("percentResult").innerText=
-"Percentage: "+((number/total)*100).toFixed(2)+"%";
+document.getElementById(
+"percentResult"
+).innerText=
+"Percentage: "+
+((number/total)*100).toFixed(2)+
+"%";
+
 }
 
-/* ================= NUMBER TO WORDS ================= */
+/* ================= NUMBER WORDS ================= */
 
 function numberToIndianWords(num){
 
 if(num===0)return"Zero";
 
 const ones=[
-"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine",
-"Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen",
+"","One","Two","Three","Four",
+"Five","Six","Seven","Eight","Nine",
+"Ten","Eleven","Twelve","Thirteen",
+"Fourteen","Fifteen","Sixteen",
 "Seventeen","Eighteen","Nineteen"
 ];
 
 const tens=[
-"","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"
+"","","Twenty","Thirty","Forty",
+"Fifty","Sixty","Seventy","Eighty","Ninety"
 ];
 
 function under100(n){
 
 if(n<20)return ones[n];
 
-return tens[Math.floor(n/10)]+
+return tens[Math.floor(n/10)] +
 (n%10?" "+ones[n%10]:"");
+
 }
 
 function under1000(n){
@@ -1856,72 +4650,116 @@ let s="";
 if(n>=100){
 
 s+=ones[Math.floor(n/100)]+" Hundred";
+
 n%=100;
 
 if(n)s+=" ";
+
 }
 
 if(n)s+=under100(n);
 
 return s;
+
 }
 
 let result="";
 
 if(num>=10000000){
 
-result+=under1000(Math.floor(num/10000000))+" Crore ";
+result+=
+under1000(
+Math.floor(num/10000000)
+)+" Crore ";
+
 num%=10000000;
+
 }
 
 if(num>=100000){
 
-result+=under1000(Math.floor(num/100000))+" Lakh ";
+result+=
+under1000(
+Math.floor(num/100000)
+)+" Lakh ";
+
 num%=100000;
+
 }
 
 if(num>=1000){
 
-result+=under1000(Math.floor(num/1000))+" Thousand ";
+result+=
+under1000(
+Math.floor(num/1000)
+)+" Thousand ";
+
 num%=1000;
+
 }
 
-if(num)result+=under1000(num);
+if(num)
+result+=under1000(num);
 
 return result.trim();
+
 }
 
 function numberWords(){
 
-const input=document.getElementById("numberInput").value;
+const input=
+document.getElementById(
+"numberInput"
+).value;
 
 const num=Number(input);
 
-if(input===""||!Number.isFinite(num)||num<0||num>999999999){
+if(
+input===""||
+!Number.isFinite(num)||
+num<0||
+num>999999999
+){
 
-document.getElementById("wordsResult").innerText=
+document.getElementById(
+"wordsResult"
+).innerText=
 "0 से 99,99,99,999 तक number डालें।";
 
 return;
+
 }
 
-document.getElementById("wordsResult").innerText=
-numberToIndianWords(Math.floor(num));
+document.getElementById(
+"wordsResult"
+).innerText=
+numberToIndianWords(
+Math.floor(num)
+);
+
 }
 
 /* ================= TEXT COUNTER ================= */
 
 function countText(){
 
-const text=document.getElementById("textCounter").value;
+const text=
+document.getElementById(
+"textCounter"
+).value;
 
 const chars=text.length;
 
-const words=text.trim()?
+const words=
+text.trim()?
 text.trim().split(/\s+/).length:0;
 
-document.getElementById("textResult").innerText=
-"Characters: "+chars+" | Words: "+words;
+document.getElementById(
+"textResult"
+).innerText=
+"Characters: "+chars+
+" | Words: "+words;
+
 }
 
 /* ================= PASSWORD ================= */
@@ -1929,139 +4767,213 @@ document.getElementById("textResult").innerText=
 function generatePassword(){
 
 let length=parseInt(
-document.getElementById("passwordLength").value
+document.getElementById(
+"passwordLength"
+).value
 );
 
-if(isNaN(length)||length<4)length=4;
-if(length>50)length=50;
+if(isNaN(length)||length<4)
+length=4;
+
+if(length>50)
+length=50;
 
 const chars=
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
+"abcdefghijklmnopqrstuvwxyz"+
+"0123456789!@#$%^&*";
 
 let password="";
 
 for(let i=0;i<length;i++){
 
 password+=chars.charAt(
-Math.floor(Math.random()*chars.length)
+Math.floor(
+Math.random()*chars.length
+)
 );
 
 }
 
-document.getElementById("generatedPassword").value=password;
+document.getElementById(
+"generatedPassword"
+).value=password;
+
 }
 
 function copyPassword(){
 
-const input=document.getElementById(
+const input=
+document.getElementById(
 "generatedPassword"
 );
 
 if(!input.value){
 
-alert("पहले password generate करें।");
+alert(
+"पहले password generate करें।"
+);
+
 return;
+
 }
 
-navigator.clipboard.writeText(input.value)
+navigator.clipboard
+.writeText(input.value)
 .then(()=>{
+
 alert("Password copied!");
+
 })
 .catch(()=>{
+
 input.select();
+
 document.execCommand("copy");
+
 alert("Password copied!");
+
 });
+
 }
 
 /* ================= AGE ================= */
 
 function calculateAge(){
 
-const dobValue=document.getElementById("dob").value;
+const dobValue=
+document.getElementById("dob").value;
 
 if(!dobValue){
 
-document.getElementById("ageResult").innerText=
+document.getElementById(
+"ageResult"
+).innerText=
 "Date of Birth चुनें।";
 
 return;
+
 }
 
-const dob=new Date(dobValue+"T00:00:00");
+const dob=
+new Date(
+dobValue+"T00:00:00"
+);
+
 const today=new Date();
 
 if(dob>today){
 
-document.getElementById("ageResult").innerText=
+document.getElementById(
+"ageResult"
+).innerText=
 "भविष्य की date मान्य नहीं है।";
 
 return;
+
 }
 
-let years=today.getFullYear()-dob.getFullYear();
-let months=today.getMonth()-dob.getMonth();
-let days=today.getDate()-dob.getDate();
+let years=
+today.getFullYear()-
+dob.getFullYear();
+
+let months=
+today.getMonth()-
+dob.getMonth();
+
+let days=
+today.getDate()-
+dob.getDate();
 
 if(days<0){
 
 months--;
 
-const previousMonth=new Date(
+const previousMonth=
+new Date(
 today.getFullYear(),
 today.getMonth(),
 0
 );
 
 days+=previousMonth.getDate();
+
 }
 
 if(months<0){
 
 years--;
+
 months+=12;
+
 }
 
-document.getElementById("ageResult").innerText=
-"Age: "+years+" Years, "+months+" Months, "+days+" Days";
+document.getElementById(
+"ageResult"
+).innerText=
+"Age: "+
+years+
+" Years, "+
+months+
+" Months, "+
+days+
+" Days";
+
 }
 
-/* ================= QR CODE ================= */
+/* ================= QR ================= */
 
 function generateQR(){
 
-const text=document.getElementById("qrText").value.trim();
+const text=
+document.getElementById(
+"qrText"
+).value.trim();
 
 if(!text){
 
-document.getElementById("qrResult").innerText=
+document.getElementById(
+"qrResult"
+).innerText=
 "Text या URL डालें।";
 
 return;
+
 }
 
-/*
-QR image external public service से generate होती है।
-Internet उपलब्ध होने पर QR दिखाई देगा।
-*/
+const encoded=
+encodeURIComponent(text);
 
-const encoded=encodeURIComponent(text);
+document.getElementById(
+"qrResult"
+).innerHTML=`
 
-document.getElementById("qrResult").innerHTML=`
 <img
 src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encoded}"
 alt="QR Code"
-style="max-width:220px;width:100%;height:auto"
->
+style="
+max-width:220px;
+width:100%;
+height:auto
+">
+
 <br><br>
-<small>QR Code तैयार है</small>
+
+<small>
+QR Code तैयार है
+</small>
+
 `;
+
 }
 
-/* DEFAULT SETTINGS */
+/* ================= DEFAULT ================= */
 
 updateCardSize();
+
 updatePassportSize();
+
+updateAadhaarPreview();
 
 </script>
 
