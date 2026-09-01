@@ -7,6 +7,7 @@
 <title>Gramin Grahak Sewa</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -18,62 +19,101 @@ html{
 }
 
 body{
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    font-family:
+    Arial,
+    "Noto Sans Devanagari",
+    sans-serif;
+
     background:#eef3f8;
     color:#17202a;
 }
 
-button,input,select{
+button,
+input,
+select{
     font-family:inherit;
 }
 
-/* ================= HEADER ================= */
+
+/* =====================================================
+HEADER
+===================================================== */
 
 .header{
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         90deg,
         #ff8c00 0%,
         #ff8c00 33%,
-        #fff 33%,
-        #fff 66%,
+        #ffffff 33%,
+        #ffffff 66%,
         #138808 66%,
         #138808 100%
     );
+
     padding:12px 3%;
     border-bottom:4px solid #0756b8;
 }
 
 .header-inner{
+
     max-width:1500px;
     margin:auto;
-    background:linear-gradient(135deg,#043b78,#0876d1);
+
+    background:
+    linear-gradient(
+        135deg,
+        #043b78,
+        #0876d1
+    );
+
     border-radius:14px;
+
     padding:12px 18px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     gap:15px;
-    box-shadow:0 5px 18px #0004;
+
+    box-shadow:
+    0 5px 18px #0004;
 }
 
-/* ================= LOGO ================= */
+
+/* =====================================================
+LOGO
+===================================================== */
 
 .logo-area{
+
     display:flex;
     align-items:center;
     gap:15px;
+
     color:white;
 }
 
 .india-logo{
+
     width:82px;
     height:82px;
+
     border-radius:50%;
+
     overflow:hidden;
+
     border:4px solid white;
+
     background:white;
+
     position:relative;
-    box-shadow:0 3px 12px #0005;
+
+    box-shadow:
+    0 3px 12px #0005;
+
     flex:none;
 }
 
@@ -83,8 +123,10 @@ button,input,select{
 }
 
 .flag-middle{
+
     height:33.33%;
     background:white;
+
     display:flex;
     align-items:center;
     justify-content:center;
@@ -96,118 +138,220 @@ button,input,select{
 }
 
 .chakra{
+
     width:42px;
     height:42px;
-    border:3px solid #0756b8;
+
+    border:
+    3px solid #0756b8;
+
     border-radius:50%;
+
     position:relative;
 }
 
 .chakra:before{
+
     content:"";
+
     position:absolute;
+
     width:7px;
     height:7px;
+
     background:#0756b8;
+
     border-radius:50%;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%);
+
+    transform:
+    translate(-50%,-50%);
 }
 
 .chakra span{
+
     position:absolute;
+
     width:2px;
     height:17px;
+
     background:#0756b8;
+
     left:50%;
     top:50%;
-    transform-origin:center bottom;
+
+    transform-origin:
+    center bottom;
 }
 
-.chakra span:nth-child(1){transform:translate(-50%,-100%) rotate(0deg)}
-.chakra span:nth-child(2){transform:translate(-50%,-100%) rotate(30deg)}
-.chakra span:nth-child(3){transform:translate(-50%,-100%) rotate(60deg)}
-.chakra span:nth-child(4){transform:translate(-50%,-100%) rotate(90deg)}
-.chakra span:nth-child(5){transform:translate(-50%,-100%) rotate(120deg)}
-.chakra span:nth-child(6){transform:translate(-50%,-100%) rotate(150deg)}
+.chakra span:nth-child(1){
+    transform:translate(-50%,-100%) rotate(0deg);
+}
+
+.chakra span:nth-child(2){
+    transform:translate(-50%,-100%) rotate(30deg);
+}
+
+.chakra span:nth-child(3){
+    transform:translate(-50%,-100%) rotate(60deg);
+}
+
+.chakra span:nth-child(4){
+    transform:translate(-50%,-100%) rotate(90deg);
+}
+
+.chakra span:nth-child(5){
+    transform:translate(-50%,-100%) rotate(120deg);
+}
+
+.chakra span:nth-child(6){
+    transform:translate(-50%,-100%) rotate(150deg);
+}
 
 .logo-text h1{
-    font-size:28px;
+
+    font-size:27px;
     line-height:1.1;
+
     font-weight:800;
-    text-shadow:0 2px 3px #0005;
+
+    text-shadow:
+    0 2px 3px #0005;
 }
 
 .logo-text h2{
+
     font-size:15px;
+
     margin-top:4px;
+
     color:#ffdf70;
 }
 
 .logo-text p{
+
     font-size:10px;
+
     margin-top:5px;
+
     color:#e5efff;
 }
 
-/* ================= HOME BUTTON ================= */
+
+/* =====================================================
+HOME
+===================================================== */
 
 .home-btn{
+
     border:0;
-    background:linear-gradient(135deg,#ff9933,#ff6f00);
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff9933,
+        #ff6f00
+    );
+
     color:white;
+
     padding:11px 16px;
+
     border-radius:8px;
+
     font-weight:bold;
+
     cursor:pointer;
-    box-shadow:0 3px 8px #0003;
+
+    box-shadow:
+    0 3px 8px #0003;
 }
 
 .home-btn:hover{
     transform:translateY(-2px);
 }
 
-/* ================= NAVIGATION ================= */
+
+/* =====================================================
+NAVIGATION
+===================================================== */
 
 .nav{
+
     background:#06366d;
+
     position:sticky;
     top:0;
+
     z-index:100;
-    box-shadow:0 3px 10px #0003;
+
+    box-shadow:
+    0 3px 10px #0003;
 }
 
 .nav-inner{
+
     max-width:1500px;
     margin:auto;
+
     padding:7px 3%;
+
     display:flex;
+
     gap:6px;
+
     overflow-x:auto;
 }
 
 .nav button{
+
     border:0;
-    background:linear-gradient(135deg,#0a75d8,#064b9d);
+
+    background:
+    linear-gradient(
+        135deg,
+        #0a75d8,
+        #064b9d
+    );
+
     color:white;
+
     padding:9px 13px;
+
     border-radius:7px;
+
     white-space:nowrap;
+
     font-size:11px;
+
     font-weight:bold;
+
     cursor:pointer;
 }
 
 .nav button:hover{
-    background:linear-gradient(135deg,#ff9933,#ef6500);
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff9933,
+        #ef6500
+    );
 }
 
-/* ================= MAIN ================= */
+
+/* =====================================================
+MAIN
+===================================================== */
 
 .container{
+
     max-width:1500px;
+
     margin:auto;
+
     padding:18px 3%;
 }
 
@@ -219,15 +363,30 @@ button,input,select{
     display:block;
 }
 
-/* ================= HERO ================= */
+
+/* =====================================================
+HERO
+===================================================== */
 
 .hero{
-    background:linear-gradient(135deg,#06366d,#087bd8);
+
+    background:
+    linear-gradient(
+        135deg,
+        #06366d,
+        #087bd8
+    );
+
     color:white;
+
     border-radius:14px;
+
     padding:25px;
+
     margin-bottom:18px;
-    box-shadow:0 5px 16px #0003;
+
+    box-shadow:
+    0 5px 16px #0003;
 }
 
 .hero h2{
@@ -235,170 +394,305 @@ button,input,select{
 }
 
 .hero p{
+
     font-size:12px;
+
     margin-top:7px;
+
     color:#e6f2ff;
 }
 
 .search{
+
     width:100%;
+
     margin-top:15px;
+
     padding:12px;
+
     border:0;
+
     border-radius:8px;
+
     outline:none;
+
     font-size:13px;
 }
 
-/* ================= CATEGORY ================= */
+
+/* =====================================================
+CATEGORY
+===================================================== */
 
 .category-title{
+
     margin:18px 0 10px;
+
     padding:10px 13px;
+
     color:white;
+
     border-radius:8px;
-    background:linear-gradient(90deg,#06366d,#087bd8);
+
+    background:
+    linear-gradient(
+        90deg,
+        #06366d,
+        #087bd8
+    );
+
     font-size:15px;
-    box-shadow:0 3px 8px #0002;
+
+    box-shadow:
+    0 3px 8px #0002;
 }
 
-/* ================= SERVICE GRID ================= */
+
+/* =====================================================
+SERVICE GRID
+===================================================== */
 
 .service-grid{
+
     display:grid;
-    grid-template-columns:repeat(6,1fr);
+
+    grid-template-columns:
+    repeat(6,1fr);
+
     gap:10px;
 }
 
+
+/* =====================================================
+SERVICE
+===================================================== */
+
 .service{
+
     min-height:105px;
+
     border:0;
+
     border-radius:12px;
+
     color:white;
+
     padding:12px 6px;
+
     text-align:center;
+
     cursor:pointer;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
+
     gap:7px;
-    box-shadow:0 4px 10px #0003;
-    transition:.15s;
+
+    box-shadow:
+    0 4px 10px #0003;
+
+    transition:
+    transform .15s,
+    box-shadow .15s;
 }
 
 .service:hover{
-    transform:translateY(-4px);
-    box-shadow:0 8px 16px #0004;
+
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 8px 16px #0004;
 }
 
 .service:nth-child(6n+1){
-    background:linear-gradient(135deg,#0756b8,#008bd2);
+    background:
+    linear-gradient(135deg,#0756b8,#008bd2);
 }
 
 .service:nth-child(6n+2){
-    background:linear-gradient(135deg,#168544,#22a65a);
+    background:
+    linear-gradient(135deg,#168544,#22a65a);
 }
 
 .service:nth-child(6n+3){
-    background:linear-gradient(135deg,#e98616,#f3b51b);
+    background:
+    linear-gradient(135deg,#e98616,#f3b51b);
 }
 
 .service:nth-child(6n+4){
-    background:linear-gradient(135deg,#7138b5,#9b54d6);
+    background:
+    linear-gradient(135deg,#7138b5,#9b54d6);
 }
 
 .service:nth-child(6n+5){
-    background:linear-gradient(135deg,#c93636,#ef5350);
+    background:
+    linear-gradient(135deg,#c93636,#ef5350);
 }
 
 .service:nth-child(6n+6){
-    background:linear-gradient(135deg,#087f8c,#11aeb9);
+    background:
+    linear-gradient(135deg,#087f8c,#11aeb9);
 }
 
 .service-icon{
+
     width:44px;
     height:44px;
+
     background:#ffffff33;
-    border:2px solid #ffffff66;
+
+    border:
+    2px solid #ffffff66;
+
     border-radius:10px;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     font-size:23px;
+
+    backdrop-filter:
+    blur(3px);
 }
 
 .service b{
+
     font-size:11px;
+
     line-height:1.2;
 }
 
 .service small{
+
     font-size:8px;
+
     opacity:.9;
 }
 
-/* ================= BACK ================= */
+
+/* =====================================================
+BACK
+===================================================== */
 
 .back-btn{
+
     border:0;
-    background:linear-gradient(135deg,#0756b8,#087bd8);
+
+    background:
+    linear-gradient(
+        135deg,
+        #0756b8,
+        #087bd8
+    );
+
     color:white;
+
     padding:9px 13px;
+
     border-radius:7px;
+
     cursor:pointer;
+
     margin-bottom:13px;
+
     font-weight:bold;
 }
 
-/* ================= STUDIO ================= */
+
+/* =====================================================
+STUDIO
+===================================================== */
 
 .studio{
+
     display:grid;
-    grid-template-columns:290px 1fr;
+
+    grid-template-columns:
+    290px 1fr;
+
     gap:15px;
 }
 
+
+/* =====================================================
+CONTROLS
+===================================================== */
+
 .controls{
+
     background:white;
+
     border-radius:12px;
+
     padding:13px;
+
     border:1px solid #d5e0eb;
-    box-shadow:0 3px 10px #0002;
+
+    box-shadow:
+    0 3px 10px #0002;
 }
 
 .control-group{
-    border-bottom:1px solid #e0e7ef;
+
+    border-bottom:
+    1px solid #e0e7ef;
+
     padding-bottom:12px;
+
     margin-bottom:12px;
 }
 
 .control-group:last-child{
+
     border-bottom:0;
+
     margin-bottom:0;
 }
 
 .control-group h3{
+
     color:#06366d;
+
     font-size:13px;
+
     margin-bottom:7px;
 }
 
 .control-group label{
+
     display:block;
+
     color:#53687b;
+
     font-size:10px;
-    margin:7px 0 3px;
+
+    margin:
+    7px 0 3px;
 }
 
 .controls select,
 .controls input[type=file],
 .controls input[type=number]{
+
     width:100%;
+
     padding:8px;
-    border:1px solid #cbd8e5;
+
+    border:
+    1px solid #cbd8e5;
+
     border-radius:6px;
+
     background:white;
+
     font-size:10px;
 }
 
@@ -407,152 +701,252 @@ button,input,select{
 }
 
 .two{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    1fr 1fr;
+
     gap:5px;
 }
 
 .action-btn{
+
     width:100%;
+
     border:0;
+
     padding:9px;
+
     border-radius:7px;
+
     color:white;
+
     font-size:10px;
+
     font-weight:bold;
+
     cursor:pointer;
+
     margin-top:5px;
 }
 
 .blue{
-    background:linear-gradient(135deg,#0756b8,#087bd8);
+    background:
+    linear-gradient(135deg,#0756b8,#087bd8);
 }
 
 .green{
-    background:linear-gradient(135deg,#168544,#25a85a);
+    background:
+    linear-gradient(135deg,#168544,#25a85a);
 }
 
 .orange{
-    background:linear-gradient(135deg,#e98616,#f5a623);
+    background:
+    linear-gradient(135deg,#e98616,#f5a623);
 }
 
 .red{
-    background:linear-gradient(135deg,#c93636,#e84d4d);
+    background:
+    linear-gradient(135deg,#c93636,#e84d4d);
 }
 
 .gray{
-    background:linear-gradient(135deg,#536273,#758698);
+    background:
+    linear-gradient(135deg,#536273,#758698);
 }
 
-/* ================= PREVIEW ================= */
+
+/* =====================================================
+PREVIEW
+===================================================== */
 
 .preview{
+
     background:#dfe7ef;
+
     border-radius:12px;
+
     padding:13px;
+
     overflow:auto;
+
     min-height:650px;
 }
 
 .a4{
+
     width:794px;
+
     min-height:1123px;
+
     background:white;
+
     margin:auto;
+
     padding:8px;
-    box-shadow:0 3px 12px #0004;
+
+    box-shadow:
+    0 3px 12px #0004;
 }
 
 .a4.landscape{
+
     width:1123px;
+
     min-height:794px;
 }
 
 .preview-title{
+
     text-align:center;
+
     font-size:8px;
+
     color:#777;
+
     margin-bottom:5px;
 }
 
-/* ================= DOCUMENT ================= */
+
+/* =====================================================
+DOCUMENT
+===================================================== */
 
 .document-output{
+
     display:flex;
+
     flex-direction:column;
+
     align-items:flex-start;
+
     gap:3px;
 }
 
 .document-pair{
+
     display:flex;
+
     gap:3px;
+
     align-items:flex-start;
 }
 
 .id-card{
+
     background:white;
-    border:1px dashed #888;
+
+    border:
+    1px dashed #888;
+
     overflow:hidden;
+
     flex:none;
 }
 
 .id-card img{
+
     display:block;
+
     width:100%;
+
     height:100%;
+
     object-fit:fill;
 }
 
-/* ================= PHOTO ================= */
+
+/* =====================================================
+PHOTO
+===================================================== */
 
 .photo-output{
+
     display:flex;
+
     flex-wrap:wrap;
+
     align-content:flex-start;
+
     gap:3px;
 }
 
 .photo-card{
+
     overflow:hidden;
-    border:1px dashed #888;
+
+    border:
+    1px dashed #888;
+
     background:white;
+
     flex:none;
 }
 
 .photo-card img{
+
     display:block;
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
 }
 
-/* ================= EMPTY ================= */
+
+/* =====================================================
+EMPTY
+===================================================== */
 
 .empty{
+
     text-align:center;
+
     padding:60px 10px;
+
     color:#8190a0;
+
     font-size:12px;
 }
 
-/* ================= FOOTER ================= */
+
+/* =====================================================
+FOOTER
+===================================================== */
 
 .footer{
-    background:linear-gradient(90deg,#ff9933,#06366d 50%,#138808);
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff9933,
+        #06366d 50%,
+        #138808
+    );
+
     color:white;
+
     text-align:center;
+
     padding:18px;
+
     margin-top:20px;
+
     font-size:11px;
 }
 
-/* ================= MOBILE ================= */
+
+/* =====================================================
+MOBILE
+===================================================== */
 
 @media(max-width:1100px){
 
     .service-grid{
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns:
+        repeat(4,1fr);
     }
 
     .studio{
@@ -589,15 +983,24 @@ button,input,select{
     }
 
     .service-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .service{
         min-height:95px;
     }
+
+    .a4{
+        transform-origin:
+        top left;
+    }
 }
 
-/* ================= PRINT ================= */
+
+/* =====================================================
+PRINT
+===================================================== */
 
 @media print{
 
@@ -614,29 +1017,40 @@ button,input,select{
 
     #docPrint,
     #photoPrint{
+
         position:absolute;
+
         left:0;
         top:0;
+
         margin:0;
         padding:0;
     }
 
     .a4{
+
         box-shadow:none !important;
+
         margin:0 !important;
     }
 
     @page{
+
         size:A4 portrait;
+
         margin:0;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =====================================================
+HEADER
+===================================================== -->
 
 <header class="header">
 
@@ -667,31 +1081,41 @@ button,input,select{
 
 </div>
 
+
 <div class="logo-text">
 
-<h1>Gramin Grahak Sewa</h1>
+<h1>
+Gramin Grahak Sewa
+</h1>
 
-<h2>🇮🇳 AI • Digital • Citizen Service Centre</h2>
+<h2>
+🇮🇳 AI • Digital • Citizen Service Centre
+</h2>
 
-<p>Document • Photo • Online • Digital Services</p>
+<p>
+Document • Photo • Online • Digital Services
+</p>
 
 </div>
 
 </div>
+
 
 <button
 class="home-btn"
-onclick="showPage('home')">
-
+onclick="showPage('home')"
+>
 🏠 Home
-
 </button>
 
 </div>
 
 </header>
 
-<!-- ================= NAVIGATION ================= -->
+
+<!-- =====================================================
+NAV
+===================================================== -->
 
 <nav class="nav">
 
@@ -745,15 +1169,24 @@ onclick="showPage('home')">
 
 </nav>
 
+
 <main class="container">
 
-<!-- ================= HOME ================= -->
 
-<section id="home" class="page active">
+<!-- =====================================================
+HOME
+===================================================== -->
+
+<section
+id="home"
+class="page active"
+>
 
 <div class="hero">
 
-<h2>🇮🇳 Gramin Grahak Sewa</h2>
+<h2>
+🇮🇳 Gramin Grahak Sewa
+</h2>
 
 <p>
 AI, Digital, Document, Photo और Online Citizen Services Portal
@@ -763,7 +1196,8 @@ AI, Digital, Document, Photo और Online Citizen Services Portal
 id="search"
 class="search"
 placeholder="🔎 सेवा खोजें..."
-oninput="searchServices()">
+oninput="searchServices()"
+>
 
 </div>
 
@@ -771,21 +1205,29 @@ oninput="searchServices()">
 
 </section>
 
-<!-- ================= DOCUMENT STUDIO ================= -->
 
-<section id="document" class="page">
+<!-- =====================================================
+DOCUMENT STUDIO
+===================================================== -->
+
+<section
+id="document"
+class="page"
+>
 
 <button
 class="back-btn"
-onclick="showPage('home')">
-
+onclick="showPage('home')"
+>
 ← Home
-
 </button>
+
 
 <div class="hero">
 
-<h2>📄 Document Copy Editor Studio</h2>
+<h2>
+📄 Document Copy Editor Studio
+</h2>
 
 <p>
 ID Card Front, Back और Front + Back को वास्तविक card size में A4 paper पर तैयार करें।
@@ -793,17 +1235,23 @@ ID Card Front, Back और Front + Back को वास्तविक card siz
 
 </div>
 
+
 <div class="studio">
+
 
 <aside class="controls">
 
+
 <div class="control-group">
 
-<h3>1️⃣ ID Card Size</h3>
+<h3>
+1️⃣ ID Card Size
+</h3>
 
 <select
 id="docPreset"
-onchange="documentPreset()">
+onchange="documentPreset()"
+>
 
 <option value="85.6x53.98">
 PAN / Aadhaar / Voter / DL — 85.60 × 53.98 mm
@@ -813,109 +1261,160 @@ PAN / Aadhaar / Voter / DL — 85.60 × 53.98 mm
 Standard PVC Card — 86 × 54 mm
 </option>
 
-<option value="90x55">90 × 55 mm</option>
+<option value="90x55">
+90 × 55 mm
+</option>
 
-<option value="88x58">88 × 58 mm</option>
+<option value="88x58">
+88 × 58 mm
+</option>
 
-<option value="100x65">100 × 65 mm</option>
+<option value="100x65">
+100 × 65 mm
+</option>
 
-<option value="105x70">105 × 70 mm</option>
+<option value="105x70">
+105 × 70 mm
+</option>
 
-<option value="120x80">120 × 80 mm</option>
+<option value="120x80">
+120 × 80 mm
+</option>
 
-<option value="custom">Custom Size</option>
+<option value="custom">
+Custom Size
+</option>
 
 </select>
 
-<label>Width (mm)</label>
+
+<label>
+Width (mm)
+</label>
 
 <input
 id="docWidth"
 type="number"
 value="85.6"
-step=".01">
+step=".01"
+>
 
-<label>Height (mm)</label>
+
+<label>
+Height (mm)
+</label>
 
 <input
 id="docHeight"
 type="number"
 value="53.98"
-step=".01">
+step=".01"
+>
 
 </div>
 
+
 <div class="control-group">
 
-<h3>2️⃣ Document Upload</h3>
+<h3>
+2️⃣ Document Upload
+</h3>
 
-<label>Front</label>
+<label>
+Front
+</label>
 
 <input
 id="frontFile"
 type="file"
 accept="image/*"
-onchange="loadDocument(event,'front')">
+onchange="loadDocument(event,'front')"
+>
 
-<label>Back</label>
+
+<label>
+Back
+</label>
 
 <input
 id="backFile"
 type="file"
 accept="image/*"
-onchange="loadDocument(event,'back')">
+onchange="loadDocument(event,'back')"
+>
+
 
 <div class="two">
 
 <button
 class="action-btn blue"
-onclick="autoCrop('front')">
-
+onclick="autoCrop('front')"
+>
 ✂ Front Crop
-
 </button>
+
 
 <button
 class="action-btn blue"
-onclick="autoCrop('back')">
-
+onclick="autoCrop('back')"
+>
 ✂ Back Crop
-
 </button>
 
 </div>
 
 </div>
 
+
 <div class="control-group">
 
-<h3>3️⃣ Print Layout</h3>
+<h3>
+3️⃣ Print Layout
+</h3>
 
 <select
 id="docMode"
-onchange="renderDocuments()">
+onchange="renderDocuments()"
+>
 
-<option value="front">Front Only</option>
+<option value="front">
+Front Only
+</option>
 
-<option value="back">Back Only</option>
+<option value="back">
+Back Only
+</option>
 
-<option value="both">Front + Back</option>
+<option value="both">
+Front + Back
+</option>
 
 </select>
 
-<label>A4 Paper</label>
+
+<label>
+A4 Paper
+</label>
 
 <select
 id="docPaper"
-onchange="renderDocuments()">
+onchange="renderDocuments()"
+>
 
-<option value="portrait">A4 Portrait</option>
+<option value="portrait">
+A4 Portrait
+</option>
 
-<option value="landscape">A4 Landscape</option>
+<option value="landscape">
+A4 Landscape
+</option>
 
 </select>
 
-<label>Copies</label>
+
+<label>
+Copies
+</label>
 
 <input
 id="docCopies"
@@ -923,9 +1422,13 @@ type="number"
 value="1"
 min="1"
 max="100"
-onchange="renderDocuments()">
+onchange="renderDocuments()"
+>
 
-<label>Gap (mm)</label>
+
+<label>
+Gap (mm)
+</label>
 
 <input
 id="docGap"
@@ -934,15 +1437,21 @@ value="1"
 min="0"
 max="10"
 step=".5"
-onchange="renderDocuments()">
+onchange="renderDocuments()"
+>
 
 </div>
 
+
 <div class="control-group">
 
-<h3>4️⃣ Document Editor</h3>
+<h3>
+4️⃣ Document Editor
+</h3>
 
-<label>Zoom</label>
+<label>
+Zoom
+</label>
 
 <input
 id="docZoom"
@@ -951,9 +1460,13 @@ type="range"
 min="50"
 max="200"
 value="100"
-oninput="editDocument()">
+oninput="editDocument()"
+>
 
-<label>Brightness</label>
+
+<label>
+Brightness
+</label>
 
 <input
 id="docBrightness"
@@ -962,9 +1475,13 @@ type="range"
 min="50"
 max="160"
 value="100"
-oninput="editDocument()">
+oninput="editDocument()"
+>
 
-<label>Contrast</label>
+
+<label>
+Contrast
+</label>
 
 <input
 id="docContrast"
@@ -973,31 +1490,40 @@ type="range"
 min="50"
 max="160"
 value="100"
-oninput="editDocument()">
+oninput="editDocument()"
+>
+
 
 <div class="two">
 
 <button
 class="action-btn gray"
-onclick="rotateDocument()">
+onclick="rotateDocument()"
+>
 ↻ Rotate
 </button>
 
+
 <button
 class="action-btn gray"
-onclick="flipDocument()">
+onclick="flipDocument()"
+>
 ↔ Flip
 </button>
 
+
 <button
 class="action-btn gray"
-onclick="grayDocument()">
+onclick="grayDocument()"
+>
 ◐ Gray
 </button>
 
+
 <button
 class="action-btn orange"
-onclick="resetDocument()">
+onclick="resetDocument()"
+>
 Reset
 </button>
 
@@ -1005,31 +1531,33 @@ Reset
 
 </div>
 
+
 <button
 class="action-btn green"
-onclick="renderDocuments()">
-
+onclick="renderDocuments()"
+>
 🔄 Update A4 Preview
-
 </button>
+
 
 <button
 class="action-btn green"
-onclick="printDocument()">
-
+onclick="printDocument()"
+>
 🖨️ Print A4
-
 </button>
+
 
 <button
 class="action-btn red"
-onclick="clearDocuments()">
-
+onclick="clearDocuments()"
+>
 🗑 Clear
-
 </button>
 
+
 </aside>
+
 
 <div class="preview">
 
@@ -1037,15 +1565,18 @@ onclick="clearDocuments()">
 
 <div
 id="docA4"
-class="a4">
+class="a4"
+>
 
 <div class="preview-title">
 A4 DOCUMENT PREVIEW
 </div>
 
+
 <div
 id="documentOutput"
-class="document-output">
+class="document-output"
+>
 
 <div class="empty">
 Front या Back document upload करें।
@@ -1063,21 +1594,29 @@ Front या Back document upload करें।
 
 </section>
 
-<!-- ================= PHOTO STUDIO ================= -->
 
-<section id="photo" class="page">
+<!-- =====================================================
+PHOTO STUDIO
+===================================================== -->
+
+<section
+id="photo"
+class="page"
+>
 
 <button
 class="back-btn"
-onclick="showPage('home')">
-
+onclick="showPage('home')"
+>
 ← Home
-
 </button>
+
 
 <div class="hero">
 
-<h2>📸 Customer Photo Studio</h2>
+<h2>
+📸 Customer Photo Studio
+</h2>
 
 <p>
 Passport Photo, Form Photo, 4×6, 4×12, A4 और Custom Photo Print
@@ -1085,101 +1624,164 @@ Passport Photo, Form Photo, 4×6, 4×12, A4 और Custom Photo Print
 
 </div>
 
+
 <div class="studio">
+
 
 <aside class="controls">
 
+
 <div class="control-group">
 
-<h3>1️⃣ Customer Photo</h3>
+<h3>
+1️⃣ Customer Photo
+</h3>
 
 <input
 id="photoFile"
 type="file"
 accept="image/*"
-onchange="loadPhoto(event)">
+onchange="loadPhoto(event)"
+>
 
 </div>
 
+
 <div class="control-group">
 
-<h3>2️⃣ Photo Size</h3>
+<h3>
+2️⃣ Photo Size
+</h3>
 
 <select
 id="photoPreset"
-onchange="photoPreset()">
+onchange="photoPreset()"
+>
 
 <option value="35x45mm">
 Passport / Form — 35 × 45 mm
 </option>
 
-<option value="25x35mm">Small Form — 25 × 35 mm</option>
+<option value="25x35mm">
+Small Form — 25 × 35 mm
+</option>
 
-<option value="30x40mm">30 × 40 mm</option>
+<option value="30x40mm">
+30 × 40 mm
+</option>
 
-<option value="40x50mm">40 × 50 mm</option>
+<option value="40x50mm">
+40 × 50 mm
+</option>
 
-<option value="50x70mm">50 × 70 mm</option>
+<option value="50x70mm">
+50 × 70 mm
+</option>
 
-<option value="2x2in">2 × 2 inch</option>
+<option value="2x2in">
+2 × 2 inch
+</option>
 
-<option value="2x3in">2 × 3 inch</option>
+<option value="2x3in">
+2 × 3 inch
+</option>
 
-<option value="3x4in">3 × 4 inch</option>
+<option value="3x4in">
+3 × 4 inch
+</option>
 
-<option value="4x6in">4 × 6 inch</option>
+<option value="4x6in">
+4 × 6 inch
+</option>
 
-<option value="4x12in">4 × 12 inch</option>
+<option value="4x12in">
+4 × 12 inch
+</option>
 
-<option value="5x7in">5 × 7 inch</option>
+<option value="5x7in">
+5 × 7 inch
+</option>
 
-<option value="6x8in">6 × 8 inch</option>
+<option value="6x8in">
+6 × 8 inch
+</option>
 
-<option value="8x10in">8 × 10 inch</option>
+<option value="8x10in">
+8 × 10 inch
+</option>
 
-<option value="8x12in">8 × 12 inch</option>
+<option value="8x12in">
+8 × 12 inch
+</option>
 
-<option value="8x20in">8 × 20 inch</option>
+<option value="8x20in">
+8 × 20 inch
+</option>
 
-<option value="a4">A4 — 210 × 297 mm</option>
+<option value="a4">
+A4 — 210 × 297 mm
+</option>
 
-<option value="custom">Custom</option>
+<option value="custom">
+Custom
+</option>
 
 </select>
 
-<label>Width</label>
+
+<label>
+Width
+</label>
 
 <input
 id="photoWidth"
 type="number"
 value="35"
-step=".01">
+step=".01"
+>
 
-<label>Height</label>
+
+<label>
+Height
+</label>
 
 <input
 id="photoHeight"
 type="number"
 value="45"
-step=".01">
+step=".01"
+>
 
-<label>Unit</label>
+
+<label>
+Unit
+</label>
 
 <select id="photoUnit">
 
-<option value="mm">mm</option>
+<option value="mm">
+mm
+</option>
 
-<option value="inch">inch</option>
+<option value="inch">
+inch
+</option>
 
 </select>
 
 </div>
 
+
 <div class="control-group">
 
-<h3>3️⃣ Photo Editor</h3>
+<h3>
+3️⃣ Photo Editor
+</h3>
 
-<label>Zoom</label>
+
+<label>
+Zoom
+</label>
 
 <input
 id="photoZoom"
@@ -1188,9 +1790,13 @@ type="range"
 min="50"
 max="200"
 value="100"
-oninput="editPhoto()">
+oninput="editPhoto()"
+>
 
-<label>Brightness</label>
+
+<label>
+Brightness
+</label>
 
 <input
 id="photoBrightness"
@@ -1199,9 +1805,13 @@ type="range"
 min="50"
 max="160"
 value="100"
-oninput="editPhoto()">
+oninput="editPhoto()"
+>
 
-<label>Contrast</label>
+
+<label>
+Contrast
+</label>
 
 <input
 id="photoContrast"
@@ -1210,9 +1820,13 @@ type="range"
 min="50"
 max="160"
 value="100"
-oninput="editPhoto()">
+oninput="editPhoto()"
+>
 
-<label>Saturation</label>
+
+<label>
+Saturation
+</label>
 
 <input
 id="photoSaturation"
@@ -1221,19 +1835,24 @@ type="range"
 min="0"
 max="180"
 value="100"
-oninput="editPhoto()">
+oninput="editPhoto()"
+>
+
 
 <div class="two">
 
 <button
 class="action-btn gray"
-onclick="rotatePhoto()">
+onclick="rotatePhoto()"
+>
 ↻ Rotate
 </button>
 
+
 <button
 class="action-btn orange"
-onclick="resetPhoto()">
+onclick="resetPhoto()"
+>
 Reset
 </button>
 
@@ -1241,21 +1860,33 @@ Reset
 
 </div>
 
+
 <div class="control-group">
 
-<h3>4️⃣ A4 Layout</h3>
+<h3>
+4️⃣ A4 Layout
+</h3>
+
 
 <select
 id="photoPaper"
-onchange="renderPhoto()">
+onchange="renderPhoto()"
+>
 
-<option value="portrait">A4 Portrait</option>
+<option value="portrait">
+A4 Portrait
+</option>
 
-<option value="landscape">A4 Landscape</option>
+<option value="landscape">
+A4 Landscape
+</option>
 
 </select>
 
-<label>Copies</label>
+
+<label>
+Copies
+</label>
 
 <input
 id="photoCopies"
@@ -1263,9 +1894,13 @@ type="number"
 value="1"
 min="1"
 max="200"
-onchange="renderPhoto()">
+onchange="renderPhoto()"
+>
 
-<label>Gap (mm)</label>
+
+<label>
+Gap (mm)
+</label>
 
 <input
 id="photoGap"
@@ -1274,35 +1909,38 @@ value="1"
 min="0"
 max="10"
 step=".5"
-onchange="renderPhoto()">
+onchange="renderPhoto()"
+>
 
 </div>
 
+
 <button
 class="action-btn green"
-onclick="renderPhoto()">
-
+onclick="renderPhoto()"
+>
 🔄 Update A4 Preview
-
 </button>
+
 
 <button
 class="action-btn green"
-onclick="printPhoto()">
-
+onclick="printPhoto()"
+>
 🖨️ Print A4
-
 </button>
+
 
 <button
 class="action-btn red"
-onclick="clearPhoto()">
-
+onclick="clearPhoto()"
+>
 🗑 Clear
-
 </button>
 
+
 </aside>
+
 
 <div class="preview">
 
@@ -1310,15 +1948,18 @@ onclick="clearPhoto()">
 
 <div
 id="photoA4"
-class="a4">
+class="a4"
+>
 
 <div class="preview-title">
 A4 PHOTO PREVIEW
 </div>
 
+
 <div
 id="photoOutput"
-class="photo-output">
+class="photo-output"
+>
 
 <div class="empty">
 Customer photo upload करें।
@@ -1336,7 +1977,10 @@ Customer photo upload करें।
 
 </section>
 
-<!-- ================= SERVICE PAGES ================= -->
+
+<!-- =====================================================
+SERVICE PAGES
+===================================================== -->
 
 <section id="farmer" class="page">
 
@@ -1348,13 +1992,16 @@ Customer photo upload करें।
 
 <h2>🌾 किसान एवं कृषि सेवाएँ</h2>
 
-<p>कृषि और किसान से संबंधित online portals</p>
+<p>
+कृषि और किसान से संबंधित online portals
+</p>
 
 </div>
 
 <div id="farmerGrid" class="service-grid"></div>
 
 </section>
+
 
 <section id="bank" class="page">
 
@@ -1366,13 +2013,16 @@ Customer photo upload करें।
 
 <h2>🏦 Banking Services</h2>
 
-<p>Banking और financial services</p>
+<p>
+Banking और financial services
+</p>
 
 </div>
 
 <div id="bankGrid" class="service-grid"></div>
 
 </section>
+
 
 <section id="gov" class="page">
 
@@ -1384,13 +2034,16 @@ Customer photo upload करें।
 
 <h2>🏛️ Government Services</h2>
 
-<p>Citizen और government portals</p>
+<p>
+Citizen और government portals
+</p>
 
 </div>
 
 <div id="govGrid" class="service-grid"></div>
 
 </section>
+
 
 <section id="bill" class="page">
 
@@ -1402,13 +2055,16 @@ Customer photo upload करें।
 
 <h2>⚡ Bills, Gas & Recharge</h2>
 
-<p>Utility और gas services</p>
+<p>
+Utility और gas services
+</p>
 
 </div>
 
 <div id="billGrid" class="service-grid"></div>
 
 </section>
+
 
 <section id="land" class="page">
 
@@ -1420,13 +2076,16 @@ Customer photo upload करें।
 
 <h2>📑 Land & Revenue</h2>
 
-<p>जमाबंदी, नकल, खसरा, भू-नक्शा आदि</p>
+<p>
+जमाबंदी, नकल, खसरा, भू-नक्शा आदि
+</p>
 
 </div>
 
 <div id="landGrid" class="service-grid"></div>
 
 </section>
+
 
 <section id="education" class="page">
 
@@ -1438,13 +2097,16 @@ Customer photo upload करें।
 
 <h2>🎓 Education Services</h2>
 
-<p>School, college, scholarship और examination services</p>
+<p>
+School, college, scholarship और examination services
+</p>
 
 </div>
 
 <div id="educationGrid" class="service-grid"></div>
 
 </section>
+
 
 <section id="transport" class="page">
 
@@ -1456,13 +2118,16 @@ Customer photo upload करें।
 
 <h2>🚗 Transport Services</h2>
 
-<p>Driving Licence, RC, Challan आदि</p>
+<p>
+Driving Licence, RC, Challan आदि
+</p>
 
 </div>
 
 <div id="transportGrid" class="service-grid"></div>
 
 </section>
+
 
 <section id="business" class="page">
 
@@ -1474,13 +2139,16 @@ Customer photo upload करें।
 
 <h2>🏢 Business & Tax</h2>
 
-<p>GST, PAN, Udyam, Tax आदि</p>
+<p>
+GST, PAN, Udyam, Tax आदि
+</p>
 
 </div>
 
 <div id="businessGrid" class="service-grid"></div>
 
 </section>
+
 
 <section id="digital" class="page">
 
@@ -1492,7 +2160,9 @@ Customer photo upload करें।
 
 <h2>💻 Digital Services</h2>
 
-<p>Online portals और digital services</p>
+<p>
+Online portals और digital services
+</p>
 
 </div>
 
@@ -1500,13 +2170,13 @@ Customer photo upload करें।
 
 </section>
 
+
 </main>
 
-<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
-🇮🇳 <b>Gramin Grahak Sewa</b>
+🇮🇳 Gramin Grahak Sewa
 
 <br><br>
 
@@ -1518,13 +2188,20 @@ Private Digital Service Centre
 
 </footer>
 
+
 <script>
 
 /* =====================================================
 SERVICES
+ONLY SERVICES WITH REAL PORTAL LINKS
 ===================================================== */
 
 const services={
+
+
+/* =====================================================
+FARMER
+===================================================== */
 
 farmer:[
 
@@ -1554,6 +2231,11 @@ farmer:[
 
 ],
 
+
+/* =====================================================
+BANK
+===================================================== */
+
 bank:[
 
 ["🏦","IPPB","https://www.ippbonline.com/"],
@@ -1567,6 +2249,11 @@ bank:[
 ["🏦","Banking Information","https://www.rbi.org.in/"]
 
 ],
+
+
+/* =====================================================
+GOVERNMENT
+===================================================== */
 
 gov:[
 
@@ -1606,6 +2293,11 @@ gov:[
 
 ],
 
+
+/* =====================================================
+BILLS / GAS
+===================================================== */
+
 bill:[
 
 ["🔥","HP Gas","https://www.hindustanpetroleum.com/hp-gas"],
@@ -1634,6 +2326,11 @@ bill:[
 
 ],
 
+
+/* =====================================================
+LAND
+===================================================== */
+
 land:[
 
 ["📑","जमाबंदी","https://apnakhata.rajasthan.gov.in/"],
@@ -1658,6 +2355,11 @@ land:[
 
 ],
 
+
+/* =====================================================
+EDUCATION
+===================================================== */
+
 education:[
 
 ["🎓","Scholarship","https://scholarships.gov.in/"],
@@ -1675,6 +2377,11 @@ education:[
 ["🏅","Scheme Search","https://www.myscheme.gov.in/"]
 
 ],
+
+
+/* =====================================================
+TRANSPORT
+===================================================== */
 
 transport:[
 
@@ -1700,6 +2407,11 @@ transport:[
 
 ],
 
+
+/* =====================================================
+BUSINESS
+===================================================== */
+
 business:[
 
 ["🏢","Udyam Registration","https://udyamregistration.gov.in/"],
@@ -1724,6 +2436,11 @@ business:[
 
 ],
 
+
+/* =====================================================
+DIGITAL
+===================================================== */
+
 digital:[
 
 ["☁️","DigiLocker","https://www.digilocker.gov.in/"],
@@ -1746,6 +2463,7 @@ digital:[
 
 };
 
+
 /* =====================================================
 SERVICE CARD
 ===================================================== */
@@ -1757,15 +2475,20 @@ return `
 <div
 class="service"
 data-service="${item[1].toLowerCase()}"
-onclick="openPortal('${item[2]}')">
+onclick="openPortal('${item[2]}')"
+>
 
 <div class="service-icon">
 ${item[0]}
 </div>
 
-<b>${item[1]}</b>
+<b>
+${item[1]}
+</b>
 
-<small>Official Portal</small>
+<small>
+Official Portal
+</small>
 
 </div>
 
@@ -1773,24 +2496,33 @@ ${item[0]}
 
 }
 
+
 /* =====================================================
 BUILD SERVICES
 ===================================================== */
 
 function buildServices(){
 
-for(const category in services){
+for(
+const category in services
+){
 
-const grid=document.getElementById(category+'Grid');
+const grid=
+document.getElementById(
+category+'Grid'
+);
 
 if(grid){
 
 grid.innerHTML=
-services[category].map(makeCard).join('');
+services[category]
+.map(makeCard)
+.join('');
 
 }
 
 }
+
 
 const sections=[
 
@@ -1814,9 +2546,13 @@ const sections=[
 
 ];
 
-document.getElementById('homeServices').innerHTML=
 
-sections.map(s=>`
+document.getElementById(
+'homeServices'
+).innerHTML=
+
+sections.map(
+s=>`
 
 <h3 class="category-title">
 ${s[0]}
@@ -1824,13 +2560,17 @@ ${s[0]}
 
 <div class="service-grid">
 
-${services[s[1]].map(makeCard).join('')}
+${services[s[1]]
+.map(makeCard)
+.join('')}
 
 </div>
 
-`).join('');
+`
+).join('');
 
 }
+
 
 /* =====================================================
 PAGE
@@ -1838,18 +2578,23 @@ PAGE
 
 function showPage(id){
 
-document.querySelectorAll('.page')
-.forEach(p=>p.classList.remove('active'));
+document
+.querySelectorAll('.page')
+.forEach(
+p=>p.classList.remove('active')
+);
 
-const page=document.getElementById(id);
+document
+.getElementById(id)
+.classList.add('active');
 
-if(page){
-page.classList.add('active');
+window.scrollTo(
+0,
+0
+);
+
 }
 
-window.scrollTo(0,0);
-
-}
 
 /* =====================================================
 PORTAL
@@ -1857,7 +2602,8 @@ PORTAL
 
 function openPortal(url){
 
-if(!url)return;
+if(!url)
+return;
 
 window.open(
 url,
@@ -1867,34 +2613,42 @@ url,
 
 }
 
+
 /* =====================================================
 SEARCH
 ===================================================== */
 
 function searchServices(){
 
-const q=document
+const q=
+document
 .getElementById('search')
 .value
 .toLowerCase();
 
 document
-.querySelectorAll('#homeServices .service')
-.forEach(card=>{
+.querySelectorAll(
+'#homeServices .service'
+)
+.forEach(
+card=>{
 
 card.style.display=
 card.innerText
 .toLowerCase()
 .includes(q)
-?'flex'
-:'none';
+?
+'flex'
+:
+'none';
 
 });
 
 }
 
+
 /* =====================================================
-DOCUMENT DATA
+DOCUMENT STUDIO
 ===================================================== */
 
 let documents={
@@ -1904,26 +2658,30 @@ back:null
 
 let selectedSide='front';
 
-/* =====================================================
-DOCUMENT PRESET
-===================================================== */
 
 function documentPreset(){
 
 const value=
-document.getElementById('docPreset').value;
+document
+.getElementById('docPreset')
+.value;
 
-if(value==='custom')return;
+if(value==='custom')
+return;
 
-const p=value.split('x');
+const p=
+value.split('x');
 
-document.getElementById('docWidth').value=p[0];
+document.getElementById('docWidth').value=
+p[0];
 
-document.getElementById('docHeight').value=p[1];
+document.getElementById('docHeight').value=
+p[1];
 
 renderDocuments();
 
 }
+
 
 /* =====================================================
 LOAD DOCUMENT
@@ -1931,15 +2689,19 @@ LOAD DOCUMENT
 
 function loadDocument(event,side){
 
-const file=event.target.files[0];
+const file=
+event.target.files[0];
 
-if(!file)return;
+if(!file)
+return;
 
-const reader=new FileReader();
+const reader=
+new FileReader();
 
 reader.onload=function(e){
 
-const image=new Image();
+const image=
+new Image();
 
 image.onload=function(){
 
@@ -1989,54 +2751,73 @@ reader.readAsDataURL(file);
 
 }
 
+
 /* =====================================================
 EDITOR
 ===================================================== */
 
 function loadDocumentEditor(){
 
-const d=documents[selectedSide];
+const d=
+documents[selectedSide];
 
-if(!d)return;
+if(!d)
+return;
 
-document.getElementById('docZoom').value=d.zoom;
+document.getElementById('docZoom').value=
+d.zoom;
 
-document.getElementById('docBrightness').value=d.brightness;
+document.getElementById('docBrightness').value=
+d.brightness;
 
-document.getElementById('docContrast').value=d.contrast;
+document.getElementById('docContrast').value=
+d.contrast;
 
 }
+
 
 function editDocument(){
 
-const d=documents[selectedSide];
+const d=
+documents[selectedSide];
 
-if(!d)return;
+if(!d)
+return;
 
-d.zoom=+document.getElementById('docZoom').value;
+d.zoom=
++document.getElementById('docZoom').value;
 
-d.brightness=+document.getElementById('docBrightness').value;
+d.brightness=
++document.getElementById('docBrightness').value;
 
-d.contrast=+document.getElementById('docContrast').value;
+d.contrast=
++document.getElementById('docContrast').value;
 
 renderDocuments();
 
 }
+
 
 function rotateDocument(){
 
-if(!documents[selectedSide])return;
+if(!documents[selectedSide])
+return;
 
 documents[selectedSide].rotation=
-(documents[selectedSide].rotation+90)%360;
+(
+documents[selectedSide].rotation+
+90
+)%360;
 
 renderDocuments();
 
 }
 
+
 function flipDocument(){
 
-if(!documents[selectedSide])return;
+if(!documents[selectedSide])
+return;
 
 documents[selectedSide].flip=
 !documents[selectedSide].flip;
@@ -2045,9 +2826,11 @@ renderDocuments();
 
 }
 
+
 function grayDocument(){
 
-if(!documents[selectedSide])return;
+if(!documents[selectedSide])
+return;
 
 documents[selectedSide].gray=
 !documents[selectedSide].gray;
@@ -2056,32 +2839,27 @@ renderDocuments();
 
 }
 
+
 function resetDocument(){
 
-const d=documents[selectedSide];
+const d=
+documents[selectedSide];
 
-if(!d)return;
+if(!d)
+return;
 
 d.rotation=0;
-
 d.flip=false;
-
 d.gray=false;
-
 d.brightness=100;
-
 d.contrast=100;
-
 d.zoom=100;
 
 d.crop={
 
 x:0,
-
 y:0,
-
 w:d.image.naturalWidth,
-
 h:d.image.naturalHeight
 
 };
@@ -2092,50 +2870,67 @@ renderDocuments();
 
 }
 
+
 /* =====================================================
 AUTO CROP
 ===================================================== */
 
 function autoCrop(side){
 
-const d=documents[side];
+const d=
+documents[side];
 
 if(!d){
 
-alert('पहले document upload करें।');
+alert(
+'पहले document upload करें।'
+);
 
 return;
 
 }
 
-const image=d.image;
+const image=
+d.image;
 
-const canvas=document.createElement('canvas');
+const canvas=
+document.createElement('canvas');
 
-canvas.width=image.naturalWidth;
+canvas.width=
+image.naturalWidth;
 
-canvas.height=image.naturalHeight;
+canvas.height=
+image.naturalHeight;
 
-const ctx=canvas.getContext('2d');
+const ctx=
+canvas.getContext('2d');
 
-ctx.drawImage(image,0,0);
+ctx.drawImage(
+image,
+0,
+0
+);
 
-const data=ctx.getImageData(
+const data=
+ctx.getImageData(
 0,
 0,
 canvas.width,
 canvas.height
 ).data;
 
-let minX=canvas.width;
+let minX=
+canvas.width;
 
-let minY=canvas.height;
+let minY=
+canvas.height;
 
 let maxX=0;
 
 let maxY=0;
 
 let found=false;
+
 
 for(
 let y=0;
@@ -2149,7 +2944,12 @@ x<canvas.width;
 x+=3
 ){
 
-const i=(y*canvas.width+x)*4;
+const i=
+(
+y*
+canvas.width+
+x
+)*4;
 
 const r=data[i];
 
@@ -2157,31 +2957,43 @@ const g=data[i+1];
 
 const b=data[i+2];
 
-if(r<245 || g<245 || b<245){
+if(
+r<245 ||
+g<245 ||
+b<245
+){
 
 found=true;
 
-minX=Math.min(minX,x);
+minX=
+Math.min(minX,x);
 
-minY=Math.min(minY,y);
+minY=
+Math.min(minY,y);
 
-maxX=Math.max(maxX,x);
+maxX=
+Math.max(maxX,x);
 
-maxY=Math.max(maxY,y);
+maxY=
+Math.max(maxY,y);
 
 }
 
 }
 
 }
+
 
 if(!found){
 
-alert('Auto crop boundary नहीं मिली।');
+alert(
+'Auto crop boundary नहीं मिली।'
+);
 
 return;
 
 }
+
 
 d.crop={
 
@@ -2195,11 +3007,10 @@ h:maxY-minY+1
 
 };
 
-selectedSide=side;
-
 renderDocuments();
 
 }
+
 
 /* =====================================================
 EDITED DOCUMENT
@@ -2207,19 +3018,34 @@ EDITED DOCUMENT
 
 function editedDocument(side){
 
-const d=documents[side];
+const d=
+documents[side];
 
-const c0=d.crop;
+const c0=
+d.crop;
 
-const canvas=document.createElement('canvas');
+const canvas=
+document.createElement('canvas');
 
-const rotated=d.rotation%180!==0;
+const rotated=
+d.rotation%180!==0;
 
-canvas.width=rotated?c0.h:c0.w;
+canvas.width=
+rotated
+?
+c0.h
+:
+c0.w;
 
-canvas.height=rotated?c0.w:c0.h;
+canvas.height=
+rotated
+?
+c0.w
+:
+c0.h;
 
-const ctx=canvas.getContext('2d');
+const ctx=
+canvas.getContext('2d');
 
 ctx.save();
 
@@ -2229,7 +3055,9 @@ canvas.height/2
 );
 
 ctx.rotate(
-d.rotation*Math.PI/180
+d.rotation*
+Math.PI/
+180
 );
 
 ctx.scale(
@@ -2242,11 +3070,14 @@ ctx.filter=
 contrast(${d.contrast}%)
 ${d.gray?'grayscale(100%)':'grayscale(0%)'}`;
 
-const z=d.zoom/100;
+const z=
+d.zoom/100;
 
-const w=c0.w*z;
+const w=
+c0.w*z;
 
-const h=c0.h*z;
+const h=
+c0.h*z;
 
 ctx.drawImage(
 
@@ -2270,32 +3101,60 @@ return canvas;
 
 }
 
+
 /* =====================================================
 DOCUMENT A4
 ===================================================== */
 
 function renderDocuments(){
 
-const output=document.getElementById('documentOutput');
+const output=
+document.getElementById(
+'documentOutput'
+);
 
 output.innerHTML='';
 
-const mode=document.getElementById('docMode').value;
 
-const paper=document.getElementById('docPaper').value;
+const mode=
+document.getElementById(
+'docMode'
+).value;
 
-const width=+document.getElementById('docWidth').value;
+const paper=
+document.getElementById(
+'docPaper'
+).value;
 
-const height=+document.getElementById('docHeight').value;
+const width=
++document.getElementById(
+'docWidth'
+).value;
 
-const copies=Math.max(
+const height=
++document.getElementById(
+'docHeight'
+).value;
+
+const copies=
+Math.max(
 1,
-+document.getElementById('docCopies').value
++document.getElementById(
+'docCopies'
+).value
 );
 
 const gap=
-(+document.getElementById('docGap').value||0)
-*96/25.4;
+(
++document.getElementById(
+'docGap'
+).value
+||
+0
+)
+*
+96/25.4;
+
 
 document
 .getElementById('docA4')
@@ -2304,14 +3163,25 @@ document
 paper==='landscape'
 );
 
+
 let sides=[];
 
-if(mode==='front' && documents.front){
+if(
+mode==='front' &&
+documents.front
+){
+
 sides=['front'];
+
 }
 
-if(mode==='back' && documents.back){
+if(
+mode==='back' &&
+documents.back
+){
+
 sides=['back'];
+
 }
 
 if(
@@ -2320,29 +3190,37 @@ documents.front &&
 documents.back
 ){
 
-sides=['front','back'];
+sides=[
+'front',
+'back'
+];
 
 }
 
+
 if(sides.length===0){
 
-output.innerHTML=`
-
+output.innerHTML=
+`
 <div class="empty">
 Selected Front / Back document upload करें।
 </div>
-
 `;
 
 return;
 
 }
 
-const scale=96/25.4;
 
-const cardW=width*scale;
+const scale=
+96/25.4;
 
-const cardH=height*scale;
+const cardW=
+width*scale;
+
+const cardH=
+height*scale;
+
 
 for(
 let i=0;
@@ -2350,25 +3228,44 @@ i<copies;
 i++
 ){
 
-if(mode==='both'){
+if(
+mode==='both'
+){
 
-const row=document.createElement('div');
+const row=
+document.createElement(
+'div'
+);
 
-row.className='document-pair';
+row.className=
+'document-pair';
 
-row.style.gap=gap+'px';
+row.style.gap=
+gap+'px';
 
-sides.forEach(side=>{
 
-const card=document.createElement('div');
+sides.forEach(
+side=>{
 
-card.className='id-card';
+const card=
+document.createElement(
+'div'
+);
 
-card.style.width=cardW+'px';
+card.className=
+'id-card';
 
-card.style.height=cardH+'px';
+card.style.width=
+cardW+'px';
 
-const img=document.createElement('img');
+card.style.height=
+cardH+'px';
+
+
+const img=
+document.createElement(
+'img'
+);
 
 img.src=
 editedDocument(side)
@@ -2383,19 +3280,31 @@ row.appendChild(card);
 
 });
 
+
 output.appendChild(row);
 
-}else{
+}
+else{
 
-const card=document.createElement('div');
+const card=
+document.createElement(
+'div'
+);
 
-card.className='id-card';
+card.className=
+'id-card';
 
-card.style.width=cardW+'px';
+card.style.width=
+cardW+'px';
 
-card.style.height=cardH+'px';
+card.style.height=
+cardH+'px';
 
-const img=document.createElement('img');
+
+const img=
+document.createElement(
+'img'
+);
 
 img.src=
 editedDocument(sides[0])
@@ -2414,6 +3323,7 @@ output.appendChild(card);
 
 }
 
+
 /* =====================================================
 PRINT DOCUMENT
 ===================================================== */
@@ -2425,13 +3335,14 @@ showPage('document');
 renderDocuments();
 
 setTimeout(
-()=>{
+function(){
 window.print();
 },
 250
 );
 
 }
+
 
 /* =====================================================
 CLEAR DOCUMENT
@@ -2452,74 +3363,102 @@ renderDocuments();
 
 }
 
+
 /* =====================================================
-PHOTO DATA
+PHOTO STUDIO
 ===================================================== */
 
 let customerPhoto=null;
 
 let photoRotation=0;
 
-/* =====================================================
-PHOTO PRESET
-===================================================== */
 
 function photoPreset(){
 
 const value=
-document.getElementById('photoPreset').value;
+document
+.getElementById(
+'photoPreset'
+)
+.value;
 
-if(value==='custom')return;
+
+if(value==='custom')
+return;
+
 
 const map={
 
-'35x45mm':[35,45,'mm'],
+'35x45mm':
+[35,45,'mm'],
 
-'25x35mm':[25,35,'mm'],
+'25x35mm':
+[25,35,'mm'],
 
-'30x40mm':[30,40,'mm'],
+'30x40mm':
+[30,40,'mm'],
 
-'40x50mm':[40,50,'mm'],
+'40x50mm':
+[40,50,'mm'],
 
-'50x70mm':[50,70,'mm'],
+'50x70mm':
+[50,70,'mm'],
 
-'2x2in':[2,2,'inch'],
+'2x2in':
+[2,2,'inch'],
 
-'2x3in':[2,3,'inch'],
+'2x3in':
+[2,3,'inch'],
 
-'3x4in':[3,4,'inch'],
+'3x4in':
+[3,4,'inch'],
 
-'4x6in':[4,6,'inch'],
+'4x6in':
+[4,6,'inch'],
 
-'4x12in':[4,12,'inch'],
+'4x12in':
+[4,12,'inch'],
 
-'5x7in':[5,7,'inch'],
+'5x7in':
+[5,7,'inch'],
 
-'6x8in':[6,8,'inch'],
+'6x8in':
+[6,8,'inch'],
 
-'8x10in':[8,10,'inch'],
+'8x10in':
+[8,10,'inch'],
 
-'8x12in':[8,12,'inch'],
+'8x12in':
+[8,12,'inch'],
 
-'8x20in':[8,20,'inch'],
+'8x20in':
+[8,20,'inch'],
 
-'a4':[210,297,'mm']
+'a4':
+[210,297,'mm']
 
 };
 
-const p=map[value];
 
-if(!p)return;
+const p=
+map[value];
 
-document.getElementById('photoWidth').value=p[0];
+if(!p)
+return;
 
-document.getElementById('photoHeight').value=p[1];
+document.getElementById('photoWidth').value=
+p[0];
 
-document.getElementById('photoUnit').value=p[2];
+document.getElementById('photoHeight').value=
+p[1];
+
+document.getElementById('photoUnit').value=
+p[2];
 
 renderPhoto();
 
 }
+
 
 /* =====================================================
 LOAD PHOTO
@@ -2527,15 +3466,19 @@ LOAD PHOTO
 
 function loadPhoto(event){
 
-const file=event.target.files[0];
+const file=
+event.target.files[0];
 
-if(!file)return;
+if(!file)
+return;
 
-const reader=new FileReader();
+const reader=
+new FileReader();
 
 reader.onload=function(e){
 
-const image=new Image();
+const image=
+new Image();
 
 image.onload=function(){
 
@@ -2555,14 +3498,6 @@ saturation:100
 
 photoRotation=0;
 
-document.getElementById('photoZoom').value=100;
-
-document.getElementById('photoBrightness').value=100;
-
-document.getElementById('photoContrast').value=100;
-
-document.getElementById('photoSaturation').value=100;
-
 renderPhoto();
 
 };
@@ -2575,13 +3510,15 @@ reader.readAsDataURL(file);
 
 }
 
+
 /* =====================================================
 PHOTO EDIT
 ===================================================== */
 
 function editPhoto(){
 
-if(!customerPhoto)return;
+if(!customerPhoto)
+return;
 
 customerPhoto.zoom=
 +document.getElementById('photoZoom').value;
@@ -2599,20 +3536,27 @@ renderPhoto();
 
 }
 
+
 function rotatePhoto(){
 
-if(!customerPhoto)return;
+if(!customerPhoto)
+return;
 
 photoRotation=
-(photoRotation+90)%360;
+(
+photoRotation+
+90
+)%360;
 
 renderPhoto();
 
 }
 
+
 function resetPhoto(){
 
-if(!customerPhoto)return;
+if(!customerPhoto)
+return;
 
 photoRotation=0;
 
@@ -2636,29 +3580,38 @@ renderPhoto();
 
 }
 
+
 /* =====================================================
 PHOTO CANVAS
 ===================================================== */
 
 function photoCanvas(){
 
-const image=customerPhoto.image;
+const image=
+customerPhoto.image;
 
-const rotated=photoRotation%180!==0;
+const rotated=
+photoRotation%180!==0;
 
-const canvas=document.createElement('canvas');
+const canvas=
+document.createElement('canvas');
 
 canvas.width=
 rotated
-?image.naturalHeight
-:image.naturalWidth;
+?
+image.naturalHeight
+:
+image.naturalWidth;
 
 canvas.height=
 rotated
-?image.naturalWidth
-:image.naturalHeight;
+?
+image.naturalWidth
+:
+image.naturalHeight;
 
-const ctx=canvas.getContext('2d');
+const ctx=
+canvas.getContext('2d');
 
 ctx.save();
 
@@ -2668,7 +3621,9 @@ canvas.height/2
 );
 
 ctx.rotate(
-photoRotation*Math.PI/180
+photoRotation*
+Math.PI/
+180
 );
 
 ctx.filter=
@@ -2676,11 +3631,14 @@ ctx.filter=
 contrast(${customerPhoto.contrast}%)
 saturate(${customerPhoto.saturation}%)`;
 
-const z=customerPhoto.zoom/100;
+const z=
+customerPhoto.zoom/100;
 
-const w=image.naturalWidth*z;
+const w=
+image.naturalWidth*z;
 
-const h=image.naturalHeight*z;
+const h=
+image.naturalHeight*z;
 
 ctx.drawImage(
 image,
@@ -2696,18 +3654,25 @@ return canvas;
 
 }
 
+
 /* =====================================================
 PHOTO A4
 ===================================================== */
 
 function renderPhoto(){
 
-const output=document.getElementById('photoOutput');
+const output=
+document.getElementById(
+'photoOutput'
+);
 
 output.innerHTML='';
 
+
 const paper=
-document.getElementById('photoPaper').value;
+document.getElementById(
+'photoPaper'
+).value;
 
 document
 .getElementById('photoA4')
@@ -2716,19 +3681,20 @@ document
 paper==='landscape'
 );
 
+
 if(!customerPhoto){
 
-output.innerHTML=`
-
+output.innerHTML=
+`
 <div class="empty">
 Customer photo upload करें।
 </div>
-
 `;
 
 return;
 
 }
+
 
 let width=
 +document.getElementById('photoWidth').value;
@@ -2739,6 +3705,7 @@ let height=
 const unit=
 document.getElementById('photoUnit').value;
 
+
 if(unit==='inch'){
 
 width*=25.4;
@@ -2747,22 +3714,34 @@ height*=25.4;
 
 }
 
-const scale=96/25.4;
 
-const w=width*scale;
+const scale=
+96/25.4;
 
-const h=height*scale;
+const w=
+width*scale;
 
-const copies=Math.max(
+const h=
+height*scale;
+
+const copies=
+Math.max(
 1,
 +document.getElementById('photoCopies').value
 );
 
 const gap=
-(+document.getElementById('photoGap').value||0)
-*scale;
+(
++document.getElementById('photoGap').value||
+0
+)
+*
+scale;
 
-const source=photoCanvas();
+
+const source=
+photoCanvas();
+
 
 for(
 let i=0;
@@ -2770,15 +3749,25 @@ i<copies;
 i++
 ){
 
-const card=document.createElement('div');
+const card=
+document.createElement(
+'div'
+);
 
-card.className='photo-card';
+card.className=
+'photo-card';
 
-card.style.width=w+'px';
+card.style.width=
+w+'px';
 
-card.style.height=h+'px';
+card.style.height=
+h+'px';
 
-const img=document.createElement('img');
+
+const img=
+document.createElement(
+'img'
+);
 
 img.src=
 source.toDataURL(
@@ -2794,6 +3783,7 @@ output.appendChild(card);
 
 }
 
+
 /* =====================================================
 PRINT PHOTO
 ===================================================== */
@@ -2805,13 +3795,14 @@ showPage('photo');
 renderPhoto();
 
 setTimeout(
-()=>{
+function(){
 window.print();
 },
 250
 );
 
 }
+
 
 /* =====================================================
 CLEAR PHOTO
@@ -2826,6 +3817,7 @@ document.getElementById('photoFile').value='';
 renderPhoto();
 
 }
+
 
 /* =====================================================
 START
