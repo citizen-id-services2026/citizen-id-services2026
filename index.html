@@ -3,689 +3,925 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Bharat Digital Centre</title>
+<meta name="theme-color" content="#0756b8">
+
+<title>Bharat Digital Centre | Document & Photo Studio</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-font-family:Arial,sans-serif;
-background:#f3f7fb;
-color:#172033
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
 }
-button,input,select{font-family:inherit}
-button{cursor:pointer}
+
+html{
+ scroll-behavior:smooth;
+}
+
+body{
+ font-family:Arial,Helvetica,sans-serif;
+ background:#f2f6fa;
+ color:#172033;
+}
+
+button,input,select{
+ font-family:inherit;
+}
+
+button{
+ cursor:pointer;
+}
 
 header{
-background:#0756b8;
-color:#fff;
-padding:9px 12px;
-position:sticky;
-top:0;
-z-index:99;
-box-shadow:0 2px 10px #0003
+ background:#0756b8;
+ color:#fff;
+ position:sticky;
+ top:0;
+ z-index:1000;
+ box-shadow:0 2px 10px #0003;
 }
 
 .header{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between
+ max-width:1200px;
+ margin:auto;
+ min-height:58px;
+ padding:7px 12px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
 }
 
-.logo{
-display:flex;
-align-items:center;
-gap:8px
+.brand{
+ display:flex;
+ align-items:center;
+ gap:8px;
 }
 
-.logo-icon{
-width:38px;height:38px;
-background:#fff;color:#0756b8;
-border-radius:9px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold
+.brandIcon{
+ width:36px;
+ height:36px;
+ border-radius:8px;
+ background:#fff;
+ color:#0756b8;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:14px;
+ font-weight:bold;
 }
 
-.logo h1{font-size:17px}
-.logo p{font-size:9px}
+.brandText h1{
+ font-size:16px;
+}
 
-.menu{
-border:0;
-background:#ffffff22;
-color:#fff;
-font-size:20px;
-padding:7px 10px;
-border-radius:7px
+.brandText p{
+ font-size:8px;
+ margin-top:2px;
+ opacity:.9;
+}
+
+.menuBtn{
+ border:0;
+ background:#ffffff20;
+ color:#fff;
+ width:36px;
+ height:34px;
+ border-radius:7px;
+ font-size:18px;
 }
 
 nav{
-max-width:1200px;
-margin:auto;
-display:none;
-gap:5px;
-flex-wrap:wrap;
-padding-top:7px
+ max-width:1200px;
+ margin:auto;
+ display:none;
+ gap:5px;
+ flex-wrap:wrap;
+ padding:0 12px 8px;
 }
 
-nav.show{display:flex}
+nav.show{
+ display:flex;
+}
 
 nav button{
-border:0;
-background:#ffffff20;
-color:#fff;
-padding:7px 10px;
-border-radius:6px;
-font-size:10px
+ border:0;
+ background:#ffffff18;
+ color:#fff;
+ padding:7px 9px;
+ border-radius:6px;
+ font-size:9px;
 }
 
 .hero{
-max-width:1200px;
-margin:auto;
-padding:15px 12px
+ max-width:1200px;
+ margin:auto;
+ padding:12px;
 }
 
-.hero-box{
-background:linear-gradient(135deg,#0756b8,#08a1d8);
-color:#fff;
-padding:23px 17px;
-border-radius:15px
+.heroBox{
+ background:linear-gradient(135deg,#0756b8,#08a1d8);
+ color:#fff;
+ border-radius:14px;
+ padding:20px 16px;
 }
 
-.hero h2{font-size:26px}
-.hero p{font-size:11px;margin-top:6px}
-
-.hero-buttons{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-margin-top:13px
+.heroBox h2{
+ font-size:24px;
+ line-height:1.2;
 }
 
-.hero-buttons button{
-border:0;
-padding:9px 12px;
-border-radius:7px;
-font-size:10px;
-font-weight:bold
+.heroBox p{
+ font-size:10px;
+ margin-top:6px;
+ line-height:1.5;
 }
 
-.white{color:#0756b8;background:#fff}
-.dark{color:#fff;background:#0003}
+.heroActions{
+ display:flex;
+ gap:7px;
+ flex-wrap:wrap;
+ margin-top:12px;
+}
+
+.heroActions button{
+ border:0;
+ border-radius:7px;
+ padding:9px 11px;
+ font-size:9px;
+ font-weight:bold;
+}
+
+.whiteBtn{
+ background:#fff;
+ color:#0756b8;
+}
+
+.darkBtn{
+ background:#ffffff22;
+ color:#fff;
+}
 
 .section{
-max-width:1200px;
-margin:auto;
-padding:10px 12px
+ max-width:1200px;
+ margin:auto;
+ padding:8px 12px;
 }
 
-.title{margin-bottom:9px}
-.title h2{font-size:19px;color:#062b57}
-.title p{font-size:10px;color:#64748b}
-
-.main-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:9px
+.sectionTitle{
+ margin-bottom:8px;
 }
 
-.main-btn{
-border:0;
-color:#fff;
-border-radius:13px;
-min-height:125px;
-padding:15px 8px;
-box-shadow:0 5px 15px #0002
+.sectionTitle h2{
+ font-size:18px;
+ color:#062b57;
 }
 
-.doc-main{
-background:linear-gradient(135deg,#0756b8,#07396b)
+.sectionTitle p{
+ font-size:9px;
+ color:#64748b;
+ margin-top:3px;
 }
 
-.photo-main{
-background:linear-gradient(135deg,#138a45,#079a7a)
+/* MAIN SERVICE BUTTONS */
+
+.mainGrid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:8px;
 }
 
-.main-btn .big{font-size:32px}
-.main-btn h2{font-size:17px;margin-top:5px}
-.main-btn p{font-size:9px;margin-top:4px}
+.mainCard{
+ min-height:112px;
+ border:0;
+ border-radius:12px;
+ color:#fff;
+ padding:12px 7px;
+ box-shadow:0 4px 14px #0002;
+}
+
+.mainCard.doc{
+ background:linear-gradient(135deg,#0756b8,#06366e);
+}
+
+.mainCard.photo{
+ background:linear-gradient(135deg,#138a45,#079b7b);
+}
+
+.mainIcon{
+ font-size:28px;
+}
+
+.mainCard h3{
+ font-size:15px;
+ margin-top:4px;
+}
+
+.mainCard p{
+ font-size:8px;
+ margin-top:4px;
+ line-height:1.4;
+}
+
+/* EDITOR */
 
 .editor{
-display:none;
-background:#fff;
-border:1px solid #d9e3ed;
-border-radius:13px;
-overflow:hidden;
-box-shadow:0 4px 16px #0001;
-margin-top:10px
+ display:none;
+ background:#fff;
+ border:1px solid #d8e2ec;
+ border-radius:12px;
+ overflow:hidden;
+ box-shadow:0 3px 14px #0001;
+ margin-top:8px;
 }
 
-.editor.active{display:block}
-
-.editor-head{
-background:#0756b8;
-color:#fff;
-padding:12px
+.editor.active{
+ display:block;
 }
 
-.photo-editor .editor-head{background:#138a45}
-
-.editor-head h2{font-size:18px}
-.editor-head p{font-size:9px;margin-top:4px}
-
-.upload{
-padding:9px;
-background:#f7fbff;
-border-bottom:1px solid #dde6ef
+.editorHead{
+ color:#fff;
+ background:#0756b8;
+ padding:11px;
 }
 
-.upload-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:6px
+.photoEditor .editorHead{
+ background:#138a45;
 }
 
-.upload-btn{
-border:1px solid #c7d5e4;
-background:#fff;
-color:#0756b8;
-border-radius:7px;
-padding:9px 4px;
-font-size:9px;
-font-weight:bold
+.editorHead h2{
+ font-size:17px;
+}
+
+.editorHead p{
+ font-size:8px;
+ margin-top:4px;
+}
+
+.uploadArea{
+ background:#f7fbff;
+ border-bottom:1px solid #dce5ed;
+ padding:8px;
+}
+
+.uploadGrid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:5px;
+}
+
+.uploadBtn{
+ border:1px solid #c9d7e5;
+ background:#fff;
+ color:#0756b8;
+ border-radius:6px;
+ padding:8px 3px;
+ font-size:8px;
+ font-weight:bold;
+}
+
+.uploadBtn.green{
+ color:#138a45;
+}
+
+.workspace{
+ padding:8px;
+}
+
+/* SIDE SELECT */
+
+.sideSelect{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:5px;
+ margin-bottom:7px;
+}
+
+.sideBtn{
+ border:1px solid #ccd9e5;
+ background:#fff;
+ padding:8px 2px;
+ border-radius:6px;
+ font-size:8px;
+}
+
+.sideBtn.active{
+ background:#0756b8;
+ color:#fff;
+ border-color:#0756b8;
+}
+
+/* DOCUMENT PANELS */
+
+.docPanels{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:7px;
+}
+
+.docPanel{
+ border:1px solid #d6e1eb;
+ border-radius:8px;
+ background:#fbfdff;
+ padding:6px;
+}
+
+.panelTitle{
+ font-size:9px;
+ font-weight:bold;
+ color:#243b53;
+ margin-bottom:5px;
+}
+
+.imageBox{
+ height:220px;
+ border:2px dashed #b8c8d8;
+ border-radius:7px;
+ background:#f0f4f7;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ overflow:hidden;
+ position:relative;
+}
+
+.imageBox canvas{
+ max-width:100%;
+ max-height:100%;
+ display:none;
+}
+
+.emptyText{
+ text-align:center;
+ color:#64748b;
+ font-size:8px;
+ padding:8px;
+}
+
+.emptyText strong{
+ display:block;
+ font-size:26px;
+ margin-bottom:4px;
+}
+
+.panelActions{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:4px;
+ margin-top:5px;
+}
+
+.smallBtn{
+ border:1px solid #ccd9e5;
+ background:#fff;
+ border-radius:5px;
+ padding:6px 2px;
+ font-size:7px;
+}
+
+/* CONTROLS */
+
+.controls{
+ margin-top:8px;
+}
+
+.controlBox{
+ border:1px solid #dce5ed;
+ background:#fbfdff;
+ border-radius:7px;
+ padding:7px;
+ margin-bottom:6px;
+}
+
+.controlTitle{
+ font-size:9px;
+ font-weight:bold;
+ color:#334155;
+ margin-bottom:5px;
+}
+
+.controlRow{
+ display:flex;
+ gap:4px;
+ flex-wrap:wrap;
+}
+
+.ctrlBtn{
+ border:1px solid #ccd9e5;
+ background:#fff;
+ color:#334155;
+ border-radius:5px;
+ padding:6px 8px;
+ font-size:8px;
+}
+
+.ctrlBtn.active{
+ background:#0756b8;
+ color:#fff;
+ border-color:#0756b8;
+}
+
+.rangeRow{
+ display:grid;
+ grid-template-columns:65px 1fr 38px;
+ gap:5px;
+ align-items:center;
+ margin:5px 0;
+}
+
+.rangeRow label{
+ font-size:8px;
+}
+
+.rangeRow input{
+ width:100%;
+}
+
+.rangeRow output{
+ font-size:8px;
+ text-align:right;
+}
+
+.select{
+ width:100%;
+ border:1px solid #ccd9e5;
+ background:#fff;
+ border-radius:5px;
+ padding:7px;
+ font-size:8px;
+}
+
+.copyGrid{
+ display:grid;
+ grid-template-columns:repeat(8,1fr);
+ gap:4px;
+}
+
+.copyBtn{
+ border:1px solid #ccd9e5;
+ background:#fff;
+ border-radius:5px;
+ padding:6px 2px;
+ font-size:7px;
+}
+
+.copyBtn.active{
+ background:#0756b8;
+ color:#fff;
+}
+
+/* CROP */
+
+.cropArea{
+ display:none;
+ background:#101820;
+ border-radius:8px;
+ padding:7px;
+ margin-top:7px;
+}
+
+.cropArea.show{
+ display:block;
+}
+
+.cropTitle{
+ color:#fff;
+ font-size:9px;
+ margin-bottom:6px;
+}
+
+.cropStage{
+ position:relative;
+ width:100%;
+ height:320px;
+ overflow:hidden;
+ background:#222;
+ border-radius:6px;
+ touch-action:none;
+}
+
+#cropImage{
+ position:absolute;
+ user-select:none;
+ -webkit-user-drag:none;
+ transform-origin:center center;
+}
+
+.cropRect{
+ position:absolute;
+ border:2px solid #fff;
+ box-shadow:0 0 0 9999px #0008;
+ left:15%;
+ top:15%;
+ width:70%;
+ height:70%;
+ touch-action:none;
+}
+
+.cropHandle{
+ position:absolute;
+ width:14px;
+ height:14px;
+ background:#fff;
+ border:2px solid #0756b8;
+ border-radius:50%;
+}
+
+.hTL{left:-7px;top:-7px}
+.hTR{right:-7px;top:-7px}
+.hBL{left:-7px;bottom:-7px}
+.hBR{right:-7px;bottom:-7px}
+
+.cropActions{
+ display:flex;
+ gap:5px;
+ margin-top:6px;
+}
+
+.cropActions button{
+ flex:1;
+ border:0;
+ border-radius:5px;
+ padding:8px;
+ font-size:8px;
+}
+
+.applyCrop{
+ background:#138a45;
+ color:#fff;
+}
+
+.cancelCrop{
+ background:#fff;
+ color:#333;
+}
+
+/* A4 PREVIEW */
+
+.previewBox{
+ margin-top:8px;
+ border:1px solid #cfdbe6;
+ background:#eef3f7;
+ border-radius:8px;
+ padding:7px;
+}
+
+.previewHeader{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:6px;
+}
+
+.previewHeader strong{
+ font-size:10px;
+}
+
+.previewHeader span{
+ font-size:7px;
+ color:#64748b;
+}
+
+.a4Frame{
+ width:100%;
+ max-width:520px;
+ margin:auto;
+ background:#fff;
+ border:1px solid #aaa;
+ aspect-ratio:210/297;
+ position:relative;
+ overflow:hidden;
+}
+
+.a4CanvasWrap{
+ position:absolute;
+ inset:0;
+}
+
+#a4Canvas{
+ width:100%;
+ height:100%;
+ display:block;
+}
+
+/* INFO */
+
+.actualInfo{
+ background:#eef7ff;
+ border:1px solid #cde3f7;
+ color:#0756b8;
+ border-radius:6px;
+ padding:7px;
+ font-size:8px;
+ line-height:1.5;
+ margin-top:6px;
+}
+
+/* ACTIONS */
+
+.outputGrid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:5px;
+}
+
+.outputBtn{
+ border:0;
+ border-radius:6px;
+ padding:9px 3px;
+ font-size:8px;
+ font-weight:bold;
+}
+
+.blue{
+ background:#0756b8;
+ color:#fff;
 }
 
 .green{
-color:#fff;
-background:#138a45;
-border-color:#138a45
+ background:#138a45;
+ color:#fff;
 }
 
-.doc-workspace{
-padding:9px
+.red{
+ background:#fee2e2;
+ color:#991b1b;
 }
 
-.side-tabs{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:5px;
-margin-bottom:8px
+/* PHOTO STUDIO */
+
+.photoContent{
+ padding:8px;
 }
 
-.side-tab{
-border:1px solid #cbd8e5;
-background:#fff;
-padding:8px 3px;
-border-radius:6px;
-font-size:9px
+.photoPreview{
+ height:300px;
+ background:#eef2f5;
+ border:2px dashed #b8c8d8;
+ border-radius:7px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ overflow:hidden;
 }
 
-.side-tab.active{
-background:#0756b8;
-color:#fff;
-border-color:#0756b8
+#photoCanvas{
+ max-width:100%;
+ max-height:100%;
+ display:none;
 }
 
-.doc-panels{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px
+.photoOptions{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:5px;
+ margin-top:7px;
 }
 
-.doc-panel{
-border:1px solid #d8e2ec;
-border-radius:9px;
-padding:7px;
-background:#fbfdff
+.photoOption{
+ border:1px solid #ccd9e5;
+ background:#fff;
+ border-radius:6px;
+ padding:8px 3px;
+ font-size:8px;
 }
 
-.panel-title{
-font-weight:bold;
-font-size:10px;
-margin-bottom:6px;
-color:#173452
+.photoOption.active{
+ background:#138a45;
+ color:#fff;
+ border-color:#138a45;
 }
 
-.preview{
-height:240px;
-background:
-linear-gradient(45deg,#e7edf2 25%,transparent 25%),
-linear-gradient(-45deg,#e7edf2 25%,transparent 25%),
-linear-gradient(45deg,transparent 75%,#e7edf2 75%),
-linear-gradient(-45deg,transparent 75%,#e7edf2 75%);
-background-size:20px 20px;
-background-position:0 0,0 10px,10px -10px,-10px 0;
-border:2px dashed #b7c7d8;
-border-radius:7px;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden
+.photoOutput{
+ margin-top:7px;
+ background:#eef7f1;
+ border:1px solid #cce5d5;
+ border-radius:6px;
+ padding:7px;
+ font-size:8px;
+ color:#166534;
 }
 
-.preview canvas{
-max-width:100%;
-max-height:100%;
-display:none
+/* SERVICES */
+
+.serviceGrid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:7px;
 }
 
-.placeholder{
-text-align:center;
-font-size:9px;
-color:#64748b;
-padding:10px
+.service{
+ background:#fff;
+ border:1px solid #dce5ed;
+ border-radius:8px;
+ padding:8px;
 }
 
-.placeholder strong{
-font-size:30px;
-display:block
+.serviceIcon{
+ width:28px;
+ height:28px;
+ background:#eaf3ff;
+ border-radius:6px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:14px;
+ margin-bottom:5px;
 }
 
-.panel-buttons{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:5px;
-margin-top:6px
+.service h3{
+ font-size:10px;
 }
 
-.mini{
-border:1px solid #cbd8e5;
-background:#fff;
-padding:7px 3px;
-border-radius:6px;
-font-size:8px
+.service p{
+ font-size:7px;
+ color:#64748b;
+ margin:3px 0 5px;
 }
 
-.controls{
-padding:9px;
-border-top:1px solid #e0e8f0
+.service a{
+ display:inline-block;
+ background:#0756b8;
+ color:#fff;
+ text-decoration:none;
+ border-radius:4px;
+ padding:5px 7px;
+ font-size:7px;
 }
 
-.control{
-border:1px solid #dbe4ed;
-border-radius:8px;
-padding:8px;
-margin-bottom:7px;
-background:#fbfdff
+/* TOOLS */
+
+.toolsGrid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:7px;
 }
 
-.control-title{
-font-size:10px;
-font-weight:bold;
-color:#334155;
-margin-bottom:6px
+.tool{
+ background:#fff;
+ border:1px solid #dce5ed;
+ border-radius:7px;
+ padding:8px;
 }
 
-.row{
-display:flex;
-gap:5px;
-flex-wrap:wrap
+.tool h3{
+ font-size:10px;
+ margin-bottom:5px;
 }
 
-.ctrl{
-border:1px solid #c8d6e4;
-background:#fff;
-border-radius:6px;
-padding:7px 8px;
-font-size:9px
+.tool input,
+.tool textarea{
+ width:100%;
+ border:1px solid #ccd9e5;
+ border-radius:5px;
+ padding:6px;
+ font-size:8px;
+ margin-bottom:4px;
 }
 
-.ctrl.active{
-background:#0756b8;
-color:#fff;
-border-color:#0756b8
+.tool textarea{
+ min-height:70px;
+ resize:vertical;
 }
 
-.range{
-display:grid;
-grid-template-columns:65px 1fr 35px;
-gap:5px;
-align-items:center;
-margin:6px 0
-}
-
-.range label{font-size:9px}
-.range input{width:100%}
-.range output{font-size:9px;text-align:right}
-
-.select{
-width:100%;
-padding:8px;
-border:1px solid #cbd8e5;
-border-radius:6px;
-background:#fff;
-font-size:9px
-}
-
-.size-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:6px
-}
-
-.copies{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:5px
-}
-
-.copy{
-border:1px solid #cbd8e5;
-background:#fff;
-border-radius:6px;
-padding:7px 2px;
-font-size:9px
-}
-
-.copy.active{
-background:#0756b8;
-color:#fff
-}
-
-.action-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:6px
-}
-
-.action{
-border:0;
-border-radius:7px;
-padding:10px 3px;
-font-size:9px;
-font-weight:bold
-}
-
-.blue{background:#0756b8;color:#fff}
-.green-action{background:#138a45;color:#fff}
-.red{background:#fee2e2;color:#991b1b}
-
-.a4-preview-box{
-margin-top:9px;
-border:1px solid #ccd9e5;
-border-radius:9px;
-padding:8px;
-background:#eef3f7
-}
-
-.a4-preview-title{
-font-size:11px;
-font-weight:bold;
-margin-bottom:7px
-}
-
-.a4{
-background:#fff;
-width:100%;
-max-width:520px;
-margin:auto;
-aspect-ratio:210/297;
-border:1px solid #aaa;
-padding:6%;
-display:flex;
-flex-direction:column;
-gap:5%;
-justify-content:flex-start
-}
-
-.a4-side{
-border:1px dashed #777;
-flex:1;
-min-height:0;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-background:#fafafa;
-position:relative
-}
-
-.a4-side span{
-font-size:10px;
-color:#888
-}
-
-.a4-side img{
-max-width:100%;
-max-height:100%;
-object-fit:contain;
-display:none
-}
-
-.photo-content{
-padding:9px
-}
-
-.photo-preview{
-height:310px;
-background:#eef2f5;
-border:2px dashed #b7c7d8;
-border-radius:8px;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden
-}
-
-.photo-preview canvas{
-max-width:100%;
-max-height:100%;
-display:none
-}
-
-.photo-options{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:6px;
-margin-top:8px
-}
-
-.photo-option{
-border:1px solid #cbd8e5;
-background:#fff;
-padding:9px 3px;
-border-radius:7px;
-font-size:9px
-}
-
-.photo-option.active{
-background:#138a45;
-color:#fff;
-border-color:#138a45
-}
-
-.utility-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px
-}
-
-.utility{
-background:#fff;
-border:1px solid #dce5ed;
-border-radius:8px;
-padding:9px
-}
-
-.utility h3{font-size:11px;margin-bottom:6px}
-
-.utility input,
-.utility textarea{
-width:100%;
-padding:7px;
-border:1px solid #ccd9e5;
-border-radius:6px;
-margin-bottom:5px;
-font-size:9px
-}
-
-.utility button{
-border:0;
-background:#0756b8;
-color:#fff;
-padding:7px 9px;
-border-radius:6px;
-font-size:9px
+.tool button{
+ border:0;
+ background:#0756b8;
+ color:#fff;
+ border-radius:5px;
+ padding:6px 8px;
+ font-size:8px;
 }
 
 .result{
-background:#edf6ff;
-color:#0756b8;
-padding:6px;
-border-radius:5px;
-font-size:9px;
-margin-top:5px
+ background:#edf6ff;
+ color:#0756b8;
+ border-radius:4px;
+ padding:5px;
+ margin-top:4px;
+ font-size:8px;
 }
 
-.service-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:8px
-}
-
-.card{
-background:#fff;
-border:1px solid #dce5ed;
-border-radius:9px;
-padding:9px
-}
-
-.icon{
-width:30px;height:30px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#eaf3ff;
-border-radius:7px;
-font-size:15px;
-margin-bottom:5px
-}
-
-.card h3{font-size:11px}
-.card p{font-size:8px;color:#64748b;margin:3px 0}
-.open{
-display:inline-block;
-background:#0756b8;
-color:#fff;
-padding:6px 8px;
-border-radius:5px;
-font-size:8px
-}
+/* FOOTER */
 
 footer{
-background:#062b57;
-color:#fff;
-padding:22px 12px;
-margin-top:20px
+ margin-top:15px;
+ background:#062b57;
+ color:#fff;
+ padding:18px 12px;
 }
 
-.footer-grid{
-max-width:1200px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px
+.footerGrid{
+ max-width:1200px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
 }
 
-footer h3{font-size:11px}
-footer p,footer a{
-display:block;
-font-size:8px;
-color:#dbeafe;
-margin-top:4px
+footer h3{
+ font-size:10px;
+}
+
+footer p,
+footer a{
+ display:block;
+ color:#dbeafe;
+ text-decoration:none;
+ font-size:7px;
+ margin-top:4px;
 }
 
 .copyright{
-border-top:1px solid #ffffff22;
-margin-top:14px;
-padding-top:9px;
-text-align:center;
-font-size:8px
+ text-align:center;
+ border-top:1px solid #ffffff20;
+ margin-top:12px;
+ padding-top:8px;
+ font-size:7px;
 }
 
-#printArea{display:none}
+/* PRINT */
+
+#printArea{
+ display:none;
+}
+
+/* MOBILE */
 
 @media(max-width:700px){
 
-.doc-panels{
-grid-template-columns:1fr
+.uploadGrid{
+ grid-template-columns:repeat(2,1fr);
 }
 
-.utility-grid{
-grid-template-columns:1fr 1fr
+.docPanels{
+ grid-template-columns:1fr;
 }
 
-.service-grid{
-grid-template-columns:1fr 1fr
+.serviceGrid{
+ grid-template-columns:repeat(2,1fr);
 }
 
+.toolsGrid{
+ grid-template-columns:1fr 1fr;
 }
 
-@media(max-width:420px){
-
-.main-grid{
-grid-template-columns:1fr 1fr
-}
-
-.doc-panels{
-grid-template-columns:1fr
-}
-
-.utility-grid{
-grid-template-columns:1fr 1fr
+.copyGrid{
+ grid-template-columns:repeat(4,1fr);
 }
 
 }
+
+/* PRINT STYLE */
 
 @media print{
 
-body *{
-visibility:hidden!important
+@page{
+ size:A4 portrait;
+ margin:0;
 }
 
-#printArea,
-#printArea *{
-visibility:visible!important
+body{
+ margin:0;
+ background:#fff;
+}
+
+body > *{
+ display:none!important;
 }
 
 #printArea{
-display:block!important;
-position:absolute;
-left:0;
-top:0;
-width:210mm;
-min-height:297mm;
-background:#fff;
-padding:8mm
+ display:block!important;
+ width:210mm;
+ min-height:297mm;
+ background:#fff;
 }
 
-.print-a4{
-width:194mm;
-height:281mm;
-display:flex;
-flex-direction:column;
-gap:8mm
+.printA4{
+ width:210mm;
+ height:297mm;
+ position:relative;
+ background:#fff;
+ overflow:hidden;
 }
 
-.print-box{
-flex:1;
-border:1px solid #777;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden
+.printCard{
+ position:absolute;
+ width:85.6mm;
+ height:53.98mm;
+ overflow:hidden;
 }
 
-.print-box img{
-max-width:100%;
-max-height:100%;
-object-fit:contain
+.printCard img{
+ width:85.6mm;
+ height:53.98mm;
+ display:block;
+ object-fit:fill;
 }
+
 }
 </style>
 </head>
+
 
 <body>
 
@@ -693,28 +929,26 @@ object-fit:contain
 
 <div class="header">
 
-<div class="logo">
+<div class="brand">
 
-<div class="logo-icon">BD</div>
+<div class="brandIcon">BD</div>
 
-<div>
+<div class="brandText">
 <h1>Bharat Digital Centre</h1>
-<p>Smart Digital Services</p>
+<p>Document & Photo Services</p>
 </div>
 
 </div>
 
-<button class="menu" onclick="toggleMenu()">☰</button>
+<button class="menuBtn" onclick="toggleMenu()">☰</button>
 
 </div>
 
 <nav id="nav">
-
-<button onclick="showEditor('documentEditor')">📄 Document Copy</button>
-<button onclick="showEditor('photoEditor')">📸 Photo Studio</button>
-<button onclick="goTo('services')">Services</button>
-<button onclick="goTo('tools')">Tools</button>
-
+<button onclick="openEditor('documentEditor')">📄 Document</button>
+<button onclick="openEditor('photoEditor')">📸 Photo</button>
+<button onclick="scrollToId('services')">Services</button>
+<button onclick="scrollToId('tools')">Tools</button>
 </nav>
 
 </header>
@@ -722,25 +956,25 @@ object-fit:contain
 
 <section class="hero">
 
-<div class="hero-box">
+<div class="heroBox">
 
-<h2>आपकी डिजिटल सेवाएँ<br>एक ही जगह</h2>
+<h2>Digital Services<br>एक ही जगह</h2>
 
 <p>
-Document Copy और Customer Photo Studio के साथ
-Digital Services.
+Document Copy Editor और Customer Photo Studio
+के साथ आसान mobile printing.
 </p>
 
-<div class="hero-buttons">
+<div class="heroActions">
 
-<button class="white"
-onclick="showEditor('documentEditor')">
+<button class="whiteBtn"
+onclick="openEditor('documentEditor')">
 📄 Document Copy
 </button>
 
-<button class="dark"
-onclick="showEditor('photoEditor')">
-📸 Customer Photo Studio
+<button class="darkBtn"
+onclick="openEditor('photoEditor')">
+📸 Photo Studio
 </button>
 
 </div>
@@ -750,32 +984,36 @@ onclick="showEditor('photoEditor')">
 </section>
 
 
-<!-- MAIN BUTTONS -->
-
 <section class="section">
 
-<div class="main-grid">
+<div class="mainGrid">
 
-<button class="main-btn doc-main"
-onclick="showEditor('documentEditor')">
+<button class="mainCard doc"
+onclick="openEditor('documentEditor')">
 
-<div class="big">📄</div>
+<div class="mainIcon">📄</div>
 
-<h2>Document Copy</h2>
+<h3>Document Copy</h3>
 
-<p>Front • Back • Front + Back • A4</p>
+<p>
+Front • Back • Front + Back<br>
+ID Card • A4 • Crop • Edit
+</p>
 
 </button>
 
 
-<button class="main-btn photo-main"
-onclick="showEditor('photoEditor')">
+<button class="mainCard photo"
+onclick="openEditor('photoEditor')">
 
-<div class="big">📸</div>
+<div class="mainIcon">📸</div>
 
-<h2>Customer Photo Studio</h2>
+<h3>Customer Photo</h3>
 
-<p>Passport • Half • Full • 4×6 • A4</p>
+<p>
+Passport • Half • Full<br>
+Zoom • Brightness • Contrast
+</p>
 
 </button>
 
@@ -792,39 +1030,38 @@ DOCUMENT EDITOR
 
 <div class="editor" id="documentEditor">
 
-<div class="editor-head">
+<div class="editorHead">
 
 <h2>📄 Document Copy Editor</h2>
 
 <p>
-Front और Back अलग-अलग upload करें, edit करें और
-एक ही A4 sheet पर print करें।
+Front और Back को अलग-अलग edit करके वास्तविक size में A4 paper पर print करें।
 </p>
 
 </div>
 
 
-<div class="upload">
+<div class="uploadArea">
 
-<div class="upload-grid">
+<div class="uploadGrid">
 
-<button class="upload-btn"
-onclick="document.getElementById('frontInput').click()">
-🖼️ Front Photo
+<button class="uploadBtn"
+onclick="frontInput.click()">
+🖼️ Front
 </button>
 
-<button class="upload-btn"
-onclick="document.getElementById('backInput').click()">
-🖼️ Back Photo
+<button class="uploadBtn"
+onclick="backInput.click()">
+🖼️ Back
 </button>
 
-<button class="upload-btn"
-onclick="document.getElementById('singleInput').click()">
-📷 Single Document
+<button class="uploadBtn"
+onclick="singleInput.click()">
+📷 Single
 </button>
 
-<button class="upload-btn"
-onclick="documentDemo()">
+<button class="uploadBtn"
+onclick="loadDemoDocuments()">
 🧪 Demo
 </button>
 
@@ -835,69 +1072,89 @@ id="frontInput"
 type="file"
 accept="image/*"
 style="display:none"
-onchange="loadDoc(this,'front')">
+onchange="loadDocument(this,'front')">
 
 <input
 id="backInput"
 type="file"
 accept="image/*"
 style="display:none"
-onchange="loadDoc(this,'back')">
+onchange="loadDocument(this,'back')">
 
 <input
 id="singleInput"
 type="file"
 accept="image/*"
 style="display:none"
-onchange="loadDoc(this,'front')">
+onchange="loadDocument(this,'front')">
 
 </div>
 
 
-<div class="doc-workspace">
+<div class="workspace">
 
 
-<!-- SIDE SELECT -->
+<!-- MODE -->
 
-<div class="side-tabs">
+<div class="sideSelect">
 
-<button id="tabFront"
-class="side-tab active"
-onclick="selectEditSide('front')">
-FRONT EDIT
+<button id="modeFront"
+class="sideBtn active"
+onclick="setPrintMode('front',this)">
+FRONT ONLY
 </button>
 
-<button id="tabBack"
-class="side-tab"
-onclick="selectEditSide('back')">
-BACK EDIT
+<button id="modeBack"
+class="sideBtn"
+onclick="setPrintMode('back',this)">
+BACK ONLY
 </button>
 
-<button id="tabBoth"
-class="side-tab"
-onclick="selectEditSide('both')">
+<button id="modeBoth"
+class="sideBtn"
+onclick="setPrintMode('both',this)">
 FRONT + BACK
 </button>
 
 </div>
 
 
-<!-- TWO EDITABLE PANELS -->
+<!-- EDIT SIDE -->
 
-<div class="doc-panels">
+<div class="sideSelect">
 
+<button id="editFront"
+class="sideBtn active"
+onclick="selectEditSide('front')">
+✏️ EDIT FRONT
+</button>
 
-<!-- FRONT -->
+<button id="editBack"
+class="sideBtn"
+onclick="selectEditSide('back')">
+✏️ EDIT BACK
+</button>
 
-<div class="doc-panel">
+<button class="sideBtn"
+onclick="startCrop(editingSide)">
+✂️ CROP
+</button>
 
-<div class="panel-title">
-📄 FRONT
 </div>
 
-<div class="preview">
 
-<div id="frontEmpty" class="placeholder">
+<!-- PANELS -->
+
+<div class="docPanels">
+
+
+<div class="docPanel">
+
+<div class="panelTitle">📄 FRONT</div>
+
+<div class="imageBox">
+
+<div id="frontEmpty" class="emptyText">
 
 <strong>📄</strong>
 Front Photo चुनें
@@ -908,26 +1165,26 @@ Front Photo चुनें
 
 </div>
 
-<div class="panel-buttons">
+<div class="panelActions">
 
-<button class="mini"
+<button class="smallBtn"
 onclick="rotateDoc('front',-90)">
-↶ Rotate
+↶
 </button>
 
-<button class="mini"
+<button class="smallBtn"
 onclick="rotateDoc('front',90)">
-↷ Rotate
+↷
 </button>
 
-<button class="mini"
+<button class="smallBtn"
 onclick="flipDoc('front')">
-↔ Flip
+↔
 </button>
 
-<button class="mini"
-onclick="cropDoc('front')">
-✂️ Crop
+<button class="smallBtn"
+onclick="startCrop('front')">
+✂️
 </button>
 
 </div>
@@ -935,17 +1192,13 @@ onclick="cropDoc('front')">
 </div>
 
 
-<!-- BACK -->
+<div class="docPanel">
 
-<div class="doc-panel">
+<div class="panelTitle">📄 BACK</div>
 
-<div class="panel-title">
-📄 BACK
-</div>
+<div class="imageBox">
 
-<div class="preview">
-
-<div id="backEmpty" class="placeholder">
+<div id="backEmpty" class="emptyText">
 
 <strong>📄</strong>
 Back Photo चुनें
@@ -956,26 +1209,26 @@ Back Photo चुनें
 
 </div>
 
-<div class="panel-buttons">
+<div class="panelActions">
 
-<button class="mini"
+<button class="smallBtn"
 onclick="rotateDoc('back',-90)">
-↶ Rotate
+↶
 </button>
 
-<button class="mini"
+<button class="smallBtn"
 onclick="rotateDoc('back',90)">
-↷ Rotate
+↷
 </button>
 
-<button class="mini"
+<button class="smallBtn"
 onclick="flipDoc('back')">
-↔ Flip
+↔
 </button>
 
-<button class="mini"
-onclick="cropDoc('back')">
-✂️ Crop
+<button class="smallBtn"
+onclick="startCrop('back')">
+✂️
 </button>
 
 </div>
@@ -990,78 +1243,13 @@ onclick="cropDoc('back')">
 <div class="controls">
 
 
-<div class="control">
+<div class="controlBox">
 
-<div class="control-title">
-📑 Print Mode
-</div>
-
-<div class="row">
-
-<button
-id="modeFront"
-class="ctrl active"
-onclick="setPrintMode('front',this)">
-Front Only
-</button>
-
-<button
-id="modeBack"
-class="ctrl"
-onclick="setPrintMode('back',this)">
-Back Only
-</button>
-
-<button
-id="modeBoth"
-class="ctrl"
-onclick="setPrintMode('both',this)">
-Front + Back
-</button>
-
-</div>
-
-</div>
-
-
-<!-- EDIT SELECT -->
-
-<div class="control">
-
-<div class="control-title">
-🎯 किस document को edit करें?
-</div>
-
-<div class="row">
-
-<button
-id="editFront"
-class="ctrl active"
-onclick="selectEditSide('front')">
-Front
-</button>
-
-<button
-id="editBack"
-class="ctrl"
-onclick="selectEditSide('back')">
-Back
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ZOOM -->
-
-<div class="control">
-
-<div class="control-title">
+<div class="controlTitle">
 🔍 Zoom
 </div>
 
-<div class="range">
+<div class="rangeRow">
 
 <label>Zoom</label>
 
@@ -1071,24 +1259,22 @@ type="range"
 min="50"
 max="200"
 value="100"
-oninput="updateControl('zoom')">
+oninput="updateDocControl()">
 
-<output id="docZoomValue">100%</output>
-
-</div>
+<output id="docZoomOut">100%</output>
 
 </div>
 
+</div>
 
-<!-- BRIGHTNESS -->
 
-<div class="control">
+<div class="controlBox">
 
-<div class="control-title">
+<div class="controlTitle">
 ☀️ Brightness
 </div>
 
-<div class="range">
+<div class="rangeRow">
 
 <label>Bright</label>
 
@@ -1098,24 +1284,22 @@ type="range"
 min="40"
 max="160"
 value="100"
-oninput="updateControl('bright')">
+oninput="updateDocControl()">
 
-<output id="docBrightValue">100</output>
-
-</div>
+<output id="docBrightOut">100</output>
 
 </div>
 
+</div>
 
-<!-- CONTRAST -->
 
-<div class="control">
+<div class="controlBox">
 
-<div class="control-title">
+<div class="controlTitle">
 ◐ Contrast
 </div>
 
-<div class="range">
+<div class="rangeRow">
 
 <label>Contrast</label>
 
@@ -1125,35 +1309,31 @@ type="range"
 min="40"
 max="200"
 value="100"
-oninput="updateControl('contrast')">
+oninput="updateDocControl()">
 
-<output id="docContrastValue">100</output>
-
-</div>
+<output id="docContrastOut">100</output>
 
 </div>
 
+</div>
 
-<!-- COLOR -->
 
-<div class="control">
+<div class="controlBox">
 
-<div class="control-title">
+<div class="controlTitle">
 🎨 Color
 </div>
 
-<div class="row">
+<div class="controlRow">
 
-<button
-id="colorBtn"
-class="ctrl active"
+<button id="colorBtn"
+class="ctrlBtn active"
 onclick="setGray(false)">
 🌈 Color
 </button>
 
-<button
-id="grayBtn"
-class="ctrl"
+<button id="grayBtn"
+class="ctrlBtn"
 onclick="setGray(true)">
 ⚫ B&W
 </button>
@@ -1163,49 +1343,54 @@ onclick="setGray(true)">
 </div>
 
 
-<!-- SIZE -->
+<div class="controlBox">
 
-<div class="control">
-
-<div class="control-title">
-📐 Paper / Document Size
+<div class="controlTitle">
+📐 Print Size
 </div>
 
-<select
-id="docSize"
+<select id="printSize"
 class="select"
-onchange="showCustomSize()">
+onchange="updateA4Preview()">
 
-<option value="a4">A4 Paper</option>
-<option value="id">ID Card Size</option>
-<option value="document">Document Original Size</option>
-<option value="custom">Custom Size</option>
+<option value="id">
+🪪 ID Card — 85.60 × 53.98 mm
+</option>
+
+<option value="a4">
+📄 A4 — Full Paper
+</option>
+
+<option value="custom">
+📏 Custom Size
+</option>
 
 </select>
 
 </div>
 
 
-<div
+<div class="controlBox"
 id="customSizeBox"
-class="control"
 style="display:none">
 
-<div class="control-title">
-📏 Custom Size
+<div class="controlTitle">
+📏 Custom Size in mm
 </div>
 
-<div class="size-grid">
+<div class="controlRow">
 
 <input
-id="customW"
+id="customWidth"
 class="select"
+style="flex:1"
 type="number"
 placeholder="Width mm">
 
 <input
-id="customH"
+id="customHeight"
 class="select"
+style="flex:1"
 type="number"
 placeholder="Height mm">
 
@@ -1214,61 +1399,73 @@ placeholder="Height mm">
 </div>
 
 
-<!-- COPIES -->
+<div class="controlBox">
 
-<div class="control">
-
-<div class="control-title">
-🔢 Copies
+<div class="controlTitle">
+🔢 Copies / Sets
 </div>
 
-<div class="copies">
+<div class="copyGrid">
 
-<button class="copy active"
-onclick="setDocCopies(1,this)">1</button>
+<button class="copyBtn active"
+onclick="setCopies(1,this)">
+1
+</button>
 
-<button class="copy"
-onclick="setDocCopies(2,this)">2</button>
+<button class="copyBtn"
+onclick="setCopies(2,this)">
+2
+</button>
 
-<button class="copy"
-onclick="setDocCopies(4,this)">4</button>
+<button class="copyBtn"
+onclick="setCopies(4,this)">
+4
+</button>
 
-<button class="copy"
-onclick="setDocCopies(6,this)">6</button>
+<button class="copyBtn"
+onclick="setCopies(6,this)">
+6
+</button>
 
-<button class="copy"
-onclick="setDocCopies(8,this)">8</button>
+<button class="copyBtn"
+onclick="setCopies(8,this)">
+8
+</button>
 
-<button class="copy"
-onclick="setDocCopies(12,this)">12</button>
+<button class="copyBtn"
+onclick="setCopies(10,this)">
+10
+</button>
 
-<button class="copy"
-onclick="setDocCopies(16,this)">16</button>
+<button class="copyBtn"
+onclick="setCopies(12,this)">
+12
+</button>
 
-<button class="copy"
-onclick="setDocCopies(20,this)">20</button>
+<button class="copyBtn"
+onclick="setCopies(20,this)">
+20
+</button>
 
 </div>
 
 </div>
 
 
-<!-- RESET -->
+<div class="controlBox">
 
-<div class="control">
-
-<div class="control-title">
+<div class="controlTitle">
 ↺ Reset
 </div>
 
-<div class="row">
+<div class="controlRow">
 
-<button class="ctrl"
+<button class="ctrlBtn"
 onclick="resetDoc('front')">
 Reset Front
 </button>
 
-<button class="ctrl"
+<button class="ctrlBtn"
 onclick="resetDoc('back')">
 Reset Back
 </button>
@@ -1278,72 +1475,125 @@ Reset Back
 </div>
 
 
-<!-- ACTION -->
+<div class="controlBox">
 
-<div class="control">
-
-<div class="control-title">
+<div class="controlTitle">
 ⬇️ Output
 </div>
 
-<div class="action-grid">
+<div class="outputGrid">
 
-<button
-class="action blue"
-onclick="downloadCurrentDoc()">
+<button class="outputBtn blue"
+onclick="downloadDocument()">
 ⬇️ Download
 </button>
 
-<button
-class="action green-action"
-onclick="buildA4Preview()">
-👁️ A4 Preview
+<button class="outputBtn green"
+onclick="updateA4Preview()">
+👁️ Preview
 </button>
 
-<button
-class="action green-action"
-onclick="printDocuments()">
-🖨️ Print A4
+<button class="outputBtn green"
+onclick="printDocument()">
+🖨️ Print
 </button>
 
 </div>
 
 </div>
 
+</div>
+
+
+<!-- TOUCH CROP -->
+
+<div id="cropArea" class="cropArea">
+
+<div class="cropTitle">
+✂️ Crop Area — बॉक्स को उंगली से move/resize करें
+</div>
+
+<div id="cropStage" class="cropStage">
+
+<img id="cropImage">
+
+<div id="cropRect" class="cropRect">
+
+<div class="cropHandle hTL"></div>
+<div class="cropHandle hTR"></div>
+<div class="cropHandle hBL"></div>
+<div class="cropHandle hBR"></div>
+
+</div>
+
+</div>
+
+<div class="cropActions">
 
 <button
-class="action red"
-style="width:100%"
-onclick="closeEditor('documentEditor')">
-✖ Document Editor बंद करें
+class="applyCrop"
+onclick="applyCrop()">
+✓ Apply Crop
 </button>
+
+<button
+class="cancelCrop"
+onclick="cancelCrop()">
+✕ Cancel
+</button>
+
+</div>
 
 </div>
 
 
 <!-- A4 PREVIEW -->
 
-<div class="a4-preview-box">
+<div class="previewBox">
 
-<div class="a4-preview-title">
-📄 A4 Front + Back Preview
-</div>
+<div class="previewHeader">
 
-<div class="a4" id="a4Preview">
+<strong>👁️ A4 PRINT PREVIEW</strong>
 
-<div class="a4-side" id="a4Front">
-<span>Front</span>
-<img id="a4FrontImg">
-</div>
-
-<div class="a4-side" id="a4Back">
-<span>Back</span>
-<img id="a4BackImg">
-</div>
+<span>
+Actual A4 ratio • 210 × 297 mm
+</span>
 
 </div>
 
+<div class="a4Frame">
+
+<div class="a4CanvasWrap">
+
+<canvas id="a4Canvas"></canvas>
+
 </div>
+
+</div>
+
+
+<div class="actualInfo">
+
+<b>🪪 ID Card Actual Size:</b>
+85.60 × 53.98 mm<br>
+
+<b>📌 Layout:</b>
+A4 के ऊपर से शुरू होगा और केवल जरूरी 2 mm gap रहेगा।<br>
+
+<b>🖨️ Print:</b>
+Browser Print में Scale = 100% / Actual Size रखें।
+
+</div>
+
+</div>
+
+
+<button
+class="outputBtn red"
+style="width:100%;margin-top:7px"
+onclick="closeEditor('documentEditor')">
+✕ Document Editor बंद करें
+</button>
 
 
 </div>
@@ -1359,39 +1609,39 @@ PHOTO STUDIO
 
 <section class="section">
 
-<div class="editor photo-editor" id="photoEditor">
+<div class="editor photoEditor" id="photoEditor">
 
-<div class="editor-head">
+<div class="editorHead">
 
 <h2>📸 Customer Photo Studio</h2>
 
 <p>
-ग्राहक की फोटो से अलग-अलग size और photo sheet तैयार करें।
+Customer की फोटो को अलग-अलग उपयोग के लिए तैयार करें।
 </p>
 
 </div>
 
 
-<div class="upload">
+<div class="uploadArea">
 
-<div class="upload-grid">
+<div class="uploadGrid">
 
-<button class="upload-btn green"
-onclick="document.getElementById('photoInput').click()">
+<button class="uploadBtn green"
+onclick="photoInput.click()">
 🖼️ Gallery
 </button>
 
-<button class="upload-btn green"
-onclick="document.getElementById('cameraInput').click()">
+<button class="uploadBtn green"
+onclick="cameraInput.click()">
 📷 Camera
 </button>
 
-<button class="upload-btn green"
+<button class="uploadBtn green"
 onclick="photoDemo()">
 🧪 Demo
 </button>
 
-<button class="upload-btn"
+<button class="uploadBtn"
 onclick="clearPhoto()">
 🗑️ Clear
 </button>
@@ -1416,12 +1666,11 @@ onchange="loadPhoto(this)">
 </div>
 
 
-<div class="photo-content">
+<div class="photoContent">
 
+<div class="photoPreview">
 
-<div class="photo-preview">
-
-<div id="photoEmpty" class="placeholder">
+<div id="photoEmpty" class="emptyText">
 
 <strong>📸</strong>
 Customer Photo चुनें
@@ -1433,36 +1682,42 @@ Customer Photo चुनें
 </div>
 
 
-<div class="photo-options">
+<div class="photoOptions">
 
 <button
-class="photo-option active"
+class="photoOption active"
 onclick="setPhotoType('passport',this)">
-🇮🇳 Passport Size<br>35×45 mm
+🇮🇳 Passport<br>35×45 mm
 </button>
 
 <button
-class="photo-option"
+class="photoOption"
 onclick="setPhotoType('half',this)">
 👤 Half Photo
 </button>
 
 <button
-class="photo-option"
+class="photoOption"
 onclick="setPhotoType('full',this)">
-🧍 Full Size Photo
+🧍 Full Photo
 </button>
 
 <button
-class="photo-option"
+class="photoOption"
 onclick="setPhotoType('4x6',this)">
 🖼️ 4×6 Photo
 </button>
 
 <button
-class="photo-option"
+class="photoOption"
 onclick="setPhotoType('a4',this)">
 📄 A4 Photo
+</button>
+
+<button
+class="photoOption"
+onclick="setPhotoType('id',this)">
+🪪 ID Photo
 </button>
 
 </div>
@@ -1470,13 +1725,14 @@ onclick="setPhotoType('a4',this)">
 
 <div class="controls">
 
-<div class="control">
 
-<div class="control-title">
-🔍 Photo Zoom
+<div class="controlBox">
+
+<div class="controlTitle">
+🔍 Zoom
 </div>
 
-<div class="range">
+<div class="rangeRow">
 
 <label>Zoom</label>
 
@@ -1488,20 +1744,22 @@ max="200"
 value="100"
 oninput="drawPhoto()">
 
-<output id="photoZoomValue">100%</output>
+<output id="photoZoomOut">
+100%
+</output>
 
 </div>
 
 </div>
 
 
-<div class="control">
+<div class="controlBox">
 
-<div class="control-title">
+<div class="controlTitle">
 ☀️ Brightness
 </div>
 
-<div class="range">
+<div class="rangeRow">
 
 <label>Bright</label>
 
@@ -1513,20 +1771,22 @@ max="160"
 value="100"
 oninput="drawPhoto()">
 
-<output id="photoBrightValue">100</output>
+<output id="photoBrightOut">
+100
+</output>
 
 </div>
 
 </div>
 
 
-<div class="control">
+<div class="controlBox">
 
-<div class="control-title">
+<div class="controlTitle">
 ◐ Contrast
 </div>
 
-<div class="range">
+<div class="rangeRow">
 
 <label>Contrast</label>
 
@@ -1538,37 +1798,39 @@ max="200"
 value="100"
 oninput="drawPhoto()">
 
-<output id="photoContrastValue">100</output>
+<output id="photoContrastOut">
+100
+</output>
 
 </div>
 
 </div>
 
 
-<div class="control">
+<div class="controlBox">
 
-<div class="control-title">
-🔄 Editing
+<div class="controlTitle">
+🔄 Edit
 </div>
 
-<div class="row">
+<div class="controlRow">
 
-<button class="ctrl"
+<button class="ctrlBtn"
 onclick="rotatePhoto(-90)">
 ↶ Rotate
 </button>
 
-<button class="ctrl"
+<button class="ctrlBtn"
 onclick="rotatePhoto(90)">
 ↷ Rotate
 </button>
 
-<button class="ctrl"
+<button class="ctrlBtn"
 onclick="flipPhoto()">
 ↔ Flip
 </button>
 
-<button class="ctrl"
+<button class="ctrlBtn"
 onclick="resetPhoto()">
 ↺ Reset
 </button>
@@ -1578,67 +1840,71 @@ onclick="resetPhoto()">
 </div>
 
 
-<div class="control">
+<div class="controlBox">
 
-<div class="control-title">
+<div class="controlTitle">
 🔢 Copies
 </div>
 
-<div class="copies">
+<div class="copyGrid">
 
-<button class="copy active"
-onclick="setPhotoCopies(1,this)">1</button>
+<button class="copyBtn active"
+onclick="setPhotoCopies(1,this)">
+1
+</button>
 
-<button class="copy"
-onclick="setPhotoCopies(2,this)">2</button>
+<button class="copyBtn"
+onclick="setPhotoCopies(2,this)">
+2
+</button>
 
-<button class="copy"
-onclick="setPhotoCopies(4,this)">4</button>
+<button class="copyBtn"
+onclick="setPhotoCopies(4,this)">
+4
+</button>
 
-<button class="copy"
-onclick="setPhotoCopies(6,this)">6</button>
+<button class="copyBtn"
+onclick="setPhotoCopies(6,this)">
+6
+</button>
 
-<button class="copy"
-onclick="setPhotoCopies(8,this)">8</button>
+<button class="copyBtn"
+onclick="setPhotoCopies(8,this)">
+8
+</button>
 
-<button class="copy"
-onclick="setPhotoCopies(12,this)">12</button>
-
-<button class="copy"
-onclick="setPhotoCopies(16,this)">16</button>
-
-<button class="copy"
-onclick="setPhotoCopies(20,this)">20</button>
+<button class="copyBtn"
+onclick="setPhotoCopies(12,this)">
+12
+</button>
 
 </div>
 
 </div>
 
 
-<div class="control">
+<div class="outputGrid">
 
-<div class="action-grid">
-
-<button
-class="action blue"
+<button class="outputBtn blue"
 onclick="downloadPhoto()">
 ⬇️ Download
 </button>
 
-<button
-class="action green-action"
+<button class="outputBtn green"
 onclick="printPhoto()">
 🖨️ Print
 </button>
 
-<button
-class="action red"
+<button class="outputBtn red"
 onclick="clearPhoto()">
 🗑️ Clear
 </button>
 
 </div>
 
+
+<div class="photoOutput" id="photoInfo">
+Selected: Passport Size — 35 × 45 mm
 </div>
 
 </div>
@@ -1656,7 +1922,7 @@ SERVICES
 
 <section class="section" id="services">
 
-<div class="title">
+<div class="sectionTitle">
 
 <h2>🏛️ Online Services</h2>
 
@@ -1664,79 +1930,73 @@ SERVICES
 
 </div>
 
-<div class="service-grid">
 
-<div class="card">
-<div class="icon">🪪</div>
+<div class="serviceGrid">
+
+
+<div class="service">
+<div class="serviceIcon">🪪</div>
 <h3>Aadhaar / UIDAI</h3>
 <p>Aadhaar services</p>
-<a class="open"
-href="https://uidai.gov.in/"
-target="_blank">Open ↗</a>
+<a href="https://uidai.gov.in/" target="_blank">Open ↗</a>
 </div>
 
-<div class="card">
-<div class="icon">💳</div>
+
+<div class="service">
+<div class="serviceIcon">💳</div>
 <h3>PAN / Income Tax</h3>
 <p>PAN services</p>
-<a class="open"
-href="https://www.incometax.gov.in/"
-target="_blank">Open ↗</a>
+<a href="https://www.incometax.gov.in/" target="_blank">Open ↗</a>
 </div>
 
-<div class="card">
-<div class="icon">🗳️</div>
+
+<div class="service">
+<div class="serviceIcon">🗳️</div>
 <h3>Voter</h3>
 <p>Election services</p>
-<a class="open"
-href="https://voters.eci.gov.in/"
-target="_blank">Open ↗</a>
+<a href="https://voters.eci.gov.in/" target="_blank">Open ↗</a>
 </div>
 
-<div class="card">
-<div class="icon">🔐</div>
+
+<div class="service">
+<div class="serviceIcon">🔐</div>
 <h3>DigiLocker</h3>
 <p>Digital documents</p>
-<a class="open"
-href="https://www.digilocker.gov.in/"
-target="_blank">Open ↗</a>
+<a href="https://www.digilocker.gov.in/" target="_blank">Open ↗</a>
 </div>
 
-<div class="card">
-<div class="icon">🛂</div>
+
+<div class="service">
+<div class="serviceIcon">🛂</div>
 <h3>Passport</h3>
 <p>Passport Seva</p>
-<a class="open"
-href="https://www.passportindia.gov.in/"
-target="_blank">Open ↗</a>
+<a href="https://www.passportindia.gov.in/" target="_blank">Open ↗</a>
 </div>
 
-<div class="card">
-<div class="icon">🚆</div>
+
+<div class="service">
+<div class="serviceIcon">🚆</div>
 <h3>IRCTC</h3>
-<p>Railway booking</p>
-<a class="open"
-href="https://www.irctc.co.in/"
-target="_blank">Open ↗</a>
+<p>Railway services</p>
+<a href="https://www.irctc.co.in/" target="_blank">Open ↗</a>
 </div>
 
-<div class="card">
-<div class="icon">🚗</div>
+
+<div class="service">
+<div class="serviceIcon">🚗</div>
 <h3>Parivahan</h3>
 <p>DL / Vehicle</p>
-<a class="open"
-href="https://parivahan.gov.in/"
-target="_blank">Open ↗</a>
+<a href="https://parivahan.gov.in/" target="_blank">Open ↗</a>
 </div>
 
-<div class="card">
-<div class="icon">🏛️</div>
+
+<div class="service">
+<div class="serviceIcon">🏛️</div>
 <h3>myScheme</h3>
 <p>Government schemes</p>
-<a class="open"
-href="https://www.myscheme.gov.in/"
-target="_blank">Open ↗</a>
+<a href="https://www.myscheme.gov.in/" target="_blank">Open ↗</a>
 </div>
+
 
 </div>
 
@@ -1749,68 +2009,85 @@ TOOLS
 
 <section class="section" id="tools">
 
-<div class="title">
+<div class="sectionTitle">
 <h2>🛠️ Digital Tools</h2>
 </div>
 
-<div class="utility-grid">
+
+<div class="toolsGrid">
 
 
-<div class="utility">
+<div class="tool">
 
 <h3>🧮 Calculator</h3>
 
-<input id="ca" type="number" placeholder="Number 1">
-<input id="cb" type="number" placeholder="Number 2">
+<input id="numA"
+type="number"
+placeholder="Number 1">
 
-<div class="row">
+<input id="numB"
+type="number"
+placeholder="Number 2">
 
-<button onclick="calculator('+')">+</button>
-<button onclick="calculator('-')">−</button>
-<button onclick="calculator('*')">×</button>
-<button onclick="calculator('/')">÷</button>
+<div class="controlRow">
+
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">−</button>
+<button onclick="calc('*')">×</button>
+<button onclick="calc('/')">÷</button>
 
 </div>
 
-<div class="result" id="calcResult">
+<div class="result"
+id="calcResult">
 Result
 </div>
 
 </div>
 
 
-<div class="utility">
+<div class="tool">
 
 <h3>📊 Percentage</h3>
 
-<input id="pn" type="number" placeholder="प्राप्त अंक">
-<input id="pt" type="number" placeholder="कुल अंक">
+<input
+id="obtained"
+type="number"
+placeholder="प्राप्त अंक">
+
+<input
+id="total"
+type="number"
+placeholder="कुल अंक">
 
 <button onclick="percentage()">
 Calculate
 </button>
 
-<div class="result" id="perResult">
+<div class="result"
+id="percentageResult">
 Result
 </div>
 
 </div>
 
 
-<div class="utility">
+<div class="tool">
 
 <h3>📝 Text Counter</h3>
 
 <textarea
-id="txt"
-oninput="textCount()"
+id="counterText"
+oninput="countText()"
 placeholder="Text लिखें"></textarea>
 
-<div class="result" id="txtResult">
+<div class="result"
+id="counterResult">
 Characters: 0 | Words: 0
 </div>
 
 </div>
+
 
 </div>
 
@@ -1819,12 +2096,12 @@ Characters: 0 | Words: 0
 
 <footer>
 
-<div class="footer-grid">
+<div class="footerGrid">
 
 <div>
 <h3>🇮🇳 Bharat Digital Centre</h3>
-<p>Smart Digital Services</p>
-<p>Document & Photo Services</p>
+<p>Digital Document Services</p>
+<p>Customer Photo Studio</p>
 </div>
 
 <div>
@@ -1836,8 +2113,8 @@ Characters: 0 | Words: 0
 
 <div>
 <h3>Editors</h3>
-<a href="javascript:showEditor('documentEditor')">Document Copy</a>
-<a href="javascript:showEditor('photoEditor')">Photo Studio</a>
+<a href="javascript:openEditor('documentEditor')">Document Copy</a>
+<a href="javascript:openEditor('photoEditor')">Photo Studio</a>
 </div>
 
 </div>
@@ -1859,228 +2136,210 @@ GENERAL
 ===================================================== */
 
 function toggleMenu(){
-document.getElementById("nav").classList.toggle("show");
-}
 
-function goTo(id){
-document.getElementById(id).scrollIntoView({
-behavior:"smooth"
-});
-document.getElementById("nav").classList.remove("show");
-}
-
-function showEditor(id){
-
-document.querySelectorAll(".editor")
-.forEach(e=>e.classList.remove("active"));
-
-const el=document.getElementById(id);
-
-el.classList.add("active");
-
-el.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+ document.getElementById("nav")
+ .classList.toggle("show");
 
 }
 
-function closeEditor(id){
-document.getElementById(id).classList.remove("active");
+function scrollToId(id){
+
+ document.getElementById(id)
+ .scrollIntoView({
+   behavior:"smooth"
+ });
+
+ document.getElementById("nav")
+ .classList.remove("show");
+
+}
+
+function openEditor(id){
+
+ document.querySelectorAll(".editor")
+ .forEach(function(e){
+   e.classList.remove("active");
+ });
+
+ document.getElementById(id)
+ .classList.add("active");
+
+ document.getElementById(id)
+ .scrollIntoView({
+   behavior:"smooth",
+   block:"start"
+ });
+
 }
 
 
 /* =====================================================
-DOCUMENT STATE
+DOCUMENT DATA
 ===================================================== */
 
 const docs={
 
-front:{
-img:null,
-rotation:0,
-zoom:1,
-bright:100,
-contrast:100,
-gray:false,
-flip:1,
-crop:1
-},
+ front:{
+   img:null,
+   rotation:0,
+   zoom:1,
+   bright:100,
+   contrast:100,
+   gray:false,
+   flip:1,
+   cropX:0,
+   cropY:0,
+   cropW:1,
+   cropH:1
+ },
 
-back:{
-img:null,
-rotation:0,
-zoom:1,
-bright:100,
-contrast:100,
-gray:false,
-flip:1,
-crop:1
-}
+ back:{
+   img:null,
+   rotation:0,
+   zoom:1,
+   bright:100,
+   contrast:100,
+   gray:false,
+   flip:1,
+   cropX:0,
+   cropY:0,
+   cropW:1,
+   cropH:1
+ }
 
 };
 
 let editingSide="front";
 let printMode="front";
-let docCopies=1;
+let copies=1;
 
 
 /* =====================================================
 LOAD DOCUMENT
 ===================================================== */
 
-function loadDoc(input,side){
+function loadDocument(input,side){
 
-if(!input.files || !input.files[0]) return;
+ if(!input.files || !input.files[0]){
+   return;
+ }
 
-const reader=new FileReader();
+ const reader=new FileReader();
 
-reader.onload=function(e){
+ reader.onload=function(e){
 
-const img=new Image();
+   const img=new Image();
 
-img.onload=function(){
+   img.onload=function(){
 
-docs[side].img=img;
+     docs[side].img=img;
 
-resetDoc(side);
+     resetDoc(side);
 
-document.getElementById(
-side+"Empty"
-).style.display="none";
+     document.getElementById(side+"Empty")
+     .style.display="none";
 
-document.getElementById(
-side+"Canvas"
-).style.display="block";
+     document.getElementById(side+"Canvas")
+     .style.display="block";
 
-drawDoc(side);
+     drawDoc(side);
 
-buildA4Preview();
+     updateA4Preview();
 
-};
+   };
 
-img.src=e.target.result;
+   img.src=e.target.result;
 
-};
+ };
 
-reader.readAsDataURL(input.files[0]);
+ reader.readAsDataURL(input.files[0]);
 
 }
 
 
 /* =====================================================
-SELECT EDIT SIDE
+SELECT SIDE
 ===================================================== */
 
 function selectEditSide(side){
 
-if(side==="both"){
-return;
-}
+ editingSide=side;
 
-editingSide=side;
+ document.getElementById("editFront")
+ .classList.toggle("active",side==="front");
 
-document.getElementById("tabFront")
-.classList.toggle("active",side==="front");
+ document.getElementById("editBack")
+ .classList.toggle("active",side==="back");
 
-document.getElementById("tabBack")
-.classList.toggle("active",side==="back");
-
-document.getElementById("tabBoth")
-.classList.remove("active");
-
-document.getElementById("editFront")
-.classList.toggle("active",side==="front");
-
-document.getElementById("editBack")
-.classList.toggle("active",side==="back");
-
-loadSliders(side);
+ loadDocControls();
 
 }
 
 
 /* =====================================================
-LOAD SLIDERS
+LOAD CONTROLS
 ===================================================== */
 
-function loadSliders(side){
+function loadDocControls(){
 
-const d=docs[side];
+ const d=docs[editingSide];
 
-document.getElementById("docZoom")
-.value=Math.round(d.zoom*100);
+ document.getElementById("docZoom").value=
+ Math.round(d.zoom*100);
 
-document.getElementById("docBright")
-.value=d.bright;
+ document.getElementById("docBright").value=
+ d.bright;
 
-document.getElementById("docContrast")
-.value=d.contrast;
+ document.getElementById("docContrast").value=
+ d.contrast;
 
-document.getElementById("docZoomValue")
-.textContent=Math.round(d.zoom*100)+"%";
+ document.getElementById("docZoomOut").textContent=
+ Math.round(d.zoom*100)+"%";
 
-document.getElementById("docBrightValue")
-.textContent=d.bright;
+ document.getElementById("docBrightOut").textContent=
+ d.bright;
 
-document.getElementById("docContrastValue")
-.textContent=d.contrast;
+ document.getElementById("docContrastOut").textContent=
+ d.contrast;
+
+ document.getElementById("colorBtn")
+ .classList.toggle("active",!d.gray);
+
+ document.getElementById("grayBtn")
+ .classList.toggle("active",d.gray);
 
 }
 
 
 /* =====================================================
-SLIDER UPDATE
+UPDATE CONTROLS
 ===================================================== */
 
-function updateControl(type){
+function updateDocControl(){
 
-const d=docs[editingSide];
+ const d=docs[editingSide];
 
-if(type==="zoom"){
+ d.zoom=
+ Number(document.getElementById("docZoom").value)/100;
 
-d.zoom=
-Number(
-document.getElementById("docZoom").value
-)/100;
+ d.bright=
+ Number(document.getElementById("docBright").value);
 
-document.getElementById(
-"docZoomValue"
-).textContent=
-Math.round(d.zoom*100)+"%";
+ d.contrast=
+ Number(document.getElementById("docContrast").value);
 
-}
+ document.getElementById("docZoomOut").textContent=
+ Math.round(d.zoom*100)+"%";
 
-if(type==="bright"){
+ document.getElementById("docBrightOut").textContent=
+ d.bright;
 
-d.bright=
-Number(
-document.getElementById("docBright").value
-);
+ document.getElementById("docContrastOut").textContent=
+ d.contrast;
 
-document.getElementById(
-"docBrightValue"
-).textContent=
-d.bright;
+ drawDoc(editingSide);
 
-}
-
-if(type==="contrast"){
-
-d.contrast=
-Number(
-document.getElementById("docContrast").value
-);
-
-document.getElementById(
-"docContrastValue"
-).textContent=
-d.contrast;
-
-}
-
-drawDoc(editingSide);
-buildA4Preview();
+ updateA4Preview();
 
 }
 
@@ -2091,101 +2350,86 @@ DRAW DOCUMENT
 
 function drawDoc(side){
 
-const d=docs[side];
+ const d=docs[side];
 
-if(!d.img)return;
+ if(!d.img)return;
 
-const canvas=
-document.getElementById(side+"Canvas");
+ const canvas=
+ document.getElementById(side+"Canvas");
 
-const ctx=canvas.getContext("2d");
+ const ctx=canvas.getContext("2d");
 
-let imgW=d.img.naturalWidth;
-let imgH=d.img.naturalHeight;
+ let iw=d.img.naturalWidth;
+ let ih=d.img.naturalHeight;
 
+ let sx=iw*d.cropX;
+ let sy=ih*d.cropY;
 
-/* CROP */
+ let sw=iw*d.cropW;
+ let sh=ih*d.cropH;
 
-let sx=0;
-let sy=0;
-let sw=imgW;
-let sh=imgH;
+ let scale=
+ Math.min(650/sw,430/sh);
 
-if(d.crop<1){
+ scale*=d.zoom;
 
-const minSide=Math.min(imgW,imgH);
+ if(!isFinite(scale)||scale<=0){
+   scale=1;
+ }
 
-sw=minSide*d.crop;
-sh=minSide*d.crop;
+ let dw=sw*scale;
+ let dh=sh*scale;
 
-sx=(imgW-sw)/2;
-sy=(imgH-sh)/2;
+ let rot=
+ ((d.rotation%360)+360)%360;
 
-}
+ if(rot===90||rot===270){
 
+   canvas.width=Math.max(1,Math.round(dh));
+   canvas.height=Math.max(1,Math.round(dw));
 
-let rot=
-((d.rotation%360)+360)%360;
+ }else{
 
-let scale=
-Math.min(
-600/sw,
-400/sh
-);
+   canvas.width=Math.max(1,Math.round(dw));
+   canvas.height=Math.max(1,Math.round(dh));
 
-scale*=d.zoom;
+ }
 
-if(!isFinite(scale)||scale<=0)
-scale=1;
+ ctx.clearRect(
+   0,0,canvas.width,canvas.height
+ );
 
-let outW=sw*scale;
-let outH=sh*scale;
+ ctx.save();
 
-if(rot===90||rot===270){
-canvas.width=Math.round(outH);
-canvas.height=Math.round(outW);
-}else{
-canvas.width=Math.round(outW);
-canvas.height=Math.round(outH);
-}
+ ctx.translate(
+   canvas.width/2,
+   canvas.height/2
+ );
 
-ctx.clearRect(
-0,0,
-canvas.width,
-canvas.height
-);
+ ctx.rotate(
+   rot*Math.PI/180
+ );
 
-ctx.save();
+ ctx.scale(d.flip,1);
 
-ctx.translate(
-canvas.width/2,
-canvas.height/2
-);
+ ctx.filter=
+ "brightness("+d.bright+"%) "+
+ "contrast("+d.contrast+"%) "+
+ "grayscale("+(d.gray?100:0)+"%)";
 
-ctx.rotate(
-rot*Math.PI/180
-);
+ ctx.drawImage(
+   d.img,
+   sx,
+   sy,
+   sw,
+   sh,
+   -dw/2,
+   -dh/2,
+   dw,
+   dh
+ );
 
-ctx.scale(d.flip,1);
-
-ctx.filter=
-"brightness("+d.bright+"%) "+
-"contrast("+d.contrast+"%) "+
-"grayscale("+(d.gray?100:0)+"%)";
-
-ctx.drawImage(
-d.img,
-sx,
-sy,
-sw,
-sh,
--outW/2,
--outH/2,
-outW,
-outH
-);
-
-ctx.restore();
+ ctx.restore();
 
 }
 
@@ -2196,22 +2440,17 @@ ROTATE
 
 function rotateDoc(side,deg){
 
-if(!docs[side].img){
+ if(!docs[side].img){
 
-alert(
-side==="front"
-?"पहले Front Photo चुनें।"
-:"पहले Back Photo चुनें।"
-);
+   alert("पहले "+side+" photo चुनें।");
+   return;
 
-return;
-}
+ }
 
-docs[side].rotation+=deg;
+ docs[side].rotation+=deg;
 
-drawDoc(side);
-
-buildA4Preview();
+ drawDoc(side);
+ updateA4Preview();
 
 }
 
@@ -2222,81 +2461,34 @@ FLIP
 
 function flipDoc(side){
 
-if(!docs[side].img)return;
+ if(!docs[side].img)return;
 
-docs[side].flip*=-1;
+ docs[side].flip*=-1;
 
-drawDoc(side);
-
-buildA4Preview();
-
-}
-
-
-/* =====================================================
-CROP
-===================================================== */
-
-function cropDoc(side){
-
-if(!docs[side].img){
-
-alert("पहले document photo चुनें।");
-return;
-
-}
-
-const value=prompt(
-"Crop percentage डालें। उदाहरण: 80 = image का बीच का 80%",
-"80"
-);
-
-if(value===null)return;
-
-let n=Number(value);
-
-if(
-isNaN(n)||
-n<20||
-n>100
-){
-
-alert(
-"20 से 100 के बीच percentage डालें।"
-);
-
-return;
-
-}
-
-docs[side].crop=n/100;
-
-drawDoc(side);
-
-buildA4Preview();
+ drawDoc(side);
+ updateA4Preview();
 
 }
 
 
 /* =====================================================
-COLOR / BW
+GRAY
 ===================================================== */
 
 function setGray(value){
 
-docs[editingSide].gray=value;
+ const d=docs[editingSide];
 
-document.getElementById(
-"colorBtn"
-).classList.toggle("active",!value);
+ d.gray=value;
 
-document.getElementById(
-"grayBtn"
-).classList.toggle("active",value);
+ document.getElementById("colorBtn")
+ .classList.toggle("active",!value);
 
-drawDoc(editingSide);
+ document.getElementById("grayBtn")
+ .classList.toggle("active",value);
 
-buildA4Preview();
+ drawDoc(editingSide);
+ updateA4Preview();
 
 }
 
@@ -2307,32 +2499,29 @@ RESET
 
 function resetDoc(side){
 
-docs[side].rotation=0;
-docs[side].zoom=1;
-docs[side].bright=100;
-docs[side].contrast=100;
-docs[side].gray=false;
-docs[side].flip=1;
-docs[side].crop=1;
+ const d=docs[side];
 
-if(editingSide===side){
+ d.rotation=0;
+ d.zoom=1;
+ d.bright=100;
+ d.contrast=100;
+ d.gray=false;
+ d.flip=1;
 
-loadSliders(side);
+ d.cropX=0;
+ d.cropY=0;
+ d.cropW=1;
+ d.cropH=1;
 
-document.getElementById(
-"colorBtn"
-).classList.add("active");
+ if(editingSide===side){
+   loadDocControls();
+ }
 
-document.getElementById(
-"grayBtn"
-).classList.remove("active");
+ if(d.img){
+   drawDoc(side);
+ }
 
-}
-
-if(docs[side].img)
-drawDoc(side);
-
-buildA4Preview();
+ updateA4Preview();
 
 }
 
@@ -2343,15 +2532,17 @@ PRINT MODE
 
 function setPrintMode(mode,btn){
 
-printMode=mode;
+ printMode=mode;
 
-document
-.querySelectorAll("#modeFront,#modeBack,#modeBoth")
-.forEach(x=>x.classList.remove("active"));
+ document.querySelectorAll(
+ "#modeFront,#modeBack,#modeBoth"
+ ).forEach(function(b){
+   b.classList.remove("active");
+ });
 
-btn.classList.add("active");
+ btn.classList.add("active");
 
-buildA4Preview();
+ updateA4Preview();
 
 }
 
@@ -2360,114 +2551,842 @@ buildA4Preview();
 COPIES
 ===================================================== */
 
-function setDocCopies(n,btn){
+function setCopies(n,btn){
 
-docCopies=n;
+ copies=n;
 
-btn.parentElement
-.querySelectorAll(".copy")
-.forEach(x=>x.classList.remove("active"));
+ btn.parentElement
+ .querySelectorAll(".copyBtn")
+ .forEach(function(b){
+   b.classList.remove("active");
+ });
 
-btn.classList.add("active");
+ btn.classList.add("active");
+
+ updateA4Preview();
 
 }
+
+
+/* =====================================================
+SIZE CHANGE
+===================================================== */
+
+document.getElementById("printSize")
+.addEventListener("change",function(){
+
+ document.getElementById("customSizeBox")
+ .style.display=
+ this.value==="custom"
+ ?"block"
+ :"none";
+
+ updateA4Preview();
+
+});
+
+
+/* =====================================================
+A4 CONSTANTS
+===================================================== */
+
+const A4W=210;
+const A4H=297;
+
+const IDW=85.60;
+const IDH=53.98;
+
+const GAP=2;
+const MARGIN=3;
 
 
 /* =====================================================
 A4 PREVIEW
 ===================================================== */
 
-function buildA4Preview(){
+function updateA4Preview(){
 
-const frontImg=
-document.getElementById("a4FrontImg");
+ const canvas=
+ document.getElementById("a4Canvas");
 
-const backImg=
-document.getElementById("a4BackImg");
+ const frame=
+ document.querySelector(".a4Frame");
 
-const frontBox=
-document.getElementById("a4Front");
+ const rect=frame.getBoundingClientRect();
 
-const backBox=
-document.getElementById("a4Back");
+ const pw=Math.max(300,Math.round(rect.width*2));
+ const ph=Math.round(pw*(A4H/A4W));
 
+ canvas.width=pw;
+ canvas.height=ph;
 
-frontImg.style.display="none";
-backImg.style.display="none";
+ const ctx=canvas.getContext("2d");
 
-frontBox.querySelector("span").style.display="block";
-backBox.querySelector("span").style.display="block";
+ ctx.fillStyle="#fff";
+ ctx.fillRect(0,0,pw,ph);
 
+ const pxPerMm=pw/A4W;
 
-if(
-(printMode==="front"||
-printMode==="both")&&
-docs.front.img
-){
+ const size=
+ document.getElementById("printSize").value;
 
-frontImg.src=
-document.getElementById(
-"frontCanvas"
-).toDataURL("image/jpeg",.95);
+ if(size==="id"){
 
-frontImg.style.display="block";
-frontBox.querySelector("span").style.display="none";
+   drawIDLayout(ctx,pw,ph,pxPerMm);
 
-}
+ }else if(size==="a4"){
 
+   drawA4Layout(ctx,pw,ph,pxPerMm);
 
-if(
-(printMode==="back"||
-printMode==="both")&&
-docs.back.img
-){
+ }else{
 
-backImg.src=
-document.getElementById(
-"backCanvas"
-).toDataURL("image/jpeg",.95);
+   drawCustomLayout(ctx,pw,ph,pxPerMm);
 
-backImg.style.display="block";
-backBox.querySelector("span").style.display="none";
-
-}
-
-
-if(printMode==="front"){
-
-backBox.style.display="none";
-frontBox.style.display="flex";
-
-}else if(printMode==="back"){
-
-frontBox.style.display="none";
-backBox.style.display="flex";
-
-}else{
-
-frontBox.style.display="flex";
-backBox.style.display="flex";
-
-}
+ }
 
 }
 
 
 /* =====================================================
-CUSTOM SIZE
+GET SOURCE DATA
 ===================================================== */
 
-function showCustomSize(){
+function canvasData(side){
 
-const value=
-document.getElementById("docSize").value;
+ const c=
+ document.getElementById(side+"Canvas");
 
-document.getElementById(
-"customSizeBox"
-).style.display=
-value==="custom"
-?"block"
-:"none";
+ if(!docs[side].img)return null;
+
+ return c.toDataURL(
+   "image/jpeg",
+   .95
+ );
+
+}
+
+
+/* =====================================================
+LOAD DATA IMAGE
+===================================================== */
+
+function makeImage(src){
+
+ const img=new Image();
+
+ img.src=src;
+
+ return img;
+
+}
+
+
+/* =====================================================
+DRAW IMAGE CENTERED
+===================================================== */
+
+function drawImageContain(
+ ctx,img,
+ x,y,w,h
+){
+
+ if(!img)return;
+
+ const iw=img.width;
+ const ih=img.height;
+
+ if(!iw||!ih)return;
+
+ const scale=
+ Math.min(w/iw,h/ih);
+
+ const dw=iw*scale;
+ const dh=ih*scale;
+
+ ctx.drawImage(
+   img,
+   x+(w-dw)/2,
+   y+(h-dh)/2,
+   dw,
+   dh
+ );
+
+}
+
+
+/* =====================================================
+ID LAYOUT
+===================================================== */
+
+function drawIDLayout(ctx,pw,ph,ppm){
+
+ const frontSrc=
+ canvasData("front");
+
+ const backSrc=
+ canvasData("back");
+
+ let frontImg=
+ frontSrc?makeImage(frontSrc):null;
+
+ let backImg=
+ backSrc?makeImage(backSrc):null;
+
+ /*
+   Browser image loading can be asynchronous.
+   Draw again after images load.
+ */
+
+ const redraw=function(){
+
+   ctx.fillStyle="#fff";
+   ctx.fillRect(0,0,pw,ph);
+
+   const cardW=IDW*ppm;
+   const cardH=IDH*ppm;
+
+   const gap=GAP*ppm;
+
+   const left=MARGIN*ppm;
+
+   const usableW=
+   A4W-(MARGIN*2);
+
+   let columns=
+   Math.max(
+     1,
+     Math.floor(
+       (usableW+GAP)/
+       (IDW+GAP)
+     )
+   );
+
+   /*
+     For ID cards, front and back are placed
+     side by side in one set.
+   */
+
+   columns=2;
+
+   const totalSetW=
+   IDW*2+GAP;
+
+   const startX=
+   ((A4W-totalSetW)/2)*ppm;
+
+   const rowStep=
+   IDH+GAP;
+
+   let maxRows=
+   Math.floor(
+     (A4H-MARGIN+GAP)/
+     rowStep
+   );
+
+   let maxSets=
+   maxRows;
+
+   let sets=
+   Math.min(copies,maxSets);
+
+   for(let i=0;i<sets;i++){
+
+     const y=
+     (MARGIN+i*rowStep)*ppm;
+
+     const fx=startX;
+     const bx=
+     startX+(IDW+GAP)*ppm;
+
+     ctx.strokeStyle="#d7d7d7";
+     ctx.lineWidth=1;
+
+     ctx.strokeRect(
+       fx,y,cardW,cardH
+     );
+
+     ctx.strokeRect(
+       bx,y,cardW,cardH
+     );
+
+     if(frontImg&&frontImg.complete){
+
+       drawImageContain(
+         ctx,
+         frontImg,
+         fx,y,
+         cardW,cardH
+       );
+
+     }
+
+     if(backImg&&backImg.complete){
+
+       drawImageContain(
+         ctx,
+         backImg,
+         bx,y,
+         cardW,cardH
+       );
+
+     }
+
+   }
+
+ };
+
+ if(frontImg){
+
+   frontImg.onload=redraw;
+
+ }
+
+ if(backImg){
+
+   backImg.onload=redraw;
+
+ }
+
+ redraw();
+
+}
+
+
+/* =====================================================
+A4 FULL LAYOUT
+===================================================== */
+
+function drawA4Layout(ctx,pw,ph,ppm){
+
+ const frontSrc=canvasData("front");
+ const backSrc=canvasData("back");
+
+ const frontImg=
+ frontSrc?makeImage(frontSrc):null;
+
+ const backImg=
+ backSrc?makeImage(backSrc):null;
+
+ function redraw(){
+
+   ctx.fillStyle="#fff";
+   ctx.fillRect(0,0,pw,ph);
+
+   let margin=5*ppm;
+
+   let w=
+   A4W-10;
+
+   let h=
+   (A4H-10)/2-3;
+
+   if(printMode==="front"){
+
+     if(frontImg&&frontImg.complete){
+
+       drawImageContain(
+         ctx,
+         frontImg,
+         margin,
+         margin,
+         w,
+         A4H*ppm-2*margin
+       );
+
+     }
+
+   }else if(printMode==="back"){
+
+     if(backImg&&backImg.complete){
+
+       drawImageContain(
+         ctx,
+         backImg,
+         margin,
+         margin,
+         w,
+         A4H*ppm-2*margin
+       );
+
+     }
+
+   }else{
+
+     if(frontImg&&frontImg.complete){
+
+       drawImageContain(
+         ctx,
+         frontImg,
+         margin,
+         margin,
+         w,
+         h*ppm
+       );
+
+     }
+
+     if(backImg&&backImg.complete){
+
+       drawImageContain(
+         ctx,
+         backImg,
+         margin,
+         margin+(h+3)*ppm,
+         w,
+         h*ppm
+       );
+
+     }
+
+   }
+
+ }
+
+ if(frontImg)frontImg.onload=redraw;
+ if(backImg)backImg.onload=redraw;
+
+ redraw();
+
+}
+
+
+/* =====================================================
+CUSTOM LAYOUT
+===================================================== */
+
+function drawCustomLayout(ctx,pw,ph,ppm){
+
+ const frontSrc=canvasData("front");
+ const backSrc=canvasData("back");
+
+ const frontImg=
+ frontSrc?makeImage(frontSrc):null;
+
+ const backImg=
+ backSrc?makeImage(backSrc):null;
+
+ function redraw(){
+
+   ctx.fillStyle="#fff";
+   ctx.fillRect(0,0,pw,ph);
+
+   let w=
+   Number(document.getElementById("customWidth").value)||85.6;
+
+   let h=
+   Number(document.getElementById("customHeight").value)||53.98;
+
+   let gap=2;
+
+   let y=3;
+
+   for(let i=0;i<copies;i++){
+
+     if(y+h>A4H)break;
+
+     if(frontImg&&frontImg.complete){
+
+       drawImageContain(
+         ctx,
+         frontImg,
+         3*ppm,
+         y*ppm,
+         w*ppm,
+         h*ppm
+       );
+
+     }
+
+     if(printMode==="both"&&
+        backImg&&backImg.complete){
+
+       drawImageContain(
+         ctx,
+         backImg,
+         (3+w+gap)*ppm,
+         y*ppm,
+         w*ppm,
+         h*ppm
+       );
+
+     }
+
+     y+=h+gap;
+
+   }
+
+ }
+
+ if(frontImg)frontImg.onload=redraw;
+ if(backImg)backImg.onload=redraw;
+
+ redraw();
+
+}
+
+
+/* =====================================================
+TOUCH CROP SYSTEM
+===================================================== */
+
+let cropSide=null;
+let cropMode=null;
+let dragStart=null;
+let cropStartRect=null;
+
+function startCrop(side){
+
+ if(!docs[side].img){
+
+   alert("पहले "+side+" photo चुनें।");
+   return;
+
+ }
+
+ cropSide=side;
+
+ const area=
+ document.getElementById("cropArea");
+
+ area.classList.add("show");
+
+ const img=
+ document.getElementById("cropImage");
+
+ img.src=
+ docs[side].img.src;
+
+ img.onload=function(){
+
+   setupCropImage();
+
+ };
+
+ if(img.complete){
+   setupCropImage();
+ }
+
+ area.scrollIntoView({
+   behavior:"smooth",
+   block:"center"
+ });
+
+}
+
+
+function setupCropImage(){
+
+ const stage=
+ document.getElementById("cropStage");
+
+ const img=
+ document.getElementById("cropImage");
+
+ const d=docs[cropSide];
+
+ const stageW=
+ stage.clientWidth;
+
+ const stageH=
+ stage.clientHeight;
+
+ const iw=
+ img.naturalWidth;
+
+ const ih=
+ img.naturalHeight;
+
+ const scale=
+ Math.min(
+   stageW/iw,
+   stageH/ih
+ );
+
+ const w=iw*scale;
+ const h=ih*scale;
+
+ img.style.width=w+"px";
+ img.style.height=h+"px";
+ img.style.left=
+ ((stageW-w)/2)+"px";
+ img.style.top=
+ ((stageH-h)/2)+"px";
+
+ const rect=
+ document.getElementById("cropRect");
+
+ rect.style.left="15%";
+ rect.style.top="15%";
+ rect.style.width="70%";
+ rect.style.height="70%";
+
+}
+
+
+/* crop box dragging */
+
+const cropRect=
+document.getElementById("cropRect");
+
+cropRect.addEventListener(
+"pointerdown",
+function(e){
+
+ if(e.target.classList.contains("cropHandle"))
+ return;
+
+ cropMode="move";
+
+ cropRect.setPointerCapture(e.pointerId);
+
+ dragStart={
+   x:e.clientX,
+   y:e.clientY
+ };
+
+ cropStartRect={
+   left:cropRect.offsetLeft,
+   top:cropRect.offsetTop,
+   width:cropRect.offsetWidth,
+   height:cropRect.offsetHeight
+ };
+
+}
+);
+
+
+cropRect.addEventListener(
+"pointermove",
+function(e){
+
+ if(cropMode!=="move")return;
+
+ const stage=
+ document.getElementById("cropStage");
+
+ let left=
+ cropStartRect.left+
+ (e.clientX-dragStart.x);
+
+ let top=
+ cropStartRect.top+
+ (e.clientY-dragStart.y);
+
+ left=Math.max(
+   0,
+   Math.min(
+     left,
+     stage.clientWidth-
+     cropStartRect.width
+   )
+ );
+
+ top=Math.max(
+   0,
+   Math.min(
+     top,
+     stage.clientHeight-
+     cropStartRect.height
+   )
+ );
+
+ cropRect.style.left=left+"px";
+ cropRect.style.top=top+"px";
+
+}
+);
+
+
+cropRect.addEventListener(
+"pointerup",
+function(){
+
+ cropMode=null;
+
+}
+);
+
+
+/* resize handles */
+
+document.querySelectorAll(".cropHandle")
+.forEach(function(handle){
+
+ handle.addEventListener(
+ "pointerdown",
+ function(e){
+
+   e.stopPropagation();
+
+   cropMode=
+   handle.classList.contains("hTL")?"tl":
+   handle.classList.contains("hTR")?"tr":
+   handle.classList.contains("hBL")?"bl":"br";
+
+   dragStart={
+     x:e.clientX,
+     y:e.clientY
+   };
+
+   cropStartRect={
+     left:cropRect.offsetLeft,
+     top:cropRect.offsetTop,
+     width:cropRect.offsetWidth,
+     height:cropRect.offsetHeight
+   };
+
+   handle.setPointerCapture(e.pointerId);
+
+ }
+ );
+
+ handle.addEventListener(
+ "pointermove",
+ function(e){
+
+   if(!cropMode||cropMode==="move")
+   return;
+
+   const stage=
+   document.getElementById("cropStage");
+
+   let dx=
+   e.clientX-dragStart.x;
+
+   let dy=
+   e.clientY-dragStart.y;
+
+   let left=cropStartRect.left;
+   let top=cropStartRect.top;
+   let width=cropStartRect.width;
+   let height=cropStartRect.height;
+
+   if(cropMode==="br"){
+
+     width+=dx;
+     height+=dy;
+
+   }
+
+   if(cropMode==="bl"){
+
+     left+=dx;
+     width-=dx;
+     height+=dy;
+
+   }
+
+   if(cropMode==="tr"){
+
+     top+=dy;
+     height-=dy;
+     width+=dx;
+
+   }
+
+   if(cropMode==="tl"){
+
+     left+=dx;
+     top+=dy;
+     width-=dx;
+     height-=dy;
+
+   }
+
+   const min=40;
+
+   if(width<min)width=min;
+   if(height<min)height=min;
+
+   if(left<0)left=0;
+   if(top<0)top=0;
+
+   if(left+width>stage.clientWidth)
+   width=stage.clientWidth-left;
+
+   if(top+height>stage.clientHeight)
+   height=stage.clientHeight-top;
+
+   cropRect.style.left=left+"px";
+   cropRect.style.top=top+"px";
+   cropRect.style.width=width+"px";
+   cropRect.style.height=height+"px";
+
+ }
+ );
+
+ handle.addEventListener(
+ "pointerup",
+ function(){
+
+   cropMode=null;
+
+ }
+ );
+
+});
+
+
+/* =====================================================
+APPLY CROP
+===================================================== */
+
+function applyCrop(){
+
+ if(!cropSide)return;
+
+ const stage=
+ document.getElementById("cropStage");
+
+ const img=
+ document.getElementById("cropImage");
+
+ const rect=
+ document.getElementById("cropRect");
+
+ const sx=
+ (rect.offsetLeft-img.offsetLeft)/
+ img.offsetWidth;
+
+ const sy=
+ (rect.offsetTop-img.offsetTop)/
+ img.offsetHeight;
+
+ const sw=
+ rect.offsetWidth/img.offsetWidth;
+
+ const sh=
+ rect.offsetHeight/img.offsetHeight;
+
+ const d=docs[cropSide];
+
+ d.cropX=
+ Math.max(0,Math.min(1,sx));
+
+ d.cropY=
+ Math.max(0,Math.min(1,sy));
+
+ d.cropW=
+ Math.max(.05,Math.min(1,sw));
+
+ d.cropH=
+ Math.max(.05,Math.min(1,sh));
+
+ drawDoc(cropSide);
+
+ updateA4Preview();
+
+ cancelCrop();
+
+}
+
+
+function cancelCrop(){
+
+ document.getElementById("cropArea")
+ .classList.remove("show");
+
+ cropSide=null;
 
 }
 
@@ -2476,750 +3395,993 @@ value==="custom"
 DOWNLOAD DOCUMENT
 ===================================================== */
 
-function downloadCurrentDoc(){
+function downloadDocument(){
 
-const side=editingSide;
+ if(printMode==="front"&&!docs.front.img){
 
-if(!docs[side].img){
+   alert("Front Photo चुनें।");
+   return;
 
-alert("पहले "+side+" photo चुनें।");
+ }
 
-return;
-}
+ if(printMode==="back"&&!docs.back.img){
 
-drawDoc(side);
+   alert("Back Photo चुनें।");
+   return;
 
-const a=
-document.createElement("a");
+ }
 
-a.download=
-"document-"+side+".jpg";
+ if(printMode==="both"&&
+   (!docs.front.img||!docs.back.img)){
 
-a.href=
-document.getElementById(
-side+"Canvas"
-).toDataURL(
-"image/jpeg",
-.95
-);
+   alert("Front + Back के लिए दोनों photos चुनें।");
+   return;
 
-a.click();
+ }
+
+ const canvas=
+ document.getElementById("a4Canvas");
+
+ updateA4Preview();
+
+ const a=
+ document.createElement("a");
+
+ a.download=
+ "A4-ID-Document-Preview.png";
+
+ a.href=
+ canvas.toDataURL(
+   "image/png"
+ );
+
+ a.click();
 
 }
 
 
 /* =====================================================
-PRINT DOCUMENTS
+PRINT DOCUMENT
 ===================================================== */
 
-function printDocuments(){
+function printDocument(){
 
-if(printMode==="front"&&!docs.front.img){
+ if(printMode==="front"&&!docs.front.img){
 
-alert("Front Photo उपलब्ध नहीं है।");
-return;
+   alert("Front Photo चुनें।");
+   return;
+
+ }
+
+ if(printMode==="back"&&!docs.back.img){
+
+   alert("Back Photo चुनें।");
+   return;
+
+ }
+
+ if(printMode==="both"&&
+   (!docs.front.img||!docs.back.img)){
+
+   alert("Front + Back दोनों photos चुनें।");
+   return;
+
+ }
+
+ const area=
+ document.getElementById("printArea");
+
+ area.innerHTML="";
+
+ const sheet=
+ document.createElement("div");
+
+ sheet.className="printA4";
+
+
+ const size=
+ document.getElementById("printSize").value;
+
+ if(size==="id"){
+
+   createActualIDPrint(sheet);
+
+ }else{
+
+   createFullPrint(sheet);
+
+ }
+
+ area.appendChild(sheet);
+
+ window.print();
 
 }
 
-if(printMode==="back"&&!docs.back.img){
 
-alert("Back Photo उपलब्ध नहीं है।");
-return;
+/* =====================================================
+ACTUAL ID PRINT
+===================================================== */
+
+function createActualIDPrint(sheet){
+
+ const maxRows=
+ Math.floor(
+   (A4H-MARGIN+GAP)/
+   (IDH+GAP)
+ );
+
+ const sets=
+ Math.min(copies,maxRows);
+
+ const totalW=
+ IDW*2+GAP;
+
+ const left=
+ (A4W-totalW)/2;
+
+ for(let i=0;i<sets;i++){
+
+   const y=
+   MARGIN+i*(IDH+GAP);
+
+   if(
+     (printMode==="front"||
+      printMode==="both")&&
+     docs.front.img
+   ){
+
+     addPrintCard(
+       sheet,
+       canvasData("front"),
+       left,
+       y
+     );
+
+   }
+
+   if(
+     (printMode==="back"||
+      printMode==="both")&&
+     docs.back.img
+   ){
+
+     let x;
+
+     if(printMode==="both"){
+
+       x=left+IDW+GAP;
+
+     }else{
+
+       x=left;
+
+     }
+
+     addPrintCard(
+       sheet,
+       canvasData("back"),
+       x,
+       y
+     );
+
+   }
+
+ }
 
 }
 
-if(
-printMode==="both"&&
-(!docs.front.img||!docs.back.img)
+
+/* =====================================================
+ADD PRINT CARD
+===================================================== */
+
+function addPrintCard(
+ sheet,
+ src,
+ x,
+ y
 ){
 
-alert(
-"Front + Back के लिए दोनों photos upload करें।"
-);
+ const card=
+ document.createElement("div");
 
-return;
+ card.className="printCard";
 
-}
+ card.style.left=
+ x+"mm";
 
+ card.style.top=
+ y+"mm";
 
-const area=
-document.getElementById("printArea");
+ const img=
+ document.createElement("img");
 
-area.innerHTML="";
+ img.src=src;
 
-const sheet=
-document.createElement("div");
+ card.appendChild(img);
 
-sheet.className="print-a4";
-
-
-function addImage(canvas){
-
-const box=
-document.createElement("div");
-
-box.className="print-box";
-
-const img=
-document.createElement("img");
-
-img.src=
-canvas.toDataURL(
-"image/jpeg",
-.95
-);
-
-box.appendChild(img);
-
-sheet.appendChild(box);
-
-}
-
-
-if(printMode==="front"){
-
-for(let i=0;i<docCopies;i++)
-addImage(
-document.getElementById("frontCanvas")
-);
-
-}
-
-if(printMode==="back"){
-
-for(let i=0;i<docCopies;i++)
-addImage(
-document.getElementById("backCanvas")
-);
-
-}
-
-if(printMode==="both"){
-
-for(let i=0;i<docCopies;i++){
-
-addImage(
-document.getElementById("frontCanvas")
-);
-
-addImage(
-document.getElementById("backCanvas")
-);
-
-}
-
-}
-
-area.appendChild(sheet);
-
-window.print();
+ sheet.appendChild(card);
 
 }
 
 
 /* =====================================================
-DOCUMENT DEMO
+FULL PRINT
 ===================================================== */
 
-function documentDemo(){
+function createFullPrint(sheet){
 
-makeDemo("front");
-makeDemo("back");
+ const front=
+ docs.front.img?
+ canvasData("front"):null;
 
-}
+ const back=
+ docs.back.img?
+ canvasData("back"):null;
 
-function makeDemo(side){
+ let y=5;
 
-const c=
-document.createElement("canvas");
+ const boxH=
+ printMode==="both"
+ ?140
+ :287;
 
-c.width=900;
-c.height=600;
+ if(printMode==="front"&&front){
 
-const x=c.getContext("2d");
+   const card=
+   document.createElement("div");
 
-x.fillStyle="#fff";
-x.fillRect(0,0,900,600);
+   card.className="printCard";
 
-x.strokeStyle="#111";
-x.lineWidth=6;
+   card.style.left="5mm";
+   card.style.top="5mm";
+   card.style.width="200mm";
+   card.style.height="287mm";
 
-x.strokeRect(
-20,20,860,560
-);
+   const img=
+   document.createElement("img");
 
-x.fillStyle=
-side==="front"
-?"#0756b8"
-:"#138a45";
+   img.src=front;
 
-x.font="bold 48px Arial";
+   img.style.width="200mm";
+   img.style.height="287mm";
+   img.style.objectFit="contain";
 
-x.textAlign="center";
+   card.appendChild(img);
+   sheet.appendChild(card);
 
-x.fillText(
-side==="front"
-?"DOCUMENT FRONT"
-:"DOCUMENT BACK",
-450,110
-);
+ }
 
-x.fillStyle="#222";
+ if(printMode==="back"&&back){
 
-x.font="28px Arial";
+   const card=
+   document.createElement("div");
 
-x.textAlign="left";
+   card.className="printCard";
 
-x.fillText(
-side==="front"
-?"Name: Demo Customer"
-:"Address: Demo Address",
-100,230
-);
+   card.style.left="5mm";
+   card.style.top="5mm";
+   card.style.width="200mm";
+   card.style.height="287mm";
 
-x.fillText(
-"Document Copy Sample",
-100,290
-);
+   const img=
+   document.createElement("img");
 
-x.fillText(
-"Bharat Digital Centre",
-100,350
-);
+   img.src=back;
 
-const img=new Image();
+   img.style.width="200mm";
+   img.style.height="287mm";
+   img.style.objectFit="contain";
 
-img.onload=function(){
+   card.appendChild(img);
+   sheet.appendChild(card);
 
-docs[side].img=img;
+ }
 
-document.getElementById(
-side+"Empty"
-).style.display="none";
+ if(printMode==="both"){
 
-document.getElementById(
-side+"Canvas"
-).style.display="block";
+   if(front){
 
-resetDoc(side);
+     const card=
+     document.createElement("div");
 
-};
+     card.className="printCard";
 
-img.src=c.toDataURL();
+     card.style.left="5mm";
+     card.style.top="5mm";
+     card.style.width="200mm";
+     card.style.height="140mm";
+
+     const img=
+     document.createElement("img");
+
+     img.src=front;
+
+     img.style.width="200mm";
+     img.style.height="140mm";
+     img.style.objectFit="contain";
+
+     card.appendChild(img);
+     sheet.appendChild(card);
+
+   }
+
+   if(back){
+
+     const card=
+     document.createElement("div");
+
+     card.className="printCard";
+
+     card.style.left="5mm";
+     card.style.top="150mm";
+     card.style.width="200mm";
+     card.style.height="140mm";
+
+     const img=
+     document.createElement("img");
+
+     img.src=back;
+
+     img.style.width="200mm";
+     img.style.height="140mm";
+     img.style.objectFit="contain";
+
+     card.appendChild(img);
+     sheet.appendChild(card);
+
+   }
+
+ }
 
 }
 
 
 /* =====================================================
-PHOTO STATE
+DEMO DOCUMENTS
+===================================================== */
+
+function loadDemoDocuments(){
+
+ createDemoDoc("front");
+ createDemoDoc("back");
+
+}
+
+function createDemoDoc(side){
+
+ const c=
+ document.createElement("canvas");
+
+ c.width=1000;
+ c.height=650;
+
+ const x=c.getContext("2d");
+
+ x.fillStyle="#fff";
+ x.fillRect(0,0,c.width,c.height);
+
+ x.strokeStyle="#111";
+ x.lineWidth=8;
+
+ x.strokeRect(
+   15,15,
+   c.width-30,
+   c.height-30
+ );
+
+ x.fillStyle=
+ side==="front"
+ ?" #0756b8"
+ :"#138a45";
+
+ x.fillStyle=
+ side==="front"
+ ?"rgb(7,86,184)"
+ :"rgb(19,138,69)";
+
+ x.font="bold 55px Arial";
+ x.textAlign="center";
+
+ x.fillText(
+   side==="front"
+   ?"DOCUMENT FRONT"
+   :"DOCUMENT BACK",
+   500,120
+ );
+
+ x.fillStyle="#222";
+ x.font="32px Arial";
+ x.textAlign="left";
+
+ x.fillText(
+   "Name: Demo Customer",
+   100,240
+ );
+
+ x.fillText(
+   "Document No: DEMO-2026-001",
+   100,310
+ );
+
+ x.fillText(
+   side==="front"
+   ?"Date of Birth: 01/01/1990"
+   :"Address: Bharat Digital Centre",
+   100,380
+ );
+
+ x.fillText(
+   "Sample for testing only",
+   100,500
+ );
+
+ const img=new Image();
+
+ img.onload=function(){
+
+   docs[side].img=img;
+
+   document.getElementById(side+"Empty")
+   .style.display="none";
+
+   document.getElementById(side+"Canvas")
+   .style.display="block";
+
+   resetDoc(side);
+
+ };
+
+ img.src=c.toDataURL("image/png");
+
+}
+
+
+/* =====================================================
+PHOTO STUDIO
 ===================================================== */
 
 let personPhoto=null;
 
 let photoState={
-type:"passport",
-zoom:1,
-bright:100,
-contrast:100,
-rotation:0,
-flip:1
+ type:"passport",
+ zoom:1,
+ bright:100,
+ contrast:100,
+ rotation:0,
+ flip:1
 };
 
 let photoCopies=1;
 
 
-/* =====================================================
-LOAD PHOTO
-===================================================== */
-
 function loadPhoto(input){
 
-if(!input.files||!input.files[0])return;
+ if(!input.files||!input.files[0])
+ return;
 
-const reader=new FileReader();
+ const reader=new FileReader();
 
-reader.onload=function(e){
+ reader.onload=function(e){
 
-const img=new Image();
+   const img=new Image();
 
-img.onload=function(){
+   img.onload=function(){
 
-personPhoto=img;
+     personPhoto=img;
 
-document.getElementById(
-"photoEmpty"
-).style.display="none";
+     document.getElementById("photoEmpty")
+     .style.display="none";
 
-document.getElementById(
-"photoCanvas"
-).style.display="block";
+     document.getElementById("photoCanvas")
+     .style.display="block";
 
-resetPhoto();
+     resetPhoto();
 
-};
+   };
 
-img.src=e.target.result;
+   img.src=e.target.result;
 
-};
+ };
 
-reader.readAsDataURL(input.files[0]);
-
-}
-
-
-/* =====================================================
-PHOTO DRAW
-===================================================== */
-
-function drawPhoto(){
-
-if(!personPhoto)return;
-
-const canvas=
-document.getElementById("photoCanvas");
-
-const ctx=canvas.getContext("2d");
-
-let w=personPhoto.naturalWidth;
-let h=personPhoto.naturalHeight;
-
-let rot=
-((photoState.rotation%360)+360)%360;
-
-let scale=
-Math.min(
-650/w,
-700/h
-);
-
-scale*=photoState.zoom;
-
-let dw=w*scale;
-let dh=h*scale;
-
-if(rot===90||rot===270){
-
-canvas.width=dh;
-canvas.height=dw;
-
-}else{
-
-canvas.width=dw;
-canvas.height=dh;
+ reader.readAsDataURL(input.files[0]);
 
 }
 
-ctx.clearRect(
-0,0,
-canvas.width,
-canvas.height
-);
-
-ctx.save();
-
-ctx.translate(
-canvas.width/2,
-canvas.height/2
-);
-
-ctx.rotate(
-rot*Math.PI/180
-);
-
-ctx.scale(
-photoState.flip,
-1
-);
-
-ctx.filter=
-"brightness("+photoState.bright+"%) "+
-"contrast("+photoState.contrast+"%)";
-
-ctx.drawImage(
-personPhoto,
--dw/2,
--dh/2,
-dw,
-dh
-);
-
-ctx.restore();
-
-
-document.getElementById(
-"photoZoomValue"
-).textContent=
-Math.round(photoState.zoom*100)+"%";
-
-document.getElementById(
-"photoBrightValue"
-).textContent=
-photoState.bright;
-
-document.getElementById(
-"photoContrastValue"
-).textContent=
-photoState.contrast;
-
-}
-
-
-/* =====================================================
-PHOTO TYPE
-===================================================== */
 
 function setPhotoType(type,btn){
 
-photoState.type=type;
+ photoState.type=type;
 
-document
-.querySelectorAll(".photo-option")
-.forEach(x=>x.classList.remove("active"));
+ document.querySelectorAll(".photoOption")
+ .forEach(function(b){
+   b.classList.remove("active");
+ });
 
-btn.classList.add("active");
+ btn.classList.add("active");
 
-drawPhoto();
+ const names={
+   passport:"Passport Size — 35 × 45 mm",
+   half:"Half Photo",
+   full:"Full Size Photo",
+   "4x6":"4 × 6 inch Photo",
+   a4:"A4 Photo",
+   id:"ID Photo — 85.60 × 53.98 mm"
+ };
+
+ document.getElementById("photoInfo")
+ .textContent=
+ "Selected: "+names[type];
+
+ drawPhoto();
 
 }
 
 
-/* =====================================================
-PHOTO ROTATE
-===================================================== */
+function drawPhoto(){
+
+ if(!personPhoto)return;
+
+ const canvas=
+ document.getElementById("photoCanvas");
+
+ const ctx=canvas.getContext("2d");
+
+ let w=personPhoto.naturalWidth;
+ let h=personPhoto.naturalHeight;
+
+ let scale=
+ Math.min(
+   650/w,
+   700/h
+ );
+
+ const zoom=
+ Number(document.getElementById("photoZoom").value)
+ /100;
+
+ scale*=zoom;
+
+ let dw=w*scale;
+ let dh=h*scale;
+
+ let rot=
+ ((photoState.rotation%360)+360)%360;
+
+ if(rot===90||rot===270){
+
+   canvas.width=Math.round(dh);
+   canvas.height=Math.round(dw);
+
+ }else{
+
+   canvas.width=Math.round(dw);
+   canvas.height=Math.round(dh);
+
+ }
+
+ ctx.clearRect(
+   0,0,
+   canvas.width,
+   canvas.height
+ );
+
+ const bright=
+ Number(document.getElementById("photoBright").value);
+
+ const contrast=
+ Number(document.getElementById("photoContrast").value);
+
+ ctx.save();
+
+ ctx.translate(
+   canvas.width/2,
+   canvas.height/2
+ );
+
+ ctx.rotate(
+   rot*Math.PI/180
+ );
+
+ ctx.scale(
+   photoState.flip,
+   1
+ );
+
+ ctx.filter=
+ "brightness("+bright+"%) "+
+ "contrast("+contrast+"%)";
+
+ ctx.drawImage(
+   personPhoto,
+   -dw/2,
+   -dh/2,
+   dw,
+   dh
+ );
+
+ ctx.restore();
+
+ document.getElementById("photoZoomOut")
+ .textContent=
+ Math.round(zoom*100)+"%";
+
+ document.getElementById("photoBrightOut")
+ .textContent=
+ bright;
+
+ document.getElementById("photoContrastOut")
+ .textContent=
+ contrast;
+
+}
+
 
 function rotatePhoto(deg){
 
-if(!personPhoto){
+ if(!personPhoto){
 
-alert("पहले customer photo चुनें.");
-return;
+   alert("पहले customer photo चुनें।");
+   return;
+
+ }
+
+ photoState.rotation+=deg;
+
+ drawPhoto();
 
 }
 
-photoState.rotation+=deg;
-
-drawPhoto();
-
-}
-
-
-/* =====================================================
-PHOTO FLIP
-===================================================== */
 
 function flipPhoto(){
 
-if(!personPhoto)return;
+ if(!personPhoto)return;
 
-photoState.flip*=-1;
+ photoState.flip*=-1;
 
-drawPhoto();
+ drawPhoto();
 
 }
 
-
-/* =====================================================
-PHOTO RESET
-===================================================== */
 
 function resetPhoto(){
 
-photoState.zoom=1;
-photoState.bright=100;
-photoState.contrast=100;
-photoState.rotation=0;
-photoState.flip=1;
+ photoState.zoom=1;
+ photoState.bright=100;
+ photoState.contrast=100;
+ photoState.rotation=0;
+ photoState.flip=1;
 
-document.getElementById(
-"photoZoom"
-).value=100;
+ document.getElementById("photoZoom").value=100;
+ document.getElementById("photoBright").value=100;
+ document.getElementById("photoContrast").value=100;
 
-document.getElementById(
-"photoBright"
-).value=100;
-
-document.getElementById(
-"photoContrast"
-).value=100;
-
-drawPhoto();
+ drawPhoto();
 
 }
 
-
-/* =====================================================
-PHOTO COPIES
-===================================================== */
 
 function setPhotoCopies(n,btn){
 
-photoCopies=n;
+ photoCopies=n;
 
-btn.parentElement
-.querySelectorAll(".copy")
-.forEach(x=>x.classList.remove("active"));
+ btn.parentElement
+ .querySelectorAll(".copyBtn")
+ .forEach(function(b){
+   b.classList.remove("active");
+ });
 
-btn.classList.add("active");
+ btn.classList.add("active");
 
 }
 
-
-/* =====================================================
-PHOTO DOWNLOAD
-===================================================== */
 
 function downloadPhoto(){
 
-if(!personPhoto){
+ if(!personPhoto){
 
-alert("पहले customer photo चुनें.");
-return;
+   alert("पहले customer photo चुनें।");
+   return;
+
+ }
+
+ drawPhoto();
+
+ const a=
+ document.createElement("a");
+
+ a.download=
+ "customer-photo.jpg";
+
+ a.href=
+ document.getElementById("photoCanvas")
+ .toDataURL(
+   "image/jpeg",
+   .95
+ );
+
+ a.click();
 
 }
 
-drawPhoto();
-
-const a=
-document.createElement("a");
-
-a.download=
-"customer-photo.jpg";
-
-a.href=
-document.getElementById(
-"photoCanvas"
-).toDataURL(
-"image/jpeg",
-.95
-);
-
-a.click();
-
-}
-
-
-/* =====================================================
-PHOTO PRINT
-===================================================== */
 
 function printPhoto(){
 
-if(!personPhoto){
+ if(!personPhoto){
 
-alert("पहले customer photo चुनें.");
-return;
+   alert("पहले customer photo चुनें।");
+   return;
+
+ }
+
+ const area=
+ document.getElementById("printArea");
+
+ area.innerHTML="";
+
+ const sheet=
+ document.createElement("div");
+
+ sheet.className="printA4";
+
+ const canvas=
+ document.getElementById("photoCanvas");
+
+ const src=
+ canvas.toDataURL(
+   "image/jpeg",
+   .95
+ );
+
+ let w=35;
+ let h=45;
+
+ if(photoState.type==="id"){
+   w=85.6;
+   h=53.98;
+ }
+
+ if(photoState.type==="4x6"){
+   w=152.4;
+   h=101.6;
+ }
+
+ if(photoState.type==="half"){
+   w=100;
+   h=150;
+ }
+
+ if(photoState.type==="full"){
+   w=120;
+   h=180;
+ }
+
+ if(photoState.type==="a4"){
+   w=190;
+   h=270;
+ }
+
+ const gap=2;
+
+ let x=5;
+ let y=5;
+
+ for(let i=0;i<photoCopies;i++){
+
+   if(x+w>205){
+
+     x=5;
+     y+=h+gap;
+
+   }
+
+   if(y+h>292){
+
+     break;
+
+   }
+
+   const card=
+   document.createElement("div");
+
+   card.className="printCard";
+
+   card.style.left=x+"mm";
+   card.style.top=y+"mm";
+   card.style.width=w+"mm";
+   card.style.height=h+"mm";
+
+   const img=
+   document.createElement("img");
+
+   img.src=src;
+
+   img.style.width=w+"mm";
+   img.style.height=h+"mm";
+   img.style.objectFit="cover";
+
+   card.appendChild(img);
+
+   sheet.appendChild(card);
+
+   x+=w+gap;
+
+ }
+
+ area.appendChild(sheet);
+
+ window.print();
 
 }
 
-const area=
-document.getElementById("printArea");
-
-area.innerHTML="";
-
-const sheet=
-document.createElement("div");
-
-sheet.className="print-a4";
-
-for(let i=0;i<photoCopies;i++){
-
-const box=
-document.createElement("div");
-
-box.className="print-box";
-
-const img=
-document.createElement("img");
-
-img.src=
-document.getElementById(
-"photoCanvas"
-).toDataURL(
-"image/jpeg",
-.95
-);
-
-box.appendChild(img);
-
-sheet.appendChild(box);
-
-}
-
-area.appendChild(sheet);
-
-window.print();
-
-}
-
-
-/* =====================================================
-PHOTO DEMO
-===================================================== */
 
 function photoDemo(){
 
-const c=
-document.createElement("canvas");
+ const c=
+ document.createElement("canvas");
 
-c.width=600;
-c.height=800;
+ c.width=600;
+ c.height=800;
 
-const x=c.getContext("2d");
+ const x=c.getContext("2d");
 
-x.fillStyle="#eee";
-x.fillRect(0,0,600,800);
+ x.fillStyle="#e7edf2";
+ x.fillRect(0,0,600,800);
 
-x.fillStyle="#ccc";
+ x.fillStyle="#c4cbd2";
 
-x.beginPath();
+ x.beginPath();
 
-x.arc(
-300,270,
-125,
-0,
-Math.PI*2
-);
+ x.arc(
+   300,260,
+   120,
+   0,
+   Math.PI*2
+ );
 
-x.fill();
+ x.fill();
 
-x.fillRect(
-170,410,
-260,
-300
-);
+ x.fillRect(
+   170,390,
+   260,310
+ );
 
-x.fillStyle="#333";
+ x.fillStyle="#333";
+ x.font="bold 34px Arial";
+ x.textAlign="center";
 
-x.font="bold 34px Arial";
-x.textAlign="center";
+ x.fillText(
+   "DEMO PHOTO",
+   300,755
+ );
 
-x.fillText(
-"DEMO PHOTO",
-300,760
-);
+ const img=new Image();
 
-const img=new Image();
+ img.onload=function(){
 
-img.onload=function(){
+   personPhoto=img;
 
-personPhoto=img;
+   document.getElementById("photoEmpty")
+   .style.display="none";
 
-document.getElementById(
-"photoEmpty"
-).style.display="none";
+   document.getElementById("photoCanvas")
+   .style.display="block";
 
-document.getElementById(
-"photoCanvas"
-).style.display="block";
+   resetPhoto();
 
-resetPhoto();
+ };
 
-};
-
-img.src=c.toDataURL();
+ img.src=c.toDataURL("image/png");
 
 }
 
-
-/* =====================================================
-CLEAR PHOTO
-===================================================== */
 
 function clearPhoto(){
 
-personPhoto=null;
+ personPhoto=null;
 
-document.getElementById(
-"photoCanvas"
-).style.display="none";
+ document.getElementById("photoCanvas")
+ .style.display="none";
 
-document.getElementById(
-"photoEmpty"
-).style.display="block";
+ document.getElementById("photoEmpty")
+ .style.display="block";
 
 }
 
 
 /* =====================================================
-CALCULATOR
+TOOLS
 ===================================================== */
 
-function calculator(op){
+function calc(op){
 
-const a=
-Number(document.getElementById("ca").value);
+ const a=
+ Number(document.getElementById("numA").value);
 
-const b=
-Number(document.getElementById("cb").value);
+ const b=
+ Number(document.getElementById("numB").value);
 
-let r;
+ let r;
 
-if(op==="+")r=a+b;
-if(op==="-")r=a-b;
-if(op==="*")r=a*b;
-if(op==="/")
-r=b===0?"Cannot divide by zero":a/b;
+ if(op==="+")r=a+b;
+ if(op==="-")r=a-b;
+ if(op==="*")r=a*b;
+ if(op==="/")
+ r=b===0?"Cannot divide by zero":a/b;
 
-document.getElementById(
-"calcResult"
-).textContent=
-"Result: "+r;
+ document.getElementById("calcResult")
+ .textContent=
+ "Result: "+r;
 
 }
 
-
-/* =====================================================
-PERCENTAGE
-===================================================== */
 
 function percentage(){
 
-const n=
-Number(document.getElementById("pn").value);
+ const n=
+ Number(document.getElementById("obtained").value);
 
-const t=
-Number(document.getElementById("pt").value);
+ const t=
+ Number(document.getElementById("total").value);
 
-if(!t){
+ if(!t){
 
-alert("कुल अंक डालें.");
-return;
+   alert("कुल अंक डालें।");
+   return;
+
+ }
+
+ document.getElementById(
+   "percentageResult"
+ ).textContent=
+ "Percentage: "+
+ ((n/t)*100).toFixed(2)+
+ "%";
 
 }
 
-document.getElementById(
-"perResult"
-).textContent=
-"Percentage: "+
-((n/t)*100).toFixed(2)+
-"%";
+
+function countText(){
+
+ const t=
+ document.getElementById("counterText").value;
+
+ const words=
+ t.trim()
+ ?t.trim().split(/\s+/).length
+ :0;
+
+ document.getElementById(
+   "counterResult"
+ ).textContent=
+ "Characters: "+
+ t.length+
+ " | Words: "+
+ words;
 
 }
 
 
 /* =====================================================
-TEXT COUNT
+INIT
 ===================================================== */
 
-function textCount(){
+window.addEventListener(
+"resize",
+function(){
 
-const t=
-document.getElementById("txt").value;
+ if(
+   document.getElementById("documentEditor")
+   .classList.contains("active")
+ ){
 
-const words=
-t.trim()
-?t.trim().split(/\s+/).length
-:0;
+   updateA4Preview();
 
-document.getElementById(
-"txtResult"
-).textContent=
-"Characters: "+
-t.length+
-" | Words: "+
-words;
+ }
 
 }
+);
 
 </script>
 
