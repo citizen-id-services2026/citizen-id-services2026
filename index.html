@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,17 +8,13 @@
 <meta name="viewport"
 content="width=device-width,initial-scale=1.0">
 
-<!-- =====================================================
-SEO
-===================================================== -->
-
 <title>Gramin Grahak Sewa | Digital & Citizen Services</title>
 
 <meta name="description"
 content="Gramin Grahak Sewa - AI, Digital, Document, Photo और Citizen Online Services Portal. Aadhaar, PAN, Voter ID, Government, Farmer, Banking, Education, Transport और Digital Services.">
 
 <meta name="keywords"
-content="Gramin Grahak Sewa, ग्रामिण ग्राहक सेवा, Digital Seva, Online Seva, Citizen Services, Aadhaar, PAN, Voter ID, CSC, Rajasthan Online Services, Government Services, Farmer Services, Banking Services">
+content="Gramin Grahak Sewa, ग्रामिण ग्राहक सेवा, Digital Seva, Online Seva, Citizen Services, Aadhaar, PAN, Voter ID, CSC, Rajasthan Online Services">
 
 <meta name="author"
 content="Gramin Grahak Sewa">
@@ -25,13 +22,8 @@ content="Gramin Grahak Sewa">
 <meta name="robots"
 content="index, follow, max-image-preview:large">
 
-<meta name="googlebot"
-content="index, follow">
-
 <link rel="canonical"
 href="https://citizen-id-services2026.github.io/citizen-id-services2026/">
-
-<!-- Open Graph -->
 
 <meta property="og:title"
 content="Gramin Grahak Sewa | Digital & Citizen Services">
@@ -51,8 +43,6 @@ content="Gramin Grahak Sewa">
 <meta property="og:locale"
 content="hi_IN">
 
-<!-- Twitter -->
-
 <meta name="twitter:card"
 content="summary">
 
@@ -62,10 +52,6 @@ content="Gramin Grahak Sewa">
 <meta name="twitter:description"
 content="Digital, Document, Photo और Citizen Online Services Portal">
 
-
-<!-- =====================================================
-STRUCTURED DATA
-===================================================== -->
 
 <script type="application/ld+json">
 {
@@ -93,18 +79,21 @@ html{
 }
 
 body{
+
     font-family:
     Arial,
     "Noto Sans Devanagari",
     sans-serif;
 
     background:#eef3f8;
+
     color:#17202a;
 }
 
 button,
 input,
-select{
+select,
+textarea{
     font-family:inherit;
 }
 
@@ -134,6 +123,7 @@ HEADER
 .header-inner{
 
     max-width:1500px;
+
     margin:auto;
 
     background:
@@ -148,7 +138,9 @@ HEADER
     padding:12px 18px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     gap:15px;
@@ -165,6 +157,7 @@ LOGO
 .logo-area{
 
     display:flex;
+
     align-items:center;
 
     gap:15px;
@@ -207,6 +200,7 @@ LOGO
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 }
 
@@ -291,6 +285,7 @@ LOGO
 .logo-text h1{
 
     font-size:27px;
+
     line-height:1.1;
 
     font-weight:800;
@@ -635,6 +630,7 @@ SERVICE
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     font-size:23px;
@@ -993,34 +989,381 @@ EMPTY
 
 
 /* =====================================================
-FOOTER
+CUSTOMER FACILITY
+===================================================== */
+
+.facility-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(7,1fr);
+
+    gap:10px;
+
+    margin:
+    18px 0;
+}
+
+.facility-btn{
+
+    min-height:82px;
+
+    border:0;
+
+    border-radius:11px;
+
+    color:white;
+
+    text-decoration:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:5px;
+
+    font-weight:bold;
+
+    font-size:10px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 4px 10px #0003;
+
+    transition:
+    transform .2s;
+}
+
+.facility-btn:hover{
+
+    transform:
+    translateY(-4px);
+}
+
+.facility-btn span{
+
+    font-size:24px;
+}
+
+.contact-f{
+    background:
+    linear-gradient(135deg,#0756b8,#087bd8);
+}
+
+.whatsapp-f{
+    background:
+    linear-gradient(135deg,#168544,#25d366);
+}
+
+.location-f{
+    background:
+    linear-gradient(135deg,#e98616,#f5a623);
+}
+
+.time-f{
+    background:
+    linear-gradient(135deg,#7138b5,#9b54d6);
+}
+
+.charge-f{
+    background:
+    linear-gradient(135deg,#c93636,#ef5350);
+}
+
+.review-f{
+    background:
+    linear-gradient(135deg,#087f8c,#11aeb9);
+}
+
+.faq-f{
+    background:
+    linear-gradient(135deg,#536273,#758698);
+}
+
+
+/* =====================================================
+INFO BOX
+===================================================== */
+
+.info-box{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-top:15px;
+
+    box-shadow:
+    0 3px 10px #0002;
+
+    border:
+    1px solid #d5e0eb;
+}
+
+.info-box h3{
+
+    color:#06366d;
+
+    font-size:18px;
+
+    margin-bottom:12px;
+}
+
+.info-box p{
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    color:#53687b;
+}
+
+
+/* =====================================================
+CHARGES TABLE
+===================================================== */
+
+.charges-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    font-size:11px;
+}
+
+.charges-table th{
+
+    background:#06366d;
+
+    color:white;
+
+    padding:9px;
+
+    text-align:left;
+}
+
+.charges-table td{
+
+    padding:9px;
+
+    border-bottom:
+    1px solid #e0e7ef;
+}
+
+.charges-table tr:nth-child(even){
+
+    background:#f5f8fb;
+}
+
+
+/* =====================================================
+FAQ
+===================================================== */
+
+.faq-item{
+
+    border-bottom:
+    1px solid #dce5ee;
+
+    padding:11px 0;
+}
+
+.faq-question{
+
+    width:100%;
+
+    border:0;
+
+    background:none;
+
+    text-align:left;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    color:#06366d;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.faq-answer{
+
+    display:none;
+
+    padding-top:8px;
+
+    font-size:11px;
+
+    color:#53687b;
+
+    line-height:1.6;
+}
+
+.faq-item.open .faq-answer{
+
+    display:block;
+}
+
+
+/* =====================================================
+REVIEW
+===================================================== */
+
+.review-form{
+
+    display:grid;
+
+    gap:8px;
+
+    max-width:600px;
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select{
+
+    width:100%;
+
+    border:
+    1px solid #ccd9e5;
+
+    border-radius:7px;
+
+    padding:9px;
+
+    font-size:11px;
+
+    outline:none;
+}
+
+.review-form textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+}
+
+.review-list{
+
+    margin-top:18px;
+
+    display:grid;
+
+    gap:8px;
+}
+
+.review-card{
+
+    background:#f6f9fc;
+
+    border-radius:8px;
+
+    padding:10px;
+
+    border-left:
+    4px solid #087bd8;
+}
+
+.review-card b{
+
+    color:#06366d;
+
+    font-size:11px;
+}
+
+.review-card .stars{
+
+    color:#f3a400;
+
+    margin:4px 0;
+}
+
+.review-card p{
+
+    font-size:10px;
+
+    color:#53687b;
+}
+
+
+/* =====================================================
+SOCIAL FOOTER
 ===================================================== */
 
 .footer{
 
     background:
     linear-gradient(
-        90deg,
-        #ff9933,
-        #06366d 50%,
-        #138808
+        135deg,
+        #06366d,
+        #0756b8
     );
 
     color:white;
 
     text-align:center;
 
-    padding:18px;
+    padding:22px 10px 15px;
 
-    margin-top:20px;
+    margin-top:25px;
 
     font-size:11px;
+
+    border-top:
+    4px solid #ff9933;
 }
 
+.footer-title{
 
-/* =====================================================
-SOCIAL MEDIA ICONS
-===================================================== */
+    font-size:19px;
+
+    font-weight:800;
+
+    margin-bottom:5px;
+}
+
+.footer-subtitle{
+
+    font-size:10px;
+
+    color:#e8f3ff;
+
+    margin-bottom:4px;
+}
+
+.footer-note{
+
+    font-size:9px;
+
+    color:#d6e6f7;
+
+    margin-bottom:15px;
+}
+
+.social-title{
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+}
 
 .social-icons{
 
@@ -1030,51 +1373,145 @@ SOCIAL MEDIA ICONS
 
     align-items:center;
 
-    gap:8px;
+    gap:9px;
 
-    margin-top:12px;
+    margin:0 auto 5px;
 }
 
-.social-icons a{
+.social{
 
-    width:28px;
-    height:28px;
+    width:35px;
+
+    height:35px;
+
+    border-radius:50%;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
-
-    border-radius:50%;
-
-    background:#ffffff22;
-
-    border:1px solid #ffffff66;
 
     color:white;
 
     text-decoration:none;
 
-    font-size:15px;
-
     font-weight:bold;
+
+    font-size:18px;
+
+    box-shadow:
+    0 3px 8px #0005;
 
     transition:
     transform .2s,
-    background .2s,
     box-shadow .2s;
 }
 
-.social-icons a:hover{
+.social:hover{
 
     transform:
     translateY(-3px)
     scale(1.08);
 
+    box-shadow:
+    0 6px 12px #0006;
+}
+
+.facebook{
+
+    background:#1877f2;
+}
+
+.instagram{
+
+    background:
+    linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+}
+
+.whatsapp{
+
+    background:#25d366;
+}
+
+.youtube{
+
+    background:#ff0000;
+}
+
+.social-labels{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    font-size:7px;
+
+    color:#dbeaff;
+
+    margin-bottom:14px;
+}
+
+.footer-contact{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:7px;
+
+    margin-bottom:14px;
+}
+
+.contact-btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#ffffff22;
+
+    border:
+    1px solid #ffffff55;
+
+    border-radius:6px;
+
+    padding:7px 13px;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    transition:
+    background .2s,
+    transform .2s;
+}
+
+.contact-btn:hover{
+
     background:#ffffff44;
 
-    box-shadow:
-    0 4px 10px #0004;
+    transform:
+    translateY(-2px);
+}
+
+.copyright{
+
+    border-top:
+    1px solid #ffffff33;
+
+    padding-top:10px;
+
+    font-size:8px;
+
+    color:#dceaff;
 }
 
 
@@ -1085,11 +1522,19 @@ MOBILE
 @media(max-width:1100px){
 
     .service-grid{
+
+        grid-template-columns:
+        repeat(4,1fr);
+    }
+
+    .facility-grid{
+
         grid-template-columns:
         repeat(4,1fr);
     }
 
     .studio{
+
         grid-template-columns:1fr;
     }
 }
@@ -1097,44 +1542,95 @@ MOBILE
 @media(max-width:700px){
 
     .header-inner{
+
         flex-direction:column;
+
         align-items:flex-start;
     }
 
     .logo-area{
+
         width:100%;
     }
 
     .india-logo{
+
         width:70px;
         height:70px;
     }
 
     .logo-text h1{
+
         font-size:20px;
     }
 
     .logo-text h2{
+
         font-size:12px;
     }
 
     .home-btn{
+
         width:100%;
     }
 
     .service-grid{
+
         grid-template-columns:
         repeat(2,1fr);
     }
 
     .service{
+
         min-height:95px;
     }
 
+    .facility-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .facility-btn{
+
+        min-height:75px;
+    }
+
+    .social{
+
+        width:32px;
+        height:32px;
+
+        font-size:17px;
+    }
+
+    .social-icons{
+
+        gap:8px;
+    }
+
+    .social-labels{
+
+        gap:12px;
+    }
+
+    .footer{
+
+        padding:
+        18px 8px 12px;
+    }
+
+    .footer-title{
+
+        font-size:16px;
+    }
+
     .a4{
+
         transform-origin:
         top left;
     }
+
 }
 
 
@@ -1145,6 +1641,7 @@ PRINT
 @media print{
 
     body *{
+
         visibility:hidden !important;
     }
 
@@ -1152,6 +1649,7 @@ PRINT
     #docPrint *,
     #photoPrint,
     #photoPrint *{
+
         visibility:visible !important;
     }
 
@@ -1180,11 +1678,12 @@ PRINT
 
         margin:0;
     }
-
 }
 
 </style>
+
 </head>
+
 
 <body>
 
@@ -1342,7 +1841,152 @@ oninput="searchServices()"
 
 </div>
 
+
+<!-- CUSTOMER FACILITY -->
+
+<h3 class="category-title">
+⭐ ग्राहक सुविधा
+</h3>
+
+<div class="facility-grid">
+
+
+<a
+href="tel:8890922880"
+class="facility-btn contact-f"
+>
+
+<span>📞</span>
+
+Contact Us
+
+<small>
+8890922880
+</small>
+
+</a>
+
+
+<a
+href="https://wa.me/918890922880"
+target="_blank"
+rel="noopener noreferrer"
+class="facility-btn whatsapp-f"
+>
+
+<span>💬</span>
+
+WhatsApp
+
+<small>
+सीधे संपर्क करें
+</small>
+
+</a>
+
+
+<a
+href="https://maps.app.goo.gl/6mqS2mqj1v7wUVJTA?g_st=ac"
+target="_blank"
+rel="noopener noreferrer"
+class="facility-btn location-f"
+>
+
+<span>📍</span>
+
+हमारी Location
+
+<small>
+Google Maps
+</small>
+
+</a>
+
+
+<button
+class="facility-btn time-f"
+onclick="showInfo('time')"
+>
+
+<span>🕐</span>
+
+सेवा का समय
+
+<small>
+9 AM - 5 PM
+</small>
+
+</button>
+
+
+<button
+class="facility-btn charge-f"
+onclick="showInfo('charges')"
+>
+
+<span>💰</span>
+
+Service Charges
+
+<small>
+शुल्क देखें
+</small>
+
+</button>
+
+
+<button
+class="facility-btn review-f"
+onclick="showInfo('reviews')"
+>
+
+<span>⭐</span>
+
+Customer Reviews
+
+<small>
+Review देखें
+</small>
+
+</button>
+
+
+<button
+class="facility-btn faq-f"
+onclick="showInfo('faq')"
+>
+
+<span>❓</span>
+
+FAQ
+
+<small>
+सामान्य सवाल
+</small>
+
+</button>
+
+
+</div>
+
+
 <div id="homeServices"></div>
+
+
+<!-- =====================================================
+CUSTOMER INFORMATION
+===================================================== -->
+
+<div
+id="customerInfo"
+class="info-box"
+style="display:none"
+>
+
+<div id="infoContent"></div>
+
+</div>
+
 
 </section>
 
@@ -1375,9 +2019,12 @@ ID Card Front, Back और Front + Back को वास्तविक card siz
 
 </div>
 
+
 <div class="studio">
 
+
 <aside class="controls">
+
 
 <div class="control-group">
 
@@ -1424,6 +2071,7 @@ Custom Size
 
 </select>
 
+
 <label>
 Width (mm)
 </label>
@@ -1434,6 +2082,7 @@ type="number"
 value="85.6"
 step=".01"
 >
+
 
 <label>
 Height (mm)
@@ -1466,6 +2115,7 @@ accept="image/*"
 onchange="loadDocument(event,'front')"
 >
 
+
 <label>
 Back
 </label>
@@ -1476,6 +2126,7 @@ type="file"
 accept="image/*"
 onchange="loadDocument(event,'back')"
 >
+
 
 <div class="two">
 
@@ -1523,6 +2174,7 @@ Front + Back
 
 </select>
 
+
 <label>
 A4 Paper
 </label>
@@ -1542,6 +2194,7 @@ A4 Landscape
 
 </select>
 
+
 <label>
 Copies
 </label>
@@ -1554,6 +2207,7 @@ min="1"
 max="100"
 onchange="renderDocuments()"
 >
+
 
 <label>
 Gap (mm)
@@ -1592,6 +2246,7 @@ value="100"
 oninput="editDocument()"
 >
 
+
 <label>
 Brightness
 </label>
@@ -1606,6 +2261,7 @@ value="100"
 oninput="editDocument()"
 >
 
+
 <label>
 Contrast
 </label>
@@ -1619,6 +2275,7 @@ max="160"
 value="100"
 oninput="editDocument()"
 >
+
 
 <div class="two">
 
@@ -1662,6 +2319,7 @@ onclick="renderDocuments()"
 🔄 Update A4 Preview
 </button>
 
+
 <button
 class="action-btn green"
 onclick="printDocument()"
@@ -1669,12 +2327,14 @@ onclick="printDocument()"
 🖨️ Print A4
 </button>
 
+
 <button
 class="action-btn red"
 onclick="clearDocuments()"
 >
 🗑 Clear
 </button>
+
 
 </aside>
 
@@ -1730,6 +2390,7 @@ onclick="showPage('home')"
 ← Home
 </button>
 
+
 <div class="hero">
 
 <h2>
@@ -1742,9 +2403,12 @@ Passport Photo, Form Photo, 4×6, 4×12, A4 और Custom Photo Print
 
 </div>
 
+
 <div class="studio">
 
+
 <aside class="controls">
+
 
 <div class="control-group">
 
@@ -1843,6 +2507,7 @@ Custom
 
 </select>
 
+
 <label>
 Width
 </label>
@@ -1854,6 +2519,7 @@ value="35"
 step=".01"
 >
 
+
 <label>
 Height
 </label>
@@ -1864,6 +2530,7 @@ type="number"
 value="45"
 step=".01"
 >
+
 
 <label>
 Unit
@@ -1904,6 +2571,7 @@ value="100"
 oninput="editPhoto()"
 >
 
+
 <label>
 Brightness
 </label>
@@ -1917,6 +2585,7 @@ max="160"
 value="100"
 oninput="editPhoto()"
 >
+
 
 <label>
 Contrast
@@ -1932,6 +2601,7 @@ value="100"
 oninput="editPhoto()"
 >
 
+
 <label>
 Saturation
 </label>
@@ -1945,6 +2615,7 @@ max="180"
 value="100"
 oninput="editPhoto()"
 >
+
 
 <div class="two">
 
@@ -1988,6 +2659,7 @@ A4 Landscape
 
 </select>
 
+
 <label>
 Copies
 </label>
@@ -2000,6 +2672,7 @@ min="1"
 max="200"
 onchange="renderPhoto()"
 >
+
 
 <label>
 Gap (mm)
@@ -2025,6 +2698,7 @@ onclick="renderPhoto()"
 🔄 Update A4 Preview
 </button>
 
+
 <button
 class="action-btn green"
 onclick="printPhoto()"
@@ -2032,12 +2706,14 @@ onclick="printPhoto()"
 🖨️ Print A4
 </button>
 
+
 <button
 class="action-btn red"
 onclick="clearPhoto()"
 >
 🗑 Clear
 </button>
+
 
 </aside>
 
@@ -2301,6 +2977,7 @@ Online portals और digital services
 
 </section>
 
+
 </main>
 
 
@@ -2310,22 +2987,29 @@ FOOTER
 
 <footer class="footer">
 
+
+<div class="footer-title">
 🇮🇳 Gramin Grahak Sewa
+</div>
 
-<br><br>
 
+<div class="footer-subtitle">
 AI • Digital • Document • Photo • Citizen Services
+</div>
 
-<br>
 
+<div class="footer-note">
 Private Digital Service Centre
+</div>
 
 
-<!-- =====================================================
-SOCIAL MEDIA
-===================================================== -->
+<div class="social-title">
+हमें Social Media पर Follow करें
+</div>
+
 
 <div class="social-icons">
+
 
 <!-- FACEBOOK -->
 
@@ -2333,10 +3017,12 @@ SOCIAL MEDIA
 href="https://www.facebook.com/share/1JE2QRvJR1/"
 target="_blank"
 rel="noopener noreferrer"
+class="social facebook"
 title="Facebook"
-aria-label="Facebook"
 >
-f
+
+<span>f</span>
+
 </a>
 
 
@@ -2346,10 +3032,12 @@ f
 href="https://www.instagram.com/foji__ki_life?igsi=ZTJqMXRwbjE2c2dj"
 target="_blank"
 rel="noopener noreferrer"
+class="social instagram"
 title="Instagram"
-aria-label="Instagram"
 >
-◎
+
+<span>◎</span>
+
 </a>
 
 
@@ -2359,15 +3047,88 @@ aria-label="Instagram"
 href="https://wa.me/918890922880"
 target="_blank"
 rel="noopener noreferrer"
+class="social whatsapp"
 title="WhatsApp"
-aria-label="WhatsApp"
 >
-☎
+
+<span>◉</span>
+
 </a>
+
+
+<!-- YOUTUBE -->
+
+<a
+href="#"
+class="social youtube"
+title="YouTube"
+onclick="youtubeComingSoon(event)"
+>
+
+<span>▶</span>
+
+</a>
+
 
 </div>
 
+
+<div class="social-labels">
+
+<span>Facebook</span>
+
+<span>Instagram</span>
+
+<span>WhatsApp</span>
+
+<span>YouTube</span>
+
+</div>
+
+
+<div class="footer-contact">
+
+
+<a
+href="tel:8890922880"
+class="contact-btn"
+>
+📞 Call
+</a>
+
+
+<a
+href="https://wa.me/918890922880"
+target="_blank"
+rel="noopener noreferrer"
+class="contact-btn"
+>
+💬 WhatsApp
+</a>
+
+
+<a
+href="https://maps.app.goo.gl/6mqS2mqj1v7wUVJTA?g_st=ac"
+target="_blank"
+rel="noopener noreferrer"
+class="contact-btn"
+>
+📍 Location
+</a>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Gramin Grahak Sewa • All Rights Reserved
+
+</div>
+
+
 </footer>
+
 
 
 <script>
@@ -2378,138 +3139,229 @@ SERVICES
 
 const services={
 
+
 farmer:[
 
 ["🌾","PM-KISAN","https://pmkisan.gov.in/"],
+
 ["🌱","Soil Health Card","https://soilhealth.dac.gov.in/"],
+
 ["🧺","e-NAM","https://enam.gov.in/"],
+
 ["🌦️","Weather","https://mausam.imd.gov.in/"],
+
 ["🌾","Crop Insurance","https://pmfby.gov.in/"],
+
 ["🚜","Agriculture Schemes","https://agriwelfare.gov.in/"],
+
 ["🐄","Animal Husbandry","https://dahd.gov.in/"],
+
 ["🐟","Fisheries","https://dof.gov.in/"],
+
 ["🌿","Horticulture","https://agrihorticulture.gov.in/"],
+
 ["💰","Kisan Credit Card","https://www.myscheme.gov.in/"],
+
 ["📋","Farmer Schemes","https://www.myscheme.gov.in/"],
+
 ["💹","Mandi Services","https://enam.gov.in/"]
 
 ],
 
+
 bank:[
 
 ["🏦","IPPB","https://www.ippbonline.com/"],
+
 ["🛡️","Insurance","https://www.irdai.gov.in/"],
+
 ["👴","Pension","https://www.pfrda.org.in/"],
+
 ["📱","UPI / NPCI","https://www.npci.org.in/"],
+
 ["🏦","Banking Information","https://www.rbi.org.in/"]
 
 ],
 
+
 gov:[
 
 ["🪪","Aadhaar","https://myaadhaar.uidai.gov.in/"],
+
 ["💳","PAN / Income Tax","https://www.incometax.gov.in/"],
+
 ["🗳️","Voter ID","https://voters.eci.gov.in/"],
+
 ["🛂","Passport","https://www.passportindia.gov.in/"],
+
 ["🔐","Rajasthan SSO","https://sso.rajasthan.gov.in/"],
+
 ["🏛️","DigiLocker","https://www.digilocker.gov.in/"],
+
 ["👷","e-Shram","https://eshram.gov.in/"],
+
 ["🏥","Ayushman Bharat","https://beneficiary.nha.gov.in/"],
+
 ["🪪","ABHA","https://abha.abdm.gov.in/"],
+
 ["🍚","Ration Card","https://food.rajasthan.gov.in/"],
+
 ["👨‍👩‍👧","Jan Aadhaar","https://janaadhaar.rajasthan.gov.in/"],
+
 ["📜","Birth Certificate","https://pehchan.rajasthan.gov.in/"],
+
 ["⚰️","Death Certificate","https://pehchan.rajasthan.gov.in/"],
+
 ["💍","Marriage Certificate","https://pehchan.rajasthan.gov.in/"],
+
 ["📢","Jan Soochna","https://jansoochna.rajasthan.gov.in/"],
+
 ["⚖️","e-Courts","https://ecourts.gov.in/"],
+
 ["🏛️","CSC Digital Seva","https://digitalseva.csc.gov.in/"]
 
 ],
 
+
 bill:[
 
 ["🔥","HP Gas","https://www.hindustanpetroleum.com/hp-gas"],
+
 ["🔥","My HP Gas","https://myhpgas.in/"],
+
 ["🔥","Bharatgas","https://www.ebharatgas.com/"],
+
 ["🔥","Indane Gas","https://iocl.com/indane-cooking-gas-overview"],
+
 ["🔥","My LPG","https://www.mylpg.in/"],
+
 ["💰","LPG Subsidy","https://www.mylpg.in/"],
+
 ["📅","LPG Booking","https://www.mylpg.in/"],
+
 ["📍","LPG Distributor","https://www.mylpg.in/"],
+
 ["👤","LPG Consumer Services","https://www.mylpg.in/"],
+
 ["⚡","Rajasthan Electricity","https://energy.rajasthan.gov.in/"],
+
 ["💡","Electricity Services","https://energy.rajasthan.gov.in/"],
+
 ["🚘","FASTag / NPCI","https://www.npci.org.in/"]
 
 ],
 
+
 land:[
 
 ["📑","जमाबंदी","https://apnakhata.rajasthan.gov.in/"],
+
 ["📄","नकल","https://apnakhata.rajasthan.gov.in/"],
+
 ["🗺️","भू-नक्शा","https://bhunaksha.rajasthan.gov.in/"],
+
 ["📍","खसरा","https://apnakhata.rajasthan.gov.in/"],
+
 ["📚","खाता","https://apnakhata.rajasthan.gov.in/"],
+
 ["🌾","गिरदावरी","https://apnakhata.rajasthan.gov.in/"],
+
 ["🔄","नामांतरण","https://apnakhata.rajasthan.gov.in/"],
+
 ["📜","राजस्व रिकॉर्ड","https://apnakhata.rajasthan.gov.in/"],
+
 ["🏠","भूमि विवरण","https://apnakhata.rajasthan.gov.in/"],
+
 ["🧾","Land Print","https://apnakhata.rajasthan.gov.in/"]
 
 ],
 
+
 education:[
 
 ["🎓","Scholarship","https://scholarships.gov.in/"],
+
 ["🏫","Shala Darpan","https://rajshaladarpan.nic.in/"],
+
 ["📊","CBSE Result","https://results.cbse.nic.in/"],
+
 ["📝","CBSE","https://www.cbse.gov.in/"],
+
 ["📚","NCERT","https://ncert.nic.in/"],
+
 ["💻","DigiLocker","https://www.digilocker.gov.in/"],
+
 ["🏅","Scheme Search","https://www.myscheme.gov.in/"]
 
 ],
 
+
 transport:[
 
 ["🚗","Driving Licence","https://parivahan.gov.in/"],
+
 ["📝","Learner Licence","https://parivahan.gov.in/"],
+
 ["🔄","DL Renewal","https://parivahan.gov.in/"],
+
 ["🚘","Vehicle Registration","https://parivahan.gov.in/"],
+
 ["📄","RC Services","https://parivahan.gov.in/"],
+
 ["🧾","e-Challan","https://echallan.parivahan.gov.in/"],
+
 ["🚦","Vehicle Search","https://parivahan.gov.in/"],
+
 ["🚘","Permit","https://parivahan.gov.in/"],
+
 ["🚗","FASTag","https://www.npci.org.in/"],
+
 ["📋","Transport Forms","https://parivahan.gov.in/"]
 
 ],
 
+
 business:[
 
 ["🏢","Udyam Registration","https://udyamregistration.gov.in/"],
+
 ["🧾","GST","https://www.gst.gov.in/"],
+
 ["📊","Income Tax","https://www.incometax.gov.in/"],
+
 ["💳","PAN","https://www.incometax.gov.in/"],
+
 ["🍴","FSSAI","https://www.fssai.gov.in/"],
+
 ["🏪","MSME","https://udyamregistration.gov.in/"],
+
 ["💼","Business Schemes","https://www.myscheme.gov.in/"],
+
 ["🚀","Startup India","https://www.startupindia.gov.in/"],
+
 ["📈","GST Return","https://www.gst.gov.in/"],
+
 ["🧮","Tax Services","https://www.incometax.gov.in/"]
 
 ],
 
+
 digital:[
 
 ["☁️","DigiLocker","https://www.digilocker.gov.in/"],
+
 ["🏛️","CSC Digital Seva","https://digitalseva.csc.gov.in/"],
+
 ["🪪","Aadhaar Portal","https://myaadhaar.uidai.gov.in/"],
+
 ["🗳️","Voter Portal","https://voters.eci.gov.in/"],
+
 ["🛂","Passport Portal","https://www.passportindia.gov.in/"],
+
 ["🔐","Rajasthan SSO","https://sso.rajasthan.gov.in/"],
+
 ["🏛️","Jan Soochna","https://jansoochna.rajasthan.gov.in/"],
+
 ["⚖️","e-Courts","https://ecourts.gov.in/"]
 
 ]
@@ -2576,19 +3428,29 @@ services[category]
 
 }
 
+
 const sections=[
 
 ["🌾 किसान एवं कृषि सेवाएँ","farmer"],
+
 ["🏦 Banking Services","bank"],
+
 ["🏛️ Government Citizen Services","gov"],
+
 ["⚡ Bills / Gas / Recharge","bill"],
+
 ["📑 Land & Revenue Services","land"],
+
 ["🎓 Education Services","education"],
+
 ["🚗 Transport Services","transport"],
+
 ["🏢 Business & Tax Services","business"],
+
 ["💻 Digital & Online Services","digital"]
 
 ];
+
 
 document.getElementById(
 'homeServices'
@@ -2631,7 +3493,9 @@ const page=
 document.getElementById(id);
 
 if(page){
+
 page.classList.add('active');
+
 }
 
 window.scrollTo(
@@ -2695,12 +3559,527 @@ card.innerText
 
 
 /* =====================================================
+CUSTOMER FACILITY
+===================================================== */
+
+function showInfo(type){
+
+const box=
+document.getElementById(
+'customerInfo'
+);
+
+const content=
+document.getElementById(
+'infoContent'
+);
+
+box.style.display='block';
+
+
+if(type==='time'){
+
+content.innerHTML=`
+
+<h3>🕐 सेवा का समय</h3>
+
+<p>
+
+<strong>
+Gramin Grahak Sewa
+</strong>
+
+<br><br>
+
+🕘 सुबह <strong>9:00 बजे</strong>
+से
+
+<br>
+
+🕔 शाम <strong>5:00 बजे</strong>
+तक
+
+<br><br>
+
+ग्राहकों के लिए Digital, Document,
+Photo और Online Services उपलब्ध हैं।
+
+</p>
+
+`;
+
+}
+
+
+if(type==='charges'){
+
+content.innerHTML=`
+
+<h3>💰 Service Charges</h3>
+
+<table class="charges-table">
+
+<tr>
+<th>सेवा</th>
+<th>शुल्क</th>
+</tr>
+
+<tr>
+<td>📄 Document Print</td>
+<td>सेवा के अनुसार</td>
+</tr>
+
+<tr>
+<td>📸 Passport Photo</td>
+<td>सेवा के अनुसार</td>
+</tr>
+
+<tr>
+<td>🖨️ Colour Print</td>
+<td>सेवा के अनुसार</td>
+</tr>
+
+<tr>
+<td>📑 Online Form</td>
+<td>सेवा के अनुसार</td>
+</tr>
+
+<tr>
+<td>🏛️ Government Service</td>
+<td>सेवा के अनुसार</td>
+</tr>
+
+<tr>
+<td>📋 Land / Revenue Work</td>
+<td>सेवा के अनुसार</td>
+</tr>
+
+</table>
+
+<p style="margin-top:12px">
+
+<strong>
+नोट:
+</strong>
+
+सरकारी शुल्क और सेवा केंद्र शुल्क
+अलग-अलग हो सकते हैं।
+
+</p>
+
+`;
+
+}
+
+
+if(type==='reviews'){
+
+content.innerHTML=`
+
+<h3>⭐ Customer Reviews</h3>
+
+<div class="review-form">
+
+<input
+id="reviewName"
+placeholder="आपका नाम"
+>
+
+<select id="reviewRating">
+
+<option value="5">
+⭐⭐⭐⭐⭐ 5 Star
+</option>
+
+<option value="4">
+⭐⭐⭐⭐ 4 Star
+</option>
+
+<option value="3">
+⭐⭐⭐ 3 Star
+</option>
+
+<option value="2">
+⭐⭐ 2 Star
+</option>
+
+<option value="1">
+⭐ 1 Star
+</option>
+
+</select>
+
+<textarea
+id="reviewText"
+placeholder="अपना अनुभव लिखें..."
+></textarea>
+
+<button
+class="action-btn green"
+onclick="addReview()"
+>
+⭐ Review Submit करें
+</button>
+
+</div>
+
+<div
+id="reviewList"
+class="review-list"
+></div>
+
+`;
+
+loadReviews();
+
+}
+
+
+if(type==='faq'){
+
+content.innerHTML=`
+
+<h3>❓ Frequently Asked Questions</h3>
+
+
+<div class="faq-item">
+
+<button
+class="faq-question"
+onclick="toggleFAQ(this)"
+>
+📸 क्या फोटो का size बदला जा सकता है?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+
+हाँ। Customer Photo Studio में
+Passport, Form, 4×6, 4×12, A4 और
+Custom Size उपलब्ध हैं।
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button
+class="faq-question"
+onclick="toggleFAQ(this)"
+>
+📄 क्या Document की Front और Back दोनों बना सकते हैं?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+
+हाँ। Document Studio में Front,
+Back और Front + Back तीनों विकल्प हैं।
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button
+class="faq-question"
+onclick="toggleFAQ(this)"
+>
+🖨️ क्या A4 पर Print Layout बनाया जा सकता है?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+
+हाँ। A4 Portrait और Landscape दोनों
+layout उपलब्ध हैं।
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button
+class="faq-question"
+onclick="toggleFAQ(this)"
+>
+💬 WhatsApp से संपर्क कैसे करें?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+
+नीचे WhatsApp button पर क्लिक करके
+सीधे WhatsApp पर संपर्क कर सकते हैं।
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button
+class="faq-question"
+onclick="toggleFAQ(this)"
+>
+🕐 सेवा केंद्र कितने बजे खुलता है?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+
+सेवा का समय सुबह 9:00 बजे से
+शाम 5:00 बजे तक है।
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button
+class="faq-question"
+onclick="toggleFAQ(this)"
+>
+📍 Location कहाँ है?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+
+Home Page या Footer में
+📍 Location button पर क्लिक करके
+Google Maps पर Location देख सकते हैं।
+
+</div>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =====================================================
+FAQ
+===================================================== */
+
+function toggleFAQ(button){
+
+const item=
+button.parentElement;
+
+item.classList.toggle('open');
+
+const span=
+button.querySelector('span');
+
+span.textContent=
+item.classList.contains('open')
+?
+'−'
+:
+'+';
+
+}
+
+
+/* =====================================================
+REVIEWS
+===================================================== */
+
+function addReview(){
+
+const name=
+document.getElementById(
+'reviewName'
+).value.trim();
+
+const rating=
+document.getElementById(
+'reviewRating'
+).value;
+
+const text=
+document.getElementById(
+'reviewText'
+).value.trim();
+
+
+if(!name || !text){
+
+alert(
+'कृपया नाम और Review दोनों भरें।'
+);
+
+return;
+
+}
+
+
+const reviews=
+JSON.parse(
+localStorage.getItem(
+'graminReviews'
+) || '[]'
+);
+
+
+reviews.push({
+
+name:name,
+
+rating:rating,
+
+text:text,
+
+date:new Date()
+.toLocaleDateString('hi-IN')
+
+});
+
+
+localStorage.setItem(
+'graminReviews',
+JSON.stringify(reviews)
+);
+
+
+document.getElementById(
+'reviewName'
+).value='';
+
+document.getElementById(
+'reviewText'
+).value='';
+
+
+loadReviews();
+
+
+alert(
+'धन्यवाद! आपका Review सेव हो गया।'
+);
+
+}
+
+
+/* =====================================================
+LOAD REVIEWS
+===================================================== */
+
+function loadReviews(){
+
+const list=
+document.getElementById(
+'reviewList'
+);
+
+if(!list)
+return;
+
+
+const reviews=
+JSON.parse(
+localStorage.getItem(
+'graminReviews'
+) || '[]'
+);
+
+
+if(reviews.length===0){
+
+list.innerHTML=`
+
+<div class="empty">
+
+अभी कोई Customer Review नहीं है।
+
+पहला Review आप लिख सकते हैं।
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+list.innerHTML=
+reviews
+.slice()
+.reverse()
+.map(
+r=>`
+
+<div class="review-card">
+
+<b>
+${escapeHTML(r.name)}
+</b>
+
+<div class="stars">
+
+${'⭐'.repeat(
+Number(r.rating)
+)}
+
+</div>
+
+<p>
+${escapeHTML(r.text)}
+</p>
+
+<small>
+${r.date}
+</small>
+
+</div>
+
+`
+)
+.join('');
+
+}
+
+
+/* =====================================================
+SECURITY FOR REVIEW TEXT
+===================================================== */
+
+function escapeHTML(text){
+
+return text
+.replace(/&/g,'&amp;')
+.replace(/</g,'&lt;')
+.replace(/>/g,'&gt;')
+.replace(/"/g,'&quot;')
+.replace(/'/g,'&#039;');
+
+}
+
+
+/* =====================================================
 DOCUMENT STUDIO
 ===================================================== */
 
 let documents={
+
 front:null,
+
 back:null
+
 };
 
 let selectedSide='front';
@@ -2710,8 +4089,9 @@ function documentPreset(){
 
 const value=
 document
-.getElementById('docPreset')
-.value;
+.getElementById(
+'docPreset'
+).value;
 
 if(value==='custom')
 return;
@@ -2719,10 +4099,14 @@ return;
 const p=
 value.split('x');
 
-document.getElementById('docWidth').value=
+document.getElementById(
+'docWidth'
+).value=
 p[0];
 
-document.getElementById('docHeight').value=
+document.getElementById(
+'docHeight'
+).value=
 p[1];
 
 renderDocuments();
@@ -2742,13 +4126,16 @@ event.target.files[0];
 if(!file)
 return;
 
+
 const reader=
 new FileReader();
+
 
 reader.onload=function(e){
 
 const image=
 new Image();
+
 
 image.onload=function(){
 
@@ -2782,6 +4169,7 @@ h:image.naturalHeight
 
 };
 
+
 selectedSide=side;
 
 loadDocumentEditor();
@@ -2790,9 +4178,11 @@ renderDocuments();
 
 };
 
+
 image.src=e.target.result;
 
 };
+
 
 reader.readAsDataURL(file);
 
@@ -2811,13 +4201,22 @@ documents[selectedSide];
 if(!d)
 return;
 
-document.getElementById('docZoom').value=
+
+document.getElementById(
+'docZoom'
+).value=
 d.zoom;
 
-document.getElementById('docBrightness').value=
+
+document.getElementById(
+'docBrightness'
+).value=
 d.brightness;
 
-document.getElementById('docContrast').value=
+
+document.getElementById(
+'docContrast'
+).value=
 d.contrast;
 
 }
@@ -2831,14 +4230,24 @@ documents[selectedSide];
 if(!d)
 return;
 
+
 d.zoom=
-+document.getElementById('docZoom').value;
++document.getElementById(
+'docZoom'
+).value;
+
 
 d.brightness=
-+document.getElementById('docBrightness').value;
++document.getElementById(
+'docBrightness'
+).value;
+
 
 d.contrast=
-+document.getElementById('docContrast').value;
++document.getElementById(
+'docContrast'
+).value;
+
 
 renderDocuments();
 
@@ -2850,11 +4259,13 @@ function rotateDocument(){
 if(!documents[selectedSide])
 return;
 
+
 documents[selectedSide].rotation=
 (
 documents[selectedSide].rotation+
 90
 )%360;
+
 
 renderDocuments();
 
@@ -2866,8 +4277,10 @@ function flipDocument(){
 if(!documents[selectedSide])
 return;
 
+
 documents[selectedSide].flip=
 !documents[selectedSide].flip;
+
 
 renderDocuments();
 
@@ -2879,8 +4292,10 @@ function grayDocument(){
 if(!documents[selectedSide])
 return;
 
+
 documents[selectedSide].gray=
 !documents[selectedSide].gray;
+
 
 renderDocuments();
 
@@ -2895,21 +4310,32 @@ documents[selectedSide];
 if(!d)
 return;
 
+
 d.rotation=0;
+
 d.flip=false;
+
 d.gray=false;
+
 d.brightness=100;
+
 d.contrast=100;
+
 d.zoom=100;
+
 
 d.crop={
 
 x:0,
+
 y:0,
+
 w:d.image.naturalWidth,
+
 h:d.image.naturalHeight
 
 };
+
 
 loadDocumentEditor();
 
@@ -2937,11 +4363,16 @@ return;
 
 }
 
+
 const image=
 d.image;
 
+
 const canvas=
-document.createElement('canvas');
+document.createElement(
+'canvas'
+);
+
 
 canvas.width=
 image.naturalWidth;
@@ -2949,14 +4380,17 @@ image.naturalWidth;
 canvas.height=
 image.naturalHeight;
 
+
 const ctx=
 canvas.getContext('2d');
+
 
 ctx.drawImage(
 image,
 0,
 0
 );
+
 
 const data=
 ctx.getImageData(
@@ -2965,6 +4399,7 @@ ctx.getImageData(
 canvas.width,
 canvas.height
 ).data;
+
 
 let minX=
 canvas.width;
@@ -2977,6 +4412,7 @@ let maxX=0;
 let maxY=0;
 
 let found=false;
+
 
 for(
 let y=0;
@@ -2997,11 +4433,13 @@ canvas.width+
 x
 )*4;
 
+
 const r=data[i];
 
 const g=data[i+1];
 
 const b=data[i+2];
+
 
 if(
 r<245 ||
@@ -3012,22 +4450,35 @@ b<245
 found=true;
 
 minX=
-Math.min(minX,x);
+Math.min(
+minX,
+x
+);
 
 minY=
-Math.min(minY,y);
+Math.min(
+minY,
+y
+);
 
 maxX=
-Math.max(maxX,x);
+Math.max(
+maxX,
+x
+);
 
 maxY=
-Math.max(maxY,y);
+Math.max(
+maxY,
+y
+);
 
 }
 
 }
 
 }
+
 
 if(!found){
 
@@ -3038,6 +4489,7 @@ alert(
 return;
 
 }
+
 
 d.crop={
 
@@ -3050,6 +4502,7 @@ w:maxX-minX+1,
 h:maxY-minY+1
 
 };
+
 
 renderDocuments();
 
@@ -3065,14 +4518,20 @@ function editedDocument(side){
 const d=
 documents[side];
 
+
 const c0=
 d.crop;
 
+
 const canvas=
-document.createElement('canvas');
+document.createElement(
+'canvas'
+);
+
 
 const rotated=
 d.rotation%180!==0;
+
 
 canvas.width=
 rotated
@@ -3081,6 +4540,7 @@ c0.h
 :
 c0.w;
 
+
 canvas.height=
 rotated
 ?
@@ -3088,15 +4548,19 @@ c0.w
 :
 c0.h;
 
+
 const ctx=
 canvas.getContext('2d');
 
+
 ctx.save();
+
 
 ctx.translate(
 canvas.width/2,
 canvas.height/2
 );
+
 
 ctx.rotate(
 d.rotation*
@@ -3104,24 +4568,29 @@ Math.PI/
 180
 );
 
+
 ctx.scale(
 d.flip?-1:1,
 1
 );
+
 
 ctx.filter=
 `brightness(${d.brightness}%)
 contrast(${d.contrast}%)
 ${d.gray?'grayscale(100%)':'grayscale(0%)'}`;
 
+
 const z=
 d.zoom/100;
+
 
 const w=
 c0.w*z;
 
 const h=
 c0.h*z;
+
 
 ctx.drawImage(
 
@@ -3139,7 +4608,9 @@ h
 
 );
 
+
 ctx.restore();
+
 
 return canvas;
 
@@ -3159,25 +4630,30 @@ document.getElementById(
 
 output.innerHTML='';
 
+
 const mode=
 document.getElementById(
 'docMode'
 ).value;
+
 
 const paper=
 document.getElementById(
 'docPaper'
 ).value;
 
+
 const width=
 +document.getElementById(
 'docWidth'
 ).value;
 
+
 const height=
 +document.getElementById(
 'docHeight'
 ).value;
+
 
 const copies=
 Math.max(
@@ -3186,6 +4662,7 @@ Math.max(
 'docCopies'
 ).value
 );
+
 
 const gap=
 (
@@ -3198,6 +4675,7 @@ const gap=
 *
 96/25.4;
 
+
 document
 .getElementById('docA4')
 .classList.toggle(
@@ -3205,7 +4683,9 @@ document
 paper==='landscape'
 );
 
+
 let sides=[];
+
 
 if(
 mode==='front' &&
@@ -3216,6 +4696,7 @@ sides=['front'];
 
 }
 
+
 if(
 mode==='back' &&
 documents.back
@@ -3224,6 +4705,7 @@ documents.back
 sides=['back'];
 
 }
+
 
 if(
 mode==='both' &&
@@ -3238,33 +4720,43 @@ sides=[
 
 }
 
+
 if(sides.length===0){
 
 output.innerHTML=
 `
+
 <div class="empty">
+
 Selected Front / Back document upload करें।
+
 </div>
+
 `;
 
 return;
 
 }
 
+
 const scale=
 96/25.4;
+
 
 const cardW=
 width*scale;
 
+
 const cardH=
 height*scale;
+
 
 for(
 let i=0;
 i<copies;
 i++
 ){
+
 
 if(
 mode==='both'
@@ -3275,33 +4767,42 @@ document.createElement(
 'div'
 );
 
+
 row.className=
 'document-pair';
+
 
 row.style.gap=
 gap+'px';
 
+
 sides.forEach(
 side=>{
+
 
 const card=
 document.createElement(
 'div'
 );
 
+
 card.className=
 'id-card';
+
 
 card.style.width=
 cardW+'px';
 
+
 card.style.height=
 cardH+'px';
+
 
 const img=
 document.createElement(
 'img'
 );
+
 
 img.src=
 editedDocument(side)
@@ -3310,35 +4811,47 @@ editedDocument(side)
 .96
 );
 
+
 card.appendChild(img);
+
 
 row.appendChild(card);
 
+
 });
+
 
 output.appendChild(row);
 
+
 }
+
 else{
+
 
 const card=
 document.createElement(
 'div'
 );
 
+
 card.className=
 'id-card';
+
 
 card.style.width=
 cardW+'px';
 
+
 card.style.height=
 cardH+'px';
+
 
 const img=
 document.createElement(
 'img'
 );
+
 
 img.src=
 editedDocument(sides[0])
@@ -3347,7 +4860,9 @@ editedDocument(sides[0])
 .96
 );
 
+
 card.appendChild(img);
+
 
 output.appendChild(card);
 
@@ -3368,9 +4883,12 @@ showPage('document');
 
 renderDocuments();
 
+
 setTimeout(
 function(){
+
 window.print();
+
 },
 250
 );
@@ -3385,13 +4903,23 @@ CLEAR DOCUMENT
 function clearDocuments(){
 
 documents={
+
 front:null,
+
 back:null
+
 };
 
-document.getElementById('frontFile').value='';
 
-document.getElementById('backFile').value='';
+document.getElementById(
+'frontFile'
+).value='';
+
+
+document.getElementById(
+'backFile'
+).value='';
+
 
 renderDocuments();
 
@@ -3416,8 +4944,10 @@ document
 )
 .value;
 
+
 if(value==='custom')
 return;
+
 
 const map={
 
@@ -3471,20 +5001,32 @@ const map={
 
 };
 
+
 const p=
 map[value];
+
 
 if(!p)
 return;
 
-document.getElementById('photoWidth').value=
+
+document.getElementById(
+'photoWidth'
+).value=
 p[0];
 
-document.getElementById('photoHeight').value=
+
+document.getElementById(
+'photoHeight'
+).value=
 p[1];
 
-document.getElementById('photoUnit').value=
+
+document.getElementById(
+'photoUnit'
+).value=
 p[2];
+
 
 renderPhoto();
 
@@ -3503,13 +5045,16 @@ event.target.files[0];
 if(!file)
 return;
 
+
 const reader=
 new FileReader();
+
 
 reader.onload=function(e){
 
 const image=
 new Image();
+
 
 image.onload=function(){
 
@@ -3527,15 +5072,39 @@ saturation:100
 
 };
 
+
 photoRotation=0;
+
+
+document.getElementById(
+'photoZoom'
+).value=100;
+
+
+document.getElementById(
+'photoBrightness'
+).value=100;
+
+
+document.getElementById(
+'photoContrast'
+).value=100;
+
+
+document.getElementById(
+'photoSaturation'
+).value=100;
+
 
 renderPhoto();
 
 };
 
+
 image.src=e.target.result;
 
 };
+
 
 reader.readAsDataURL(file);
 
@@ -3551,17 +5120,30 @@ function editPhoto(){
 if(!customerPhoto)
 return;
 
+
 customerPhoto.zoom=
-+document.getElementById('photoZoom').value;
++document.getElementById(
+'photoZoom'
+).value;
+
 
 customerPhoto.brightness=
-+document.getElementById('photoBrightness').value;
++document.getElementById(
+'photoBrightness'
+).value;
+
 
 customerPhoto.contrast=
-+document.getElementById('photoContrast').value;
++document.getElementById(
+'photoContrast'
+).value;
+
 
 customerPhoto.saturation=
-+document.getElementById('photoSaturation').value;
++document.getElementById(
+'photoSaturation'
+).value;
+
 
 renderPhoto();
 
@@ -3573,11 +5155,13 @@ function rotatePhoto(){
 if(!customerPhoto)
 return;
 
+
 photoRotation=
 (
 photoRotation+
 90
 )%360;
+
 
 renderPhoto();
 
@@ -3589,7 +5173,9 @@ function resetPhoto(){
 if(!customerPhoto)
 return;
 
+
 photoRotation=0;
+
 
 customerPhoto.zoom=100;
 
@@ -3599,13 +5185,26 @@ customerPhoto.contrast=100;
 
 customerPhoto.saturation=100;
 
-document.getElementById('photoZoom').value=100;
 
-document.getElementById('photoBrightness').value=100;
+document.getElementById(
+'photoZoom'
+).value=100;
 
-document.getElementById('photoContrast').value=100;
 
-document.getElementById('photoSaturation').value=100;
+document.getElementById(
+'photoBrightness'
+).value=100;
+
+
+document.getElementById(
+'photoContrast'
+).value=100;
+
+
+document.getElementById(
+'photoSaturation'
+).value=100;
+
 
 renderPhoto();
 
@@ -3621,11 +5220,16 @@ function photoCanvas(){
 const image=
 customerPhoto.image;
 
+
 const rotated=
 photoRotation%180!==0;
 
+
 const canvas=
-document.createElement('canvas');
+document.createElement(
+'canvas'
+);
+
 
 canvas.width=
 rotated
@@ -3634,6 +5238,7 @@ image.naturalHeight
 :
 image.naturalWidth;
 
+
 canvas.height=
 rotated
 ?
@@ -3641,15 +5246,19 @@ image.naturalWidth
 :
 image.naturalHeight;
 
+
 const ctx=
 canvas.getContext('2d');
 
+
 ctx.save();
+
 
 ctx.translate(
 canvas.width/2,
 canvas.height/2
 );
+
 
 ctx.rotate(
 photoRotation*
@@ -3657,19 +5266,23 @@ Math.PI/
 180
 );
 
+
 ctx.filter=
 `brightness(${customerPhoto.brightness}%)
 contrast(${customerPhoto.contrast}%)
 saturate(${customerPhoto.saturation}%)`;
 
+
 const z=
 customerPhoto.zoom/100;
+
 
 const w=
 image.naturalWidth*z;
 
 const h=
 image.naturalHeight*z;
+
 
 ctx.drawImage(
 image,
@@ -3679,7 +5292,9 @@ w,
 h
 );
 
+
 ctx.restore();
+
 
 return canvas;
 
@@ -3697,12 +5312,15 @@ document.getElementById(
 'photoOutput'
 );
 
+
 output.innerHTML='';
+
 
 const paper=
 document.getElementById(
 'photoPaper'
 ).value;
+
 
 document
 .getElementById('photoA4')
@@ -3711,27 +5329,42 @@ document
 paper==='landscape'
 );
 
+
 if(!customerPhoto){
 
 output.innerHTML=
 `
+
 <div class="empty">
+
 Customer photo upload करें।
+
 </div>
+
 `;
 
 return;
 
 }
 
+
 let width=
-+document.getElementById('photoWidth').value;
++document.getElementById(
+'photoWidth'
+).value;
+
 
 let height=
-+document.getElementById('photoHeight').value;
++document.getElementById(
+'photoHeight'
+).value;
+
 
 const unit=
-document.getElementById('photoUnit').value;
+document.getElementById(
+'photoUnit'
+).value;
+
 
 if(unit==='inch'){
 
@@ -3741,8 +5374,10 @@ height*=25.4;
 
 }
 
+
 const scale=
 96/25.4;
+
 
 const w=
 width*scale;
@@ -3750,22 +5385,30 @@ width*scale;
 const h=
 height*scale;
 
+
 const copies=
 Math.max(
 1,
-+document.getElementById('photoCopies').value
++document.getElementById(
+'photoCopies'
+).value
 );
+
 
 const gap=
 (
-+document.getElementById('photoGap').value||
++document.getElementById(
+'photoGap'
+).value||
 0
 )
 *
 scale;
 
+
 const source=
 photoCanvas();
+
 
 for(
 let i=0;
@@ -3778,19 +5421,32 @@ document.createElement(
 'div'
 );
 
+
 card.className=
 'photo-card';
+
 
 card.style.width=
 w+'px';
 
+
 card.style.height=
 h+'px';
+
+
+card.style.marginRight=
+gap+'px';
+
+
+card.style.marginBottom=
+gap+'px';
+
 
 const img=
 document.createElement(
 'img'
 );
+
 
 img.src=
 source.toDataURL(
@@ -3798,7 +5454,9 @@ source.toDataURL(
 .96
 );
 
+
 card.appendChild(img);
+
 
 output.appendChild(card);
 
@@ -3817,9 +5475,12 @@ showPage('photo');
 
 renderPhoto();
 
+
 setTimeout(
 function(){
+
 window.print();
+
 },
 250
 );
@@ -3835,9 +5496,28 @@ function clearPhoto(){
 
 customerPhoto=null;
 
-document.getElementById('photoFile').value='';
+document.getElementById(
+'photoFile'
+).value='';
+
 
 renderPhoto();
+
+}
+
+
+/* =====================================================
+YOUTUBE
+===================================================== */
+
+function youtubeComingSoon(event){
+
+event.preventDefault();
+
+
+alert(
+'YouTube channel का link अभी नहीं जोड़ा गया है।'
+);
 
 }
 
@@ -3854,5 +5534,7 @@ photoPreset();
 
 </script>
 
+
 </body>
+
 </html>
