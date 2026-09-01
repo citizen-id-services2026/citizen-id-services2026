@@ -3,1544 +3,897 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#0756b8">
 
-<title>Bharat Digital Centre | Document & Photo Studio</title>
+<title>Citizen ID Services | Document & Photo Editor</title>
 
 <style>
 *{
- box-sizing:border-box;
- margin:0;
- padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html{
- scroll-behavior:smooth;
+:root{
+    --blue:#0756b8;
+    --dark:#063568;
+    --cyan:#08a1d8;
+    --green:#128a45;
+    --orange:#f28c18;
+    --red:#d62828;
+    --bg:#eef4fb;
+    --card:#ffffff;
+    --border:#d7e1ec;
+    --text:#172b4d;
 }
 
 body{
- font-family:Arial,Helvetica,sans-serif;
- background:#f2f6fa;
- color:#172033;
-}
-
-button,input,select{
- font-family:inherit;
-}
-
-button{
- cursor:pointer;
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
 
 header{
- background:#0756b8;
- color:#fff;
- position:sticky;
- top:0;
- z-index:1000;
- box-shadow:0 2px 10px #0003;
+    background:linear-gradient(135deg,var(--dark),var(--blue),var(--cyan));
+    color:white;
+    padding:14px 4%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 12px #0003;
 }
 
-.header{
- max-width:1200px;
- margin:auto;
- min-height:58px;
- padding:7px 12px;
- display:flex;
- align-items:center;
- justify-content:space-between;
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
 }
 
-.brand{
- display:flex;
- align-items:center;
- gap:8px;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
-.brandIcon{
- width:36px;
- height:36px;
- border-radius:8px;
- background:#fff;
- color:#0756b8;
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:14px;
- font-weight:bold;
+.logo-icon{
+    width:38px;
+    height:38px;
+    background:#fff;
+    color:var(--blue);
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    font-size:21px;
 }
 
-.brandText h1{
- font-size:16px;
+.logo h1{
+    font-size:20px;
 }
 
-.brandText p{
- font-size:8px;
- margin-top:2px;
- opacity:.9;
+.logo p{
+    font-size:11px;
+    opacity:.9;
 }
 
-.menuBtn{
- border:0;
- background:#ffffff20;
- color:#fff;
- width:36px;
- height:34px;
- border-radius:7px;
- font-size:18px;
+.header-btn{
+    border:1px solid #ffffff55;
+    background:#ffffff18;
+    color:#fff;
+    border-radius:8px;
+    padding:7px 10px;
+    cursor:pointer;
+    font-size:12px;
 }
 
-nav{
- max-width:1200px;
- margin:auto;
- display:none;
- gap:5px;
- flex-wrap:wrap;
- padding:0 12px 8px;
-}
-
-nav.show{
- display:flex;
-}
-
-nav button{
- border:0;
- background:#ffffff18;
- color:#fff;
- padding:7px 9px;
- border-radius:6px;
- font-size:9px;
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:15px;
 }
 
 .hero{
- max-width:1200px;
- margin:auto;
- padding:12px;
+    background:white;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 3px 12px #0000000d;
 }
 
-.heroBox{
- background:linear-gradient(135deg,#0756b8,#08a1d8);
- color:#fff;
- border-radius:14px;
- padding:20px 16px;
+.hero h2{
+    color:var(--dark);
+    font-size:23px;
+    margin-bottom:5px;
 }
 
-.heroBox h2{
- font-size:24px;
- line-height:1.2;
+.hero p{
+    font-size:13px;
+    color:#607089;
 }
 
-.heroBox p{
- font-size:10px;
- margin-top:6px;
- line-height:1.5;
+/* SERVICE BUTTONS */
+
+.service-title{
+    margin:12px 0 8px;
+    font-size:17px;
 }
 
-.heroActions{
- display:flex;
- gap:7px;
- flex-wrap:wrap;
- margin-top:12px;
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
 }
 
-.heroActions button{
- border:0;
- border-radius:7px;
- padding:9px 11px;
- font-size:9px;
- font-weight:bold;
+.service-btn{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px 7px;
+    cursor:pointer;
+    text-align:center;
+    transition:.2s;
+    min-height:72px;
 }
 
-.whiteBtn{
- background:#fff;
- color:#0756b8;
+.service-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px #0002;
 }
 
-.darkBtn{
- background:#ffffff22;
- color:#fff;
+.service-btn .icon{
+    font-size:22px;
+    display:block;
+    margin-bottom:4px;
 }
 
-.section{
- max-width:1200px;
- margin:auto;
- padding:8px 12px;
+.service-btn span{
+    font-size:12px;
+    font-weight:bold;
 }
 
-.sectionTitle{
- margin-bottom:8px;
+/* SECTIONS */
+
+.editor-section{
+    display:none;
+    margin-top:15px;
 }
 
-.sectionTitle h2{
- font-size:18px;
- color:#062b57;
+.editor-section.active{
+    display:block;
 }
 
-.sectionTitle p{
- font-size:9px;
- color:#64748b;
- margin-top:3px;
+.panel{
+    background:white;
+    border-radius:14px;
+    padding:14px;
+    box-shadow:0 3px 15px #00000012;
+    margin-bottom:15px;
 }
 
-/* MAIN SERVICE BUTTONS */
-
-.mainGrid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:8px;
+.panel-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:9px;
 }
 
-.mainCard{
- min-height:112px;
- border:0;
- border-radius:12px;
- color:#fff;
- padding:12px 7px;
- box-shadow:0 4px 14px #0002;
+.panel-title h3{
+    font-size:17px;
+    color:var(--dark);
 }
 
-.mainCard.doc{
- background:linear-gradient(135deg,#0756b8,#06366e);
+/* UPLOAD */
+
+.upload-box{
+    border:2px dashed #8eb4da;
+    border-radius:12px;
+    padding:20px 10px;
+    text-align:center;
+    background:#f7fbff;
+    cursor:pointer;
 }
 
-.mainCard.photo{
- background:linear-gradient(135deg,#138a45,#079b7b);
+.upload-box strong{
+    display:block;
+    font-size:15px;
+    color:var(--blue);
+    margin-bottom:5px;
 }
 
-.mainIcon{
- font-size:28px;
+.upload-box small{
+    color:#65758b;
 }
 
-.mainCard h3{
- font-size:15px;
- margin-top:4px;
+#docInput,
+#photoInput{
+    display:none;
 }
 
-.mainCard p{
- font-size:8px;
- margin-top:4px;
- line-height:1.4;
+/* TOOLBAR */
+
+.toolbar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin:10px 0;
 }
 
-/* EDITOR */
-
-.editor{
- display:none;
- background:#fff;
- border:1px solid #d8e2ec;
- border-radius:12px;
- overflow:hidden;
- box-shadow:0 3px 14px #0001;
- margin-top:8px;
+.tool{
+    border:1px solid #ccd8e6;
+    background:#fff;
+    border-radius:7px;
+    padding:7px 9px;
+    cursor:pointer;
+    font-size:12px;
+    color:#17375f;
 }
 
-.editor.active{
- display:block;
+.tool:hover{
+    background:#eef6ff;
 }
 
-.editorHead{
- color:#fff;
- background:#0756b8;
- padding:11px;
+.tool.primary{
+    background:var(--blue);
+    color:white;
+    border-color:var(--blue);
 }
 
-.photoEditor .editorHead{
- background:#138a45;
+.tool.green{
+    background:var(--green);
+    color:white;
+    border-color:var(--green);
 }
 
-.editorHead h2{
- font-size:17px;
+.tool.orange{
+    background:var(--orange);
+    color:white;
+    border-color:var(--orange);
 }
 
-.editorHead p{
- font-size:8px;
- margin-top:4px;
+.tool.red{
+    background:var(--red);
+    color:white;
+    border-color:var(--red);
 }
 
-.uploadArea{
- background:#f7fbff;
- border-bottom:1px solid #dce5ed;
- padding:8px;
+/* SLIDERS */
+
+.adjustments{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin:8px 0;
 }
 
-.uploadGrid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:5px;
+.adjust{
+    background:#f5f8fc;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:8px;
 }
 
-.uploadBtn{
- border:1px solid #c9d7e5;
- background:#fff;
- color:#0756b8;
- border-radius:6px;
- padding:8px 3px;
- font-size:8px;
- font-weight:bold;
+.adjust label{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    margin-bottom:5px;
 }
 
-.uploadBtn.green{
- color:#138a45;
-}
-
-.workspace{
- padding:8px;
-}
-
-/* SIDE SELECT */
-
-.sideSelect{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:5px;
- margin-bottom:7px;
-}
-
-.sideBtn{
- border:1px solid #ccd9e5;
- background:#fff;
- padding:8px 2px;
- border-radius:6px;
- font-size:8px;
-}
-
-.sideBtn.active{
- background:#0756b8;
- color:#fff;
- border-color:#0756b8;
-}
-
-/* DOCUMENT PANELS */
-
-.docPanels{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:7px;
-}
-
-.docPanel{
- border:1px solid #d6e1eb;
- border-radius:8px;
- background:#fbfdff;
- padding:6px;
-}
-
-.panelTitle{
- font-size:9px;
- font-weight:bold;
- color:#243b53;
- margin-bottom:5px;
-}
-
-.imageBox{
- height:220px;
- border:2px dashed #b8c8d8;
- border-radius:7px;
- background:#f0f4f7;
- display:flex;
- align-items:center;
- justify-content:center;
- overflow:hidden;
- position:relative;
-}
-
-.imageBox canvas{
- max-width:100%;
- max-height:100%;
- display:none;
-}
-
-.emptyText{
- text-align:center;
- color:#64748b;
- font-size:8px;
- padding:8px;
-}
-
-.emptyText strong{
- display:block;
- font-size:26px;
- margin-bottom:4px;
-}
-
-.panelActions{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:4px;
- margin-top:5px;
-}
-
-.smallBtn{
- border:1px solid #ccd9e5;
- background:#fff;
- border-radius:5px;
- padding:6px 2px;
- font-size:7px;
-}
-
-/* CONTROLS */
-
-.controls{
- margin-top:8px;
-}
-
-.controlBox{
- border:1px solid #dce5ed;
- background:#fbfdff;
- border-radius:7px;
- padding:7px;
- margin-bottom:6px;
-}
-
-.controlTitle{
- font-size:9px;
- font-weight:bold;
- color:#334155;
- margin-bottom:5px;
-}
-
-.controlRow{
- display:flex;
- gap:4px;
- flex-wrap:wrap;
-}
-
-.ctrlBtn{
- border:1px solid #ccd9e5;
- background:#fff;
- color:#334155;
- border-radius:5px;
- padding:6px 8px;
- font-size:8px;
-}
-
-.ctrlBtn.active{
- background:#0756b8;
- color:#fff;
- border-color:#0756b8;
-}
-
-.rangeRow{
- display:grid;
- grid-template-columns:65px 1fr 38px;
- gap:5px;
- align-items:center;
- margin:5px 0;
-}
-
-.rangeRow label{
- font-size:8px;
-}
-
-.rangeRow input{
- width:100%;
-}
-
-.rangeRow output{
- font-size:8px;
- text-align:right;
-}
-
-.select{
- width:100%;
- border:1px solid #ccd9e5;
- background:#fff;
- border-radius:5px;
- padding:7px;
- font-size:8px;
-}
-
-.copyGrid{
- display:grid;
- grid-template-columns:repeat(8,1fr);
- gap:4px;
-}
-
-.copyBtn{
- border:1px solid #ccd9e5;
- background:#fff;
- border-radius:5px;
- padding:6px 2px;
- font-size:7px;
-}
-
-.copyBtn.active{
- background:#0756b8;
- color:#fff;
+input[type=range]{
+    width:100%;
 }
 
 /* CROP */
 
-.cropArea{
- display:none;
- background:#101820;
- border-radius:8px;
- padding:7px;
- margin-top:7px;
+.crop-area{
+    position:relative;
+    background:#222;
+    border-radius:10px;
+    min-height:260px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:auto;
+    padding:10px;
 }
 
-.cropArea.show{
- display:block;
+#docCanvas{
+    max-width:100%;
+    height:auto;
+    display:block;
+    background:white;
 }
 
-.cropTitle{
- color:#fff;
- font-size:9px;
- margin-bottom:6px;
+.crop-box{
+    position:absolute;
+    border:2px dashed #00ff9d;
+    box-shadow:0 0 0 9999px #0005;
+    display:none;
+    cursor:move;
 }
 
-.cropStage{
- position:relative;
- width:100%;
- height:320px;
- overflow:hidden;
- background:#222;
- border-radius:6px;
- touch-action:none;
+.crop-handle{
+    position:absolute;
+    width:14px;
+    height:14px;
+    background:white;
+    border:2px solid var(--blue);
+    border-radius:50%;
 }
 
-#cropImage{
- position:absolute;
- user-select:none;
- -webkit-user-drag:none;
- transform-origin:center center;
+.crop-handle.br{
+    right:-7px;
+    bottom:-7px;
+    cursor:nwse-resize;
 }
 
-.cropRect{
- position:absolute;
- border:2px solid #fff;
- box-shadow:0 0 0 9999px #0008;
- left:15%;
- top:15%;
- width:70%;
- height:70%;
- touch-action:none;
+.crop-handle.tl{
+    left:-7px;
+    top:-7px;
+    cursor:nwse-resize;
 }
 
-.cropHandle{
- position:absolute;
- width:14px;
- height:14px;
- background:#fff;
- border:2px solid #0756b8;
- border-radius:50%;
+.crop-handle.tr{
+    right:-7px;
+    top:-7px;
+    cursor:nesw-resize;
 }
 
-.hTL{left:-7px;top:-7px}
-.hTR{right:-7px;top:-7px}
-.hBL{left:-7px;bottom:-7px}
-.hBR{right:-7px;bottom:-7px}
-
-.cropActions{
- display:flex;
- gap:5px;
- margin-top:6px;
+.crop-handle.bl{
+    left:-7px;
+    bottom:-7px;
+    cursor:nesw-resize;
 }
 
-.cropActions button{
- flex:1;
- border:0;
- border-radius:5px;
- padding:8px;
- font-size:8px;
+/* FORMAT BUTTONS */
+
+.option-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:7px;
 }
 
-.applyCrop{
- background:#138a45;
- color:#fff;
+.option-btn{
+    border:1px solid var(--border);
+    background:#fff;
+    padding:9px 5px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:11px;
+    font-weight:bold;
 }
 
-.cancelCrop{
- background:#fff;
- color:#333;
+.option-btn.active{
+    background:var(--blue);
+    color:white;
 }
 
-/* A4 PREVIEW */
+/* A4 */
 
-.previewBox{
- margin-top:8px;
- border:1px solid #cfdbe6;
- background:#eef3f7;
- border-radius:8px;
- padding:7px;
+.preview-wrapper{
+    overflow:auto;
+    background:#606060;
+    padding:12px;
+    border-radius:10px;
 }
 
-.previewHeader{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin-bottom:6px;
+.a4-page{
+    width:794px;
+    height:1123px;
+    background:white;
+    margin:auto;
+    position:relative;
+    box-shadow:0 0 15px #0005;
+    overflow:hidden;
 }
 
-.previewHeader strong{
- font-size:10px;
+.a4-card{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    background:white;
+    border:1px solid #777;
+    overflow:hidden;
 }
 
-.previewHeader span{
- font-size:7px;
- color:#64748b;
+.a4-card img{
+    width:100%;
+    height:100%;
+    object-fit:fill;
+    display:block;
 }
 
-.a4Frame{
- width:100%;
- max-width:520px;
- margin:auto;
- background:#fff;
- border:1px solid #aaa;
- aspect-ratio:210/297;
- position:relative;
- overflow:hidden;
+.card-front{
+    top:25px;
 }
 
-.a4CanvasWrap{
- position:absolute;
- inset:0;
+.card-back{
+    top:220px;
 }
 
-#a4Canvas{
- width:100%;
- height:100%;
- display:block;
+.a4-label{
+    position:absolute;
+    font-size:9px;
+    color:#777;
+    left:8px;
 }
 
-/* INFO */
+/* SIZE */
 
-.actualInfo{
- background:#eef7ff;
- border:1px solid #cde3f7;
- color:#0756b8;
- border-radius:6px;
- padding:7px;
- font-size:8px;
- line-height:1.5;
- margin-top:6px;
+.size-info{
+    background:#f3f8ff;
+    border:1px solid #d7e7f8;
+    border-radius:8px;
+    padding:9px;
+    margin:8px 0;
+    font-size:12px;
 }
 
-/* ACTIONS */
+/* PHOTO */
 
-.outputGrid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:5px;
-}
-
-.outputBtn{
- border:0;
- border-radius:6px;
- padding:9px 3px;
- font-size:8px;
- font-weight:bold;
-}
-
-.blue{
- background:#0756b8;
- color:#fff;
-}
-
-.green{
- background:#138a45;
- color:#fff;
-}
-
-.red{
- background:#fee2e2;
- color:#991b1b;
-}
-
-/* PHOTO STUDIO */
-
-.photoContent{
- padding:8px;
-}
-
-.photoPreview{
- height:300px;
- background:#eef2f5;
- border:2px dashed #b8c8d8;
- border-radius:7px;
- display:flex;
- align-items:center;
- justify-content:center;
- overflow:hidden;
+.photo-preview{
+    background:#222;
+    min-height:250px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:10px;
+    overflow:auto;
 }
 
 #photoCanvas{
- max-width:100%;
- max-height:100%;
- display:none;
+    max-width:100%;
+    height:auto;
+    background:white;
 }
 
-.photoOptions{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:5px;
- margin-top:7px;
+.photo-options{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-top:10px;
 }
 
-.photoOption{
- border:1px solid #ccd9e5;
- background:#fff;
- border-radius:6px;
- padding:8px 3px;
- font-size:8px;
+.photo-btn{
+    padding:12px 5px;
+    border-radius:9px;
+    border:1px solid var(--border);
+    background:white;
+    cursor:pointer;
+    font-size:12px;
+    font-weight:bold;
 }
 
-.photoOption.active{
- background:#138a45;
- color:#fff;
- border-color:#138a45;
+.photo-btn.active{
+    background:var(--green);
+    color:#fff;
 }
 
-.photoOutput{
- margin-top:7px;
- background:#eef7f1;
- border:1px solid #cce5d5;
- border-radius:6px;
- padding:7px;
- font-size:8px;
- color:#166534;
+/* STATUS */
+
+.status{
+    background:#edf8f0;
+    color:#176b38;
+    border:1px solid #b9e0c5;
+    border-radius:8px;
+    padding:8px;
+    font-size:12px;
+    margin-top:8px;
 }
-
-/* SERVICES */
-
-.serviceGrid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:7px;
-}
-
-.service{
- background:#fff;
- border:1px solid #dce5ed;
- border-radius:8px;
- padding:8px;
-}
-
-.serviceIcon{
- width:28px;
- height:28px;
- background:#eaf3ff;
- border-radius:6px;
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:14px;
- margin-bottom:5px;
-}
-
-.service h3{
- font-size:10px;
-}
-
-.service p{
- font-size:7px;
- color:#64748b;
- margin:3px 0 5px;
-}
-
-.service a{
- display:inline-block;
- background:#0756b8;
- color:#fff;
- text-decoration:none;
- border-radius:4px;
- padding:5px 7px;
- font-size:7px;
-}
-
-/* TOOLS */
-
-.toolsGrid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:7px;
-}
-
-.tool{
- background:#fff;
- border:1px solid #dce5ed;
- border-radius:7px;
- padding:8px;
-}
-
-.tool h3{
- font-size:10px;
- margin-bottom:5px;
-}
-
-.tool input,
-.tool textarea{
- width:100%;
- border:1px solid #ccd9e5;
- border-radius:5px;
- padding:6px;
- font-size:8px;
- margin-bottom:4px;
-}
-
-.tool textarea{
- min-height:70px;
- resize:vertical;
-}
-
-.tool button{
- border:0;
- background:#0756b8;
- color:#fff;
- border-radius:5px;
- padding:6px 8px;
- font-size:8px;
-}
-
-.result{
- background:#edf6ff;
- color:#0756b8;
- border-radius:4px;
- padding:5px;
- margin-top:4px;
- font-size:8px;
-}
-
-/* FOOTER */
 
 footer{
- margin-top:15px;
- background:#062b57;
- color:#fff;
- padding:18px 12px;
-}
-
-.footerGrid{
- max-width:1200px;
- margin:auto;
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:12px;
-}
-
-footer h3{
- font-size:10px;
-}
-
-footer p,
-footer a{
- display:block;
- color:#dbeafe;
- text-decoration:none;
- font-size:7px;
- margin-top:4px;
-}
-
-.copyright{
- text-align:center;
- border-top:1px solid #ffffff20;
- margin-top:12px;
- padding-top:8px;
- font-size:7px;
-}
-
-/* PRINT */
-
-#printArea{
- display:none;
+    text-align:center;
+    padding:20px;
+    color:#68788d;
+    font-size:11px;
 }
 
 /* MOBILE */
 
 @media(max-width:700px){
 
-.uploadGrid{
- grid-template-columns:repeat(2,1fr);
+    .container{
+        padding:9px;
+    }
+
+    header{
+        padding:10px 3%;
+    }
+
+    .logo h1{
+        font-size:16px;
+    }
+
+    .logo p{
+        display:none;
+    }
+
+    .service-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .adjustments{
+        grid-template-columns:1fr;
+    }
+
+    .option-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero h2{
+        font-size:19px;
+    }
+
+    .panel{
+        padding:10px;
+    }
+
+    .toolbar{
+        gap:5px;
+    }
+
+    .tool{
+        padding:7px 8px;
+        font-size:11px;
+    }
+
+    .preview-wrapper{
+        padding:6px;
+    }
 }
 
-.docPanels{
- grid-template-columns:1fr;
-}
-
-.serviceGrid{
- grid-template-columns:repeat(2,1fr);
-}
-
-.toolsGrid{
- grid-template-columns:1fr 1fr;
-}
-
-.copyGrid{
- grid-template-columns:repeat(4,1fr);
-}
-
-}
-
-/* PRINT STYLE */
+/* PRINT */
 
 @media print{
 
-@page{
- size:A4 portrait;
- margin:0;
-}
+    body *{
+        visibility:hidden;
+    }
 
-body{
- margin:0;
- background:#fff;
-}
+    #printArea,
+    #printArea *{
+        visibility:visible;
+    }
 
-body > *{
- display:none!important;
-}
+    #printArea{
+        position:absolute;
+        left:0;
+        top:0;
+    }
 
-#printArea{
- display:block!important;
- width:210mm;
- min-height:297mm;
- background:#fff;
-}
+    .a4-page{
+        box-shadow:none;
+        margin:0;
+    }
 
-.printA4{
- width:210mm;
- height:297mm;
- position:relative;
- background:#fff;
- overflow:hidden;
-}
-
-.printCard{
- position:absolute;
- width:85.6mm;
- height:53.98mm;
- overflow:hidden;
-}
-
-.printCard img{
- width:85.6mm;
- height:53.98mm;
- display:block;
- object-fit:fill;
-}
-
+    @page{
+        size:A4 portrait;
+        margin:0;
+    }
 }
 </style>
 </head>
 
-
 <body>
 
 <header>
+<div class="header-inner">
 
-<div class="header">
-
-<div class="brand">
-
-<div class="brandIcon">BD</div>
-
-<div class="brandText">
-<h1>Bharat Digital Centre</h1>
-<p>Document & Photo Services</p>
+<div class="logo">
+<div class="logo-icon">🪪</div>
+<div>
+<h1>Citizen ID Services</h1>
+<p>Document & Photo Service Center</p>
+</div>
 </div>
 
-</div>
-
-<button class="menuBtn" onclick="toggleMenu()">☰</button>
+<button class="header-btn" onclick="goHome()">⌂ Home</button>
 
 </div>
-
-<nav id="nav">
-<button onclick="openEditor('documentEditor')">📄 Document</button>
-<button onclick="openEditor('photoEditor')">📸 Photo</button>
-<button onclick="scrollToId('services')">Services</button>
-<button onclick="scrollToId('tools')">Tools</button>
-</nav>
-
 </header>
 
+<div class="container">
 
 <section class="hero">
-
-<div class="heroBox">
-
-<h2>Digital Services<br>एक ही जगह</h2>
-
-<p>
-Document Copy Editor और Customer Photo Studio
-के साथ आसान mobile printing.
-</p>
-
-<div class="heroActions">
-
-<button class="whiteBtn"
-onclick="openEditor('documentEditor')">
-📄 Document Copy
-</button>
-
-<button class="darkBtn"
-onclick="openEditor('photoEditor')">
-📸 Photo Studio
-</button>
-
-</div>
-
-</div>
-
+<h2>Digital Document & Photo Center</h2>
+<p>Document Copy, ID Card Front/Back, Auto Crop और Photo Size बनाने के लिए आसान Editor</p>
 </section>
 
+<h3 class="service-title">📂 Document Services</h3>
 
-<section class="section">
+<div class="service-grid">
 
-<div class="mainGrid">
-
-<button class="mainCard doc"
-onclick="openEditor('documentEditor')">
-
-<div class="mainIcon">📄</div>
-
-<h3>Document Copy</h3>
-
-<p>
-Front • Back • Front + Back<br>
-ID Card • A4 • Crop • Edit
-</p>
-
+<button class="service-btn" onclick="openEditor()">
+<span class="icon">📄</span>
+<span>Document Copy Editor</span>
 </button>
 
+<button class="service-btn" onclick="openEditor('front')">
+<span class="icon">🪪</span>
+<span>Front Only</span>
+</button>
 
-<button class="mainCard photo"
-onclick="openEditor('photoEditor')">
+<button class="service-btn" onclick="openEditor('back')">
+<span class="icon">🔄</span>
+<span>Back Only</span>
+</button>
 
-<div class="mainIcon">📸</div>
-
-<h3>Customer Photo</h3>
-
-<p>
-Passport • Half • Full<br>
-Zoom • Brightness • Contrast
-</p>
-
+<button class="service-btn" onclick="openEditor('both')">
+<span class="icon">🪪</span>
+<span>Front + Back</span>
 </button>
 
 </div>
 
-</section>
+<h3 class="service-title">📸 Photo Services</h3>
 
+<div class="service-grid">
 
-<!-- =====================================================
-DOCUMENT EDITOR
-===================================================== -->
-
-<section class="section">
-
-<div class="editor" id="documentEditor">
-
-<div class="editorHead">
-
-<h2>📄 Document Copy Editor</h2>
-
-<p>
-Front और Back को अलग-अलग edit करके वास्तविक size में A4 paper पर print करें।
-</p>
-
-</div>
-
-
-<div class="uploadArea">
-
-<div class="uploadGrid">
-
-<button class="uploadBtn"
-onclick="frontInput.click()">
-🖼️ Front
+<button class="service-btn" onclick="openPhoto()">
+<span class="icon">📷</span>
+<span>Photo Maker</span>
 </button>
 
-<button class="uploadBtn"
-onclick="backInput.click()">
-🖼️ Back
+<button class="service-btn" onclick="openPhoto('passport')">
+<span class="icon">👤</span>
+<span>Passport Size</span>
 </button>
 
-<button class="uploadBtn"
-onclick="singleInput.click()">
-📷 Single
+<button class="service-btn" onclick="openPhoto('half')">
+<span class="icon">🧑</span>
+<span>Half Photo</span>
 </button>
 
-<button class="uploadBtn"
-onclick="loadDemoDocuments()">
-🧪 Demo
+<button class="service-btn" onclick="openPhoto('full')">
+<span class="icon">🧍</span>
+<span>Full Size Photo</span>
 </button>
 
 </div>
+
+
+<!-- ================= DOCUMENT EDITOR ================= -->
+
+<section id="documentEditor" class="editor-section">
+
+<div class="panel">
+
+<div class="panel-title">
+<h3>📄 Document Copy Editor</h3>
+<button class="tool red" onclick="closeEditors()">✕ Close</button>
+</div>
+
+<label class="upload-box" for="docInput">
+
+<strong>📁 Document / Aadhaar Image या PDF Upload करें</strong>
+
+<small>
+WhatsApp से प्राप्त JPG, PNG या A4 PDF भी चुन सकते हैं
+</small>
+
+</label>
 
 <input
-id="frontInput"
 type="file"
-accept="image/*"
-style="display:none"
-onchange="loadDocument(this,'front')">
+id="docInput"
+accept="image/*,.pdf"
+multiple
+>
 
-<input
-id="backInput"
-type="file"
-accept="image/*"
-style="display:none"
-onchange="loadDocument(this,'back')">
-
-<input
-id="singleInput"
-type="file"
-accept="image/*"
-style="display:none"
-onchange="loadDocument(this,'front')">
+<div class="status" id="docStatus">
+पहले Front Document Upload करें।
+</div>
 
 </div>
 
 
-<div class="workspace">
+<div class="panel">
+
+<div class="panel-title">
+<h3>🛠 Document Editor</h3>
+</div>
+
+<div class="toolbar">
+
+<button class="tool primary" onclick="autoCrop()">
+🤖 Auto Crop
+</button>
+
+<button class="tool orange" onclick="startCrop()">
+✂️ Crop
+</button>
+
+<button class="tool" onclick="resetImage()">
+↺ Reset
+</button>
+
+<button class="tool" onclick="rotateImage()">
+↻ Rotate
+</button>
+
+<button class="tool" onclick="zoomIn()">
+🔍+
+</button>
+
+<button class="tool" onclick="zoomOut()">
+🔍−
+</button>
+
+<button class="tool" onclick="fitImage()">
+⛶ Fit
+</button>
+
+</div>
+
+<div class="adjustments">
+
+<div class="adjust">
+<label>
+Brightness
+<b id="brightValue">100%</b>
+</label>
+<input
+type="range"
+id="brightness"
+min="50"
+max="150"
+value="100"
+oninput="applyAdjustments()">
+</div>
+
+<div class="adjust">
+<label>
+Contrast
+<b id="contrastValue">100%</b>
+</label>
+<input
+type="range"
+id="contrast"
+min="50"
+max="150"
+value="100"
+oninput="applyAdjustments()">
+</div>
+
+<div class="adjust">
+<label>
+Zoom
+<b id="zoomValue">100%</b>
+</label>
+<input
+type="range"
+id="zoom"
+min="50"
+max="200"
+value="100"
+oninput="applyZoomSlider()">
+</div>
+
+</div>
+
+<div class="crop-area" id="cropArea">
+
+<canvas id="docCanvas"></canvas>
+
+<div class="crop-box" id="cropBox">
+
+<div class="crop-handle tl"></div>
+<div class="crop-handle tr"></div>
+<div class="crop-handle bl"></div>
+<div class="crop-handle br"></div>
+
+</div>
+
+</div>
+
+</div>
 
 
 <!-- MODE -->
 
-<div class="sideSelect">
+<div class="panel">
 
-<button id="modeFront"
-class="sideBtn active"
-onclick="setPrintMode('front',this)">
-FRONT ONLY
-</button>
-
-<button id="modeBack"
-class="sideBtn"
-onclick="setPrintMode('back',this)">
-BACK ONLY
-</button>
-
-<button id="modeBoth"
-class="sideBtn"
-onclick="setPrintMode('both',this)">
-FRONT + BACK
-</button>
-
+<div class="panel-title">
+<h3>🪪 Print Mode</h3>
 </div>
 
-
-<!-- EDIT SIDE -->
-
-<div class="sideSelect">
-
-<button id="editFront"
-class="sideBtn active"
-onclick="selectEditSide('front')">
-✏️ EDIT FRONT
-</button>
-
-<button id="editBack"
-class="sideBtn"
-onclick="selectEditSide('back')">
-✏️ EDIT BACK
-</button>
-
-<button class="sideBtn"
-onclick="startCrop(editingSide)">
-✂️ CROP
-</button>
-
-</div>
-
-
-<!-- PANELS -->
-
-<div class="docPanels">
-
-
-<div class="docPanel">
-
-<div class="panelTitle">📄 FRONT</div>
-
-<div class="imageBox">
-
-<div id="frontEmpty" class="emptyText">
-
-<strong>📄</strong>
-Front Photo चुनें
-
-</div>
-
-<canvas id="frontCanvas"></canvas>
-
-</div>
-
-<div class="panelActions">
-
-<button class="smallBtn"
-onclick="rotateDoc('front',-90)">
-↶
-</button>
-
-<button class="smallBtn"
-onclick="rotateDoc('front',90)">
-↷
-</button>
-
-<button class="smallBtn"
-onclick="flipDoc('front')">
-↔
-</button>
-
-<button class="smallBtn"
-onclick="startCrop('front')">
-✂️
-</button>
-
-</div>
-
-</div>
-
-
-<div class="docPanel">
-
-<div class="panelTitle">📄 BACK</div>
-
-<div class="imageBox">
-
-<div id="backEmpty" class="emptyText">
-
-<strong>📄</strong>
-Back Photo चुनें
-
-</div>
-
-<canvas id="backCanvas"></canvas>
-
-</div>
-
-<div class="panelActions">
-
-<button class="smallBtn"
-onclick="rotateDoc('back',-90)">
-↶
-</button>
-
-<button class="smallBtn"
-onclick="rotateDoc('back',90)">
-↷
-</button>
-
-<button class="smallBtn"
-onclick="flipDoc('back')">
-↔
-</button>
-
-<button class="smallBtn"
-onclick="startCrop('back')">
-✂️
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- CONTROLS -->
-
-<div class="controls">
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-🔍 Zoom
-</div>
-
-<div class="rangeRow">
-
-<label>Zoom</label>
-
-<input
-id="docZoom"
-type="range"
-min="50"
-max="200"
-value="100"
-oninput="updateDocControl()">
-
-<output id="docZoomOut">100%</output>
-
-</div>
-
-</div>
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-☀️ Brightness
-</div>
-
-<div class="rangeRow">
-
-<label>Bright</label>
-
-<input
-id="docBright"
-type="range"
-min="40"
-max="160"
-value="100"
-oninput="updateDocControl()">
-
-<output id="docBrightOut">100</output>
-
-</div>
-
-</div>
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-◐ Contrast
-</div>
-
-<div class="rangeRow">
-
-<label>Contrast</label>
-
-<input
-id="docContrast"
-type="range"
-min="40"
-max="200"
-value="100"
-oninput="updateDocControl()">
-
-<output id="docContrastOut">100</output>
-
-</div>
-
-</div>
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-🎨 Color
-</div>
-
-<div class="controlRow">
-
-<button id="colorBtn"
-class="ctrlBtn active"
-onclick="setGray(false)">
-🌈 Color
-</button>
-
-<button id="grayBtn"
-class="ctrlBtn"
-onclick="setGray(true)">
-⚫ B&W
-</button>
-
-</div>
-
-</div>
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-📐 Print Size
-</div>
-
-<select id="printSize"
-class="select"
-onchange="updateA4Preview()">
-
-<option value="id">
-🪪 ID Card — 85.60 × 53.98 mm
-</option>
-
-<option value="a4">
-📄 A4 — Full Paper
-</option>
-
-<option value="custom">
-📏 Custom Size
-</option>
-
-</select>
-
-</div>
-
-
-<div class="controlBox"
-id="customSizeBox"
-style="display:none">
-
-<div class="controlTitle">
-📏 Custom Size in mm
-</div>
-
-<div class="controlRow">
-
-<input
-id="customWidth"
-class="select"
-style="flex:1"
-type="number"
-placeholder="Width mm">
-
-<input
-id="customHeight"
-class="select"
-style="flex:1"
-type="number"
-placeholder="Height mm">
-
-</div>
-
-</div>
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-🔢 Copies / Sets
-</div>
-
-<div class="copyGrid">
-
-<button class="copyBtn active"
-onclick="setCopies(1,this)">
-1
-</button>
-
-<button class="copyBtn"
-onclick="setCopies(2,this)">
-2
-</button>
-
-<button class="copyBtn"
-onclick="setCopies(4,this)">
-4
-</button>
-
-<button class="copyBtn"
-onclick="setCopies(6,this)">
-6
-</button>
-
-<button class="copyBtn"
-onclick="setCopies(8,this)">
-8
-</button>
-
-<button class="copyBtn"
-onclick="setCopies(10,this)">
-10
-</button>
-
-<button class="copyBtn"
-onclick="setCopies(12,this)">
-12
-</button>
-
-<button class="copyBtn"
-onclick="setCopies(20,this)">
-20
-</button>
-
-</div>
-
-</div>
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-↺ Reset
-</div>
-
-<div class="controlRow">
-
-<button class="ctrlBtn"
-onclick="resetDoc('front')">
-Reset Front
-</button>
-
-<button class="ctrlBtn"
-onclick="resetDoc('back')">
-Reset Back
-</button>
-
-</div>
-
-</div>
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-⬇️ Output
-</div>
-
-<div class="outputGrid">
-
-<button class="outputBtn blue"
-onclick="downloadDocument()">
-⬇️ Download
-</button>
-
-<button class="outputBtn green"
-onclick="updateA4Preview()">
-👁️ Preview
-</button>
-
-<button class="outputBtn green"
-onclick="printDocument()">
-🖨️ Print
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- TOUCH CROP -->
-
-<div id="cropArea" class="cropArea">
-
-<div class="cropTitle">
-✂️ Crop Area — बॉक्स को उंगली से move/resize करें
-</div>
-
-<div id="cropStage" class="cropStage">
-
-<img id="cropImage">
-
-<div id="cropRect" class="cropRect">
-
-<div class="cropHandle hTL"></div>
-<div class="cropHandle hTR"></div>
-<div class="cropHandle hBL"></div>
-<div class="cropHandle hBR"></div>
-
-</div>
-
-</div>
-
-<div class="cropActions">
+<div class="option-grid">
 
 <button
-class="applyCrop"
-onclick="applyCrop()">
-✓ Apply Crop
+class="option-btn active"
+id="frontBtn"
+onclick="setMode('front')">
+Front Only
 </button>
 
 <button
-class="cancelCrop"
-onclick="cancelCrop()">
-✕ Cancel
+class="option-btn"
+id="backBtn"
+onclick="setMode('back')">
+Back Only
 </button>
+
+<button
+class="option-btn"
+id="bothBtn"
+onclick="setMode('both')">
+Front + Back
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SIZE -->
+
+<div class="panel">
+
+<div class="panel-title">
+<h3>📏 ID Card Size</h3>
+</div>
+
+<div class="option-grid">
+
+<button class="option-btn active"
+onclick="setCardSize('standard',this)">
+Standard ID
+</button>
+
+<button class="option-btn"
+onclick="setCardSize('aadhaar',this)">
+Aadhaar
+</button>
+
+<button class="option-btn"
+onclick="setCardSize('pan',this)">
+PAN Card
+</button>
+
+<button class="option-btn"
+onclick="setCardSize('voter',this)">
+Voter ID
+</button>
+
+<button class="option-btn"
+onclick="setCardSize('custom',this)">
+Custom
+</button>
+
+</div>
+
+<div class="size-info" id="sizeInfo">
+Standard ID Card: लगभग 85.6 × 54 mm
+</div>
+
+<div id="customSizeBox" style="display:none">
+
+<div class="toolbar">
+
+<input
+type="number"
+id="customW"
+placeholder="Width mm"
+value="85.6"
+style="padding:8px;width:100px">
+
+<input
+type="number"
+id="customH"
+placeholder="Height mm"
+value="54"
+style="padding:8px;width:100px">
+
+<button class="tool primary"
+onclick="updatePreview()">
+Apply Size
+</button>
+
+</div>
 
 </div>
 
@@ -1549,52 +902,73 @@ onclick="cancelCrop()">
 
 <!-- A4 PREVIEW -->
 
-<div class="previewBox">
+<div class="panel">
 
-<div class="previewHeader">
+<div class="panel-title">
+<h3>🖨 A4 Paper Preview</h3>
 
-<strong>👁️ A4 PRINT PREVIEW</strong>
-
-<span>
-Actual A4 ratio • 210 × 297 mm
-</span>
-
-</div>
-
-<div class="a4Frame">
-
-<div class="a4CanvasWrap">
-
-<canvas id="a4Canvas"></canvas>
-
-</div>
-
-</div>
-
-
-<div class="actualInfo">
-
-<b>🪪 ID Card Actual Size:</b>
-85.60 × 53.98 mm<br>
-
-<b>📌 Layout:</b>
-A4 के ऊपर से शुरू होगा और केवल जरूरी 2 mm gap रहेगा।<br>
-
-<b>🖨️ Print:</b>
-Browser Print में Scale = 100% / Actual Size रखें।
-
-</div>
-
-</div>
-
-
-<button
-class="outputBtn red"
-style="width:100%;margin-top:7px"
-onclick="closeEditor('documentEditor')">
-✕ Document Editor बंद करें
+<button class="tool green" onclick="printA4()">
+🖨 Print A4
 </button>
 
+</div>
+
+<div class="preview-wrapper">
+
+<div id="printArea">
+
+<div class="a4-page" id="a4Page">
+
+<div
+class="a4-card card-front"
+id="a4Front">
+<img id="frontPreview">
+</div>
+
+<div
+class="a4-label"
+id="frontLabel"
+style="top:210px">
+FRONT
+</div>
+
+<div
+class="a4-card card-back"
+id="a4Back">
+<img id="backPreview">
+</div>
+
+<div
+class="a4-label"
+id="backLabel"
+style="top:405px">
+BACK
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<div class="toolbar">
+
+<button class="tool primary" onclick="downloadFront()">
+⬇ Download Front
+</button>
+
+<button class="tool primary" onclick="downloadBack()">
+⬇ Download Back
+</button>
+
+<button class="tool green" onclick="downloadA4()">
+⬇ Download A4
+</button>
 
 </div>
 
@@ -1603,2785 +977,1860 @@ onclick="closeEditor('documentEditor')">
 </section>
 
 
-<!-- =====================================================
-PHOTO STUDIO
-===================================================== -->
+<!-- ================= PHOTO EDITOR ================= -->
 
-<section class="section">
+<section id="photoEditor" class="editor-section">
 
-<div class="editor photoEditor" id="photoEditor">
+<div class="panel">
 
-<div class="editorHead">
+<div class="panel-title">
+<h3>📸 Customer Photo Maker</h3>
 
-<h2>📸 Customer Photo Studio</h2>
-
-<p>
-Customer की फोटो को अलग-अलग उपयोग के लिए तैयार करें।
-</p>
-
-</div>
-
-
-<div class="uploadArea">
-
-<div class="uploadGrid">
-
-<button class="uploadBtn green"
-onclick="photoInput.click()">
-🖼️ Gallery
-</button>
-
-<button class="uploadBtn green"
-onclick="cameraInput.click()">
-📷 Camera
-</button>
-
-<button class="uploadBtn green"
-onclick="photoDemo()">
-🧪 Demo
-</button>
-
-<button class="uploadBtn"
-onclick="clearPhoto()">
-🗑️ Clear
+<button class="tool red"
+onclick="closeEditors()">
+✕ Close
 </button>
 
 </div>
+
+<label class="upload-box" for="photoInput">
+
+<strong>📷 Customer Photo Upload करें</strong>
+
+<small>
+JPG / PNG फोटो चुनें
+</small>
+
+</label>
 
 <input
+type="file"
 id="photoInput"
-type="file"
-accept="image/*"
-style="display:none"
-onchange="loadPhoto(this)">
-
-<input
-id="cameraInput"
-type="file"
-accept="image/*"
-capture="user"
-style="display:none"
-onchange="loadPhoto(this)">
+accept="image/*">
 
 </div>
 
 
-<div class="photoContent">
+<div class="panel">
 
-<div class="photoPreview">
-
-<div id="photoEmpty" class="emptyText">
-
-<strong>📸</strong>
-Customer Photo चुनें
-
+<div class="panel-title">
+<h3>📐 Photo Size Select करें</h3>
 </div>
 
-<canvas id="photoCanvas"></canvas>
-
-</div>
-
-
-<div class="photoOptions">
+<div class="photo-options">
 
 <button
-class="photoOption active"
-onclick="setPhotoType('passport',this)">
-🇮🇳 Passport<br>35×45 mm
+class="photo-btn active"
+onclick="setPhotoMode('passport',this)">
+Passport<br>
+35 × 45 mm
 </button>
 
 <button
-class="photoOption"
-onclick="setPhotoType('half',this)">
-👤 Half Photo
+class="photo-btn"
+onclick="setPhotoMode('half',this)">
+Half Photo
 </button>
 
 <button
-class="photoOption"
-onclick="setPhotoType('full',this)">
-🧍 Full Photo
-</button>
-
-<button
-class="photoOption"
-onclick="setPhotoType('4x6',this)">
-🖼️ 4×6 Photo
-</button>
-
-<button
-class="photoOption"
-onclick="setPhotoType('a4',this)">
-📄 A4 Photo
-</button>
-
-<button
-class="photoOption"
-onclick="setPhotoType('id',this)">
-🪪 ID Photo
+class="photo-btn"
+onclick="setPhotoMode('full',this)">
+Full Size Photo
 </button>
 
 </div>
 
-
-<div class="controls">
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-🔍 Zoom
-</div>
-
-<div class="rangeRow">
-
-<label>Zoom</label>
-
-<input
-id="photoZoom"
-type="range"
-min="50"
-max="200"
-value="100"
-oninput="drawPhoto()">
-
-<output id="photoZoomOut">
-100%
-</output>
-
-</div>
-
 </div>
 
 
-<div class="controlBox">
+<div class="panel">
 
-<div class="controlTitle">
-☀️ Brightness
+<div class="panel-title">
+<h3>🎨 Photo Editor</h3>
 </div>
 
-<div class="rangeRow">
+<div class="toolbar">
 
-<label>Bright</label>
-
-<input
-id="photoBright"
-type="range"
-min="40"
-max="160"
-value="100"
-oninput="drawPhoto()">
-
-<output id="photoBrightOut">
-100
-</output>
-
-</div>
-
-</div>
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-◐ Contrast
-</div>
-
-<div class="rangeRow">
-
-<label>Contrast</label>
-
-<input
-id="photoContrast"
-type="range"
-min="40"
-max="200"
-value="100"
-oninput="drawPhoto()">
-
-<output id="photoContrastOut">
-100
-</output>
-
-</div>
-
-</div>
-
-
-<div class="controlBox">
-
-<div class="controlTitle">
-🔄 Edit
-</div>
-
-<div class="controlRow">
-
-<button class="ctrlBtn"
-onclick="rotatePhoto(-90)">
-↶ Rotate
+<button class="tool" onclick="photoZoom(1.1)">
+🔍+
 </button>
 
-<button class="ctrlBtn"
-onclick="rotatePhoto(90)">
-↷ Rotate
+<button class="tool" onclick="photoZoom(.9)">
+🔍−
 </button>
 
-<button class="ctrlBtn"
-onclick="flipPhoto()">
-↔ Flip
+<button class="tool" onclick="photoRotate()">
+↻ Rotate
 </button>
 
-<button class="ctrlBtn"
-onclick="resetPhoto()">
+<button class="tool" onclick="resetPhoto()">
 ↺ Reset
 </button>
 
 </div>
 
+<div class="adjustments">
+
+<div class="adjust">
+
+<label>
+Brightness
+<b id="photoBrightValue">100%</b>
+</label>
+
+<input
+type="range"
+id="photoBrightness"
+min="50"
+max="150"
+value="100"
+oninput="drawPhoto()">
+
 </div>
 
+<div class="adjust">
 
-<div class="controlBox">
+<label>
+Contrast
+<b id="photoContrastValue">100%</b>
+</label>
 
-<div class="controlTitle">
-🔢 Copies
-</div>
-
-<div class="copyGrid">
-
-<button class="copyBtn active"
-onclick="setPhotoCopies(1,this)">
-1
-</button>
-
-<button class="copyBtn"
-onclick="setPhotoCopies(2,this)">
-2
-</button>
-
-<button class="copyBtn"
-onclick="setPhotoCopies(4,this)">
-4
-</button>
-
-<button class="copyBtn"
-onclick="setPhotoCopies(6,this)">
-6
-</button>
-
-<button class="copyBtn"
-onclick="setPhotoCopies(8,this)">
-8
-</button>
-
-<button class="copyBtn"
-onclick="setPhotoCopies(12,this)">
-12
-</button>
+<input
+type="range"
+id="photoContrast"
+min="50"
+max="150"
+value="100"
+oninput="drawPhoto()">
 
 </div>
 
 </div>
 
+<div class="photo-preview">
 
-<div class="outputGrid">
+<canvas id="photoCanvas"></canvas>
 
-<button class="outputBtn blue"
-onclick="downloadPhoto()">
-⬇️ Download
-</button>
+</div>
 
-<button class="outputBtn green"
+</div>
+
+
+<div class="panel">
+
+<div class="panel-title">
+<h3>🖨 Photo Print Preview</h3>
+
+<button class="tool green"
 onclick="printPhoto()">
-🖨️ Print
-</button>
-
-<button class="outputBtn red"
-onclick="clearPhoto()">
-🗑️ Clear
+🖨 Print
 </button>
 
 </div>
 
+<div class="preview-wrapper">
 
-<div class="photoOutput" id="photoInfo">
-Selected: Passport Size — 35 × 45 mm
+<div id="photoPrintArea">
+
+<div class="a4-page" id="photoA4">
+
 </div>
 
 </div>
 
 </div>
+
+</div>
+
+
+<div class="panel">
+
+<button
+class="tool primary"
+onclick="downloadPhoto()">
+⬇ Download Photo
+</button>
+
+<button
+class="tool green"
+onclick="downloadPhotoA4()">
+⬇ Download A4 Photo Sheet
+</button>
 
 </div>
 
 </section>
 
-
-<!-- =====================================================
-SERVICES
-===================================================== -->
-
-<section class="section" id="services">
-
-<div class="sectionTitle">
-
-<h2>🏛️ Online Services</h2>
-
-<p>Important official portals</p>
-
 </div>
-
-
-<div class="serviceGrid">
-
-
-<div class="service">
-<div class="serviceIcon">🪪</div>
-<h3>Aadhaar / UIDAI</h3>
-<p>Aadhaar services</p>
-<a href="https://uidai.gov.in/" target="_blank">Open ↗</a>
-</div>
-
-
-<div class="service">
-<div class="serviceIcon">💳</div>
-<h3>PAN / Income Tax</h3>
-<p>PAN services</p>
-<a href="https://www.incometax.gov.in/" target="_blank">Open ↗</a>
-</div>
-
-
-<div class="service">
-<div class="serviceIcon">🗳️</div>
-<h3>Voter</h3>
-<p>Election services</p>
-<a href="https://voters.eci.gov.in/" target="_blank">Open ↗</a>
-</div>
-
-
-<div class="service">
-<div class="serviceIcon">🔐</div>
-<h3>DigiLocker</h3>
-<p>Digital documents</p>
-<a href="https://www.digilocker.gov.in/" target="_blank">Open ↗</a>
-</div>
-
-
-<div class="service">
-<div class="serviceIcon">🛂</div>
-<h3>Passport</h3>
-<p>Passport Seva</p>
-<a href="https://www.passportindia.gov.in/" target="_blank">Open ↗</a>
-</div>
-
-
-<div class="service">
-<div class="serviceIcon">🚆</div>
-<h3>IRCTC</h3>
-<p>Railway services</p>
-<a href="https://www.irctc.co.in/" target="_blank">Open ↗</a>
-</div>
-
-
-<div class="service">
-<div class="serviceIcon">🚗</div>
-<h3>Parivahan</h3>
-<p>DL / Vehicle</p>
-<a href="https://parivahan.gov.in/" target="_blank">Open ↗</a>
-</div>
-
-
-<div class="service">
-<div class="serviceIcon">🏛️</div>
-<h3>myScheme</h3>
-<p>Government schemes</p>
-<a href="https://www.myscheme.gov.in/" target="_blank">Open ↗</a>
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-TOOLS
-===================================================== -->
-
-<section class="section" id="tools">
-
-<div class="sectionTitle">
-<h2>🛠️ Digital Tools</h2>
-</div>
-
-
-<div class="toolsGrid">
-
-
-<div class="tool">
-
-<h3>🧮 Calculator</h3>
-
-<input id="numA"
-type="number"
-placeholder="Number 1">
-
-<input id="numB"
-type="number"
-placeholder="Number 2">
-
-<div class="controlRow">
-
-<button onclick="calc('+')">+</button>
-<button onclick="calc('-')">−</button>
-<button onclick="calc('*')">×</button>
-<button onclick="calc('/')">÷</button>
-
-</div>
-
-<div class="result"
-id="calcResult">
-Result
-</div>
-
-</div>
-
-
-<div class="tool">
-
-<h3>📊 Percentage</h3>
-
-<input
-id="obtained"
-type="number"
-placeholder="प्राप्त अंक">
-
-<input
-id="total"
-type="number"
-placeholder="कुल अंक">
-
-<button onclick="percentage()">
-Calculate
-</button>
-
-<div class="result"
-id="percentageResult">
-Result
-</div>
-
-</div>
-
-
-<div class="tool">
-
-<h3>📝 Text Counter</h3>
-
-<textarea
-id="counterText"
-oninput="countText()"
-placeholder="Text लिखें"></textarea>
-
-<div class="result"
-id="counterResult">
-Characters: 0 | Words: 0
-</div>
-
-</div>
-
-
-</div>
-
-</section>
 
 
 <footer>
-
-<div class="footerGrid">
-
-<div>
-<h3>🇮🇳 Bharat Digital Centre</h3>
-<p>Digital Document Services</p>
-<p>Customer Photo Studio</p>
-</div>
-
-<div>
-<h3>Quick Services</h3>
-<a href="#services">Aadhaar</a>
-<a href="#services">PAN</a>
-<a href="#services">DigiLocker</a>
-</div>
-
-<div>
-<h3>Editors</h3>
-<a href="javascript:openEditor('documentEditor')">Document Copy</a>
-<a href="javascript:openEditor('photoEditor')">Photo Studio</a>
-</div>
-
-</div>
-
-<div class="copyright">
-© 2026 Bharat Digital Centre
-</div>
-
+© 2026 Citizen ID Services | Document & Photo Editor
 </footer>
 
 
-<div id="printArea"></div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs"
+type="module"></script>
 
 <script>
 
-/* =====================================================
-GENERAL
-===================================================== */
+/* ======================================
+   GLOBAL VARIABLES
+====================================== */
 
-function toggleMenu(){
+let frontImage = null;
+let backImage = null;
 
- document.getElementById("nav")
- .classList.toggle("show");
+let currentImage = null;
 
-}
+let originalImageData = null;
 
-function scrollToId(id){
+let currentMode = "front";
 
- document.getElementById(id)
- .scrollIntoView({
-   behavior:"smooth"
- });
-
- document.getElementById("nav")
- .classList.remove("show");
-
-}
-
-function openEditor(id){
-
- document.querySelectorAll(".editor")
- .forEach(function(e){
-   e.classList.remove("active");
- });
-
- document.getElementById(id)
- .classList.add("active");
-
- document.getElementById(id)
- .scrollIntoView({
-   behavior:"smooth",
-   block:"start"
- });
-
-}
-
-
-/* =====================================================
-DOCUMENT DATA
-===================================================== */
-
-const docs={
-
- front:{
-   img:null,
-   rotation:0,
-   zoom:1,
-   bright:100,
-   contrast:100,
-   gray:false,
-   flip:1,
-   cropX:0,
-   cropY:0,
-   cropW:1,
-   cropH:1
- },
-
- back:{
-   img:null,
-   rotation:0,
-   zoom:1,
-   bright:100,
-   contrast:100,
-   gray:false,
-   flip:1,
-   cropX:0,
-   cropY:0,
-   cropW:1,
-   cropH:1
- }
-
+let cardSize = {
+    w:85.6,
+    h:54
 };
 
-let editingSide="front";
-let printMode="front";
-let copies=1;
+let rotation = 0;
+let zoom = 1;
+
+let photoImage = null;
+let photoZoomValue = 1;
+let photoRotation = 0;
+let photoMode = "passport";
 
 
-/* =====================================================
-LOAD DOCUMENT
-===================================================== */
+const docCanvas =
+document.getElementById("docCanvas");
 
-function loadDocument(input,side){
+const ctx =
+docCanvas.getContext("2d");
 
- if(!input.files || !input.files[0]){
-   return;
- }
+const photoCanvas =
+document.getElementById("photoCanvas");
 
- const reader=new FileReader();
+const photoCtx =
+photoCanvas.getContext("2d");
 
- reader.onload=function(e){
 
-   const img=new Image();
+/* ======================================
+   OPEN EDITORS
+====================================== */
 
-   img.onload=function(){
+function openEditor(mode){
 
-     docs[side].img=img;
+    closeEditors();
 
-     resetDoc(side);
+    document
+    .getElementById("documentEditor")
+    .classList.add("active");
 
-     document.getElementById(side+"Empty")
-     .style.display="none";
+    if(mode){
+        setMode(mode);
+    }
 
-     document.getElementById(side+"Canvas")
-     .style.display="block";
-
-     drawDoc(side);
-
-     updateA4Preview();
-
-   };
-
-   img.src=e.target.result;
-
- };
-
- reader.readAsDataURL(input.files[0]);
-
+    window.scrollTo({
+        top:document
+        .getElementById("documentEditor")
+        .offsetTop-70,
+        behavior:"smooth"
+    });
 }
 
 
-/* =====================================================
-SELECT SIDE
-===================================================== */
+function openPhoto(mode){
 
-function selectEditSide(side){
+    closeEditors();
 
- editingSide=side;
+    document
+    .getElementById("photoEditor")
+    .classList.add("active");
 
- document.getElementById("editFront")
- .classList.toggle("active",side==="front");
+    if(mode){
+        photoMode=mode;
 
- document.getElementById("editBack")
- .classList.toggle("active",side==="back");
+        document
+        .querySelectorAll(".photo-btn")
+        .forEach(x=>x.classList.remove("active"));
+    }
 
- loadDocControls();
-
+    window.scrollTo({
+        top:document
+        .getElementById("photoEditor")
+        .offsetTop-70,
+        behavior:"smooth"
+    });
 }
 
 
-/* =====================================================
-LOAD CONTROLS
-===================================================== */
+function closeEditors(){
 
-function loadDocControls(){
-
- const d=docs[editingSide];
-
- document.getElementById("docZoom").value=
- Math.round(d.zoom*100);
-
- document.getElementById("docBright").value=
- d.bright;
-
- document.getElementById("docContrast").value=
- d.contrast;
-
- document.getElementById("docZoomOut").textContent=
- Math.round(d.zoom*100)+"%";
-
- document.getElementById("docBrightOut").textContent=
- d.bright;
-
- document.getElementById("docContrastOut").textContent=
- d.contrast;
-
- document.getElementById("colorBtn")
- .classList.toggle("active",!d.gray);
-
- document.getElementById("grayBtn")
- .classList.toggle("active",d.gray);
-
+    document
+    .querySelectorAll(".editor-section")
+    .forEach(x=>x.classList.remove("active"));
 }
 
 
-/* =====================================================
-UPDATE CONTROLS
-===================================================== */
+function goHome(){
 
-function updateDocControl(){
+    closeEditors();
 
- const d=docs[editingSide];
-
- d.zoom=
- Number(document.getElementById("docZoom").value)/100;
-
- d.bright=
- Number(document.getElementById("docBright").value);
-
- d.contrast=
- Number(document.getElementById("docContrast").value);
-
- document.getElementById("docZoomOut").textContent=
- Math.round(d.zoom*100)+"%";
-
- document.getElementById("docBrightOut").textContent=
- d.bright;
-
- document.getElementById("docContrastOut").textContent=
- d.contrast;
-
- drawDoc(editingSide);
-
- updateA4Preview();
-
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
-/* =====================================================
-DRAW DOCUMENT
-===================================================== */
+/* ======================================
+   DOCUMENT UPLOAD
+====================================== */
 
-function drawDoc(side){
+document
+.getElementById("docInput")
+.addEventListener("change",async function(e){
 
- const d=docs[side];
+    const files=[...e.target.files];
 
- if(!d.img)return;
+    if(!files.length)return;
 
- const canvas=
- document.getElementById(side+"Canvas");
+    for(let i=0;i<files.length && i<2;i++){
 
- const ctx=canvas.getContext("2d");
+        const file=files[i];
 
- let iw=d.img.naturalWidth;
- let ih=d.img.naturalHeight;
+        try{
 
- let sx=iw*d.cropX;
- let sy=ih*d.cropY;
+            const img=await fileToImage(file);
 
- let sw=iw*d.cropW;
- let sh=ih*d.cropH;
+            if(i===0){
 
- let scale=
- Math.min(650/sw,430/sh);
+                frontImage=img;
 
- scale*=d.zoom;
+                loadDocumentImage(img);
 
- if(!isFinite(scale)||scale<=0){
-   scale=1;
- }
+                document
+                .getElementById("docStatus")
+                .innerHTML=
+                "✅ Front Document Loaded";
 
- let dw=sw*scale;
- let dh=sh*scale;
+            }else{
 
- let rot=
- ((d.rotation%360)+360)%360;
+                backImage=img;
 
- if(rot===90||rot===270){
+                document
+                .getElementById("docStatus")
+                .innerHTML=
+                "✅ Front + Back दोनों Loaded";
+            }
 
-   canvas.width=Math.max(1,Math.round(dh));
-   canvas.height=Math.max(1,Math.round(dw));
+            updatePreview();
 
- }else{
+        }catch(err){
 
-   canvas.width=Math.max(1,Math.round(dw));
-   canvas.height=Math.max(1,Math.round(dh));
+            console.error(err);
 
- }
-
- ctx.clearRect(
-   0,0,canvas.width,canvas.height
- );
-
- ctx.save();
-
- ctx.translate(
-   canvas.width/2,
-   canvas.height/2
- );
-
- ctx.rotate(
-   rot*Math.PI/180
- );
-
- ctx.scale(d.flip,1);
-
- ctx.filter=
- "brightness("+d.bright+"%) "+
- "contrast("+d.contrast+"%) "+
- "grayscale("+(d.gray?100:0)+"%)";
-
- ctx.drawImage(
-   d.img,
-   sx,
-   sy,
-   sw,
-   sh,
-   -dw/2,
-   -dh/2,
-   dw,
-   dh
- );
-
- ctx.restore();
-
-}
-
-
-/* =====================================================
-ROTATE
-===================================================== */
-
-function rotateDoc(side,deg){
-
- if(!docs[side].img){
-
-   alert("पहले "+side+" photo चुनें।");
-   return;
-
- }
-
- docs[side].rotation+=deg;
-
- drawDoc(side);
- updateA4Preview();
-
-}
-
-
-/* =====================================================
-FLIP
-===================================================== */
-
-function flipDoc(side){
-
- if(!docs[side].img)return;
-
- docs[side].flip*=-1;
-
- drawDoc(side);
- updateA4Preview();
-
-}
-
-
-/* =====================================================
-GRAY
-===================================================== */
-
-function setGray(value){
-
- const d=docs[editingSide];
-
- d.gray=value;
-
- document.getElementById("colorBtn")
- .classList.toggle("active",!value);
-
- document.getElementById("grayBtn")
- .classList.toggle("active",value);
-
- drawDoc(editingSide);
- updateA4Preview();
-
-}
-
-
-/* =====================================================
-RESET
-===================================================== */
-
-function resetDoc(side){
-
- const d=docs[side];
-
- d.rotation=0;
- d.zoom=1;
- d.bright=100;
- d.contrast=100;
- d.gray=false;
- d.flip=1;
-
- d.cropX=0;
- d.cropY=0;
- d.cropW=1;
- d.cropH=1;
-
- if(editingSide===side){
-   loadDocControls();
- }
-
- if(d.img){
-   drawDoc(side);
- }
-
- updateA4Preview();
-
-}
-
-
-/* =====================================================
-PRINT MODE
-===================================================== */
-
-function setPrintMode(mode,btn){
-
- printMode=mode;
-
- document.querySelectorAll(
- "#modeFront,#modeBack,#modeBoth"
- ).forEach(function(b){
-   b.classList.remove("active");
- });
-
- btn.classList.add("active");
-
- updateA4Preview();
-
-}
-
-
-/* =====================================================
-COPIES
-===================================================== */
-
-function setCopies(n,btn){
-
- copies=n;
-
- btn.parentElement
- .querySelectorAll(".copyBtn")
- .forEach(function(b){
-   b.classList.remove("active");
- });
-
- btn.classList.add("active");
-
- updateA4Preview();
-
-}
-
-
-/* =====================================================
-SIZE CHANGE
-===================================================== */
-
-document.getElementById("printSize")
-.addEventListener("change",function(){
-
- document.getElementById("customSizeBox")
- .style.display=
- this.value==="custom"
- ?"block"
- :"none";
-
- updateA4Preview();
+            document
+            .getElementById("docStatus")
+            .innerHTML=
+            "❌ File load नहीं हो सकी। JPG/PNG try करें।";
+        }
+    }
 
 });
 
 
-/* =====================================================
-A4 CONSTANTS
-===================================================== */
+async function fileToImage(file){
 
-const A4W=210;
-const A4H=297;
+    if(file.type==="application/pdf" ||
+       file.name.toLowerCase().endsWith(".pdf")){
 
-const IDW=85.60;
-const IDH=53.98;
+        return await pdfToImage(file);
+    }
 
-const GAP=2;
-const MARGIN=3;
+    return new Promise((resolve,reject)=>{
+
+        const img=new Image();
+
+        img.onload=()=>resolve(img);
+
+        img.onerror=reject;
+
+        img.src=URL.createObjectURL(file);
+
+    });
+}
 
 
-/* =====================================================
-A4 PREVIEW
-===================================================== */
+/* ======================================
+   PDF TO IMAGE
+====================================== */
 
-function updateA4Preview(){
+async function pdfToImage(file){
 
- const canvas=
- document.getElementById("a4Canvas");
+    const arrayBuffer=
+    await file.arrayBuffer();
 
- const frame=
- document.querySelector(".a4Frame");
+    const pdfjs=
+    window.pdfjsLib;
 
- const rect=frame.getBoundingClientRect();
+    if(!pdfjs){
 
- const pw=Math.max(300,Math.round(rect.width*2));
- const ph=Math.round(pw*(A4H/A4W));
+        throw new Error(
+        "PDF library loading. Internet required.");
+    }
 
- canvas.width=pw;
- canvas.height=ph;
+    const pdf=
+    await pdfjs.getDocument({
+        data:arrayBuffer
+    }).promise;
 
- const ctx=canvas.getContext("2d");
+    const page=
+    await pdf.getPage(1);
 
- ctx.fillStyle="#fff";
- ctx.fillRect(0,0,pw,ph);
+    const viewport=
+    page.getViewport({
+        scale:2
+    });
 
- const pxPerMm=pw/A4W;
+    const canvas=
+    document.createElement("canvas");
 
- const size=
- document.getElementById("printSize").value;
+    canvas.width=
+    viewport.width;
 
- if(size==="id"){
+    canvas.height=
+    viewport.height;
 
-   drawIDLayout(ctx,pw,ph,pxPerMm);
+    await page.render({
+        canvasContext:canvas.getContext("2d"),
+        viewport:viewport
+    }).promise;
 
- }else if(size==="a4"){
+    return await new Promise(resolve=>{
 
-   drawA4Layout(ctx,pw,ph,pxPerMm);
+        const img=new Image();
 
- }else{
+        img.onload=()=>resolve(img);
 
-   drawCustomLayout(ctx,pw,ph,pxPerMm);
+        img.src=
+        canvas.toDataURL("image/jpeg",.95);
 
- }
+    });
+}
+
+
+/* ======================================
+   LOAD DOCUMENT
+====================================== */
+
+function loadDocumentImage(img){
+
+    currentImage=img;
+
+    originalImageData=img;
+
+    rotation=0;
+
+    zoom=1;
+
+    document
+    .getElementById("zoom")
+    .value=100;
+
+    document
+    .getElementById("brightness")
+    .value=100;
+
+    document
+    .getElementById("contrast")
+    .value=100;
+
+    drawDocument();
+}
+
+
+/* ======================================
+   DRAW DOCUMENT
+====================================== */
+
+function drawDocument(){
+
+    if(!currentImage)return;
+
+    let w=currentImage.naturalWidth ||
+          currentImage.width;
+
+    let h=currentImage.naturalHeight ||
+          currentImage.height;
+
+    if(rotation%180!==0){
+
+        [w,h]=[h,w];
+    }
+
+    docCanvas.width=w;
+    docCanvas.height=h;
+
+    ctx.save();
+
+    ctx.translate(
+        docCanvas.width/2,
+        docCanvas.height/2
+    );
+
+    ctx.rotate(
+        rotation*Math.PI/180
+    );
+
+    const b=
+    Number(document
+    .getElementById("brightness").value);
+
+    const c=
+    Number(document
+    .getElementById("contrast").value);
+
+    ctx.filter=
+    `brightness(${b}%) contrast(${c}%)`;
+
+    ctx.drawImage(
+        currentImage,
+        -currentImage.width/2,
+        -currentImage.height/2
+    );
+
+    ctx.restore();
+
+    document
+    .getElementById("brightValue")
+    .textContent=b+"%";
+
+    document
+    .getElementById("contrastValue")
+    .textContent=c+"%";
+}
+
+
+function applyAdjustments(){
+    drawDocument();
+}
+
+
+function rotateImage(){
+
+    if(!currentImage)return;
+
+    rotation=(rotation+90)%360;
+
+    drawDocument();
+}
+
+
+function resetImage(){
+
+    if(!originalImageData)return;
+
+    currentImage=originalImageData;
+
+    rotation=0;
+
+    document
+    .getElementById("brightness")
+    .value=100;
+
+    document
+    .getElementById("contrast")
+    .value=100;
+
+    document
+    .getElementById("zoom")
+    .value=100;
+
+    zoom=1;
+
+    drawDocument();
 
 }
 
 
-/* =====================================================
-GET SOURCE DATA
-===================================================== */
+/* ======================================
+   ZOOM
+====================================== */
 
-function canvasData(side){
+function zoomIn(){
 
- const c=
- document.getElementById(side+"Canvas");
+    zoom=Math.min(2,zoom+.1);
 
- if(!docs[side].img)return null;
+    updateZoom();
+}
 
- return c.toDataURL(
-   "image/jpeg",
-   .95
- );
+
+function zoomOut(){
+
+    zoom=Math.max(.5,zoom-.1);
+
+    updateZoom();
+}
+
+
+function applyZoomSlider(){
+
+    zoom=
+    Number(document
+    .getElementById("zoom").value)/100;
+
+    updateZoom();
+}
+
+
+function updateZoom(){
+
+    document
+    .getElementById("zoomValue")
+    .textContent=
+    Math.round(zoom*100)+"%";
+
+    docCanvas.style.width=
+    (docCanvas.width*zoom)+"px";
+
+    docCanvas.style.height=
+    (docCanvas.height*zoom)+"px";
+}
+
+
+function fitImage(){
+
+    zoom=1;
+
+    document
+    .getElementById("zoom")
+    .value=100;
+
+    updateZoom();
+}
+
+
+/* ======================================
+   AUTO CROP
+====================================== */
+
+function autoCrop(){
+
+    if(!docCanvas.width){
+        alert("पहले Document Upload करें।");
+        return;
+    }
+
+    const imageData=
+    ctx.getImageData(
+        0,
+        0,
+        docCanvas.width,
+        docCanvas.height
+    );
+
+    const data=imageData.data;
+
+    let minX=docCanvas.width;
+    let minY=docCanvas.height;
+
+    let maxX=0;
+    let maxY=0;
+
+    /*
+       White/near-white background detection.
+       A4 downloaded document में surrounding
+       white area हटाने के लिए उपयोगी।
+    */
+
+    const threshold=242;
+
+    for(let y=0;y<docCanvas.height;y++){
+
+        for(let x=0;x<docCanvas.width;x++){
+
+            const i=
+            (y*docCanvas.width+x)*4;
+
+            const r=data[i];
+            const g=data[i+1];
+            const b=data[i+2];
+
+            const notWhite=
+            !(r>threshold &&
+              g>threshold &&
+              b>threshold);
+
+            if(notWhite){
+
+                if(x<minX)minX=x;
+                if(y<minY)minY=y;
+                if(x>maxX)maxX=x;
+                if(y>maxY)maxY=y;
+            }
+        }
+    }
+
+    if(maxX<=minX ||
+       maxY<=minY){
+
+        alert(
+        "Document की boundary नहीं मिली। Manual Crop इस्तेमाल करें।"
+        );
+
+        return;
+    }
+
+    const pad=5;
+
+    minX=Math.max(0,minX-pad);
+    minY=Math.max(0,minY-pad);
+    maxX=Math.min(docCanvas.width-1,maxX+pad);
+    maxY=Math.min(docCanvas.height-1,maxY+pad);
+
+    const cropW=maxX-minX;
+    const cropH=maxY-minY;
+
+    const temp=
+    document.createElement("canvas");
+
+    temp.width=cropW;
+    temp.height=cropH;
+
+    temp
+    .getContext("2d")
+    .drawImage(
+        docCanvas,
+        minX,
+        minY,
+        cropW,
+        cropH,
+        0,
+        0,
+        cropW,
+        cropH
+    );
+
+    const img=new Image();
+
+    img.onload=()=>{
+
+        currentImage=img;
+
+        drawDocument();
+
+        updatePreview();
+
+        document
+        .getElementById("docStatus")
+        .innerHTML=
+        "🤖 Auto Crop पूरा हो गया।";
+    };
+
+    img.src=
+    temp.toDataURL("image/png");
 
 }
 
 
-/* =====================================================
-LOAD DATA IMAGE
-===================================================== */
+/* ======================================
+   MANUAL CROP
+====================================== */
 
-function makeImage(src){
+let cropActive=false;
 
- const img=new Image();
+function startCrop(){
 
- img.src=src;
+    if(!docCanvas.width){
+        alert("पहले Document Upload करें।");
+        return;
+    }
 
- return img;
+    const box=
+    document.getElementById("cropBox");
 
+    const area=
+    document.getElementById("cropArea");
+
+    const canvasRect=
+    docCanvas.getBoundingClientRect();
+
+    const areaRect=
+    area.getBoundingClientRect();
+
+    box.style.display="block";
+
+    box.style.left=
+    (canvasRect.left-areaRect.left+20)+"px";
+
+    box.style.top=
+    (canvasRect.top-areaRect.top+20)+"px";
+
+    box.style.width=
+    Math.min(250,canvasRect.width-40)+"px";
+
+    box.style.height=
+    Math.min(160,canvasRect.height-40)+"px";
+
+    cropActive=true;
 }
 
 
-/* =====================================================
-DRAW IMAGE CENTERED
-===================================================== */
+function performManualCrop(){
 
-function drawImageContain(
- ctx,img,
- x,y,w,h
-){
+    const box=
+    document.getElementById("cropBox");
 
- if(!img)return;
+    if(!cropActive)return;
 
- const iw=img.width;
- const ih=img.height;
+    const canvasRect=
+    docCanvas.getBoundingClientRect();
 
- if(!iw||!ih)return;
+    const boxRect=
+    box.getBoundingClientRect();
 
- const scale=
- Math.min(w/iw,h/ih);
+    const scaleX=
+    docCanvas.width/canvasRect.width;
 
- const dw=iw*scale;
- const dh=ih*scale;
+    const scaleY=
+    docCanvas.height/canvasRect.height;
 
- ctx.drawImage(
-   img,
-   x+(w-dw)/2,
-   y+(h-dh)/2,
-   dw,
-   dh
- );
+    const x=
+    Math.max(
+        0,
+        (boxRect.left-canvasRect.left)*scaleX
+    );
 
+    const y=
+    Math.max(
+        0,
+        (boxRect.top-canvasRect.top)*scaleY
+    );
+
+    const w=
+    Math.min(
+        docCanvas.width-x,
+        boxRect.width*scaleX
+    );
+
+    const h=
+    Math.min(
+        docCanvas.height-y,
+        boxRect.height*scaleY
+    );
+
+    if(w<10 || h<10)return;
+
+    const temp=
+    document.createElement("canvas");
+
+    temp.width=Math.round(w);
+    temp.height=Math.round(h);
+
+    temp
+    .getContext("2d")
+    .drawImage(
+        docCanvas,
+        x,
+        y,
+        w,
+        h,
+        0,
+        0,
+        w,
+        h
+    );
+
+    const img=new Image();
+
+    img.onload=()=>{
+
+        currentImage=img;
+
+        cropActive=false;
+
+        box.style.display="none";
+
+        drawDocument();
+
+        updatePreview();
+
+    };
+
+    img.src=
+    temp.toDataURL("image/png");
 }
 
 
-/* =====================================================
-ID LAYOUT
-===================================================== */
+/* Crop box click to crop */
 
-function drawIDLayout(ctx,pw,ph,ppm){
+document
+.getElementById("cropBox")
+.addEventListener("dblclick",performManualCrop);
 
- const frontSrc=
- canvasData("front");
 
- const backSrc=
- canvasData("back");
+/* ======================================
+   MODE
+====================================== */
 
- let frontImg=
- frontSrc?makeImage(frontSrc):null;
+function setMode(mode){
 
- let backImg=
- backSrc?makeImage(backSrc):null;
+    currentMode=mode;
 
- /*
-   Browser image loading can be asynchronous.
-   Draw again after images load.
- */
+    document
+    .querySelectorAll(".option-btn")
+    .forEach(x=>{
 
- const redraw=function(){
+        if(
+            x.id==="frontBtn" ||
+            x.id==="backBtn" ||
+            x.id==="bothBtn"
+        ){
+            x.classList.remove("active");
+        }
 
-   ctx.fillStyle="#fff";
-   ctx.fillRect(0,0,pw,ph);
+    });
 
-   const cardW=IDW*ppm;
-   const cardH=IDH*ppm;
+    if(mode==="front")
+        document
+        .getElementById("frontBtn")
+        .classList.add("active");
 
-   const gap=GAP*ppm;
+    if(mode==="back")
+        document
+        .getElementById("backBtn")
+        .classList.add("active");
 
-   const left=MARGIN*ppm;
+    if(mode==="both")
+        document
+        .getElementById("bothBtn")
+        .classList.add("active");
 
-   const usableW=
-   A4W-(MARGIN*2);
-
-   let columns=
-   Math.max(
-     1,
-     Math.floor(
-       (usableW+GAP)/
-       (IDW+GAP)
-     )
-   );
-
-   /*
-     For ID cards, front and back are placed
-     side by side in one set.
-   */
-
-   columns=2;
-
-   const totalSetW=
-   IDW*2+GAP;
-
-   const startX=
-   ((A4W-totalSetW)/2)*ppm;
-
-   const rowStep=
-   IDH+GAP;
-
-   let maxRows=
-   Math.floor(
-     (A4H-MARGIN+GAP)/
-     rowStep
-   );
-
-   let maxSets=
-   maxRows;
-
-   let sets=
-   Math.min(copies,maxSets);
-
-   for(let i=0;i<sets;i++){
-
-     const y=
-     (MARGIN+i*rowStep)*ppm;
-
-     const fx=startX;
-     const bx=
-     startX+(IDW+GAP)*ppm;
-
-     ctx.strokeStyle="#d7d7d7";
-     ctx.lineWidth=1;
-
-     ctx.strokeRect(
-       fx,y,cardW,cardH
-     );
-
-     ctx.strokeRect(
-       bx,y,cardW,cardH
-     );
-
-     if(frontImg&&frontImg.complete){
-
-       drawImageContain(
-         ctx,
-         frontImg,
-         fx,y,
-         cardW,cardH
-       );
-
-     }
-
-     if(backImg&&backImg.complete){
-
-       drawImageContain(
-         ctx,
-         backImg,
-         bx,y,
-         cardW,cardH
-       );
-
-     }
-
-   }
-
- };
-
- if(frontImg){
-
-   frontImg.onload=redraw;
-
- }
-
- if(backImg){
-
-   backImg.onload=redraw;
-
- }
-
- redraw();
-
+    updatePreview();
 }
 
 
-/* =====================================================
-A4 FULL LAYOUT
-===================================================== */
+/* ======================================
+   CARD SIZE
+====================================== */
 
-function drawA4Layout(ctx,pw,ph,ppm){
+function setCardSize(type,button){
 
- const frontSrc=canvasData("front");
- const backSrc=canvasData("back");
+    document
+    .querySelectorAll(".option-btn")
+    .forEach(x=>{
 
- const frontImg=
- frontSrc?makeImage(frontSrc):null;
+        if(
+            !["frontBtn","backBtn","bothBtn"]
+            .includes(x.id)
+        ){
+            x.classList.remove("active");
+        }
 
- const backImg=
- backSrc?makeImage(backSrc):null;
+    });
 
- function redraw(){
+    button.classList.add("active");
 
-   ctx.fillStyle="#fff";
-   ctx.fillRect(0,0,pw,ph);
+    document
+    .getElementById("customSizeBox")
+    .style.display="none";
 
-   let margin=5*ppm;
+    if(type==="standard"){
 
-   let w=
-   A4W-10;
+        cardSize={
+            w:85.6,
+            h:54
+        };
 
-   let h=
-   (A4H-10)/2-3;
+        sizeInfo.textContent=
+        "Standard ID Card: 85.6 × 54 mm";
+    }
 
-   if(printMode==="front"){
+    if(type==="aadhaar"){
 
-     if(frontImg&&frontImg.complete){
+        cardSize={
+            w:85.6,
+            h:54
+        };
 
-       drawImageContain(
-         ctx,
-         frontImg,
-         margin,
-         margin,
-         w,
-         A4H*ppm-2*margin
-       );
+        sizeInfo.textContent=
+        "Aadhaar Card: लगभग 85.6 × 54 mm";
+    }
 
-     }
+    if(type==="pan"){
 
-   }else if(printMode==="back"){
+        cardSize={
+            w:85.6,
+            h:54
+        };
 
-     if(backImg&&backImg.complete){
+        sizeInfo.textContent=
+        "PAN Card: लगभग 85.6 × 54 mm";
+    }
 
-       drawImageContain(
-         ctx,
-         backImg,
-         margin,
-         margin,
-         w,
-         A4H*ppm-2*margin
-       );
+    if(type==="voter"){
 
-     }
+        cardSize={
+            w:85.6,
+            h:54
+        };
 
-   }else{
+        sizeInfo.textContent=
+        "Voter/ID Card: लगभग 85.6 × 54 mm";
+    }
 
-     if(frontImg&&frontImg.complete){
+    if(type==="custom"){
 
-       drawImageContain(
-         ctx,
-         frontImg,
-         margin,
-         margin,
-         w,
-         h*ppm
-       );
+        document
+        .getElementById("customSizeBox")
+        .style.display="block";
 
-     }
+        cardSize={
+            w:Number(
+                document.getElementById("customW").value
+            ),
+            h:Number(
+                document.getElementById("customH").value
+            )
+        };
 
-     if(backImg&&backImg.complete){
+        sizeInfo.textContent=
+        "Custom Size: "+
+        cardSize.w+
+        " × "+
+        cardSize.h+
+        " mm";
+    }
 
-       drawImageContain(
-         ctx,
-         backImg,
-         margin,
-         margin+(h+3)*ppm,
-         w,
-         h*ppm
-       );
-
-     }
-
-   }
-
- }
-
- if(frontImg)frontImg.onload=redraw;
- if(backImg)backImg.onload=redraw;
-
- redraw();
-
+    updatePreview();
 }
 
 
-/* =====================================================
-CUSTOM LAYOUT
-===================================================== */
+/* ======================================
+   A4 PREVIEW
+====================================== */
 
-function drawCustomLayout(ctx,pw,ph,ppm){
+function updatePreview(){
 
- const frontSrc=canvasData("front");
- const backSrc=canvasData("back");
+    const front=
+    document.getElementById("a4Front");
 
- const frontImg=
- frontSrc?makeImage(frontSrc):null;
+    const back=
+    document.getElementById("a4Back");
 
- const backImg=
- backSrc?makeImage(backSrc):null;
+    const frontLabel=
+    document.getElementById("frontLabel");
 
- function redraw(){
+    const backLabel=
+    document.getElementById("backLabel");
 
-   ctx.fillStyle="#fff";
-   ctx.fillRect(0,0,pw,ph);
+    /*
+      A4 CSS:
+      794px ≈ 210mm
+      1123px ≈ 297mm
+    */
 
-   let w=
-   Number(document.getElementById("customWidth").value)||85.6;
+    const pxPerMm=
+    794/210;
 
-   let h=
-   Number(document.getElementById("customHeight").value)||53.98;
+    const w=
+    cardSize.w*pxPerMm;
 
-   let gap=2;
+    const h=
+    cardSize.h*pxPerMm;
 
-   let y=3;
+    front.style.width=w+"px";
+    front.style.height=h+"px";
 
-   for(let i=0;i<copies;i++){
+    back.style.width=w+"px";
+    back.style.height=h+"px";
 
-     if(y+h>A4H)break;
+    /*
+      ऊपर से card और कम gap
+    */
 
-     if(frontImg&&frontImg.complete){
+    const top=25;
 
-       drawImageContain(
-         ctx,
-         frontImg,
-         3*ppm,
-         y*ppm,
-         w*ppm,
-         h*ppm
-       );
+    front.style.top=top+"px";
 
-     }
+    const gap=10;
 
-     if(printMode==="both"&&
-        backImg&&backImg.complete){
+    back.style.top=
+    (top+h+gap)+"px";
 
-       drawImageContain(
-         ctx,
-         backImg,
-         (3+w+gap)*ppm,
-         y*ppm,
-         w*ppm,
-         h*ppm
-       );
+    frontLabel.style.top=
+    (top+h+3)+"px";
 
-     }
+    backLabel.style.top=
+    (top+h+gap+h+3)+"px";
 
-     y+=h+gap;
 
-   }
+    /* FRONT */
 
- }
+    if(frontImage){
 
- if(frontImg)frontImg.onload=redraw;
- if(backImg)backImg.onload=redraw;
+        document
+        .getElementById("frontPreview")
+        .src=
+        imageToData(frontImage);
+    }
 
- redraw();
+    /* BACK */
 
+    if(backImage){
+
+        document
+        .getElementById("backPreview")
+        .src=
+        imageToData(backImage);
+
+    }else if(currentImage){
+
+        document
+        .getElementById("backPreview")
+        .src=
+        docCanvas.toDataURL("image/png");
+    }
+
+
+    front.style.display=
+    currentMode==="back"
+    ?"none"
+    :"block";
+
+    frontLabel.style.display=
+    currentMode==="back"
+    ?"none"
+    :"block";
+
+    back.style.display=
+    currentMode==="front"
+    ?"none"
+    :"block";
+
+    backLabel.style.display=
+    currentMode==="front"
+    ?"none"
+    :"block";
 }
 
 
-/* =====================================================
-TOUCH CROP SYSTEM
-===================================================== */
+function imageToData(img){
 
-let cropSide=null;
-let cropMode=null;
-let dragStart=null;
-let cropStartRect=null;
+    const c=
+    document.createElement("canvas");
 
-function startCrop(side){
+    c.width=img.naturalWidth||img.width;
+    c.height=img.naturalHeight||img.height;
 
- if(!docs[side].img){
+    c.getContext("2d")
+    .drawImage(img,0,0);
 
-   alert("पहले "+side+" photo चुनें।");
-   return;
-
- }
-
- cropSide=side;
-
- const area=
- document.getElementById("cropArea");
-
- area.classList.add("show");
-
- const img=
- document.getElementById("cropImage");
-
- img.src=
- docs[side].img.src;
-
- img.onload=function(){
-
-   setupCropImage();
-
- };
-
- if(img.complete){
-   setupCropImage();
- }
-
- area.scrollIntoView({
-   behavior:"smooth",
-   block:"center"
- });
-
+    return c.toDataURL("image/png");
 }
 
 
-function setupCropImage(){
+/* ======================================
+   CUSTOM SIZE
+====================================== */
 
- const stage=
- document.getElementById("cropStage");
+function applyCustomSize(){
 
- const img=
- document.getElementById("cropImage");
+    const w=
+    Number(
+    document.getElementById("customW").value);
 
- const d=docs[cropSide];
+    const h=
+    Number(
+    document.getElementById("customH").value);
 
- const stageW=
- stage.clientWidth;
+    if(w>0 && h>0){
 
- const stageH=
- stage.clientHeight;
+        cardSize={
+            w:w,
+            h:h
+        };
 
- const iw=
- img.naturalWidth;
+        document
+        .getElementById("sizeInfo")
+        .textContent=
+        "Custom Size: "+w+" × "+h+" mm";
 
- const ih=
- img.naturalHeight;
+        updatePreview();
+    }
+}
 
- const scale=
- Math.min(
-   stageW/iw,
-   stageH/ih
- );
+function updatePreviewCustom(){
 
- const w=iw*scale;
- const h=ih*scale;
-
- img.style.width=w+"px";
- img.style.height=h+"px";
- img.style.left=
- ((stageW-w)/2)+"px";
- img.style.top=
- ((stageH-h)/2)+"px";
-
- const rect=
- document.getElementById("cropRect");
-
- rect.style.left="15%";
- rect.style.top="15%";
- rect.style.width="70%";
- rect.style.height="70%";
-
+    applyCustomSize();
 }
 
 
-/* crop box dragging */
+/* ======================================
+   DOWNLOAD FRONT
+====================================== */
 
-const cropRect=
-document.getElementById("cropRect");
+function canvasFromImage(img){
 
-cropRect.addEventListener(
-"pointerdown",
-function(e){
+    const c=
+    document.createElement("canvas");
 
- if(e.target.classList.contains("cropHandle"))
- return;
+    c.width=
+    img.naturalWidth||img.width;
 
- cropMode="move";
+    c.height=
+    img.naturalHeight||img.height;
 
- cropRect.setPointerCapture(e.pointerId);
+    c.getContext("2d")
+    .drawImage(img,0,0);
 
- dragStart={
-   x:e.clientX,
-   y:e.clientY
- };
-
- cropStartRect={
-   left:cropRect.offsetLeft,
-   top:cropRect.offsetTop,
-   width:cropRect.offsetWidth,
-   height:cropRect.offsetHeight
- };
-
+    return c;
 }
-);
 
 
-cropRect.addEventListener(
-"pointermove",
-function(e){
+function downloadFront(){
 
- if(cropMode!=="move")return;
+    if(!frontImage && !currentImage){
 
- const stage=
- document.getElementById("cropStage");
+        alert("Front Document उपलब्ध नहीं है।");
 
- let left=
- cropStartRect.left+
- (e.clientX-dragStart.x);
+        return;
+    }
 
- let top=
- cropStartRect.top+
- (e.clientY-dragStart.y);
+    const c=
+    frontImage
+    ?canvasFromImage(frontImage)
+    :docCanvas;
 
- left=Math.max(
-   0,
-   Math.min(
-     left,
-     stage.clientWidth-
-     cropStartRect.width
-   )
- );
-
- top=Math.max(
-   0,
-   Math.min(
-     top,
-     stage.clientHeight-
-     cropStartRect.height
-   )
- );
-
- cropRect.style.left=left+"px";
- cropRect.style.top=top+"px";
-
+    downloadCanvas(
+        c,
+        "document-front.png"
+    );
 }
-);
 
 
-cropRect.addEventListener(
-"pointerup",
-function(){
+function downloadBack(){
 
- cropMode=null;
+    if(!backImage && !currentImage){
 
+        alert("Back Document उपलब्ध नहीं है।");
+
+        return;
+    }
+
+    const c=
+    backImage
+    ?canvasFromImage(backImage)
+    :docCanvas;
+
+    downloadCanvas(
+        c,
+        "document-back.png"
+    );
 }
-);
 
 
-/* resize handles */
+function downloadCanvas(canvas,name){
 
-document.querySelectorAll(".cropHandle")
-.forEach(function(handle){
+    const a=
+    document.createElement("a");
 
- handle.addEventListener(
- "pointerdown",
- function(e){
+    a.download=name;
 
-   e.stopPropagation();
+    a.href=
+    canvas.toDataURL("image/png");
 
-   cropMode=
-   handle.classList.contains("hTL")?"tl":
-   handle.classList.contains("hTR")?"tr":
-   handle.classList.contains("hBL")?"bl":"br";
+    a.click();
+}
 
-   dragStart={
-     x:e.clientX,
-     y:e.clientY
-   };
 
-   cropStartRect={
-     left:cropRect.offsetLeft,
-     top:cropRect.offsetTop,
-     width:cropRect.offsetWidth,
-     height:cropRect.offsetHeight
-   };
+/* ======================================
+   DOWNLOAD A4
+====================================== */
 
-   handle.setPointerCapture(e.pointerId);
+function downloadA4(){
 
- }
- );
+    const source=
+    document.getElementById("a4Page");
 
- handle.addEventListener(
- "pointermove",
- function(e){
+    const c=
+    document.createElement("canvas");
 
-   if(!cropMode||cropMode==="move")
-   return;
+    c.width=794;
+    c.height=1123;
 
-   const stage=
-   document.getElementById("cropStage");
+    const cctx=
+    c.getContext("2d");
 
-   let dx=
-   e.clientX-dragStart.x;
+    cctx.fillStyle="white";
+    cctx.fillRect(0,0,c.width,c.height);
 
-   let dy=
-   e.clientY-dragStart.y;
+    const cards=
+    source.querySelectorAll(".a4-card");
 
-   let left=cropStartRect.left;
-   let top=cropStartRect.top;
-   let width=cropStartRect.width;
-   let height=cropStartRect.height;
+    cards.forEach(card=>{
 
-   if(cropMode==="br"){
+        if(
+            getComputedStyle(card).display==="none"
+        )return;
 
-     width+=dx;
-     height+=dy;
+        const img=
+        card.querySelector("img");
 
-   }
+        if(!img || !img.src)return;
 
-   if(cropMode==="bl"){
+        const x=
+        (794-card.offsetWidth)/2;
 
-     left+=dx;
-     width-=dx;
-     height+=dy;
+        const y=
+        card.offsetTop;
 
-   }
+        cctx.drawImage(
+            img,
+            x,
+            y,
+            card.offsetWidth,
+            card.offsetHeight
+        );
+    });
 
-   if(cropMode==="tr"){
+    downloadCanvas(
+        c,
+        "A4-document-print.png"
+    );
+}
 
-     top+=dy;
-     height-=dy;
-     width+=dx;
 
-   }
+/* ======================================
+   PRINT
+====================================== */
 
-   if(cropMode==="tl"){
+function printA4(){
 
-     left+=dx;
-     top+=dy;
-     width-=dx;
-     height-=dy;
+    window.print();
+}
 
-   }
 
-   const min=40;
+/* ======================================
+   PHOTO UPLOAD
+====================================== */
 
-   if(width<min)width=min;
-   if(height<min)height=min;
+document
+.getElementById("photoInput")
+.addEventListener("change",function(e){
 
-   if(left<0)left=0;
-   if(top<0)top=0;
+    const file=e.target.files[0];
 
-   if(left+width>stage.clientWidth)
-   width=stage.clientWidth-left;
+    if(!file)return;
 
-   if(top+height>stage.clientHeight)
-   height=stage.clientHeight-top;
+    const img=new Image();
 
-   cropRect.style.left=left+"px";
-   cropRect.style.top=top+"px";
-   cropRect.style.width=width+"px";
-   cropRect.style.height=height+"px";
+    img.onload=()=>{
 
- }
- );
+        photoImage=img;
 
- handle.addEventListener(
- "pointerup",
- function(){
+        photoZoomValue=1;
 
-   cropMode=null;
+        photoRotation=0;
 
- }
- );
+        drawPhoto();
 
+    };
+
+    img.src=
+    URL.createObjectURL(file);
 });
 
 
-/* =====================================================
-APPLY CROP
-===================================================== */
+/* ======================================
+   PHOTO MODE
+====================================== */
 
-function applyCrop(){
+function setPhotoMode(mode,button){
 
- if(!cropSide)return;
+    photoMode=mode;
 
- const stage=
- document.getElementById("cropStage");
+    document
+    .querySelectorAll(".photo-btn")
+    .forEach(x=>x.classList.remove("active"));
 
- const img=
- document.getElementById("cropImage");
+    button.classList.add("active");
 
- const rect=
- document.getElementById("cropRect");
-
- const sx=
- (rect.offsetLeft-img.offsetLeft)/
- img.offsetWidth;
-
- const sy=
- (rect.offsetTop-img.offsetTop)/
- img.offsetHeight;
-
- const sw=
- rect.offsetWidth/img.offsetWidth;
-
- const sh=
- rect.offsetHeight/img.offsetHeight;
-
- const d=docs[cropSide];
-
- d.cropX=
- Math.max(0,Math.min(1,sx));
-
- d.cropY=
- Math.max(0,Math.min(1,sy));
-
- d.cropW=
- Math.max(.05,Math.min(1,sw));
-
- d.cropH=
- Math.max(.05,Math.min(1,sh));
-
- drawDoc(cropSide);
-
- updateA4Preview();
-
- cancelCrop();
-
+    drawPhoto();
 }
 
 
-function cancelCrop(){
-
- document.getElementById("cropArea")
- .classList.remove("show");
-
- cropSide=null;
-
-}
-
-
-/* =====================================================
-DOWNLOAD DOCUMENT
-===================================================== */
-
-function downloadDocument(){
-
- if(printMode==="front"&&!docs.front.img){
-
-   alert("Front Photo चुनें।");
-   return;
-
- }
-
- if(printMode==="back"&&!docs.back.img){
-
-   alert("Back Photo चुनें।");
-   return;
-
- }
-
- if(printMode==="both"&&
-   (!docs.front.img||!docs.back.img)){
-
-   alert("Front + Back के लिए दोनों photos चुनें।");
-   return;
-
- }
-
- const canvas=
- document.getElementById("a4Canvas");
-
- updateA4Preview();
-
- const a=
- document.createElement("a");
-
- a.download=
- "A4-ID-Document-Preview.png";
-
- a.href=
- canvas.toDataURL(
-   "image/png"
- );
-
- a.click();
-
-}
-
-
-/* =====================================================
-PRINT DOCUMENT
-===================================================== */
-
-function printDocument(){
-
- if(printMode==="front"&&!docs.front.img){
-
-   alert("Front Photo चुनें।");
-   return;
-
- }
-
- if(printMode==="back"&&!docs.back.img){
-
-   alert("Back Photo चुनें।");
-   return;
-
- }
-
- if(printMode==="both"&&
-   (!docs.front.img||!docs.back.img)){
-
-   alert("Front + Back दोनों photos चुनें।");
-   return;
-
- }
-
- const area=
- document.getElementById("printArea");
-
- area.innerHTML="";
-
- const sheet=
- document.createElement("div");
-
- sheet.className="printA4";
-
-
- const size=
- document.getElementById("printSize").value;
-
- if(size==="id"){
-
-   createActualIDPrint(sheet);
-
- }else{
-
-   createFullPrint(sheet);
-
- }
-
- area.appendChild(sheet);
-
- window.print();
-
-}
-
-
-/* =====================================================
-ACTUAL ID PRINT
-===================================================== */
-
-function createActualIDPrint(sheet){
-
- const maxRows=
- Math.floor(
-   (A4H-MARGIN+GAP)/
-   (IDH+GAP)
- );
-
- const sets=
- Math.min(copies,maxRows);
-
- const totalW=
- IDW*2+GAP;
-
- const left=
- (A4W-totalW)/2;
-
- for(let i=0;i<sets;i++){
-
-   const y=
-   MARGIN+i*(IDH+GAP);
-
-   if(
-     (printMode==="front"||
-      printMode==="both")&&
-     docs.front.img
-   ){
-
-     addPrintCard(
-       sheet,
-       canvasData("front"),
-       left,
-       y
-     );
-
-   }
-
-   if(
-     (printMode==="back"||
-      printMode==="both")&&
-     docs.back.img
-   ){
-
-     let x;
-
-     if(printMode==="both"){
-
-       x=left+IDW+GAP;
-
-     }else{
-
-       x=left;
-
-     }
-
-     addPrintCard(
-       sheet,
-       canvasData("back"),
-       x,
-       y
-     );
-
-   }
-
- }
-
-}
-
-
-/* =====================================================
-ADD PRINT CARD
-===================================================== */
-
-function addPrintCard(
- sheet,
- src,
- x,
- y
-){
-
- const card=
- document.createElement("div");
-
- card.className="printCard";
-
- card.style.left=
- x+"mm";
-
- card.style.top=
- y+"mm";
-
- const img=
- document.createElement("img");
-
- img.src=src;
-
- card.appendChild(img);
-
- sheet.appendChild(card);
-
-}
-
-
-/* =====================================================
-FULL PRINT
-===================================================== */
-
-function createFullPrint(sheet){
-
- const front=
- docs.front.img?
- canvasData("front"):null;
-
- const back=
- docs.back.img?
- canvasData("back"):null;
-
- let y=5;
-
- const boxH=
- printMode==="both"
- ?140
- :287;
-
- if(printMode==="front"&&front){
-
-   const card=
-   document.createElement("div");
-
-   card.className="printCard";
-
-   card.style.left="5mm";
-   card.style.top="5mm";
-   card.style.width="200mm";
-   card.style.height="287mm";
-
-   const img=
-   document.createElement("img");
-
-   img.src=front;
-
-   img.style.width="200mm";
-   img.style.height="287mm";
-   img.style.objectFit="contain";
-
-   card.appendChild(img);
-   sheet.appendChild(card);
-
- }
-
- if(printMode==="back"&&back){
-
-   const card=
-   document.createElement("div");
-
-   card.className="printCard";
-
-   card.style.left="5mm";
-   card.style.top="5mm";
-   card.style.width="200mm";
-   card.style.height="287mm";
-
-   const img=
-   document.createElement("img");
-
-   img.src=back;
-
-   img.style.width="200mm";
-   img.style.height="287mm";
-   img.style.objectFit="contain";
-
-   card.appendChild(img);
-   sheet.appendChild(card);
-
- }
-
- if(printMode==="both"){
-
-   if(front){
-
-     const card=
-     document.createElement("div");
-
-     card.className="printCard";
-
-     card.style.left="5mm";
-     card.style.top="5mm";
-     card.style.width="200mm";
-     card.style.height="140mm";
-
-     const img=
-     document.createElement("img");
-
-     img.src=front;
-
-     img.style.width="200mm";
-     img.style.height="140mm";
-     img.style.objectFit="contain";
-
-     card.appendChild(img);
-     sheet.appendChild(card);
-
-   }
-
-   if(back){
-
-     const card=
-     document.createElement("div");
-
-     card.className="printCard";
-
-     card.style.left="5mm";
-     card.style.top="150mm";
-     card.style.width="200mm";
-     card.style.height="140mm";
-
-     const img=
-     document.createElement("img");
-
-     img.src=back;
-
-     img.style.width="200mm";
-     img.style.height="140mm";
-     img.style.objectFit="contain";
-
-     card.appendChild(img);
-     sheet.appendChild(card);
-
-   }
-
- }
-
-}
-
-
-/* =====================================================
-DEMO DOCUMENTS
-===================================================== */
-
-function loadDemoDocuments(){
-
- createDemoDoc("front");
- createDemoDoc("back");
-
-}
-
-function createDemoDoc(side){
-
- const c=
- document.createElement("canvas");
-
- c.width=1000;
- c.height=650;
-
- const x=c.getContext("2d");
-
- x.fillStyle="#fff";
- x.fillRect(0,0,c.width,c.height);
-
- x.strokeStyle="#111";
- x.lineWidth=8;
-
- x.strokeRect(
-   15,15,
-   c.width-30,
-   c.height-30
- );
-
- x.fillStyle=
- side==="front"
- ?" #0756b8"
- :"#138a45";
-
- x.fillStyle=
- side==="front"
- ?"rgb(7,86,184)"
- :"rgb(19,138,69)";
-
- x.font="bold 55px Arial";
- x.textAlign="center";
-
- x.fillText(
-   side==="front"
-   ?"DOCUMENT FRONT"
-   :"DOCUMENT BACK",
-   500,120
- );
-
- x.fillStyle="#222";
- x.font="32px Arial";
- x.textAlign="left";
-
- x.fillText(
-   "Name: Demo Customer",
-   100,240
- );
-
- x.fillText(
-   "Document No: DEMO-2026-001",
-   100,310
- );
-
- x.fillText(
-   side==="front"
-   ?"Date of Birth: 01/01/1990"
-   :"Address: Bharat Digital Centre",
-   100,380
- );
-
- x.fillText(
-   "Sample for testing only",
-   100,500
- );
-
- const img=new Image();
-
- img.onload=function(){
-
-   docs[side].img=img;
-
-   document.getElementById(side+"Empty")
-   .style.display="none";
-
-   document.getElementById(side+"Canvas")
-   .style.display="block";
-
-   resetDoc(side);
-
- };
-
- img.src=c.toDataURL("image/png");
-
-}
-
-
-/* =====================================================
-PHOTO STUDIO
-===================================================== */
-
-let personPhoto=null;
-
-let photoState={
- type:"passport",
- zoom:1,
- bright:100,
- contrast:100,
- rotation:0,
- flip:1
-};
-
-let photoCopies=1;
-
-
-function loadPhoto(input){
-
- if(!input.files||!input.files[0])
- return;
-
- const reader=new FileReader();
-
- reader.onload=function(e){
-
-   const img=new Image();
-
-   img.onload=function(){
-
-     personPhoto=img;
-
-     document.getElementById("photoEmpty")
-     .style.display="none";
-
-     document.getElementById("photoCanvas")
-     .style.display="block";
-
-     resetPhoto();
-
-   };
-
-   img.src=e.target.result;
-
- };
-
- reader.readAsDataURL(input.files[0]);
-
-}
-
-
-function setPhotoType(type,btn){
-
- photoState.type=type;
-
- document.querySelectorAll(".photoOption")
- .forEach(function(b){
-   b.classList.remove("active");
- });
-
- btn.classList.add("active");
-
- const names={
-   passport:"Passport Size — 35 × 45 mm",
-   half:"Half Photo",
-   full:"Full Size Photo",
-   "4x6":"4 × 6 inch Photo",
-   a4:"A4 Photo",
-   id:"ID Photo — 85.60 × 53.98 mm"
- };
-
- document.getElementById("photoInfo")
- .textContent=
- "Selected: "+names[type];
-
- drawPhoto();
-
-}
-
+/* ======================================
+   DRAW PHOTO
+====================================== */
 
 function drawPhoto(){
 
- if(!personPhoto)return;
+    if(!photoImage)return;
 
- const canvas=
- document.getElementById("photoCanvas");
+    let w=
+    photoImage.naturalWidth;
 
- const ctx=canvas.getContext("2d");
+    let h=
+    photoImage.naturalHeight;
 
- let w=personPhoto.naturalWidth;
- let h=personPhoto.naturalHeight;
+    if(photoRotation%180!==0){
 
- let scale=
- Math.min(
-   650/w,
-   700/h
- );
+        [w,h]=[h,w];
+    }
 
- const zoom=
- Number(document.getElementById("photoZoom").value)
- /100;
+    /*
+      preview size
+    */
 
- scale*=zoom;
+    let max=600;
 
- let dw=w*scale;
- let dh=h*scale;
+    let scale=
+    Math.min(1,max/Math.max(w,h));
 
- let rot=
- ((photoState.rotation%360)+360)%360;
+    let dw=w*scale;
+    let dh=h*scale;
 
- if(rot===90||rot===270){
+    photoCanvas.width=dw;
+    photoCanvas.height=dh;
 
-   canvas.width=Math.round(dh);
-   canvas.height=Math.round(dw);
+    photoCtx.save();
 
- }else{
+    photoCtx.translate(
+        dw/2,
+        dh/2
+    );
 
-   canvas.width=Math.round(dw);
-   canvas.height=Math.round(dh);
+    photoCtx.rotate(
+        photoRotation*Math.PI/180
+    );
 
- }
+    const b=
+    Number(
+    document.getElementById("photoBrightness").value);
 
- ctx.clearRect(
-   0,0,
-   canvas.width,
-   canvas.height
- );
+    const c=
+    Number(
+    document.getElementById("photoContrast").value);
 
- const bright=
- Number(document.getElementById("photoBright").value);
+    photoCtx.filter=
+    `brightness(${b}%) contrast(${c}%)`;
 
- const contrast=
- Number(document.getElementById("photoContrast").value);
+    photoCtx.drawImage(
+        photoImage,
+        -dw/2*photoZoomValue,
+        -dh/2*photoZoomValue,
+        dw*photoZoomValue,
+        dh*photoZoomValue
+    );
 
- ctx.save();
+    photoCtx.restore();
 
- ctx.translate(
-   canvas.width/2,
-   canvas.height/2
- );
+    document
+    .getElementById("photoBrightValue")
+    .textContent=b+"%";
 
- ctx.rotate(
-   rot*Math.PI/180
- );
+    document
+    .getElementById("photoContrastValue")
+    .textContent=c+"%";
 
- ctx.scale(
-   photoState.flip,
-   1
- );
-
- ctx.filter=
- "brightness("+bright+"%) "+
- "contrast("+contrast+"%)";
-
- ctx.drawImage(
-   personPhoto,
-   -dw/2,
-   -dh/2,
-   dw,
-   dh
- );
-
- ctx.restore();
-
- document.getElementById("photoZoomOut")
- .textContent=
- Math.round(zoom*100)+"%";
-
- document.getElementById("photoBrightOut")
- .textContent=
- bright;
-
- document.getElementById("photoContrastOut")
- .textContent=
- contrast;
-
+    updatePhotoA4();
 }
 
 
-function rotatePhoto(deg){
+function photoZoom(value){
 
- if(!personPhoto){
+    photoZoomValue=
+    Math.max(
+        .5,
+        Math.min(2,photoZoomValue*value)
+    );
 
-   alert("पहले customer photo चुनें।");
-   return;
-
- }
-
- photoState.rotation+=deg;
-
- drawPhoto();
-
+    drawPhoto();
 }
 
 
-function flipPhoto(){
+function photoRotate(){
 
- if(!personPhoto)return;
+    photoRotation=
+    (photoRotation+90)%360;
 
- photoState.flip*=-1;
-
- drawPhoto();
-
+    drawPhoto();
 }
 
 
 function resetPhoto(){
 
- photoState.zoom=1;
- photoState.bright=100;
- photoState.contrast=100;
- photoState.rotation=0;
- photoState.flip=1;
+    photoZoomValue=1;
 
- document.getElementById("photoZoom").value=100;
- document.getElementById("photoBright").value=100;
- document.getElementById("photoContrast").value=100;
+    photoRotation=0;
 
- drawPhoto();
+    document
+    .getElementById("photoBrightness")
+    .value=100;
 
+    document
+    .getElementById("photoContrast")
+    .value=100;
+
+    drawPhoto();
 }
 
 
-function setPhotoCopies(n,btn){
+/* ======================================
+   PHOTO A4
+====================================== */
 
- photoCopies=n;
+function updatePhotoA4(){
 
- btn.parentElement
- .querySelectorAll(".copyBtn")
- .forEach(function(b){
-   b.classList.remove("active");
- });
+    const page=
+    document.getElementById("photoA4");
 
- btn.classList.add("active");
+    page.innerHTML="";
 
+    let pw;
+    let ph;
+
+    if(photoMode==="passport"){
+
+        pw=35;
+        ph=45;
+
+    }else if(photoMode==="half"){
+
+        pw=90;
+        ph=120;
+
+    }else{
+
+        pw=100;
+        ph=150;
+    }
+
+    const pxPerMm=
+    794/210;
+
+    const w=
+    pw*pxPerMm;
+
+    const h=
+    ph*pxPerMm;
+
+    /*
+      Multiple copies on A4.
+    */
+
+    const cols=
+    Math.max(
+        1,
+        Math.floor(794/w)
+    );
+
+    const rows=
+    Math.max(
+        1,
+        Math.floor(1123/h)
+    );
+
+    const gap=6;
+
+    const usableW=
+    cols*w+(cols-1)*gap;
+
+    const startX=
+    Math.max(
+        5,
+        (794-usableW)/2
+    );
+
+    let count=0;
+
+    for(let r=0;r<rows;r++){
+
+        for(let col=0;col<cols;col++){
+
+            const box=
+            document.createElement("div");
+
+            box.className="a4-card";
+
+            box.style.width=w+"px";
+            box.style.height=h+"px";
+
+            box.style.left=
+            (startX+col*(w+gap))+"px";
+
+            box.style.top=
+            (10+r*(h+gap))+"px";
+
+            box.style.transform="none";
+
+            const img=
+            document.createElement("img");
+
+            img.src=
+            photoCanvas.toDataURL("image/png");
+
+            box.appendChild(img);
+
+            page.appendChild(box);
+
+            count++;
+        }
+    }
 }
 
+
+/* ======================================
+   PHOTO DOWNLOAD
+====================================== */
 
 function downloadPhoto(){
 
- if(!personPhoto){
+    if(!photoImage){
 
-   alert("पहले customer photo चुनें।");
-   return;
+        alert("पहले Photo Upload करें।");
 
- }
+        return;
+    }
 
- drawPhoto();
+    downloadCanvas(
+        photoCanvas,
+        "customer-photo.png"
+    );
+}
 
- const a=
- document.createElement("a");
 
- a.download=
- "customer-photo.jpg";
+function downloadPhotoA4(){
 
- a.href=
- document.getElementById("photoCanvas")
- .toDataURL(
-   "image/jpeg",
-   .95
- );
+    const source=
+    document.getElementById("photoA4");
 
- a.click();
+    const c=
+    document.createElement("canvas");
 
+    c.width=794;
+    c.height=1123;
+
+    const cctx=
+    c.getContext("2d");
+
+    cctx.fillStyle="white";
+    cctx.fillRect(
+        0,
+        0,
+        794,
+        1123
+    );
+
+    const cards=
+    source.querySelectorAll(".a4-card");
+
+    cards.forEach(card=>{
+
+        const img=
+        card.querySelector("img");
+
+        cctx.drawImage(
+            img,
+            parseFloat(card.style.left),
+            parseFloat(card.style.top),
+            parseFloat(card.style.width),
+            parseFloat(card.style.height)
+        );
+
+    });
+
+    downloadCanvas(
+        c,
+        "photo-a4-sheet.png"
+    );
 }
 
 
 function printPhoto(){
 
- if(!personPhoto){
-
-   alert("पहले customer photo चुनें।");
-   return;
-
- }
-
- const area=
- document.getElementById("printArea");
-
- area.innerHTML="";
-
- const sheet=
- document.createElement("div");
-
- sheet.className="printA4";
-
- const canvas=
- document.getElementById("photoCanvas");
-
- const src=
- canvas.toDataURL(
-   "image/jpeg",
-   .95
- );
-
- let w=35;
- let h=45;
-
- if(photoState.type==="id"){
-   w=85.6;
-   h=53.98;
- }
-
- if(photoState.type==="4x6"){
-   w=152.4;
-   h=101.6;
- }
-
- if(photoState.type==="half"){
-   w=100;
-   h=150;
- }
-
- if(photoState.type==="full"){
-   w=120;
-   h=180;
- }
-
- if(photoState.type==="a4"){
-   w=190;
-   h=270;
- }
-
- const gap=2;
-
- let x=5;
- let y=5;
-
- for(let i=0;i<photoCopies;i++){
-
-   if(x+w>205){
-
-     x=5;
-     y+=h+gap;
-
-   }
-
-   if(y+h>292){
-
-     break;
-
-   }
-
-   const card=
-   document.createElement("div");
-
-   card.className="printCard";
-
-   card.style.left=x+"mm";
-   card.style.top=y+"mm";
-   card.style.width=w+"mm";
-   card.style.height=h+"mm";
-
-   const img=
-   document.createElement("img");
-
-   img.src=src;
-
-   img.style.width=w+"mm";
-   img.style.height=h+"mm";
-   img.style.objectFit="cover";
-
-   card.appendChild(img);
-
-   sheet.appendChild(card);
-
-   x+=w+gap;
-
- }
-
- area.appendChild(sheet);
-
- window.print();
-
+    window.print();
 }
 
 
-function photoDemo(){
+/* ======================================
+   CUSTOM SIZE BUTTON FIX
+====================================== */
 
- const c=
- document.createElement("canvas");
-
- c.width=600;
- c.height=800;
-
- const x=c.getContext("2d");
-
- x.fillStyle="#e7edf2";
- x.fillRect(0,0,600,800);
-
- x.fillStyle="#c4cbd2";
-
- x.beginPath();
-
- x.arc(
-   300,260,
-   120,
-   0,
-   Math.PI*2
- );
-
- x.fill();
-
- x.fillRect(
-   170,390,
-   260,310
- );
-
- x.fillStyle="#333";
- x.font="bold 34px Arial";
- x.textAlign="center";
-
- x.fillText(
-   "DEMO PHOTO",
-   300,755
- );
-
- const img=new Image();
-
- img.onload=function(){
-
-   personPhoto=img;
-
-   document.getElementById("photoEmpty")
-   .style.display="none";
-
-   document.getElementById("photoCanvas")
-   .style.display="block";
-
-   resetPhoto();
-
- };
-
- img.src=c.toDataURL("image/png");
-
-}
+document
+.getElementById("customSizeBox")
+.addEventListener("change",applyCustomSize);
 
 
-function clearPhoto(){
+/* ======================================
+   CROP BOX DRAG
+====================================== */
 
- personPhoto=null;
+let drag=false;
+let resize=false;
 
- document.getElementById("photoCanvas")
- .style.display="none";
+let startX=0;
+let startY=0;
 
- document.getElementById("photoEmpty")
- .style.display="block";
-
-}
-
-
-/* =====================================================
-TOOLS
-===================================================== */
-
-function calc(op){
-
- const a=
- Number(document.getElementById("numA").value);
-
- const b=
- Number(document.getElementById("numB").value);
-
- let r;
-
- if(op==="+")r=a+b;
- if(op==="-")r=a-b;
- if(op==="*")r=a*b;
- if(op==="/")
- r=b===0?"Cannot divide by zero":a/b;
-
- document.getElementById("calcResult")
- .textContent=
- "Result: "+r;
-
-}
+const cropBox=
+document.getElementById("cropBox");
 
 
-function percentage(){
+cropBox.addEventListener("mousedown",function(e){
 
- const n=
- Number(document.getElementById("obtained").value);
+    if(
+        e.target.classList.contains("crop-handle")
+    ){
 
- const t=
- Number(document.getElementById("total").value);
+        resize=true;
 
- if(!t){
+    }else{
 
-   alert("कुल अंक डालें।");
-   return;
+        drag=true;
+    }
 
- }
+    startX=e.clientX;
+    startY=e.clientY;
 
- document.getElementById(
-   "percentageResult"
- ).textContent=
- "Percentage: "+
- ((n/t)*100).toFixed(2)+
- "%";
-
-}
+    e.preventDefault();
+});
 
 
-function countText(){
+document.addEventListener("mousemove",function(e){
 
- const t=
- document.getElementById("counterText").value;
+    if(!drag && !resize)return;
 
- const words=
- t.trim()
- ?t.trim().split(/\s+/).length
- :0;
+    const dx=e.clientX-startX;
+    const dy=e.clientY-startY;
 
- document.getElementById(
-   "counterResult"
- ).textContent=
- "Characters: "+
- t.length+
- " | Words: "+
- words;
+    const area=
+    document
+    .getElementById("cropArea");
 
-}
+    const rect=
+    area.getBoundingClientRect();
+
+    if(drag){
+
+        let left=
+        parseFloat(cropBox.style.left||0)+dx;
+
+        let top=
+        parseFloat(cropBox.style.top||0)+dy;
+
+        left=
+        Math.max(
+            0,
+            Math.min(
+                rect.width-cropBox.offsetWidth,
+                left
+            )
+        );
+
+        top=
+        Math.max(
+            0,
+            Math.min(
+                rect.height-cropBox.offsetHeight,
+                top
+            )
+        );
+
+        cropBox.style.left=left+"px";
+        cropBox.style.top=top+"px";
+    }
+
+    if(resize){
+
+        let width=
+        cropBox.offsetWidth+dx;
+
+        let height=
+        cropBox.offsetHeight+dy;
+
+        width=Math.max(30,width);
+        height=Math.max(30,height);
+
+        cropBox.style.width=width+"px";
+        cropBox.style.height=height+"px";
+    }
+
+    startX=e.clientX;
+    startY=e.clientY;
+});
 
 
-/* =====================================================
-INIT
-===================================================== */
+document.addEventListener("mouseup",function(){
 
-window.addEventListener(
-"resize",
-function(){
+    drag=false;
+    resize=false;
+});
 
- if(
-   document.getElementById("documentEditor")
-   .classList.contains("active")
- ){
 
-   updateA4Preview();
+/* ======================================
+   TOUCH CROP SUPPORT
+====================================== */
 
- }
+cropBox.addEventListener("touchstart",function(e){
 
-}
-);
+    const t=e.touches[0];
+
+    drag=true;
+
+    startX=t.clientX;
+    startY=t.clientY;
+
+},{passive:false});
+
+
+cropBox.addEventListener("touchmove",function(e){
+
+    if(!drag)return;
+
+    const t=e.touches[0];
+
+    const dx=t.clientX-startX;
+    const dy=t.clientY-startY;
+
+    let left=
+    parseFloat(cropBox.style.left||0)+dx;
+
+    let top=
+    parseFloat(cropBox.style.top||0)+dy;
+
+    cropBox.style.left=
+    Math.max(0,left)+"px";
+
+    cropBox.style.top=
+    Math.max(0,top)+"px";
+
+    startX=t.clientX;
+    startY=t.clientY;
+
+    e.preventDefault();
+
+},{passive:false});
+
+
+cropBox.addEventListener("touchend",function(){
+
+    drag=false;
+});
+
+
+/* ======================================
+   INITIAL
+====================================== */
+
+window.addEventListener("load",function(){
+
+    setMode("front");
+
+    updatePreview();
+
+});
 
 </script>
 
