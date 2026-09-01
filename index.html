@@ -2,10 +2,9 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Bharat Digital Centre | Smart Digital Services</title>
+<title>Bharat Digital Centre | Digital Services</title>
 
 <style>
 *{
@@ -22,13 +21,9 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     background:#f3f7fb;
     color:#172033;
-    line-height:1.5;
 }
 
-button,
-input,
-select,
-textarea{
+button,input,select{
     font-family:inherit;
 }
 
@@ -40,27 +35,22 @@ a{
     text-decoration:none;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .header{
     position:sticky;
     top:0;
     z-index:1000;
     background:#0756b8;
-    color:#fff;
-    box-shadow:0 2px 12px rgba(0,0,0,.15);
+    color:white;
+    box-shadow:0 2px 12px #0003;
 }
 
 .header-inner{
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
     padding:8px 12px;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    gap:10px;
+    align-items:center;
 }
 
 .logo{
@@ -72,41 +62,40 @@ a{
 .logo-icon{
     width:38px;
     height:38px;
-    border-radius:10px;
-    background:#fff;
+    background:white;
     color:#0756b8;
+    border-radius:9px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:21px;
     font-weight:bold;
-}
-
-.logo-text h1{
     font-size:17px;
 }
 
-.logo-text p{
-    font-size:10px;
-    opacity:.9;
+.logo h1{
+    font-size:17px;
 }
 
-.menu-btn{
+.logo p{
+    font-size:9px;
+}
+
+.menu{
+    background:#ffffff22;
     border:0;
-    background:rgba(255,255,255,.15);
-    color:#fff;
+    color:white;
     width:38px;
     height:38px;
-    border-radius:9px;
+    border-radius:8px;
     font-size:20px;
 }
 
 .nav{
-    display:none;
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
-    padding:0 12px 9px;
+    display:none;
     gap:5px;
+    padding:0 12px 8px;
     flex-wrap:wrap;
 }
 
@@ -115,151 +104,94 @@ a{
 }
 
 .nav button{
+    background:#ffffff1f;
     border:0;
-    background:rgba(255,255,255,.13);
-    color:#fff;
+    color:white;
     padding:7px 10px;
-    border-radius:7px;
-    font-size:12px;
+    border-radius:6px;
+    font-size:11px;
 }
 
-/* =========================
-   HERO
-========================= */
-
 .hero{
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
-    padding:24px 12px 16px;
+    padding:20px 12px 12px;
 }
 
 .hero-box{
     background:linear-gradient(135deg,#0756b8,#08a1d8);
-    color:#fff;
-    border-radius:18px;
+    color:white;
+    border-radius:16px;
     padding:24px 18px;
-    box-shadow:0 8px 25px rgba(7,86,184,.2);
 }
 
 .hero h2{
-    font-size:28px;
+    font-size:27px;
     margin-bottom:7px;
 }
 
 .hero p{
-    font-size:14px;
-    opacity:.95;
-}
-
-.hero-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:16px;
-}
-
-.hero-btn{
-    border:0;
-    padding:9px 13px;
-    border-radius:8px;
-    font-weight:bold;
     font-size:12px;
 }
 
-.hero-btn.primary{
-    background:#fff;
+.hero-buttons{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:14px;
+}
+
+.hero-buttons button{
+    border:0;
+    padding:9px 12px;
+    border-radius:7px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.white-btn{
     color:#0756b8;
+    background:white;
 }
 
-.hero-btn.dark{
-    background:rgba(0,0,0,.2);
-    color:#fff;
-}
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-box{
-    max-width:1250px;
-    margin:0 auto 14px;
-    padding:0 12px;
+.dark-btn{
+    color:white;
+    background:#0003;
 }
 
 .search{
+    max-width:1200px;
+    margin:0 auto 12px;
+    padding:0 12px;
+}
+
+.search input{
     width:100%;
-    padding:12px 14px;
-    border:1px solid #d5deea;
-    border-radius:10px;
-    background:#fff;
+    padding:11px 13px;
+    border:1px solid #d4dfeb;
+    border-radius:9px;
     outline:none;
-    font-size:14px;
 }
-
-.search:focus{
-    border-color:#0756b8;
-}
-
-/* =========================
-   STATS
-========================= */
-
-.stats{
-    max-width:1250px;
-    margin:auto;
-    padding:0 12px 18px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:8px;
-}
-
-.stat{
-    background:#fff;
-    border:1px solid #e2e8f0;
-    border-radius:10px;
-    padding:9px 5px;
-    text-align:center;
-}
-
-.stat strong{
-    display:block;
-    color:#0756b8;
-    font-size:17px;
-}
-
-.stat span{
-    display:block;
-    color:#64748b;
-    font-size:9px;
-}
-
-/* =========================
-   SECTIONS
-========================= */
 
 .section{
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
-    padding:15px 12px;
+    padding:14px 12px;
 }
 
-.section-title{
+.title{
     margin-bottom:10px;
 }
 
-.section-title h2{
-    font-size:20px;
+.title h2{
     color:#062b57;
+    font-size:19px;
 }
 
-.section-title p{
+.title p{
     color:#64748b;
-    font-size:11px;
+    font-size:10px;
 }
-
-/* =========================
-   SERVICE GRID
-========================= */
 
 .service-grid{
     display:grid;
@@ -267,26 +199,19 @@ a{
     gap:8px;
 }
 
-.service-card{
-    background:#fff;
-    border:1px solid #e1e8f0;
-    border-radius:11px;
+.card{
+    background:white;
+    border:1px solid #dfe7ef;
+    border-radius:10px;
     padding:10px;
-    min-height:112px;
-    box-shadow:0 2px 7px rgba(0,0,0,.04);
-    transition:.2s;
+    box-shadow:0 2px 7px #00000009;
 }
 
-.service-card:hover{
-    transform:translateY(-2px);
-    box-shadow:0 6px 16px rgba(0,0,0,.08);
-}
-
-.service-icon{
+.icon{
     width:30px;
     height:30px;
-    border-radius:8px;
     background:#eaf3ff;
+    border-radius:7px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -294,275 +219,370 @@ a{
     margin-bottom:6px;
 }
 
-.service-card h3{
-    font-size:13px;
-    color:#162b48;
-    margin-bottom:2px;
+.card h3{
+    font-size:12px;
+    color:#173452;
 }
 
-.service-card p{
-    font-size:10px;
+.card p{
+    font-size:9px;
     color:#64748b;
-    min-height:30px;
+    margin:2px 0 5px;
 }
 
-.open-btn{
+.open{
     display:inline-block;
-    border:0;
     background:#0756b8;
-    color:#fff;
-    padding:6px 9px;
-    border-radius:6px;
-    font-size:10px;
-    margin-top:5px;
+    color:white;
+    border:0;
+    border-radius:5px;
+    padding:6px 8px;
+    font-size:9px;
 }
 
-/* =========================
-   QUICK TOOLS
-========================= */
-
-.quick-grid{
+.stats{
+    max-width:1200px;
+    margin:auto;
+    padding:0 12px 10px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:7px;
+    gap:6px;
 }
 
-.quick{
-    background:#fff;
+.stat{
+    background:white;
     border:1px solid #e1e8f0;
-    border-radius:9px;
-    padding:9px 4px;
+    border-radius:8px;
     text-align:center;
-    cursor:pointer;
+    padding:7px;
 }
 
-.quick-icon{
-    font-size:18px;
-}
-
-.quick span{
+.stat strong{
     display:block;
+    color:#0756b8;
+    font-size:16px;
+}
+
+.stat span{
+    font-size:8px;
+    color:#64748b;
+}
+
+
+/* =====================================================
+   MAIN TWO BUTTONS
+===================================================== */
+
+.main-tools{
+    max-width:1200px;
+    margin:auto;
+    padding:12px;
+}
+
+.main-tool-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.main-tool{
+    border:0;
+    color:white;
+    min-height:125px;
+    border-radius:15px;
+    padding:16px 10px;
+    box-shadow:0 6px 18px #0002;
+}
+
+.document-button{
+    background:linear-gradient(135deg,#0756b8,#08457e);
+}
+
+.photo-button{
+    background:linear-gradient(135deg,#138a45,#08a17b);
+}
+
+.main-tool .big-icon{
+    font-size:32px;
+}
+
+.main-tool h2{
+    font-size:17px;
+    margin-top:4px;
+}
+
+.main-tool p{
     font-size:9px;
     margin-top:3px;
 }
 
-/* =========================
-   EDITOR
-========================= */
 
-.editor-wrap{
-    background:#fff;
-    border:1px solid #dce5ef;
-    border-radius:15px;
+/* =====================================================
+   EDITOR COMMON
+===================================================== */
+
+.editor{
+    display:none;
+    background:white;
+    border:1px solid #dbe5ef;
+    border-radius:14px;
     overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+    box-shadow:0 5px 20px #0001;
+}
+
+.editor.active{
+    display:block;
 }
 
 .editor-head{
-    background:linear-gradient(135deg,#062b57,#0756b8);
-    color:#fff;
-    padding:14px;
+    padding:13px;
+    color:white;
+    background:#0756b8;
+}
+
+.photo-editor .editor-head{
+    background:#138a45;
 }
 
 .editor-head h2{
-    font-size:19px;
+    font-size:18px;
 }
 
 .editor-head p{
-    font-size:11px;
+    font-size:10px;
     opacity:.9;
 }
 
-.upload-area{
-    padding:12px;
-    background:#f8fbff;
-    border-bottom:1px solid #e4ebf2;
+.upload{
+    background:#f7fbff;
+    border-bottom:1px solid #e2eaf2;
+    padding:10px;
 }
 
 .upload-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:7px;
+    gap:6px;
 }
 
 .upload-btn{
-    border:1px solid #cddbeb;
-    background:#fff;
+    border:1px solid #cbd9e8;
+    background:white;
     color:#0756b8;
-    border-radius:8px;
-    padding:10px 5px;
-    font-size:11px;
+    border-radius:7px;
+    padding:9px 5px;
+    font-size:10px;
     font-weight:bold;
 }
 
-.upload-btn.camera{
-    background:#0756b8;
-    color:#fff;
+.upload-btn.green{
+    color:white;
+    background:#138a45;
+    border-color:#138a45;
 }
 
-.editor-body{
-    padding:12px;
+.editor-content{
+    padding:10px;
 }
 
-.canvas-box{
-    width:100%;
-    min-height:300px;
+.canvas-area{
+    min-height:280px;
     background:
-    linear-gradient(45deg,#e9edf2 25%,transparent 25%),
-    linear-gradient(-45deg,#e9edf2 25%,transparent 25%),
-    linear-gradient(45deg,transparent 75%,#e9edf2 75%),
-    linear-gradient(-45deg,transparent 75%,#e9edf2 75%);
+    linear-gradient(45deg,#e8edf2 25%,transparent 25%),
+    linear-gradient(-45deg,#e8edf2 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#e8edf2 75%),
+    linear-gradient(-45deg,transparent 75%,#e8edf2 75%);
     background-size:20px 20px;
     background-position:0 0,0 10px,10px -10px,-10px 0;
-    border:2px dashed #b9c8d8;
-    border-radius:10px;
+    border:2px dashed #b8c8d9;
+    border-radius:9px;
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
 }
 
-#editorCanvas{
+.canvas-area canvas{
     max-width:100%;
     max-height:500px;
     display:none;
-    object-fit:contain;
 }
 
-.empty-editor{
+.empty{
     text-align:center;
     color:#64748b;
-    padding:30px 15px;
+    padding:30px;
 }
 
-.empty-editor .big{
-    font-size:45px;
+.empty strong{
+    display:block;
+    font-size:40px;
+    margin-bottom:6px;
 }
 
 .controls{
-    margin-top:10px;
+    margin-top:9px;
 }
 
-.control-group{
-    border:1px solid #e0e7ef;
-    border-radius:10px;
+.control{
+    border:1px solid #dce5ee;
+    border-radius:9px;
     padding:9px;
-    margin-bottom:8px;
+    margin-bottom:7px;
     background:#fbfdff;
 }
 
 .control-title{
     font-weight:bold;
-    font-size:11px;
-    color:#334155;
+    font-size:10px;
     margin-bottom:7px;
+    color:#334155;
 }
 
-.control-row{
+.row{
     display:flex;
-    gap:6px;
+    gap:5px;
     flex-wrap:wrap;
 }
 
-.tool-btn{
-    border:1px solid #cbd8e6;
-    background:#fff;
-    color:#1e3a5f;
+.select{
+    width:100%;
+    padding:8px;
+    border:1px solid #cbd8e5;
     border-radius:6px;
-    padding:7px 9px;
+    background:white;
     font-size:10px;
 }
 
-.tool-btn.active,
-.tool-btn.primary{
+.select-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+}
+
+.small-btn{
+    border:1px solid #c8d5e3;
+    background:white;
+    color:#173452;
+    padding:7px 8px;
+    border-radius:6px;
+    font-size:9px;
+}
+
+.small-btn.active{
     background:#0756b8;
-    color:#fff;
+    color:white;
     border-color:#0756b8;
 }
 
-.range-row{
+.photo-editor .small-btn.active{
+    background:#138a45;
+    border-color:#138a45;
+}
+
+.range{
     display:grid;
-    grid-template-columns:85px 1fr 35px;
+    grid-template-columns:70px 1fr 35px;
+    gap:5px;
     align-items:center;
-    gap:7px;
-    margin-bottom:7px;
+    margin:5px 0;
 }
 
-.range-row label{
-    font-size:10px;
+.range label{
+    font-size:9px;
 }
 
-.range-row output{
-    font-size:10px;
+.range input{
+    width:100%;
+}
+
+.range output{
+    font-size:9px;
     text-align:right;
 }
 
-.range-row input{
-    width:100%;
-}
-
-.select-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:7px;
-}
-
-.select-row select,
-.text-input{
-    width:100%;
-    border:1px solid #ccd8e5;
-    border-radius:7px;
-    padding:8px;
-    font-size:11px;
-    background:#fff;
-}
-
-.copy-grid{
+.copies{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:5px;
 }
 
-.copy-btn{
-    border:1px solid #cbd8e6;
-    background:#fff;
+.copy{
+    padding:7px 2px;
+    border:1px solid #cbd8e5;
+    background:white;
     border-radius:6px;
-    padding:7px 3px;
-    font-size:10px;
+    font-size:9px;
 }
 
-.copy-btn.active{
+.copy.active{
     background:#0756b8;
-    color:#fff;
+    color:white;
 }
 
-.output-buttons{
+.photo-editor .copy.active{
+    background:#138a45;
+}
+
+.action-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:7px;
+    gap:6px;
 }
 
-.output-btn{
+.action{
     border:0;
-    border-radius:8px;
-    padding:10px;
-    font-size:11px;
+    border-radius:7px;
+    padding:10px 5px;
+    font-size:10px;
     font-weight:bold;
 }
 
-.output-btn.print{
-    background:#138a45;
-    color:#fff;
-}
-
-.output-btn.download{
+.download{
     background:#0756b8;
-    color:#fff;
+    color:white;
 }
 
-/* =========================
-   OTHER TOOLS
-========================= */
+.print{
+    background:#138a45;
+    color:white;
+}
+
+.clear{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+
+/* =====================================================
+   PHOTO STUDIO OPTIONS
+===================================================== */
+
+.photo-size-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:6px;
+}
+
+.photo-size{
+    border:1px solid #cbd8e5;
+    background:white;
+    border-radius:7px;
+    padding:9px 4px;
+    font-size:9px;
+    text-align:center;
+}
+
+.photo-size.active{
+    background:#138a45;
+    color:white;
+    border-color:#138a45;
+}
+
+
+/* =====================================================
+   UTILITY
+===================================================== */
 
 .tool-grid{
     display:grid;
@@ -570,179 +590,102 @@ a{
     gap:8px;
 }
 
-.tool-card{
-    background:#fff;
-    border:1px solid #e0e7ef;
-    border-radius:10px;
+.utility{
+    background:white;
+    border:1px solid #dfe7ef;
+    border-radius:9px;
     padding:10px;
 }
 
-.tool-card h3{
-    font-size:13px;
-    margin-bottom:7px;
-}
-
-.tool-card input,
-.tool-card select,
-.tool-card textarea{
-    width:100%;
-    border:1px solid #ccd8e5;
-    border-radius:7px;
-    padding:8px;
-    font-size:11px;
+.utility h3{
+    font-size:12px;
     margin-bottom:6px;
 }
 
-.tool-card textarea{
-    min-height:90px;
-    resize:vertical;
+.utility input,
+.utility textarea,
+.utility select{
+    width:100%;
+    padding:7px;
+    border:1px solid #cbd8e5;
+    border-radius:6px;
+    margin-bottom:5px;
+    font-size:10px;
 }
 
-.tool-card button{
+.utility textarea{
+    min-height:70px;
+}
+
+.utility button{
     border:0;
     background:#0756b8;
-    color:#fff;
+    color:white;
+    padding:7px 9px;
     border-radius:6px;
-    padding:7px 10px;
-    font-size:10px;
+    font-size:9px;
 }
 
 .result{
-    margin-top:6px;
-    background:#f0f6ff;
-    border-radius:6px;
-    padding:7px;
-    font-size:11px;
+    background:#eef6ff;
     color:#0756b8;
+    border-radius:5px;
+    padding:6px;
+    margin-top:5px;
+    font-size:9px;
     word-break:break-word;
 }
 
-/* =========================
-   NOTICE
-========================= */
 
-.notice{
-    max-width:1250px;
-    margin:8px auto;
-    padding:0 12px;
-}
-
-.notice-box{
-    background:#fff8e6;
-    border:1px solid #f4d58a;
-    border-radius:9px;
-    padding:9px 11px;
-    font-size:10px;
-    color:#705000;
-}
-
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
-    margin-top:25px;
     background:#062b57;
-    color:#fff;
+    color:white;
     padding:25px 12px;
-}
-
-.footer-inner{
-    max-width:1250px;
-    margin:auto;
+    margin-top:25px;
 }
 
 .footer-grid{
+    max-width:1200px;
+    margin:auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
 }
 
 footer h3{
-    font-size:13px;
+    font-size:12px;
     margin-bottom:6px;
 }
 
 footer p,
 footer a{
-    color:#dbeafe;
-    font-size:10px;
     display:block;
+    color:#dbeafe;
+    font-size:9px;
     margin:3px 0;
 }
 
 .copyright{
-    border-top:1px solid rgba(255,255,255,.15);
-    margin-top:15px;
+    max-width:1200px;
+    margin:15px auto 0;
     padding-top:10px;
+    border-top:1px solid #ffffff22;
     text-align:center;
-    font-size:9px;
+    font-size:8px;
 }
 
-/* =========================
-   MODAL
-========================= */
 
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    z-index:3000;
-    align-items:center;
-    justify-content:center;
-    padding:15px;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:100%;
-    max-width:500px;
-    background:#fff;
-    border-radius:13px;
-    padding:15px;
-    max-height:90vh;
-    overflow:auto;
-}
-
-.modal-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:10px;
-}
-
-.modal-head h3{
-    font-size:16px;
-}
-
-.close{
-    border:0;
-    background:#fee2e2;
-    color:#991b1b;
-    width:30px;
-    height:30px;
-    border-radius:6px;
-}
-
-/* =========================
-   PRINT
-========================= */
-
-.print-page{
-    display:none;
-}
-
-/* =========================
+/* =====================================================
    DESKTOP
-========================= */
+===================================================== */
 
 @media(min-width:700px){
 
-    .menu-btn{
+    .menu{
         display:none;
     }
 
@@ -754,19 +697,19 @@ footer a{
         grid-template-columns:repeat(4,1fr);
     }
 
-    .quick-grid{
-        grid-template-columns:repeat(8,1fr);
+    .main-tool{
+        min-height:150px;
     }
 
-    .tool-grid{
-        grid-template-columns:repeat(3,1fr);
+    .main-tool .big-icon{
+        font-size:40px;
     }
 
-    .upload-grid{
-        grid-template-columns:repeat(4,1fr);
+    .main-tool h2{
+        font-size:20px;
     }
 
-    .editor-body{
+    .editor-content{
         display:grid;
         grid-template-columns:1.3fr 1fr;
         gap:12px;
@@ -776,41 +719,31 @@ footer a{
         margin-top:0;
     }
 
-    .hero h2{
-        font-size:34px;
+    .tool-grid{
+        grid-template-columns:repeat(3,1fr);
     }
 }
 
-/* =========================
-   VERY SMALL MOBILE
-========================= */
-
 @media(max-width:360px){
+
+    .main-tool-grid{
+        grid-template-columns:1fr;
+    }
 
     .stats{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .service-card{
-        padding:8px;
-    }
-
-    .service-card h3{
-        font-size:12px;
-    }
-
-    .copy-grid{
-        grid-template-columns:repeat(4,1fr);
-    }
-
-    .hero h2{
-        font-size:23px;
-    }
 }
 
-/* =========================
-   PRINT CSS
-========================= */
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+#printArea{
+    display:none;
+}
 
 @media print{
 
@@ -830,19 +763,19 @@ footer a{
         top:0;
         width:210mm;
         min-height:297mm;
-        background:#fff;
         padding:5mm;
+        background:white;
     }
 
     .print-sheet{
         width:200mm;
         min-height:287mm;
         display:grid;
-        gap:3mm;
         align-content:start;
+        gap:3mm;
     }
 
-    .print-photo{
+    .print-item{
         width:100%;
         height:auto;
         object-fit:contain;
@@ -853,9 +786,10 @@ footer a{
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+
+<!-- =====================================================
+HEADER
+===================================================== -->
 
 <header class="header">
 
@@ -865,62 +799,57 @@ footer a{
 
 <div class="logo-icon">BD</div>
 
-<div class="logo-text">
+<div>
 <h1>Bharat Digital Centre</h1>
-<p>Smart Citizen Digital Services</p>
+<p>Smart Digital Services</p>
 </div>
 
 </div>
 
-<button class="menu-btn"
+<button class="menu"
 onclick="toggleMenu()">☰</button>
 
 </div>
 
 <nav class="nav" id="nav">
 
-<button onclick="scrollToId('services')">Services</button>
-
-<button onclick="scrollToId('editor')">📸 Document Editor</button>
-
-<button onclick="scrollToId('tools')">Digital Tools</button>
-
-<button onclick="scrollToId('rajasthan')">Rajasthan</button>
-
-<button onclick="scrollToId('banking')">Banking</button>
-
-<button onclick="scrollToId('education')">Education</button>
+<button onclick="go('services')">Services</button>
+<button onclick="showEditor('documentEditor')">📄 Document Copy</button>
+<button onclick="showEditor('photoEditor')">📸 Photo Studio</button>
+<button onclick="go('tools')">🛠️ Tools</button>
+<button onclick="go('rajasthan')">🏜️ Rajasthan</button>
+<button onclick="go('education')">🎓 Education</button>
 
 </nav>
 
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- =====================================================
+HERO
+===================================================== -->
 
 <section class="hero">
 
 <div class="hero-box">
 
-<h2>आपकी डिजिटल सेवाएँ,<br>एक ही जगह</h2>
+<h2>आपकी डिजिटल सेवाएँ<br>एक ही जगह</h2>
 
 <p>
-Government portals, Rajasthan services,
-Document Photo Editor, Printing और Digital Tools।
+Document Copy, Photo Studio, Government Services,
+Digital Tools और Online Services।
 </p>
 
-<div class="hero-actions">
+<div class="hero-buttons">
 
-<button class="hero-btn primary"
-onclick="scrollToId('services')">
-🔎 सभी सेवाएँ
+<button class="white-btn"
+onclick="showEditor('documentEditor')">
+📄 Document Copy
 </button>
 
-<button class="hero-btn dark"
-onclick="scrollToId('editor')">
-📸 Document Editor
+<button class="dark-btn"
+onclick="showEditor('photoEditor')">
+📸 Customer Photo Studio
 </button>
 
 </div>
@@ -930,25 +859,23 @@ onclick="scrollToId('editor')">
 </section>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
+<!-- =====================================================
+SEARCH
+===================================================== -->
 
-<div class="search-box">
+<div class="search">
 
 <input
-class="search"
-id="serviceSearch"
-type="search"
-placeholder="🔎 सेवा खोजें... Aadhaar, PAN, बिजली, photo, print..."
-oninput="searchServices()">
+id="searchInput"
+placeholder="🔎 Aadhaar, PAN, Photo, Print, Railway, Rajasthan..."
+oninput="searchCards()">
 
 </div>
 
 
-<!-- =========================
-     STATS
-========================= -->
+<!-- =====================================================
+STATS
+===================================================== -->
 
 <div class="stats">
 
@@ -958,8 +885,8 @@ oninput="searchServices()">
 </div>
 
 <div class="stat">
-<strong>50+</strong>
-<span>Portals</span>
+<strong>2</strong>
+<span>Photo Editors</span>
 </div>
 
 <div class="stat">
@@ -975,702 +902,282 @@ oninput="searchServices()">
 </div>
 
 
-<!-- =========================
-     NOTICE
-========================= -->
+<!-- =====================================================
+TWO MAIN BUTTONS
+===================================================== -->
 
-<div class="notice">
+<div class="main-tools">
 
-<div class="notice-box">
+<div class="main-tool-grid">
 
-⚠️ यह Bharat Digital Centre एक स्वतंत्र digital service platform है।
-यह Government Department या CSC की official website नहीं है।
-Official services के लिए संबंधित official portal खोलें।
+<button
+class="main-tool document-button"
+onclick="showEditor('documentEditor')">
 
-</div>
+<div class="big-icon">📄</div>
 
-</div>
+<h2>Document Copy</h2>
 
+<p>
+Aadhaar • ID • Certificate • Front • Back • A4
+</p>
 
-<!-- =========================
-     SERVICES
-========================= -->
+</button>
 
-<section class="section" id="services">
 
-<div class="section-title">
+<button
+class="main-tool photo-button"
+onclick="showEditor('photoEditor')">
 
-<h2>🏛️ नागरिक एवं सरकारी सेवाएँ</h2>
+<div class="big-icon">📸</div>
 
-<p>महत्वपूर्ण सरकारी portals तक आसान पहुँच</p>
+<h2>Customer Photo Studio</h2>
 
-</div>
+<p>
+Passport • Half • Full • 4×6 • A4 Photo
+</p>
 
-<div class="service-grid" id="serviceGrid">
-
-<!-- Aadhaar -->
-
-<div class="service-card searchable"
-data-name="aadhaar uidai आधार">
-
-<div class="service-icon">🪪</div>
-
-<h3>Aadhaar / UIDAI</h3>
-
-<p>Aadhaar official online services</p>
-
-<a class="open-btn"
-href="https://uidai.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- PAN -->
-
-<div class="service-card searchable"
-data-name="pan income tax पैन">
-
-<div class="service-icon">💳</div>
-
-<h3>PAN / Income Tax</h3>
-
-<p>PAN और Income Tax services</p>
-
-<a class="open-btn"
-href="https://www.incometax.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- Voter -->
-
-<div class="service-card searchable"
-data-name="voter election मतदाता">
-
-<div class="service-icon">🗳️</div>
-
-<h3>Voter Services</h3>
-
-<p>Registration और correction</p>
-
-<a class="open-btn"
-href="https://voters.eci.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- Passport -->
-
-<div class="service-card searchable"
-data-name="passport पासपोर्ट">
-
-<div class="service-icon">🛂</div>
-
-<h3>Passport Seva</h3>
-
-<p>Passport application</p>
-
-<a class="open-btn"
-href="https://www.passportindia.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- eShram -->
-
-<div class="service-card searchable"
-data-name="eshram e shram श्रम">
-
-<div class="service-icon">👷</div>
-
-<h3>e-Shram</h3>
-
-<p>Worker services</p>
-
-<a class="open-btn"
-href="https://eshram.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- DigiLocker -->
-
-<div class="service-card searchable"
-data-name="digilocker documents दस्तावेज">
-
-<div class="service-icon">🔐</div>
-
-<h3>DigiLocker</h3>
-
-<p>Digital documents</p>
-
-<a class="open-btn"
-href="https://www.digilocker.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- UMANG -->
-
-<div class="service-card searchable"
-data-name="umang government">
-
-<div class="service-icon">📲</div>
-
-<h3>UMANG</h3>
-
-<p>Government services</p>
-
-<a class="open-btn"
-href="https://web.umang.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- India -->
-
-<div class="service-card searchable"
-data-name="india government भारत सरकार">
-
-<div class="service-icon">🇮🇳</div>
-
-<h3>India.gov.in</h3>
-
-<p>National Government Portal</p>
-
-<a class="open-btn"
-href="https://www.india.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- PM Kisan -->
-
-<div class="service-card searchable"
-data-name="pm kisan किसान">
-
-<div class="service-icon">🌾</div>
-
-<h3>PM-KISAN</h3>
-
-<p>Farmer services</p>
-
-<a class="open-btn"
-href="https://pmkisan.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- myScheme -->
-
-<div class="service-card searchable"
-data-name="myscheme योजना">
-
-<div class="service-icon">🏛️</div>
-
-<h3>myScheme</h3>
-
-<p>Government schemes</p>
-
-<a class="open-btn"
-href="https://www.myscheme.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- eNAM -->
-
-<div class="service-card searchable"
-data-name="enam agriculture मंडी">
-
-<div class="service-icon">🧑‍🌾</div>
-
-<h3>e-NAM</h3>
-
-<p>National Agriculture Market</p>
-
-<a class="open-btn"
-href="https://www.enam.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- Agriculture -->
-
-<div class="service-card searchable"
-data-name="agriculture कृषि खेती">
-
-<div class="service-icon">🌱</div>
-
-<h3>Agriculture</h3>
-
-<p>Agriculture information</p>
-
-<a class="open-btn"
-href="https://agriwelfare.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- Ayushman -->
-
-<div class="service-card searchable"
-data-name="ayushman health स्वास्थ्य">
-
-<div class="service-icon">🩺</div>
-
-<h3>Ayushman Bharat</h3>
-
-<p>Health scheme</p>
-
-<a class="open-btn"
-href="https://pmjay.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- Tele Law -->
-
-<div class="service-card searchable"
-data-name="tele law legal कानून">
-
-<div class="service-icon">⚖️</div>
-
-<h3>Tele-Law</h3>
-
-<p>Legal advice</p>
-
-<a class="open-btn"
-href="https://www.tele-law.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- Health -->
-
-<div class="service-card searchable"
-data-name="health national health">
-
-<div class="service-icon">🏥</div>
-
-<h3>National Health Portal</h3>
-
-<p>Health information</p>
-
-<a class="open-btn"
-href="https://www.nhp.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- Career -->
-
-<div class="service-card searchable"
-data-name="career job नौकरी">
-
-<div class="service-icon">💼</div>
-
-<h3>National Career Service</h3>
-
-<p>Jobs and career</p>
-
-<a class="open-btn"
-href="https://www.ncs.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- IRCTC -->
-
-<div class="service-card searchable"
-data-name="irctc railway train रेल">
-
-<div class="service-icon">🚆</div>
-
-<h3>IRCTC</h3>
-
-<p>Railway ticketing</p>
-
-<a class="open-btn"
-href="https://www.irctc.co.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- Parivahan -->
-
-<div class="service-card searchable"
-data-name="parivahan dl vehicle गाड़ी">
-
-<div class="service-icon">🚗</div>
-
-<h3>Parivahan</h3>
-
-<p>DL और vehicle services</p>
-
-<a class="open-btn"
-href="https://parivahan.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- eChallan -->
-
-<div class="service-card searchable"
-data-name="challan traffic चालान">
-
-<div class="service-icon">🚨</div>
-
-<h3>e-Challan</h3>
-
-<p>Traffic challan</p>
-
-<a class="open-btn"
-href="https://echallan.parivahan.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<!-- LPG -->
-
-<div class="service-card searchable"
-data-name="lpg gas गैस">
-
-<div class="service-icon">🔥</div>
-
-<h3>My LPG</h3>
-
-<p>LPG information</p>
-
-<a class="open-btn"
-href="https://mylpg.in/"
-target="_blank">
-Open ↗
-</a>
+</button>
 
 </div>
 
 </div>
-
-</section>
-
-
-<!-- =========================
-     QUICK ACCESS
-========================= -->
-
-<section class="section">
-
-<div class="section-title">
-
-<h2>⚡ Quick Access</h2>
-
-</div>
-
-<div class="quick-grid">
-
-<div class="quick"
-onclick="openURL('https://uidai.gov.in/')">
-<div class="quick-icon">🪪</div>
-<span>Aadhaar</span>
-</div>
-
-<div class="quick"
-onclick="openURL('https://www.incometax.gov.in/')">
-<div class="quick-icon">💳</div>
-<span>PAN</span>
-</div>
-
-<div class="quick"
-onclick="openURL('https://voters.eci.gov.in/')">
-<div class="quick-icon">🗳️</div>
-<span>Voter</span>
-</div>
-
-<div class="quick"
-onclick="openURL('https://pmkisan.gov.in/')">
-<div class="quick-icon">🌾</div>
-<span>PM-Kisan</span>
-</div>
-
-<div class="quick"
-onclick="openURL('https://www.irctc.co.in/')">
-<div class="quick-icon">🚆</div>
-<span>Railway</span>
-</div>
-
-<div class="quick"
-onclick="scrollToId('editor')">
-<div class="quick-icon">📸</div>
-<span>Photo Copy</span>
-</div>
-
-<div class="quick"
-onclick="scrollToId('tools')">
-<div class="quick-icon">🛠️</div>
-<span>Tools</span>
-</div>
-
-<div class="quick"
-onclick="scrollToId('rajasthan')">
-<div class="quick-icon">🏜️</div>
-<span>Rajasthan</span>
-</div>
-
-</div>
-
-</section>
 
 
 <!-- =====================================================
-     DOCUMENT PHOTO EDITOR
+DOCUMENT EDITOR
 ===================================================== -->
 
-<section class="section" id="editor">
+<section class="section">
 
-<div class="editor-wrap">
+<div
+class="editor"
+id="documentEditor">
 
 <div class="editor-head">
 
-<h2>📸 Document Photo & Print Studio</h2>
+<h2>📄 Document Copy Editor</h2>
 
 <p>
-WhatsApp/Gallery से document photo चुनें और
-A4/ID copy, crop, rotate, brightness, contrast,
-grayscale तथा multiple copies तैयार करें।
+WhatsApp/Gallery से Front और Back document photo
+चुनें और print-ready copy तैयार करें।
 </p>
 
 </div>
 
 
-<!-- UPLOAD -->
-
-<div class="upload-area">
+<div class="upload">
 
 <div class="upload-grid">
 
 <button
 class="upload-btn"
-onclick="document.getElementById('galleryInput').click()">
-🖼️ Gallery / WhatsApp Photo
-</button>
-
-<button
-class="upload-btn camera"
-onclick="document.getElementById('cameraInput').click()">
-📷 Camera से फोटो
+onclick="document.getElementById('docFront').click()">
+🖼️ Front Photo
 </button>
 
 <button
 class="upload-btn"
-onclick="loadDemo()">
-🧪 Demo Photo
+onclick="document.getElementById('docBack').click()">
+🖼️ Back Photo
 </button>
 
 <button
 class="upload-btn"
-onclick="clearEditor()">
-🗑️ Clear
+onclick="document.getElementById('docSingle').click()">
+📷 Single Document
+</button>
+
+<button
+class="upload-btn"
+onclick="loadDocDemo()">
+🧪 Demo
 </button>
 
 </div>
 
-
 <input
+id="docFront"
 type="file"
-id="galleryInput"
 accept="image/*"
 style="display:none"
-onchange="loadImage(this)">
-
+onchange="loadDocument(this,'front')">
 
 <input
+id="docBack"
 type="file"
-id="cameraInput"
 accept="image/*"
-capture="environment"
 style="display:none"
-onchange="loadImage(this)">
+onchange="loadDocument(this,'back')">
+
+<input
+id="docSingle"
+type="file"
+accept="image/*"
+style="display:none"
+onchange="loadDocument(this,'single')">
 
 </div>
 
 
-<div class="editor-body">
+<div class="editor-content">
 
-<!-- CANVAS -->
 
 <div>
 
-<div class="canvas-box">
+<div class="canvas-area">
 
 <div
-class="empty-editor"
-id="emptyEditor">
+class="empty"
+id="docEmpty">
 
-<div class="big">📄</div>
+<strong>📄</strong>
 
-<p>
-WhatsApp से Save की गई photo चुनें<br>
-या Camera से document photo लें
-</p>
+Front / Back document photo चुनें
 
 </div>
 
-<canvas
-id="editorCanvas">
-</canvas>
+<canvas id="docCanvas"></canvas>
 
 </div>
 
 </div>
 
-
-<!-- CONTROLS -->
 
 <div class="controls">
 
-<!-- MODE -->
 
-<div class="control-group">
+<!-- FRONT BACK -->
+
+<div class="control">
 
 <div class="control-title">
-📄 Document Type
+📑 Document Side
 </div>
 
-<div class="select-row">
+<div class="row">
 
-<select id="documentMode"
-onchange="changeDocumentMode()">
+<button
+class="small-btn active"
+id="frontOnlyBtn"
+onclick="setDocumentSide('front')">
+Front Only
+</button>
+
+<button
+class="small-btn"
+id="backOnlyBtn"
+onclick="setDocumentSide('back')">
+Back Only
+</button>
+
+<button
+class="small-btn"
+id="frontBackBtn"
+onclick="setDocumentSide('both')">
+Front + Back
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SIZE -->
+
+<div class="control">
+
+<div class="control-title">
+📐 Document Size
+</div>
+
+<select
+class="select"
+id="docSize"
+onchange="documentChanged()">
 
 <option value="document">
-Normal Document
+Document Size
 </option>
 
-<option value="aadhaar">
-Aadhaar / ID Card
-</option>
-
-<option value="id">
-ID Card
-</option>
-
-<option value="photo">
-Passport Photo
+<option value="idcard">
+ID Card Size
 </option>
 
 <option value="a4">
 A4 Full Page
 </option>
 
-</select>
-
-
-<select id="fitMode"
-onchange="drawEditor()">
-
-<option value="contain">
-Fit
-</option>
-
-<option value="cover">
-Fill / Crop
+<option value="custom">
+Custom Size
 </option>
 
 </select>
 
 </div>
 
-</div>
 
+<!-- CUSTOM -->
 
-<!-- BASIC -->
-
-<div class="control-group">
+<div
+class="control"
+id="customDocSize"
+style="display:none">
 
 <div class="control-title">
-🔄 Basic Editing
+📏 Custom Size
 </div>
 
-<div class="control-row">
+<div class="select-grid">
+
+<input
+class="select"
+id="customWidth"
+type="number"
+placeholder="Width mm">
+
+<input
+class="select"
+id="customHeight"
+type="number"
+placeholder="Height mm">
+
+</div>
+
+</div>
+
+
+<!-- ROTATE -->
+
+<div class="control">
+
+<div class="control-title">
+🔄 Edit
+</div>
+
+<div class="row">
 
 <button
-class="tool-btn"
-onclick="rotateImage(-90)">
-↶ Rotate Left
+class="small-btn"
+onclick="docRotate(-90)">
+↶ Rotate
 </button>
 
 <button
-class="tool-btn"
-onclick="rotateImage(90)">
-↷ Rotate Right
+class="small-btn"
+onclick="docRotate(90)">
+↷ Rotate
 </button>
 
 <button
-class="tool-btn"
-onclick="flipHorizontal()">
+class="small-btn"
+onclick="docFlip()">
 ↔ Flip
 </button>
 
 <button
-class="tool-btn"
-onclick="resetImage()">
+class="small-btn"
+onclick="docReset()">
 ↺ Reset
 </button>
 
@@ -1681,91 +1188,71 @@ onclick="resetImage()">
 
 <!-- ZOOM -->
 
-<div class="control-group">
+<div class="control">
 
 <div class="control-title">
-🔍 Zoom
+🔍 Zoom / Brightness / Contrast
 </div>
 
-<div class="range-row">
+<div class="range">
 
 <label>Zoom</label>
 
 <input
+id="docZoom"
 type="range"
-id="zoomRange"
 min="50"
-max="200"
+max="180"
 value="100"
-oninput="updateZoom()">
+oninput="docDraw()">
 
-<output id="zoomValue">
-100%
-</output>
+<output id="docZoomVal">100%</output>
 
 </div>
 
-</div>
+<div class="range">
 
-
-<!-- FILTER -->
-
-<div class="control-group">
-
-<div class="control-title">
-🎨 Photo Adjustment
-</div>
-
-
-<div class="range-row">
-
-<label>Brightness</label>
+<label>Bright</label>
 
 <input
+id="docBright"
 type="range"
-id="brightness"
 min="50"
 max="150"
 value="100"
-oninput="updateFilter()">
+oninput="docDraw()">
 
-<output id="brightnessValue">
-100
-</output>
+<output id="docBrightVal">100</output>
 
 </div>
 
-
-<div class="range-row">
+<div class="range">
 
 <label>Contrast</label>
 
 <input
+id="docContrast"
 type="range"
-id="contrast"
 min="50"
 max="180"
 value="100"
-oninput="updateFilter()">
+oninput="docDraw()">
 
-<output id="contrastValue">
-100
-</output>
+<output id="docContrastVal">100</output>
 
 </div>
 
-
-<div class="control-row">
+<div class="row">
 
 <button
-class="tool-btn"
-onclick="setGray(true)">
-⚫ Grayscale
+class="small-btn"
+onclick="docGray(true)">
+⚫ B&W
 </button>
 
 <button
-class="tool-btn"
-onclick="setGray(false)">
+class="small-btn"
+onclick="docGray(false)">
 🌈 Color
 </button>
 
@@ -1774,153 +1261,39 @@ onclick="setGray(false)">
 </div>
 
 
-<!-- CROP -->
-
-<div class="control-group">
-
-<div class="control-title">
-✂️ Crop / Size
-</div>
-
-<div class="select-row">
-
-<select id="cropPreset"
-onchange="applyCropPreset()">
-
-<option value="none">
-No Crop
-</option>
-
-<option value="a4">
-A4
-</option>
-
-<option value="id">
-ID Card
-</option>
-
-<option value="photo">
-Passport Photo
-</option>
-
-<option value="square">
-Square
-</option>
-
-<option value="wide">
-Wide Document
-</option>
-
-</select>
-
-
-<select id="paperSize">
-
-<option value="a4">
-A4 - 210×297 mm
-</option>
-
-<option value="a5">
-A5 - 148×210 mm
-</option>
-
-<option value="id">
-ID Card
-</option>
-
-<option value="photo">
-Passport Photo
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<!-- TEXT -->
-
-<div class="control-group">
-
-<div class="control-title">
-📝 Text / Label
-</div>
-
-<input
-class="text-input"
-id="photoText"
-placeholder="जैसे: Original / Copy / Name"
-oninput="drawEditor()">
-
-</div>
-
-
 <!-- COPIES -->
 
-<div class="control-group">
+<div class="control">
 
 <div class="control-title">
-📑 A4 पर कितनी Copies?
+📑 A4 Copies
 </div>
 
-<div class="copy-grid">
+<div class="copies">
 
-<button
-class="copy-btn active"
-data-copy="1"
-onclick="setCopies(1,this)">
-1
-</button>
+<button class="copy active"
+onclick="setDocCopies(1,this)">1</button>
 
-<button
-class="copy-btn"
-data-copy="2"
-onclick="setCopies(2,this)">
-2
-</button>
+<button class="copy"
+onclick="setDocCopies(2,this)">2</button>
 
-<button
-class="copy-btn"
-data-copy="4"
-onclick="setCopies(4,this)">
-4
-</button>
+<button class="copy"
+onclick="setDocCopies(4,this)">4</button>
 
-<button
-class="copy-btn"
-data-copy="6"
-onclick="setCopies(6,this)">
-6
-</button>
+<button class="copy"
+onclick="setDocCopies(6,this)">6</button>
 
-<button
-class="copy-btn"
-data-copy="8"
-onclick="setCopies(8,this)">
-8
-</button>
+<button class="copy"
+onclick="setDocCopies(8,this)">8</button>
 
-<button
-class="copy-btn"
-data-copy="12"
-onclick="setCopies(12,this)">
-12
-</button>
+<button class="copy"
+onclick="setDocCopies(12,this)">12</button>
 
-<button
-class="copy-btn"
-data-copy="16"
-onclick="setCopies(16,this)">
-16
-</button>
+<button class="copy"
+onclick="setDocCopies(16,this)">16</button>
 
-<button
-class="copy-btn"
-data-copy="20"
-onclick="setCopies(20,this)">
-20
-</button>
+<button class="copy"
+onclick="setDocCopies(20,this)">20</button>
 
 </div>
 
@@ -1929,29 +1302,37 @@ onclick="setCopies(20,this)">
 
 <!-- OUTPUT -->
 
-<div class="control-group">
+<div class="control">
 
 <div class="control-title">
 ⬇️ Output
 </div>
 
-<div class="output-buttons">
+<div class="action-grid">
 
 <button
-class="output-btn print"
-onclick="printA4()">
-🖨️ A4 Print
-</button>
-
-<button
-class="output-btn download"
-onclick="downloadImage()">
+class="action download"
+onclick="downloadDocument()">
 ⬇️ JPG Download
 </button>
 
+<button
+class="action print"
+onclick="printDocument()">
+🖨️ Print A4
+</button>
+
 </div>
 
 </div>
+
+
+<button
+class="action clear"
+style="width:100%;margin-top:3px"
+onclick="clearDocument()">
+🗑️ Document Editor बंद करें
+</button>
 
 </div>
 
@@ -1965,312 +1346,418 @@ onclick="downloadImage()">
 
 
 <!-- =====================================================
-     IMAGE TOOLS
+CUSTOMER PHOTO STUDIO
 ===================================================== -->
 
-<section class="section" id="tools">
-
-<div class="section-title">
-
-<h2>🛠️ Digital Image & Utility Tools</h2>
-
-<p>छोटे और आसान tools</p>
-
-</div>
-
-
-<div class="tool-grid">
-
-
-<!-- Resize -->
-
-<div class="tool-card">
-
-<h3>📐 Image Resize</h3>
-
-<input
-type="file"
-id="resizeInput"
-accept="image/*">
-
-<input
-id="resizeWidth"
-type="number"
-placeholder="Width px">
-
-<input
-id="resizeHeight"
-type="number"
-placeholder="Height px">
-
-<button onclick="resizeImage()">
-Resize & Download
-</button>
+<section class="section">
 
 <div
-id="resizeResult"
-class="result">
-Ready
-</div>
+class="editor photo-editor"
+id="photoEditor">
+
+<div class="editor-head">
+
+<h2>📸 Customer Photo Studio</h2>
+
+<p>
+ग्राहक की फोटो से Passport, Half Photo,
+Full Photo और 4×6/A4 photo sheet तैयार करें।
+</p>
 
 </div>
 
 
-<!-- Compress -->
+<div class="upload">
 
-<div class="tool-card">
+<div class="upload-grid">
 
-<h3>📦 Image Compress</h3>
-
-<input
-type="file"
-id="compressInput"
-accept="image/*">
-
-<input
-id="qualityInput"
-type="range"
-min="20"
-max="100"
-value="70">
-
-<button onclick="compressImage()">
-Compress & Download
+<button
+class="upload-btn green"
+onclick="document.getElementById('personPhoto').click()">
+🖼️ Gallery Photo
 </button>
 
-<div
-id="compressResult"
-class="result">
-Quality: 70%
-</div>
+<button
+class="upload-btn green"
+onclick="document.getElementById('personCamera').click()">
+📷 Camera
+</button>
+
+<button
+class="upload-btn green"
+onclick="loadPhotoDemo()">
+🧪 Demo
+</button>
+
+<button
+class="upload-btn"
+onclick="clearPhoto()">
+🗑️ Clear
+</button>
 
 </div>
 
-
-<!-- Converter -->
-
-<div class="tool-card">
-
-<h3>🔄 Image Converter</h3>
 
 <input
+id="personPhoto"
 type="file"
-id="convertInput"
-accept="image/*">
+accept="image/*"
+style="display:none"
+onchange="loadPersonPhoto(this)">
 
-<select id="convertFormat">
+<input
+id="personCamera"
+type="file"
+accept="image/*"
+capture="user"
+style="display:none"
+onchange="loadPersonPhoto(this)">
 
-<option value="image/jpeg">
-JPG
+</div>
+
+
+<div class="editor-content">
+
+
+<div>
+
+<div class="canvas-area">
+
+<div
+class="empty"
+id="photoEmpty">
+
+<strong>📸</strong>
+
+ग्राहक की फोटो चुनें
+
+</div>
+
+<canvas id="photoCanvas"></canvas>
+
+</div>
+
+</div>
+
+
+<div class="controls">
+
+
+<!-- PHOTO SIZE -->
+
+<div class="control">
+
+<div class="control-title">
+📐 Photo Type
+</div>
+
+<div class="photo-size-grid">
+
+<button
+class="photo-size active"
+onclick="setPhotoType('passport',this)">
+🇮🇳<br>Passport Size
+</button>
+
+<button
+class="photo-size"
+onclick="setPhotoType('half',this)">
+👤<br>Half Photo
+</button>
+
+<button
+class="photo-size"
+onclick="setPhotoType('full',this)">
+🧍<br>Full Photo
+</button>
+
+<button
+class="photo-size"
+onclick="setPhotoType('4x6',this)">
+🖼️<br>4×6 Sheet
+</button>
+
+<button
+class="photo-size"
+onclick="setPhotoType('a4',this)">
+📄<br>A4 Photo
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PHOTO DIMENSION -->
+
+<div class="control">
+
+<div class="control-title">
+📏 Size Option
+</div>
+
+<select
+class="select"
+id="photoSize"
+onchange="photoDraw()">
+
+<option value="passport">
+Passport — 35×45 mm
 </option>
 
-<option value="image/png">
-PNG
+<option value="small">
+Small Photo — 25×35 mm
 </option>
 
-<option value="image/webp">
-WEBP
+<option value="half">
+Half Photo
+</option>
+
+<option value="full">
+Full Size Photo
+</option>
+
+<option value="4x6">
+4×6 Inch
+</option>
+
+<option value="a4">
+A4 Photo
 </option>
 
 </select>
 
-<button onclick="convertImage()">
-Convert & Download
-</button>
-
 </div>
 
 
-<!-- Calculator -->
+<!-- ROTATE -->
 
-<div class="tool-card">
+<div class="control">
 
-<h3>🧮 Calculator</h3>
-
-<input
-id="calcA"
-type="number"
-placeholder="पहली संख्या">
-
-<input
-id="calcB"
-type="number"
-placeholder="दूसरी संख्या">
-
-<div class="control-row">
-
-<button onclick="calculate('+')">+</button>
-<button onclick="calculate('-')">−</button>
-<button onclick="calculate('*')">×</button>
-<button onclick="calculate('/')">÷</button>
-
+<div class="control-title">
+🔄 Photo Editing
 </div>
 
-<div
-id="calcResult"
-class="result">
-Result
-</div>
-
-</div>
-
-
-<!-- Percentage -->
-
-<div class="tool-card">
-
-<h3>📊 Percentage</h3>
-
-<input
-id="percentNumber"
-type="number"
-placeholder="प्राप्त संख्या">
-
-<input
-id="percentTotal"
-type="number"
-placeholder="कुल संख्या">
-
-<button onclick="percentage()">
-Calculate
-</button>
-
-<div
-id="percentResult"
-class="result">
-Result
-</div>
-
-</div>
-
-
-<!-- Text Counter -->
-
-<div class="tool-card">
-
-<h3>📝 Text Counter</h3>
-
-<textarea
-id="counterText"
-placeholder="यहाँ text लिखें..."
-oninput="textCounter()"></textarea>
-
-<div
-id="counterResult"
-class="result">
-Characters: 0 | Words: 0
-</div>
-
-</div>
-
-
-<!-- Password -->
-
-<div class="tool-card">
-
-<h3>🔐 Password Generator</h3>
-
-<input
-id="passwordLength"
-type="number"
-value="12"
-min="4"
-max="50">
-
-<button onclick="generatePassword()">
-Generate
-</button>
-
-<div
-id="passwordResult"
-class="result">
-Password यहाँ आएगा
-</div>
+<div class="row">
 
 <button
-onclick="copyPassword()"
-style="margin-top:5px;">
-Copy
+class="small-btn"
+onclick="photoRotate(-90)">
+↶ Rotate
+</button>
+
+<button
+class="small-btn"
+onclick="photoRotate(90)">
+↷ Rotate
+</button>
+
+<button
+class="small-btn"
+onclick="photoFlip()">
+↔ Flip
+</button>
+
+<button
+class="small-btn"
+onclick="photoReset()">
+↺ Reset
 </button>
 
 </div>
 
+</div>
 
-<!-- Age -->
 
-<div class="tool-card">
+<!-- ADJUST -->
 
-<h3>📅 Age Calculator</h3>
+<div class="control">
+
+<div class="control-title">
+🎨 Photo Adjustment
+</div>
+
+<div class="range">
+
+<label>Zoom</label>
 
 <input
-id="birthDate"
-type="date">
+id="photoZoom"
+type="range"
+min="50"
+max="180"
+value="100"
+oninput="photoDraw()">
 
-<button onclick="calculateAge()">
-Calculate Age
+<output id="photoZoomVal">100%</output>
+
+</div>
+
+<div class="range">
+
+<label>Bright</label>
+
+<input
+id="photoBright"
+type="range"
+min="50"
+max="150"
+value="100"
+oninput="photoDraw()">
+
+<output id="photoBrightVal">100</output>
+
+</div>
+
+<div class="range">
+
+<label>Contrast</label>
+
+<input
+id="photoContrast"
+type="range"
+min="50"
+max="180"
+value="100"
+oninput="photoDraw()">
+
+<output id="photoContrastVal">100</output>
+
+</div>
+
+<div class="row">
+
+<button
+class="small-btn"
+onclick="photoGray(true)">
+⚫ B&W
 </button>
 
-<div
-id="ageResult"
-class="result">
-Age
-</div>
-
-</div>
-
-
-<!-- EMI -->
-
-<div class="tool-card">
-
-<h3>💰 EMI Calculator</h3>
-
-<input
-id="loanAmount"
-type="number"
-placeholder="Loan Amount">
-
-<input
-id="interest"
-type="number"
-placeholder="Annual Interest %">
-
-<input
-id="months"
-type="number"
-placeholder="Months">
-
-<button onclick="calculateEMI()">
-Calculate EMI
+<button
+class="small-btn"
+onclick="photoGray(false)">
+🌈 Color
 </button>
 
-<div
-id="emiResult"
-class="result">
-EMI
 </div>
 
 </div>
 
 
-<!-- QR -->
+<!-- COPIES -->
 
-<div class="tool-card">
+<div class="control">
 
-<h3>🔳 QR Code</h3>
+<div class="control-title">
+📑 कितनी Photos?
+</div>
 
-<input
-id="qrText"
-placeholder="Text / URL">
+<div class="copies">
 
-<button onclick="generateQR()">
-Generate QR
+<button
+class="copy active"
+onclick="setPhotoCopies(1,this)">
+1
 </button>
 
-<div
-id="qrResult"
-class="result">
-QR बनाने के लिए text डालें
+<button
+class="copy"
+onclick="setPhotoCopies(2,this)">
+2
+</button>
+
+<button
+class="copy"
+onclick="setPhotoCopies(4,this)">
+4
+</button>
+
+<button
+class="copy"
+onclick="setPhotoCopies(6,this)">
+6
+</button>
+
+<button
+class="copy"
+onclick="setPhotoCopies(8,this)">
+8
+</button>
+
+<button
+class="copy"
+onclick="setPhotoCopies(12,this)">
+12
+</button>
+
+<button
+class="copy"
+onclick="setPhotoCopies(16,this)">
+16
+</button>
+
+<button
+class="copy"
+onclick="setPhotoCopies(20,this)">
+20
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PAPER -->
+
+<div class="control">
+
+<div class="control-title">
+📄 Print Sheet
+</div>
+
+<select
+class="select"
+id="photoPaper">
+
+<option value="a4">
+A4 Sheet
+</option>
+
+<option value="4x6">
+4×6 Inch Sheet
+</option>
+
+</select>
+
+</div>
+
+
+<!-- OUTPUT -->
+
+<div class="control">
+
+<div class="control-title">
+⬇️ Output
+</div>
+
+<div class="action-grid">
+
+<button
+class="action download"
+onclick="downloadPhoto()">
+⬇️ JPG Download
+</button>
+
+<button
+class="action print"
+onclick="printPhoto()">
+🖨️ Print Sheet
+</button>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -2281,32 +1768,33 @@ QR बनाने के लिए text डालें
 
 
 <!-- =====================================================
-     RAJASTHAN
+RAJASTHAN
 ===================================================== -->
 
 <section class="section" id="rajasthan">
 
-<div class="section-title">
+<div class="title">
 
-<h2>🏜️ Rajasthan Government Services</h2>
+<h2>🏜️ Rajasthan Services</h2>
 
-<p>राजस्थान की महत्वपूर्ण online services</p>
+<p>महत्वपूर्ण Rajasthan online portals</p>
 
 </div>
 
 <div class="service-grid">
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="sso rajasthan">
 
-<div class="service-icon">🔐</div>
+<div class="icon">🔐</div>
 
 <h3>Rajasthan SSO</h3>
 
-<p>Rajasthan online services</p>
+<p>Single Sign On</p>
 
 <a
-class="open-btn"
+class="open"
 href="https://sso.rajasthan.gov.in/"
 target="_blank">
 Open ↗
@@ -2315,16 +1803,17 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="jan soochna">
 
-<div class="service-icon">📊</div>
+<div class="icon">📊</div>
 
 <h3>Jan Soochna</h3>
 
-<p>योजनाओं की जानकारी</p>
+<p>Government schemes</p>
 
 <a
-class="open-btn"
+class="open"
 href="https://jansoochna.rajasthan.gov.in/"
 target="_blank">
 Open ↗
@@ -2333,16 +1822,17 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="sampark complaint">
 
-<div class="service-icon">📢</div>
+<div class="icon">📢</div>
 
 <h3>Rajasthan Sampark</h3>
 
-<p>शिकायत और status</p>
+<p>Complaint portal</p>
 
 <a
-class="open-btn"
+class="open"
 href="https://sampark.rajasthan.gov.in/"
 target="_blank">
 Open ↗
@@ -2351,16 +1841,17 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="apna khata land">
 
-<div class="service-icon">🌾</div>
+<div class="icon">🌾</div>
 
 <h3>Apna Khata</h3>
 
-<p>जमीन और भू-अभिलेख</p>
+<p>Land records</p>
 
 <a
-class="open-btn"
+class="open"
 href="https://apnakhata.rajasthan.gov.in/"
 target="_blank">
 Open ↗
@@ -2369,16 +1860,17 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="emitra">
 
-<div class="service-icon">💻</div>
+<div class="icon">💻</div>
 
 <h3>e-Mitra</h3>
 
-<p>Rajasthan citizen services</p>
+<p>Citizen services</p>
 
 <a
-class="open-btn"
+class="open"
 href="https://emitra.rajasthan.gov.in/"
 target="_blank">
 Open ↗
@@ -2387,16 +1879,17 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="jan aadhaar">
 
-<div class="service-icon">🪪</div>
+<div class="icon">🪪</div>
 
 <h3>Jan Aadhaar</h3>
 
 <p>Jan Aadhaar services</p>
 
 <a
-class="open-btn"
+class="open"
 href="https://janaadhaar.rajasthan.gov.in/"
 target="_blank">
 Open ↗
@@ -2405,16 +1898,17 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="rpsc">
 
-<div class="service-icon">📚</div>
+<div class="icon">📚</div>
 
 <h3>RPSC</h3>
 
-<p>Recruitment information</p>
+<p>Recruitment</p>
 
 <a
-class="open-btn"
+class="open"
 href="https://rpsc.rajasthan.gov.in/"
 target="_blank">
 Open ↗
@@ -2423,16 +1917,17 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="rssb">
 
-<div class="service-icon">👨‍💼</div>
+<div class="icon">👨‍💼</div>
 
 <h3>RSSB</h3>
 
-<p>Recruitment information</p>
+<p>Recruitment</p>
 
 <a
-class="open-btn"
+class="open"
 href="https://rssb.rajasthan.gov.in/"
 target="_blank">
 Open ↗
@@ -2440,73 +1935,38 @@ Open ↗
 
 </div>
 
-
-<div class="service-card">
-
-<div class="service-icon">👮</div>
-
-<h3>Rajasthan Police</h3>
-
-<p>Police services</p>
-
-<a
-class="open-btn"
-href="https://police.rajasthan.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">💰</div>
-
-<h3>Social Security Pension</h3>
-
-<p>Pension services</p>
-
-<a
-class="open-btn"
-href="https://ssp.rajasthan.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
-</div>
-
 </div>
 
 </section>
 
 
 <!-- =====================================================
-     BANKING
+GOVERNMENT
 ===================================================== -->
 
-<section class="section" id="banking">
+<section class="section" id="services">
 
-<div class="section-title">
+<div class="title">
 
-<h2>🏦 Banking & Financial Services</h2>
+<h2>🏛️ Government Services</h2>
 
 </div>
 
 <div class="service-grid">
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="aadhaar uidai">
 
-<div class="service-icon">🏦</div>
+<div class="icon">🪪</div>
 
-<h3>SBI</h3>
+<h3>Aadhaar / UIDAI</h3>
 
-<p>State Bank of India</p>
+<p>Aadhaar services</p>
 
 <a
-class="open-btn"
-href="https://sbi.co.in/"
+class="open"
+href="https://uidai.gov.in/"
 target="_blank">
 Open ↗
 </a>
@@ -2514,17 +1974,18 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="pan income tax">
 
-<div class="service-icon">🏦</div>
+<div class="icon">💳</div>
 
-<h3>Bank of Baroda</h3>
+<h3>PAN / Income Tax</h3>
 
-<p>Banking services</p>
+<p>PAN services</p>
 
 <a
-class="open-btn"
-href="https://www.bankofbaroda.in/"
+class="open"
+href="https://www.incometax.gov.in/"
 target="_blank">
 Open ↗
 </a>
@@ -2532,17 +1993,18 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="voter election">
 
-<div class="service-icon">🏦</div>
+<div class="icon">🗳️</div>
 
-<h3>PNB</h3>
+<h3>Voter Services</h3>
 
-<p>Punjab National Bank</p>
+<p>Election services</p>
 
 <a
-class="open-btn"
-href="https://www.pnbindia.in/"
+class="open"
+href="https://voters.eci.gov.in/"
 target="_blank">
 Open ↗
 </a>
@@ -2550,17 +2012,18 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="passport">
 
-<div class="service-icon">🏦</div>
+<div class="icon">🛂</div>
 
-<h3>Canara Bank</h3>
+<h3>Passport Seva</h3>
 
-<p>Banking services</p>
+<p>Passport services</p>
 
 <a
-class="open-btn"
-href="https://www.canarabank.com/"
+class="open"
+href="https://www.passportindia.gov.in/"
 target="_blank">
 Open ↗
 </a>
@@ -2568,17 +2031,18 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="digilocker">
 
-<div class="service-icon">🏦</div>
+<div class="icon">🔐</div>
 
-<h3>Union Bank</h3>
+<h3>DigiLocker</h3>
 
-<p>Banking services</p>
+<p>Digital documents</p>
 
 <a
-class="open-btn"
-href="https://www.unionbankofindia.co.in/"
+class="open"
+href="https://www.digilocker.gov.in/"
 target="_blank">
 Open ↗
 </a>
@@ -2586,17 +2050,18 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="eshram">
 
-<div class="service-icon">💳</div>
+<div class="icon">👷</div>
 
-<h3>EPFO</h3>
+<h3>e-Shram</h3>
 
-<p>PF services</p>
+<p>Worker services</p>
 
 <a
-class="open-btn"
-href="https://www.epfindia.gov.in/"
+class="open"
+href="https://eshram.gov.in/"
 target="_blank">
 Open ↗
 </a>
@@ -2604,17 +2069,75 @@ Open ↗
 </div>
 
 
-<div class="service-card">
+<div class="card searchable"
+data-name="pm kisan">
 
-<div class="service-icon">📈</div>
+<div class="icon">🌾</div>
 
-<h3>NPS</h3>
+<h3>PM-KISAN</h3>
 
-<p>Pension services</p>
+<p>Farmer services</p>
 
 <a
-class="open-btn"
-href="https://www.npscra.nsdl.co.in/"
+class="open"
+href="https://pmkisan.gov.in/"
+target="_blank">
+Open ↗
+</a>
+
+</div>
+
+
+<div class="card searchable"
+data-name="myscheme">
+
+<div class="icon">🏛️</div>
+
+<h3>myScheme</h3>
+
+<p>Government schemes</p>
+
+<a
+class="open"
+href="https://www.myscheme.gov.in/"
+target="_blank">
+Open ↗
+</a>
+
+</div>
+
+
+<div class="card searchable"
+data-name="irctc railway train">
+
+<div class="icon">🚆</div>
+
+<h3>IRCTC Railway</h3>
+
+<p>Train booking</p>
+
+<a
+class="open"
+href="https://www.irctc.co.in/"
+target="_blank">
+Open ↗
+</a>
+
+</div>
+
+
+<div class="card searchable"
+data-name="parivahan driving licence">
+
+<div class="icon">🚗</div>
+
+<h3>Parivahan</h3>
+
+<p>DL / Vehicle</p>
+
+<a
+class="open"
+href="https://parivahan.gov.in/"
 target="_blank">
 Open ↗
 </a>
@@ -2627,144 +2150,245 @@ Open ↗
 
 
 <!-- =====================================================
-     EDUCATION
+EDUCATION
 ===================================================== -->
 
 <section class="section" id="education">
 
-<div class="section-title">
+<div class="title">
 
-<h2>🎓 Education Services</h2>
-
-<p>छात्रों के लिए महत्वपूर्ण portals</p>
+<h2>🎓 Education</h2>
 
 </div>
 
 <div class="service-grid">
 
 
-<div class="service-card">
-
-<div class="service-icon">🎓</div>
-
+<div class="card">
+<div class="icon">🎓</div>
 <h3>Scholarship</h3>
-
 <p>National Scholarship Portal</p>
-
 <a
-class="open-btn"
+class="open"
 href="https://scholarships.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
+target="_blank">Open ↗</a>
 </div>
 
 
-<div class="service-card">
-
-<div class="service-icon">📚</div>
-
+<div class="card">
+<div class="icon">📚</div>
 <h3>DIKSHA</h3>
-
 <p>Digital learning</p>
-
 <a
-class="open-btn"
+class="open"
 href="https://diksha.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
+target="_blank">Open ↗</a>
 </div>
 
 
-<div class="service-card">
-
-<div class="service-icon">📖</div>
-
+<div class="card">
+<div class="icon">📖</div>
 <h3>SWAYAM</h3>
-
 <p>Online courses</p>
-
 <a
-class="open-btn"
+class="open"
 href="https://swayam.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
+target="_blank">Open ↗</a>
 </div>
 
 
-<div class="service-card">
-
-<div class="service-icon">🏫</div>
-
+<div class="card">
+<div class="icon">🏫</div>
 <h3>CBSE</h3>
-
-<p>CBSE official portal</p>
-
+<p>CBSE portal</p>
 <a
-class="open-btn"
+class="open"
 href="https://www.cbse.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
+target="_blank">Open ↗</a>
 </div>
 
 
-<div class="service-card">
-
-<div class="service-icon">📘</div>
-
+<div class="card">
+<div class="icon">📘</div>
 <h3>RBSE</h3>
-
 <p>Rajasthan Board</p>
-
 <a
-class="open-btn"
+class="open"
 href="https://rajeduboard.rajasthan.gov.in/"
-target="_blank">
-Open ↗
-</a>
-
+target="_blank">Open ↗</a>
 </div>
 
 
-<div class="service-card">
-
-<div class="service-icon">📖</div>
-
+<div class="card">
+<div class="icon">📖</div>
 <h3>NIOS</h3>
-
 <p>Open schooling</p>
-
 <a
-class="open-btn"
+class="open"
 href="https://www.nios.ac.in/"
-target="_blank">
-Open ↗
-</a>
+target="_blank">Open ↗</a>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+TOOLS
+===================================================== -->
+
+<section class="section" id="tools">
+
+<div class="title">
+
+<h2>🛠️ Digital Tools</h2>
+
+</div>
+
+<div class="tool-grid">
+
+
+<div class="utility">
+
+<h3>🧮 Calculator</h3>
+
+<input id="ca" type="number" placeholder="Number 1">
+
+<input id="cb" type="number" placeholder="Number 2">
+
+<div class="row">
+
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">−</button>
+<button onclick="calc('*')">×</button>
+<button onclick="calc('/')">÷</button>
+
+</div>
+
+<div class="result" id="calcResult">
+Result
+</div>
 
 </div>
 
 
-<div class="service-card">
+<div class="utility">
 
-<div class="service-icon">🛠️</div>
+<h3>📊 Percentage</h3>
 
-<h3>Skill India</h3>
+<input
+id="pn"
+type="number"
+placeholder="प्राप्त अंक">
 
-<p>Skill development</p>
+<input
+id="pt"
+type="number"
+placeholder="कुल अंक">
 
-<a
-class="open-btn"
-href="https://www.skillindiadigital.gov.in/"
-target="_blank">
-Open ↗
-</a>
+<button onclick="percentage()">
+Calculate
+</button>
+
+<div
+class="result"
+id="percentageResult">
+Result
+</div>
+
+</div>
+
+
+<div class="utility">
+
+<h3>📅 Age Calculator</h3>
+
+<input
+id="birth"
+type="date">
+
+<button onclick="ageCalc()">
+Calculate
+</button>
+
+<div
+class="result"
+id="ageResult">
+Age
+</div>
+
+</div>
+
+
+<div class="utility">
+
+<h3>📝 Text Counter</h3>
+
+<textarea
+id="textCounter"
+placeholder="Text लिखें..."
+oninput="countText()"></textarea>
+
+<div
+class="result"
+id="textResult">
+Characters: 0 | Words: 0
+</div>
+
+</div>
+
+
+<div class="utility">
+
+<h3>🔐 Password Generator</h3>
+
+<input
+id="passLength"
+type="number"
+value="12">
+
+<button onclick="passwordGen()">
+Generate
+</button>
+
+<div
+class="result"
+id="passResult">
+Password
+</div>
+
+</div>
+
+
+<div class="utility">
+
+<h3>💰 EMI Calculator</h3>
+
+<input
+id="loan"
+type="number"
+placeholder="Loan">
+
+<input
+id="rate"
+type="number"
+placeholder="Interest %">
+
+<input
+id="months"
+type="number"
+placeholder="Months">
+
+<button onclick="emiCalc()">
+Calculate
+</button>
+
+<div
+class="result"
+id="emiResult">
+EMI
+</div>
 
 </div>
 
@@ -2773,13 +2397,11 @@ Open ↗
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- =====================================================
+FOOTER
+===================================================== -->
 
 <footer>
-
-<div class="footer-inner">
 
 <div class="footer-grid">
 
@@ -2788,12 +2410,11 @@ Open ↗
 <h3>🇮🇳 Bharat Digital Centre</h3>
 
 <p>
-Smart Citizen Digital Services
+Smart Digital Services
 </p>
 
 <p>
-Digital tools, document assistance,
-printing और online services।
+Document Copy और Customer Photo Studio
 </p>
 
 </div>
@@ -2801,117 +2422,133 @@ printing और online services।
 
 <div>
 
-<h3>Services</h3>
+<h3>Quick Services</h3>
 
 <a href="#services">Aadhaar</a>
 <a href="#services">PAN</a>
-<a href="#services">Voter</a>
-<a href="#editor">Document Editor</a>
+<a href="#rajasthan">Rajasthan</a>
+<a href="#education">Education</a>
 
 </div>
 
 
 <div>
 
-<h3>Digital Tools</h3>
+<h3>Photo Services</h3>
 
-<a href="#editor">Photo Copy</a>
-<a href="#tools">Image Resize</a>
-<a href="#tools">Calculator</a>
-<a href="#tools">QR Code</a>
+<a href="javascript:showEditor('documentEditor')">
+Document Copy
+</a>
+
+<a href="javascript:showEditor('photoEditor')">
+Customer Photo Studio
+</a>
 
 </div>
 
 </div>
-
 
 <div class="copyright">
 
-© 2026 Bharat Digital Centre |
-Smart Citizen Digital Services
+© 2026 Bharat Digital Centre
 
 <br>
 
-यह वेबसाइट किसी Government Department या
-CSC की official website नहीं है।
-
-</div>
+यह स्वतंत्र digital service platform है।
+Government Department/CSC की official website नहीं है।
 
 </div>
 
 </footer>
 
 
-<!-- =========================
-     PRINT AREA
-========================= -->
+<!-- =====================================================
+PRINT AREA
+===================================================== -->
 
-<div id="printArea" style="display:none;"></div>
+<div id="printArea"></div>
 
 
 <!-- =====================================================
-     JAVASCRIPT
+JAVASCRIPT
 ===================================================== -->
 
 <script>
 
-/* =========================
-   BASIC
-========================= */
-
-function scrollToId(id){
-
-    const el=document.getElementById(id);
-
-    if(el){
-        el.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-    }
-
-    document.getElementById("nav")
-        .classList.remove("show");
-}
-
+/* =====================================================
+GENERAL
+===================================================== */
 
 function toggleMenu(){
 
-    document.getElementById("nav")
-        .classList.toggle("show");
-}
-
-
-function openURL(url){
-
-    window.open(url,"_blank");
+    document
+    .getElementById("nav")
+    .classList.toggle("show");
 
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+function go(id){
 
-function searchServices(){
+    const e=document.getElementById(id);
 
-    const value=
-        document.getElementById("serviceSearch")
+    if(e){
+
+        e.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+    document
+    .getElementById("nav")
+    .classList.remove("show");
+
+}
+
+
+function showEditor(id){
+
+    document
+    .querySelectorAll(".editor")
+    .forEach(e=>{
+        e.classList.remove("active");
+    });
+
+    const editor=
+        document.getElementById(id);
+
+    editor.classList.add("active");
+
+    editor.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+function searchCards(){
+
+    const q=
+        document
+        .getElementById("searchInput")
         .value
-        .toLowerCase()
-        .trim();
+        .toLowerCase();
 
-    const cards=
-        document.querySelectorAll(".searchable");
-
-    cards.forEach(card=>{
+    document
+    .querySelectorAll(".searchable")
+    .forEach(card=>{
 
         const text=
-            card.innerText.toLowerCase()+" "+
-            (card.dataset.name || "");
+            (
+                card.innerText+
+                " "+
+                (card.dataset.name||"")
+            ).toLowerCase();
 
         card.style.display=
-            text.includes(value)
+            text.includes(q)
             ? ""
             : "none";
 
@@ -2921,51 +2558,40 @@ function searchServices(){
 
 
 /* =====================================================
-   DOCUMENT EDITOR
+DOCUMENT VARIABLES
 ===================================================== */
 
-const canvas=
-    document.getElementById("editorCanvas");
+const docCanvas=
+    document.getElementById("docCanvas");
 
-const ctx=
-    canvas.getContext("2d");
+const docCtx=
+    docCanvas.getContext("2d");
 
-let originalImage=null;
+let docFrontImage=null;
+let docBackImage=null;
+let docCurrentImage=null;
 
-let imageLoaded=false;
+let docSide="front";
 
-let rotation=0;
+let docRotation=0;
+let docZoom=1;
+let docBright=100;
+let docContrast=100;
+let docGrayMode=false;
+let docFlipX=1;
 
-let zoom=1;
-
-let brightness=100;
-
-let contrast=100;
-
-let grayscale=false;
-
-let flipX=1;
-
-let copies=1;
-
-let imageName="document";
+let docCopies=1;
 
 
-/* =========================
-   LOAD IMAGE
-========================= */
+/* =====================================================
+LOAD DOCUMENT
+===================================================== */
 
-function loadImage(input){
+function loadDocument(input,side){
 
     if(!input.files || !input.files[0]){
         return;
     }
-
-    const file=input.files[0];
-
-    imageName=
-        file.name
-        .replace(/\.[^/.]+$/,"");
 
     const reader=
         new FileReader();
@@ -2977,34 +2603,33 @@ function loadImage(input){
 
         img.onload=function(){
 
-            originalImage=img;
+            if(side==="front" ||
+               side==="single"){
 
-            imageLoaded=true;
+                docFrontImage=img;
 
-            rotation=0;
-            zoom=1;
-            brightness=100;
-            contrast=100;
-            grayscale=false;
-            flipX=1;
+            }
 
-            document.getElementById("emptyEditor")
-                .style.display="none";
+            if(side==="back"){
 
-            canvas.style.display="block";
+                docBackImage=img;
 
-            document.getElementById("zoomRange")
-                .value=100;
+            }
 
-            document.getElementById("brightness")
-                .value=100;
+            docCurrentImage=img;
 
-            document.getElementById("contrast")
-                .value=100;
+            docSide=
+                side==="back"
+                ?"back"
+                :"front";
 
-            updateLabels();
+            document
+            .getElementById("docEmpty")
+            .style.display="none";
 
-            drawEditor();
+            docCanvas.style.display="block";
+
+            docReset();
 
         };
 
@@ -3012,28 +2637,102 @@ function loadImage(input){
 
     };
 
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(input.files[0]);
 
 }
 
 
-/* =========================
-   DRAW EDITOR
-========================= */
+/* =====================================================
+DOCUMENT SIDE
+===================================================== */
 
-function drawEditor(){
+function setDocumentSide(side){
 
-    if(!imageLoaded){
+    docSide=side;
+
+    document
+    .getElementById("frontOnlyBtn")
+    .classList.remove("active");
+
+    document
+    .getElementById("backOnlyBtn")
+    .classList.remove("active");
+
+    document
+    .getElementById("frontBackBtn")
+    .classList.remove("active");
+
+
+    if(side==="front"){
+
+        document
+        .getElementById("frontOnlyBtn")
+        .classList.add("active");
+
+        docCurrentImage=
+            docFrontImage;
+
+    }
+
+
+    if(side==="back"){
+
+        document
+        .getElementById("backOnlyBtn")
+        .classList.add("active");
+
+        docCurrentImage=
+            docBackImage;
+
+    }
+
+
+    if(side==="both"){
+
+        document
+        .getElementById("frontBackBtn")
+        .classList.add("active");
+
+        docCurrentImage=
+            docFrontImage;
+
+    }
+
+
+    if(!docCurrentImage){
+
+        alert(
+            side==="back"
+            ?"पहले Back Photo चुनें।"
+            :"पहले Front Photo चुनें।"
+        );
+
+        return;
+
+    }
+
+    docDraw();
+
+}
+
+
+/* =====================================================
+DOCUMENT DRAW
+===================================================== */
+
+function docDraw(){
+
+    if(!docCurrentImage){
         return;
     }
 
-    const img=originalImage;
+    const img=docCurrentImage;
 
     let w=img.naturalWidth;
     let h=img.naturalHeight;
 
-    const rot=
-        ((rotation%360)+360)%360;
+    let rot=
+        ((docRotation%360)+360)%360;
 
     if(rot===90 || rot===270){
 
@@ -3041,387 +2740,257 @@ function drawEditor(){
 
     }
 
-    const maxW=900;
-    const maxH=650;
-
     let scale=
         Math.min(
-            maxW/w,
-            maxH/h,
+            850/w,
+            600/h,
             1
         );
 
-    scale*=zoom;
+    scale*=docZoom;
 
-    canvas.width=
-        Math.max(1,Math.round(w*scale));
+    docCanvas.width=
+        Math.max(
+            1,
+            Math.round(w*scale)
+        );
 
-    canvas.height=
-        Math.max(1,Math.round(h*scale));
+    docCanvas.height=
+        Math.max(
+            1,
+            Math.round(h*scale)
+        );
 
-    ctx.clearRect(
+    docCtx.clearRect(
         0,
         0,
-        canvas.width,
-        canvas.height
+        docCanvas.width,
+        docCanvas.height
     );
 
-    ctx.save();
+    docCtx.save();
 
-    ctx.translate(
-        canvas.width/2,
-        canvas.height/2
+    docCtx.translate(
+        docCanvas.width/2,
+        docCanvas.height/2
     );
 
-    ctx.rotate(
+    docCtx.rotate(
         rot*Math.PI/180
     );
 
-    ctx.scale(
-        flipX,
+    docCtx.scale(
+        docFlipX,
         1
     );
 
-    ctx.filter=
-        "brightness("+brightness+"%) "+
-        "contrast("+contrast+"%) "+
-        "grayscale("+(grayscale?100:0)+"%)";
+    docCtx.filter=
+        "brightness("+docBright+"%) "+
+        "contrast("+docContrast+"%) "+
+        "grayscale("+
+        (docGrayMode?100:0)+
+        "%)";
 
-    const drawW=
+    const dw=
         img.naturalWidth*scale;
 
-    const drawH=
+    const dh=
         img.naturalHeight*scale;
 
-    ctx.drawImage(
+    docCtx.drawImage(
         img,
-        -drawW/2,
-        -drawH/2,
-        drawW,
-        drawH
+        -dw/2,
+        -dh/2,
+        dw,
+        dh
     );
 
-    ctx.restore();
-
-
-    /* TEXT */
-
-    const text=
-        document.getElementById("photoText")
-        .value.trim();
-
-    if(text){
-
-        ctx.save();
-
-        ctx.font=
-            "bold "+Math.max(16,canvas.width/35)+"px Arial";
-
-        ctx.fillStyle=
-            "rgba(255,0,0,.85)";
-
-        ctx.textAlign="center";
-
-        ctx.fillText(
-            text,
-            canvas.width/2,
-            canvas.height-20
-        );
-
-        ctx.restore();
-
-    }
-
-    updateLabels();
-
-}
-
-
-/* =========================
-   ROTATE
-========================= */
-
-function rotateImage(deg){
-
-    if(!imageLoaded){
-        alert("पहले फोटो चुनें।");
-        return;
-    }
-
-    rotation+=deg;
-
-    drawEditor();
-
-}
-
-
-function flipHorizontal(){
-
-    if(!imageLoaded){
-        alert("पहले फोटो चुनें।");
-        return;
-    }
-
-    flipX*=-1;
-
-    drawEditor();
-
-}
-
-
-/* =========================
-   ZOOM
-========================= */
-
-function updateZoom(){
-
-    zoom=
-        Number(
-            document.getElementById("zoomRange")
-            .value
-        )/100;
-
-    updateLabels();
-
-    drawEditor();
-
-}
-
-
-/* =========================
-   FILTER
-========================= */
-
-function updateFilter(){
-
-    brightness=
-        Number(
-            document.getElementById("brightness")
-            .value
-        );
-
-    contrast=
-        Number(
-            document.getElementById("contrast")
-            .value
-        );
-
-    updateLabels();
-
-    drawEditor();
-
-}
-
-
-function setGray(value){
-
-    grayscale=value;
-
-    drawEditor();
-
-}
-
-
-function updateLabels(){
-
-    document.getElementById("zoomValue")
-        .textContent=
-        Math.round(zoom*100)+"%";
-
-    document.getElementById("brightnessValue")
-        .textContent=brightness;
-
-    document.getElementById("contrastValue")
-        .textContent=contrast;
-
-}
-
-
-/* =========================
-   RESET
-========================= */
-
-function resetImage(){
-
-    if(!imageLoaded){
-        return;
-    }
-
-    rotation=0;
-    zoom=1;
-    brightness=100;
-    contrast=100;
-    grayscale=false;
-    flipX=1;
-
-    document.getElementById("zoomRange")
-        .value=100;
-
-    document.getElementById("brightness")
-        .value=100;
-
-    document.getElementById("contrast")
-        .value=100;
-
-    updateLabels();
-
-    drawEditor();
-
-}
-
-
-/* =========================
-   CLEAR
-========================= */
-
-function clearEditor(){
-
-    originalImage=null;
-
-    imageLoaded=false;
-
-    canvas.style.display="none";
-
-    document.getElementById("emptyEditor")
-        .style.display="block";
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-}
-
-
-/* =========================
-   DOCUMENT MODE
-========================= */
-
-function changeDocumentMode(){
-
-    const mode=
-        document.getElementById("documentMode")
-        .value;
-
-    if(mode==="photo"){
-
-        document.getElementById("cropPreset")
-            .value="photo";
-
-    }
-
-    if(mode==="id" ||
-       mode==="aadhaar"){
-
-        document.getElementById("cropPreset")
-            .value="id";
-
-    }
-
-    if(mode==="a4"){
-
-        document.getElementById("cropPreset")
-            .value="a4";
-
-    }
-
-}
-
-
-/* =========================
-   CROP PRESET
-========================= */
-
-function applyCropPreset(){
-
-    const preset=
-        document.getElementById("cropPreset")
-        .value;
-
-    if(!imageLoaded){
-        return;
-    }
-
-    /*
-       यहाँ preset मुख्य रूप से
-       output ratio तय करता है।
-       Original image सुरक्षित रहती है।
-    */
-
-    drawEditor();
-
-}
-
-
-/* =========================
-   COPIES
-========================= */
-
-function setCopies(num,button){
-
-    copies=num;
-
-    document
-        .querySelectorAll(".copy-btn")
-        .forEach(btn=>{
-            btn.classList.remove("active");
-        });
-
-    button.classList.add("active");
+    docCtx.restore();
+
+
+    document.getElementById(
+        "docZoomVal"
+    ).textContent=
+        Math.round(docZoom*100)+"%";
+
+    document.getElementById(
+        "docBrightVal"
+    ).textContent=
+        docBright;
+
+    document.getElementById(
+        "docContrastVal"
+    ).textContent=
+        docContrast;
 
 }
 
 
 /* =====================================================
-   DOWNLOAD
+DOCUMENT EDIT
 ===================================================== */
 
-function downloadImage(){
+function docRotate(deg){
 
-    if(!imageLoaded){
+    if(!docCurrentImage){
 
-        alert("पहले document/photo चुनें।");
+        alert("पहले document photo चुनें।");
+        return;
 
+    }
+
+    docRotation+=deg;
+
+    docDraw();
+
+}
+
+
+function docFlip(){
+
+    if(!docCurrentImage){
         return;
     }
 
-    const link=
+    docFlipX*=-1;
+
+    docDraw();
+
+}
+
+
+function docGray(value){
+
+    docGrayMode=value;
+
+    docDraw();
+
+}
+
+
+function docReset(){
+
+    docRotation=0;
+    docZoom=1;
+    docBright=100;
+    docContrast=100;
+    docGrayMode=false;
+    docFlipX=1;
+
+    document.getElementById("docZoom").value=100;
+    document.getElementById("docBright").value=100;
+    document.getElementById("docContrast").value=100;
+
+    if(docCurrentImage){
+
+        docDraw();
+
+    }
+
+}
+
+
+/* =====================================================
+DOCUMENT SIZE
+===================================================== */
+
+function documentChanged(){
+
+    const size=
+        document.getElementById("docSize")
+        .value;
+
+    document.getElementById(
+        "customDocSize"
+    ).style.display=
+        size==="custom"
+        ?"block"
+        :"none";
+
+}
+
+
+/* =====================================================
+DOCUMENT COPIES
+===================================================== */
+
+function setDocCopies(n,btn){
+
+    docCopies=n;
+
+    const parent=
+        btn.parentElement;
+
+    parent
+    .querySelectorAll(".copy")
+    .forEach(x=>{
+        x.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+
+}
+
+
+/* =====================================================
+DOCUMENT DOWNLOAD
+===================================================== */
+
+function downloadDocument(){
+
+    if(!docCurrentImage){
+
+        alert("पहले document photo चुनें।");
+        return;
+
+    }
+
+    if(docSide==="both"){
+
+        alert(
+            "Front + Back को एक ही sheet पर print करने के लिए Print A4 इस्तेमाल करें।"
+        );
+
+        return;
+
+    }
+
+    const a=
         document.createElement("a");
 
-    link.download=
-        imageName+"_edited.jpg";
+    a.download=
+        "document-"+docSide+".jpg";
 
-    link.href=
-        canvas.toDataURL(
+    a.href=
+        docCanvas.toDataURL(
             "image/jpeg",
             .95
         );
 
-    link.click();
+    a.click();
 
 }
 
 
 /* =====================================================
-   A4 PRINT
+DOCUMENT PRINT
 ===================================================== */
 
-function printA4(){
+function printDocument(){
 
-    if(!imageLoaded){
+    if(!docFrontImage &&
+       !docBackImage){
 
-        alert("पहले document/photo चुनें।");
+        alert("पहले document photo चुनें।");
 
         return;
+
     }
 
-    const printArea=
+    const area=
         document.getElementById("printArea");
 
-    printArea.innerHTML="";
-
+    area.innerHTML="";
 
     const sheet=
         document.createElement("div");
@@ -3429,82 +2998,154 @@ function printA4(){
     sheet.className="print-sheet";
 
 
-    /*
-       copy count के अनुसार
-       grid columns तय
-    */
+    let images=[];
+
+
+    if(docSide==="front"){
+
+        if(!docFrontImage){
+
+            alert("Front Photo उपलब्ध नहीं है.");
+            return;
+
+        }
+
+        images=[
+            makeImageURL(
+                docFrontImage
+            )
+        ];
+
+    }
+
+
+    if(docSide==="back"){
+
+        if(!docBackImage){
+
+            alert("Back Photo उपलब्ध नहीं है.");
+            return;
+
+        }
+
+        images=[
+            makeImageURL(
+                docBackImage
+            )
+        ];
+
+    }
+
+
+    if(docSide==="both"){
+
+        if(!docFrontImage ||
+           !docBackImage){
+
+            alert(
+                "Front + Back के लिए दोनों photos चुनें।"
+            );
+
+            return;
+
+        }
+
+        images=[
+            makeImageURL(
+                docFrontImage
+            ),
+            makeImageURL(
+                docBackImage
+            )
+        ];
+
+    }
+
 
     let columns=1;
 
-    if(copies>=2) columns=2;
-    if(copies>=6) columns=3;
-    if(copies>=12) columns=4;
+    if(docCopies>=2)
+        columns=2;
 
+    if(docCopies>=6)
+        columns=3;
+
+    if(docCopies>=12)
+        columns=4;
 
     sheet.style.gridTemplateColumns=
         "repeat("+columns+",1fr)";
 
 
-    for(let i=0;i<copies;i++){
+    for(let c=0;c<docCopies;c++){
 
-        const img=
-            document.createElement("img");
+        images.forEach(src=>{
 
-        img.className="print-photo";
+            const img=
+                document.createElement("img");
 
-        img.src=
-            canvas.toDataURL(
-                "image/jpeg",
-                .95
-            );
+            img.className=
+                "print-item";
 
-        sheet.appendChild(img);
+            img.src=src;
+
+            sheet.appendChild(img);
+
+        });
 
     }
 
 
-    printArea.appendChild(sheet);
+    area.appendChild(sheet);
 
-    printArea.style.display="block";
-
-    setTimeout(()=>{
-
-        window.print();
-
-        setTimeout(()=>{
-
-            printArea.style.display="none";
-
-        },1000);
-
-    },300);
+    window.print();
 
 }
 
 
 /* =====================================================
-   DEMO
+MAKE IMAGE URL
 ===================================================== */
 
-function loadDemo(){
+function makeImageURL(img){
 
     const c=
         document.createElement("canvas");
 
-    c.width=1000;
-    c.height=650;
+    c.width=img.naturalWidth;
+    c.height=img.naturalHeight;
 
-    const x=
-        c.getContext("2d");
+    c.getContext("2d")
+     .drawImage(img,0,0);
 
-    x.fillStyle="#fff";
+    return c.toDataURL(
+        "image/jpeg",
+        .95
+    );
 
+}
+
+
+/* =====================================================
+DOCUMENT DEMO
+===================================================== */
+
+function loadDocDemo(){
+
+    const c=
+        document.createElement("canvas");
+
+    c.width=900;
+    c.height=600;
+
+    const x=c.getContext("2d");
+
+    x.fillStyle="white";
     x.fillRect(
         0,0,c.width,c.height
     );
 
     x.strokeStyle="#222";
-
     x.lineWidth=5;
 
     x.strokeRect(
@@ -3513,409 +3154,779 @@ function loadDemo(){
         c.height-40
     );
 
+    x.font="bold 42px Arial";
     x.fillStyle="#0756b8";
 
-    x.font="bold 45px Arial";
+    x.fillText(
+        "DOCUMENT FRONT",
+        260,110
+    );
+
+    x.font="26px Arial";
+    x.fillStyle="#222";
 
     x.fillText(
-        "DOCUMENT COPY",
+        "Name: Demo Customer",
+        100,230
+    );
+
+    x.fillText(
+        "Document Copy",
+        100,290
+    );
+
+    x.fillText(
+        "Bharat Digital Centre",
+        100,350
+    );
+
+    const front=
+        new Image();
+
+    front.onload=function(){
+
+        docFrontImage=front;
+        docCurrentImage=front;
+
+        docSide="front";
+
+        document
+        .getElementById("docEmpty")
+        .style.display="none";
+
+        docCanvas.style.display="block";
+
+        docReset();
+
+    };
+
+    front.src=c.toDataURL();
+
+
+    const b=
+        document.createElement("canvas");
+
+    b.width=900;
+    b.height=600;
+
+    const bx=b.getContext("2d");
+
+    bx.fillStyle="white";
+    bx.fillRect(
+        0,0,b.width,b.height
+    );
+
+    bx.strokeStyle="#222";
+    bx.lineWidth=5;
+
+    bx.strokeRect(
+        20,20,
+        b.width-40,
+        b.height-40
+    );
+
+    bx.font="bold 42px Arial";
+    bx.fillStyle="#138a45";
+
+    bx.fillText(
+        "DOCUMENT BACK",
+        270,110
+    );
+
+    bx.font="26px Arial";
+    bx.fillStyle="#222";
+
+    bx.fillText(
+        "Demo Back Side",
+        100,230
+    );
+
+    const back=
+        new Image();
+
+    back.onload=function(){
+
+        docBackImage=back;
+
+    };
+
+    back.src=b.toDataURL();
+
+}
+
+
+/* =====================================================
+CLEAR DOCUMENT
+===================================================== */
+
+function clearDocument(){
+
+    docFrontImage=null;
+    docBackImage=null;
+    docCurrentImage=null;
+
+    docCanvas.style.display="none";
+
+    document
+    .getElementById("docEmpty")
+    .style.display="block";
+
+    document
+    .getElementById("documentEditor")
+    .classList.remove("active");
+
+}
+
+
+/* =====================================================
+PHOTO VARIABLES
+===================================================== */
+
+const photoCanvas=
+    document.getElementById("photoCanvas");
+
+const photoCtx=
+    photoCanvas.getContext("2d");
+
+let personImage=null;
+
+let photoType="passport";
+
+let photoRotation=0;
+let photoZoom=1;
+let photoBright=100;
+let photoContrast=100;
+let photoGrayMode=false;
+let photoFlipX=1;
+
+let photoCopies=1;
+
+
+/* =====================================================
+LOAD PERSON PHOTO
+===================================================== */
+
+function loadPersonPhoto(input){
+
+    if(!input.files || !input.files[0]){
+        return;
+    }
+
+    const reader=
+        new FileReader();
+
+    reader.onload=function(e){
+
+        const img=
+            new Image();
+
+        img.onload=function(){
+
+            personImage=img;
+
+            document
+            .getElementById("photoEmpty")
+            .style.display="none";
+
+            photoCanvas.style.display="block";
+
+            photoReset();
+
+        };
+
+        img.src=e.target.result;
+
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+}
+
+
+/* =====================================================
+PHOTO TYPE
+===================================================== */
+
+function setPhotoType(type,btn){
+
+    photoType=type;
+
+    document
+    .querySelectorAll(".photo-size")
+    .forEach(x=>{
+        x.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+
+
+    const select=
+        document.getElementById("photoSize");
+
+    if(type==="passport")
+        select.value="passport";
+
+    if(type==="half")
+        select.value="half";
+
+    if(type==="full")
+        select.value="full";
+
+    if(type==="4x6")
+        select.value="4x6";
+
+    if(type==="a4")
+        select.value="a4";
+
+    photoDraw();
+
+}
+
+
+/* =====================================================
+PHOTO DRAW
+===================================================== */
+
+function photoDraw(){
+
+    if(!personImage){
+        return;
+    }
+
+    const img=personImage;
+
+    let w=img.naturalWidth;
+    let h=img.naturalHeight;
+
+    let rot=
+        ((photoRotation%360)+360)%360;
+
+    if(rot===90 || rot===270){
+
+        [w,h]=[h,w];
+
+    }
+
+    let scale=
+        Math.min(
+            850/w,
+            600/h,
+            1
+        );
+
+    scale*=photoZoom;
+
+    photoCanvas.width=
+        Math.max(
+            1,
+            Math.round(w*scale)
+        );
+
+    photoCanvas.height=
+        Math.max(
+            1,
+            Math.round(h*scale)
+        );
+
+    photoCtx.clearRect(
+        0,
+        0,
+        photoCanvas.width,
+        photoCanvas.height
+    );
+
+    photoCtx.save();
+
+    photoCtx.translate(
+        photoCanvas.width/2,
+        photoCanvas.height/2
+    );
+
+    photoCtx.rotate(
+        rot*Math.PI/180
+    );
+
+    photoCtx.scale(
+        photoFlipX,
+        1
+    );
+
+    photoCtx.filter=
+        "brightness("+photoBright+"%) "+
+        "contrast("+photoContrast+"%) "+
+        "grayscale("+
+        (photoGrayMode?100:0)+
+        "%)";
+
+    const dw=
+        img.naturalWidth*scale;
+
+    const dh=
+        img.naturalHeight*scale;
+
+    photoCtx.drawImage(
+        img,
+        -dw/2,
+        -dh/2,
+        dw,
+        dh
+    );
+
+    photoCtx.restore();
+
+
+    document.getElementById(
+        "photoZoomVal"
+    ).textContent=
+        Math.round(photoZoom*100)+"%";
+
+    document.getElementById(
+        "photoBrightVal"
+    ).textContent=
+        photoBright;
+
+    document.getElementById(
+        "photoContrastVal"
+    ).textContent=
+        photoContrast;
+
+}
+
+
+/* =====================================================
+PHOTO EDIT
+===================================================== */
+
+function photoRotate(deg){
+
+    if(!personImage){
+
+        alert("पहले customer photo चुनें.");
+
+        return;
+
+    }
+
+    photoRotation+=deg;
+
+    photoDraw();
+
+}
+
+
+function photoFlip(){
+
+    photoFlipX*=-1;
+
+    photoDraw();
+
+}
+
+
+function photoGray(value){
+
+    photoGrayMode=value;
+
+    photoDraw();
+
+}
+
+
+function photoReset(){
+
+    photoRotation=0;
+    photoZoom=1;
+    photoBright=100;
+    photoContrast=100;
+    photoGrayMode=false;
+    photoFlipX=1;
+
+    document.getElementById(
+        "photoZoom"
+    ).value=100;
+
+    document.getElementById(
+        "photoBright"
+    ).value=100;
+
+    document.getElementById(
+        "photoContrast"
+    ).value=100;
+
+    photoDraw();
+
+}
+
+
+/* =====================================================
+PHOTO COPIES
+===================================================== */
+
+function setPhotoCopies(n,btn){
+
+    photoCopies=n;
+
+    const parent=
+        btn.parentElement;
+
+    parent
+    .querySelectorAll(".copy")
+    .forEach(x=>{
+        x.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+
+}
+
+
+/* =====================================================
+PHOTO DOWNLOAD
+===================================================== */
+
+function downloadPhoto(){
+
+    if(!personImage){
+
+        alert("पहले customer photo चुनें.");
+
+        return;
+
+    }
+
+    const a=
+        document.createElement("a");
+
+    a.download=
+        "customer-photo.jpg";
+
+    a.href=
+        photoCanvas.toDataURL(
+            "image/jpeg",
+            .95
+        );
+
+    a.click();
+
+}
+
+
+/* =====================================================
+PHOTO PRINT
+===================================================== */
+
+function printPhoto(){
+
+    if(!personImage){
+
+        alert("पहले customer photo चुनें.");
+
+        return;
+
+    }
+
+    const area=
+        document.getElementById("printArea");
+
+    area.innerHTML="";
+
+
+    const sheet=
+        document.createElement("div");
+
+    sheet.className="print-sheet";
+
+
+    let columns=2;
+
+    if(photoCopies>=6)
+        columns=3;
+
+    if(photoCopies>=12)
+        columns=4;
+
+
+    sheet.style.gridTemplateColumns=
+        "repeat("+columns+",1fr)";
+
+
+    const src=
+        photoCanvas.toDataURL(
+            "image/jpeg",
+            .95
+        );
+
+
+    for(let i=0;i<photoCopies;i++){
+
+        const img=
+            document.createElement("img");
+
+        img.className=
+            "print-item";
+
+        img.src=src;
+
+        sheet.appendChild(img);
+
+    }
+
+
+    area.appendChild(sheet);
+
+    window.print();
+
+}
+
+
+/* =====================================================
+PHOTO DEMO
+===================================================== */
+
+function loadPhotoDemo(){
+
+    const c=
+        document.createElement("canvas");
+
+    c.width=700;
+    c.height=900;
+
+    const x=
+        c.getContext("2d");
+
+    x.fillStyle="#f2f2f2";
+
+    x.fillRect(
+        0,0,c.width,c.height
+    );
+
+    x.fillStyle="#d8d8d8";
+
+    x.beginPath();
+
+    x.arc(
+        350,
         300,
-        100
+        120,
+        0,
+        Math.PI*2
+    );
+
+    x.fill();
+
+    x.fillRect(
+        190,
+        430,
+        320,
+        330
     );
 
     x.fillStyle="#333";
 
-    x.font="28px Arial";
+    x.font="bold 35px Arial";
+
+    x.textAlign="center";
 
     x.fillText(
-        "Demo Document",
-        100,
-        220
+        "DEMO PHOTO",
+        350,
+        840
     );
-
-    x.fillText(
-        "Name: Bharat Digital Centre",
-        100,
-        280
-    );
-
-    x.fillText(
-        "Document Photo Editor",
-        100,
-        340
-    );
-
-    x.fillText(
-        "A4 Print Ready",
-        100,
-        400
-    );
-
 
     const img=
         new Image();
 
     img.onload=function(){
 
-        originalImage=img;
+        personImage=img;
 
-        imageLoaded=true;
+        document
+        .getElementById("photoEmpty")
+        .style.display="none";
 
-        imageName="demo_document";
+        photoCanvas.style.display="block";
 
-        document.getElementById("emptyEditor")
-            .style.display="none";
-
-        canvas.style.display="block";
-
-        resetImage();
+        photoReset();
 
     };
 
-    img.src=c.toDataURL("image/png");
+    img.src=c.toDataURL();
 
 }
 
 
 /* =====================================================
-   RESIZE
+CLEAR PHOTO
 ===================================================== */
 
-function resizeImage(){
+function clearPhoto(){
 
-    const file=
-        document.getElementById("resizeInput")
-        .files[0];
+    personImage=null;
 
-    const width=
-        Number(
-            document.getElementById("resizeWidth")
-            .value
-        );
+    photoCanvas.style.display="none";
 
-    const height=
-        Number(
-            document.getElementById("resizeHeight")
-            .value
-        );
+    document
+    .getElementById("photoEmpty")
+    .style.display="block";
 
-    if(!file){
-
-        alert("पहले image चुनें।");
-
-        return;
-    }
-
-    if(!width || !height){
-
-        alert("Width और Height डालें।");
-
-        return;
-    }
-
-    const reader=
-        new FileReader();
-
-    reader.onload=function(e){
-
-        const img=
-            new Image();
-
-        img.onload=function(){
-
-            const c=
-                document.createElement("canvas");
-
-            c.width=width;
-            c.height=height;
-
-            c.getContext("2d")
-                .drawImage(
-                    img,
-                    0,0,
-                    width,height
-                );
-
-            const a=
-                document.createElement("a");
-
-            a.download="resized-image.jpg";
-
-            a.href=
-                c.toDataURL(
-                    "image/jpeg",
-                    .95
-                );
-
-            a.click();
-
-            document.getElementById(
-                "resizeResult"
-            ).textContent=
-                "Downloaded: "+
-                width+" × "+height;
-
-        };
-
-        img.src=e.target.result;
-
-    };
-
-    reader.readAsDataURL(file);
+    document
+    .getElementById("photoEditor")
+    .classList.remove("active");
 
 }
 
 
 /* =====================================================
-   COMPRESS
+CALCULATOR
 ===================================================== */
 
-document.getElementById("qualityInput")
-    .addEventListener(
-        "input",
-        function(){
-
-            document.getElementById(
-                "compressResult"
-            ).textContent=
-                "Quality: "+
-                this.value+"%";
-
-        }
-    );
-
-
-function compressImage(){
-
-    const file=
-        document.getElementById("compressInput")
-        .files[0];
-
-    const quality=
-        Number(
-            document.getElementById("qualityInput")
-            .value
-        )/100;
-
-    if(!file){
-
-        alert("पहले image चुनें।");
-
-        return;
-    }
-
-    const reader=
-        new FileReader();
-
-    reader.onload=function(e){
-
-        const img=
-            new Image();
-
-        img.onload=function(){
-
-            const c=
-                document.createElement("canvas");
-
-            c.width=img.naturalWidth;
-            c.height=img.naturalHeight;
-
-            c.getContext("2d")
-                .drawImage(img,0,0);
-
-            const a=
-                document.createElement("a");
-
-            a.download="compressed-image.jpg";
-
-            a.href=
-                c.toDataURL(
-                    "image/jpeg",
-                    quality
-                );
-
-            a.click();
-
-        };
-
-        img.src=e.target.result;
-
-    };
-
-    reader.readAsDataURL(file);
-
-}
-
-
-/* =====================================================
-   CONVERTER
-===================================================== */
-
-function convertImage(){
-
-    const file=
-        document.getElementById("convertInput")
-        .files[0];
-
-    const format=
-        document.getElementById("convertFormat")
-        .value;
-
-    if(!file){
-
-        alert("पहले image चुनें।");
-
-        return;
-    }
-
-    const reader=
-        new FileReader();
-
-    reader.onload=function(e){
-
-        const img=
-            new Image();
-
-        img.onload=function(){
-
-            const c=
-                document.createElement("canvas");
-
-            c.width=img.naturalWidth;
-            c.height=img.naturalHeight;
-
-            c.getContext("2d")
-                .drawImage(img,0,0);
-
-            const ext=
-                format==="image/png"
-                ?"png"
-                :format==="image/webp"
-                ?"webp"
-                :"jpg";
-
-            const a=
-                document.createElement("a");
-
-            a.download=
-                "converted-image."+ext;
-
-            a.href=
-                c.toDataURL(
-                    format,
-                    .95
-                );
-
-            a.click();
-
-        };
-
-        img.src=e.target.result;
-
-    };
-
-    reader.readAsDataURL(file);
-
-}
-
-
-/* =====================================================
-   CALCULATOR
-===================================================== */
-
-function calculate(op){
+function calc(op){
 
     const a=
         Number(
-            document.getElementById("calcA")
-            .value
+            document.getElementById("ca").value
         );
 
     const b=
         Number(
-            document.getElementById("calcB")
-            .value
+            document.getElementById("cb").value
         );
 
-    let result;
+    let r;
 
-    if(op==="+")
-        result=a+b;
+    if(op==="+") r=a+b;
 
-    if(op==="-")
-        result=a-b;
+    if(op==="-") r=a-b;
 
-    if(op==="*")
-        result=a*b;
+    if(op==="*") r=a*b;
 
     if(op==="/")
-        result=
-            b===0
-            ?"Cannot divide by zero"
-            :a/b;
+        r=b===0
+        ?"Cannot divide by zero"
+        :a/b;
 
     document.getElementById(
         "calcResult"
     ).textContent=
-        "Result: "+result;
+        "Result: "+r;
 
 }
 
 
 /* =====================================================
-   PERCENTAGE
+PERCENTAGE
 ===================================================== */
 
 function percentage(){
 
     const n=
         Number(
-            document.getElementById(
-                "percentNumber"
-            ).value
+            document.getElementById("pn").value
         );
 
     const t=
         Number(
-            document.getElementById(
-                "percentTotal"
-            ).value
+            document.getElementById("pt").value
         );
 
     if(!t){
 
         document.getElementById(
-            "percentResult"
+            "percentageResult"
         ).textContent=
-            "Total सही डालें";
+            "कुल अंक डालें";
 
         return;
+
     }
 
-    const result=
-        (n/t)*100;
-
     document.getElementById(
-        "percentResult"
+        "percentageResult"
     ).textContent=
         "Percentage: "+
-        result.toFixed(2)+"%";
+        ((n/t)*100).toFixed(2)+
+        "%";
 
 }
 
 
 /* =====================================================
-   TEXT COUNTER
+AGE
 ===================================================== */
 
-function textCounter(){
+function ageCalc(){
+
+    const value=
+        document.getElementById(
+            "birth"
+        ).value;
+
+    if(!value){
+
+        alert("Birth date चुनें.");
+
+        return;
+
+    }
+
+    const b=
+        new Date(value);
+
+    const t=
+        new Date();
+
+    let y=
+        t.getFullYear()-
+        b.getFullYear();
+
+    let m=
+        t.getMonth()-
+        b.getMonth();
+
+    let d=
+        t.getDate()-
+        b.getDate();
+
+    if(d<0){
+
+        m--;
+
+        d+=new Date(
+            t.getFullYear(),
+            t.getMonth(),
+            0
+        ).getDate();
+
+    }
+
+    if(m<0){
+
+        y--;
+
+        m+=12;
+
+    }
+
+    document.getElementById(
+        "ageResult"
+    ).textContent=
+        y+" Years, "+
+        m+" Months, "+
+        d+" Days";
+
+}
+
+
+/* =====================================================
+TEXT COUNTER
+===================================================== */
+
+function countText(){
 
     const text=
         document.getElementById(
-            "counterText"
+            "textCounter"
         ).value;
-
-    const chars=text.length;
 
     const words=
         text.trim()
@@ -3923,10 +3934,10 @@ function textCounter(){
         :0;
 
     document.getElementById(
-        "counterResult"
+        "textResult"
     ).textContent=
         "Characters: "+
-        chars+
+        text.length+
         " | Words: "+
         words;
 
@@ -3934,13 +3945,13 @@ function textCounter(){
 
 
 /* =====================================================
-   PASSWORD
+PASSWORD
 ===================================================== */
 
 let generatedPassword="";
 
 
-function generatePassword(){
+function passwordGen(){
 
     const length=
         Math.max(
@@ -3949,7 +3960,7 @@ function generatePassword(){
                 50,
                 Number(
                     document.getElementById(
-                        "passwordLength"
+                        "passLength"
                     ).value
                 )
             )
@@ -3961,12 +3972,12 @@ function generatePassword(){
         "0123456789"+
         "!@#$%^&*";
 
-    generatedPassword="";
-
     const array=
         new Uint32Array(length);
 
     crypto.getRandomValues(array);
+
+    generatedPassword="";
 
     for(let i=0;i<length;i++){
 
@@ -3978,114 +3989,30 @@ function generatePassword(){
     }
 
     document.getElementById(
-        "passwordResult"
+        "passResult"
     ).textContent=
         generatedPassword;
 
 }
 
 
-function copyPassword(){
-
-    if(!generatedPassword){
-
-        alert("पहले password generate करें।");
-
-        return;
-    }
-
-    navigator.clipboard
-        .writeText(generatedPassword)
-        .then(()=>{
-            alert("Password copied");
-        });
-
-}
-
-
 /* =====================================================
-   AGE
+EMI
 ===================================================== */
 
-function calculateAge(){
-
-    const value=
-        document.getElementById(
-            "birthDate"
-        ).value;
-
-    if(!value){
-
-        alert("Birth date चुनें।");
-
-        return;
-    }
-
-    const birth=
-        new Date(value);
-
-    const today=
-        new Date();
-
-    let years=
-        today.getFullYear()
-        -birth.getFullYear();
-
-    let months=
-        today.getMonth()
-        -birth.getMonth();
-
-    let days=
-        today.getDate()
-        -birth.getDate();
-
-    if(days<0){
-
-        months--;
-
-        days+=new Date(
-            today.getFullYear(),
-            today.getMonth(),
-            0
-        ).getDate();
-
-    }
-
-    if(months<0){
-
-        years--;
-
-        months+=12;
-
-    }
-
-    document.getElementById(
-        "ageResult"
-    ).textContent=
-        years+" Years, "+
-        months+" Months, "+
-        days+" Days";
-
-}
-
-
-/* =====================================================
-   EMI
-===================================================== */
-
-function calculateEMI(){
+function emiCalc(){
 
     const P=
         Number(
             document.getElementById(
-                "loanAmount"
+                "loan"
             ).value
         );
 
     const annual=
         Number(
             document.getElementById(
-                "interest"
+                "rate"
             ).value
         );
 
@@ -4098,9 +4025,10 @@ function calculateEMI(){
 
     if(!P || !N){
 
-        alert("Loan amount और months डालें।");
+        alert("Loan और Months डालें.");
 
         return;
+
     }
 
     const r=
@@ -4136,60 +4064,6 @@ function calculateEMI(){
         emi.toFixed(2);
 
 }
-
-
-/* =====================================================
-   QR
-===================================================== */
-
-function generateQR(){
-
-    const text=
-        document.getElementById(
-            "qrText"
-        ).value.trim();
-
-    const box=
-        document.getElementById(
-            "qrResult"
-        );
-
-    if(!text){
-
-        box.textContent=
-            "Text / URL डालें";
-
-        return;
-    }
-
-    /*
-      External QR service.
-      Internet connection आवश्यक है।
-    */
-
-    const img=
-        document.createElement("img");
-
-    img.style.width="180px";
-    img.style.height="180px";
-    img.alt="QR Code";
-
-    img.src=
-        "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+
-        encodeURIComponent(text);
-
-    box.innerHTML="";
-
-    box.appendChild(img);
-
-}
-
-
-/* =====================================================
-   INITIAL
-===================================================== */
-
-updateLabels();
 
 </script>
 
